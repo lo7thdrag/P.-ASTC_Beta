@@ -44855,9 +44855,6 @@ object frmUserMainForm: TfrmUserMainForm
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = -223
-    ExplicitWidth = 1281
-    ExplicitHeight = 923
     object pnlFooter: TPanel
       Left = 0
       Top = 939
@@ -44868,8 +44865,6 @@ object frmUserMainForm: TfrmUserMainForm
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = 862
-      ExplicitWidth = 1281
       object img4: TImage
         Left = 0
         Top = 0
@@ -47495,7 +47490,6 @@ object frmUserMainForm: TfrmUserMainForm
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 1281
       object img3: TImage
         Left = 0
         Top = 0
@@ -51645,8 +51639,6 @@ object frmUserMainForm: TfrmUserMainForm
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitWidth = 873
-      ExplicitHeight = 748
       object s: TImage
         Left = 0
         Top = 0
@@ -145441,9 +145433,8 @@ object frmUserMainForm: TfrmUserMainForm
           6C574B87D36F1B7D75FF0082A8635D2A94EAB4E0FA6F6BDA7FB66923F47D9FAA
           3F647A7C23D3F547A7EB8F4F87E8FFD9}
         Stretch = True
-        ExplicitLeft = -1
-        ExplicitTop = 32
-        ExplicitHeight = 633
+        ExplicitWidth = 3840
+        ExplicitHeight = 2160
       end
     end
     object pnlLeft: TPanel
@@ -145466,7 +145457,6 @@ object frmUserMainForm: TfrmUserMainForm
       ParentShowHint = False
       ShowHint = False
       TabOrder = 3
-      ExplicitHeight = 748
       object pnl1ExerciseBody: TPanel
         Left = 20
         Top = 485
@@ -145673,7 +145663,6 @@ object frmUserMainForm: TfrmUserMainForm
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 1
-        ExplicitTop = 443
         object imgExercise: TImage
           Left = 0
           Top = 0
@@ -146611,7 +146600,6 @@ object frmUserMainForm: TfrmUserMainForm
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 2
-        ExplicitTop = 271
         object imgPlatforms: TImage
           Tag = 1
           Left = 0
@@ -147646,7 +147634,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 4
-        ExplicitTop = 508
       end
       object pnl2PlatformsSparator: TPanel
         Left = 20
@@ -147660,7 +147647,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 5
-        ExplicitTop = 336
       end
       object pnl3SensorsBody: TPanel
         Left = 20
@@ -147976,7 +147962,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 8
-        ExplicitTop = 81
       end
       object pnl4Weapons: TPanel
         Tag = 2
@@ -147992,7 +147977,6 @@ object frmUserMainForm: TfrmUserMainForm
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 9
-        ExplicitTop = 101
         object imgWeapons: TImage
           Tag = 3
           Left = 0
@@ -149172,7 +149156,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 11
-        ExplicitTop = 166
       end
       object pnl5Countermeasur: TPanel
         Tag = 2
@@ -149188,7 +149171,6 @@ object frmUserMainForm: TfrmUserMainForm
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 12
-        ExplicitTop = 186
         object imgCountermeasures: TImage
           Tag = 4
           Left = 0
@@ -150520,7 +150502,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 14
-        ExplicitTop = 251
       end
       object pnl6Other: TPanel
         Tag = 2
@@ -150536,7 +150517,6 @@ object frmUserMainForm: TfrmUserMainForm
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 15
-        ExplicitTop = 356
         object imgOther: TImage
           Tag = 5
           Left = 0
@@ -151787,7 +151767,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 17
-        ExplicitTop = 423
       end
       object pnl8Shutdown: TPanel
         Tag = 2
@@ -151803,7 +151782,6 @@ object frmUserMainForm: TfrmUserMainForm
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 18
-        ExplicitTop = 528
         object imgShutdown: TImage
           Tag = 36
           Left = 0
@@ -152815,7 +152793,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 20
-        ExplicitTop = 593
       end
       object pnl3Sensors: TPanel
         Tag = 2
@@ -153766,8 +153743,6 @@ object frmUserMainForm: TfrmUserMainForm
       Color = clBlack
       ParentBackground = False
       TabOrder = 4
-      ExplicitTop = 855
-      ExplicitWidth = 1281
     end
     object pnlSparatorHeader: TPanel
       Left = 0
@@ -153779,7 +153754,6 @@ object frmUserMainForm: TfrmUserMainForm
       Color = clBlack
       ParentBackground = False
       TabOrder = 5
-      ExplicitWidth = 1281
     end
     object pnlSparatorLeft: TPanel
       Left = 0
@@ -153791,7 +153765,6 @@ object frmUserMainForm: TfrmUserMainForm
       Color = clBlack
       ParentBackground = False
       TabOrder = 6
-      ExplicitHeight = 748
     end
     object pnlVariasi: TPanel
       Left = 1267
@@ -153803,8 +153776,6 @@ object frmUserMainForm: TfrmUserMainForm
       Color = 2499101
       TabOrder = 7
       Visible = False
-      ExplicitLeft = 1248
-      ExplicitHeight = 748
       object pnlSparatorRight: TPanel
         Left = 28
         Top = 0
@@ -153815,7 +153786,6 @@ object frmUserMainForm: TfrmUserMainForm
         Color = clBlack
         ParentBackground = False
         TabOrder = 0
-        ExplicitHeight = 748
       end
       object pnlSparatorCenterRight: TPanel
         Left = 0
@@ -153827,7 +153797,6 @@ object frmUserMainForm: TfrmUserMainForm
         Color = clBlack
         ParentBackground = False
         TabOrder = 1
-        ExplicitHeight = 748
       end
     end
     object pnlSparatorCenterLeft: TPanel
@@ -153840,7 +153809,6 @@ object frmUserMainForm: TfrmUserMainForm
       Color = clBlack
       ParentBackground = False
       TabOrder = 8
-      ExplicitHeight = 748
     end
   end
   object Timer1: TTimer

@@ -227,34 +227,6 @@ uses
   ufrmAvailableResourceAllocation in '..\LibTTT\forms\Admin Interface\Exercise\ufrmAvailableResourceAllocation.pas' {frmAvailableResourceAllocation},
   ufrmSummaryResourceAllocation in '..\LibTTT\forms\Admin Interface\Exercise\ufrmSummaryResourceAllocation.pas' {frmSummaryResourceAllocation},
   ufrmUserMainForm in '..\LibTTT\forms\ufrmUserMainForm.pas' {frmUserMainForm},
-  uFrmLogin in '..\LibTTT\forms\User Interface\uFrmLogin.pas' {frmLogin},
-  uFrmUtility in '..\LibTTT\forms\User Interface\uFrmUtility.pas' {frmUtility},
-  uFrmExit in '..\LibTTT\forms\User Interface\uFrmExit.pas' {frmExit},
-  uFrmBaseView in '..\LibTTT\forms\User Interface\Utility\Other\uFrmBaseView.pas' {frmBaseView},
-  uFrmLogisticView in '..\LibTTT\forms\User Interface\Utility\Other\uFrmLogisticView.pas' {frmLogisticView},
-  uFrmOverlayView in '..\LibTTT\forms\User Interface\Utility\Other\uFrmOverlayView.pas' {frmOverlayView},
-  uFrmPlottingView in '..\LibTTT\forms\User Interface\Utility\Other\uFrmPlottingView.pas' {frmPlottingView},
-  uFrmRPLView in '..\LibTTT\forms\User Interface\Utility\Other\uFrmRPLView.pas' {frmRPLView},
-  uFrmTransportView in '..\LibTTT\forms\User Interface\Utility\Other\uFrmTransportView.pas' {frmTransportView},
-  uFrmWaypointView in '..\LibTTT\forms\User Interface\Utility\Other\uFrmWaypointView.pas' {frmWaypointView},
-  uFrmEODView in '..\LibTTT\forms\User Interface\Utility\Sensor\uFrmEODView.pas' {frmEODView},
-  uFrmESMView in '..\LibTTT\forms\User Interface\Utility\Sensor\uFrmESMView.pas' {frmESMView},
-  uFrmMADView in '..\LibTTT\forms\User Interface\Utility\Sensor\uFrmMADView.pas' {frmMADView},
-  uFrmRadarView in '..\LibTTT\forms\User Interface\Utility\Sensor\uFrmRadarView.pas' {frmRadarView},
-  uFrmSonarView in '..\LibTTT\forms\User Interface\Utility\Sensor\uFrmSonarView.pas' {frmSonarView},
-  uFrmSonobuoyView in '..\LibTTT\forms\User Interface\Utility\Sensor\uFrmSonobuoyView.pas' {frmSonobuoyView},
-  uFrmBombView in '..\LibTTT\forms\User Interface\Utility\Weapon\uFrmBombView.pas' {frmBombView},
-  ufrmGunView in '..\LibTTT\forms\User Interface\Utility\Weapon\ufrmGunView.pas' {frmGunView},
-  uFrmMineView in '..\LibTTT\forms\User Interface\Utility\Weapon\uFrmMineView.pas' {frmMineView},
-  ufrmMissileView in '..\LibTTT\forms\User Interface\Utility\Weapon\ufrmMissileView.pas' {frmMissileView},
-  uFrmTorpedoView in '..\LibTTT\forms\User Interface\Utility\Weapon\uFrmTorpedoView.pas' {frmTorpedoView},
-  uFrmExercise in '..\LibTTT\forms\User Interface\Exercise\uFrmExercise.pas' {frmExercise},
-  uFrmAirView in '..\LibTTT\forms\User Interface\Utility\Platform\uFrmAirView.pas' {frmAirView},
-  uFrmAmphibiousView in '..\LibTTT\forms\User Interface\Utility\Platform\uFrmAmphibiousView.pas' {frmAmphibiousView},
-  uFrmLandView in '..\LibTTT\forms\User Interface\Utility\Platform\uFrmLandView.pas' {frmLandView},
-  uFrmPersonelView in '..\LibTTT\forms\User Interface\Utility\Platform\uFrmPersonelView.pas' {frmPersonelView},
-  uFrmSubSurfaceView in '..\LibTTT\forms\User Interface\Utility\Platform\uFrmSubSurfaceView.pas' {frmSubSurfaceView},
-  uFrmSurfaceView in '..\LibTTT\forms\User Interface\Utility\Platform\uFrmSurfaceView.pas' {frmSurfaceView},
   ufrmSummaryRadarIntervalList in '..\LibTTT\forms\Admin Interface\Other\ufrmSummaryRadarIntervalList.pas' {frmSummaryRadarIntervalList},
   ufrmAdminMainForm in '..\LibTTT\forms\Admin Interface\ufrmAdminMainForm.pas' {frmAdminMainForm},
   ufrmSummaryVehicle in '..\LibTTT\forms\Admin Interface\Platform\ufrmSummaryVehicle.pas' {frmSummaryVehicle},
@@ -346,11 +318,6 @@ uses
   ufrmTorpedoMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmTorpedoMount.pas' {frmTorpedoMount},
   ufrmTowedJammerMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmTowedJammerMount.pas' {frmTowedJammerMount},
   ufrmPlatformInstanceInput in '..\LibTTT\forms\Admin Interface\Platform\Additional\ufrmPlatformInstanceInput.pas' {frmPlatformInstanceInput},
-  ufrmBaseResourceAllocationPickList in '..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmBaseResourceAllocationPickList.pas' {frmBaseResourceAllocationPickList},
-  ufrmPlottingResourceAllocationPickList in '..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmPlottingResourceAllocationPickList.pas' {fmPlottingResourceAllocationPickList},
-  ufrmOverlayResourceAllocationPickList in '..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmOverlayResourceAllocationPickList.pas' {frmOverlayResourceAllocationPickList},
-  ufrmRPLResourceAllocationPickList in '..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmRPLResourceAllocationPickList.pas' {frmRPLResourceAllocationPickList},
-  ufrmWaypointResourceAllocationPickList in '..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmWaypointResourceAllocationPickList.pas' {frmWaypointResourceAllocationPickList},
   ufrmVehicleRuntimePlatformLibraryPickList in '..\LibTTT\forms\Admin Interface\Other\Additional\ufrmVehicleRuntimePlatformLibraryPickList.pas' {frmVehicleRuntimePlatformLibraryPickList},
   uDBAsset_Transport in '..\LibTTT\libDBScenario\uDBAsset_Transport.pas',
   ufrmTorpedoProbabilityGraphic in '..\LibTTT\forms\Admin Interface\ProbabylityGraphic\ufrmTorpedoProbabilityGraphic.pas' {frmTorpedoProbabilityGraphic},
@@ -374,16 +341,6 @@ uses
   ufrmVehicleInputToBase in '..\LibTTT\forms\Admin Interface\Platform\Additional\ufrmVehicleInputToBase.pas' {frmVehicleInputToBase},
   ufrmGameAreaPickList in '..\LibTTT\forms\Admin Interface\PickList\ufrmGameAreaPickList.pas' {frmGameAreaPickList},
   ufrmSubEnviCharacteristic in '..\LibTTT\forms\Admin Interface\Exercise\ufrmSubEnviCharacteristic.pas' {frmSubEnviCharacteristic},
-  ufrmVehicleResourceAllocationPickList in '..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmVehicleResourceAllocationPickList.pas' {frmVehicleResourceAllocationPickList},
-  ufrmResourceAllocationInputName in '..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmResourceAllocationInputName.pas' {frmResourceAllocationInputName},
-  ufrmAvailableAcousticDecoyView in '..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableAcousticDecoyView.pas' {frmAvailableAcousticDecoyView},
-  ufrmAvailableAirBubbleView in '..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableAirBubbleView.pas' {frmAvailableAirBubbleView},
-  ufrmAvailableChaffView in '..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableChaffView.pas' {frmAvailableChaffView},
-  ufrmAvailableFloatingDecoyView in '..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableFloatingDecoyView.pas' {frmAvailableFloatingDecoyView},
-  ufrmAvailableInfraredDecoyView in '..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableInfraredDecoyView.pas' {frmAvailableInfraredDecoyView},
-  ufrmAvailableRadarNoiseJammerView in '..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableRadarNoiseJammerView.pas' {frmAvailableRadarNoiseJammerView},
-  ufrmAvailableSelfDefensiveJammerView in '..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableSelfDefensiveJammerView.pas' {frmAvailableSelfDefensiveJammerView},
-  ufrmAvailableTowedJammerDecoyView in '..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableTowedJammerDecoyView.pas' {frmAvailableTowedJammerDecoyView},
   ufrmPlatformDeploytment in '..\LibTTT\forms\Admin Interface\Exercise\ufrmPlatformDeploytment.pas' {frmPlatformDeploytment},
   ufrmGroupSelect in '..\LibTTT\forms\Admin Interface\Exercise\ufrmGroupSelect.pas' {frmGroupSelect},
   ufrmGroupAllocation in '..\LibTTT\forms\Admin Interface\Exercise\ufrmGroupAllocation.pas' {frmGroupAllocation},
@@ -392,16 +349,23 @@ uses
   ufrmSummaryGameAreaEditor in '..\LibTTT\forms\Admin Interface\Other\ufrmSummaryGameAreaEditor.pas' {frmSummaryGameAreaEditor},
   ufrmWaypointEditor in '..\LibTTT\forms\Admin Interface\Other\ufrmWaypointEditor.pas' {frmWaypointEditor},
   ufrmEmbarkedFromScenario in '..\LibTTT\forms\Admin Interface\Exercise\ufrmEmbarkedFromScenario.pas' {frmEmbarkedFromScenario},
-  uFrmHullView in '..\LibTTT\forms\User Interface\Exercise\uFrmHullView.pas' {frmHullView},
   uDrawShipTransport in '..\LibTTT\libObjects\uDrawShipTransport.pas',
-  ufrmAssetDetail in '..\LibTTT\forms\User Interface\Utility\Platform\ufrmAssetDetail.pas' {frmAssetDetail},
   ufrmRuler in '..\LibTTT\forms\Admin Interface\ufrmRuler.pas',
   ufrmPickPoint in '..\LibTTT\forms\Admin Interface\Other\ufrmPickPoint.pas' {pickpoint},
   ufrmCountermeasure in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmCountermeasure.pas' {frmCountermeasure},
   ufrmOther in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmOther.pas' {frmOther},
   ufrmPlatforms in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmPlatforms.pas' {frmPlatforms},
   ufrmSensors in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmSensors.pas' {frmSensors},
-  ufrmWeapons in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmWeapons.pas' {frmWeapons};
+  ufrmWeapons in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmWeapons.pas' {frmWeapons},
+  uFrmExerciseHame in '..\LibTTT\forms\Admin Interface\Exercise\uFrmExerciseHame.pas' {frmExercise},
+  uFrmHullView in '..\LibTTT\forms\Admin Interface\Exercise\uFrmHullView.pas' {frmHullView},
+  ufrmBaseResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmBaseResourceAllocationPickList.pas' {frmBaseResourceAllocationPickList},
+  ufrmOverlayResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmOverlayResourceAllocationPickList.pas' {frmOverlayResourceAllocationPickList},
+  ufrmPlottingResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmPlottingResourceAllocationPickList.pas' {fmPlottingResourceAllocationPickList},
+  ufrmResourceAllocationInputName in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmResourceAllocationInputName.pas' {frmResourceAllocationInputName},
+  ufrmRPLResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmRPLResourceAllocationPickList.pas' {frmRPLResourceAllocationPickList},
+  ufrmVehicleResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmVehicleResourceAllocationPickList.pas' {frmVehicleResourceAllocationPickList},
+  ufrmWaypointResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmWaypointResourceAllocationPickList.pas' {frmWaypointResourceAllocationPickList};
 
 {$R *.res}
 
@@ -412,7 +376,16 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmUserMainForm, frmUserMainForm);
   Application.CreateForm(TdmTTT, dmTTT);
-//  Application.CreateForm(TfrmCountermeasure, frmCountermeasure);
+  Application.CreateForm(TfrmHullView, frmHullView);
+  Application.CreateForm(TfrmBaseResourceAllocationPickList, frmBaseResourceAllocationPickList);
+  Application.CreateForm(TfrmOverlayResourceAllocationPickList, frmOverlayResourceAllocationPickList);
+  Application.CreateForm(TfmPlottingResourceAllocationPickList, fmPlottingResourceAllocationPickList);
+  Application.CreateForm(TfrmResourceAllocationInputName, frmResourceAllocationInputName);
+  Application.CreateForm(TfrmRPLResourceAllocationPickList, frmRPLResourceAllocationPickList);
+  Application.CreateForm(TfrmVehicleResourceAllocationPickList, frmVehicleResourceAllocationPickList);
+  Application.CreateForm(TfrmWaypointResourceAllocationPickList, frmWaypointResourceAllocationPickList);
+  //  Application.CreateForm(TfrmExercise, frmExercise);
+  //  Application.CreateForm(TfrmCountermeasure, frmCountermeasure);
 //  Application.CreateForm(TfrmOther, frmOther);
 //  Application.CreateForm(TfrmPlatforms, frmPlatforms);
 //  Application.CreateForm(TfrmSensors, frmSensors);

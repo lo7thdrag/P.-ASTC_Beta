@@ -630,90 +630,6 @@
         <DCCReference Include="..\LibTTT\forms\ufrmUserMainForm.pas">
             <Form>frmUserMainForm</Form>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\uFrmLogin.pas">
-            <Form>frmLogin</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\uFrmUtility.pas">
-            <Form>frmUtility</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\uFrmExit.pas">
-            <Form>frmExit</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Other\uFrmBaseView.pas">
-            <Form>frmBaseView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Other\uFrmLogisticView.pas">
-            <Form>frmLogisticView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Other\uFrmOverlayView.pas">
-            <Form>frmOverlayView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Other\uFrmPlottingView.pas">
-            <Form>frmPlottingView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Other\uFrmRPLView.pas">
-            <Form>frmRPLView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Other\uFrmTransportView.pas">
-            <Form>frmTransportView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Other\uFrmWaypointView.pas">
-            <Form>frmWaypointView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Sensor\uFrmEODView.pas">
-            <Form>frmEODView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Sensor\uFrmESMView.pas">
-            <Form>frmESMView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Sensor\uFrmMADView.pas">
-            <Form>frmMADView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Sensor\uFrmRadarView.pas">
-            <Form>frmRadarView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Sensor\uFrmSonarView.pas">
-            <Form>frmSonarView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Sensor\uFrmSonobuoyView.pas">
-            <Form>frmSonobuoyView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Weapon\uFrmBombView.pas">
-            <Form>frmBombView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Weapon\ufrmGunView.pas">
-            <Form>frmGunView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Weapon\uFrmMineView.pas">
-            <Form>frmMineView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Weapon\ufrmMissileView.pas">
-            <Form>frmMissileView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Weapon\uFrmTorpedoView.pas">
-            <Form>frmTorpedoView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Exercise\uFrmExercise.pas">
-            <Form>frmExercise</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Platform\uFrmAirView.pas">
-            <Form>frmAirView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Platform\uFrmAmphibiousView.pas">
-            <Form>frmAmphibiousView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Platform\uFrmLandView.pas">
-            <Form>frmLandView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Platform\uFrmPersonelView.pas">
-            <Form>frmPersonelView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Platform\uFrmSubSurfaceView.pas">
-            <Form>frmSubSurfaceView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Platform\uFrmSurfaceView.pas">
-            <Form>frmSurfaceView</Form>
-        </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Other\ufrmSummaryRadarIntervalList.pas">
             <Form>frmSummaryRadarIntervalList</Form>
         </DCCReference>
@@ -1033,26 +949,6 @@
             <Form>frmPlatformInstanceInput</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmBaseResourceAllocationPickList.pas">
-            <Form>frmBaseResourceAllocationPickList</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmPlottingResourceAllocationPickList.pas">
-            <Form>fmPlottingResourceAllocationPickList</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmOverlayResourceAllocationPickList.pas">
-            <Form>frmOverlayResourceAllocationPickList</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmRPLResourceAllocationPickList.pas">
-            <Form>frmRPLResourceAllocationPickList</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmWaypointResourceAllocationPickList.pas">
-            <Form>frmWaypointResourceAllocationPickList</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Other\Additional\ufrmVehicleRuntimePlatformLibraryPickList.pas">
             <Form>frmVehicleRuntimePlatformLibraryPickList</Form>
             <FormType>dfm</FormType>
@@ -1142,38 +1038,6 @@
             <Form>frmSubEnviCharacteristic</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmVehicleResourceAllocationPickList.pas">
-            <Form>frmVehicleResourceAllocationPickList</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Exercise\ResourceAllocationPickList\ufrmResourceAllocationInputName.pas">
-            <Form>frmResourceAllocationInputName</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableAcousticDecoyView.pas">
-            <Form>frmAvailableAcousticDecoyView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableAirBubbleView.pas">
-            <Form>frmAvailableAirBubbleView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableChaffView.pas">
-            <Form>frmAvailableChaffView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableFloatingDecoyView.pas">
-            <Form>frmAvailableFloatingDecoyView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableInfraredDecoyView.pas">
-            <Form>frmAvailableInfraredDecoyView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableRadarNoiseJammerView.pas">
-            <Form>frmAvailableRadarNoiseJammerView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableSelfDefensiveJammerView.pas">
-            <Form>frmAvailableSelfDefensiveJammerView</Form>
-        </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Countermeasure\ufrmAvailableTowedJammerDecoyView.pas">
-            <Form>frmAvailableTowedJammerDecoyView</Form>
-        </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\ufrmPlatformDeploytment.pas">
             <Form>frmPlatformDeploytment</Form>
             <FormType>dfm</FormType>
@@ -1206,15 +1070,7 @@
             <Form>frmEmbarkedFromScenario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Exercise\uFrmHullView.pas">
-            <Form>frmHullView</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\LibTTT\libObjects\uDrawShipTransport.pas"/>
-        <DCCReference Include="..\LibTTT\forms\User Interface\Utility\Platform\ufrmAssetDetail.pas">
-            <Form>frmAssetDetail</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\ufrmRuler.pas"/>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Other\ufrmPickPoint.pas">
             <Form>pickpoint</Form>
@@ -1238,6 +1094,42 @@
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\MainMenu\ufrmWeapons.pas">
             <Form>frmWeapons</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\uFrmExerciseHame.pas">
+            <Form>frmExercise</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\uFrmHullView.pas">
+            <Form>frmHullView</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmBaseResourceAllocationPickList.pas">
+            <Form>frmBaseResourceAllocationPickList</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmOverlayResourceAllocationPickList.pas">
+            <Form>frmOverlayResourceAllocationPickList</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmPlottingResourceAllocationPickList.pas">
+            <Form>fmPlottingResourceAllocationPickList</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmResourceAllocationInputName.pas">
+            <Form>frmResourceAllocationInputName</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmRPLResourceAllocationPickList.pas">
+            <Form>frmRPLResourceAllocationPickList</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmVehicleResourceAllocationPickList.pas">
+            <Form>frmVehicleResourceAllocationPickList</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmWaypointResourceAllocationPickList.pas">
+            <Form>frmWaypointResourceAllocationPickList</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Debug">

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<t3groups>
+  <controllers id="Controller" name="Controller Group">
+    <console ip="192.168.0.88" name="Instruktur 1" ></console>
+    <console ip="192.168.1.20" name="Instruktur 2" ></console>
+    <console ip="192.168.1.30" name="Instruktur 3" ></console>
+  </controllers>
+  <cubicles>
+    <cubicle id="CUBICLE_01" name="Cubicle 01">
+      <console ip="192.168.1.11" name="CUB 1 OPR 01"></console>
+      <console ip="192.168.1.12" name="CUB 1 OPR 02"></console>
+      <console ip="192.168.1.13" name="CUB 1 OPR 03"></console>
+      <console ip="192.168.1.14" name="CUB 1 OPR 04"></console>
+      <console ip="192.168.1.15" name="WATCH 1"></console>
+      <console ip="192.168.1.16" name="MPE 1"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_02" name="Cubicle 02">
+      <console ip="192.168.1.21" name="CUB 2 OPR 01"></console>
+      <console ip="192.168.1.22" name="CUB 2 OPR 02"></console>
+      <console ip="192.168.1.23" name="CUB 2 OPR 03"></console>
+      <console ip="192.168.1.24" name="CUB 2 OPR 04"></console>
+      <console ip="192.168.1.25" name="WATCH 2"></console>
+      <console ip="192.168.1.26" name="MPE 2"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_03" name="Cubicle 03">
+      <console ip="192.168.1.31" name="CUB 3 OPR 01"></console>
+      <console ip="192.168.1.32" name="CUB 3 OPR 02"></console>
+      <console ip="192.168.1.33" name="CUB 3 OPR 03"></console>
+      <console ip="192.168.1.34" name="CUB 3 OPR 04"></console>
+      <console ip="192.168.1.35" name="WATCH 3"></console>
+      <console ip="192.168.1.36" name="MPE 3"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_04" name="Cubicle 04">
+      <console ip="192.168.1.41" name="CUB 4 OPR 01"></console>
+      <console ip="192.168.1.42" name="CUB 4 OPR 02"></console>
+      <console ip="192.168.1.43" name="CUB 4 OPR 03"></console>
+      <console ip="192.168.1.44" name="CUB 4 OPR 04"></console>
+      <console ip="192.168.1.45" name="WATCH 4"></console>
+      <console ip="192.168.1.46" name="MPE 4"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_05" name="Cubicle 05">
+      <console ip="192.168.1.51" name="CUB 5 OPR 01"></console>
+      <console ip="192.168.1.52" name="CUB 5 OPR 02"></console>
+      <console ip="192.168.1.53" name="CUB 5 OPR 03"></console>
+      <console ip="192.168.1.54" name="CUB 5 OPR 04"></console>
+      <console ip="192.168.1.55" name="WATCH 5"></console>
+      <console ip="192.168.1.56" name="MPE 5"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_06" name="Cubicle 06">
+      <console ip="192.168.1.61" name="CUB 6 OPR 01"></console>
+      <console ip="192.168.1.62" name="CUB 6 OPR 02"></console>
+      <console ip="192.168.1.63" name="CUB 6 OPR 03"></console>
+      <console ip="192.168.1.64" name="CUB 6 OPR 04"></console>
+      <console ip="192.168.1.65" name="WATCH 6"></console>
+      <console ip="192.168.1.66" name="MPE 6"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_07" name="Cubicle 07">
+      <console ip="192.168.1.71" name="CUB 7 OPR 01"></console>
+      <console ip="192.168.1.72" name="CUB 7 OPR 02"></console>
+      <console ip="192.168.1.73" name="CUB 7 OPR 03"></console>
+      <console ip="192.168.1.74" name="CUB 7 OPR 04"></console>
+      <console ip="192.168.1.75" name="WATCH 7"></console>
+      <console ip="192.168.1.76" name="MPE 7"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_08" name="Cubicle 08">
+      <console ip="192.168.1.81" name="CUB 8 OPR 01"></console>
+      <console ip="192.168.1.82" name="CUB 8 OPR 02"></console>
+      <console ip="192.168.1.83" name="CUB 8 OPR 03"></console>
+      <console ip="192.168.1.84" name="CUB 8 OPR 04"></console>
+      <console ip="192.168.1.85" name="WATCH 8"></console>
+      <console ip="192.168.1.86" name="MPE 8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_09" name="Cubicle 09">
+      <console ip="192.168.1.91" name="CUB 9 OPR 01"></console>
+      <console ip="192.168.1.92" name="CUB 9 OPR 02"></console>
+      <console ip="192.168.1.93" name="CUB 9 OPR 03"></console>
+      <console ip="192.168.1.94" name="CUB 9 OPR 04"></console>
+      <console ip="192.168.1.95" name="WATCH 9"></console>
+      <console ip="192.168.1.96" name="MPE 9"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_10" name="Cubicle 10">
+      <console ip="192.168.1.101" name="CUB 10 OPR 01"></console>
+      <console ip="192.168.1.102" name="CUB 10 OPR 02"></console>
+      <console ip="192.168.1.103" name="CUB 10 OPR 03"></console>
+      <console ip="192.168.1.104" name="CUB 10 OPR 04"></console>
+      <console ip="192.168.1.105" name="WATCH 10"></console>
+      <console ip="192.168.1.106" name="MPE 10"></console>
+    </cubicle>
+  </cubicles>
+</t3groups>

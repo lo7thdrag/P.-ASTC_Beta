@@ -17,7 +17,7 @@ type
     NewId: Integer;
   end;
 
-  TfrmExercise = class(TForm)
+  TfrmExerciseHome = class(TForm)
     ImgBackground: TImage;
     pnlMap: TPanel;
     Map1: TMap;
@@ -150,7 +150,7 @@ type
   end;
 
 var
-  frmExercise: TfrmExercise;
+  frmExerciseHome: TfrmExerciseHome;
 
 implementation
 
@@ -161,7 +161,7 @@ uses
 
 {$Region ' Form Handle '}
 
-procedure TfrmExercise.FormCreate(Sender: TObject);
+procedure TfrmExerciseHome.FormCreate(Sender: TObject);
 var
   currentDateTime: TDateTime;
 begin
@@ -185,7 +185,7 @@ begin
   FIdTranslateList := TList.Create;
 end;
 
-procedure TfrmExercise.FormDestroy(Sender: TObject);
+procedure TfrmExerciseHome.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FScenarioList);
   FreeItemsAndFreeList(FReplayList);
@@ -199,7 +199,7 @@ begin
   FConverter.Free;
 end;
 
-procedure TfrmExercise.FormShow(Sender: TObject);
+procedure TfrmExerciseHome.FormShow(Sender: TObject);
 begin
   DoubleBuffered := False;
   pnlMap.Visible := True;
@@ -219,17 +219,17 @@ begin
   UpdateSnapshotList;
 end;
 
-procedure TfrmExercise.btnMouseLeave(Sender: TObject);
+procedure TfrmExerciseHome.btnMouseLeave(Sender: TObject);
 begin
 //
 end;
 
-procedure TfrmExercise.btnMouseEnter(Sender: TObject);
+procedure TfrmExerciseHome.btnMouseEnter(Sender: TObject);
 begin
 //
 end;
 
-procedure TfrmExercise.btnCloseClick(Sender: TObject);
+procedure TfrmExerciseHome.btnCloseClick(Sender: TObject);
 begin
   close;
 end;
@@ -238,7 +238,7 @@ end;
 
 {$Region ' Button Handle '}
 
-procedure TfrmExercise.btnNewClick(Sender: TObject);
+procedure TfrmExerciseHome.btnNewClick(Sender: TObject);
 begin
 
   frmSummaryScenario := TfrmSummaryScenario.Create(Self);
@@ -259,7 +259,7 @@ begin
   UpdateScenarioList;
 end;
 
-procedure TfrmExercise.cbbScaleChange(Sender: TObject);
+procedure TfrmExerciseHome.cbbScaleChange(Sender: TObject);
 var
   z: Double;
   s: string;
@@ -285,7 +285,7 @@ begin
   Map1.OnMapViewChanged := Map1MapViewChanged;
 end;
 
-procedure TfrmExercise.CopyBase(const aNewResourceAllocationIndex: Integer);
+procedure TfrmExerciseHome.CopyBase(const aNewResourceAllocationIndex: Integer);
 var
   i, j: Integer;
   tempList: TList;
@@ -321,7 +321,7 @@ begin
   tempList.Free;
 end;
 
-procedure TfrmExercise.CopyPlatform(const aNewResourceAllocationIndex, aNewDeploymentIndex: Integer);
+procedure TfrmExerciseHome.CopyPlatform(const aNewResourceAllocationIndex, aNewDeploymentIndex: Integer);
 var
   i, j: Integer;
   tempList: TList;
@@ -411,7 +411,7 @@ begin
   tempList.Free;
 end;
 
-procedure TfrmExercise.CopyCubicleGroup(const aNewDeploymentIndex: Integer);
+procedure TfrmExerciseHome.CopyCubicleGroup(const aNewDeploymentIndex: Integer);
 var
   i, j, parentIndex: Integer;
   tempList: TList;
@@ -451,7 +451,7 @@ begin
   tempList.Free;
 end;
 
-procedure TFrmExercise.CopyScenario;
+procedure TfrmExerciseHome.CopyScenario;
 var
   newScenarioName: string;
   count, parentIndex: Integer;
@@ -534,7 +534,7 @@ begin
 //  CopyPlatformActivation(FSelectedAssetDeployment.FData.Deployment_Index);
 end;
 
-procedure TfrmExercise.CopyWaypoint(const aNewResourceAllocationIndex: Integer);
+procedure TfrmExerciseHome.CopyWaypoint(const aNewResourceAllocationIndex: Integer);
 var
   i: Integer;
   tempList: TList;
@@ -556,7 +556,7 @@ begin
   tempList.Free;
 end;
 
-procedure TfrmExercise.CopyPlatformActivation(const aNewDeploymentIndex: Integer);
+procedure TfrmExerciseHome.CopyPlatformActivation(const aNewDeploymentIndex: Integer);
 var
   i: Integer;
   tempList: TList;
@@ -578,7 +578,7 @@ begin
   tempList.Free;
 end;
 
-procedure TfrmExercise.CopyRPL(const aNewResourceAllocationIndex: Integer);
+procedure TfrmExerciseHome.CopyRPL(const aNewResourceAllocationIndex: Integer);
 var
   i: Integer;
   tempList: TList;
@@ -600,7 +600,7 @@ begin
   tempList.Free;
 end;
 
-procedure TfrmExercise.GetFilename(const Path: string; aList: TList);
+procedure TfrmExerciseHome.GetFilename(const Path: string; aList: TList);
 var
   sr : TSearchRec;
   snInfo : TSnapshot_Defination ;
@@ -618,7 +618,7 @@ begin
   FindClose(SR);
 end;
 
-procedure TfrmExercise.btnEditClick(Sender: TObject);
+procedure TfrmExerciseHome.btnEditClick(Sender: TObject);
 begin
   if lstScenario.ItemIndex = -1 then
      Exit;
@@ -637,7 +637,7 @@ begin
   UpdateScenarioList;
 end;
 
-procedure TfrmExercise.btnIncreaseScaleClick(Sender: TObject);
+procedure TfrmExerciseHome.btnIncreaseScaleClick(Sender: TObject);
 begin
   if cbbScale.ItemIndex = 0 then
     Exit;
@@ -646,7 +646,7 @@ begin
   cbbScaleChange(cbbScale);
 end;
 
-procedure TfrmExercise.btnMoveToolClick(Sender: TObject);
+procedure TfrmExerciseHome.btnMoveToolClick(Sender: TObject);
 begin
   Map1.CurrentTool := miPanTool;
   Map1.MousePointer := miPanCursor;
@@ -654,7 +654,7 @@ begin
   btnMove.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnMove_Select.PNG');
 end;
 
-procedure TfrmExercise.btncopyClick(Sender: TObject);
+procedure TfrmExerciseHome.btncopyClick(Sender: TObject);
 begin
   if lstScenario.ItemIndex = -1 then
   begin
@@ -666,7 +666,7 @@ begin
   UpdateScenarioList;
 end;
 
-procedure TfrmExercise.btnDecreaseScaleClick(Sender: TObject);
+procedure TfrmExerciseHome.btnDecreaseScaleClick(Sender: TObject);
 begin
   if cbbScale.ItemIndex = 16 then
     exit;
@@ -675,7 +675,7 @@ begin
   cbbScaleChange(cbbScale);
 end;
 
-procedure TfrmExercise.btnDeleteClick(Sender: TObject);
+procedure TfrmExerciseHome.btnDeleteClick(Sender: TObject);
 var
   warning: Integer;
 begin
@@ -780,7 +780,7 @@ begin
 
 end;
 
-procedure TfrmExercise.CopyOverlay(const aNewResourceAllocationIndex: Integer);
+procedure TfrmExerciseHome.CopyOverlay(const aNewResourceAllocationIndex: Integer);
 var
   i, j: Integer;
   tempList: TList;
@@ -816,7 +816,7 @@ begin
   tempList.Free;
 end;
 
-procedure TfrmExercise.lbSingleClick(Sender: TObject);
+procedure TfrmExerciseHome.lbSingleClick(Sender: TObject);
 begin
   Map1.CurrentTool := miArrowTool;
   Map1.MousePointer := crDefault;
@@ -843,7 +843,7 @@ begin
   UpdateGameCenter;
 end;
 
-procedure TfrmExercise.UpdateCursorPositionData(const X, Y: Integer);
+procedure TfrmExerciseHome.UpdateCursorPositionData(const X, Y: Integer);
 var
   dx, dy, diffX, diffY: Double;
 begin
@@ -870,7 +870,7 @@ begin
     lGridLong.Caption := FormatFloat('0.00', diffX) + ' nm E';
 end;
 
-procedure TfrmExercise.UpdateGameCenter;
+procedure TfrmExerciseHome.UpdateGameCenter;
 var
   i: Integer;
 begin
@@ -905,7 +905,7 @@ begin
   ProgressBar1.Visible := False;
 end;
 
-procedure TfrmExercise.UpdateScenarioData(tipe : integer);
+procedure TfrmExerciseHome.UpdateScenarioData(tipe : integer);
 begin
   case tipe of
     0 :
@@ -940,7 +940,7 @@ begin
 
 end;
 
-procedure TfrmExercise.UpdateScenarioList;
+procedure TfrmExerciseHome.UpdateScenarioList;
 var
   i: Integer;
   scenario: TScenario_Definition;
@@ -956,7 +956,7 @@ begin
   end;
 end;
 
-procedure TfrmExercise.UpdateReplayList;
+procedure TfrmExerciseHome.UpdateReplayList;
 var
   i: Integer;
   replayTemp: TReplay_Definition;
@@ -972,7 +972,7 @@ begin
   end;
 end;
 
-procedure TfrmExercise.UpdateSnapshotList;
+procedure TfrmExerciseHome.UpdateSnapshotList;
 var
   i : Integer;
   snapshotTemp : TSnapshot_Defination;
@@ -999,7 +999,7 @@ begin
   TVarData(TheVar).vError := DISP_E_PARAMNOTFOUND;
 end;
 
-procedure TfrmExercise.LoadMap(aGeoset: string);
+procedure TfrmExerciseHome.LoadMap(aGeoset: string);
 var
   z: OleVariant;
   i: Integer;
@@ -1032,7 +1032,7 @@ begin
   Map1.BackColor := clSkyBlue;
 end;
 
-procedure TfrmExercise.lstReplayClick(Sender: TObject);
+procedure TfrmExerciseHome.lstReplayClick(Sender: TObject);
 begin
   if lstReplay.ItemIndex = -1 then
     Exit;
@@ -1040,7 +1040,7 @@ begin
   FSelectedReplay := TReplay_Definition(lstReplay.Items.Objects[lstReplay.ItemIndex]);
 end;
 
-procedure TfrmExercise.lstSnapshotClick(Sender: TObject);
+procedure TfrmExerciseHome.lstSnapshotClick(Sender: TObject);
 begin
   if lstSnapshot.ItemIndex = -1 then
     Exit;
@@ -1048,7 +1048,7 @@ begin
   FSelectedSnapshot := TSnapshot_Defination(lstSnapshot.Items.Objects[lstSnapshot.ItemIndex]);
 end;
 
-procedure TfrmExercise.Map1MapViewChanged(Sender: TObject);
+procedure TfrmExerciseHome.Map1MapViewChanged(Sender: TObject);
 var
   tempZoom: double;
 begin
@@ -1070,12 +1070,12 @@ begin
   end;
 end;
 
-procedure TfrmExercise.Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+procedure TfrmExerciseHome.Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
   UpdateCursorPositionData(X, Y);
 end;
 
-procedure TfrmExercise.PageControl1Change(Sender: TObject);
+procedure TfrmExerciseHome.PageControl1Change(Sender: TObject);
 begin
   if tsScenario.Showing then
   begin
@@ -1103,7 +1103,7 @@ begin
 end;
 
 {$ENDREGION}
-function TfrmExercise.TranslatePlatformID(aOldPlatformIndex: Integer): Integer;
+function TfrmExerciseHome.TranslatePlatformID(aOldPlatformIndex: Integer): Integer;
 var
   i: Integer;
   idTemp: TUpdatePlatformID;

@@ -357,7 +357,7 @@ uses
   ufrmPlatforms in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmPlatforms.pas' {frmPlatforms},
   ufrmSensors in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmSensors.pas' {frmSensors},
   ufrmWeapons in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmWeapons.pas' {frmWeapons},
-  uFrmExerciseHame in '..\LibTTT\forms\Admin Interface\Exercise\uFrmExerciseHame.pas' {frmExercise},
+  uFrmExerciseHame in '..\LibTTT\forms\Admin Interface\Exercise\uFrmExerciseHame.pas' {frmExerciseHome},
   uFrmHullView in '..\LibTTT\forms\Admin Interface\Exercise\uFrmHullView.pas' {frmHullView},
   ufrmBaseResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmBaseResourceAllocationPickList.pas' {frmBaseResourceAllocationPickList},
   ufrmOverlayResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmOverlayResourceAllocationPickList.pas' {frmOverlayResourceAllocationPickList},
@@ -365,7 +365,8 @@ uses
   ufrmResourceAllocationInputName in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmResourceAllocationInputName.pas' {frmResourceAllocationInputName},
   ufrmRPLResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmRPLResourceAllocationPickList.pas' {frmRPLResourceAllocationPickList},
   ufrmVehicleResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmVehicleResourceAllocationPickList.pas' {frmVehicleResourceAllocationPickList},
-  ufrmWaypointResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmWaypointResourceAllocationPickList.pas' {frmWaypointResourceAllocationPickList};
+  ufrmWaypointResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmWaypointResourceAllocationPickList.pas' {frmWaypointResourceAllocationPickList},
+  ufrmExercise in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmExercise.pas' {frmExercise};
 
 {$R *.res}
 
@@ -384,6 +385,7 @@ begin
   Application.CreateForm(TfrmRPLResourceAllocationPickList, frmRPLResourceAllocationPickList);
   Application.CreateForm(TfrmVehicleResourceAllocationPickList, frmVehicleResourceAllocationPickList);
   Application.CreateForm(TfrmWaypointResourceAllocationPickList, frmWaypointResourceAllocationPickList);
+  Application.CreateForm(TfrmExercise, frmExercise);
   //  Application.CreateForm(TfrmExercise, frmExercise);
   //  Application.CreateForm(TfrmCountermeasure, frmCountermeasure);
 //  Application.CreateForm(TfrmOther, frmOther);

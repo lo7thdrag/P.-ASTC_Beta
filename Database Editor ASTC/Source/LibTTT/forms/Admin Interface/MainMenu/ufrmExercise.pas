@@ -45,7 +45,7 @@ var
 implementation
 
 uses
-  ufDBEditor, ufrmAvailableScenario, ufrmAvailableResourceAllocation, ufrmAvailableEnvironments,
+  ufrmUserMainForm, ufrmAvailableScenario, ufrmAvailableResourceAllocation, {ufrmAvailableEnvironments,}
   ufrmAvailableGameArea, uDataModuleTTT, tttData;
 
 {$R *.dfm}
@@ -122,26 +122,26 @@ begin
   else
     Exit;
 
-  fDBEditor.LoadImageVariasi(0);
-  fDBEditor.FormFactory(E_FormType(subMenuTemp),True);
+  frmUserMainForm.LoadImageVariasi(0);
+  frmUserMainForm.FormFactory(E_FormType(subMenuTemp),True);
 end;
 
 procedure TfrmExercise.UpdateCountExercise;
 begin
   {$REGION ' Scenario '}
-  lblScenarioCount.Caption := IntToStr(dmTTT.GetAllScenarioCount) + ' Data';
+//  lblScenarioCount.Caption := IntToStr(dmTTT.GetAllScenarioCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Game Area '}
-  lblGameAreaCount.Caption := IntToStr(dmTTT.GetAllGameAreaCount) + ' Data';
+//  lblGameAreaCount.Caption := IntToStr(dmTTT.GetAllGameAreaCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Resource '}
-  lblResourceCount.Caption := IntToStr(dmTTT.GetAllResourceCount) + ' Data';
+//  lblResourceCount.Caption := IntToStr(dmTTT.GetAllResourceCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Environment '}
-  lblEnvironmentCount.Caption := IntToStr(dmTTT.GetAllEnvironmentCount) + ' Data';
+//  lblEnvironmentCount.Caption := IntToStr(dmTTT.GetAllEnvironmentCount) + ' Data';
   {$ENDREGION}
 end;
 

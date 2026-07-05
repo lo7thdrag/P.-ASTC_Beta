@@ -1097,7 +1097,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\uFrmExerciseHame.pas">
-            <Form>frmExercise</Form>
+            <Form>frmExerciseHome</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\uFrmHullView.pas">
@@ -1130,6 +1130,10 @@
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmWaypointResourceAllocationPickList.pas">
             <Form>frmWaypointResourceAllocationPickList</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\MainMenu\ufrmExercise.pas">
+            <Form>frmExercise</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Debug">

@@ -167,7 +167,7 @@ var
 implementation
 
 uses
-  {ufrmExercise, }ufrmPlatforms, ufrmSensors, ufrmWeapons, ufrmCountermeasure, ufrmOther,
+  ufrmExercise, ufrmPlatforms, ufrmSensors, ufrmWeapons, ufrmCountermeasure, ufrmOther,
 
   ufrmAvailableScenario, ufrmAvailableResourceAllocation, {ufrmAvailableEnvironments,}
   ufrmAvailableGameArea,
@@ -374,10 +374,10 @@ begin
     end;
     ftfrmExercise :
     begin
-//      if not Assigned(frmExercise) then
-//          frmExercise := TfrmExercise.Create(self);
-//
-//      aForm := frmExercise;
+      if not Assigned(frmExercise) then
+          frmExercise := TfrmExercise.Create(self);
+
+      aForm := frmExercise;
     end;
     ftShutdown :
     begin

@@ -4,25 +4,32 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, uDBAsset_MotionCharacteristics,
-  Vcl.Imaging.pngimage;
+  Dialogs, StdCtrls, ExtCtrls, Vcl.Imaging.pngimage,
+
+  uDBAsset_MotionCharacteristics, uSimContainers;
 
 type
   TfrmMotionPickList = class(TForm)
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
-    Label2: TLabel;
+    pnl2ControlPage: TPanel;
     lstAvailableMotion: TListBox;
-    btnAdd: TImage;
-    btnCancel: TImage;
+    pnl3Button: TPanel;
+    btnCancel: TButton;
+    btnAdd: TButton;
+    pnlTableHeader: TPanel;
+    Label2: TLabel;
+    edtSearch: TEdit;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
     procedure lstAvailableMotionClick(Sender: TObject);
+    procedure lstAvailableMotionDblClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedMotionId : Integer;
@@ -42,31 +49,35 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, ufrmSummaryMotion, ufProgress;
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmMotionPickList.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
 var
-  i : Integer;
-
+  i:Integer;
+  NewExStyle:DWORD;
 begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
 
-  for i := FMotionList.Count - 1 downto 0 do
-  begin
-    TMotion_Characteristics(FMotionList[i]).Free
-  end;
-  FMotionList.Clear;
-  FMotionList.Free;
-
-  Action := cafree;
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmMotionPickList.FormCreate(Sender: TObject);
 begin
   FMotionList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmMotionPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FMotionList);
 end;
 
 procedure TfrmMotionPickList.FormShow(Sender: TObject);
@@ -93,6 +104,14 @@ begin
   Close;
 end;
 
+procedure TfrmMotionPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMotionList ;
+  end;
+end;
+
 procedure TfrmMotionPickList.lstAvailableMotionClick(Sender: TObject);
 begin
   if lstAvailableMotion.ItemIndex = -1 then
@@ -101,21 +120,26 @@ begin
   FSelectedMotion := TMotion_Characteristics(lstAvailableMotion.Items.Objects[lstAvailableMotion.ItemIndex]);
 end;
 
+procedure TfrmMotionPickList.lstAvailableMotionDblClick(Sender: TObject);
+begin
+  btnAdd.Click;
+end;
+
 procedure TfrmMotionPickList.UpdateMotionList;
 var
   i : Integer;
   motion : TMotion_Characteristics;
 begin
   lstAvailableMotion.Items.Clear;
+  dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
 
-  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+//  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+  dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
 
   for i := 0 to FMotionList.Count - 1 do
   begin
     motion := FMotionList.Items[i];
-
     lstAvailableMotion.Items.AddObject(motion.FData.Motion_Identifier, motion);
-
   end;
 end;
 

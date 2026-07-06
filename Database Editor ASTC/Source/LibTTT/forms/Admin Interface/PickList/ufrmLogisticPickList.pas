@@ -5,16 +5,20 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ComCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uDBAsset_Logistics;
+  uDBAsset_Logistics, uSimContainers;
 
 type
   TfrmLogisticPickList = class(TForm)
-    btnAdd: TImage;
-    btnCancel: TImage;
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
-    Label2: TLabel;
     lstAvailableLogistic: TListBox;
+    pnlMainBackground: TPanel;
+    Image1: TImage;
+    pnl1Header: TPanel;
+    Label2: TLabel;
+    edtSearch: TEdit;
+    pnl2ControlPage: TPanel;
+    pnl3Button: TPanel;
+    btnCancel: TButton;
+    btnAdd: TButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -22,6 +26,8 @@ type
     procedure lstAvailableMotionClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedLogisticId : Integer;
@@ -45,11 +51,31 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmLogisticPickList.FormCreate(Sender: TObject);
 begin
   FLogisticList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmLogisticPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FLogisticList);
 end;
 
 procedure TfrmLogisticPickList.FormShow(Sender: TObject);
@@ -75,6 +101,15 @@ begin
   Close;
 end;
 
+procedure TfrmLogisticPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateLogisticList
+  end;
+end;
+
 procedure TfrmLogisticPickList.lstAvailableMotionClick(Sender: TObject);
 begin
   if lstAvailableLogistic.ItemIndex = -1 then
@@ -90,7 +125,8 @@ var
 begin
   lstAvailableLogistic.Items.Clear;
 
-  dmTTT.GetAllLogisticDef(FLogisticList);
+//  dmTTT.GetAllLogisticDef(FLogisticList);
+  dmTTT.GetFilterLogisticDef(FLogisticList, edtSearch.Text);
 
   for i := 0 to FLogisticList.Count - 1 do
   begin

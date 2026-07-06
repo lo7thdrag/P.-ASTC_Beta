@@ -1,15 +1,15 @@
-object frmSNRvsPODPickList: TfrmSNRvsPODPickList
+object frmGroupMemberPickList: TfrmGroupMemberPickList
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsToolWindow
-  Caption = '   SNR vs. POD Curve'
-  ClientHeight = 671
-  ClientWidth = 494
-  Color = clBtnFace
+  BorderStyle = bsSingle
+  Caption = '   Group Member List & Selection'
+  ClientHeight = 639
+  ClientWidth = 754
+  Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
@@ -18,12 +18,12 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
   OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 14
+  TextHeight = 13
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 494
-    Height = 671
+    Width = 754
+    Height = 639
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44839,123 +44839,36 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
       638A52EECF558B599F22458A142952A448F113E2FF018F0E1FFAC27F4F700000
       000049454E44AE426082}
     Stretch = True
-    ExplicitTop = 48
-    ExplicitHeight = 588
+    ExplicitLeft = -260
   end
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 494
-    Height = 671
+    Width = 754
+    Height = 639
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitTop = 40
+    ExplicitLeft = 8
+    ExplicitTop = 48
+    ExplicitWidth = 494
     ExplicitHeight = 588
-    object pnl2ControlPage: TPanel
+    object pnlMain: TPanel
       Left = 1
-      Top = 41
-      Width = 492
-      Height = 586
+      Top = 1
+      Width = 752
+      Height = 637
       Align = alClient
       BevelOuter = bvNone
-      BorderWidth = 10
       Color = 2499101
       TabOrder = 0
       ExplicitLeft = 0
-      ExplicitTop = 40
-      ExplicitWidth = 494
-      ExplicitHeight = 588
-      object lstAvailableSNRvsPOD: TListBox
-        Left = 10
-        Top = 10
-        Width = 472
-        Height = 566
-        Align = alClient
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
-        OnClick = lstAvailableSNRvsPODClick
-        OnDblClick = lstAvailableSNRvsPODDblClick
-        ExplicitWidth = 474
-        ExplicitHeight = 568
-      end
-    end
-    object pnl3Button: TPanel
-      Left = 1
-      Top = 627
-      Width = 492
-      Height = 43
-      Align = alBottom
-      BevelOuter = bvNone
-      Color = 2499101
-      TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 628
-      ExplicitWidth = 494
-      object btnCancel: TButton
-        Left = 402
-        Top = 2
-        Width = 80
-        Height = 30
-        Caption = 'Cancel'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 0
-        OnClick = btnCancelClick
-      end
-      object btnAdd: TButton
-        Left = 312
-        Top = 2
-        Width = 80
-        Height = 30
-        Caption = 'Pick'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 1
-        OnClick = btnAddClick
-      end
-    end
-    object pnlTableHeader: TPanel
-      Left = 1
-      Top = 1
-      Width = 492
-      Height = 40
-      ParentCustomHint = False
-      Align = alTop
-      BevelOuter = bvNone
-      BiDiMode = bdLeftToRight
-      Color = 2499101
-      Ctl3D = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentBiDiMode = False
-      ParentCtl3D = False
-      ParentFont = False
-      ParentShowHint = False
-      ShowHint = False
-      TabOrder = 2
-      ExplicitLeft = 0
       ExplicitTop = 0
-      ExplicitWidth = 494
-      object Label2: TLabel
-        Left = 166
-        Top = 14
+      ExplicitWidth = 754
+      ExplicitHeight = 639
+      object lbl1: TLabel
+        Left = 12
+        Top = 544
         Width = 62
         Height = 21
         Caption = 'Search :'
@@ -44966,10 +44879,85 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
         Font.Style = []
         ParentFont = False
       end
+      object btnAdd: TButton
+        Left = 337
+        Top = 263
+        Width = 80
+        Height = 30
+        Caption = 'Add'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+        OnClick = btnAddClick
+      end
+      object btnRemove: TButton
+        Left = 337
+        Top = 303
+        Width = 80
+        Height = 30
+        Caption = 'Remove'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        OnClick = btnRemoveClick
+      end
+      object lbAllMember: TListBox
+        Left = 12
+        Top = 62
+        Width = 313
+        Height = 474
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        OnClick = lbAllMemberClick
+        OnDblClick = btnAddClick
+      end
+      object lbMemberSel: TListBox
+        Left = 430
+        Top = 62
+        Width = 313
+        Height = 474
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+        OnClick = lbMemberSelClick
+        OnDblClick = btnRemoveClick
+      end
+      object btnClose: TButton
+        Left = 663
+        Top = 599
+        Width = 80
+        Height = 30
+        Caption = 'Close'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 4
+        OnClick = btnCloseClick
+      end
       object edtSearch: TEdit
-        Left = 237
-        Top = 12
-        Width = 245
+        Left = 78
+        Top = 542
+        Width = 247
         Height = 25
         AutoSize = False
         Font.Charset = DEFAULT_CHARSET
@@ -44978,8 +44966,76 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 0
+        TabOrder = 5
         OnKeyPress = edtSearchKeyPress
+      end
+      object pnl1: TPanel
+        Left = 430
+        Top = 16
+        Width = 313
+        Height = 41
+        BevelOuter = bvNone
+        BorderWidth = 3
+        Color = clAqua
+        ParentBackground = False
+        TabOrder = 6
+        object pnl2: TPanel
+          Left = 3
+          Top = 3
+          Width = 307
+          Height = 35
+          Align = alClient
+          BevelOuter = bvNone
+          Caption = 'List of Member On Group'
+          Color = 2499101
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -19
+          Font.Name = 'Deusex'
+          Font.Style = []
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 0
+        end
+      end
+      object pnl3: TPanel
+        Left = 12
+        Top = 16
+        Width = 313
+        Height = 41
+        BevelOuter = bvNone
+        BorderWidth = 3
+        Color = clAqua
+        ParentBackground = False
+        TabOrder = 7
+        object pnl4: TPanel
+          Left = 3
+          Top = 3
+          Width = 307
+          Height = 35
+          Align = alClient
+          BevelOuter = bvNone
+          Caption = 'List of available Member'
+          Color = 2499101
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -19
+          Font.Name = 'Deusex'
+          Font.Style = []
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 0
+        end
+      end
+      object pnl5: TPanel
+        Left = -6
+        Top = 586
+        Width = 760
+        Height = 5
+        BevelOuter = bvNone
+        Color = clTeal
+        ParentBackground = False
+        TabOrder = 8
       end
     end
   end

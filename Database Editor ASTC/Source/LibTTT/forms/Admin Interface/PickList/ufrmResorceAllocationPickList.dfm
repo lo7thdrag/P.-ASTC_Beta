@@ -1,24 +1,25 @@
-object frmSNRvsPODPickList: TfrmSNRvsPODPickList
+object frmResorceAllocationPickList: TfrmResorceAllocationPickList
   Left = 0
   Top = 0
   BorderIcons = []
   BorderStyle = bsToolWindow
-  Caption = '   SNR vs. POD Curve'
+  Caption = '   Resource Allocation List'
   ClientHeight = 671
   ClientWidth = 494
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClick = btnAddClick
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 14
+  TextHeight = 13
   object imgBackground: TImage
     Left = 0
     Top = 0
@@ -44839,8 +44840,9 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
       638A52EECF558B599F22458A142952A448F113E2FF018F0E1FFAC27F4F700000
       000049454E44AE426082}
     Stretch = True
-    ExplicitTop = 48
-    ExplicitHeight = 588
+    ExplicitLeft = -260
+    ExplicitWidth = 754
+    ExplicitHeight = 639
   end
   object pnlMainBackground: TPanel
     Left = 0
@@ -44850,8 +44852,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitTop = 40
-    ExplicitHeight = 588
     object pnl2ControlPage: TPanel
       Left = 1
       Top = 41
@@ -44862,11 +44862,7 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 40
-      ExplicitWidth = 494
-      ExplicitHeight = 588
-      object lstAvailableSNRvsPOD: TListBox
+      object lbAvailableResAlloc: TListBox
         Left = 10
         Top = 10
         Width = 472
@@ -44879,10 +44875,8 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        OnClick = lstAvailableSNRvsPODClick
-        OnDblClick = lstAvailableSNRvsPODDblClick
-        ExplicitWidth = 474
-        ExplicitHeight = 568
+        OnClick = lbAvailableResAllocClick
+        OnDblClick = lbAvailableResAllocDblClick
       end
     end
     object pnl3Button: TPanel
@@ -44894,16 +44888,13 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 628
-      ExplicitWidth = 494
       object btnCancel: TButton
         Left = 402
         Top = 2
         Width = 80
         Height = 30
         Caption = 'Cancel'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GB2312_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Tahoma'
@@ -44913,12 +44904,12 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
         OnClick = btnCancelClick
       end
       object btnAdd: TButton
-        Left = 312
+        Left = 317
         Top = 2
         Width = 80
         Height = 30
         Caption = 'Pick'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GB2312_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Tahoma'
@@ -44950,9 +44941,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
       ParentShowHint = False
       ShowHint = False
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 494
       object Label2: TLabel
         Left = 166
         Top = 14
@@ -44967,9 +44955,9 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
         ParentFont = False
       end
       object edtSearch: TEdit
-        Left = 237
+        Left = 235
         Top = 12
-        Width = 245
+        Width = 247
         Height = 25
         AutoSize = False
         Font.Charset = DEFAULT_CHARSET

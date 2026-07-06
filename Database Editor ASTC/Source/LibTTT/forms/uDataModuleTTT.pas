@@ -7330,7 +7330,7 @@ begin
     SQL.Clear;
     SQL.Add('SELECT *');
     SQL.Add('FROM Hosted_Platform');
-    SQL.Add('WHERE Hosted_Vehicle_Index = ' + IntToStr(aVehicleID));
+    SQL.Add('WHERE Vehicle_Index = ' + IntToStr(aVehicleID));
     Open;
 
     Result := RecordCount;

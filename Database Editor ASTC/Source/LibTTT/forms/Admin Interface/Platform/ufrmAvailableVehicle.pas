@@ -4,27 +4,30 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, ComCtrls, Vcl.Imaging.pngimage,
+  Dialogs, StdCtrls, ExtCtrls, Vcl.Imaging.pngimage,
+
   uDBAsset_Vehicle, uDBAssetObject, uSimContainers;
 
 type
   TfrmAvailableVehicle = class(TForm)
-    lbAllVehicleDef: TListBox;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
-    Image1: TImage;
-    btnUsage: TImage;
-    imgImgBtnBack: TImage;
+    pnlTableList: TPanel;
+    lstVehicle: TListBox;
+    lbAllVehicle: TListBox;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
     btnEdit: TImage;
     btnCopy: TImage;
     btnNew: TImage;
-    edtCheat: TEdit;
-    lbl_search: TLabel;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
     procedure lbSingleClick(Sender: TObject);
 
@@ -34,10 +37,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
 
-    procedure btnCloseClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure edtCheatKeyPress(Sender: TObject; var Key: Char);
-    procedure CheatClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FUpdateList : Boolean;
@@ -52,8 +52,6 @@ type
     procedure CopyAssetWeaponLauncher(const aParentIndex, aNewIndex: Integer);
     procedure CopyAssetChaffLauncher(const aParentIndex, aNewIndex: Integer);
 
-  public
-
   end;
 
 var
@@ -64,26 +62,40 @@ implementation
 uses
   uDataModuleTTT, ufrmSummaryVehicle, ufrmUsage,
   uDBAsset_Sensor, uDBAsset_Radar, uDBAsset_Sonar, uDBAsset_Sonobuoy,
-  uDBAsset_Weapon, uDBAsset_Countermeasure, newClassASTT, uDBBlind_Zone;
+  uDBAsset_Weapon, uDBAsset_Countermeasure, newClassASTT, uDBBlind_Zone,
+  ufProgress;
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableVehicle.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  FreeItemsAndFreeList(FVehicleList);
-  Action := cafree;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableVehicle.FormCreate(Sender: TObject);
 begin
   FVehicleList := TList.Create;
+
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableVehicle.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FVehicleList);
 end;
 
 procedure TfrmAvailableVehicle.FormShow(Sender: TObject);
 begin
-//  UpdateFilterTypeItems;
   UpdateVehicleList;
 end;
 
@@ -99,6 +111,8 @@ begin
     begin
       SelectedVehicle := TVehicle_Definition.Create;
       ShowModal;
+      SelectedVehicle.Free;
+
       FUpdateList := AfterClose;
     end;
   finally
@@ -115,9 +129,9 @@ var
   count : Integer;
   idTemp : Integer;
 begin
-  if lbAllVehicleDef.ItemIndex = -1 then
+  if lstVehicle.ItemIndex = -1 then
   begin
-    ShowMessage('Select Vehicle... !');
+    ShowMessage('Silahkan pilih salah satu data Vehicle ... !');
     Exit;
   end;
 
@@ -147,10 +161,9 @@ end;
 
 procedure TfrmAvailableVehicle.btnEditClick(Sender: TObject);
 begin
-
-  if lbAllVehicleDef.ItemIndex = -1 then
+  if lstVehicle.ItemIndex = -1 then
   begin
-    ShowMessage('Select Vehicle Data... !');
+    ShowMessage('Silahkan pilih salah satu data Vehicle ... !');
     Exit;
   end;
 
@@ -176,13 +189,13 @@ var
   tempList: TList;
 
 begin
-  if lbAllVehicleDef.ItemIndex = -1 then
+  if lstVehicle.ItemIndex = -1 then
   begin
-    ShowMessage('Select Vehicle Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Vehicle ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Vehicle Data ?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -194,35 +207,25 @@ begin
       {Pengecekan Relasi Dengan Resource Allocation}
       if dmTTT.GetPlatformInstanceAtResourceAllocation(1, Vehicle_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some resource allocation');
-        FreeItemsAndFreeList(tempList);
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data resource allocation');
+        tempList.Free;
         Exit;
       end;
 
       {Pengecekan Relasi Dengan Runtime Platform Library}
       if dmTTT.GetPlatformAtPlatformLibraryEntry(1, Vehicle_Index, tempList) > 0 then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Runtime Platform Library');
-        FreeItemsAndFreeList(tempList);
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Runtime Platform Library');
+        tempList.Free;
         Exit;
       end;
+      tempList.Free;
 
-      {Pengecekan Relasi Dengan Base}
-      if dmTTT.GetAllVehicle_OnBase(Vehicle_Index, tempList) then
+      if dmTTT.GetHostPlatformCount(Vehicle_Index) > 0 then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Base');
-        FreeItemsAndFreeList(tempList);
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
-
-      {Pengecekan Relasi Dengan Host Sebagai Embarked}
-      if dmTTT.GetAllVehicleAtHostPlatform(Vehicle_Index, tempList) > 0 then
-      begin
-        ShowMessage('Cannot delete, This vehicle used as Embarked Platform by some Vehicle');
-        FreeItemsAndFreeList(tempList);
-        Exit;
-      end;
-      FreeItemsAndFreeList(tempList);
 
       dmTTT.DeleteNoteStorage(1, Vehicle_Index);
 
@@ -233,11 +236,11 @@ begin
       dmTTT.DeleteChaffLauncherOnBoard(Vehicle_Index);
 
       dmTTT.DeleteRadarOnBoard(1, Vehicle_Index);
-      dmTTT.DeleteESMOnBoard(1, Vehicle_Index);
-      dmTTT.DeleteEOOnBoard(1, Vehicle_Index);
       dmTTT.DeleteMADOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteESMOnBoard(1, Vehicle_Index);
       dmTTT.DeleteSonobuoyOnBoard(1, Vehicle_Index);
       dmTTT.DeleteSonarOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteEOOnBoard(1, Vehicle_Index);
       dmTTT.DeleteIFFOnBoard(1, Vehicle_Index);
       dmTTT.DeleteVisualOnBoard(1, Vehicle_Index);
 
@@ -255,11 +258,8 @@ begin
 
       dmTTT.DeleteHostedPlatform(1, Vehicle_Index);
 
-      // Keperluan data lama
-      dmTTT.DeleteHelicopterLimit(Vehicle_Index);
-
       if dmTTT.DeleteVehicleDef(Vehicle_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateVehicleList;
@@ -268,9 +268,9 @@ end;
 
 procedure TfrmAvailableVehicle.btnUsageClick(Sender: TObject);
 begin
-  if lbAllVehicleDef.ItemIndex = -1 then
+  if lstVehicle.ItemIndex = -1 then
   begin
-    ShowMessage('Select Vehicle Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Vehicle ... !');
     Exit;
   end;
 
@@ -286,43 +286,15 @@ begin
   finally
     frmUsage.Free;
   end;
-end;
 
-procedure TfrmAvailableVehicle.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmAvailableVehicle.CheatClick(Sender: TObject);
-begin
-  edtCheat.Visible := not edtCheat.Visible;
-end;
-
-procedure TfrmAvailableVehicle.edtCheatKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  vehicle : TVehicle_Definition;
-begin
-  if Key = #13 then
-  begin
-    lbAllVehicleDef.Items.Clear;
-
-    dmTTT.GetFilterVehicleDef(FVehicleList, edtCheat.text);
-
-    for i := 0 to FVehicleList.Count - 1 do
-    begin
-      vehicle := FVehicleList.Items[i];
-      lbAllVehicleDef.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
-    end;
-  end;
 end;
 
 procedure TfrmAvailableVehicle.lbSingleClick(Sender: TObject);
 begin
-  if lbAllVehicleDef.ItemIndex = -1 then
+  if lstVehicle.ItemIndex = -1 then
     Exit;
 
-  FSelectedVehicle := TVehicle_Definition(lbAllVehicleDef.Items.Objects[lbAllVehicleDef.ItemIndex]);
+  FSelectedVehicle := TVehicle_Definition(lstVehicle.Items.Objects[lstVehicle.ItemIndex]);
 end;
 
 procedure TfrmAvailableVehicle.UpdateVehicleList;
@@ -330,20 +302,130 @@ var
   i : Integer;
   vehicle : TVehicle_Definition;
 begin
-  lbAllVehicleDef.Items.Clear;
+  lstVehicle.Items.Clear;
 
-  dmTTT.GetAllVehicleDef(FVehicleList);
+//  dmTTT.GetAllVehicleDef(FVehicleList);
+  dmTTT.GetFilterVehicleDef(FVehicleList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FVehicleList.Count;
 
   for i := 0 to FVehicleList.Count - 1 do
   begin
     vehicle := FVehicleList.Items[i];
-    lbAllVehicleDef.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
+    frmProgress.increase(vehicle.FData.Vehicle_Identifier);
+    lstVehicle.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
   end;
+  frmProgress.Free;
 end;
+
 
 {$ENDREGION}
 
 {$REGION ' Copy Procedure Handle '}
+
+procedure TfrmAvailableVehicle.CopyAssetBlindZone(const aBZType: Byte;const aParentIndex, aNewIndex: Integer);
+var
+  blindzoneList : TList;
+  i : Integer;
+  blindzone : TBlind_Zone;
+begin
+  blindzoneList := TList.Create;
+
+  dmTTT.GetBlindZone(aBZType, aParentIndex, blindzoneList);
+
+  for i := 0 to blindzoneList.Count - 1 do
+  begin
+    blindzone := blindzoneList.Items[i];
+
+    with blindzone do
+    begin
+      case aBZType of
+        1: FData.FCR_Instance_Index := aNewIndex;
+        2: FData.ESM_Instance_Index := aNewIndex;
+        3: FData.EO_Instance_Index := aNewIndex;
+        4: FData.Visual_Instance_Index := aNewIndex;
+        5: FData.Point_Effect_Index := aNewIndex;
+        6: FData.Fitted_Weap_Index := aNewIndex;
+        7: FData.Sonar_Instance_Index := aNewIndex;
+        8: FData.Radar_Instance_Index := aNewIndex;
+      end;
+
+      dmTTT.InsertBlindZone(FData);
+    end;
+  end;
+
+  for i := 0 to blindzoneList.Count - 1 do
+  begin
+    blindzone := blindzoneList.Items[i];
+    blindzone.Free;
+  end;
+
+  blindzoneList.Free;
+end;
+
+procedure TfrmAvailableVehicle.CopyAssetChaffLauncher(const aParentIndex, aNewIndex: Integer);
+var
+  i : Integer;
+  launcherList : TList;
+  launcher : TChaff_Launcher_On_Board;
+begin
+  launcherList := TList.Create;
+
+  dmTTT.GetChaffLauncherOnBoard(aParentIndex, launcherList);
+
+  for i := 0 to launcherList.Count - 1 do
+  begin
+    launcher := launcherList.Items[i];
+
+    with launcher do
+    begin
+      FData.Vehicle_Index := aNewIndex;
+
+      dmTTT.InsertChaffLauncherOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to launcherList.Count - 1 do
+  begin
+    launcher := launcherList.Items[i];
+    launcher.Free;
+  end;
+
+  launcherList.Free;
+end;
+
+procedure TfrmAvailableVehicle.CopyAssetWeaponLauncher(const aParentIndex,aNewIndex: Integer);
+var
+  launcherList : TList;
+  i : Integer;
+  launcher : TFitted_Weap_Launcher_On_Board;
+begin
+  launcherList := TList.Create;
+
+  dmTTT.GetFittedWeaponLauncherOnBoard(aParentIndex, launcherList);
+
+  for i := 0 to launcherList.Count - 1 do
+  begin
+    launcher := launcherList.Items[i];
+
+    with launcher do
+    begin
+      FData.Fitted_Weap_Index := aNewIndex;
+
+      dmTTT.InsertFittedWeaponLauncherOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to launcherList.Count - 1 do
+  begin
+    launcher := launcherList.Items[i];
+    launcher.Free;
+  end;
+
+  launcherList.Free;
+end;
 
 procedure TfrmAvailableVehicle.CopyPlatformInstanceIdent(const aVehicleIndex, aNewVehicleIndex: Integer);
 var
@@ -354,6 +436,7 @@ begin
   platInstList := TList.Create;
 
   dmTTT.GetAllPlatformInstanceIdentifier(aVehicleIndex, platInstList);
+
   for i := 0 to platInstList.Count - 1 do
   begin
     platInst := platInstList.Items[i];
@@ -803,9 +886,10 @@ begin
       FData.Vehicle_Index := aNewVehicleIndex;
 
       dmTTT.InsertChaffOnBoard(FData);
-      CopyAssetChaffLauncher(aVehicleIndex, aNewVehicleIndex);
     end;
   end;
+
+  CopyAssetChaffLauncher(aVehicleIndex, aNewVehicleIndex);
 
   for i := 0 to assetList.Count - 1 do
   begin
@@ -958,110 +1042,13 @@ begin
 
 end;
 
-procedure TfrmAvailableVehicle.CopyAssetBlindZone(const aBZType: Byte; const aParentIndex, aNewIndex: Integer);
-var
-  blindzoneList : TList;
-  i : Integer;
-  blindzone : TBlind_Zone;
+procedure TfrmAvailableVehicle.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
-  blindzoneList := TList.Create;
-
-  dmTTT.GetBlindZone(aBZType, aParentIndex, blindzoneList);
-
-  for i := 0 to blindzoneList.Count - 1 do
+  if Key = #13 then
   begin
-    blindzone := blindzoneList.Items[i];
-
-    with blindzone do
-    begin
-      case aBZType of
-        1: FData.FCR_Instance_Index := aNewIndex;
-        2: FData.ESM_Instance_Index := aNewIndex;
-        3: FData.EO_Instance_Index := aNewIndex;
-        4: FData.Visual_Instance_Index := aNewIndex;
-        5: FData.Point_Effect_Index := aNewIndex;
-        6: FData.Fitted_Weap_Index := aNewIndex;
-        7: FData.Sonar_Instance_Index := aNewIndex;
-        8: FData.Radar_Instance_Index := aNewIndex;
-      end;
-
-      dmTTT.InsertBlindZone(FData);
-    end;
+    UpdateVehicleList
   end;
-
-  for i := 0 to blindzoneList.Count - 1 do
-  begin
-    blindzone := blindzoneList.Items[i];
-    blindzone.Free;
-  end;
-
-  blindzoneList.Free;
-
 end;
-
-procedure TfrmAvailableVehicle.CopyAssetChaffLauncher(const aParentIndex, aNewIndex: Integer);
-var
-  i : Integer;
-  launcherList : TList;
-  launcher : TChaff_Launcher_On_Board;
-begin
-  launcherList := TList.Create;
-
-  dmTTT.GetChaffLauncherOnBoard(aParentIndex, launcherList);
-
-  for i := 0 to launcherList.Count - 1 do
-  begin
-    launcher := launcherList.Items[i];
-
-    with launcher do
-    begin
-      FData.Vehicle_Index := aNewIndex;
-
-      dmTTT.InsertChaffLauncherOnBoard(FData);
-    end;
-  end;
-
-  for i := 0 to launcherList.Count - 1 do
-  begin
-    launcher := launcherList.Items[i];
-    launcher.Free;
-  end;
-
-  launcherList.Free;
-end;
-
-procedure TfrmAvailableVehicle.CopyAssetWeaponLauncher(const aParentIndex,aNewIndex: Integer);
-var
-  i : Integer;
-  launcherList : TList;
-  launcher : TFitted_Weap_Launcher_On_Board;
-begin
-  launcherList := TList.Create;
-
-  dmTTT.GetFittedWeaponLauncherOnBoard(aParentIndex, launcherList);
-
-  for i := 0 to launcherList.Count - 1 do
-  begin
-    launcher := launcherList.Items[i];
-
-    with launcher do
-    begin
-      FData.Fitted_Weap_Index := aNewIndex;
-
-      dmTTT.InsertFittedWeaponLauncherOnBoard(FData);
-    end;
-  end;
-
-  for i := 0 to launcherList.Count - 1 do
-  begin
-    launcher := launcherList.Items[i];
-    launcher.Free;
-  end;
-
-  launcherList.Free;
-end;
-
 
 {$ENDREGION}
-
 end.

@@ -889,10 +889,6 @@
             <Form>frmChaffMount</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmEODMount.pas">
-            <Form>frmEODMount</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmESMMount.pas">
             <Form>frmESMMount</Form>
             <FormType>dfm</FormType>
@@ -1134,6 +1130,10 @@
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\MainMenu\ufrmExercise.pas">
             <Form>frmExercise</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmElectroOpticalMount.pas">
+            <Form>frmElectroOpticalMount</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Debug">

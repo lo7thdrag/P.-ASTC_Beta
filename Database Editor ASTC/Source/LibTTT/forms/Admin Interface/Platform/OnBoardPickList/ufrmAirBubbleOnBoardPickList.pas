@@ -45,7 +45,7 @@ type
     FAllAirBubbleOnBoardList : TList;
 
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedAirBubble : TAir_Bubble_Mount;
+    FSelectedAirBubble : TAir_Bubble_On_Board;
 
     procedure UpdateAirBubbleList;
 
@@ -60,7 +60,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryAirBubble, ufrmAirBubblesMounts;
+  uDataModuleTTT, ufrmSummaryAirBubble, ufrmAirBubbleMount;
 
 {$R *.dfm}
 
@@ -112,16 +112,16 @@ begin
   if lbAllAirBubbleDef.ItemIndex = -1 then
     Exit;
 
-  frmAirBubblesMounts := TfrmAirBubblesMounts.Create(Self);
+  frmAirBubbleMount := TfrmAirBubbleMount.Create(Self);
   try
-    with frmAirBubblesMounts do
+    with frmAirBubbleMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedAirBubble := FSelectedAirBubble;
       ShowModal;
     end;
   finally
-    frmAirBubblesMounts.Free;
+    frmAirBubbleMount.Free;
   end;
 
   UpdateAirBubbleList;
@@ -132,16 +132,16 @@ begin
   if lbAirBubbleOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmAirBubblesMounts := TfrmAirBubblesMounts.Create(Self);
+  frmAirBubbleMount := TfrmAirBubbleMount.Create(Self);
   try
-    with frmAirBubblesMounts do
+    with frmAirBubbleMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedAirBubble := FSelectedAirBubble;
       ShowModal;
     end;
   finally
-    frmAirBubblesMounts.Free;
+    frmAirBubbleMount.Free;
   end;
 
   UpdateAirBubbleList;
@@ -178,7 +178,7 @@ begin
   if lbAllAirBubbleDef.ItemIndex = -1 then
     Exit;
 
-  FSelectedAirBubble := TAir_Bubble_Mount(lbAllAirBubbleDef.Items.Objects[lbAllAirBubbleDef.ItemIndex]);
+  FSelectedAirBubble := TAir_Bubble_On_Board(lbAllAirBubbleDef.Items.Objects[lbAllAirBubbleDef.ItemIndex]);
 end;
 
 procedure TfrmAirBubbleOnBoardPickList.lbAirBubbleOnBoardClick(Sender: TObject);
@@ -186,13 +186,13 @@ begin
  if lbAirBubbleOnBoard.ItemIndex = -1 then
     Exit;
 
-  FSelectedAirBubble := TAir_Bubble_Mount( lbAirBubbleOnBoard.Items.Objects[lbAirBubbleOnBoard.ItemIndex]);
+  FSelectedAirBubble := TAir_Bubble_On_Board( lbAirBubbleOnBoard.Items.Objects[lbAirBubbleOnBoard.ItemIndex]);
 end;
 
 procedure TfrmAirBubbleOnBoardPickList.UpdateAirBubbleList;
 var
   i, j : Integer;
-  avaAirBubble, selAirBubble : TAir_Bubble_Mount;
+  avaAirBubble, selAirBubble : TAir_Bubble_On_Board;
   found : Boolean;
 begin
   lbAllAirBubbleDef.Items.Clear;

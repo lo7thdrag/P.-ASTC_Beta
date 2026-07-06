@@ -87,7 +87,7 @@ uses
 ufrmRadarMount, uDataModuleTTT, ufrmRadarOnBoardPickList, ufrmESMOnBoardPickList,
   ufrmESMMount, ufrmSonarMount, ufrmSONAROnBoardPickList, ufrmEODOnBoardPickList,
   ufrmSummaryEOD, ufrmMissileMount, ufrmTorpedoMount, ufrmGunMount,
-  ufrmVisualDetectorMount, ufrmEODMount;
+  ufrmVisualDetectorMount, ufrmElectroOpticalMount;
 
 {$REGION ' Form Handle '}
 

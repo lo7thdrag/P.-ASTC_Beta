@@ -1,35 +1,36 @@
-unit ufrmEODMount;
+unit ufrmElectroOpticalMount;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, ComCtrls, uDBAsset_Sensor,  uBlindZoneView,
-  uDBBlind_Zone,uDBAsset_Vehicle, tttData,Vcl.Imaging.pngimage;
+  Dialogs, StdCtrls, ExtCtrls, ComCtrls, Vcl.Imaging.pngimage,
+
+  uDBAsset_Vehicle, uDBAsset_Sensor, uBlindZoneView;
 
 type
-  TfrmEODMount = class(TForm)
-    pnl1Title: TPanel;
-    edtName: TEdit;
-    pnl2ControlPage: TPanel;
+  TfrmElectroOpticalMount = class(TForm)
     PageControl1: TPageControl;
     General: TTabSheet;
+    lblClassName: TStaticText;
+    edtClassName: TEdit;
+    lblMountExtension: TStaticText;
     cbMountExtension: TComboBox;
-    edtAntenna: TEdit;
+    lblBlindZones: TStaticText;
     pnlBlindZone: TPanel;
-    lbl1: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
-    lbl6: TLabel;
+    lblAntenna: TStaticText;
+    edtAntenna: TEdit;
+    lblFeetAntenna: TStaticText;
+    pnlMainBackground: TPanel;
+    pnl2ControlPage: TPanel;
+    pnl1Title: TPanel;
+    edtName: TEdit;
+    pnl3Button: TPanel;
+    imgExercise: TImage;
     btnApply: TButton;
-    btnCancel: TButton;
     btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
-    edtClassName: TLabel;
+    btnCancel: TButton;
+    txtClass: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -38,25 +39,27 @@ type
     //Global
     function GetNumberOfKoma(s : string): Boolean;
     procedure edtNumeralKeyPress(Sender: TObject; var Key: Char);
+    procedure ComboBoxDataChange(Sender: TObject);
+    procedure CheckBoxDataClick(Sender: TObject);
     procedure edtChange(Sender: TObject);
     procedure ValidationFormatInput();
 
     procedure cbMountExtensionChange(Sender: TObject);
     procedure pnlBlindZoneClick(Sender: TObject);
-
+    procedure edtAntennaKeyPress(Sender: TObject; var Key: Char);
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedEOD : TEOD_On_Board;
+    FSelectedEO : TEOD_On_Board;
 
     FBlindZoneView : TBlindZoneView;
 
     function CekInput: Boolean;
-    procedure UpdateEODData;
+    procedure UpdateEOData;
     procedure DrawBlindZone;
 
   public
@@ -65,29 +68,28 @@ type
     LastName : string;
 
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-    property SelectedEOD : TEOD_On_Board read FSelectedEOD write FSelectedEOD;
-
+    property SelectedEO : TEOD_On_Board read FSelectedEO write FSelectedEO;
   end;
 
 var
-  frmEODMount: TfrmEODMount;
+  frmElectroOpticalMount: TfrmElectroOpticalMount;
 
 implementation
 
 uses
-  uDataModuleTTT, ufrmBlindZoneAttachment;
+  uDataModuleTTT, ufrmEODOnBoardPickList, ufrmBlindZoneAttachment, uDBBlind_Zone, tttData;
 
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
 
-procedure TfrmEODMount.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmElectroOpticalMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FBlindZoneView.Free;
-  Action := cafree;
+//  FBlindZoneView.Free;
+//  Action := cafree;
 end;
 
-procedure TfrmEODMount.FormCreate(Sender: TObject);
+procedure TfrmElectroOpticalMount.FormCreate(Sender: TObject);
 begin
   FBlindZoneView := TBlindZoneView.Create(Self);
 
@@ -102,32 +104,33 @@ begin
   end;
 end;
 
-procedure TfrmEODMount.FormShow(Sender: TObject);
+procedure TfrmElectroOpticalMount.FormDestroy(Sender: TObject);
 begin
-  UpdateEODData;
+  FBlindZoneView.Free;
+end;
 
-  with FSelectedEOD.FData do
+procedure TfrmElectroOpticalMount.FormShow(Sender: TObject);
+begin
+  UpdateEOData;
+
+  with FSelectedEO.FData do
     btnApply.Enabled := EO_Instance_Index = 0;
-
-  isOK := True;
-  AfterClose := True;
-  btnCancel.Enabled := True;
 end;
 
 {$ENDREGION}
 
 {$REGION ' Button Handle '}
 
-procedure TfrmEODMount.btnOKClick(Sender: TObject);
+procedure TfrmElectroOpticalMount.btnOKClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
 
-  if isOk then
+   if isOk then
     Close;
 end;
 
-procedure TfrmEODMount.btnApplyClick(Sender: TObject);
+procedure TfrmElectroOpticalMount.btnApplyClick(Sender: TObject);
 begin
   if not CekInput then
   begin
@@ -137,14 +140,14 @@ begin
 
   ValidationFormatInput;
 
-  with FSelectedEOD do
+  with FSelectedEO do
   begin
     LastName := edtName.Text;
     FData.Instance_Identifier := edtName.Text;
     FData.Instance_Type := cbMountExtension.ItemIndex;
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
-    FData.Antenna_Height := StrToFloat(edtAntenna.Text);
     FData.EO_Index := FEO_Def.EO_Index;
+    FData.Antenna_Height := StrToFloat(edtAntenna.Text);
 
     if FData.EO_Instance_Index = 0 then
       dmTTT.InsertEOOnBoard(FData)
@@ -158,21 +161,21 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmEODMount.btnCancelClick(Sender: TObject);
+procedure TfrmElectroOpticalMount.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-procedure TfrmEODMount.cbMountExtensionChange(Sender: TObject);
+procedure TfrmElectroOpticalMount.cbMountExtensionChange(Sender: TObject);
 begin
-  edtName.Text := FSelectedEOD.FEO_Def.Class_Identifier + ' ' +
+  edtName.Text := FSelectedEO.FEO_Def.Class_Identifier + ' ' +
     cbMountExtension.Text;
 
   btnApply.Enabled := True;
 end;
 
-function TfrmEODMount.CekInput: Boolean;
+function TfrmElectroOpticalMount.CekInput: Boolean;
 begin
   Result := False;
 
@@ -180,14 +183,14 @@ begin
   if dmTTT.GetEOOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
   begin
     {Jika inputan baru}
-    if FSelectedEOD.FData.EO_Instance_Index = 0 then
+    if FSelectedEO.FData.EO_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate EOD mount!' + Char(13) + 'Choose different mount to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -195,18 +198,18 @@ begin
   Result := True;
 end;
 
-procedure TfrmEODMount.DrawBlindZone;
+procedure TfrmElectroOpticalMount.DrawBlindZone;
 var
   i : Integer;
   blindZone : TBlind_Zone;
-  zoneSector : TZoneSector;
-
+  zs : TZoneSector;
 begin
   FBlindZoneView.ClearZone;
 
-  with FSelectedEOD do
+  with FSelectedEO do
   begin
-    dmTTT.GetBlindZone(Ord(bzcEO), FData.EO_Instance_Index, FBlind);
+    dmTTT.GetBlindZone(Ord(bzcEO), FData.EO_Instance_Index,
+      FBlind);
 
     blindZone := TBlind_Zone.Create;
     FBZone_1 := blindZone.FData;
@@ -226,28 +229,40 @@ begin
     if (FBZone_1.BlindZone_Number <> 0) and
       (FBZone_1.Start_Angle <> FBZone_1.End_Angle) then
     begin
-      zoneSector := FBlindZoneView.AddZone;
-      zoneSector.StartAngle := FBZone_1.Start_Angle;
-      zoneSector.EndAngle := FBZone_1.End_Angle;
+      zs := FBlindZoneView.AddZone;
+      zs.StartAngle := FBZone_1.Start_Angle;
+      zs.EndAngle := FBZone_1.End_Angle;
     end;
 
     if (FBZone_2.BlindZone_Number <> 0) and
       (FBZone_2.Start_Angle <> FBZone_2.End_Angle) then
     begin
-      zoneSector := FBlindZoneView.AddZone;
-      zoneSector.StartAngle := FBZone_2.Start_Angle;
-      zoneSector.EndAngle := FBZone_2.End_Angle;
+      zs := FBlindZoneView.AddZone;
+      zs.StartAngle := FBZone_2.Start_Angle;
+      zs.EndAngle := FBZone_2.End_Angle;
     end;
   end;
 
   FBlindZoneView.Repaint;
 end;
 
-procedure TfrmEODMount.pnlBlindZoneClick(Sender: TObject);
+procedure TfrmElectroOpticalMount.edtAntennaKeyPress(Sender: TObject;var Key: Char);
 begin
-  if FSelectedEOD.FData.EO_Instance_Index = 0 then
+  if not (Key in [#48 .. #57, #8, #13, #46]) then
+    Key := #0;
+
+  if Key = #13 then
   begin
-    ShowMessage('Save data before edit blind zone ');
+    edtAntenna.Text := FormatFloat('0.0', StrToFloat(edtAntenna.Text));
+    btnApply.Enabled := True;
+  end;
+end;
+
+procedure TfrmElectroOpticalMount.pnlBlindZoneClick(Sender: TObject);
+begin
+  if FSelectedEO.FData.EO_Instance_Index = 0 then
+  begin
+    ShowMessage('Simpan data terlebih dahulu sebelum mengubah nilai blind zone');
     Exit;
   end;
 
@@ -256,22 +271,19 @@ begin
     with frmBlindZonesAttachment do
     begin
       OnBoardType := bzcEO;
-      OnBoardOwner := FSelectedEOD;
+      OnBoardOwner := FSelectedEO;
       ShowModal;
+      DrawBlindZone;
     end;
-
-    btnApply.Enabled := frmBlindZonesAttachment.AfterClose;
-    btnCancel.Enabled := not frmBlindZonesAttachment.AfterClose;
   finally
     frmBlindZonesAttachment.Free;
   end;
-  
-  DrawBlindZone;
+
 end;
 
-procedure TfrmEODMount.UpdateEODData;
+procedure TfrmElectroOpticalMount.UpdateEOData;
 begin
-  with FSelectedEOD do
+  with FSelectedEO do
   begin
     cbMountExtension.ItemIndex := FData.Instance_Type;
 
@@ -281,11 +293,11 @@ begin
       edtName.Text := FData.Instance_Identifier;
 
     LastName := edtName.Text;
-    edtClassName.Caption := FEO_Def.Class_Identifier;
+    edtClassName.Text := FEO_Def.Class_Identifier;
 
     DrawBlindZone;
 
-    edtAntenna.Text := FormatFloat('0', FData.Antenna_Height);
+    edtAntenna.Text := FormatFloat('0.0', FData.Antenna_Height);
   end;
 end;
 
@@ -293,7 +305,7 @@ end;
 
 {$REGION ' Filter Input '}
 
-function TfrmEODMount.GetNumberOfKoma(s: string): Boolean;
+function TfrmElectroOpticalMount.GetNumberOfKoma(s: string): Boolean;
 var
   a, i : Integer;
 begin
@@ -310,7 +322,7 @@ begin
     Result := True;
 end;
 
-procedure TfrmEODMount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmElectroOpticalMount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -344,12 +356,25 @@ begin
   end;
 end;
 
-procedure TfrmEODMount.edtChange(Sender: TObject);
+procedure TfrmElectroOpticalMount.CheckBoxDataClick(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmEODMount.ValidationFormatInput;
+procedure TfrmElectroOpticalMount.ComboBoxDataChange(Sender: TObject);
+begin
+  if TComboBox(Sender).ItemIndex = -1 then
+    TComboBox(Sender).ItemIndex := 0;
+
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmElectroOpticalMount.edtChange(Sender: TObject);
+begin
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmElectroOpticalMount.ValidationFormatInput;
 var
   i: Integer;
   value : Double;
@@ -378,6 +403,5 @@ begin
 end;
 
 {$ENDREGION}
-
 
 end.

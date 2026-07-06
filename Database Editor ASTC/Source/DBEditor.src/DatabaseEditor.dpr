@@ -303,7 +303,6 @@ uses
   ufrmAirBubbleMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmAirBubbleMount.pas' {frmAirBubbleMount},
   ufrmBombMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmBombMount.pas' {frmBombMount},
   ufrmChaffMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmChaffMount.pas' {frmChaffMount},
-  ufrmEODMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmEODMount.pas' {frmEODMount},
   ufrmESMMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmESMMount.pas' {frmESMMount},
   ufrmFloatingDecoyMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmFloatingDecoyMount.pas' {frmFloatingDecoyMount},
   ufrmGunMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmGunMount.pas' {frmGunMount},
@@ -366,7 +365,8 @@ uses
   ufrmRPLResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmRPLResourceAllocationPickList.pas' {frmRPLResourceAllocationPickList},
   ufrmVehicleResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmVehicleResourceAllocationPickList.pas' {frmVehicleResourceAllocationPickList},
   ufrmWaypointResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmWaypointResourceAllocationPickList.pas' {frmWaypointResourceAllocationPickList},
-  ufrmExercise in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmExercise.pas' {frmExercise};
+  ufrmExercise in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmExercise.pas' {frmExercise},
+  ufrmElectroOpticalMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmElectroOpticalMount.pas' {frmElectroOpticalMount};
 
 {$R *.res}
 
@@ -377,7 +377,8 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmUserMainForm, frmUserMainForm);
   Application.CreateForm(TdmTTT, dmTTT);
-//  Application.CreateForm(TfrmExercise, frmExercise);
+  Application.CreateForm(TfrmElectroOpticalMount, frmElectroOpticalMount);
+  //  Application.CreateForm(TfrmExercise, frmExercise);
 //  Application.CreateForm(TfrmCountermeasure, frmCountermeasure);
 //  Application.CreateForm(TfrmOther, frmOther);
 //  Application.CreateForm(TfrmPlatforms, frmPlatforms);

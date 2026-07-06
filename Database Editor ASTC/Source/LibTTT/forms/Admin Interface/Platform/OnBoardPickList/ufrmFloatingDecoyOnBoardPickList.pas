@@ -60,7 +60,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryFloatingDecoy, ufrmFloatingMount;
+  uDataModuleTTT, ufrmSummaryFloatingDecoy, ufrmFloatingDecoyMount;
 
 {$R *.dfm}
 
@@ -113,16 +113,16 @@ begin
   if lbAllFloatingDecoyDef.ItemIndex = -1 then
     Exit;
 
-  frmFloatingMount := TfrmFloatingMount.Create(Self);
+  frmFloatingDecoyMount := TfrmFloatingDecoyMount.Create(Self);
   try
-    with frmFloatingMount do
+    with frmFloatingDecoyMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedFloatingDecoy := FSelectedFloatingDecoy;
       ShowModal;
     end;
   finally
-    frmFloatingMount.Free;
+    frmFloatingDecoyMount.Free;
   end;
 
   UpdateFloatingDecoyList;
@@ -133,16 +133,16 @@ begin
   if lbAllFloatingDecoyOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmFloatingMount := TfrmFloatingMount.Create(Self);
+  frmFloatingDecoyMount := TfrmFloatingDecoyMount.Create(Self);
   try
-    with frmFloatingMount do
+    with frmFloatingDecoyMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedFloatingDecoy := FSelectedFloatingDecoy;
       ShowModal;
     end;
   finally
-    frmFloatingMount.Free;
+    frmFloatingDecoyMount.Free;
   end;
 
   UpdateFloatingDecoyList;

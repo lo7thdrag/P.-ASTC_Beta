@@ -68,8 +68,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, uDBBlind_Zone, uBlindZoneAttachment, ufrmSummaryVehicle,
-  ufrmIFFOnBoardPickList, tttData;
+  uDataModuleTTT, uDBBlind_Zone, ufrmBlindZoneAttachment, ufrmSummaryVehicle, tttData;
 
 {$R *.dfm}
 
@@ -250,9 +249,9 @@ begin
     Exit;
   end;
 
-  BlindZonesAttachmentForm := TBlindZonesAttachmentForm.Create(Self);
+  frmBlindZonesAttachment := TfrmBlindZonesAttachment.Create(Self);
   try
-    with BlindZonesAttachmentForm do
+    with frmBlindZonesAttachment do
     begin
       OnBoardType := bzcVisual;
       OnBoardOwner := FSelectedVisual;
@@ -260,7 +259,7 @@ begin
       DrawBlindZone;
     end;
   finally
-    BlindZonesAttachmentForm.Free;
+    frmBlindZonesAttachment.Free;
   end;
 
 end;

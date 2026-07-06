@@ -197,10 +197,15 @@ begin
       end;
     end;
 
-    if found then
-      lbAllVehicleOnRPL.Items.AddObject(Vehicle.FData.Vehicle_Identifier, PlatformLibrary)
-    else
+    if not found then
       lbAllVehicleDef.Items.AddObject(Vehicle.FData.Vehicle_Identifier, Vehicle);
+  end;
+
+  for j := 0 to FAllVehicleOnRPLList.Count - 1 do
+  begin
+    PlatformLibrary := FAllVehicleOnRPLList.Items[j];
+
+    lbAllVehicleOnRPL.Items.AddObject(PlatformLibrary.FData.Identifier, PlatformLibrary)
   end;
 end;
 

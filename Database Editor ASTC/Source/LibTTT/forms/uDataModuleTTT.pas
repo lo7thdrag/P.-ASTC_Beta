@@ -20643,6 +20643,7 @@ begin
 
         with rec.FData do
         begin
+          Identifier := FieldByName('Vehicle_Identifier').AsString;
           Library_Entry_Index := FieldByName('Library_Entry_Index').AsInteger;
           Library_Index := FieldByName('Library_Index').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;

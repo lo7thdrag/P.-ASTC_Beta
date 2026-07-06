@@ -1,9 +1,9 @@
-object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
+object frmRadarJammerOnBoardPickList: TfrmRadarJammerOnBoardPickList
   Left = 0
   Top = 0
   BorderIcons = []
   BorderStyle = bsToolWindow
-  Caption = '   Missile On Board'
+  Caption = '   Radar Jammer On Board'
   ClientHeight = 639
   ClientWidth = 754
   Color = clBtnShadow
@@ -13,7 +13,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poMainFormCenter
   OnClose = FormClose
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -44840,9 +44840,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
       638A52EECF558B599F22458A142952A448F113E2FF018F0E1FFAC27F4F700000
       000049454E44AE426082}
     Stretch = True
-    ExplicitTop = 48
-    ExplicitWidth = 494
-    ExplicitHeight = 588
+    ExplicitLeft = -260
   end
   object pnlMainBackground: TPanel
     Left = 0
@@ -44928,7 +44926,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         TabOrder = 2
         OnClick = btnRemoveClick
       end
-      object lbAllMissileDef: TListBox
+      object lbAllRadarJammerDef: TListBox
         Left = 12
         Top = 62
         Width = 313
@@ -44940,10 +44938,10 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 3
-        OnClick = lbAllMissileDefClick
+        OnClick = lbAllRadarJammerDefClick
         OnDblClick = btnAddClick
       end
-      object lbAllMissileOnBoard: TListBox
+      object lbRadarJammerOnBoard: TListBox
         Left = 430
         Top = 62
         Width = 313
@@ -44955,7 +44953,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 4
-        OnClick = lbAllMissileOnBoardClick
+        OnClick = lbRadarJammerOnBoardClick
         OnDblClick = btnEditClick
       end
       object btnClose: TButton
@@ -45005,7 +45003,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of Missile On Board'
+          Caption = 'List of Radar Jammer On Board'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
@@ -45034,7 +45032,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of available Missile'
+          Caption = 'List of available Radar Jammer'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite

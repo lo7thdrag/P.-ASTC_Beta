@@ -4,24 +4,27 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Weapon, uDBAsset_Vehicle, uSimContainers;
+  Dialogs, ExtCtrls, StdCtrls, uDBAsset_Vehicle, uDBAsset_Weapon, uDBAssetObject,
+  Vcl.Imaging.pngimage, uSimContainers;
 
 type
   TfrmBombOnBoardPickList = class(TForm)
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEdit: TButton;
+    btnRemove: TButton;
     lbAllBombDef: TListBox;
     lbAllBombOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnClose: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -34,6 +37,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -56,23 +61,42 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmBombMount, tttData;
+  uDataModuleTTT, ufrmBombDepthChargeMount;
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
-procedure TfrmBombOnBoardPickList.FormClose(Sender: TObject;  var Action: TCloseAction);
+procedure TfrmBombOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllBombDefList);
-  FreeItemsAndFreeList(FAllBombOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmBombOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllBombDefList := TList.Create;
   FAllBombOnBoardList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmBombOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllBombDefList);
+  FreeItemsAndFreeList(FAllBombOnBoardList);
 end;
 
 procedure TfrmBombOnBoardPickList.FormShow(Sender: TObject);
@@ -89,17 +113,16 @@ begin
   if lbAllBombDef.ItemIndex = -1 then
     Exit;
 
-  frmBombMount := TfrmBombMount.Create(Self);
+  frmBombDepthChargeMount := TfrmBombDepthChargeMount.Create(Self);
   try
-    with frmBombMount do
+    with frmBombDepthChargeMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedBomb := FSelectedBomb;
       ShowModal;
     end;
-    AfterClose := frmBombMount.AfterClose;
   finally
-    frmBombMount.Free;
+    frmBombDepthChargeMount.Free;
   end;
 
   UpdateBombList;
@@ -110,17 +133,16 @@ begin
   if lbAllBombOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmBombMount := TfrmBombMount.Create(Self);
+  frmBombDepthChargeMount := TfrmBombDepthChargeMount.Create(Self);
   try
-    with frmBombMount do
+    with frmBombDepthChargeMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedBomb := FSelectedBomb;
       ShowModal;
     end;
-    AfterClose := frmBombMount.AfterClose;
   finally
-    frmBombMount.Free;
+    frmBombDepthChargeMount.Free;
   end;
 
   UpdateBombList;
@@ -138,6 +160,14 @@ begin
 
   AfterClose := True;
   UpdateBombList;
+end;
+
+procedure TfrmBombOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  begin
+    UpdateBombList;
+  end;
 end;
 
 procedure TfrmBombOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -164,12 +194,12 @@ end;
 procedure TfrmBombOnBoardPickList.UpdateBombList;
 var
   i : Integer;
-  bomb :  TBomb_Definition;
+  bomb : TBomb_Definition;
 begin
   lbAllBombDef.Items.Clear;
   lbAllBombOnBoard.Items.Clear;
 
-  dmTTT.GetAllBombDef(FAllBombDefList);
+  dmTTT.GetFilterBombDef(FAllBombDefList, edtSearch.Text);
   dmTTT.GetBombOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllBombOnBoardList);
 
   for i := 0 to FAllBombDefList.Count - 1 do
@@ -181,7 +211,7 @@ begin
   for i := 0 to FAllBombOnBoardList.Count - 1 do
   begin
     bomb := FAllBombOnBoardList.Items[i];
-    lbAllBombOnBoard.Items.AddObject(bomb.FData.Bomb_Identifier, bomb);
+    lbAllBombOnBoard.Items.AddObject(bomb.FPoint.FData.Instance_Identifier, bomb);
   end;
 end;
 

@@ -5,50 +5,54 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle,uDBAsset_Sensor, uSimContainers ;
+  uDBAsset_Vehicle, uDBAsset_Sensor, uSimContainers ;
 
 type
   TfrmEODOnBoardPickList = class(TForm)
-    lbAllEODef: TListBox;
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEdit: TButton;
+    btnRemove: TButton;
+    lbAllEODDef: TListBox;
     lbAllEODOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
     procedure lbAllEODDefClick(Sender: TObject);
-    procedure lbAlEODOnBoardClick(Sender: TObject);
+    procedure lbAllEODOnBoardClick(Sender: TObject);
 
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
     FAllEODDefList : TList;
-    FAllEODOnBoardList : TList;
+    FSelectedEOList : TList;
 
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedEOD : TEOD_On_Board;
+    FSelectedEO : TEOD_On_Board;
 
-    procedure UpdateEODList;
+    procedure UpdateEOList;
 
   public
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-
   end;
 
 var
@@ -57,31 +61,47 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmEODMount, tttData;
-
+  uDataModuleTTT, ufrmElectroOpticalMount, tttData;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmEODOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllEODDefList);
-  FreeItemsAndFreeList(FAllEODOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmEODOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllEODDefList := TList.Create;
-  FAllEODOnBoardList := TList.Create;
+  FSelectedEOList := TList.Create;
 
-  AfterClose := False;
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmEODOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllEODDefList);
+  FreeItemsAndFreeList(FSelectedEOList);
 end;
 
 procedure TfrmEODOnBoardPickList.FormShow(Sender: TObject);
 begin
-  UpdateEODList;
+  UpdateEOList;
 end;
 
 {$ENDREGION}
@@ -90,23 +110,22 @@ end;
 
 procedure TfrmEODOnBoardPickList.btnAddClick(Sender: TObject);
 begin
-  if lbAllEODef.ItemIndex = -1 then
+  if lbAllEODDef.ItemIndex = -1 then
     Exit;
 
-  frmEODMount := TfrmEODMount.Create(Self);
+  frmElectroOpticalMount := TfrmElectroOpticalMount.Create(Self);
   try
-    with frmEODMount do
+    with frmElectroOpticalMount do
     begin
       SelectedVehicle := FSelectedVehicle;
-      SelectedEOD := FSelectedEOD;
+      SelectedEO := FSelectedEO;
       ShowModal;
     end;
-    AfterClose := frmEODMount.AfterClose;
   finally
-    frmEODMount.Free;
+    frmElectroOpticalMount.Free;
   end;
 
-  UpdateEODList;
+  UpdateEOList;
 end;
 
 procedure TfrmEODOnBoardPickList.btnEditClick(Sender: TObject);
@@ -114,20 +133,19 @@ begin
   if lbAllEODOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmEODMount := TfrmEODMount.Create(Self);
+  frmElectroOpticalMount := TfrmElectroOpticalMount.Create(Self);
   try
-    with frmEODMount do
+    with frmElectroOpticalMount do
     begin
       SelectedVehicle := FSelectedVehicle;
-      SelectedEOD := FSelectedEOD;
+      SelectedEO := FSelectedEO;
       ShowModal;
     end;
-    AfterClose := frmEODMount.AfterClose;
   finally
-    frmEODMount.Free;
+    frmElectroOpticalMount.Free;
   end;
 
-  UpdateEODList;
+  UpdateEOList;
 end;
 
 procedure TfrmEODOnBoardPickList.btnRemoveClick(Sender: TObject);
@@ -135,14 +153,22 @@ begin
   if lbAllEODOnBoard.ItemIndex = -1 then
     Exit;
 
-  with FSelectedEOD.FData do
+  with FSelectedEO.FData do
   begin
     dmTTT.DeleteBlindZone(Ord(bzcEO), EO_Instance_Index);
     dmTTT.DeleteEOOnBoard(2, EO_Instance_Index);
   end;
 
-  AfterClose := True;
-  UpdateEODList;
+  UpdateEOList;
+end;
+
+procedure TfrmEODOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateEOList;
+  end;
 end;
 
 procedure TfrmEODOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -152,45 +178,44 @@ end;
 
 procedure TfrmEODOnBoardPickList.lbAllEODDefClick(Sender: TObject);
 begin
-  if lbAllEODef.ItemIndex = -1 then
+  if lbAllEODDef.ItemIndex = -1 then
     Exit;
 
-  FSelectedEOD := TEOD_On_Board(lbAllEODef.Items.Objects[lbAllEODef.ItemIndex]);
+  FSelectedEO := TEOD_On_Board(lbAllEODDef.Items.Objects[lbAllEODDef.ItemIndex]);
 end;
 
-procedure TfrmEODOnBoardPickList.lbAlEODOnBoardClick(Sender: TObject);
+procedure TfrmEODOnBoardPickList.lbAllEODOnBoardClick(Sender: TObject);
 begin
   if lbAllEODOnBoard.ItemIndex = -1 then
     Exit;
 
-  FSelectedEOD := TEOD_On_Board(lbAllEODOnBoard.Items.Objects[lbAllEODOnBoard.ItemIndex]);
+  FSelectedEO := TEOD_On_Board(lbAllEODOnBoard.Items.Objects[lbAllEODOnBoard.ItemIndex]);
 end;
 
-procedure TfrmEODOnBoardPickList.UpdateEODList;
+procedure TfrmEODOnBoardPickList.UpdateEOList;
 var
   i : Integer;
-  eod : TEOD_On_Board;
+  eo : TEOD_On_Board;
 begin
-  lbAllEODef.Items.Clear;
+  lbAllEODDef.Items.Clear;
   lbAllEODOnBoard.Items.Clear;
 
-  dmTTT.GetAllEODef(FAllEODDefList);
-  dmTTT.GetEOOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllEODOnBoardList);
+  dmTTT.GetFilterEODDef(FAllEODDefList, edtSearch.Text);
+  dmTTT.GetEOOnBoard(FSelectedVehicle.FData.Vehicle_Index, FSelectedEOList);
 
   for i := 0 to FAllEODDefList.Count - 1 do
   begin
-    eod := FAllEODDefList.Items[i];
-    lbAllEODef.Items.AddObject(eod.FEO_Def.Class_Identifier, eod);
+    eo := FAllEODDefList.Items[i];
+    lbAllEODDef.Items.AddObject(eo.FEO_Def.Class_Identifier, eo);
   end;
 
-  for i := 0 to FAllEODOnBoardList.Count - 1 do
+  for i := 0 to FSelectedEOList.Count - 1 do
   begin
-    eod := FAllEODOnBoardList.Items[i];
-    lbAllEODOnBoard.Items.AddObject(eod.FData.Instance_Identifier, eod);
+    eo := FSelectedEOList.Items[i];
+    lbAllEODOnBoard.Items.AddObject(eo.FData.Instance_Identifier, eo);
   end;
 end;
 
 {$ENDREGION}
-
 
 end.

@@ -1,9 +1,9 @@
-object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
+object frmVisualOnBoardPickList: TfrmVisualOnBoardPickList
   Left = 0
   Top = 0
   BorderIcons = []
   BorderStyle = bsToolWindow
-  Caption = '   Missile On Board'
+  Caption = 'Visual On Board'
   ClientHeight = 639
   ClientWidth = 754
   Color = clBtnShadow
@@ -20,6 +20,12 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
+  object Shape1: TShape
+    Left = 8
+    Top = 374
+    Width = 608
+    Height = 2
+  end
   object imgBackground: TImage
     Left = 0
     Top = 0
@@ -44852,10 +44858,6 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 48
-    ExplicitWidth = 494
-    ExplicitHeight = 588
     object pnlMain: TPanel
       Left = 1
       Top = 1
@@ -44866,10 +44868,6 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 754
-      ExplicitHeight = 639
       object lbl1: TLabel
         Left = 12
         Top = 544
@@ -44888,7 +44886,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         Top = 263
         Width = 80
         Height = 30
-        Caption = 'Add'
+        Caption = 'Add '
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -44928,7 +44926,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         TabOrder = 2
         OnClick = btnRemoveClick
       end
-      object lbAllMissileDef: TListBox
+      object lbAllVisualDef: TListBox
         Left = 12
         Top = 62
         Width = 313
@@ -44940,10 +44938,10 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 3
-        OnClick = lbAllMissileDefClick
+        OnClick = lbAllVisualDefClick
         OnDblClick = btnAddClick
       end
-      object lbAllMissileOnBoard: TListBox
+      object lbAllVisualOnBoard: TListBox
         Left = 430
         Top = 62
         Width = 313
@@ -44955,7 +44953,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 4
-        OnClick = lbAllMissileOnBoardClick
+        OnClick = lbAllVisualOnBoardClick
         OnDblClick = btnEditClick
       end
       object btnClose: TButton
@@ -45005,7 +45003,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of Missile On Board'
+          Caption = 'List of Visual On Board'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
@@ -45034,7 +45032,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of available Missile'
+          Caption = 'List of available Visual'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite

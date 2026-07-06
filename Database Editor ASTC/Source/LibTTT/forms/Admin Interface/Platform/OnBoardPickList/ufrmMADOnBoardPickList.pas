@@ -4,23 +4,27 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls,uDBAsset_Vehicle, uDBAsset_Sensor, Vcl.Imaging.pngimage, uSimContainers;
+  Dialogs, ExtCtrls, StdCtrls, uDBAsset_Vehicle, uDBAsset_Sensor,
+  Vcl.Imaging.pngimage, uSimContainers;
 
 type
   TfrmMADOnBoardPickList = class(TForm)
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEdit: TButton;
+    btnRemove: TButton;
     lbAllMADDef: TListBox;
     lbAllMADOnBoard: TListBox;
-    ImgBackgroundForm: TImage;
-    btnAdd: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundOnBoard: TImage;
-    btnRemove: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    btnEdit: TImage;
-    btnClose: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +37,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
@@ -47,7 +53,6 @@ type
   public
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-
   end;
 
 var
@@ -60,25 +65,45 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
-procedure TfrmMADOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmMADOnBoardPickList.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllMADDefList);
-  FreeItemsAndFreeList(FAllMADOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmMADOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllMADDefList := TList.Create;
   FAllMADOnBoardList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmMADOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllMADDefList);
+  FreeItemsAndFreeList(FAllMADOnBoardList);
 end;
 
 procedure TfrmMADOnBoardPickList.FormShow(Sender: TObject);
 begin
   UpdateMADList;
 end;
+
 
 {$ENDREGION}
 
@@ -97,7 +122,6 @@ begin
       SelectedMAD := FSelectedMAD;
       ShowModal;
     end;
-    AfterClose := frmMADMount.AfterClose;
   finally
     frmMADMount.Free;
   end;
@@ -105,7 +129,7 @@ begin
   UpdateMADList;
 end;
 
-procedure TfrmMADOnBoardPickList.btnEditClick(Sender: TObject);
+ procedure TfrmMADOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllMADOnBoard.ItemIndex = -1 then
     Exit;
@@ -118,7 +142,6 @@ begin
       SelectedMAD := FSelectedMAD;
       ShowModal;
     end;
-    AfterClose := frmMADMount.AfterClose;
   finally
     frmMADMount.Free;
   end;
@@ -126,7 +149,7 @@ begin
   UpdateMADList;
 end;
 
-procedure TfrmMADOnBoardPickList.btnRemoveClick(Sender: TObject);
+ procedure TfrmMADOnBoardPickList.btnRemoveClick(Sender: TObject);
 begin
   if lbAllMADOnBoard.ItemIndex = -1 then
     Exit;
@@ -136,8 +159,16 @@ begin
     dmTTT.DeleteMADOnBoard(2, MAD_Instance_Index);
   end;
 
-  AfterClose := True;
   UpdateMADList;
+end;
+
+procedure TfrmMADOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMADList;
+  end;
 end;
 
 procedure TfrmMADOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -150,7 +181,7 @@ begin
   if lbAllMADDef.ItemIndex = -1 then
     Exit;
 
-  FSelectedMAD := TMAD_On_Board(lbAllMADDef.Items.Objects[lbAllMADDef.ItemIndex]);
+  FSelectedMAD := TMAD_On_Board( lbAllMADDef.Items.Objects[lbAllMADDef.ItemIndex]);
 end;
 
 procedure TfrmMADOnBoardPickList.lbAllMADOnBoardClick(Sender: TObject);
@@ -158,33 +189,35 @@ begin
   if lbAllMADOnBoard.ItemIndex = -1 then
     Exit;
 
-  FSelectedMAD := TMAD_On_Board(lbAllMADOnBoard.Items.Objects[lbAllMADOnBoard.ItemIndex]);
+  FSelectedMAD := TMAD_On_Board( lbAllMADOnBoard.Items.Objects[lbAllMADOnBoard.ItemIndex]);
 end;
 
 procedure TfrmMADOnBoardPickList.UpdateMADList;
 var
   i : Integer;
-  mad : TMAD_On_Board;
+  MAD, madSel : TMAD_On_Board;
 begin
   lbAllMADDef.Items.Clear;
   lbAllMADOnBoard.Items.Clear;
 
-  dmTTT.GetAllMADDef(FAllMADDefList);
-  dmTTT.GetMADOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllMADOnBoardList);
+  dmTTT.GetFilterMADDef(FAllMADDefList, edtSearch.Text);
+  dmTTT.GetMADOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllMADOnBoardList);
 
   for i := 0 to FAllMADDefList.Count - 1 do
   begin
-    mad := FAllMADDefList.Items[i];
-    lbAllMADDef.Items.AddObject(mad.FMAD_Def.Class_Identifier, mad);
+    MAD := FAllMADDefList.Items[i];
+    lbAllMADDef.Items.AddObject(MAD.FMAD_Def.Class_Identifier, MAD);
   end;
 
   for i := 0 to FAllMADOnBoardList.Count - 1 do
   begin
-    mad := FAllMADOnBoardList.Items[i];
-    lbAllMADOnBoard.Items.AddObject(mad.FData.Instance_Identifier, mad);
+    MAD := FAllMADOnBoardList.Items[i];
+    lbAllMADOnBoard.Items.AddObject(MAD.FMAD_Def.Class_Identifier, MAD);
   end;
+
 end;
 
 {$ENDREGION}
 
 end.
+

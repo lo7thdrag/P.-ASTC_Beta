@@ -1,9 +1,9 @@
-object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
+object frmChaffOnBoardOnBoardPickList: TfrmChaffOnBoardOnBoardPickList
   Left = 0
   Top = 0
   BorderIcons = []
   BorderStyle = bsToolWindow
-  Caption = '   Missile On Board'
+  Caption = '   Chaff On Board'
   ClientHeight = 639
   ClientWidth = 754
   Color = clBtnShadow
@@ -13,7 +13,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poMainFormCenter
   OnClose = FormClose
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -44840,9 +44840,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
       638A52EECF558B599F22458A142952A448F113E2FF018F0E1FFAC27F4F700000
       000049454E44AE426082}
     Stretch = True
-    ExplicitTop = 48
-    ExplicitWidth = 494
-    ExplicitHeight = 588
+    ExplicitLeft = -260
   end
   object pnlMainBackground: TPanel
     Left = 0
@@ -44852,10 +44850,6 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 48
-    ExplicitWidth = 494
-    ExplicitHeight = 588
     object pnlMain: TPanel
       Left = 1
       Top = 1
@@ -44866,10 +44860,6 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 754
-      ExplicitHeight = 639
       object lbl1: TLabel
         Left = 12
         Top = 544
@@ -44898,7 +44888,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         TabOrder = 0
         OnClick = btnAddClick
       end
-      object btnEdit: TButton
+      object btnEditMount: TButton
         Left = 430
         Top = 542
         Width = 313
@@ -44911,7 +44901,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 1
-        OnClick = btnEditClick
+        OnClick = btnEditMountClick
       end
       object btnRemove: TButton
         Left = 337
@@ -44928,7 +44918,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         TabOrder = 2
         OnClick = btnRemoveClick
       end
-      object lbAllMissileDef: TListBox
+      object lbAllChaffDef: TListBox
         Left = 12
         Top = 62
         Width = 313
@@ -44940,10 +44930,10 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 3
-        OnClick = lbAllMissileDefClick
+        OnClick = lbAllChaffDefClick
         OnDblClick = btnAddClick
       end
-      object lbAllMissileOnBoard: TListBox
+      object lbAllChaffOnBoard: TListBox
         Left = 430
         Top = 62
         Width = 313
@@ -44955,8 +44945,8 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 4
-        OnClick = lbAllMissileOnBoardClick
-        OnDblClick = btnEditClick
+        OnClick = lbAllChaffOnBoardClick
+        OnDblClick = btnEditMountClick
       end
       object btnClose: TButton
         Left = 663
@@ -45005,7 +44995,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of Missile On Board'
+          Caption = 'List of Chaff On Board'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
@@ -45034,7 +45024,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of available Missile'
+          Caption = 'List of Available Chaff'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite

@@ -4,23 +4,28 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls,uDBAsset_Vehicle,uDBAsset_Sensor, Vcl.Imaging.pngimage, uSimContainers;
+  Dialogs, ExtCtrls, StdCtrls, uDBAsset_Vehicle, uDBAsset_Sensor,
+  Vcl.Imaging.pngimage, uSimContainers;
 
 type
   TfrmESMOnBoardPickList = class(TForm)
+    shp1: TShape;
+    pnlMain: TPanel;
     lbAllESMDef: TListBox;
-    lbESMOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    lbAllESMOnBoard: TListBox;
+    btnAdd: TButton;
+    btnRemove: TButton;
+    btnEditMount: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnClose: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +38,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
@@ -47,7 +54,6 @@ type
   public
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-
   end;
 
 var
@@ -56,24 +62,42 @@ var
 implementation
 
 uses
-  uDataModuleTTT,ufrmESMMount, tttData;
-
+  uDataModuleTTT, ufrmESMMount, tttData;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmESMOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllESMDefList);
-  FreeItemsAndFreeList(FAllESMOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmESMOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllESMDefList := TList.Create;
   FAllESMOnBoardList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmESMOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllESMDefList);
+  FreeItemsAndFreeList(FAllESMOnBoardList);
 end;
 
 procedure TfrmESMOnBoardPickList.FormShow(Sender: TObject);
@@ -98,7 +122,6 @@ begin
       SelectedESM := FSelectedESM;
       ShowModal;
     end;
-    AfterClose := frmESMMount.AfterClose;
   finally
     frmESMMount.Free;
   end;
@@ -108,7 +131,7 @@ end;
 
 procedure TfrmESMOnBoardPickList.btnEditClick(Sender: TObject);
 begin
-  if lbESMOnBoard.ItemIndex = -1 then
+  if lbAllESMOnBoard.ItemIndex = -1 then
     Exit;
 
   frmESMMount := TfrmESMMount.Create(Self);
@@ -119,7 +142,6 @@ begin
       SelectedESM := FSelectedESM;
       ShowModal;
     end;
-    AfterClose := frmESMMount.AfterClose;
   finally
     frmESMMount.Free;
   end;
@@ -129,7 +151,7 @@ end;
 
 procedure TfrmESMOnBoardPickList.btnRemoveClick(Sender: TObject);
 begin
-  if lbESMOnBoard.ItemIndex = -1 then
+  if lbAllESMOnBoard.ItemIndex = -1 then
     Exit;
 
   with FSelectedESM.FData do
@@ -138,8 +160,16 @@ begin
     dmTTT.DeleteESMOnBoard(2, ESM_Instance_Index);
   end;
 
-  AfterClose := True;
   UpdateESMList;
+end;
+
+procedure TfrmESMOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateESMList;
+  end;
 end;
 
 procedure TfrmESMOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -157,10 +187,10 @@ end;
 
 procedure TfrmESMOnBoardPickList.lbAllESMOnBoardClick(Sender: TObject);
 begin
-  if lbESMOnBoard.ItemIndex = -1 then
+  if lbAllESMOnBoard.ItemIndex = -1 then
     Exit;
 
-  FSelectedESM := TESM_On_Board(lbESMOnBoard.Items.Objects[lbESMOnBoard.ItemIndex]);
+  FSelectedESM := TESM_On_Board(lbAllESMOnBoard.Items.Objects[lbAllESMOnBoard.ItemIndex]);
 end;
 
 procedure TfrmESMOnBoardPickList.UpdateESMList;
@@ -169,10 +199,10 @@ var
   esm : TESM_On_Board;
 begin
   lbAllESMDef.Items.Clear;
-  lbESMOnBoard.Items.Clear;
+  lbAllESMOnBoard.Items.Clear;
 
-  dmTTT.GetAllESMDef(FAllESMDefList);
-  dmTTT.GetESMOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllESMOnBoardList);
+  dmTTT.GetFilterESMDef(FAllESMDefList, edtSearch.Text);
+  dmTTT.GetESMOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllESMOnBoardList);
 
   for i := 0 to FAllESMDefList.Count - 1 do
   begin
@@ -183,7 +213,7 @@ begin
   for i := 0 to FAllESMOnBoardList.Count - 1 do
   begin
     esm := FAllESMOnBoardList.Items[i];
-    lbESMOnBoard.Items.AddObject(esm.FData.Instance_Identifier, esm);
+    lbAllESMOnBoard.Items.AddObject(esm.FData.Instance_Identifier, esm);
   end;
 end;
 

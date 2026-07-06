@@ -4,44 +4,48 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Countermeasure, uSimContainers ;
+  Dialogs, StdCtrls, ExtCtrls, uDBAsset_Vehicle, uDBAsset_Countermeasure, uSimContainers,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmAirBubbleOnBoardPickList = class(TForm)
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEdit: TButton;
+    btnRemove: TButton;
+    lbAirBubbleOnBoard: TListBox;
     lbAllAirBubbleDef: TListBox;
-    lbAllAirBubbleOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label3: TLabel;
-    Label4: TLabel;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
     procedure lbAllAirBubbleDefClick(Sender: TObject);
-    procedure lbAllAirBubbleOnBoardClick(Sender: TObject);
+    procedure lbAirBubbleOnBoardClick(Sender: TObject);
 
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
-
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllAirBubbleDefList : TList;
     FAllAirBubbleOnBoardList : TList;
 
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedAirBubble : TAir_Bubble_On_Board;
+    FSelectedAirBubble : TAir_Bubble_Mount;
 
     procedure UpdateAirBubbleList;
 
@@ -55,24 +59,43 @@ var
 
 implementation
 
+uses
+  uDataModuleTTT, ufrmSummaryAirBubble, ufrmAirBubblesMounts;
+
 {$R *.dfm}
 
-uses
-  uDataModuleTTT, ufrmAirBubbleMount;
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAirBubbleOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmAirBubbleOnBoardPickList.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllAirBubbleDefList);
-  FreeItemsAndFreeList(FAllAirBubbleOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmAirBubbleOnBoardPickList.FormCreate(Sender: TObject);
 begin
-  FAllAirBubbleDefList := TList.Create;
-  FAllAirBubbleOnBoardList := TList.Create;
+  FAllAirBubbleDefList      := TList.Create;
+  FAllAirBubbleOnBoardList  := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmAirBubbleOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllAirBubbleDefList);
+  FreeItemsAndFreeList(FAllAirBubbleOnBoardList);
 end;
 
 procedure TfrmAirBubbleOnBoardPickList.FormShow(Sender: TObject);
@@ -89,17 +112,16 @@ begin
   if lbAllAirBubbleDef.ItemIndex = -1 then
     Exit;
 
-  frmAirBubbleMount := TfrmAirBubbleMount.Create(Self);
+  frmAirBubblesMounts := TfrmAirBubblesMounts.Create(Self);
   try
-    with frmAirBubbleMount do
+    with frmAirBubblesMounts do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedAirBubble := FSelectedAirBubble;
       ShowModal;
     end;
-    AfterClose := frmAirBubbleMount.AfterClose;
   finally
-    frmAirBubbleMount.Free;
+    frmAirBubblesMounts.Free;
   end;
 
   UpdateAirBubbleList;
@@ -107,20 +129,19 @@ end;
 
 procedure TfrmAirBubbleOnBoardPickList.btnEditClick(Sender: TObject);
 begin
-  if lbAllAirBubbleOnBoard.ItemIndex = -1 then
+  if lbAirBubbleOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmAirBubbleMount := TfrmAirBubbleMount.Create(Self);
+  frmAirBubblesMounts := TfrmAirBubblesMounts.Create(Self);
   try
-    with frmAirBubbleMount do
+    with frmAirBubblesMounts do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedAirBubble := FSelectedAirBubble;
       ShowModal;
     end;
-    AfterClose := frmAirBubbleMount.AfterClose;
   finally
-    frmAirBubbleMount.Free;
+    frmAirBubblesMounts.Free;
   end;
 
   UpdateAirBubbleList;
@@ -128,16 +149,23 @@ end;
 
 procedure TfrmAirBubbleOnBoardPickList.btnRemoveClick(Sender: TObject);
 begin
-  if lbAllAirBubbleOnBoard.ItemIndex = -1 then
+  if lbAirBubbleOnBoard.ItemIndex = -1 then
     Exit;
 
   with FSelectedAirBubble.FData do
-  begin
     dmTTT.DeleteAirBubbleOnBoard(2, Air_Bubble_Instance_Index);
-  end;
 
   AfterClose := True;
   UpdateAirBubbleList;
+end;
+
+procedure TfrmAirBubbleOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateAirBubbleList;
+  end;
 end;
 
 procedure TfrmAirBubbleOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -150,38 +178,52 @@ begin
   if lbAllAirBubbleDef.ItemIndex = -1 then
     Exit;
 
-  FSelectedAirBubble := TAir_Bubble_On_Board(lbAllAirBubbleDef.Items.Objects[lbAllAirBubbleDef.ItemIndex]);
+  FSelectedAirBubble := TAir_Bubble_Mount(lbAllAirBubbleDef.Items.Objects[lbAllAirBubbleDef.ItemIndex]);
 end;
 
-procedure TfrmAirBubbleOnBoardPickList.lbAllAirBubbleOnBoardClick(Sender: TObject);
+procedure TfrmAirBubbleOnBoardPickList.lbAirBubbleOnBoardClick(Sender: TObject);
 begin
-  if lbAllAirBubbleOnBoard.ItemIndex = -1 then
+ if lbAirBubbleOnBoard.ItemIndex = -1 then
     Exit;
 
-  FSelectedAirBubble := TAir_Bubble_On_Board(lbAllAirBubbleOnBoard.Items.Objects[lbAllAirBubbleOnBoard.ItemIndex]);
+  FSelectedAirBubble := TAir_Bubble_Mount( lbAirBubbleOnBoard.Items.Objects[lbAirBubbleOnBoard.ItemIndex]);
 end;
 
 procedure TfrmAirBubbleOnBoardPickList.UpdateAirBubbleList;
 var
-  i : Integer;
-  airbubble : TAir_Bubble_On_Board;
+  i, j : Integer;
+  avaAirBubble, selAirBubble : TAir_Bubble_Mount;
+  found : Boolean;
 begin
   lbAllAirBubbleDef.Items.Clear;
-  lbAllAirBubbleOnBoard.Items.Clear;
+  lbAirBubbleOnBoard.Items.Clear;
 
-  dmTTT.GetAllAirBubbleDef(FAllAirBubbleDefList);
-  dmTTT.GetAirBubbleOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllAirBubbleOnBoardList);
+  dmTTT.GetFilterAirBubbleDef(FAllAirBubbleDefList, edtSearch.Text);
+  dmTTT.GetAirBubbleOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllAirBubbleOnBoardList);
 
   for i := 0 to FAllAirBubbleDefList.Count - 1 do
   begin
-    airbubble := FAllAirBubbleDefList.Items[i];
-    lbAllAirBubbleDef.Items.AddObject(airbubble.FAirBubble_Def.Air_Bubble_Identifier, airbubble);
-  end;
+    avaAirBubble := FAllAirBubbleDefList.Items[i];
 
-  for i := 0 to FAllAirBubbleOnBoardList.Count - 1 do
-  begin
-    airbubble := FAllAirBubbleOnBoardList.Items[i];
-    lbAllAirBubbleOnBoard.Items.AddObject(airbubble.FData.Instance_Identifier, airbubble);
+    found := False;
+    for j := 0 to FAllAirBubbleOnBoardList.Count - 1 do
+    begin
+      selAirBubble := FAllAirBubbleOnBoardList.Items[j];
+
+      if selAirBubble.FAirBubble_Def.Air_Bubble_Index = avaAirBubble.
+        FAirBubble_Def.Air_Bubble_Index then
+      begin
+        found := True;
+        Break;
+      end;
+    end;
+
+    if found then
+      lbAirBubbleOnBoard.Items.AddObject(selAirBubble.FData.Instance_Identifier,
+        selAirBubble)
+    else
+      lbAllAirBubbleDef.Items.AddObject(
+        avaAirBubble.FAirBubble_Def.Air_Bubble_Identifier, avaAirBubble);
   end;
 end;
 

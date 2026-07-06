@@ -5,25 +5,28 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Radar, uSimContainers ;
+  uDBAsset_Vehicle, uDBAsset_Radar, uSimContainers;
 
 type
   TfrmRadarOnBoardPickList = class(TForm)
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEditMount: TButton;
+    btnRemove: TButton;
     lbAllRadarDef: TListBox;
     lbAllRadarOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    lbl1: TLabel;
+    edtSearch: TEdit;
+    btnClose: TButton;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -34,6 +37,7 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllRadarDefList : TList;
@@ -59,22 +63,33 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmRadarOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmRadarOnBoardPickList.FormCreate(Sender: TObject);
+begin
+  FAllRadarDefList      := TList.Create;
+  FAllRadarOnBoardList  := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmRadarOnBoardPickList.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FAllRadarDefList);
   FreeItemsAndFreeList(FAllRadarOnBoardList);
-  Action := cafree;
-end;
-
-procedure TfrmRadarOnBoardPickList.FormCreate(Sender: TObject);
-begin
-  FAllRadarDefList := TList.Create;
-  FAllRadarOnBoardList := TList.Create;
-
-  AfterClose := False;
 end;
 
 procedure TfrmRadarOnBoardPickList.FormShow(Sender: TObject);
@@ -99,11 +114,9 @@ begin
       SelectedRadar := FSelectedRadar;
       ShowModal;
     end;
-    AfterClose := frmRadarMount.AfterClose;
   finally
     frmRadarMount.Free;
   end;
-
   UpdateRadarList;
 end;
 
@@ -139,8 +152,15 @@ begin
     dmTTT.DeleteRadarOnBoard(2, Radar_Instance_Index);
   end;
 
-  AfterClose := True;
   UpdateRadarList;
+end;
+
+procedure TfrmRadarOnBoardPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateRadarList;
+  end;
 end;
 
 procedure TfrmRadarOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -172,7 +192,7 @@ begin
   lbAllRadarDef.Items.Clear;
   lbAllRadarOnBoard.Items.Clear;
 
-  dmTTT.GetAllRadarDef(FAllRadarDefList);
+  dmTTT.GetFilterRadarDef(FAllRadarDefList, edtSearch.Text);
   dmTTT.GetRadarOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllRadarOnBoardList);
 
   for i := 0 to FAllRadarDefList.Count - 1 do

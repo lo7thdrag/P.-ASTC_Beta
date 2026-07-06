@@ -4,24 +4,28 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Sonar, uDBAsset_Sonobuoy, uSimContainers;
+  Dialogs, ExtCtrls, StdCtrls, uDBAsset_Vehicle, uDBAsset_Sonobuoy,
+  Vcl.Imaging.pngimage, uSimContainers;
 
 type
   TfrmSonobuoyOnBoardPickList = class(TForm)
+    shp1: TShape;
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEditMount: TButton;
+    btnRemove: TButton;
     lbAllSonobuoyDef: TListBox;
     lbAllSonobuoyOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -32,8 +36,10 @@ type
 
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
+    procedure btnEditMountClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -43,12 +49,11 @@ type
     FSelectedVehicle : TVehicle_Definition;
     FSelectedSonobuoy : TSonobuoy_On_Board;
 
-    procedure UpdateRadarList;
+    procedure UpdateSonobuoyList;
 
   public
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-
   end;
 
 var
@@ -61,24 +66,44 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmSonobuoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllSonobuoyDefList);
-  FreeItemsAndFreeList(FAllSonobuoyOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmSonobuoyOnBoardPickList.FormCreate(Sender: TObject);
+
 begin
-  FAllSonobuoyDefList := TList.Create;
+  FAllSonobuoyDefList     := TList.Create;
   FAllSonobuoyOnBoardList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmSonobuoyOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllSonobuoyDefList);
+  FreeItemsAndFreeList(FAllSonobuoyOnBoardList);
 end;
 
 procedure TfrmSonobuoyOnBoardPickList.FormShow(Sender: TObject);
 begin
-  UpdateRadarList;
+  UpdateSonobuoyList;
 end;
 
 {$ENDREGION}
@@ -98,15 +123,14 @@ begin
       SelectedSonobuoy := FSelectedSonobuoy;
       ShowModal;
     end;
-    AfterClose := frmSonobuoyMount.AfterClose;
   finally
     frmSonobuoyMount.Free;
   end;
 
-  UpdateRadarList;
+  UpdateSonobuoyList;
 end;
 
-procedure TfrmSonobuoyOnBoardPickList.btnEditClick(Sender: TObject);
+procedure TfrmSonobuoyOnBoardPickList.btnEditMountClick(Sender: TObject);
 begin
   if lbAllSonobuoyOnBoard.ItemIndex = -1 then
     Exit;
@@ -119,12 +143,11 @@ begin
       SelectedSonobuoy := FSelectedSonobuoy;
       ShowModal;
     end;
-    AfterClose := frmSonobuoyMount.AfterClose;
   finally
     frmSonobuoyMount.Free;
   end;
 
-  UpdateRadarList;
+  UpdateSonobuoyList;
 end;
 
 procedure TfrmSonobuoyOnBoardPickList.btnRemoveClick(Sender: TObject);
@@ -137,8 +160,16 @@ begin
     dmTTT.DeleteSonobuoyOnBoard(2, Sonobuoy_Instance_Index);
   end;
 
-  AfterClose := True;
-  UpdateRadarList;
+  UpdateSonobuoyList;
+end;
+
+procedure TfrmSonobuoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateSonobuoyList;
+  end;
 end;
 
 procedure TfrmSonobuoyOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -148,21 +179,19 @@ end;
 
 procedure TfrmSonobuoyOnBoardPickList.lbAllSonobuoyDefClick(Sender: TObject);
 begin
-  if lbAllSonobuoyDef.ItemIndex = -1 then
+ if lbAllSonobuoyDef.ItemIndex = -1 then
     Exit;
-
-  FSelectedSonobuoy := TSonobuoy_On_Board(lbAllSonobuoyDef.Items.Objects[lbAllSonobuoyDef.ItemIndex]);
+  FSelectedSonobuoy := TSonobuoy_On_Board( lbAllSonobuoyDef.Items.Objects[lbAllSonobuoyDef.ItemIndex]);
 end;
 
 procedure TfrmSonobuoyOnBoardPickList.lbAllSonobuoyOnBoardClick(Sender: TObject);
 begin
   if lbAllSonobuoyOnBoard.ItemIndex = -1 then
     Exit;
-
   FSelectedSonobuoy := TSonobuoy_On_Board(lbAllSonobuoyOnBoard.Items.Objects[lbAllSonobuoyOnBoard.ItemIndex]);
 end;
 
-procedure TfrmSonobuoyOnBoardPickList.UpdateRadarList;
+procedure TfrmSonobuoyOnBoardPickList.UpdateSonobuoyList;
 var
   i : Integer;
   sonobuoy : TSonobuoy_On_Board;
@@ -170,8 +199,8 @@ begin
   lbAllSonobuoyDef.Items.Clear;
   lbAllSonobuoyOnBoard.Items.Clear;
 
-  dmTTT.GetAllSonobuoyDef(FAllSonobuoyDefList);
-  dmTTT.GetSonobuoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllSonobuoyOnBoardList);
+  dmTTT.GetFilterSonobuoyDef(FAllSonobuoyDefList, edtSearch.Text);
+  dmTTT.GetSonobuoyOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllSonobuoyOnBoardList);
 
   for i := 0 to FAllSonobuoyDefList.Count - 1 do
   begin
@@ -188,4 +217,4 @@ end;
 
 {$ENDREGION}
 
-end.
+ end.

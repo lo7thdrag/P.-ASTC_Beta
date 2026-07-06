@@ -4,24 +4,27 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Countermeasure, uSimContainers ;
+  Dialogs, StdCtrls, ExtCtrls, uDBAsset_Vehicle, uDBAsset_Countermeasure, uSimContainers,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmFloatingDecoyOnBoardPickList = class(TForm)
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEditMount: TButton;
+    btnRemove: TButton;
     lbAllFloatingDecoyDef: TListBox;
     lbAllFloatingDecoyOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -32,8 +35,10 @@ type
 
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
+    procedure btnEditMountClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllFloatingDecoyDefList : TList;
@@ -47,7 +52,6 @@ type
   public
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-
   end;
 
 var
@@ -56,23 +60,43 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmFloatingDecoyMount ;
+  uDataModuleTTT, ufrmSummaryFloatingDecoy, ufrmFloatingMount;
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
+
 
 procedure TfrmFloatingDecoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllFloatingDecoyDefList);
-  FreeItemsAndFreeList(FAllFloatingDecoyOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmFloatingDecoyOnBoardPickList.FormCreate(Sender: TObject);
 begin
-  FAllFloatingDecoyDefList := TList.Create;
-  FAllFloatingDecoyOnBoardList := TList.Create;
+  FAllFloatingDecoyDefList      := TList.Create;
+  FAllFloatingDecoyOnBoardList  := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmFloatingDecoyOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllFloatingDecoyDefList);
+  FreeItemsAndFreeList(FAllFloatingDecoyOnBoardList);
 end;
 
 procedure TfrmFloatingDecoyOnBoardPickList.FormShow(Sender: TObject);
@@ -89,38 +113,36 @@ begin
   if lbAllFloatingDecoyDef.ItemIndex = -1 then
     Exit;
 
-   frmFloatingDecoyMount := TfrmFloatingDecoyMount.Create(Self);
+  frmFloatingMount := TfrmFloatingMount.Create(Self);
   try
-    with frmFloatingDecoyMount do
+    with frmFloatingMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedFloatingDecoy := FSelectedFloatingDecoy;
       ShowModal;
     end;
-    AfterClose := frmFloatingDecoyMount.AfterClose;
   finally
-    frmFloatingDecoyMount.Free;
+    frmFloatingMount.Free;
   end;
 
   UpdateFloatingDecoyList;
 end;
 
-procedure TfrmFloatingDecoyOnBoardPickList.btnEditClick(Sender: TObject);
+procedure TfrmFloatingDecoyOnBoardPickList.btnEditMountClick(Sender: TObject);
 begin
   if lbAllFloatingDecoyOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmFloatingDecoyMount := TfrmFloatingDecoyMount.Create(Self);
+  frmFloatingMount := TfrmFloatingMount.Create(Self);
   try
-    with frmFloatingDecoyMount do
+    with frmFloatingMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedFloatingDecoy := FSelectedFloatingDecoy;
       ShowModal;
     end;
-    AfterClose := frmFloatingDecoyMount.AfterClose;
   finally
-    frmFloatingDecoyMount.Free;
+    frmFloatingMount.Free;
   end;
 
   UpdateFloatingDecoyList;
@@ -132,12 +154,19 @@ begin
     Exit;
 
   with FSelectedFloatingDecoy.FData do
-  begin
-    dmTTT.DeleteFloatingDecoyOnBoard(2,Floating_Decoy_Instance_Index);
-  end;
+    dmTTT.DeleteFloatingDecoyOnBoard(2, Floating_Decoy_Instance_Index);
 
   AfterClose := True;
   UpdateFloatingDecoyList;
+end;
+
+procedure TfrmFloatingDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateFloatingDecoyList;
+  end;
 end;
 
 procedure TfrmFloatingDecoyOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -149,15 +178,13 @@ procedure TfrmFloatingDecoyOnBoardPickList.lbAllFloatingDecoyDefClick(Sender: TO
 begin
   if lbAllFloatingDecoyDef.ItemIndex = -1 then
     Exit;
-
-  FSelectedFloatingDecoy := TFloating_Decoy_On_Board(lbAllFloatingDecoyDef.Items.Objects[lbAllFloatingDecoyDef.ItemIndex]);
+  FSelectedFloatingDecoy := TFloating_Decoy_On_Board( lbAllFloatingDecoyDef.Items.Objects[lbAllFloatingDecoyDef.ItemIndex]);
 end;
 
 procedure TfrmFloatingDecoyOnBoardPickList.lbAllFloatingDecoyOnBoardClick(Sender: TObject);
 begin
   if lbAllFloatingDecoyOnBoard.ItemIndex = -1 then
     Exit;
-
   FSelectedFloatingDecoy := TFloating_Decoy_On_Board(lbAllFloatingDecoyOnBoard.Items.Objects[lbAllFloatingDecoyOnBoard.ItemIndex]);
 end;
 
@@ -169,7 +196,7 @@ begin
   lbAllFloatingDecoyDef.Items.Clear;
   lbAllFloatingDecoyOnBoard.Items.Clear;
 
-  dmTTT.GetAllFloatingDecoyDef(FAllFloatingDecoyDefList);
+  dmTTT.GetFilterFloatingDecoyDef(FAllFloatingDecoyDefList, edtSearch.Text);
   dmTTT.GetFloatingDecoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllFloatingDecoyOnBoardList);
 
   for i := 0 to FAllFloatingDecoyDefList.Count - 1 do
@@ -186,7 +213,5 @@ begin
 end;
 
 {$ENDREGION}
-
-
 
 end.

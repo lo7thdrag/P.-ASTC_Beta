@@ -5,23 +5,30 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, ComCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Weapon , uSimContainers;
+  uDBAsset_Weapon, uDBAssetObject, uDBAsset_Vehicle,
+  uDBAsset_Fitted, uSimContainers;
 
 type
+  E_MissileSelectionCaller = (mscResourceAllocation, mscVehicleAssets,
+    mscRuntimePlatformLibrary);
+
   TfrmMissileOnBoardPickList = class(TForm)
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEdit: TButton;
+    btnRemove: TButton;
     lbAllMissileDef: TListBox;
     lbAllMissileOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -34,6 +41,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -56,23 +65,42 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmMissileMount, tttData;
+  uDataModuleTTT, ufrmSummaryMissile, ufrmMissileMount;
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
-procedure TfrmMissileOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmMissileOnBoardPickList.FormClose(Sender: TObject;  var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllMissileDefList);
-  FreeItemsAndFreeList(FAllMissileOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmMissileOnBoardPickList.FormCreate(Sender: TObject);
 begin
-  FAllMissileDefList := TList.Create;
-  FAllMissileOnBoardList := TList.Create;
+  FAllMissileDefList      := TList.Create;
+  FAllMissileOnBoardList  := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmMissileOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllMissileDefList);
+  FreeItemsAndFreeList(FAllMissileOnBoardList);
 end;
 
 procedure TfrmMissileOnBoardPickList.FormShow(Sender: TObject);
@@ -97,7 +125,6 @@ begin
       SelectedMissile := FSelectedMissile;
       ShowModal;
     end;
-    AfterClose := frmMissileMount.AfterClose;
   finally
     frmMissileMount.Free;
   end;
@@ -118,28 +145,35 @@ begin
       SelectedMissile := FSelectedMissile;
       ShowModal;
     end;
-    AfterClose := frmMissileMount.AfterClose;
   finally
     frmMissileMount.Free;
   end;
-  
+
   UpdateMissileList;
 end;
 
-procedure TfrmMissileOnBoardPickList.btnRemoveClick(Sender: TObject);
+ procedure TfrmMissileOnBoardPickList.btnRemoveClick(Sender: TObject);
 begin
   if lbAllMissileOnBoard.ItemIndex = -1 then
     Exit;
 
   with FSelectedMissile.FData do
   begin
-    dmTTT.DeleteBlindZone(Ord(bzcWeapon), Fitted_Weap_Index);
+    dmTTT.DeleteBlindZone(6, Fitted_Weap_Index);
     dmTTT.DeleteFittedWeaponLauncherOnBoard(2, Fitted_Weap_Index);
     dmTTT.DeleteFittedWeaponOnBoard(2, Fitted_Weap_Index);
   end;
 
-  AfterClose := True;
   UpdateMissileList;
+end;
+
+procedure TfrmMissileOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMissileList;
+  end;
 end;
 
 procedure TfrmMissileOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -171,7 +205,7 @@ begin
   lbAllMissileDef.Items.Clear;
   lbAllMissileOnBoard.Items.Clear;
 
-  dmTTT.GetAllMissileDef(FAllMissileDefList);
+  dmTTT.GetFilterMissileDef(FAllMissileDefList, edtSearch.Text);
   dmTTT.GetMissileOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllMissileOnBoardList);
 
   for i := 0 to FAllMissileDefList.Count - 1 do

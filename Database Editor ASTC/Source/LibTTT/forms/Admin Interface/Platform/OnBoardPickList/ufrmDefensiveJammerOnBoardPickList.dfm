@@ -1,9 +1,9 @@
-object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
+object frmDefensiveJammerOnBoardPickList: TfrmDefensiveJammerOnBoardPickList
   Left = 0
   Top = 0
   BorderIcons = []
   BorderStyle = bsToolWindow
-  Caption = '   Missile On Board'
+  Caption = '   Defensive Jammer On Board'
   ClientHeight = 639
   ClientWidth = 754
   Color = clBtnShadow
@@ -13,8 +13,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
-  OnClose = FormClose
+  Position = poMainFormCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
@@ -44852,10 +44851,6 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 48
-    ExplicitWidth = 494
-    ExplicitHeight = 588
     object pnlMain: TPanel
       Left = 1
       Top = 1
@@ -44866,10 +44861,6 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 754
-      ExplicitHeight = 639
       object lbl1: TLabel
         Left = 12
         Top = 544
@@ -44898,12 +44889,13 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         TabOrder = 0
         OnClick = btnAddClick
       end
-      object btnEdit: TButton
+      object btnEditMount: TButton
         Left = 430
         Top = 542
         Width = 313
         Height = 25
         Caption = 'Edit'
+        Enabled = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -44911,7 +44903,6 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 1
-        OnClick = btnEditClick
       end
       object btnRemove: TButton
         Left = 337
@@ -44928,35 +44919,24 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
         TabOrder = 2
         OnClick = btnRemoveClick
       end
-      object lbAllMissileDef: TListBox
+      object lbAllDefensiveJammerDef: TListBox
         Left = 12
         Top = 62
         Width = 313
         Height = 474
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
+        ItemHeight = 14
         TabOrder = 3
-        OnClick = lbAllMissileDefClick
+        OnClick = lbAllDefensiveJammerDefClick
         OnDblClick = btnAddClick
       end
-      object lbAllMissileOnBoard: TListBox
+      object lbAllDefensveJammerOnBoard: TListBox
         Left = 430
         Top = 62
         Width = 313
         Height = 474
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
+        ItemHeight = 14
         TabOrder = 4
-        OnClick = lbAllMissileOnBoardClick
-        OnDblClick = btnEditClick
+        OnClick = lbAllDefensveJammerOnBoardClick
       end
       object btnClose: TButton
         Left = 663
@@ -45005,7 +44985,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of Missile On Board'
+          Caption = 'List of Defensive Jammer On Board'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
@@ -45034,7 +45014,7 @@ object frmMissileOnBoardPickList: TfrmMissileOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of available Missile'
+          Caption = 'List of available Defensive Jammer'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite

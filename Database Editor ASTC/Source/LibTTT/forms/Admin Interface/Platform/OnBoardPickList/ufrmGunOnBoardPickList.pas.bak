@@ -5,26 +5,24 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, uDBAsset_Weapon, uDBAsset_Vehicle,
-  uDBAssetObject, Vcl.Imaging.pngimage, tttData, uSimContainers;
+  uDBAssetObject, Vcl.Imaging.pngimage, uSimContainers;
 
 type
   TfrmGunOnBoardPickList = class(TForm)
+    pnlButton: TPanel;
+    btnClose: TButton;
     pnlMain: TPanel;
+    imgExercise: TImage;
+    Label1: TLabel;
+    Image1: TImage;
+    Label2: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllGunDef: TListBox;
     lbAllGunOnBoard: TListBox;
-    btnClose: TButton;
-    edtSearch: TEdit;
-    lbl1: TLabel;
-    pnl1: TPanel;
-    pnl2: TPanel;
-    pnl3: TPanel;
-    pnl4: TPanel;
-    pnl5: TPanel;
-    imgBackground: TImage;
-    pnlMainBackground: TPanel;
+    Panel1: TPanel;
+    Image2: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -37,8 +35,6 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
-    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -61,42 +57,23 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmGunMount;
+  uDataModuleTTT, ufrmGunMount, tttData;
 
 {$R *.dfm}
-
-procedure EnableComposited(WinControl:TWinControl);
-var
-  i:Integer;
-  NewExStyle:DWORD;
-begin
-  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
-  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
-
-  for I := 0 to WinControl.ControlCount - 1 do
-    if WinControl.Controls[i] is TWinControl then
-      EnableComposited(TWinControl(WinControl.Controls[i]));
-end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmGunOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-//  Action := cafree;
+  FreeItemsAndFreeList(FAllGunDefList);
+  FreeItemsAndFreeList(FAllGunOnBoardList);
+  Action := cafree;
 end;
 
 procedure TfrmGunOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllGunDefList := TList.Create;
   FAllGunOnBoardList := TList.Create;
-
-  EnableComposited(pnlMainBackground);
-end;
-
-procedure TfrmGunOnBoardPickList.FormDestroy(Sender: TObject);
-begin
-  FreeItemsAndFreeList(FAllGunDefList);
-  FreeItemsAndFreeList(FAllGunOnBoardList);
 end;
 
 procedure TfrmGunOnBoardPickList.FormShow(Sender: TObject);
@@ -155,21 +132,12 @@ begin
 
   with FSelectedGun.FPoint.FData do
   begin
-    dmTTT.DeleteBlindZone(Ord(bzcPointEffect), Point_Effect_Index);
+    dmTTT.DeleteBlindZone(5, Point_Effect_Index);
     dmTTT.DeletePointEffectOnBoard(2, Point_Effect_Index);
   end;
 
   AfterClose := True;
   UpdateGunList;
-end;
-
-procedure TfrmGunOnBoardPickList.edtSearchKeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if Key = #13 then
-  begin
-    UpdateGunList;
-  end;
 end;
 
 procedure TfrmGunOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -201,7 +169,7 @@ begin
   lbAllGunDef.Items.Clear;
   lbAllGunOnBoard.Items.Clear;
 
-  dmTTT.GetFilterGunDef(FAllGunDefList, edtSearch.Text);
+  dmTTT.GetAllGunDef(FAllGunDefList);
   dmTTT.GetGunOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllGunOnBoardList);
 
   for i := 0 to FAllGunDefList.Count - 1 do

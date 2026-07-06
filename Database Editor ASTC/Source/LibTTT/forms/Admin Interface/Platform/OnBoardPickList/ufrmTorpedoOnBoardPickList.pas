@@ -4,26 +4,30 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, ComCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Weapon , uSimContainers ;
+  Dialogs, StdCtrls, ExtCtrls, Vcl.Imaging.pngimage,
+  uDBAsset_Weapon, uDBAsset_Vehicle, uSimContainers;
 
 type
+  E_TorpedoSelectionCaller = (tscResourceAllocation, tscVehicleAssets,
+    tscMissile, tscRuntimePlatformLibrary);
+
   TfrmTorpedoOnBoardPickList = class(TForm)
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEdit: TButton;
+    btnRemove: TButton;
     lbAllTorpedoDef: TListBox;
-    lbTorpedoOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
+    lbAllTorpedoOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -36,7 +40,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
-
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllTorpedoDefList : TList;
@@ -53,28 +58,47 @@ type
   end;
 
 var
-  frmTorpedoOnBoardPickList    : TfrmTorpedoOnBoardPickList;
+  frmTorpedoOnBoardPickList: TfrmTorpedoOnBoardPickList;
 
 implementation
 
 uses
-  uDataModuleTTT, ufrmTorpedoMount, tttData;
+  uDataModuleTTT, ufrmTorpedoMounts;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmTorpedoOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllTorpedoDefList);
-  FreeItemsAndFreeList(FAllTorpedoOnBoardList);
-  Action := cafree;
+//  Act?ion := cafree;
 end;
 
 procedure TfrmTorpedoOnBoardPickList.FormCreate(Sender: TObject);
 begin
-  FAllTorpedoDefList := TList.Create;
-  FAllTorpedoOnBoardList := TList.Create;
+  FAllTorpedoDefList      := TList.Create;
+  FAllTorpedoOnBoardList  := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmTorpedoOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllTorpedoDefList);
+  FreeItemsAndFreeList(FAllTorpedoOnBoardList);
 end;
 
 procedure TfrmTorpedoOnBoardPickList.FormShow(Sender: TObject);
@@ -91,17 +115,16 @@ begin
   if lbAllTorpedoDef.ItemIndex = -1 then
     Exit;
 
-  frmTorpedoMount := TfrmTorpedoMount.Create(Self);
+  frmTorpedoMounts := TfrmTorpedoMounts.Create(Self);
   try
-    with frmTorpedoMount do
+    with frmTorpedoMounts do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedTorpedo := FSelectedTorpedo;
       ShowModal;
     end;
-    AfterClose := frmTorpedoMount.AfterClose;
   finally
-    frmTorpedoMount.Free;
+    frmTorpedoMounts.Free;
   end;
 
   UpdateTorpedoList;
@@ -109,20 +132,19 @@ end;
 
 procedure TfrmTorpedoOnBoardPickList.btnEditClick(Sender: TObject);
 begin
-  if lbTorpedoOnBoard.ItemIndex = -1 then
+  if lbAllTorpedoOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmTorpedoMount := TfrmTorpedoMount.Create(Self);
+  frmTorpedoMounts := TfrmTorpedoMounts.Create(Self);
   try
-    with frmTorpedoMount do
+    with frmTorpedoMounts do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedTorpedo := FSelectedTorpedo;
       ShowModal;
     end;
-    AfterClose := frmTorpedoMount.AfterClose;
   finally
-    frmTorpedoMount.Free;
+    frmTorpedoMounts.Free;
   end;
 
   UpdateTorpedoList;
@@ -130,18 +152,26 @@ end;
 
 procedure TfrmTorpedoOnBoardPickList.btnRemoveClick(Sender: TObject);
 begin
-  if lbTorpedoOnBoard.ItemIndex = -1 then
+  if lbAllTorpedoOnBoard.ItemIndex = -1 then
     Exit;
 
   with FSelectedTorpedo.FData do
   begin
-    dmTTT.DeleteBlindZone(Ord(bzcWeapon), Fitted_Weap_Index);
+    dmTTT.DeleteBlindZone(6, Fitted_Weap_Index);
     dmTTT.DeleteFittedWeaponLauncherOnBoard(2, Fitted_Weap_Index);
     dmTTT.DeleteFittedWeaponOnBoard(2, Fitted_Weap_Index);
   end;
 
-  AfterClose := True;
   UpdateTorpedoList;
+end;
+
+procedure TfrmTorpedoOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateTorpedoList;
+  end;
 end;
 
 procedure TfrmTorpedoOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -159,10 +189,10 @@ end;
 
 procedure TfrmTorpedoOnBoardPickList.lbAllTorpedoOnBoardClick(Sender: TObject);
 begin
-  if lbTorpedoOnBoard.ItemIndex = -1 then
+  if lbAllTorpedoOnBoard.ItemIndex = -1 then
     Exit;
 
-  FSelectedTorpedo := TTorpedo_On_Board(lbTorpedoOnBoard.Items.Objects[lbTorpedoOnBoard.ItemIndex]);
+  FSelectedTorpedo := TTorpedo_On_Board(lbAllTorpedoOnBoard.Items.Objects[lbAllTorpedoOnBoard.ItemIndex]);
 end;
 
 procedure TfrmTorpedoOnBoardPickList.UpdateTorpedoList;
@@ -171,10 +201,10 @@ var
   torpedo : TTorpedo_On_Board;
 begin
   lbAllTorpedoDef.Items.Clear;
-  lbTorpedoOnBoard.Items.Clear;
+  lbAllTorpedoOnBoard.Items.Clear;
 
-  dmTTT.GetAllTorpedoDef(FAllTorpedoDefList);
-  dmTTT.GetTorpedoOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllTorpedoOnBoardList);
+  dmTTT.GetFilterTorpedoDef(FAllTorpedoDefList, edtSearch.Text);
+  dmTTT.GetTorpedoOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllTorpedoOnBoardList);
 
   for i := 0 to FAllTorpedoDefList.Count - 1 do
   begin
@@ -185,10 +215,10 @@ begin
   for i := 0 to FAllTorpedoOnBoardList.Count - 1 do
   begin
     torpedo := FAllTorpedoOnBoardList.Items[i];
-    lbTorpedoOnBoard.Items.AddObject(torpedo.FData.Instance_Identifier, torpedo);
+    lbAllTorpedoOnBoard.Items.AddObject(torpedo.FData.Instance_Identifier, torpedo);
   end;
 end;
 
-{$ENDREGION}
+ {$ENDREGION}
 
 end.

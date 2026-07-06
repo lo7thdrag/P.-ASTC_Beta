@@ -4,26 +4,32 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Sonar,uSimContainers;
+  Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage,
+  uDBAsset_Vehicle, uDBAsset_Sonar, uSimContainers;
 
 type
-  TfrmSonarOnBoardPickList = class(TForm)
-    lbAllSonarOnBoard: TListBox;
-    lbAllSonarDef: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+//  E_SonarSelectCaller = (sscVehicleAssets, sscSonobuoy);
 
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  TfrmSonarOnBoardPickList = class(TForm)
+    shp1: TShape;
+    pnlMain: TPanel;
+    lbAllSonarDef: TListBox;
+    lbAllSonarOnBoard: TListBox;
+    btnAdd: TButton;
+    btnRemove: TButton;
+    btnEditMount: TButton;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnClose: TButton;
+    lbl1: TLabel;
+    edtSearch: TEdit;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
+
+    procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -34,6 +40,7 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllSonarDefList : TList;
@@ -47,10 +54,10 @@ type
   public
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
+
   end;
 
 var
-
   frmSonarOnBoardPickList: TfrmSonarOnBoardPickList;
 
 implementation
@@ -60,20 +67,33 @@ uses
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmSonarOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  FreeItemsAndFreeList(FAllSonarDefList);
-  FreeItemsAndFreeList(FAllSonarOnBoardList);
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
 
-  Action := cafree;
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmSonarOnBoardPickList.FormCreate(Sender: TObject);
 begin
-  FAllSonarDefList := TList.Create;
+  FAllSonarDefList     := TList.Create;
   FAllSonarOnBoardList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmSonarOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllSonarDefList);
+  FreeItemsAndFreeList(FAllSonarOnBoardList);
 end;
 
 procedure TfrmSonarOnBoardPickList.FormShow(Sender: TObject);
@@ -138,8 +158,16 @@ begin
     dmTTT.DeleteSonarOnBoard(2, Sonar_Instance_Index);
   end;
 
-  AfterClose := True;
   UpdateSonarList;
+end;
+
+procedure TfrmSonarOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateSonarList;
+  end;
 end;
 
 procedure TfrmSonarOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -171,8 +199,8 @@ begin
   lbAllSonarDef.Items.Clear;
   lbAllSonarOnBoard.Items.Clear;
 
-  dmTTT.GetAllSonarDef(FAllSonarDefList);
-  dmTTT.GetSonarOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllSonarOnBoardList);
+  dmTTT.GetFilterSonarDef(FAllSonarDefList, edtSearch.Text);
+  dmTTT.GetSonarOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllSonarOnBoardList);
 
   for i := 0 to FAllSonarDefList.Count - 1 do
   begin

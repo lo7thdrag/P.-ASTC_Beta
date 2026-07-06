@@ -4,24 +4,27 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Countermeasure, uSimContainers ;
+  Dialogs, StdCtrls, ExtCtrls, uDBAsset_Vehicle, uDBAsset_Countermeasure, uSimContainers,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmTowedJammerDecoyOnBoardPickList = class(TForm)
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEditMount: TButton;
+    btnRemove: TButton;
     lbAllTowedJammerDecoyDef: TListBox;
     lbAllTowedJammerDecoyOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -32,9 +35,10 @@ type
 
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
+    procedure btnEditMountClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
-
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllTowedJammerDecoyDefList : TList;
@@ -48,7 +52,6 @@ type
   public
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-
   end;
 
 var
@@ -57,24 +60,42 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmTowedJammerMount ;
-
+  uDataModuleTTT, ufrmSummaryTowedJammerDecoy, ufrmTowedJammerMount;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmTowedJammerDecoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllTowedJammerDecoyDefList);
-  FreeItemsAndFreeList(FAllTowedJammerDecoyOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmTowedJammerDecoyOnBoardPickList.FormCreate(Sender: TObject);
 begin
-  FAllTowedJammerDecoyDefList := TList.Create;
+  FAllTowedJammerDecoyDefList     := TList.Create;
   FAllTowedJammerDecoyOnBoardList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmTowedJammerDecoyOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllTowedJammerDecoyDefList);
+  FreeItemsAndFreeList(FAllTowedJammerDecoyOnBoardList);
 end;
 
 procedure TfrmTowedJammerDecoyOnBoardPickList.FormShow(Sender: TObject);
@@ -96,11 +117,9 @@ begin
     with frmTowedJammerMount do
     begin
       SelectedVehicle := FSelectedVehicle;
-       SelectedTowedJammerDecoy := FSelectedTowedJammerDecoy;
+      SelectedTowedJammerDecoy := FSelectedTowedJammerDecoy;
       ShowModal;
     end;
-    AfterClose := frmTowedJammerMount.AfterClose;
-
   finally
     frmTowedJammerMount.Free;
   end;
@@ -108,7 +127,7 @@ begin
   UpdateTowedJammerDecoyList;
 end;
 
-procedure TfrmTowedJammerDecoyOnBoardPickList.btnEditClick(Sender: TObject);
+procedure TfrmTowedJammerDecoyOnBoardPickList.btnEditMountClick(Sender: TObject);
 begin
   if lbAllTowedJammerDecoyOnBoard.ItemIndex = -1 then
     Exit;
@@ -121,7 +140,6 @@ begin
       SelectedTowedJammerDecoy := FSelectedTowedJammerDecoy;
       ShowModal;
     end;
-    AfterClose := frmTowedJammerMount.AfterClose;
   finally
     frmTowedJammerMount.Free;
   end;
@@ -135,12 +153,19 @@ begin
     Exit;
 
   with FSelectedTowedJammerDecoy.FData do
-  begin
     dmTTT.DeleteTowedJammerDecoyOnBoard(2, Towed_Decoy_Instance_Index);
-  end;
 
   AfterClose := True;
   UpdateTowedJammerDecoyList;
+end;
+
+procedure TfrmTowedJammerDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateTowedJammerDecoyList;
+  end;
 end;
 
 procedure TfrmTowedJammerDecoyOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -152,7 +177,6 @@ procedure TfrmTowedJammerDecoyOnBoardPickList.lbAllTowedJammerDecoyDefClick(Send
 begin
   if lbAllTowedJammerDecoyDef.ItemIndex = -1 then
     Exit;
-
   FSelectedTowedJammerDecoy := TTowed_Jammer_Decoy_On_Board(lbAllTowedJammerDecoyDef.Items.Objects[lbAllTowedJammerDecoyDef.ItemIndex]);
 end;
 
@@ -160,7 +184,6 @@ procedure TfrmTowedJammerDecoyOnBoardPickList.lbAllTowedJammerDecoyOnBoardClick(
 begin
   if lbAllTowedJammerDecoyOnBoard.ItemIndex = -1 then
     Exit;
-
   FSelectedTowedJammerDecoy := TTowed_Jammer_Decoy_On_Board(lbAllTowedJammerDecoyOnBoard.Items.Objects[lbAllTowedJammerDecoyOnBoard.ItemIndex]);
 end;
 
@@ -172,7 +195,7 @@ begin
   lbAllTowedJammerDecoyDef.Items.Clear;
   lbAllTowedJammerDecoyOnBoard.Items.Clear;
 
-  dmTTT.GetAllTowedJammerDecoyDef(FAllTowedJammerDecoyDefList);
+  dmTTT.GetFilterTowedJammerDecoyDef(FAllTowedJammerDecoyDefList, edtSearch.Text);
   dmTTT.GetTowedJammerDecoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllTowedJammerDecoyOnBoardList);
 
   for i := 0 to FAllTowedJammerDecoyDefList.Count - 1 do

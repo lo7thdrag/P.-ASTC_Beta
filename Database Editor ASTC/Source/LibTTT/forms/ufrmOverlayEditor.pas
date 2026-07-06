@@ -16,7 +16,6 @@ type
   E_ShapeColor = (scOutline, scFill);
 
   TOverlayEditorForm = class(TForm)
-    pnlButton: TPanel;
     ImageList1: TImageList;
     pnlMap: TPanel;
 
@@ -30,11 +29,7 @@ type
     btnZoom: TToolButton;
     btnPan: TToolButton;
     btnCenterGame: TToolButton;
-    grbColour: TGroupBox;
-    colorChoose: TColorGrid;
     GroupBox8: TGroupBox;
-    StaticText1: TStaticText;
-    StaticText2: TStaticText;
     lblShape: TLabel;
     Label76: TLabel;
     Label77: TLabel;
@@ -299,11 +294,7 @@ type
     Label27: TLabel;
     Label28: TLabel;
     ilColor: TImageList;
-    grpColorEditing: TGroupBox;
-    btnNoFill: TStaticText;
-    pnl1: TPanel;
     bvl9: TBevel;
-    pnlOutline: TPanel;
     Label32: TLabel;
     lbl24: TLabel;
     lbl39: TLabel;
@@ -376,12 +367,6 @@ type
     Label97: TLabel;
     Label98: TLabel;
     Bevel6: TBevel;
-    GroupBox1: TGroupBox;
-    pnlPenEditing: TPanel;
-    lbl16: TLabel;
-    Label29: TLabel;
-    cbbWeightPen: TComboBox;
-    cbbDashesPen: TComboBox;
     Label45: TLabel;
     Label106: TLabel;
     Label107: TLabel;
@@ -470,9 +455,6 @@ type
     Label70: TLabel;
     Label71: TLabel;
     btnClose: TButton;
-    btnOutline: TImage;
-    btnFill: TImage;
-    pnlFill: TPanel;
     btnSelect: TImage;
     btnText: TImage;
     btnLine: TImage;
@@ -490,8 +472,28 @@ type
     lblNameOverlay: TLabel;
     btngamearea: TToolButton;
     btnruler: TToolButton;
+    imgBackground: TImage;
+    pnlButton: TPanel;
     btnDelete: TButton;
     btnApply: TButton;
+    ilToolbar: TImageList;
+    pnlColor: TPanel;
+    pnl1Header: TPanel;
+    grpColorEditing: TGroupBox;
+    btnOutline: TImage;
+    btnFill: TImage;
+    pnlOutline: TPanel;
+    pnlFill: TPanel;
+    grbColour: TGroupBox;
+    colorChoose: TColorGrid;
+    pnl1: TPanel;
+    btnNoFill: TStaticText;
+    GroupBox1: TGroupBox;
+    pnlPenEditing: TPanel;
+    lbl16: TLabel;
+    Label29: TLabel;
+    cbbWeightPen: TComboBox;
+    cbbDashesPen: TComboBox;
     // Label61: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

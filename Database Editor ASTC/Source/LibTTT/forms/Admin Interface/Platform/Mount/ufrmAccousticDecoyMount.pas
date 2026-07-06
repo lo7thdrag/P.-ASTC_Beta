@@ -1,4 +1,4 @@
-unit ufrmInfraRedmount;
+unit ufrmAccousticDecoyMount;
 
 interface
 
@@ -8,53 +8,54 @@ uses
   uDBAsset_Countermeasure, Vcl.Imaging.pngimage;
 
 type
-  TfrmInfraredmount = class(TForm)
-    pnl1Title: TPanel;
-    edtName: TEdit;
-    pnl2ControlPage: TPanel;
+  TfrmAccousticDecoyMount = class(TForm)
     pgc1: TPageControl;
     tsGeneral: TTabSheet;
+    txtQuantity: TStaticText;
     edtQuantity: TEdit;
-    lbl1: TLabel;
-    lbl2: TLabel;
     pnlMainBackground: TPanel;
-    imgBackground: TImage;
+    pnl2ControlPage: TPanel;
+    pnl1Title: TPanel;
+    txtClass: TLabel;
+    edtName: TEdit;
     pnl3Button: TPanel;
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
 
-
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
     //Global
     function GetNumberOfKoma(s : string): Boolean;
     procedure edtNumeralKeyPress(Sender: TObject; var Key: Char);
+    procedure ComboBoxDataChange(Sender: TObject);
+    procedure CheckBoxDataClick(Sender: TObject);
     procedure edtChange(Sender: TObject);
     procedure ValidationFormatInput();
 
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+
   private
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedInfraredDecoy : TInfrared_Decoy_On_Board;
+    FSelectedAcousticDecoy : TAcoustic_Decoy_On_Board;
 
     function CekInput: Boolean;
-    procedure UpdateInfraredDecoyData;
+    procedure UpdateAcouticDecoyData;
+
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     LastName : string;
 
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-    property SelectedInfraredDecoy : TInfrared_Decoy_On_Board read FSelectedInfraredDecoy write FSelectedInfraredDecoy;
-
+    property SelectedAcousticDecoy : TAcoustic_Decoy_On_Board read FSelectedAcousticDecoy write FSelectedAcousticDecoy;
   end;
 
 var
-  frmInfraredmount: TfrmInfraredmount;
+  frmAccousticDecoyMount: TfrmAccousticDecoyMount;
 
 implementation
 
@@ -65,17 +66,17 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TfrmInfraredmount.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmAccousticDecoyMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := cafree;
 end;
 
-procedure TfrmInfraredmount.FormShow(Sender: TObject);
+procedure TfrmAccousticDecoyMount.FormShow(Sender: TObject);
 begin
-  UpdateInfraredDecoyData;
+  UpdateAcouticDecoyData;
 
-  with FSelectedInfraredDecoy.FData do
-    btnApply.Enabled := Infrared_Decoy_Instance_Index = 0;
+  with FSelectedAcousticDecoy.FData do
+    btnApply.Enabled := Acoustic_Instance_Index = 0;
 
   isOK := True;
   AfterClose := True;
@@ -86,7 +87,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmInfraredmount.btnOKClick(Sender: TObject);
+procedure TfrmAccousticDecoyMount.btnOKClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -95,30 +96,21 @@ begin
     Close;
 end;
 
-procedure TfrmInfraredmount.btnApplyClick(Sender: TObject);
+procedure TfrmAccousticDecoyMount.btnApplyClick(Sender: TObject);
 begin
-  if not CekInput then
-  begin
-    isOK := False;
-    Exit;
-  end;
-
-  ValidationFormatInput;
-
-  with FSelectedInfraredDecoy do
+  with FSelectedAcousticDecoy do
   begin
     LastName := edtName.Text;
-
     FData.Instance_Identifier := edtName.Text;
-    FData.Instance_Type := 1;
-    FData.Infrared_Decoy_Qty_On_Board := StrToInt(edtQuantity.Text);
+    FData.Instance_Type := 0;
+    FData.Quantity := StrToInt(edtQuantity.Text);
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
-    FData.Infrared_Decoy_Index := FInfraRedDecoy_Def.Infrared_Decoy_Index;
+    FData.Decoy_Index := FAccousticDecoy_Def.Decoy_Index;
 
-    if FData.Infrared_Decoy_Instance_Index = 0 then
-      dmTTT.InsertInfraredDecoyOnBoard(FData)
+    if FData.Acoustic_Instance_Index = 0 then
+      dmTTT.InsertAcousticDecoyOnBoard(FData)
     else
-      dmTTT.UpdateInfraredDecoyOnBoard(FData);
+      dmTTT.UpdateAcousticDecoyOnBoard(FData);
   end;
 
   isOK := True;
@@ -127,28 +119,28 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmInfraredmount.btnCancelClick(Sender: TObject);
+procedure TfrmAccousticDecoyMount.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-function TfrmInfraredmount.CekInput: Boolean;
+function TfrmAccousticDecoyMount.CekInput: Boolean;
 begin
   Result := False;
 
   {Jika Mount Name sudah ada}
-  if dmTTT.GetInfraredDecoyOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
+  if dmTTT.GetAcousticDecoyOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
   begin
     {Jika inputan baru}
-    if FSelectedInfraredDecoy.FData.Infrared_Decoy_Instance_Index = 0 then
+    if FSelectedAcousticDecoy.FData.Acoustic_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate InfraredDecoy!' + Char(13) + 'Choose Infrared Decoy to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -156,17 +148,18 @@ begin
   Result := True;
 end;
 
-procedure TfrmInfraredmount.UpdateInfraredDecoyData;
+procedure TfrmAccousticDecoyMount.UpdateAcouticDecoyData;
 begin
-  with FSelectedInfraredDecoy do
+  with FSelectedAcousticDecoy do
   begin
-    if FData.Infrared_Decoy_Instance_Index = 0 then
-      edtName.Text := FInfraRedDecoy_Def.Infrared_Decoy_Identifier
+    if FData.Acoustic_Instance_Index = 0 then
+      edtName.Text := FAccousticDecoy_Def.Decoy_Identifier
     else
       edtName.Text := FData.Instance_Identifier;
 
-    LastName := edtName.Text;
-    edtQuantity.Text := IntToStr(FData.Infrared_Decoy_Qty_On_Board);
+     LastName := edtName.Text;
+
+    edtQuantity.Text := IntToStr(FData.Quantity);
   end;
 end;
 
@@ -174,7 +167,7 @@ end;
 
 {$REGION ' Filter Input '}
 
-function TfrmInfraredmount.GetNumberOfKoma(s: string): Boolean;
+function TfrmAccousticDecoyMount.GetNumberOfKoma(s: string): Boolean;
 var
   a, i : Integer;
 begin
@@ -191,7 +184,7 @@ begin
     Result := True;
 end;
 
-procedure TfrmInfraredmount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmAccousticDecoyMount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -225,12 +218,25 @@ begin
   end;
 end;
 
-procedure TfrmInfraredmount.edtChange(Sender: TObject);
+procedure TfrmAccousticDecoyMount.CheckBoxDataClick(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmInfraredmount.ValidationFormatInput;
+procedure TfrmAccousticDecoyMount.ComboBoxDataChange(Sender: TObject);
+begin
+  if TComboBox(Sender).ItemIndex = -1 then
+    TComboBox(Sender).ItemIndex := 0;
+
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmAccousticDecoyMount.edtChange(Sender: TObject);
+begin
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmAccousticDecoyMount.ValidationFormatInput;
 var
   i: Integer;
   value : Double;

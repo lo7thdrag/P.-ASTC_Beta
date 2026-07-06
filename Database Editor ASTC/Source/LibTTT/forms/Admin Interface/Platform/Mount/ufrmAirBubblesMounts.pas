@@ -1,4 +1,4 @@
-unit ufrmInfraRedmount;
+unit ufrmAirBubblesMounts;
 
 interface
 
@@ -8,53 +8,57 @@ uses
   uDBAsset_Countermeasure, Vcl.Imaging.pngimage;
 
 type
-  TfrmInfraredmount = class(TForm)
-    pnl1Title: TPanel;
-    edtName: TEdit;
-    pnl2ControlPage: TPanel;
+  TfrmAirBubblesMounts = class(TForm)
     pgc1: TPageControl;
     tsGeneral: TTabSheet;
+    txtQuantity: TStaticText;
     edtQuantity: TEdit;
-    lbl1: TLabel;
-    lbl2: TLabel;
     pnlMainBackground: TPanel;
-    imgBackground: TImage;
+    pnl2ControlPage: TPanel;
+    pnl1Title: TPanel;
+    txtClass: TLabel;
+    edtName: TEdit;
     pnl3Button: TPanel;
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
 
-
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
     //Global
     function GetNumberOfKoma(s : string): Boolean;
     procedure edtNumeralKeyPress(Sender: TObject; var Key: Char);
+    procedure ComboBoxDataChange(Sender: TObject);
+    procedure CheckBoxDataClick(Sender: TObject);
     procedure edtChange(Sender: TObject);
     procedure ValidationFormatInput();
+
+//    procedure edtNameKeyPress(Sender: TObject; var Key: Char);
+//    procedure edtQuantityKeyPress(Sender: TObject; var Key: Char);
 
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+
   private
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedInfraredDecoy : TInfrared_Decoy_On_Board;
+    FSelectedAirBubble : TAir_Bubble_Mount;
 
     function CekInput: Boolean;
-    procedure UpdateInfraredDecoyData;
+    procedure UpdateAirBubbleData;
+
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     LastName : string;
 
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-    property SelectedInfraredDecoy : TInfrared_Decoy_On_Board read FSelectedInfraredDecoy write FSelectedInfraredDecoy;
-
+    property SelectedAirBubble : TAir_Bubble_Mount read FSelectedAirBubble write FSelectedAirBubble;
   end;
 
 var
-  frmInfraredmount: TfrmInfraredmount;
+  frmAirBubblesMounts: TfrmAirBubblesMounts;
 
 implementation
 
@@ -65,17 +69,17 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TfrmInfraredmount.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmAirBubblesMounts.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := cafree;
 end;
 
-procedure TfrmInfraredmount.FormShow(Sender: TObject);
+procedure TfrmAirBubblesMounts.FormShow(Sender: TObject);
 begin
-  UpdateInfraredDecoyData;
+  UpdateAirBubbleData;
 
-  with FSelectedInfraredDecoy.FData do
-    btnApply.Enabled := Infrared_Decoy_Instance_Index = 0;
+  with FSelectedAirBubble.FData do
+    btnApply.Enabled := Air_Bubble_Instance_Index = 0;
 
   isOK := True;
   AfterClose := True;
@@ -86,7 +90,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmInfraredmount.btnOKClick(Sender: TObject);
+procedure TfrmAirBubblesMounts.btnOKClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -95,30 +99,21 @@ begin
     Close;
 end;
 
-procedure TfrmInfraredmount.btnApplyClick(Sender: TObject);
+procedure TfrmAirBubblesMounts.btnApplyClick(Sender: TObject);
 begin
-  if not CekInput then
-  begin
-    isOK := False;
-    Exit;
-  end;
-
-  ValidationFormatInput;
-
-  with FSelectedInfraredDecoy do
+  with FSelectedAirBubble do
   begin
     LastName := edtName.Text;
-
     FData.Instance_Identifier := edtName.Text;
-    FData.Instance_Type := 1;
-    FData.Infrared_Decoy_Qty_On_Board := StrToInt(edtQuantity.Text);
+    FData.Instance_Type := 0;
+    FData.Bubble_Qty_On_Board := StrToInt(edtQuantity.Text);
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
-    FData.Infrared_Decoy_Index := FInfraRedDecoy_Def.Infrared_Decoy_Index;
+    FData.Air_Bubble_Index := FAirBubble_Def.Air_Bubble_Index;
 
-    if FData.Infrared_Decoy_Instance_Index = 0 then
-      dmTTT.InsertInfraredDecoyOnBoard(FData)
+    if FData.Air_Bubble_Instance_Index = 0 then
+      dmTTT.InsertAirBubbleOnBoard(FData)
     else
-      dmTTT.UpdateInfraredDecoyOnBoard(FData);
+      dmTTT.UpdateAirBubbleOnBoard(FData);
   end;
 
   isOK := True;
@@ -127,28 +122,28 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmInfraredmount.btnCancelClick(Sender: TObject);
+procedure TfrmAirBubblesMounts.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-function TfrmInfraredmount.CekInput: Boolean;
+function TfrmAirBubblesMounts.CekInput: Boolean;
 begin
   Result := False;
 
   {Jika Mount Name sudah ada}
-  if dmTTT.GetInfraredDecoyOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
+  if dmTTT.GetAirBubbleOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
   begin
     {Jika inputan baru}
-    if FSelectedInfraredDecoy.FData.Infrared_Decoy_Instance_Index = 0 then
+    if FSelectedAirBubble.FData.Air_Bubble_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate InfraredDecoy!' + Char(13) + 'Choose Infrared Decoy to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
-    else if LastName <> edtName.Text then
+    else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -156,17 +151,18 @@ begin
   Result := True;
 end;
 
-procedure TfrmInfraredmount.UpdateInfraredDecoyData;
+procedure TfrmAirBubblesMounts.UpdateAirBubbleData;
 begin
-  with FSelectedInfraredDecoy do
+  with FSelectedAirBubble do
   begin
-    if FData.Infrared_Decoy_Instance_Index = 0 then
-      edtName.Text := FInfraRedDecoy_Def.Infrared_Decoy_Identifier
+    if FData.Air_Bubble_Instance_Index = 0 then
+      edtName.Text := FAirBubble_Def.Air_Bubble_Identifier
     else
       edtName.Text := FData.Instance_Identifier;
 
-    LastName := edtName.Text;
-    edtQuantity.Text := IntToStr(FData.Infrared_Decoy_Qty_On_Board);
+      LastName := edtName.Text;
+
+    edtQuantity.Text := IntToStr(FData.Bubble_Qty_On_Board);
   end;
 end;
 
@@ -174,7 +170,7 @@ end;
 
 {$REGION ' Filter Input '}
 
-function TfrmInfraredmount.GetNumberOfKoma(s: string): Boolean;
+function TfrmAirBubblesMounts.GetNumberOfKoma(s: string): Boolean;
 var
   a, i : Integer;
 begin
@@ -191,7 +187,7 @@ begin
     Result := True;
 end;
 
-procedure TfrmInfraredmount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmAirBubblesMounts.edtNumeralKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -225,12 +221,25 @@ begin
   end;
 end;
 
-procedure TfrmInfraredmount.edtChange(Sender: TObject);
+procedure TfrmAirBubblesMounts.CheckBoxDataClick(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmInfraredmount.ValidationFormatInput;
+procedure TfrmAirBubblesMounts.ComboBoxDataChange(Sender: TObject);
+begin
+  if TComboBox(Sender).ItemIndex = -1 then
+    TComboBox(Sender).ItemIndex := 0;
+
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmAirBubblesMounts.edtChange(Sender: TObject);
+begin
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmAirBubblesMounts.ValidationFormatInput;
 var
   i: Integer;
   value : Double;

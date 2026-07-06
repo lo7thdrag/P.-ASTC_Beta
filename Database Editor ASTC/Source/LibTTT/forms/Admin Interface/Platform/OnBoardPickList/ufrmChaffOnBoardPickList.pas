@@ -113,16 +113,16 @@ begin
   if lbAllChaffDef.ItemIndex = -1 then
     Exit;
 
-  frmChaffMount := TfrmChaffMount.Create(Self);
+  frmChaffMountForm := TfrmChaffMountForm.Create(Self);
   try
-    with frmChaffMount do
+    with frmChaffMountForm do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedChaff := FSelectedChaff;
       ShowModal;
     end;
   finally
-    frmChaffMount.Free;
+    frmChaffMountForm.Free;
   end;
 
   UpdateChaffList;
@@ -133,16 +133,16 @@ begin
   if lbAllChaffOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmChaffMount := TfrmChaffMount.Create(Self);
+  frmChaffMountForm := TfrmChaffMountForm.Create(Self);
   try
-    with frmChaffMount do
+    with frmChaffMountForm do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedChaff := FSelectedChaff;
       ShowModal;
     end;
   finally
-    frmChaffMount.Free;
+    frmChaffMountForm.Free;
   end;
 
   UpdateChaffList;

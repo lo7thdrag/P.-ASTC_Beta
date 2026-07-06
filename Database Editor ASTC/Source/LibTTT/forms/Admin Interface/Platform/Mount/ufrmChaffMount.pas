@@ -4,27 +4,27 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ComCtrls, ExtCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, tttData, uDBAsset_Countermeasure ;
+  Dialogs, StdCtrls, ComCtrls, ExtCtrls, uDBAsset_Vehicle,
+  uDBAsset_Countermeasure, Vcl.Imaging.pngimage;
 
 type
-  TfrmChaffMount = class(TForm)
-    pnl1Title: TPanel;
-    pnl2ControlPage: TPanel;
+  TfrmChaffMountForm = class(TForm)
     PageControl1: TPageControl;
     General: TTabSheet;
+    lblClass: TLabel;
+    edtClass: TEdit;
+    txtQuantity: TStaticText;
     edtQuantity: TEdit;
-    lb1: TLabel;
-    cbbName: TComboBox;
-    lbl1: TLabel;
-    lbl2: TLabel;
+    pnlMainBackground: TPanel;
+    pnl2ControlPage: TPanel;
+    pnl1Title: TPanel;
+    txtClass: TLabel;
+    pnl3Button: TPanel;
     btnApply: TButton;
-    btnCancel: TButton;
     btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
-    edtClassName: TLabel;
+    btnCancel: TButton;
+    cbbName: TComboBox;
+    imgBackground: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -35,12 +35,10 @@ type
     procedure edtChange(Sender: TObject);
     procedure ValidationFormatInput();
 
-    procedure cbbNameChange(Sender: TObject);
-
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-
+    procedure cbbNameChange(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -59,23 +57,23 @@ type
   end;
 
 var
-  frmChaffMount: TfrmChaffMount;
+  frmChaffMountForm: TfrmChaffMountForm;
 
 implementation
 
 uses
-  uDataModuleTTT ;
+  uDataModuleTTT;
 
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
 
-procedure TfrmChaffMount.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmChaffMountForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Action := cafree;
+//  Action := cafree;
 end;
 
-procedure TfrmChaffMount.FormShow(Sender: TObject);
+procedure TfrmChaffMountForm.FormShow(Sender: TObject);
 begin
   UpdateChaffData;
 
@@ -91,7 +89,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmChaffMount.btnOKClick(Sender: TObject);
+procedure TfrmChaffMountForm.btnOKClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -100,7 +98,14 @@ begin
     Close;
 end;
 
-procedure TfrmChaffMount.btnApplyClick(Sender: TObject);
+procedure TfrmChaffMountForm.cbbNameChange(Sender: TObject);
+begin
+  edtClass.Text := FSelectedChaff.FChaff_Def.Chaff_Identifier + ' ' + cbbName.Text;
+
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmChaffMountForm.btnApplyClick(Sender: TObject);
 begin
   if not CekInput then
   begin
@@ -112,11 +117,11 @@ begin
 
   with FSelectedChaff do
   begin
-    LastName := edtClassName.Caption;
-    FData.Instance_Identifier := edtClassName.Caption;
+    LastName := edtClass.Text;
+    FData.Instance_Identifier := cbbName.Text;
     FData.Instance_Type := cbbName.ItemIndex;
     FData.Chaff_Qty_On_Board := StrToInt(edtQuantity.Text);
-    FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
+    FData.Vehicle_Index := SelectedVehicle.FData.Vehicle_Index;
     FData.Chaff_Index := FChaff_Def.Chaff_Index;
 
     if FData.Chaff_Instance_Index = 0 then
@@ -131,22 +136,28 @@ begin
   btnCancel.Enabled := False;
 end;
 
-function TfrmChaffMount.CekInput: Boolean;
+procedure TfrmChaffMountForm.btnCancelClick(Sender: TObject);
+begin
+  AfterClose := False;
+  Close;
+end;
+
+function TfrmChaffMountForm.CekInput: Boolean;
 begin
   Result := False;
 
   {Jika Mount Name sudah ada}
-  if dmTTT.GetChaffOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtClassName.Caption) then
+  if dmTTT.GetChaffOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, cbbName.Text) then
   begin
     {Jika inputan baru}
     if FSelectedChaff.FData.Chaff_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate Chaff!' + Char(13) + 'Choose different Chaff to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
-    else if LastName <> edtClassName.Caption then
+    else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -154,36 +165,19 @@ begin
   Result := True;
 end;
 
-procedure TfrmChaffMount.btnCancelClick(Sender: TObject);
-begin
-  AfterClose := False;
-  Close;
-end;
-
-procedure TfrmChaffMount.cbbNameChange(Sender: TObject);
-begin
-  if TComboBox(Sender).ItemIndex = -1 then
-    TComboBox(Sender).ItemIndex := 0;
-
-  edtClassName.Caption := FSelectedChaff.FChaff_Def.Chaff_Identifier + ' ' + cbbName.Text;
-
-  btnApply.Enabled := True;
-end;
-
-procedure TfrmChaffMount.UpdateChaffData;
+procedure TfrmChaffMountForm.UpdateChaffData;
 begin
   with FSelectedChaff do
   begin
     cbbName.ItemIndex := FData.Instance_Type;
 
     if FData.Chaff_Instance_Index = 0 then
-      edtClassName.Caption := FChaff_Def.Chaff_Identifier + ' ' + cbbName.Text
+      edtClass.Text := FChaff_Def.Chaff_Identifier + ' ' + cbbName.Text
     else
-      edtClassName.Caption := FData.Instance_Identifier;
+      edtClass.Text := FChaff_Def.Chaff_Identifier;
 
-    LastName := edtClassName.Caption;
-
-    edtQuantity.Text := FormatFloat('0', FData.Chaff_Qty_On_Board);
+    LastName := edtClass.Text;
+    edtQuantity.Text := IntToStr(FData.Chaff_Qty_On_Board);
   end;
 end;
 
@@ -191,7 +185,7 @@ end;
 
 {$REGION ' Filter Input '}
 
-function TfrmChaffMount.GetNumberOfKoma(s: string): Boolean;
+function TfrmChaffMountForm.GetNumberOfKoma(s: string): Boolean;
 var
   a, i : Integer;
 begin
@@ -208,7 +202,7 @@ begin
     Result := True;
 end;
 
-procedure TfrmChaffMount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmChaffMountForm.edtNumeralKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -229,12 +223,6 @@ begin
     if TEdit(Sender).Text = '' then
       TEdit(Sender).Text := '0';
 
-    if (StrToFloat(TEdit(Sender).Text) > 465000)  then
-    begin
-      ShowMessage('Incorrect value');
-      edtQuantity.Text := '465000';
-    end;
-
     value := StrToFloat(TEdit(Sender).Text);
 
     case TEdit(Sender).Tag of
@@ -248,12 +236,12 @@ begin
   end;
 end;
 
-procedure TfrmChaffMount.edtChange(Sender: TObject);
+procedure TfrmChaffMountForm.edtChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmChaffMount.ValidationFormatInput;
+procedure TfrmChaffMountForm.ValidationFormatInput;
 var
   i: Integer;
   value : Double;
@@ -268,9 +256,6 @@ begin
 
       if TEdit(Components[i]).Text = '' then
         TEdit(Components[i]).Text := '0';
-
-      if (StrToFloat(TEdit(Components[i]).Text) > 465000) then
-        TEdit(Components[i]).Text := '465000';
 
       value := StrToFloat(TEdit(Components[i]).Text);
 

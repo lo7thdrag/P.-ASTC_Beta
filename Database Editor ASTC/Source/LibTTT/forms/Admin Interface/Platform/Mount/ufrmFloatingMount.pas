@@ -1,60 +1,60 @@
-unit ufrmInfraRedmount;
+unit ufrmFloatingMount;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAsset_Vehicle,
+  Dialogs, StdCtrls, ComCtrls, ExtCtrls, uDBAsset_Vehicle,
   uDBAsset_Countermeasure, Vcl.Imaging.pngimage;
 
 type
-  TfrmInfraredmount = class(TForm)
-    pnl1Title: TPanel;
-    edtName: TEdit;
-    pnl2ControlPage: TPanel;
-    pgc1: TPageControl;
-    tsGeneral: TTabSheet;
+  TfrmFloatingMount = class(TForm)
+    PageControl1: TPageControl;
+    General: TTabSheet;
+    txtQuantity: TStaticText;
     edtQuantity: TEdit;
-    lbl1: TLabel;
-    lbl2: TLabel;
     pnlMainBackground: TPanel;
-    imgBackground: TImage;
+    pnl2ControlPage: TPanel;
+    pnl1Title: TPanel;
+    txtClass: TLabel;
+    edtName: TEdit;
     pnl3Button: TPanel;
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
 
-
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
     //Global
     function GetNumberOfKoma(s : string): Boolean;
     procedure edtNumeralKeyPress(Sender: TObject; var Key: Char);
+
     procedure edtChange(Sender: TObject);
     procedure ValidationFormatInput();
 
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+
   private
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedInfraredDecoy : TInfrared_Decoy_On_Board;
+    FSelectedFloatingDecoy : TFloating_Decoy_On_Board;
 
     function CekInput: Boolean;
-    procedure UpdateInfraredDecoyData;
+    procedure UpdateFloatingDecoyData;
+
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     LastName : string;
 
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-    property SelectedInfraredDecoy : TInfrared_Decoy_On_Board read FSelectedInfraredDecoy write FSelectedInfraredDecoy;
-
+    property SelectedFloatingDecoy : TFloating_Decoy_On_Board read FSelectedFloatingDecoy write FSelectedFloatingDecoy;
   end;
 
 var
-  frmInfraredmount: TfrmInfraredmount;
+  frmFloatingMount: TfrmFloatingMount;
 
 implementation
 
@@ -65,17 +65,17 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TfrmInfraredmount.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmFloatingMount.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
   Action := cafree;
 end;
 
-procedure TfrmInfraredmount.FormShow(Sender: TObject);
+procedure TfrmFloatingMount.FormShow(Sender: TObject);
 begin
-  UpdateInfraredDecoyData;
+  UpdateFloatingDecoyData;
 
-  with FSelectedInfraredDecoy.FData do
-    btnApply.Enabled := Infrared_Decoy_Instance_Index = 0;
+  with FSelectedFloatingDecoy.FData do
+    btnApply.Enabled := Floating_Decoy_Instance_Index = 0;
 
   isOK := True;
   AfterClose := True;
@@ -86,7 +86,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmInfraredmount.btnOKClick(Sender: TObject);
+procedure TfrmFloatingMount.btnOKClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -95,30 +95,21 @@ begin
     Close;
 end;
 
-procedure TfrmInfraredmount.btnApplyClick(Sender: TObject);
+procedure TfrmFloatingMount.btnApplyClick(Sender: TObject);
 begin
-  if not CekInput then
-  begin
-    isOK := False;
-    Exit;
-  end;
-
-  ValidationFormatInput;
-
-  with FSelectedInfraredDecoy do
+  with FSelectedFloatingDecoy do
   begin
     LastName := edtName.Text;
-
     FData.Instance_Identifier := edtName.Text;
-    FData.Instance_Type := 1;
-    FData.Infrared_Decoy_Qty_On_Board := StrToInt(edtQuantity.Text);
+    FData.Instance_Type := 0;
+    FData.Quantity := StrToInt(edtQuantity.Text);
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
-    FData.Infrared_Decoy_Index := FInfraRedDecoy_Def.Infrared_Decoy_Index;
+    FData.Floating_Decoy_Index := FFloatingDecoy_Def.Floating_Decoy_Index;
 
-    if FData.Infrared_Decoy_Instance_Index = 0 then
-      dmTTT.InsertInfraredDecoyOnBoard(FData)
+    if FData.Floating_Decoy_Instance_Index = 0 then
+      dmTTT.InsertFloatingDecoyOnBoard(FData)
     else
-      dmTTT.UpdateInfraredDecoyOnBoard(FData);
+      dmTTT.UpdateFloatingDecoyOnBoard(FData);
   end;
 
   isOK := True;
@@ -127,28 +118,28 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmInfraredmount.btnCancelClick(Sender: TObject);
+procedure TfrmFloatingMount.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-function TfrmInfraredmount.CekInput: Boolean;
+function TfrmFloatingMount.CekInput: Boolean;
 begin
   Result := False;
 
   {Jika Mount Name sudah ada}
-  if dmTTT.GetInfraredDecoyOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
+  if dmTTT.GetFloatingDecoyOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
   begin
     {Jika inputan baru}
-    if FSelectedInfraredDecoy.FData.Infrared_Decoy_Instance_Index = 0 then
+    if FSelectedFloatingDecoy.FData.Floating_Decoy_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate InfraredDecoy!' + Char(13) + 'Choose Infrared Decoy to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -156,17 +147,18 @@ begin
   Result := True;
 end;
 
-procedure TfrmInfraredmount.UpdateInfraredDecoyData;
+procedure TfrmFloatingMount.UpdateFloatingDecoyData;
 begin
-  with FSelectedInfraredDecoy do
+  with FSelectedFloatingDecoy do
   begin
-    if FData.Infrared_Decoy_Instance_Index = 0 then
-      edtName.Text := FInfraRedDecoy_Def.Infrared_Decoy_Identifier
+    if FData.Floating_Decoy_Instance_Index = 0 then
+      edtName.Text := FFloatingDecoy_Def.Floating_Decoy_Identifier
     else
       edtName.Text := FData.Instance_Identifier;
 
-    LastName := edtName.Text;
-    edtQuantity.Text := IntToStr(FData.Infrared_Decoy_Qty_On_Board);
+      LastName := edtName.Text;
+
+    edtQuantity.Text := IntToStr(FData.Quantity);
   end;
 end;
 
@@ -174,7 +166,7 @@ end;
 
 {$REGION ' Filter Input '}
 
-function TfrmInfraredmount.GetNumberOfKoma(s: string): Boolean;
+function TfrmFloatingMount.GetNumberOfKoma(s: string): Boolean;
 var
   a, i : Integer;
 begin
@@ -191,7 +183,7 @@ begin
     Result := True;
 end;
 
-procedure TfrmInfraredmount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmFloatingMount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -225,12 +217,13 @@ begin
   end;
 end;
 
-procedure TfrmInfraredmount.edtChange(Sender: TObject);
+
+procedure TfrmFloatingMount.edtChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmInfraredmount.ValidationFormatInput;
+procedure TfrmFloatingMount.ValidationFormatInput;
 var
   i: Integer;
   value : Double;

@@ -1,28 +1,27 @@
-object frmChaffMountForm: TfrmChaffMountForm
+object MissileLaunchersForm: TMissileLaunchersForm
   Left = 0
   Top = 0
-  BorderIcons = []
-  BorderStyle = bsSingle
-  Caption = '   Chaff'
-  ClientHeight = 478
-  ClientWidth = 434
-  Color = clBtnShadow
+  BorderStyle = bsToolWindow
+  Caption = 'Missile Launcher'
+  ClientHeight = 263
+  ClientWidth = 334
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
-  OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 14
+  TextHeight = 13
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 434
-    Height = 478
+    Width = 334
+    Height = 263
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44838,135 +44837,83 @@ object frmChaffMountForm: TfrmChaffMountForm
       638A52EECF558B599F22458A142952A448F113E2FF018F0E1FFAC27F4F700000
       000049454E44AE426082}
     Stretch = True
-    ExplicitTop = 78
-    ExplicitHeight = 360
+    ExplicitLeft = 8
+    ExplicitTop = 8
+    ExplicitWidth = 309
+    ExplicitHeight = 153
   end
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 434
-    Height = 478
+    Width = 334
+    Height = 263
     Align = alClient
-    BevelOuter = bvNone
+    Caption = 'pnlMainBackground'
     TabOrder = 0
-    object pnl2ControlPage: TPanel
-      Left = 0
-      Top = 65
-      Width = 434
-      Height = 370
-      Align = alClient
-      BevelOuter = bvNone
-      BorderWidth = 10
-      Color = 2499101
-      TabOrder = 0
-      ExplicitTop = 70
-      ExplicitHeight = 360
-      object PageControl1: TPageControl
-        Left = 10
-        Top = 10
-        Width = 414
-        Height = 350
-        ActivePage = General
-        Align = alClient
-        TabHeight = 30
-        TabOrder = 0
-        TabWidth = 75
-        ExplicitTop = 6
-        ExplicitHeight = 340
-        object General: TTabSheet
-          Caption = 'General'
-          ExplicitHeight = 300
-          object lblClass: TLabel
-            Left = 12
-            Top = 18
-            Width = 64
-            Height = 14
-            Caption = 'Class Name:'
-          end
-          object txtQuantity: TStaticText
-            Left = 12
-            Top = 79
-            Width = 59
-            Height = 18
-            Caption = 'Quantity :'
-            TabOrder = 0
-          end
-          object edtQuantity: TEdit
-            Left = 82
-            Top = 75
-            Width = 68
-            Height = 22
-            NumbersOnly = True
-            TabOrder = 1
-            OnChange = edtChange
-          end
-          object edtClass: TEdit
-            Tag = 4
-            Left = 12
-            Top = 41
-            Width = 306
-            Height = 22
-            Enabled = False
-            TabOrder = 2
-          end
-        end
-      end
-    end
-    object pnl1Title: TPanel
-      Left = 0
-      Top = 0
-      Width = 434
-      Height = 65
+    ExplicitTop = 8
+    ExplicitHeight = 50
+    object pnlName: TPanel
+      Left = 1
+      Top = 1
+      Width = 332
+      Height = 50
       Align = alTop
       BevelOuter = bvNone
-      Color = 2499101
-      TabOrder = 1
-      object txtClass: TLabel
+      TabOrder = 0
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 334
+      object lblName: TStaticText
         Left = 10
         Top = 10
-        Width = 81
-        Height = 16
-        Caption = 'Mount Name :'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
+        Width = 38
+        Height = 17
+        Caption = 'Name :'
+        TabOrder = 0
       end
       object cbbName: TComboBox
         Left = 10
-        Top = 30
-        Width = 414
-        Height = 22
+        Top = 24
+        Width = 314
+        Height = 21
         Style = csDropDownList
         ItemIndex = 0
-        TabOrder = 0
-        Text = 'Barrier'
-        OnChange = cbbNameChange
+        TabOrder = 1
+        Text = 'Launcher 1'
+        OnChange = ComboBoxDataChange
         Items.Strings = (
-          'Barrier'
-          'Confusion'
-          'Distraction'
-          'Seduction'
-          'Surface'
-          'Aircraft'
-          'Gun')
+          'Launcher 1'
+          'Launcher 2'
+          'Launcher 3'
+          'Launcher 4'
+          'Launcher 5'
+          'Launcher 6'
+          'Launcher 7'
+          'Launcher 8'
+          'Missile Cell 1'
+          'Missile Cell 2'
+          'Missile Cell 3'
+          'Missile Cell 4'
+          'Missile Cell 5'
+          'Missile Cell 6'
+          'Missile Cell 7'
+          'Missile Cell 8')
       end
     end
-    object pnl3Button: TPanel
-      Left = 0
-      Top = 435
-      Width = 434
-      Height = 43
+    object pnlAction: TPanel
+      Left = 1
+      Top = 222
+      Width = 332
+      Height = 40
       Align = alBottom
       BevelOuter = bvNone
-      Color = 2499101
-      TabOrder = 2
-      ExplicitTop = 436
+      TabOrder = 1
+      ExplicitLeft = 0
+      ExplicitTop = 223
+      ExplicitWidth = 334
       object btnApply: TButton
-        Left = 261
-        Top = 2
+        Left = 162
+        Top = 6
         Width = 80
         Height = 30
         Caption = 'Apply'
@@ -44979,24 +44926,9 @@ object frmChaffMountForm: TfrmChaffMountForm
         TabOrder = 0
         OnClick = btnApplyClick
       end
-      object btnOK: TButton
-        Left = 177
-        Top = 2
-        Width = 80
-        Height = 30
-        Caption = 'OK'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 1
-        OnClick = btnOKClick
-      end
       object btnCancel: TButton
-        Left = 344
-        Top = 2
+        Left = 243
+        Top = 6
         Width = 80
         Height = 30
         Caption = 'Cancel'
@@ -45006,8 +44938,99 @@ object frmChaffMountForm: TfrmChaffMountForm
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 1
         OnClick = btnCancelClick
+      end
+      object btnOK: TButton
+        Left = 81
+        Top = 6
+        Width = 80
+        Height = 30
+        Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 2
+        OnClick = btnOKClick
+      end
+    end
+    object pnlData: TPanel
+      Left = 1
+      Top = 51
+      Width = 332
+      Height = 171
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 334
+      ExplicitHeight = 263
+      object PageControl1: TPageControl
+        Left = 10
+        Top = 6
+        Width = 314
+        Height = 167
+        ActivePage = tsGeneral
+        TabOrder = 0
+        object tsGeneral: TTabSheet
+          Caption = 'General'
+          object txtMaxQuantity: TStaticText
+            Left = 3
+            Top = 27
+            Width = 100
+            Height = 17
+            Caption = 'Maximum Quantity :'
+            TabOrder = 0
+          end
+          object edtMaxQuantity: TEdit
+            Left = 154
+            Top = 25
+            Width = 67
+            Height = 21
+            NumbersOnly = True
+            TabOrder = 1
+            OnChange = edtChange
+            OnKeyPress = edtNumeralKeyPress
+          end
+          object grpAngle: TGroupBox
+            Left = 3
+            Top = 75
+            Width = 300
+            Height = 61
+            TabOrder = 2
+            object txtAngle: TStaticText
+              Left = 10
+              Top = 28
+              Width = 38
+              Height = 17
+              Caption = 'Angle :'
+              TabOrder = 0
+            end
+            object edtAngle: TEdit
+              Left = 151
+              Top = 26
+              Width = 68
+              Height = 21
+              NumbersOnly = True
+              TabOrder = 1
+              OnChange = edtChange
+              OnKeyPress = edtAngleKeyPress
+            end
+          end
+          object chkAngleRequired: TCheckBox
+            Left = 13
+            Top = 72
+            Width = 97
+            Height = 17
+            Caption = 'Angle Required'
+            TabOrder = 3
+            OnClick = chkAngleRequiredClick
+          end
+        end
       end
     end
   end

@@ -1,30 +1,33 @@
-unit ufrmInfraRedmount;
+unit ufrmBombDepthChargeMount;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAsset_Vehicle,
-  uDBAsset_Countermeasure, Vcl.Imaging.pngimage;
+  Dialogs, StdCtrls, ComCtrls, ExtCtrls, uDBAsset_Vehicle, uDBAsset_Weapon,
+  Vcl.Imaging.pngimage;
 
 type
-  TfrmInfraredmount = class(TForm)
+  TfrmBombDepthChargeMount = class(TForm)
+    PageControl1: TPageControl;
+    General: TTabSheet;
+    lblClassName: TStaticText;
+    edtClassName: TEdit;
+    lblMountExtension: TStaticText;
+    cbMountExtension: TComboBox;
+    lblQuantity: TStaticText;
+    edtQuantity: TEdit;
+    pnlMainBackground: TPanel;
+    pnl2ControlPage: TPanel;
     pnl1Title: TPanel;
     edtName: TEdit;
-    pnl2ControlPage: TPanel;
-    pgc1: TPageControl;
-    tsGeneral: TTabSheet;
-    edtQuantity: TEdit;
-    lbl1: TLabel;
-    lbl2: TLabel;
-    pnlMainBackground: TPanel;
-    imgBackground: TImage;
     pnl3Button: TPanel;
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
+    txtClass: TLabel;
 
-
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
     //Global
@@ -33,51 +36,53 @@ type
     procedure edtChange(Sender: TObject);
     procedure ValidationFormatInput();
 
+    procedure cbMountExtensionChange(Sender: TObject);
+
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+
   private
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedInfraredDecoy : TInfrared_Decoy_On_Board;
+    FSelectedBomb : TBomb_Definition;
 
     function CekInput: Boolean;
-    procedure UpdateInfraredDecoyData;
+    procedure UpdateBombData;
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     LastName : string;
 
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-    property SelectedInfraredDecoy : TInfrared_Decoy_On_Board read FSelectedInfraredDecoy write FSelectedInfraredDecoy;
-
+    property SelectedBomb : TBomb_Definition read FSelectedBomb write FSelectedBomb;
   end;
 
 var
-  frmInfraredmount: TfrmInfraredmount;
+  frmBombDepthChargeMount: TfrmBombDepthChargeMount;
 
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, ufrmAvailableVehicle, ufrmSummaryVehicle,
+  uMissileLaunchers, ufrmMissileOnBoardPickList, ufrmBombOnBoardPickList;
 
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
 
-procedure TfrmInfraredmount.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmBombDepthChargeMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := cafree;
 end;
 
-procedure TfrmInfraredmount.FormShow(Sender: TObject);
+procedure TfrmBombDepthChargeMount.FormShow(Sender: TObject);
 begin
-  UpdateInfraredDecoyData;
+  UpdateBombData;
 
-  with FSelectedInfraredDecoy.FData do
-    btnApply.Enabled := Infrared_Decoy_Instance_Index = 0;
+  with FSelectedBomb.FPoint.FData do
+    btnApply.Enabled := Point_Effect_Index = 0;
 
-  isOK := True;
+    isOK := True;
   AfterClose := True;
   btnCancel.Enabled := True;
 end;
@@ -86,7 +91,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmInfraredmount.btnOKClick(Sender: TObject);
+procedure TfrmBombDepthChargeMount.btnOKClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -95,7 +100,7 @@ begin
     Close;
 end;
 
-procedure TfrmInfraredmount.btnApplyClick(Sender: TObject);
+procedure TfrmBombDepthChargeMount.btnApplyClick(Sender: TObject);
 begin
   if not CekInput then
   begin
@@ -105,20 +110,20 @@ begin
 
   ValidationFormatInput;
 
-  with FSelectedInfraredDecoy do
+  with FSelectedBomb do
   begin
     LastName := edtName.Text;
+    FPoint.FData.Instance_Identifier := edtName.Text;
+    FPoint.FData.Instance_Type := FData.Bomb_Type;
+    FPoint.FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
+    FPoint.FData.Mount_Type := cbMountExtension.ItemIndex;
+    FPoint.FData.Quantity := StrToInt(edtQuantity.Text);
+    FPoint.FData.Bomb_Index := FData.Bomb_Index;
 
-    FData.Instance_Identifier := edtName.Text;
-    FData.Instance_Type := 1;
-    FData.Infrared_Decoy_Qty_On_Board := StrToInt(edtQuantity.Text);
-    FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
-    FData.Infrared_Decoy_Index := FInfraRedDecoy_Def.Infrared_Decoy_Index;
-
-    if FData.Infrared_Decoy_Instance_Index = 0 then
-      dmTTT.InsertInfraredDecoyOnBoard(FData)
+    if FPoint.FData.Point_Effect_Index = 0 then
+      dmTTT.InsertPointEffectOnBoard(2, FPoint.FData)
     else
-      dmTTT.UpdateInfraredDecoyOnBoard(FData);
+      dmTTT.UpdatePointEffectOnBoard(2, FPoint.FData);
   end;
 
   isOK := True;
@@ -127,28 +132,35 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmInfraredmount.btnCancelClick(Sender: TObject);
+procedure TfrmBombDepthChargeMount.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-function TfrmInfraredmount.CekInput: Boolean;
+procedure TfrmBombDepthChargeMount.cbMountExtensionChange(Sender: TObject);
+begin
+  edtName.Text := FSelectedBomb.FData.Bomb_Identifier + ' ' + cbMountExtension.Text;
+
+  btnApply.Enabled := True;
+end;
+
+function TfrmBombDepthChargeMount.CekInput: Boolean;
 begin
   Result := False;
 
   {Jika Mount Name sudah ada}
-  if dmTTT.GetInfraredDecoyOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
+  if dmTTT.GetPointEffectOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
   begin
     {Jika inputan baru}
-    if FSelectedInfraredDecoy.FData.Infrared_Decoy_Instance_Index = 0 then
+    if FSelectedBomb.FPoint.FData.Point_Effect_Index = 0 then
     begin
-      ShowMessage('Duplicate InfraredDecoy!' + Char(13) + 'Choose Infrared Decoy to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
-    else if LastName <> edtName.Text then
+    else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -156,17 +168,21 @@ begin
   Result := True;
 end;
 
-procedure TfrmInfraredmount.UpdateInfraredDecoyData;
+procedure TfrmBombDepthChargeMount.UpdateBombData;
 begin
-  with FSelectedInfraredDecoy do
+  with FSelectedBomb do
   begin
-    if FData.Infrared_Decoy_Instance_Index = 0 then
-      edtName.Text := FInfraRedDecoy_Def.Infrared_Decoy_Identifier
+    cbMountExtension.ItemIndex := FPoint.FData.Mount_Type;
+
+    if FPoint.FData.Point_Effect_Index = 0 then
+      edtName.Text := FData.Bomb_Identifier + ' ' + cbMountExtension.Text
     else
-      edtName.Text := FData.Instance_Identifier;
+      edtName.Text := FPoint.FData.Instance_Identifier;
 
     LastName := edtName.Text;
-    edtQuantity.Text := IntToStr(FData.Infrared_Decoy_Qty_On_Board);
+
+    edtClassName.Text := FData.Bomb_Identifier;
+    edtQuantity.Text := IntToStr(FPoint.FData.Quantity);
   end;
 end;
 
@@ -174,7 +190,7 @@ end;
 
 {$REGION ' Filter Input '}
 
-function TfrmInfraredmount.GetNumberOfKoma(s: string): Boolean;
+function TfrmBombDepthChargeMount.GetNumberOfKoma(s: string): Boolean;
 var
   a, i : Integer;
 begin
@@ -191,7 +207,7 @@ begin
     Result := True;
 end;
 
-procedure TfrmInfraredmount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmBombDepthChargeMount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -225,12 +241,12 @@ begin
   end;
 end;
 
-procedure TfrmInfraredmount.edtChange(Sender: TObject);
+procedure TfrmBombDepthChargeMount.edtChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmInfraredmount.ValidationFormatInput;
+procedure TfrmBombDepthChargeMount.ValidationFormatInput;
 var
   i: Integer;
   value : Double;

@@ -4,40 +4,38 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, ComCtrls, Vcl.Imaging.pngimage,
-  uDBBlind_Zone, uBlindZoneView, uDBAsset_Vehicle, tttData,
-  uDBAsset_Sensor;
+  Dialogs, StdCtrls, ExtCtrls, ComCtrls, uDBAsset_Sensor, uDBBlind_Zone,
+  uBlindZoneView, uDBAsset_Vehicle, Vcl.Imaging.pngimage;
 
 type
   TfrmESMMount = class(TForm)
     pnl1Title: TPanel;
+    txtClass: TLabel;
     edtName: TEdit;
-    lbl1: TLabel;
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Image1: TImage;
-    Label1: TLabel;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     General: TTabSheet;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
-    lbl6: TLabel;
-    lbl7: TLabel;
-    lbl8: TLabel;
-    lbl9: TLabel;
-    lbl10: TLabel;
+    lblClassName: TStaticText;
+    edtClassName: TEdit;
+    lblMountExtension: TStaticText;
     cbMountExtension: TComboBox;
+    lblBlindZones: TStaticText;
+    lblAntenna: TStaticText;
     edtAntenna: TEdit;
+    lblSubmergedAntenna: TStaticText;
     edtSubmerged: TEdit;
+    lblMaxOperational: TStaticText;
     edtMaxOperational: TEdit;
+    lblFeetAntenna: TStaticText;
+    lblFeetSubmerged: TStaticText;
+    lblFeetMaxOperational: TStaticText;
     pnlBlindZone: TPanel;
-    edtClassName: TLabel;
+    pnl3Button: TPanel;
+
+    imgBackground: TImage; btnApply: TButton;
+    btnOK: TButton;
+    btnCancel: TButton;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -55,7 +53,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -74,7 +72,6 @@ type
 
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
     property SelectedESM : TESM_On_Board read FSelectedESM write FSelectedESM;
-
   end;
 
 var
@@ -83,17 +80,17 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmBlindZoneAttachment;
+  uDataModuleTTT, ufrmESMOnBoardPickList, ufrmSummaryVehicle,
+  uBlindZoneAttachment, ufrmRadarOnBoardPickList, uVehicleSelect, tttData;
 
 {$R *.dfm}
-
 
 {$REGION ' Form Handle '}
 
 procedure TfrmESMMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FBlindZoneView.Free;
-  Action := cafree;
+//  FBlindZoneView.Free;
+//  Action := cafree;
 end;
 
 procedure TfrmESMMount.FormCreate(Sender: TObject);
@@ -111,16 +108,17 @@ begin
   end;
 end;
 
+procedure TfrmESMMount.FormDestroy(Sender: TObject);
+begin
+  FBlindZoneView.Free;
+end;
+
 procedure TfrmESMMount.FormShow(Sender: TObject);
 begin
   UpdateESMData;
 
   with FSelectedESM.FData do
     btnApply.Enabled := ESM_Instance_Index = 0;
-
-  isOK := True;
-  AfterClose := True;
-  btnCancel.Enabled := True;
 end;
 
 {$ENDREGION}
@@ -149,7 +147,6 @@ begin
   with FSelectedESM do
   begin
     LastName := edtName.Text;
-
     FData.Instance_Identifier := edtName.Text;
     FData.Instance_Type := cbMountExtension.ItemIndex;
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
@@ -172,7 +169,6 @@ end;
 
 procedure TfrmESMMount.btnCancelClick(Sender: TObject);
 begin
-  AfterClose := False;
   Close;
 end;
 
@@ -194,12 +190,12 @@ begin
     {Jika inputan baru}
     if FSelectedESM.FData.ESM_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate ESM mount!' + Char(13) + 'Choose different mount to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -211,14 +207,14 @@ procedure TfrmESMMount.DrawBlindZone;
 var
   i : Integer;
   blindZone : TBlind_Zone;
-  zoneSector : TZoneSector;
-
+  zs : TZoneSector;
 begin
   FBlindZoneView.ClearZone;
 
   with FSelectedESM do
   begin
-    dmTTT.GetBlindZone(Ord(bzcESM), FData.ESM_Instance_Index, FBlind);
+    dmTTT.GetBlindZone(Ord(bzcESM), FData.ESM_Instance_Index,
+      FBlind);
 
     blindZone := TBlind_Zone.Create;
     FBZone_1 := blindZone.FData;
@@ -238,17 +234,17 @@ begin
     if (FBZone_1.BlindZone_Number <> 0) and
       (FBZone_1.Start_Angle <> FBZone_1.End_Angle) then
     begin
-      zoneSector := FBlindZoneView.AddZone;
-      zoneSector.StartAngle := FBZone_1.Start_Angle;
-      zoneSector.EndAngle := FBZone_1.End_Angle;
+      zs := FBlindZoneView.AddZone;
+      zs.StartAngle := FBZone_1.Start_Angle;
+      zs.EndAngle := FBZone_1.End_Angle;
     end;
 
     if (FBZone_2.BlindZone_Number <> 0) and
       (FBZone_2.Start_Angle <> FBZone_2.End_Angle) then
     begin
-      zoneSector := FBlindZoneView.AddZone;
-      zoneSector.StartAngle := FBZone_2.Start_Angle;
-      zoneSector.EndAngle := FBZone_2.End_Angle;
+      zs := FBlindZoneView.AddZone;
+      zs.StartAngle := FBZone_2.Start_Angle;
+      zs.EndAngle := FBZone_2.End_Angle;
     end;
   end;
 
@@ -259,26 +255,23 @@ procedure TfrmESMMount.pnlBlindZoneClick(Sender: TObject);
 begin
   if FSelectedESM.FData.ESM_Instance_Index = 0 then
   begin
-    ShowMessage('Save data before edit blind zone ');
+    ShowMessage('Simpan data terlebih dahulu sebelum mengubah nilai blind zone');
     Exit;
   end;
 
-  frmBlindZonesAttachment := TfrmBlindZonesAttachment.Create(Self);
+  BlindZonesAttachmentForm := TBlindZonesAttachmentForm.Create(Self);
   try
-    with frmBlindZonesAttachment do
+    with BlindZonesAttachmentForm do
     begin
       OnBoardType := bzcESM;
       OnBoardOwner := FSelectedESM;
       ShowModal;
+      DrawBlindZone;
     end;
-
-    btnApply.Enabled := frmBlindZonesAttachment.AfterClose;
-    btnCancel.Enabled := not frmBlindZonesAttachment.AfterClose;
   finally
-    frmBlindZonesAttachment.Free;
+    BlindZonesAttachmentForm.Free;
   end;
-  
-  DrawBlindZone;
+
 end;
 
 procedure TfrmESMMount.UpdateESMData;
@@ -293,11 +286,11 @@ begin
       edtName.Text := FData.Instance_Identifier;
 
     LastName := edtName.Text;
-    edtClassName.Caption := FESM_Def.Class_Identifier;
+    edtClassName.Text := FESM_Def.Class_Identifier;
 
     DrawBlindZone;
 
-    edtAntenna.Text := FormatFloat('0', FData.Rel_Antenna_Height);
+    edtAntenna.Text := FormatFloat('0.0', FData.Rel_Antenna_Height);
     edtSubmerged.Text := FormatFloat('0', FData.Submerged_Antenna_Height);
     edtMaxOperational.Text := FormatFloat('0', FData.Max_Operational_Depth);
   end;

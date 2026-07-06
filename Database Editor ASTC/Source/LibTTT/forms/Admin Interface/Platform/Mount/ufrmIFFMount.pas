@@ -9,29 +9,29 @@ uses
 
 type
   TfrmIFFMount = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
     pnl1Title: TPanel;
-    lbl1: TLabel;
+    txtClass: TLabel;
     edtName: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     General: TTabSheet;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
-    lbl6: TLabel;
-    lbl7: TLabel;
-    lbl8: TLabel;
+    lblCapability: TStaticText;
     cbbCapability: TComboBox;
+    txtAntenna: TStaticText;
     edtAntenna: TEdit;
+    txtSubmerged: TStaticText;
     edtSubmerged: TEdit;
+    lblMaxOperational: TStaticText;
     edtMaxOperational: TEdit;
+    txtFeetAntenna: TStaticText;
+    txtFeetSubmerged: TStaticText;
+    txtFeetMaxOperational: TStaticText;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnOK: TButton;
+    btnCancel: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -58,9 +58,9 @@ type
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     LastName : string;
-    property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-    property SelectedIFF : TIFF_Sensor_On_Board read FSelectedIFF write FSelectedIFF;
 
+    property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
+    property SelectedIFF : TIFF_Sensor_On_Board read FSelectedIFF  write FSelectedIFF;
   end;
 
 var
@@ -77,7 +77,7 @@ uses
 
 procedure TfrmIFFMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmIFFMount.FormShow(Sender: TObject);
@@ -101,7 +101,8 @@ begin
   if btnApply.Enabled then
     btnApply.Click;
 
-  Close;
+  if isOk then
+    Close;
 end;
 
 procedure TfrmIFFMount.btnApplyClick(Sender: TObject);
@@ -118,9 +119,9 @@ begin
   begin
     LastName := edtName.Text;
     FData.Instance_Identifier := edtName.Text;
-    FData.Instance_Type := 0;
+    FData.Instance_Type := cbbCapability.ItemIndex;
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
-    FData.IFF_Capability := cbbCapability.ItemIndex;;
+    FData.IFF_Capability := 0;
     FData.Rel_Antenna_Height := StrToFloat(edtAntenna.Text);
     FData.Submerged_Antenna_Height := StrToFloat(edtSubmerged.Text);
     FData.Max_Operational_Depth := StrToFloat(edtMaxOperational.Text);
@@ -153,12 +154,12 @@ begin
     {Jika inputan baru}
     if FSelectedIFF.FData.IFF_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate IFF!' + Char(13) + 'Choose only one IFF.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
-    else if LastName <> edtName.Text then
+    else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -171,9 +172,9 @@ begin
   with FSelectedIFF.FData do
   begin
     edtName.Text := Instance_Identifier;
-    cbbCapability.ItemIndex := IFF_Capability;
     LastName := edtName.Text;
-    edtAntenna.Text := FormatFloat('0', Rel_Antenna_Height);
+    cbbCapability.ItemIndex := Instance_Type;
+    edtAntenna.Text := FormatFloat('0.0', Rel_Antenna_Height);
     edtSubmerged.Text := FormatFloat('0', Submerged_Antenna_Height);
     edtMaxOperational.Text := FormatFloat('0', Max_Operational_Depth);
   end;

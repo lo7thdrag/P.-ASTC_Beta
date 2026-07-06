@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, ComCtrls, Menus, uT3GroupList, uSRRFunction,
-  uSnapshotUtils, uSnapshotGCRec, uSnapshotGCData , uDMGC, tttData;
+  uSnapshotUtils, uSnapshotGCRec, uSnapshotGCData , uDMGC, Vcl.Imaging.pngimage;
 
 type
 
@@ -15,7 +15,6 @@ type
   end;
 
   TfrmStartExerciseWizard = class(TForm)
-    Panel1: TPanel;
     Bevel1: TBevel;
     pnlExerciseName: TPanel;
     pnlRecordOption: TPanel;
@@ -45,24 +44,23 @@ type
     btnMapping_Cancel: TButton;
     btnMapping_Back: TButton;
     tvMapping: TTreeView;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
     btnMapToControllers: TButton;
     btnClearAllConfig: TButton;
     btnAudio_Back: TButton;
     pmAssignt: TPopupMenu;
     mnAssign1: TMenuItem;
     Clear1: TMenuItem;
-    lbl1: TLabel;
-    rb1: TRadioButton;
-    rb2: TRadioButton;
-    pnlRecord: TPanel;
-    mmoDescription: TMemo;
-    lbl2: TLabel;
+    pnlDevPreplay: TPanel;
+    Panel6: TPanel;
+    Bevel5: TBevel;
+    Button1: TButton;
+    btnDevPreplay: TButton;
+    pnlButtomDev: TPanel;
+    lvConsole: TListView;
+    btnExcName_Back: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    lblHeader: TLabel;
     procedure btnExcName_CancelClick(Sender: TObject);
     procedure btnExcName_NextClick(Sender: TObject);
     procedure btnAudio_BackClick(Sender: TObject);
@@ -83,10 +81,12 @@ type
     procedure btnClearAllConfigClick(Sender: TObject);
     procedure Clear1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure pnlDevPreplayClick(Sender: TObject);
+    procedure btnDevPreplayClick(Sender: TObject);
+    procedure btnExcName_BackClick(Sender: TObject);
 
   private
     DefExcName: string;
-    FDescGR : string;
     FPairCounter: integer;
     FScenarioID: integer;
 
@@ -103,7 +103,6 @@ type
 
     procedure PrepareRecordOption;
     procedure PrepareAssignment;
-    procedure SaveGameReport;
 
 //    function FindMenu(const sHint: string): TMenuItem;
     procedure menuAssignClick(Sender: TObject);
@@ -124,7 +123,6 @@ type
 
     recording: boolean;
     selectedPlatform: Integer;
-    idGame_Report : Integer;
     { Public declarations }
 
     procedure EventOnReceiveOnlineList(Sender: TObject);
@@ -149,28 +147,6 @@ uses
   ufStartSession, uLibSettingTTT, uTCPDatatype;
 
 {$R *.dfm}
-
-function DeleteAmpersand(Value: string): string;
-var
-  i: integer;
-  found: Boolean;
-begin
-  found := false;
-
-  for i := 0 to Length(Value) - 1 do
-  begin
-    if Value[i] = '&' then
-    begin
-      found := true;
-      break;
-    end;
-  end;
-
-  if found then
-    Delete(Value, i, 1);
-
-  result := Value;
-end;
 
 procedure GetSnapshotAssignInfoFromFile (const id : integer  ; const s : string ) ;
 var
@@ -218,10 +194,14 @@ begin
 end;
 
 
+procedure TfrmStartExerciseWizard.btnExcName_BackClick(Sender: TObject);
+begin
+  pnlDevPreplay.BringToFront;
+end;
+
 procedure TfrmStartExerciseWizard.btnExcName_CancelClick(Sender: TObject);
 begin
   stateCanceled := true;
-  dmGC.CancelGame;
   Close;
   if prevForm <> nil then
     prevForm.Show;
@@ -232,17 +212,6 @@ procedure TfrmStartExerciseWizard.btnExcName_NextClick(Sender: TObject);
 var i, j: integer;
     s: string;
 begin
-  if (edExerciseName.Text='') then
-  begin
-    ShowMessage('Game name must be Filled');
-    Exit;
-  end;
-  if (mmoDescription.Text = '') then
-  begin
-    ShowMessage('Description must be Filled');
-    Exit;
-  end;
-
   s := edExerciseName.Text;
   j := 0;
   for i := 1 to Length(s) do
@@ -258,19 +227,14 @@ begin
        SendAllAssignment;
        Close;
     end
-    else if isSnapshot then  pnlCubicleMapping.BringToFront
-//       pnlRecordOption.BringToFront ;
-    else
+    else if isSnapshot then
+       pnlRecordOption.BringToFront ;
     begin
-//       pnlRecordOption.BringToFront ;
-       PrepareAssignment;
-       pnlCubicleMapping.BringToFront;
+       pnlRecordOption.BringToFront ;
     end;
-
   end
   else begin
     edExerciseName.Text := DefExcName;
-    mmoDescription.Text := FDescGR;
     edExerciseName.SelectAll;
     edExerciseName.SetFocus;
   end;
@@ -333,11 +297,9 @@ procedure TfrmStartExerciseWizard.PrepareAssignment;
 var
   i, j : Integer;
   lPi : TList;
-  gInfo, newGInfo, gInfoVBS, gInfoWasdal : TGroupInfo;
-
+  gInfo, newGInfo : TGroupInfo;
   pInfo : TDeployedPlatformInfo;
-  fNode, node, fNodeVBS, nodeVBS, nodeWasdal : TTreeNode;
-
+  fNode, node : TTreeNode;
 begin
   if isSnapshot then
      SnapshotSetDefaultAsssign
@@ -351,7 +313,6 @@ begin
     lPi := TList.Create;
 
     dmGC.GetGroupList(FScenarioID, FGList);
-
     for i := 0 to FGList.Count - 1 do
     begin
       gInfo := FGList.Items[i];
@@ -365,6 +326,11 @@ begin
         tvMapping.Items.AddChildObject(node, pInfo.Instance_Name, pInfo);
       end;
     end;
+
+    //choco : add new group
+//    newGInfo := TGroupInfo.Create;
+//    newGInfo.Group_Identifier := 'Unassigned Group';
+//    tvMapping.Items.AddChildObject(fNode, newGInfo.Group_Identifier, newGInfo);
 
     fNode.Expand(false);
     lPi.Free;
@@ -402,19 +368,24 @@ begin
   btnClearAudio.Enabled   := false;
 end;
 
+procedure TfrmStartExerciseWizard.btnDevPreplayClick(Sender: TObject);
+begin
+  pnlExerciseName.BringToFront;
+end;
+
 procedure TfrmStartExerciseWizard.btnMapping_BackClick(Sender: TObject);
 begin
   if isReplay then
      pnlExerciseName.BringToFront
   else
-     pnlExerciseName.BringToFront;
+     pnlRecordOption.BringToFront;
 end;
 
 procedure TfrmStartExerciseWizard.btnMapping_FinishClick(Sender: TObject);
 begin
   stateFinished := true;
   SendAllAssignment;
-  SaveGameReport;
+
   Close;
 end;
 
@@ -426,6 +397,8 @@ var i, j: integer;
     s, cub: string;
     mn : TMenuItem;
     cInfo: TCubInfo;
+    li: TListItem;
+    consoleInfo : string;
 begin
   ss := sender as TStringList;
 
@@ -443,11 +416,20 @@ begin
     if FGroupList.IsController(s) then
        FControllerName := cub;
 
+    //add cubicle info to list view console
+    consoleInfo := FGroupList.GetConsoleName(s);
+    li := lvConsole.Items.Add;
+    li.Caption := s;
+    li.SubItems.Add(consoleInfo);
+    li.SubItems.Add('Online');
+//    li.Data := cbInfo;
+
     if (cub <> '') and (sNew.IndexOf(cub) < 0) then
       sNew.Add(cub);
   end;
 
-  StringListCompare(FCubicleList, sNew, ss0, ss1, ss2, true);
+  StringListCompare(FCubicleList, sNew,
+   ss0, ss1, ss2, true);
 
   // same item, reset.
   for i := 0 to ss0.Count - 1 do begin
@@ -535,7 +517,7 @@ end;
 procedure TfrmStartExerciseWizard.FormShow(Sender: TObject);
 begin
   recording := false ;
-  mmoDescription.Text := 'None';
+  lvConsole.Clear;
 end;
 
 function TfrmStartExerciseWizard.getExerciseName: string;
@@ -607,7 +589,8 @@ begin
     //FCubicleList.Clear;
   end;
 
-  pnlExerciseName.BringToFront;
+//  pnlExerciseName.BringToFront;
+  pnlDevPreplay.BringToFront;
   btnExcName_Next.Caption := 'Next';
 
   ShowModal;
@@ -633,17 +616,10 @@ end;
 
 procedure TfrmStartExerciseWizard.tvMappingContextPopup(Sender: TObject;
   MousePos: TPoint; var Handled: Boolean);
-var
-  mi : TMenuItem;
-  i : Integer;
 begin
   FNodeAssign := tvMapping.Selected;
-
-  if FNodeAssign = nil then
-    Exit;
-
-  if (FNodeAssign.Level < 1) or (FNodeAssign.Level>2)  then
-  begin
+  if FNodeAssign = nil then Exit;
+  if (FNodeAssign.Level < 1) or (FNodeAssign.Level>2)  then begin
     mnAssign1.Enabled := False;
     FNodeAssign := nil;
     exit;
@@ -655,9 +631,8 @@ begin
   else if tvMapping.Selected.Level = 2  then
     FNodeAssign := tvMapping.Selected.Parent;
 
-  if pmAssignt.Items[0].Count > 0 then
-  begin  /// add by sam
-    if (FNodeAssign.Text = 'Unassigned Group') then
+  if pmAssignt.Items[0].Count > 0 then begin  /// add by sam
+    if FNodeAssign.Text = 'Unassigned Group' then
       mnAssign1.Items[0].Visible := False
     else
       mnAssign1.Items[0].Visible := True;
@@ -667,16 +642,13 @@ end;
 procedure TfrmStartExerciseWizard.menuAssignClick(Sender: TObject);
 var
   i : Integer;
-
-//  gInfo, newGInfo, gInfoWasdal : TGroupInfo;
-
-  gInfo, newGInfo, gInfoVBS, gInfoWasdal : TGroupInfo;
+  gInfo, newGInfo : TGroupInfo;
   mn : TMenuItem;
   cub: TCubInfo;
   fNode : TTreeNode;
 begin
   if FNodeAssign = nil then
-  Exit;
+    Exit;
 
   mn := sender as TMenuItem;
   gInfo := FNodeAssign.Data;
@@ -701,32 +673,35 @@ begin
       newGInfo := TGroupInfo.Create;
       newGInfo.Group_Identifier := gInfo.Group_Identifier;
       newGInfo.CubicleName := gInfo.CubicleName;
-//      GetLargestGroupID(gInfo);
-//      newGInfo.Group_Index := gInfo.Group_Index + 1;
-//      newGInfo.Deployment_Index := gInfo.Deployment_Index;
-//
-//      FGList.Add(newGInfo);
+      GetLargestGroupID(gInfo);
+      newGInfo.Group_Index := gInfo.Group_Index + 1;
+      newGInfo.Deployment_Index := gInfo.Deployment_Index;
+
+      FGList.Add(newGInfo);
 
       fNode := GetNodeByName(newGInfo.Group_Identifier);
       tvMapping.Items.AddChildObject(fNode, newGInfo.CubicleName, newGInfo);
     end
     else
-    begin
       FNodeAssign.Text := gInfo.Group_Identifier + ' ( ' + gInfo.CubicleName + ' )';
-    end;
 
     i := FCubicleList.IndexOf(mn.Hint);
     if i >= 0 then
     begin
       cub := FCubicleList.Objects[i] as TCubInfo;
       cub.Assigned := True;
-      if (mn.Hint <> FControllerName) then
+      if mn.Hint <> FControllerName then
         mn.Visible := False;
     end;
 
     if IsAllGroupAssigned then
       btnMapping_Finish.Enabled := True;
   end;
+end;
+
+procedure TfrmStartExerciseWizard.pnlDevPreplayClick(Sender: TObject);
+begin
+
 end;
 
 //function TfrmStartExerciseWizard.MenuVisibleCount: Integer;
@@ -794,7 +769,6 @@ begin
     if t.Level = 1 then
     begin
       g := t.Data;
-
       if g.CubicleName = '' then
       begin
         g.CubicleName := FControllerName;
@@ -805,30 +779,6 @@ begin
 
   if IsAllGroupAssigned then
     btnMapping_Finish.Enabled := True;
-end;
-
-procedure TfrmStartExerciseWizard.SaveGameReport;
-var
-  fRec : TRecGameReport;
-  today : TDateTime;
-begin
-
-  if mmoDescription.Text = '' then
-    Exit;
-//  if dmGC.GetStatusGC  then
-//  begin
-//    ShowMessage('Game is running !!!! ');
-//    Exit;
-//  end;
-
-  today := Now;
-  fRec.Scenario_index := FScenarioID;
-  fRec.Game_Name := edExerciseName.Text;
-  fRec.Start_Time := today;
-  fRec.End_Time := today;
-  fRec.Description := mmoDescription.Text;
-  fRec.Status := 1;
-  dmGC.InsertGameReport(fRec);
 end;
 
 procedure TfrmStartExerciseWizard.SendAllAssignment;
@@ -894,7 +844,7 @@ procedure TfrmStartExerciseWizard.SnapshotSetDefaultAsssign;
 var
   i, j, k     : integer;
   lPi         : TList;
-  gInfo, grp , newGInfo, gInfoVBS, gInfoWasdal       : TGroupInfo;  { }
+  gInfo, grp , newGInfo       : TGroupInfo;  { }
   pInfo       : TDeployedPlatformInfo;
   fNode,
   node, t     : TTreeNode;
@@ -948,32 +898,6 @@ begin
     end;
   end;
 
-  //choco : add new group
-//  GetLargestGroupID(grp);
-//  newGInfo := TGroupInfo.Create;
-//  newGInfo.Group_Index := grp.Group_Index + 1;
-//  newGInfo.Deployment_Index := grp.Deployment_Index;
-//  newGInfo.Group_Identifier := 'Unassigned Group';
-//  FGList.Add(newGInfo);
-//  tvMapping.Items.AddChildObject(fNode, newGInfo.Group_Identifier, newGInfo);
-//
-//  GetLargestGroupID(grp);
-//  gInfoWasdal := TGroupInfo.Create;
-//  gInfoWasdal.Group_Index := grp.Group_Index + 1;
-//  gInfoWasdal.Deployment_Index := grp.Deployment_Index;
-//  gInfoWasdal.Group_Identifier := 'PELAKU';
-//  FGList.Add(gInfoWasdal);
-//  tvMapping.Items.AddChildObject(fNode, gInfoWasdal.Group_Identifier, gInfoWasdal);
-//
-//  //IQ
-//  GetLargestGroupID(grp);
-//  gInfoVBS := TGroupInfo.Create;
-//  gInfoVBS.Group_Index := grp.Group_Index + 1;
-//  gInfoVBS.Deployment_Index := grp.Deployment_Index;
-//  gInfoVBS.Group_Identifier := 'VBS';
-//  FGList.Add(gInfoVBS);
-//  tvMapping.Items.AddChildObject(fNode, 'VBS (VBS Group)', gInfoVBS);
-
   { assign from snapshot}
   for i := 0 to (tvMapping.Items.Count-1)-1 do  begin
     t := tvMapping.Items.Item[i];
@@ -994,6 +918,15 @@ begin
       end;
     end;
   end;
+
+  //choco : add new group
+  GetLargestGroupID(grp);
+  newGInfo := TGroupInfo.Create;
+  newGInfo.Group_Index := grp.Group_Index + 1;
+  newGInfo.Deployment_Index := grp.Deployment_Index;
+  newGInfo.Group_Identifier := 'Unassigned Group';
+  FGList.Add(newGInfo);
+  tvMapping.Items.AddChildObject(fNode, newGInfo.Group_Identifier, newGInfo);
 
   fNode.Expand(false);
   lPi.Free;

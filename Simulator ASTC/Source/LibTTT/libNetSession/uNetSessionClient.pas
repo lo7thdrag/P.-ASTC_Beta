@@ -559,26 +559,32 @@ begin
 
           if not IsController then
           begin
-            //if CompareStr(vAppSetting.GameClientName, 'startVBS.bat') = 0 then
-            if IsVBS then
-            begin
-              dmGC.GetGameArea(nSCID, GameAreaIdentifier, GameAreaIndex);
-              CreateBatFileVBS(vMapSetting.TerrainID, vMapSetting.TerrainName);
-            end;
+            if CubicleGroupAssign.Count > 0 then
+            FAppGame.Executes;
+          end
 
-//            if (CompareStr(vAppSetting.GameClientName, 'startVBS.bat') <> 0) and
-//              (CubicleGroupAssign.Count > 0) then
-            if (not IsVBS) and
-              (CubicleGroupAssign.Count > 0) then
-              FAppGame.Executes;
-
-            if (not IsVBS) and
-              (IsWasdal) then
-              FAppGame.Executes;
+//          if not IsController then
+//          begin
+//            //if CompareStr(vAppSetting.GameClientName, 'startVBS.bat') = 0 then
+//            if IsVBS then
+//            begin
+//              dmGC.GetGameArea(nSCID, GameAreaIdentifier, GameAreaIndex);
+//              CreateBatFileVBS(vMapSetting.TerrainID, vMapSetting.TerrainName);
+//            end;
 //
-//            if Assigned(FOnExecuteApp) then
-//              FOnExecuteApp(self);
-          end;
+////            if (CompareStr(vAppSetting.GameClientName, 'startVBS.bat') <> 0) and
+////              (CubicleGroupAssign.Count > 0) then
+//            if (not IsVBS) and
+//              (CubicleGroupAssign.Count > 0) then
+//              FAppGame.Executes;
+//
+//            if (not IsVBS) and
+//              (IsWasdal) then
+//              FAppGame.Executes;
+////
+////            if Assigned(FOnExecuteApp) then
+////              FOnExecuteApp(self);
+//          end;
 //          else
 //            FAppCamera.Executes;
         end;

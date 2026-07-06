@@ -14,9 +14,10 @@ uses
   uTCPDatatype in '..\SimFramework\LibNets\NetComponent\uTCPDatatype.pas',
   uThreadTimer in '..\SimFramework\LibBaseUtils\Counter\uThreadTimer.pas',
   uDataBuffer in '..\SimFramework\LibNets\NetComponent\uDataBuffer.pas',
+  uDataTypes in '..\SimFramework\LibBaseUtils\CoordSystem\uDataTypes.pas',
   tttData in '..\LibTTT\libDBScenario\tttData.pas',
   uT3Listener in '..\LibTTT\libUnit\uT3Listener.pas',
-  uDataTypes in '..\SimFramework\LibBaseUtils\CoordSystem\uDataTypes.pas';
+  ufrmRealTime in 'ufrmRealTime.pas' {ufRealTime};
 
 {$R *.res}
 
@@ -24,5 +25,6 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmMainGT, frmMainGT);
+  Application.CreateForm(TufRealTime, ufRealTime);
   Application.Run;
 end.

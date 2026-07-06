@@ -1,5 +1,5 @@
-object frmMainGT: TfrmMainGT
-  Left = 281
+object ufRealTime: TufRealTime
+  Left = 0
   Top = 0
   BorderStyle = bsNone
   BorderWidth = 12
@@ -11,31 +11,29 @@ object frmMainGT: TfrmMainGT
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  GlassFrame.Top = 20
-  GlassFrame.Right = 20
-  GlassFrame.Bottom = 20
-  GlassFrame.SheetOfGlass = True
+  KeyPreview = True
   OldCreateOrder = False
   Position = poDesigned
   WindowState = wsMaximized
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
   OnResize = FormResize
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlMainBackground: TPanel
     Left = 0
-    Top = -1
-    Width = 1345
-    Height = 749
+    Top = 0
+    Width = 1366
+    Height = 768
     BevelOuter = bvNone
     TabOrder = 0
     object Image1: TImage
       Left = -13
       Top = -14
-      Width = 1400
-      Height = 760
+      Width = 1370
+      Height = 757
       Picture.Data = {
         07544269746D6170360C3000424D360C30000000000036000000280000005605
         0000000300000100180000000000000C3000120B0000120B0000000000000000
@@ -98442,6 +98440,20 @@ object frmMainGT: TfrmMainGT
         0000}
     end
     object Label1: TLabel
+      Left = 222
+      Top = 556
+      Width = 171
+      Height = 47
+      Alignment = taCenter
+      Caption = 'Jam Start'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clAqua
+      Font.Height = -47
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel
       Left = 951
       Top = 556
       Width = 104
@@ -98455,21 +98467,7 @@ object frmMainGT: TfrmMainGT
       Font.Style = []
       ParentFont = False
     end
-    object Label2: TLabel
-      Left = 222
-      Top = 556
-      Width = 171
-      Height = 47
-      Alignment = taCenter
-      Caption = 'Percepatan'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clAqua
-      Font.Height = -47
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentFont = False
-    end
-    object lblDurasiPermainan: TLabel
+    object lblDurasiSebenarnya: TLabel
       Left = 838
       Top = 615
       Width = 330
@@ -98482,14 +98480,27 @@ object frmMainGT: TfrmMainGT
       Font.Style = []
       ParentFont = False
     end
-    object lblGameDate: TLabel
+    object lblJamStart: TLabel
+      Left = 135
+      Top = 615
+      Width = 330
+      Height = 53
+      Caption = ' 00 : 00 : 00 '
+      Font.Charset = ANSI_CHARSET
+      Font.Color = 16777152
+      Font.Height = -53
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lblRealDate: TLabel
       Left = 982
-      Top = 56
+      Top = 55
       Width = 300
       Height = 45
       Alignment = taCenter
       AutoSize = False
-      Caption = '31 Desember 2026'
+      Caption = '23 Desember 2026'
       Font.Charset = ANSI_CHARSET
       Font.Color = clAqua
       Font.Height = -45
@@ -98497,24 +98508,23 @@ object frmMainGT: TfrmMainGT
       Font.Style = []
       ParentFont = False
     end
-    object lblGameSpeed: TLabel
-      Left = 272
-      Top = 618
-      Width = 72
-      Height = 47
-      Alignment = taCenter
-      AutoSize = False
-      Caption = '0'
+    object lblRTCaption: TLabel
+      Left = 288
+      Top = 136
+      Width = 767
+      Height = 120
+      Caption = 'Waktu Sebenarnya'
       Font.Charset = ANSI_CHARSET
       Font.Color = 16777152
-      Font.Height = -47
+      Font.Height = -120
       Font.Name = 'Deusex'
       Font.Style = []
       ParentFont = False
+      Transparent = True
     end
-    object lblGameTime: TLabel
+    object lblRealTime: TLabel
       Left = 146
-      Top = 328
+      Top = 326
       Width = 1050
       Height = 166
       AutoSize = False
@@ -98526,25 +98536,11 @@ object frmMainGT: TfrmMainGT
       Font.Style = []
       ParentFont = False
     end
-    object lblGTCaption: TLabel
-      Left = 309
-      Top = 136
-      Width = 724
-      Height = 120
-      Caption = 'Waktu Permainan'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = 16777152
-      Font.Height = -120
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentFont = False
-      Transparent = True
-    end
   end
   object Timer1: TTimer
-    Interval = 1
+    Interval = 500
     OnTimer = Timer1Timer
-    Left = 64
-    Top = 48
+    Left = 512
+    Top = 184
   end
 end

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, uDMGC, tttData, ExtCtrls;
+  Dialogs, StdCtrls, uDMGC, tttData, ExtCtrls, Vcl.Imaging.pngimage;
 
 type
   TfrmGameReportEditor = class(TForm)
@@ -25,6 +25,7 @@ type
     lbl7: TLabel;
     grp1: TGroupBox;
     mmoDescription: TMemo;
+    imgBackground: TImage;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);

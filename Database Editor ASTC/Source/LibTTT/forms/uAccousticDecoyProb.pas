@@ -5,84 +5,78 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAsset_Countermeasure, DB,
-  uBlindZoneView, uDBBlind_Zone;
+  uBlindZoneView, uDBBlind_Zone, uSimContainers, Vcl.Imaging.pngimage;
 
 type
   TAccousticDecoyProb = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    pnl3: TPanel;
-    grdpnl1: TGridPanel;
-    pnl01: TPanel;
+    grdpnlAcousticDecoyPOH: TGridPanel;
     pnl1: TPanel;
+    pnlAspect: TPanel;
+    pnlGuidanceType: TPanel;
     pnl_BZone1: TPanel;
     pnl_BZone2: TPanel;
     pnl_BZone3: TPanel;
     pnl_BZone4: TPanel;
-    pnl2: TPanel;
+    pnlActive: TPanel;
     edtActive1: TEdit;
     edtActive2: TEdit;
     edtActive3: TEdit;
     edtActive4: TEdit;
-    pnl4: TPanel;
+    pnlPassive: TPanel;
     edtPassive1: TEdit;
     edtPassive2: TEdit;
     edtPassive3: TEdit;
     edtPassive4: TEdit;
-    pnl5: TPanel;
+    pnlActivePassive: TPanel;
     edtActivePassive1: TEdit;
     edtActivePassive2: TEdit;
     edtActivePassive3: TEdit;
     edtActivePassive4: TEdit;
-    pnl6: TPanel;
+    pnlWireGuided: TPanel;
     edtWireGuided1: TEdit;
     edtWireGuided2: TEdit;
     edtWireGuided3: TEdit;
     edtWireGuided4: TEdit;
-    pnl7: TPanel;
+    pnlWakeHoming: TPanel;
     edtWakeHoming1: TEdit;
     edtWakeHoming2: TEdit;
     edtWakeHoming3: TEdit;
     edtWakeHoming4: TEdit;
-    pnl8: TPanel;
-    procedure btnCancelClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure btnApplyClick(Sender: TObject);
+    pnl1Title: TPanel;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    pnlSparatorHor2: TPanel;
+
+    procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+    procedure edtGeneralChange(Sender: TObject);
+    procedure edtAspectPersentageKeyPress(Sender: TObject; var Key: Char);
+    procedure ValidationFormatInput();
+
     procedure btnOKClick(Sender: TObject);
-    procedure edtActive1KeyPress(Sender: TObject; var Key: Char);
-    procedure edtActive2KeyPress(Sender: TObject; var Key: Char);
-    procedure edtActive3KeyPress(Sender: TObject; var Key: Char);
-    procedure edtActive4KeyPress(Sender: TObject; var Key: Char);
-    procedure edtPassive1KeyPress(Sender: TObject; var Key: Char);
-    procedure edtPassive2KeyPress(Sender: TObject; var Key: Char);
-    procedure edtPassive3KeyPress(Sender: TObject; var Key: Char);
-    procedure edtPassive4KeyPress(Sender: TObject; var Key: Char);
-    procedure edtActivePassive1KeyPress(Sender: TObject; var Key: Char);
-    procedure edtActivePassive2KeyPress(Sender: TObject; var Key: Char);
-    procedure edtActivePassive3KeyPress(Sender: TObject; var Key: Char);
-    procedure edtActivePassive4KeyPress(Sender: TObject; var Key: Char);
-    procedure edtWireGuided1KeyPress(Sender: TObject; var Key: Char);
-    procedure edtWireGuided2KeyPress(Sender: TObject; var Key: Char);
-    procedure edtWireGuided3KeyPress(Sender: TObject; var Key: Char);
-    procedure edtWireGuided4KeyPress(Sender: TObject; var Key: Char);
-    procedure edtWakeHoming1KeyPress(Sender: TObject; var Key: Char);
-    procedure edtWakeHoming2KeyPress(Sender: TObject; var Key: Char);
-    procedure edtWakeHoming3KeyPress(Sender: TObject; var Key: Char);
-    procedure edtWakeHoming4KeyPress(Sender: TObject; var Key: Char);
+    procedure btnCancelClick(Sender: TObject);
+    procedure btnApplyClick(Sender: TObject);
+
   private
-    { Private declarations }
-    BlindZone : TBlind_Zone;
-    acc : TAcoustic_Decoy_POH_Modifier;
+    FSelectedAcousticDecoy : TAcoustic_Decoy_On_Board;
+
+    FAcousticDecoyPOHList : TList;
+    FAspect1 : TBlindZoneView;
+    FAspect2 : TBlindZoneView;
+    FAspect3 : TBlindZoneView;
+    FAspect4 : TBlindZoneView;
+
+    function GetNumberOfKoma(s : string): Boolean;
+    procedure UpdateAcousticDecoyPOHData;
+
   public
-    { Public declarations }
-    bList : TList;
-    isNew : boolean;
-    id    : Integer;
-    procedure showData;
-    procedure getData;
-    procedure addRecord(const g_type,aspect: Integer);
+    procedure addRecord(const g_type,aspect: Integer; poh : Single);
+
+    property SelectedAcousticDecoy : TAcoustic_Decoy_On_Board read FSelectedAcousticDecoy write FSelectedAcousticDecoy;
   end;
 
 var
@@ -90,156 +84,296 @@ var
 
 implementation
 
+uses
+  uDataModuleTTT;
+
 {$R *.dfm}
 
-uses uDataModuleTTT, ufrmSummaryAcousticDecoy;
+{$REGION ' Form Handle '}
+
+procedure TAccousticDecoyProb.FormCreate(Sender: TObject);
+var
+  zs : TZoneSector;
+begin
+  FAcousticDecoyPOHList := TList.Create;
+
+  {$REGION ' Aspect 1 '}
+  FAspect1 := TBlindZoneView.Create(Self);
+  with FAspect1 do
+  begin
+    Parent := pnl_BZone1;
+    Left := 0;
+    Top := 0;
+    Height := pnl_BZone1.Height;
+    Width := pnl_BZone1.Width;
+    EnableDrag := True;
+
+    zs := AddZone;
+    zs.Degree := 0;
+    zs.AngleWidth := 60;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Aspect 2 '}
+  FAspect2 := TBlindZoneView.Create(Self);
+  with FAspect2 do
+  begin
+    Parent := pnl_BZone2;
+    Left := 0;
+    Top := 0;
+    Height := pnl_BZone2.Height;
+    Width := pnl_BZone2.Width;
+    EnableDrag := True;
+
+    zs := AddZone;
+    zs.Degree := 60;
+    zs.AngleWidth := 60;
+
+    zs := AddZone;
+    zs.Degree := 300;
+    zs.AngleWidth := 60;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Aspect 3 '}
+  FAspect3 := TBlindZoneView.Create(Self);
+  with FAspect3 do
+  begin
+    Parent := pnl_BZone3;
+    Left := 0;
+    Top := 0;
+    Height := pnl_BZone3.Height;
+    Width := pnl_BZone3.Width;
+    EnableDrag := True;
+
+    zs := AddZone;
+    zs.Degree := 120;
+    zs.AngleWidth := 60;
+
+    zs := AddZone;
+    zs.Degree := 240;
+    zs.AngleWidth := 60;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Aspect 4 '}
+  FAspect4 := TBlindZoneView.Create(Self);
+  with FAspect4 do
+  begin
+    Parent := pnl_BZone4;
+    Left := 0;
+    Top := 0;
+    Height := pnl_BZone4.Height;
+    Width := pnl_BZone4.Width;
+    EnableDrag := True;
+
+    zs := AddZone;
+    zs.Degree := 180;
+    zs.AngleWidth := 60;
+  end;
+  {$ENDREGION}
+
+end;
+
+procedure TAccousticDecoyProb.FormDestroy(Sender: TObject);
+begin
+  FAspect1.Free;
+  FAspect2.Free;
+  FAspect3.Free;
+  FAspect4.Free;
+
+  FreeItemsAndFreeList(FAcousticDecoyPOHList);
+end;
+
+procedure TAccousticDecoyProb.FormShow(Sender: TObject);
+begin
+  FAspect1.Repaint;
+  FAspect2.Repaint;
+  FAspect3.Repaint;
+  FAspect4.Repaint;
+
+  UpdateAcousticDecoyPOHData;
+end;
+
+function TAccousticDecoyProb.GetNumberOfKoma(s: string): Boolean;
+var
+  a, i : Integer;
+begin
+  Result := False;
+  a := 0;
+
+  for i := 1 to length(s) do
+  begin
+    if s[i] = '.' then
+      a := a + 1;
+  end;
+
+  if a > 0 then
+    Result := True;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TAccousticDecoyProb.addRecord(const g_type, aspect: Integer; poh : Single);
+var
+  acousticDecoyPOH : TAcoustic_Decoy_POH_Modifier;
+
+begin
+  acousticDecoyPOH := TAcoustic_Decoy_POH_Modifier.Create;
+
+  acousticDecoyPOH.FAccousticDecoy_POH.Decoy_Index            := FSelectedAcousticDecoy.FAccousticDecoy_Def.Decoy_Index;
+  acousticDecoyPOH.FAccousticDecoy_POH.POH_Modifier           := poh;
+  acousticDecoyPOH.FAccousticDecoy_POH.Torpedo_Guidance_Type  := g_type;
+  acousticDecoyPOH.FAccousticDecoy_POH.Aspect_Angle           := aspect;
+
+  dmTTT.InsertAcoustic_Decoy_POH_Modifier(acousticDecoyPOH);
+
+  acousticDecoyPOH.Free;
+end;
 
 procedure TAccousticDecoyProb.btnApplyClick(Sender: TObject);
-begin
-  getData;
-  isNew := false;
-  showData;
-end;
+var
+  val: Double;
+  isvalid: Boolean;
 
-procedure TAccousticDecoyProb.getData;
-var val: Double;
-    isvalid: Boolean;
 begin
-  with acc.FAccousticDecoy_POH do begin
-    isvalid := TryStrToFloat(edtActive1.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(10,0);
-    end;
-    isvalid := TryStrToFloat(edtActive2.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(10,1);
-    end;
-    isvalid := TryStrToFloat(edtActive3.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(10,2);
-    end;
-    isvalid := TryStrToFloat(edtActive4.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(10,3);
-    end;
-    isvalid := TryStrToFloat(edtPassive1.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(11,0);
-    end;
-    isvalid := TryStrToFloat(edtPassive2.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(11,1);
-    end;
-    isvalid := TryStrToFloat(edtPassive3.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(11,2);
-    end;
-    isvalid := TryStrToFloat(edtPassive4.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(11,3);
-    end;
-    isvalid := TryStrToFloat(edtActivePassive1.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(12,0);
-    end;
-    isvalid := TryStrToFloat(edtActivePassive2.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(12,1);
-    end;
-    isvalid := TryStrToFloat(edtActivePassive3.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(12,2);
-    end;
-    isvalid := TryStrToFloat(edtActivePassive4.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(12,3);
-    end;
-    isvalid := TryStrToFloat(edtWireGuided1.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(13,0);
-    end;
-    isvalid := TryStrToFloat(edtWireGuided2.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(13,1);
-    end;
-    isvalid := TryStrToFloat(edtWireGuided3.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(13,2);
-    end;
-    isvalid := TryStrToFloat(edtWireGuided4.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(13,3);
-    end;
-    isvalid := TryStrToFloat(edtWakeHoming1.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(18,0);
-    end;
-    isvalid := TryStrToFloat(edtWakeHoming2.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(18,1);
-    end;
-    isvalid := TryStrToFloat(edtWakeHoming3.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(18,2);
-    end;
-    isvalid := TryStrToFloat(edtWakeHoming4.Text,val);
-    if (isvalid) and (val >= 0) and (val <= 0.5) then
-    begin
-      POH_Modifier := val;
-      addRecord(18,3);
-    end;
+  ValidationFormatInput;
+
+  dmTTT.DeleteAcoustic_Decoy_POH_Modifier(FSelectedAcousticDecoy.FAccousticDecoy_Def.Decoy_Index);
+
+  {$REGION ' Active Accoustic '}
+  isvalid := TryStrToFloat(edtActive1.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(10,0, val);
   end;
-end;
 
-procedure TAccousticDecoyProb.addRecord(const g_type,aspect: Integer);
-begin
-  acc.FAccousticDecoy_POH.Decoy_Index           := id;
-  acc.FAccousticDecoy_POH.Torpedo_Guidance_Type := g_type;
-  acc.FAccousticDecoy_POH.Aspect_Angle          := aspect;
- try
-  if isNew then dmTTT.InsertAcoustic_Decoy_POH_Modifier(acc)
-  else dmTTT.UpdateAcoustic_Decoy_POH_Modifier(id,g_type,aspect,acc);
- except
+  isvalid := TryStrToFloat(edtActive2.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(10,1, val);
+  end;
 
- end;
+  isvalid := TryStrToFloat(edtActive3.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(10,2, val);
+  end;
+
+  isvalid := TryStrToFloat(edtActive4.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(10,3, val);
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Passive Accoustic '}
+  isvalid := TryStrToFloat(edtPassive1.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(11,0, val);
+  end;
+
+  isvalid := TryStrToFloat(edtPassive2.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(11,1, val);
+  end;
+
+  isvalid := TryStrToFloat(edtPassive3.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(11,2, val);
+  end;
+
+  isvalid := TryStrToFloat(edtPassive4.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(11,3, val);
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Active/Passive Accoustic '}
+  isvalid := TryStrToFloat(edtActivePassive1.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(12,0, val);
+  end;
+
+  isvalid := TryStrToFloat(edtActivePassive2.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(12,1, val);
+  end;
+
+  isvalid := TryStrToFloat(edtActivePassive3.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(12,2, val);
+  end;
+
+  isvalid := TryStrToFloat(edtActivePassive4.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(12,3, val);
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Wire Guided '}
+  isvalid := TryStrToFloat(edtWireGuided1.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(13,0, val);
+  end;
+
+  isvalid := TryStrToFloat(edtWireGuided2.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(13,1, val);
+  end;
+
+  isvalid := TryStrToFloat(edtWireGuided3.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(13,2, val);
+  end;
+
+  isvalid := TryStrToFloat(edtWireGuided4.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(13,3, val);
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Wake Homing '}
+  isvalid := TryStrToFloat(edtWakeHoming1.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(18,0, val);
+  end;
+
+  isvalid := TryStrToFloat(edtWakeHoming2.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(18,1, val);
+  end;
+
+  isvalid := TryStrToFloat(edtWakeHoming3.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(18,2, val);
+  end;
+
+  isvalid := TryStrToFloat(edtWakeHoming4.Text,val);
+  if (isvalid) and (val >= 0) and (val <= 0.5) then
+  begin
+    addRecord(18,3, val);
+  end;
+  {$ENDREGION}
+
+  btnApply.Enabled := False;
 end;
 
 procedure TAccousticDecoyProb.btnCancelClick(Sender: TObject);
@@ -249,331 +383,160 @@ end;
 
 procedure TAccousticDecoyProb.btnOKClick(Sender: TObject);
 begin
-  btnApplyClick(Sender);
+  if btnApply.Enabled then
+    btnApply.Click;
+
   Close;
 end;
 
-procedure TAccousticDecoyProb.edtActive1KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtActive1.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtActive2KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtActive2.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtActive3KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtActive3.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtActive4KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtActive4.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtActivePassive1KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtActivePassive1.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtActivePassive2KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtActivePassive2.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtActivePassive3KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtActivePassive3.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtActivePassive4KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtActivePassive4.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtPassive1KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtPassive1.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtPassive2KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-     if StrToFloat(edtPassive2.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtPassive3KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtPassive3.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtPassive4KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtPassive4.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtWakeHoming1KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtWakeHoming1.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtWakeHoming2KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtWakeHoming2.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtWakeHoming3KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtWakeHoming3.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtWakeHoming4KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtWakeHoming4.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtWireGuided1KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtWireGuided1.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtWireGuided2KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtWireGuided2.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtWireGuided3KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtWireGuided3.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.edtWireGuided4KeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  if StrToFloat(edtWireGuided4.Text) >= 3 then
-  ShowMessage('Incorrect value')
-end;
-
-procedure TAccousticDecoyProb.FormCreate(Sender: TObject);
-begin
-  bList := TList.Create;
-  acc := TAcoustic_Decoy_POH_Modifier.Create;
-end;
-
-procedure TAccousticDecoyProb.FormShow(Sender: TObject);
+procedure TAccousticDecoyProb.edtAspectPersentageKeyPress(Sender: TObject;var Key: Char);
 var
-  rw1,rw2,rw3,rw4     : TBlindZoneView;
-  z : TZoneSector;
-  I: Integer;
+  value : Double;
 begin
-//  id  := frmSummaryAcousticDecoy.acoustic.FAccousticDecoy_Def.Decoy_Index;
-  isNew := false;
-
-  grdpnl1.ColumnCollection.BeginUpdate;
-  for I := 1 to 4 do begin
-    grdpnl1.ColumnCollection[I].SizeStyle := ssAbsolute;
-    grdpnl1.ColumnCollection[I].Value     := 80;
+  if not (Key in[#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
   end;
-  grdpnl1.RowCollection[1].SizeStyle := ssAbsolute;
-  grdpnl1.RowCollection[1].Value     := 80;
-  for I := 2 to 6 do begin
-    grdpnl1.RowCollection[I].SizeStyle := ssPercent;
-    grdpnl1.RowCollection[I].Value     := 12;
+
+  if GetNumberOfKoma(TEdit(sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
   end;
-  grdpnl1.ColumnCollection.EndUpdate;
 
-  DoubleBuffered := True;
-  pnl_BZone1.DoubleBuffered := True;
-  rw1 := TBlindZoneView.Create(self);
-  rw1.Parent := pnl_BZone1;
-  rw1.Left := 1;
-  rw1.Top  := 1;
-  rw1.Width  := pnl_BZone1.Width - 4;
-  rw1.Height := pnl_BZone1.Height - 4;
-  rw1.AddZone;
-  rw1.ClearZone;
-  z := rw1.AddZone;
-  rw1.Zones[0];
-  z.StartAngle := 315;
-  z.EndAngle   := 45;
-  rw1.Repaint;
+  if Key = #13 then
+  begin
+    value := StrToFloat(TEdit(Sender).Text);
 
-  pnl_BZone2.DoubleBuffered := True;
-  rw2 := TBlindZoneView.Create(self);
-  rw2.Parent := pnl_BZone2;
-  rw2.Left := 1;
-  rw2.Top  := 1;
-  rw2.Width  := pnl_BZone2.Width - 4;
-  rw2.Height := pnl_BZone2.Height - 4;
-  rw2.AddZone;
-  rw2.ClearZone;
-  z := rw2.AddZone;
-  rw2.Zones[0];
-  z.StartAngle := 270;
-  z.EndAngle   := 315;
-  z := rw2.AddZone;
-  rw2.Zones[1];
-  z.StartAngle := 45;
-  z.EndAngle   := 90;
-  rw2.Repaint;
+    if value > 0.5 then
+      value := 0.49;
 
-  pnl_BZone3.DoubleBuffered := True;
-  rw3 := TBlindZoneView.Create(self);
-  rw3.Parent := pnl_BZone3;
-  rw3.Left := 1;
-  rw3.Top  := 1;
-  rw3.Width  := pnl_BZone3.Width - 4;
-  rw3.Height := pnl_BZone3.Height - 4;
-  rw3.AddZone;
-  rw3.ClearZone;
-  z := rw3.AddZone;
-  rw3.Zones[0];
-  z.StartAngle := 90;
-  z.EndAngle   := 135;
-  z := rw3.AddZone;
-  rw3.Zones[1];
-  z.StartAngle := 225;
-  z.EndAngle   := 270;
-  rw3.Repaint;
+    if value <= 0 then
+      value := 0.1;
 
-  pnl_BZone4.DoubleBuffered := True;
-  rw4 := TBlindZoneView.Create(self);
-  rw4.Parent := pnl_BZone4;
-  rw4.Left := 1;
-  rw4.Top  := 1;
-  rw4.Width  := pnl_BZone4.Width - 4;
-  rw4.Height := pnl_BZone4.Height - 4;
-  rw4.AddZone;
-  rw4.ClearZone;
-  z := rw4.AddZone;
-  rw4.Zones[0];
-  z.StartAngle := 135;
-  z.EndAngle   := 225;
-  rw4.Repaint;
-
-  showData;
+    TEdit(Sender).Text := FloatToStr(value);
+  end;
 end;
 
-procedure TAccousticDecoyProb.showData;
-var
-  I: Integer;
+procedure TAccousticDecoyProb.edtGeneralChange(Sender: TObject);
 begin
-  bList.Clear;
-  dmTTT.getAllAcoustic_Decoy_POH_Modifier(id,bList);
-  for I := 0 to bList.Count - 1 do begin
-    with TAcoustic_Decoy_POH_Modifier(bList[I]).FAccousticDecoy_POH do begin
+  btnApply.Enabled := True;
+end;
+
+procedure TAccousticDecoyProb.UpdateAcousticDecoyPOHData;
+var
+  i : Integer;
+  acousticDecoyPOH : TAcoustic_Decoy_POH_Modifier;
+begin
+
+  with FSelectedAcousticDecoy.FAccousticDecoy_Def do
+    dmTTT.GetAcousticDecoyPOHModifier(Decoy_Index, FAcousticDecoyPOHList);
+
+  if FAcousticDecoyPOHList.Count = 0 then
+  begin
+    for i := 0 to 4 do
+    begin
+      acousticDecoyPOH := TAcoustic_Decoy_POH_Modifier.Create;
+      FAcousticDecoyPOHList.Add(acousticDecoyPOH);
+    end;
+  end;
+
+  for i := 0 to FAcousticDecoyPOHList.Count - 1 do
+  begin
+    acousticDecoyPOH := FAcousticDecoyPOHList.Items[i];
+
+    with acousticDecoyPOH.FAccousticDecoy_POH do
+    begin
       case Torpedo_Guidance_Type of
         10:
-          begin
-            case Aspect_Angle of
-              0: edtActive1.Text  := FormatFloat('0.0',POH_Modifier);
-              1: edtActive2.Text  := FormatFloat('0.0',POH_Modifier);
-              2: edtActive3.Text  := FormatFloat('0.0',POH_Modifier);
-              3: edtActive4.Text  := FormatFloat('0.0',POH_Modifier);
-            end;
+        begin
+          case Aspect_Angle of
+            0: edtActive1.Text := FloatToStr(POH_Modifier);
+            1: edtActive2.Text := FloatToStr(POH_Modifier);
+            2: edtActive3.Text := FloatToStr(POH_Modifier);
+            3: edtActive4.Text := FloatToStr(POH_Modifier);
           end;
+        end;
         11:
-          begin
-            case Aspect_Angle of
-              0: edtPassive1.Text  := FormatFloat('0.0',POH_Modifier);
-              1: edtPassive2.Text  := FormatFloat('0.0',POH_Modifier);
-              2: edtPassive3.Text  := FormatFloat('0.0',POH_Modifier);
-              3: edtPassive4.Text  := FormatFloat('0.0',POH_Modifier);
-            end;
+        begin
+          case Aspect_Angle of
+            0: edtPassive1.Text := FloatToStr(POH_Modifier);
+            1: edtPassive2.Text := FloatToStr(POH_Modifier);
+            2: edtPassive3.Text := FloatToStr(POH_Modifier);
+            3: edtPassive4.Text := FloatToStr(POH_Modifier);
           end;
+        end;
         12:
-          begin
-            case Aspect_Angle of
-              0: edtActivePassive1.Text  := FormatFloat('0.0',POH_Modifier);
-              1: edtActivePassive2.Text  := FormatFloat('0.0',POH_Modifier);
-              2: edtActivePassive3.Text  := FormatFloat('0.0',POH_Modifier);
-              3: edtActivePassive4.Text  := FormatFloat('0.0',POH_Modifier);
-            end;
+        begin
+          case Aspect_Angle of
+            0: edtActivePassive1.Text := FloatToStr(POH_Modifier);
+            1: edtActivePassive2.Text := FloatToStr(POH_Modifier);
+            2: edtActivePassive3.Text := FloatToStr(POH_Modifier);
+            3: edtActivePassive4.Text := FloatToStr(POH_Modifier);
           end;
+        end;
         13:
-          begin
-            case Aspect_Angle of
-              0: edtWireGuided1.Text  := FormatFloat('0.0',POH_Modifier);
-              1: edtWireGuided2.Text  := FormatFloat('0.0',POH_Modifier);
-              2: edtWireGuided3.Text  := FormatFloat('0.0',POH_Modifier);
-              3: edtWireGuided4.Text  := FormatFloat('0.0',POH_Modifier);
-            end;
+        begin
+          case Aspect_Angle of
+            0: edtWireGuided1.Text := FloatToStr(POH_Modifier);
+            1: edtWireGuided2.Text := FloatToStr(POH_Modifier);
+            2: edtWireGuided3.Text := FloatToStr(POH_Modifier);
+            3: edtWireGuided4.Text := FloatToStr(POH_Modifier);
           end;
+        end;
         18:
-          begin
-            case Aspect_Angle of
-              0: edtWakeHoming1.Text  := FormatFloat('0.0',POH_Modifier);
-              1: edtWakeHoming2.Text  := FormatFloat('0.0',POH_Modifier);
-              2: edtWakeHoming3.Text  := FormatFloat('0.0',POH_Modifier);
-              3: edtWakeHoming4.Text  := FormatFloat('0.0',POH_Modifier);
-            end;
+        begin
+          case Aspect_Angle of
+            0: edtWakeHoming1.Text := FloatToStr(POH_Modifier);
+            1: edtWakeHoming2.Text := FloatToStr(POH_Modifier);
+            2: edtWakeHoming3.Text := FloatToStr(POH_Modifier);
+            3: edtWakeHoming4.Text := FloatToStr(POH_Modifier);
           end;
+        end;
+      end;
+      ValidationFormatInput;
+    end;
+  end;
+end;
+
+{$REGION ' Filter Input '}
+
+procedure TAccousticDecoyProb.ValidationFormatInput;
+var
+  i: Integer;
+  value : Double;
+
+begin
+  for i:=0 to ComponentCount-1 do
+  begin
+    if Components[i] is TEdit then
+    begin
+      if TEdit(Components[i]).Tag = 4 then
+        continue;
+
+      if TEdit(Components[i]).Text = '' then
+        TEdit(Components[i]).Text := '0';
+
+      value := StrToFloat(TEdit(Components[i]).Text);
+
+      if (value > 0.5) then
+        value := 0.5;
+
+      if (value <= 0) then
+        value := 0.1;
+
+      case TEdit(Components[i]).Tag of
+        0: TEdit(Components[i]).Text := FormatFloat('0', value);
+        1: TEdit(Components[i]).Text := FormatFloat('0.0', value);
+        2: TEdit(Components[i]).Text := FormatFloat('0.00', value);
+        3: TEdit(Components[i]).Text := FormatFloat('0.000', value);
       end;
     end;
   end;
-  if bList.Count < 1 then
-  begin
-    isNew := true;
-    edtActive1.Text := '0.0';
-    edtActive2.Text := '0.0';
-    edtActive3.Text := '0.0';
-    edtActive4.Text := '0.0';
-    edtPassive1.Text := '0.0';
-    edtPassive2.Text := '0.0';
-    edtPassive3.Text := '0.0';
-    edtPassive4.Text := '0.0';
-    edtActivePassive1.Text := '0.0';
-    edtActivePassive2.Text := '0.0';
-    edtActivePassive3.Text := '0.0';
-    edtActivePassive4.Text := '0.0';
-    edtWireGuided1.Text := '0.0';
-    edtWireGuided2.Text := '0.0';
-    edtWireGuided3.Text := '0.0';
-    edtWireGuided4.Text := '0.0';
-    edtWakeHoming1.Text := '0.0';
-    edtWakeHoming2.Text := '0.0';
-    edtWakeHoming3.Text := '0.0';
-    edtWakeHoming4.Text := '0.0';
-  end;
 end;
 
+{$ENDREGION}
+
+{$ENDREGION}
 end.

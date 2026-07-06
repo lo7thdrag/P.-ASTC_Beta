@@ -4,27 +4,25 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls, uSimContainers,
-  uDBAsset_Countermeasure;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+
+  uDBAsset_Countermeasure, uSimContainers;
 
 type
   TfrmAvailableChaff = class(TForm)
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
+    pnlTableList: TPanel;
     lstChaff: TListBox;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -35,9 +33,8 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure btnCloseClick(Sender: TObject);
-    procedure edtchafflistKeyPress(Sender: TObject; var Key: Char);
-
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -54,21 +51,35 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryChaff, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryChaff, ufrmUsage, ufProgress;
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableChaff.FormClose(Sender: TObject;var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  FreeItemsAndFreeList(FChaffList);
-  Action := cafree;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableChaff.FormCreate(Sender: TObject);
 begin
   FChaffList := TList.Create;
+
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableChaff.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FChaffList);
 end;
 
 procedure TfrmAvailableChaff.FormShow(Sender: TObject);
@@ -89,6 +100,7 @@ begin
       SelectedChaff := TChaff_On_Board.Create;
       ShowModal;
       SelectedChaff.Free;
+
       FUpdateList := AfterClose;
     end;
   finally
@@ -99,11 +111,6 @@ begin
     UpdateChaffList;
 end;
 
-procedure TfrmAvailableChaff.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmAvailableChaff.btnCopyClick(Sender: TObject);
 var
   newClassName : string;
@@ -112,7 +119,7 @@ var
 begin
   if lstChaff.ItemIndex = -1 then
   begin
-    ShowMessage('Select Chaff... !');
+    ShowMessage('Silahkan pilih salah satu data Chaff ... !');
     Exit;
   end;
 
@@ -138,7 +145,7 @@ procedure TfrmAvailableChaff.btnEditClick(Sender: TObject);
 begin
   if lstChaff.ItemIndex = -1 then
   begin
-    ShowMessage('Select Chaff... !');
+    ShowMessage('Silahkan pilih salah satu data Chaff ... !');
     Exit;
   end;
 
@@ -150,6 +157,7 @@ begin
       ShowModal;
       FUpdateList := AfterClose;
     end;
+
   finally
     frmSummaryChaff.Free;
   end;
@@ -164,11 +172,11 @@ var
 begin
   if lstChaff.ItemIndex = -1 then
   begin
-    ShowMessage('Select Chaff... !');
+    ShowMessage('Silahkan pilih salah satu data Chaff ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -177,14 +185,14 @@ begin
     begin
       if dmTTT.GetCountermeasure_On_Board_By_Index(3, Chaff_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(19, Chaff_Index);
 
       if dmTTT.DeleteChaffDef(Chaff_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -196,7 +204,7 @@ procedure TfrmAvailableChaff.btnUsageClick(Sender: TObject);
 begin
   if lstChaff.ItemIndex = -1 then
   begin
-    ShowMessage('Select Chaff... !');
+    ShowMessage('Silahkan pilih salah satu data Chaff ... !');
     Exit;
   end;
 
@@ -217,24 +225,12 @@ begin
 
 end;
 
-procedure TfrmAvailableChaff.edtchafflistKeyPress(Sender: TObject;
-  var Key: Char);
- var
-  i : Integer;
-  chaff : TChaff_On_Board;
+procedure TfrmAvailableChaff.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-  lstChaff.Items.Clear;
-
-  dmTTT.GetfilterChaffDef(FChaffList,edtCheat.Text);
-
-    for i := 0 to FChaffList.Count - 1 do
-    begin
-   chaff := FChaffList.Items[i];
-    lstChaff.Items.AddObject(chaff.FChaff_Def.Chaff_Identifier, chaff);
+    UpdateChaffList
   end;
-end;
 end;
 
 procedure TfrmAvailableChaff.lbSingleClick(Sender: TObject);
@@ -252,13 +248,20 @@ var
 begin
   lstChaff.Items.Clear;
 
-  dmTTT.GetAllChaffDef(FChaffList);
+//  dmTTT.GetAllChaffDef(FChaffList);
+  dmTTT.GetFilterChaffDef(FChaffList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FChaffList.Count;
 
   for i := 0 to FChaffList.Count - 1 do
   begin
     chaff := FChaffList.Items[i];
     lstChaff.Items.AddObject(chaff.FChaff_Def.Chaff_Identifier, chaff);
+    frmProgress.increase(chaff.FChaff_Def.Chaff_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

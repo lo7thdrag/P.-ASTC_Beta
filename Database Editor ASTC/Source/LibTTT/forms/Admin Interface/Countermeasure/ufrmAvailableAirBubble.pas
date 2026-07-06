@@ -4,27 +4,25 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,Vcl.ExtCtrls, uSimContainers,
-  uDBAsset_Countermeasure;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,Vcl.ExtCtrls,
+
+  uDBAsset_Countermeasure, uSimContainers;
 
 type
   TfrmAvailableAirBubble = class(TForm)
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
+    pnlTableList: TPanel;
     lstAirBubble: TListBox;
-    Image1: TImage;
-    lbl_search: TLabel;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -35,9 +33,8 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure btnCloseClick(Sender: TObject);
-    procedure edtairbubbleKeyPress(Sender: TObject; var Key: Char);
-
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -54,21 +51,35 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryAirBubble, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryAirBubble, ufrmUsage, ufProgress;
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableAirBubble.FormClose(Sender: TObject;var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  FreeItemsAndFreeList(FAirBubbleList);
-  Action := cafree;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableAirBubble.FormCreate(Sender: TObject);
 begin
   FAirBubbleList := TList.Create;
+
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableAirBubble.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAirBubbleList);
 end;
 
 procedure TfrmAvailableAirBubble.FormShow(Sender: TObject);
@@ -82,6 +93,7 @@ end;
 
 procedure TfrmAvailableAirBubble.btnNewClick(Sender: TObject);
 begin
+
   frmSummaryAirBubble := TfrmSummaryAirBubble.Create(Self);
   try
     with frmSummaryAirBubble do
@@ -89,6 +101,7 @@ begin
       SelectedAirBubble := TAir_Bubble_On_Board.Create;
       ShowModal;
       SelectedAirBubble.Free;
+
       FUpdateList := AfterClose;
     end;
   finally
@@ -99,11 +112,6 @@ begin
     UpdateAirBubbleList;
 end;
 
-procedure TfrmAvailableAirBubble.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmAvailableAirBubble.btnCopyClick(Sender: TObject);
 var
   newClassName : string;
@@ -112,7 +120,7 @@ var
 begin
   if lstAirBubble.ItemIndex = -1 then
   begin
-    ShowMessage('Select Air Bubble... !');
+    ShowMessage('Silahkan pilih salah satu data Air Bubble ... !');
     Exit;
   end;
 
@@ -138,11 +146,11 @@ procedure TfrmAvailableAirBubble.btnEditClick(Sender: TObject);
 begin
   if lstAirBubble.ItemIndex = -1 then
   begin
-    ShowMessage('Select Air Bubble... !');
+    ShowMessage('Silahkan pilih salah satu data Air Bubble ... !');
     Exit;
   end;
 
-  frmSummaryAirBubble := TfrmSummaryAirBubble.Create(Self);
+   frmSummaryAirBubble := TfrmSummaryAirBubble.Create(Self);
   try
     with frmSummaryAirBubble do
     begin
@@ -164,11 +172,11 @@ procedure TfrmAvailableAirBubble.btnDeleteClick(Sender: TObject);
 begin
   if lstAirBubble.ItemIndex = -1 then
   begin
-    ShowMessage('Select Air Bubble... !');
+    ShowMessage('Silahkan pilih salah satu data Air Bubble ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -178,14 +186,14 @@ begin
       {Pengecekan Relasi Dengan Tabel On Board}
       if dmTTT.GetCountermeasure_On_Board_By_Index(2, Air_Bubble_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(21, Air_Bubble_Index);
 
       if dmTTT.DeleteAirBubbleDef(Air_Bubble_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -197,7 +205,7 @@ procedure TfrmAvailableAirBubble.btnUsageClick(Sender: TObject);
 begin
   if lstAirBubble.ItemIndex = -1 then
   begin
-    ShowMessage('Select Air Bubble... !');
+    ShowMessage('Silahkan pilih salah satu data Air Bubble ... !');
     Exit;
   end;
 
@@ -210,7 +218,7 @@ begin
       usage_title := 'On Board Vehicle:';
       UIndex := 13;
 
-    ShowModal;
+      ShowModal;
     end;
   finally
     frmUsage.Free;
@@ -218,23 +226,11 @@ begin
   
 end;
 
-procedure TfrmAvailableAirBubble.edtairbubbleKeyPress(Sender: TObject;
-  var Key: Char);
- var
-  i : Integer;
-  airbubble : TAir_Bubble_On_Board;
+procedure TfrmAvailableAirBubble.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-   lstAirBubble.Items.Clear;
-
-    dmTTT.GetfilterAirBubbleDef(FAirBubbleList,edtCheat.Text);
-
-    for i := 0 to FAirBubbleList.Count - 1 do
-    begin
-      airbubble := FAirBubbleList.Items[i];
-      lstAirBubble.Items.AddObject(airbubble.FAirBubble_Def.Air_Bubble_Identifier, airbubble);
-    end;
+    UpdateAirBubbleList
   end;
 end;
 
@@ -253,13 +249,20 @@ var
 begin
   lstAirBubble.Items.Clear;
 
-  dmTTT.GetAllAirBubbleDef(FAirBubbleList);
+//  dmTTT.GetAllAirBubbleDef(FAirBubbleList);
+  dmTTT.GetFilterAirBubbleDef(FAirBubbleList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FAirBubbleList.Count;
 
   for i := 0 to FAirBubbleList.Count - 1 do
   begin
     airbubble := FAirBubbleList.Items[i];
     lstAirBubble.Items.AddObject(airbubble.FAirBubble_Def.Air_Bubble_Identifier, airbubble);
+    frmProgress.increase(airbubble.FAirBubble_Def.Air_Bubble_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

@@ -4,27 +4,25 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls, uSimContainers,
-  uDBAsset_Countermeasure;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+
+  uDBAsset_Countermeasure, uSimContainers;
 
 type
   TfrmAvailableFloatingDecoy = class(TForm)
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
+    pnlTableList: TPanel;
     lstFloatingDecoy: TListBox;
-    Image1: TImage;
-    edtCheat: TEdit;
-    imgImgBtnBack: TImage;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-    btnUsage: TImage;
     btnEdit: TImage;
     btnCopy: TImage;
     btnNew: TImage;
-    lbl_search: TLabel;
-    Image2: TImage;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -35,9 +33,8 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure btnCloseClick(Sender: TObject);
-    procedure edtfloatingdecoyKeyPress(Sender: TObject; var Key: Char);
-
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -54,21 +51,35 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryFloatingDecoy, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryFloatingDecoy, ufrmUsage, ufProgress;
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableFloatingDecoy.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  FreeItemsAndFreeList(FFloatingDecoyList);
-  Action := cafree;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableFloatingDecoy.FormCreate(Sender: TObject);
 begin
   FFloatingDecoyList := TList.Create;
+
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableFloatingDecoy.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FFloatingDecoyList);
 end;
 
 procedure TfrmAvailableFloatingDecoy.FormShow(Sender: TObject);
@@ -89,6 +100,7 @@ begin
       SelectedFloatingDecoy := TFloating_Decoy_On_Board.Create;
       ShowModal;
       SelectedFloatingDecoy.Free;
+
       FUpdateList := AfterClose;
     end;
   finally
@@ -98,10 +110,6 @@ begin
   if FUpdateList then
     UpdateFloatingDecoyList;
 end;
-procedure TfrmAvailableFloatingDecoy.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
 
 procedure TfrmAvailableFloatingDecoy.btnCopyClick(Sender: TObject);
 var
@@ -110,7 +118,7 @@ var
 begin
   if lstFloatingDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Floating Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Floating Decoy ... !');
     Exit;
   end;
 
@@ -136,7 +144,7 @@ procedure TfrmAvailableFloatingDecoy.btnEditClick(Sender: TObject);
 begin
   if lstFloatingDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Floating Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Floating Decoy ... !');
     Exit;
   end;
 
@@ -162,11 +170,11 @@ var
 begin
   if lstFloatingDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Floating Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Floating Decoy ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -175,14 +183,14 @@ begin
     begin
       if dmTTT.GetCountermeasure_On_Board_By_Index(5, Floating_Decoy_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(18, Floating_Decoy_Index);
 
       if dmTTT.DeleteFloatingDecoyDef(Floating_Decoy_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateFloatingDecoyList;
@@ -193,46 +201,29 @@ procedure TfrmAvailableFloatingDecoy.btnUsageClick(Sender: TObject);
 begin
   if lstFloatingDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Floating Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Floating Decoy ... !');
     Exit;
   end;
 
-  frmUsage := TfrmUsage.Create(Self);
-  try
-    with frmUsage do
-    begin
-     UId := FSelectedFloatingDecoy.FFloatingDecoy_Def.Floating_Decoy_Index;
+  with frmUsage do
+  begin
+    UId := FSelectedFloatingDecoy.FFloatingDecoy_Def.Floating_Decoy_Index;
     name_usage := FSelectedFloatingDecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier;
     usage_title := 'On Board Vehicle:';
     UIndex := 15;
 
     ShowModal;
-    end;
-  finally
-    frmUsage.Free;
   end;
-  
 end;
 
-procedure TfrmAvailableFloatingDecoy.edtfloatingdecoyKeyPress(Sender: TObject;
-  var Key: Char);
-  var
-  i : Integer;
-  floatingdecoy : TFloating_Decoy_On_Board;
+procedure TfrmAvailableFloatingDecoy.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-  lstFloatingDecoy.Items.Clear;
-
-  dmTTT.GetfilterFloatingDecoyDef(FFloatingDecoyList,edtCheat.Text);
-
-    for i := 0 to FFloatingDecoyList.Count - 1 do
-    begin
-    floatingdecoy := FFloatingDecoyList.Items[i];
-    lstFloatingDecoy.Items.AddObject(floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier, floatingdecoy);
-    end;
+    UpdateFloatingDecoyList
   end;
 end;
+
 procedure TfrmAvailableFloatingDecoy.lbSingleClick(Sender: TObject);
 begin
   if lstFloatingDecoy.ItemIndex = -1 then
@@ -248,13 +239,20 @@ var
 begin
   lstFloatingDecoy.Items.Clear;
 
-  dmTTT.GetAllFloatingDecoyDef(FFloatingDecoyList);
+//  dmTTT.GetAllFloatingDecoyDef(FFloatingDecoyList);
+  dmTTT.GetFilterFloatingDecoyDef(FFloatingDecoyList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FFloatingDecoyList.Count;
 
   for i := 0 to FFloatingDecoyList.Count - 1 do
   begin
     floatingdecoy := FFloatingDecoyList.Items[i];
     lstFloatingDecoy.Items.AddObject(floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier, floatingdecoy);
+    frmProgress.increase(floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

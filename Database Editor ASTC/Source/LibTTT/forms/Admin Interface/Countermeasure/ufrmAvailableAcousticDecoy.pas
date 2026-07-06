@@ -4,27 +4,26 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls, uSimContainers,
-  uDBAsset_Countermeasure;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  uSimContainers, uDBAsset_Countermeasure;
 
 type
   TfrmAvailableAcousticDecoy = class(TForm)
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
+    pnlTableList: TPanel;
     lstAcousticDecoy: TListBox;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
 
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -35,8 +34,7 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure btnCloseClick(Sender: TObject);
-    procedure edtCheatKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FUpdateList : Boolean;
@@ -54,20 +52,33 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryAcousticDecoy, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryAcousticDecoy, ufrmUsage, ufProgress;
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
-
-procedure TfrmAvailableAcousticDecoy.FormClose(Sender: TObject;var Action: TCloseAction);
-begin
-  FreeItemsAndFreeList(FAcousticDecoyList);
-  Action := cafree;
-end;
 
 procedure TfrmAvailableAcousticDecoy.FormCreate(Sender: TObject);
 begin
   FAcousticDecoyList := TList.Create;
+
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableAcousticDecoy.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAcousticDecoyList);
 end;
 
 procedure TfrmAvailableAcousticDecoy.FormShow(Sender: TObject);
@@ -88,6 +99,7 @@ begin
       SelectedAcousticDecoy := TAcoustic_Decoy_On_Board.Create;
       ShowModal;
       SelectedAcousticDecoy.Free;
+
       FUpdateList := AfterClose;
     end;
   finally
@@ -107,7 +119,7 @@ var
 begin
   if lstAcousticDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Acoustic Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data  Acoustic Decoy ... !');
     Exit;
   end;
 
@@ -137,7 +149,7 @@ procedure TfrmAvailableAcousticDecoy.btnEditClick(Sender: TObject);
 begin
   if lstAcousticDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Acoustic Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data  Acoustic Decoy ... !');
     Exit;
   end;
 
@@ -163,11 +175,11 @@ var
 begin
   if lstAcousticDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Acoustic Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data  Acoustic Decoy ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -177,7 +189,7 @@ begin
       {Pengecekan Relasi Dengan Tabel On Board}
       if dmTTT.GetCountermeasure_On_Board_By_Index(1, Decoy_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
@@ -186,7 +198,7 @@ begin
       dmTTT.DeleteNoteStorage(20, Decoy_Index);
 
       if dmTTT.DeleteAcousticDecoyDef(Decoy_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -198,7 +210,7 @@ procedure TfrmAvailableAcousticDecoy.btnUsageClick(Sender: TObject);
 begin
   if lstAcousticDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Acoustic Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data  Acoustic Decoy ... !');
     Exit;
   end;
 
@@ -243,29 +255,12 @@ begin
   end;
 end;
 
-procedure TfrmAvailableAcousticDecoy.edtCheatKeyPress(Sender: TObject;
-  var Key: Char);
- var
-i : Integer;
-  acousticdecoy : TAcoustic_Decoy_On_Board;
+procedure TfrmAvailableAcousticDecoy.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
- lstAcousticDecoy.Items.Clear;
-
-  dmTTT.GetfilterAcousticDecoyDef(FAcousticDecoyList,edtCheat.Text);
-
-    for i := 0 to FAcousticDecoyList.count - 1 do
-    begin
- acousticdecoy := FAcousticDecoyList.Items[i];
-    lstAcousticDecoy.Items.AddObject(acousticdecoy.FAccousticDecoy_Def.Decoy_Identifier, acousticdecoy);
+    UpdateAcousticDecoyList
   end;
-end;
-end;
-
-procedure TfrmAvailableAcousticDecoy.btnCloseClick(Sender: TObject);
-begin
- Close;
 end;
 
 procedure TfrmAvailableAcousticDecoy.lbSingleClick(Sender: TObject);
@@ -283,13 +278,19 @@ var
 begin
   lstAcousticDecoy.Items.Clear;
 
-  dmTTT.GetAllAcousticDecoyDef(FAcousticDecoyList);
+  dmTTT.GetFilterAcousticDecoyDef(FAcousticDecoyList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FAcousticDecoyList.Count;
 
   for i := 0 to FAcousticDecoyList.Count - 1 do
   begin
     acousticdecoy := FAcousticDecoyList.Items[i];
     lstAcousticDecoy.Items.AddObject(acousticdecoy.FAccousticDecoy_Def.Decoy_Identifier, acousticdecoy);
+    frmProgress.increase(acousticdecoy.FAccousticDecoy_Def.Decoy_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

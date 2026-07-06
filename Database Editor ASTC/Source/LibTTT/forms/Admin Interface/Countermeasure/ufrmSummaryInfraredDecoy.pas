@@ -5,16 +5,12 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ComCtrls, ExtCtrls, Vcl.Imaging.pngimage, Vcl.Mask,
-  uDBAsset_Countermeasure, uBaseCoordSystem;
+  uDBAsset_Countermeasure;
 
 type
   TfrmSummaryInfraredDecoy = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
     pnl1Title: TPanel;
-    txtClass: TLabel;
+    lblClass: TLabel;
     edtClass: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
@@ -38,10 +34,13 @@ type
     edtDissipationIn100: TMaskEdit;
     tsNotes: TTabSheet;
     mmoNotes: TMemo;
-    Label1: TLabel;
-    ImgHeader: TImage;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
     //Global
@@ -53,7 +52,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedInfraredDecoy : TInfrared_Decoy_On_Board;
@@ -80,11 +79,24 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
-procedure TfrmSummaryInfraredDecoy.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmSummaryInfraredDecoy.FormCreate(Sender: TObject);
 begin
-  Action := cafree;
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSummaryInfraredDecoy.FormShow(Sender: TObject);
@@ -164,7 +176,7 @@ begin
       if dmTTT.InsertInfraredDecoyDef(FInfraRedDecoy_Def) then
       begin
         dmTTT.InsertNoteStorage(23, FInfraRedDecoy_Def.Infrared_Decoy_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -172,7 +184,7 @@ begin
       if dmTTT.UpdateInfraredDecoyDef(FInfraRedDecoy_Def) then
       begin
         dmTTT.UpdateNoteStorage(FInfraRedDecoy_Def.Infrared_Decoy_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -235,7 +247,7 @@ begin
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -253,7 +265,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -264,12 +276,12 @@ begin
     {Jika inputan baru}
     if FSelectedInfraredDecoy.FInfraRedDecoy_Def.Infrared_Decoy_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -407,7 +419,5 @@ begin
 end;
 
 {$ENDREGION}
-
-
 
 end.

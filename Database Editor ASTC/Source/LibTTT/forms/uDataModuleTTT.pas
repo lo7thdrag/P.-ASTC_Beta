@@ -16569,7 +16569,7 @@ begin
     with rec.FAccousticDecoy_POH do begin
       Close;
       SQL.Clear;
-      SQL.Add('INSERT INTO [Runtime_DB].[dbo].[Acoustic_Decoy_POH_Modifier] ');
+      SQL.Add('INSERT INTO Acoustic_Decoy_POH_Modifier ');
       SQL.Add('(Decoy_Index,Torpedo_Guidance_Type,Aspect_Angle,POH_Modifier)');
       SQL.Add('VALUES ( ' );
       SQL.Add(IntToStr(Decoy_Index)+',');

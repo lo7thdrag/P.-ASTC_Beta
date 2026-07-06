@@ -4,27 +4,25 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,Vcl.ExtCtrls, uSimContainers,
-  uDBAsset_Countermeasure;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,Vcl.ExtCtrls,
+
+  uDBAsset_Countermeasure, uSimContainers;
 
 type
   TfrmAvailableRadarNoiseJammer = class(TForm)
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
+    pnlTableList: TPanel;
     lstRadarNoiseJammer: TListBox;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -35,9 +33,8 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure btnCloseClick(Sender: TObject);
-    procedure edtradarnoisejammerKeyPress(Sender: TObject; var Key: Char);
-
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
    FUpdateList : Boolean;
@@ -54,22 +51,35 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryRadarNoiseJammer, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryRadarNoiseJammer, ufrmUsage, ufProgress;
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableRadarNoiseJammer.FormClose(Sender: TObject;
-  var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  FreeItemsAndFreeList(FRadarNoiseJammerList);
-  Action := cafree;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableRadarNoiseJammer.FormCreate(Sender: TObject);
 begin
   FRadarNoiseJammerList := TList.Create;
+
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableRadarNoiseJammer.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FRadarNoiseJammerList);
 end;
 
 procedure TfrmAvailableRadarNoiseJammer.FormShow(Sender: TObject);
@@ -90,6 +100,7 @@ begin
       SelectedRadarJammer := TRadar_Noise_Jammer_On_Board.Create;
       ShowModal;
       SelectedRadarJammer.Free;
+
       FUpdateList := AfterClose;
     end;
   finally
@@ -100,11 +111,6 @@ begin
     UpdateRadarNoiseJammerList;
 end;
 
-procedure TfrmAvailableRadarNoiseJammer.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmAvailableRadarNoiseJammer.btnCopyClick(Sender: TObject);
 var
   newClassName : string;
@@ -113,7 +119,7 @@ var
 begin
   if lstRadarNoiseJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Radar Noise Jammer... !');
+    ShowMessage('Silahkan pilih salah satu data Radar Noise Jammer... !');
     Exit;
   end;
 
@@ -139,7 +145,7 @@ procedure TfrmAvailableRadarNoiseJammer.btnEditClick(Sender: TObject);
 begin
   if lstRadarNoiseJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Radar Noise Jammer... !');
+    ShowMessage('Silahkan pilih salah satu data Radar Noise Jammer... !');
     Exit;
   end;
 
@@ -151,6 +157,7 @@ begin
       ShowModal;
       FUpdateList := AfterClose;
     end;
+
   finally
     frmSummaryRadarNoiseJammer.Free;
   end;
@@ -165,11 +172,11 @@ var
 begin
   if lstRadarNoiseJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Radar Noise Jammer... !');
+    ShowMessage('Silahkan pilih salah satu data Radar Noise Jammer... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -178,14 +185,14 @@ begin
     begin
       if dmTTT.GetCountermeasure_On_Board_By_Index(8, Jammer_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(15, Jammer_Index);
 
       if dmTTT.DeleteRadarNoiseJammerDef(Jammer_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateRadarNoiseJammerList;
@@ -196,45 +203,27 @@ procedure TfrmAvailableRadarNoiseJammer.btnUsageClick(Sender: TObject);
 begin
   if lstRadarNoiseJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Radar Noise Jammer... !');
+    ShowMessage('Silahkan pilih salah satu data Radar Noise Jammer... !');
     Exit;
   end;
 
-  frmUsage := TfrmUsage.Create(Self);
-  try
-    with frmUsage do
-    begin
-      UId := FSelectedRadarNoiseJammer.FDef.Jammer_Index;
-      name_usage := FSelectedRadarNoiseJammer.FDef.Jammer_Identifier;
-      usage_title := 'On Board Vehicle:';
-      UIndex := 18;
+  with frmUsage do
+  begin
+    UId := FSelectedRadarNoiseJammer.FDef.Jammer_Index;
+    name_usage := FSelectedRadarNoiseJammer.FDef.Jammer_Identifier;
+    usage_title := 'On Board Vehicle:';
+    UIndex := 18;
 
-      ShowModal;
-    end;
-  finally
-    frmUsage.Free;
+    ShowModal;
   end;
-
 end;
 
-procedure TfrmAvailableRadarNoiseJammer.edtradarnoisejammerKeyPress(Sender: TObject;
-  var Key: Char);
- var
-  i : Integer;
-  radarnoisejammer : TRadar_Noise_Jammer_On_Board;
+procedure TfrmAvailableRadarNoiseJammer.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-   lstRadarNoiseJammer.Items.Clear;
-
-  dmTTT.GetfilterRadarNoiseJammerDef(FRadarNoiseJammerList,edtCheat.Text);
-
-    for i := 0 to FRadarNoiseJammerList.Count - 1 do
-    begin
-      radarnoisejammer := FRadarNoiseJammerList.Items[i];
-    lstRadarNoiseJammer.Items.AddObject(radarnoisejammer.FDef.Jammer_Identifier, radarnoisejammer);
+    UpdateRadarNoiseJammerList
   end;
-end;
 end;
 
 procedure TfrmAvailableRadarNoiseJammer.lbSingleClick(Sender: TObject);
@@ -252,13 +241,20 @@ var
 begin
   lstRadarNoiseJammer.Items.Clear;
 
-  dmTTT.GetAllRadarNoiseJammerDef(FRadarNoiseJammerList);
+//  dmTTT.GetAllRadarNoiseJammerDef(FRadarNoiseJammerList);
+  dmTTT.GetFilterRadarNoiseJammerDef(FRadarNoiseJammerList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FRadarNoiseJammerList.Count;
 
   for i := 0 to FRadarNoiseJammerList.Count - 1 do
   begin
     radarnoisejammer := FRadarNoiseJammerList.Items[i];
     lstRadarNoiseJammer.Items.AddObject(radarnoisejammer.FDef.Jammer_Identifier, radarnoisejammer);
+    frmProgress.increase(radarnoisejammer.FDef.Jammer_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

@@ -5,16 +5,12 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, ComCtrls, Vcl.Imaging.pngimage, Vcl.Mask,
-  uDBAsset_Countermeasure, uBaseCoordSystem;
+  uDBAsset_Countermeasure;
 
 type
   TfrmSummaryFloatingDecoy = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
     pnl1Title: TPanel;
-    txtClass: TLabel;
+    Label1: TLabel;
     edtClass: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
@@ -55,10 +51,13 @@ type
     edtLifetimeDuration: TMaskEdit;
     tsNotes: TTabSheet;
     mmoNotes: TMemo;
-    Label1: TLabel;
-    ImgHeader: TImage;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
     //Global
@@ -69,10 +68,11 @@ type
 
     //General
     procedure CbbGeneralDataChange(Sender: TObject);
+
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedFloatingDecoy : TFloating_Decoy_On_Board;
@@ -99,11 +99,24 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
-procedure TfrmSummaryFloatingDecoy.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmSummaryFloatingDecoy.FormCreate(Sender: TObject);
 begin
-  Action := cafree;
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSummaryFloatingDecoy.FormShow(Sender: TObject);
@@ -177,7 +190,7 @@ begin
       if dmTTT.InsertFloatingDecoyDef(FFloatingDecoy_Def) then
       begin
         dmTTT.InsertNoteStorage(18, FFloatingDecoy_Def.Floating_Decoy_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -185,7 +198,7 @@ begin
       if dmTTT.UpdateFloatingDecoyDef(FFloatingDecoy_Def) then
       begin
         dmTTT.UpdateNoteStorage(FFloatingDecoy_Def.Floating_Decoy_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -281,13 +294,14 @@ end;
 function TfrmSummaryFloatingDecoy.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
+
 begin
   Result := False;
 
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -305,7 +319,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -316,12 +330,12 @@ begin
     {Jika inputan baru}
     if FSelectedFloatingDecoy.FFloatingDecoy_Def.Floating_Decoy_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -459,7 +473,5 @@ begin
 end;
 
 {$ENDREGION}
-
-
 
 end.

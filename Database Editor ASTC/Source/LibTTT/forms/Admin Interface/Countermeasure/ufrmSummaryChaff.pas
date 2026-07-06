@@ -5,18 +5,10 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ComCtrls, ExtCtrls, Vcl.Imaging.pngimage, Vcl.Mask,
-   uDBAsset_Countermeasure, uBaseCoordSystem;
+   uDBAsset_Countermeasure;
 
 type
   TfrmSummaryChaff = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    Label1: TLabel;
-    pnl1Title: TPanel;
-    txtClass: TLabel;
-    edtClass: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     tsGeneral: TTabSheet;
@@ -45,14 +37,21 @@ type
     lbl8: TLabel;
     edtLowerLimit: TEdit;
     edtUpperLimit: TEdit;
+    tsNotes: TTabSheet;
+    mmoNotes: TMemo;
+    pnl1Title: TPanel;
+    Label1: TLabel;
+    edtClass: TEdit;
+    pnl3Button: TPanel;
     edtBloomTime: TMaskEdit;
     edtDissipationTimeinStillAir: TMaskEdit;
     edtDissipationTimein100kt: TMaskEdit;
-    tsNotes: TTabSheet;
-    mmoNotes: TMemo;
-    Image1: TImage;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
     //Global
@@ -65,7 +64,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-
+    procedure FormCreate(Sender: TObject);
   private
     FSelectedChaff : TChaff_On_Board;
 
@@ -91,11 +90,24 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
-procedure TfrmSummaryChaff.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmSummaryChaff.FormCreate(Sender: TObject);
 begin
-  Action := cafree;
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSummaryChaff.FormShow(Sender: TObject);
@@ -175,7 +187,7 @@ begin
       if dmTTT.InsertChaffDef(FChaff_Def) then
       begin
         dmTTT.InsertNoteStorage(19, FChaff_Def.Chaff_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -183,7 +195,7 @@ begin
       if dmTTT.UpdateChaffDef(FChaff_Def) then
       begin
         dmTTT.UpdateNoteStorage(FChaff_Def.Chaff_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -247,13 +259,14 @@ end;
 function TfrmSummaryChaff.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
+  second : Integer;
 begin
   Result := False;
 
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -271,7 +284,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -282,14 +295,35 @@ begin
     {Jika inputan baru}
     if FSelectedChaff.FChaff_Def.Chaff_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
+  end;
+
+  TimeToSecond(edtBloomTime.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Bloom Time Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(edtDissipationTimeinStillAir.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Dissipation Time in Still Air Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(edtDissipationTimein100kt.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Dissipation Time in 100 kt wind Terlalu Lama');
+    Exit;
   end;
 
   Result := True;
@@ -433,8 +467,5 @@ begin
 end;
 
 {$ENDREGION}
-
-
-
 
 end.

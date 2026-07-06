@@ -4,27 +4,25 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls, uSimContainers,
-  uDBAsset_Countermeasure;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+
+  uDBAsset_Countermeasure, uSimContainers;
 
 type
   TfrmAvailableSelfDefensiveJammer = class(TForm)
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
+    pnlTableList: TPanel;
     lstSelfDefensiveJammer: TListBox;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -35,9 +33,8 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure btnCloseClick(Sender: TObject);
-    procedure edtselfdefensivejammerKeyPress(Sender: TObject; var Key: Char);
-
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -54,21 +51,35 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummarySelfDefensiveJammer, ufrmUsage;
+  uDataModuleTTT, ufrmSummarySelfDefensiveJammer, ufrmUsage, ufProgress;
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableSelfDefensiveJammer.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  FreeItemsAndFreeList(FSelfDefensiveJammerList);
-  Action := cafree;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableSelfDefensiveJammer.FormCreate(Sender: TObject);
 begin
   FSelfDefensiveJammerList := TList.Create;
+
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableSelfDefensiveJammer.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FSelfDefensiveJammerList);
 end;
 
 procedure TfrmAvailableSelfDefensiveJammer.FormShow(Sender: TObject);
@@ -82,13 +93,14 @@ end;
 
 procedure TfrmAvailableSelfDefensiveJammer.btnNewClick(Sender: TObject);
 begin
-  frmSummarySelfDefensiveJammer := TfrmSummarySelfDefensiveJammer.Create(Self);
+ frmSummarySelfDefensiveJammer := TfrmSummarySelfDefensiveJammer.Create(Self);
   try
     with frmSummarySelfDefensiveJammer do
     begin
       SelectedDefensiveJammer := TDefensive_Jammer_On_Board.Create;
       ShowModal;
       SelectedDefensiveJammer.Free;
+
       FUpdateList := AfterClose;
     end;
   finally
@@ -99,11 +111,6 @@ begin
     UpdateSelfDefensiveJammerList;
 end;
 
-procedure TfrmAvailableSelfDefensiveJammer.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmAvailableSelfDefensiveJammer.btnCopyClick(Sender: TObject);
 var
   newClassName : string;
@@ -112,7 +119,7 @@ var
 begin
   if lstSelfDefensiveJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Self Defensive Jammer... !');
+    ShowMessage('Silahkan pilih salah satu data Self Defensive Jammer ... !');
     Exit;
   end;
 
@@ -138,7 +145,7 @@ procedure TfrmAvailableSelfDefensiveJammer.btnEditClick(Sender: TObject);
 begin
   if lstSelfDefensiveJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Self Defensive Jammer... !');
+    ShowMessage('Silahkan pilih salah satu data Self Defensive Jammer ... !');
     Exit;
   end;
 
@@ -150,6 +157,7 @@ begin
       ShowModal;
       FUpdateList := AfterClose;
     end;
+
   finally
     frmSummarySelfDefensiveJammer.Free;
   end;
@@ -164,11 +172,11 @@ var
 begin
   if lstSelfDefensiveJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Infrared Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Self Defensive Jammer ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -177,14 +185,14 @@ begin
     begin
       if dmTTT.GetCountermeasure_On_Board_By_Index(6, Defensive_Jammer_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(16, Defensive_Jammer_Index);
 
       if dmTTT.DeleteSelfDefensiveJammerDef(Defensive_Jammer_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateSelfDefensiveJammerList;
@@ -195,44 +203,26 @@ procedure TfrmAvailableSelfDefensiveJammer.btnUsageClick(Sender: TObject);
 begin
   if lstSelfDefensiveJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Self Defensive Jammer... !');
+    ShowMessage('Silahkan pilih salah satu data Self Defensive Jammer ... !');
     Exit;
   end;
 
-  frmUsage := TfrmUsage.Create(Self);
-  try
-    with frmUsage do
-    begin
-      UId := FSelectedSelfDefensiveJammer.FDefensiveJammer_Def.Defensive_Jammer_Index;
+  with frmUsage do
+  begin
+    UId := FSelectedSelfDefensiveJammer.FDefensiveJammer_Def.Defensive_Jammer_Index;
     name_usage := FSelectedSelfDefensiveJammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier;
     usage_title := 'On Board Vehicle:';
     UIndex := 16;
 
     ShowModal;
-    end;
-  finally
-    frmUsage.Free;
   end;
-  
 end;
 
-procedure TfrmAvailableSelfDefensiveJammer.edtselfdefensivejammerKeyPress(
-  Sender: TObject; var Key: Char);
- var
-  i : Integer;
-  selfdefensivejammer : TDefensive_Jammer_On_Board;
+procedure TfrmAvailableSelfDefensiveJammer.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
-  if Key = #13 then
+if Key = #13 then
   begin
-  lstSelfDefensiveJammer.Items.Clear;
-
-  dmTTT.GetfilterSelfDefensiveJammerDef(FSelfDefensiveJammerList,edtCheat.Text);
-
-    for i := 0 to FSelfDefensiveJammerList.Count - 1 do
-    begin
-    selfdefensivejammer := FSelfDefensiveJammerList.Items[i];
-    lstSelfDefensiveJammer.Items.AddObject(selfdefensivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier, selfdefensivejammer);
-    end;
+    UpdateSelfDefensiveJammerList
   end;
 end;
 
@@ -251,13 +241,20 @@ var
 begin
   lstSelfDefensiveJammer.Items.Clear;
 
-  dmTTT.GetAllSelfDefensiveJammerDef(FSelfDefensiveJammerList);
+//  dmTTT.GetAllSelfDefensiveJammerDef(FSelfDefensiveJammerList);
+  dmTTT.GetFilterSelfDefensiveJammerDef(FSelfDefensiveJammerList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FSelfDefensiveJammerList.Count;
 
   for i := 0 to FSelfDefensiveJammerList.Count - 1 do
   begin
     selfdefensivejammer := FSelfDefensiveJammerList.Items[i];
     lstSelfDefensiveJammer.Items.AddObject(selfdefensivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier, selfdefensivejammer);
+    frmProgress.increase(selfdefensivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

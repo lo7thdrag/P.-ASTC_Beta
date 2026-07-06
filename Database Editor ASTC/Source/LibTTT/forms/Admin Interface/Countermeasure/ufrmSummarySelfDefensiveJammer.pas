@@ -9,12 +9,8 @@ uses
 
 type
   TfrmSummarySelfDefensiveJammer = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
     pnl1Title: TPanel;
-    txtClass: TLabel;
+    lblClass: TLabel;
     edtClass: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
@@ -42,10 +38,13 @@ type
     TrackBarTypeC: TTrackBar;
     tsNotes: TTabSheet;
     mmoNotes: TMemo;
-    ImgHeader: TImage;
-    Label2: TLabel;
+    pnl3Button: TPanel;
+    btnOK: TButton;
+    btnApply: TButton;
+    btnCancel: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
     //Global
@@ -60,7 +59,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedDefensiveJammer : TDefensive_Jammer_On_Board;
@@ -75,6 +74,7 @@ type
 
     property SelectedDefensiveJammer : TDefensive_Jammer_On_Board
       read FSelectedDefensiveJammer write FSelectedDefensiveJammer;
+
   end;
 
 var
@@ -87,11 +87,24 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
-procedure TfrmSummarySelfDefensiveJammer.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmSummarySelfDefensiveJammer.FormCreate(Sender: TObject);
 begin
-  Action := cafree;
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSummarySelfDefensiveJammer.FormShow(Sender: TObject);
@@ -99,8 +112,8 @@ begin
   tsGeneral.Show;
   UpdateDefensiveJammerData;
 
-  with FSelectedDefensiveJammer.FDefensiveJammer_Def do
-    btnApply.Enabled := Defensive_Jammer_Index = 0;
+  with FSelectedDefensiveJammer.FData do
+    btnApply.Enabled := Defensive_Jammer_Instance_Index = 0;
 
   isOK := True;
   AfterClose := True;
@@ -156,7 +169,7 @@ begin
       if dmTTT.InsertSelfDefensiveJammerDef(FDefensiveJammer_Def) then
       begin
         dmTTT.InsertNoteStorage(16, FDefensiveJammer_Def.Defensive_Jammer_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -164,7 +177,7 @@ begin
       if dmTTT.UpdateSelfDefensiveJammerDef(FDefensiveJammer_Def) then
       begin
         dmTTT.UpdateNoteStorage(FDefensiveJammer_Def.Defensive_Jammer_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -256,7 +269,7 @@ begin
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -274,7 +287,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -285,12 +298,12 @@ begin
     {Jika inputan baru}
     if FSelectedDefensiveJammer.FDefensiveJammer_Def.Defensive_Jammer_Index= 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;

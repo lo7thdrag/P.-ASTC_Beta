@@ -5,17 +5,12 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, ExtCtrls, StdCtrls, Mask, Vcl.Imaging.pngimage,
-  uDBAsset_Countermeasure, uBaseCoordSystem;
+  uDBAsset_Countermeasure;
 
 type
-  TfrmSummaryTowedjammerDecoy = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    Label1: TLabel;
+  TfrmSummaryTowedJammerDecoy = class(TForm)
     pnl1Title: TPanel;
-    txtClass: TLabel;
+    lblClass: TLabel;
     edtClass: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
@@ -80,9 +75,13 @@ type
     medtActivationControlDelay: TMaskEdit;
     tsNotes: TTabSheet;
     mmoNotes: TMemo;
-    ImgHeader: TImage;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
     //Global
@@ -98,10 +97,28 @@ type
     procedure edtGeneralChange(Sender: TObject);
     procedure CbbGeneralDataChange(Sender: TObject);
 
+//    procedure edtLengthDimensionsKeyPress(Sender: TObject; var Key: Char);
+//    procedure edtWidththDimensionsKeyPress(Sender: TObject; var Key: Char);
+//    procedure edtHeigthDimensionsKeyPress(Sender: TObject; var Key: Char);
+//    procedure edtFrontRadarCrossKeyPress(Sender: TObject; var Key: Char);
+//    procedure cbFrontRadarCrossChange(Sender: TObject);
+//    procedure edtSideRadarCrossKeyPress(Sender: TObject; var Key: Char);
+//    procedure cbSideRadarCrossChange(Sender: TObject);
+//    procedure edtFrontAcousticCrossKeyPress(Sender: TObject; var Key: Char);
+//    procedure edtSideAcousticCrossKeyPress(Sender: TObject; var Key: Char);
+//    procedure edtFrontVisualCrossKeyPress(Sender: TObject; var Key: Char);
+//    procedure edtSideVisualCrossKeyPress(Sender: TObject; var Key: Char);
+//    procedure TargetSelectionOnClick(Sender: TObject);
+//    procedure cbbECMTypeChange(Sender: TObject);
+//    procedure medtActivationControlDelayKeyPress(Sender: TObject; var Key: Char);
+//    procedure edtTowLengthKeyPress(Sender: TObject; var Key: Char);
+//    procedure TrackBarProbOfSuccessChange(Sender: TObject);
+//    procedure edtProbOfSuccessKeyPress(Sender: TObject; var Key: Char);
+
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedTowedJammerDecoy : TTowed_Jammer_Decoy_On_Board;
@@ -119,7 +136,7 @@ type
   end;
 
 var
-  frmSummaryTowedjammerDecoy: TfrmSummaryTowedjammerDecoy;
+  frmSummaryTowedJammerDecoy: TfrmSummaryTowedJammerDecoy;
 
 implementation
 
@@ -128,20 +145,33 @@ uses
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmSummaryTowedjammerDecoy.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  Action := cafree;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.FormShow(Sender: TObject);
+{$REGION ' Form Handle '}
+
+procedure TfrmSummaryTowedJammerDecoy.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmSummaryTowedJammerDecoy.FormShow(Sender: TObject);
 begin
   tsGeneral.Show;
   UpdateTowedJammerDecoyData;
 
-  with FSelectedTowedJammerDecoy.FDef do
-    btnApply.Enabled := Towed_Decoy_Index = 0;
+  with FSelectedTowedJammerDecoy.FData do
+    btnApply.Enabled := Towed_Decoy_Instance_Index = 0;
 
   isOK := True;
   AfterClose := True;
@@ -152,7 +182,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmSummaryTowedjammerDecoy.btnOKClick(Sender: TObject);
+procedure TfrmSummaryTowedJammerDecoy.btnOKClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -161,7 +191,7 @@ begin
     Close;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.btnApplyClick(Sender: TObject);
+procedure TfrmSummaryTowedJammerDecoy.btnApplyClick(Sender: TObject);
 var
   second : Integer;
 begin
@@ -219,7 +249,7 @@ begin
       if dmTTT.InsertTowedJammerDef(FDef) then
       begin
         dmTTT.InsertNoteStorage(17, FDef.Towed_Decoy_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -227,7 +257,7 @@ begin
       if dmTTT.UpdateTowedJammerDef(FDef) then
       begin
         dmTTT.UpdateNoteStorage(FDef.Towed_Decoy_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -238,13 +268,13 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.btnCancelClick(Sender: TObject);
+procedure TfrmSummaryTowedJammerDecoy.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.edtGeneralChange(Sender: TObject);
+procedure TfrmSummaryTowedJammerDecoy.edtGeneralChange(Sender: TObject);
 begin
   if TEdit(Sender).Text = '' then
     TEdit(Sender).Text := '0';
@@ -262,7 +292,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.trckbrGeneralChange(Sender: TObject);
+procedure TfrmSummaryTowedJammerDecoy.trckbrGeneralChange(Sender: TObject);
 begin
   case TTrackBar(Sender).Tag of
     0: {TypeA}
@@ -282,7 +312,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.CbbGeneralDataChange(Sender: TObject);
+procedure TfrmSummaryTowedJammerDecoy.CbbGeneralDataChange(Sender: TObject);
 var
   value : Double;
 
@@ -321,7 +351,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.UpdateTowedJammerDecoyData;
+procedure TfrmSummaryTowedJammerDecoy.UpdateTowedJammerDecoyData;
 var
   timeStr : string;
 begin
@@ -370,16 +400,17 @@ begin
   end;
 end;
 
-function TfrmSummaryTowedjammerDecoy.CekInput: Boolean;
+function TfrmSummaryTowedJammerDecoy.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
+  second : Integer;
 begin
   Result := False;
 
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -397,7 +428,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -408,14 +439,21 @@ begin
     {Jika inputan baru}
     if FSelectedTowedJammerDecoy.FDef.Towed_Decoy_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
+  end;
+
+  TimeToSecond(medtActivationControlDelay.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Activation Control Delay Terlalu Lama');
+    Exit;
   end;
 
   Result := True;
@@ -425,7 +463,7 @@ end;
 
 {$REGION ' Filter Input '}
 
-function TfrmSummaryTowedjammerDecoy.GetNumberOfKoma(s: string): Boolean;
+function TfrmSummaryTowedJammerDecoy.GetNumberOfKoma(s: string): Boolean;
 var
   a, i : Integer;
 begin
@@ -442,7 +480,7 @@ begin
     Result := True;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.edtNumeralKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryTowedJammerDecoy.edtNumeralKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -476,12 +514,12 @@ begin
   end;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.CheckBoxDataClick(Sender: TObject);
+procedure TfrmSummaryTowedJammerDecoy.CheckBoxDataClick(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.ComboBoxDataChange(Sender: TObject);
+procedure TfrmSummaryTowedJammerDecoy.ComboBoxDataChange(Sender: TObject);
 begin
   if TComboBox(Sender).ItemIndex = -1 then
     TComboBox(Sender).ItemIndex := 0;
@@ -489,12 +527,12 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.edtChange(Sender: TObject);
+procedure TfrmSummaryTowedJammerDecoy.edtChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmSummaryTowedjammerDecoy.ValidationFormatInput;
+procedure TfrmSummaryTowedJammerDecoy.ValidationFormatInput;
 var
   i, j: Integer;
   value : Double;
@@ -564,6 +602,5 @@ begin
 end;
 
 {$ENDREGION}
-
 
 end.

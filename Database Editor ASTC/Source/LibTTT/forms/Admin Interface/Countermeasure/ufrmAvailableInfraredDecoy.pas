@@ -4,27 +4,26 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, uSimContainers,
-  Vcl.ExtCtrls, uDBAsset_Countermeasure;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls,
+
+  uDBAsset_Countermeasure, uSimContainers;
 
 type
   TfrmAvailableInfraredDecoy = class(TForm)
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
+    pnlTableList: TPanel;
     lstInfraredDecoy: TListBox;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -35,9 +34,8 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure btnCloseClick(Sender: TObject);
-    procedure edtinfrareddecoyKeyPress(Sender: TObject; var Key: Char);
-
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -54,20 +52,34 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryInfraredDecoy, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryInfraredDecoy, ufrmUsage, ufProgress;
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableInfraredDecoy.FormClose(Sender: TObject;var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  FreeItemsAndFreeList(FInfraredDecoyList);
-  Action := cafree;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableInfraredDecoy.FormCreate(Sender: TObject);
 begin
   FInfraredDecoyList := TList.Create;
+
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableInfraredDecoy.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FInfraredDecoyList);
 end;
 
 procedure TfrmAvailableInfraredDecoy.FormShow(Sender: TObject);
@@ -81,6 +93,7 @@ end;
 
 procedure TfrmAvailableInfraredDecoy.btnNewClick(Sender: TObject);
 begin
+
   frmSummaryInfraredDecoy := TfrmSummaryInfraredDecoy.Create(Self);
   try
     with frmSummaryInfraredDecoy do
@@ -88,6 +101,7 @@ begin
       SelectedInfraredDecoy := TInfrared_Decoy_On_Board.Create;
       ShowModal;
       SelectedInfraredDecoy.Free;
+
       FUpdateList := AfterClose;
     end;
   finally
@@ -98,11 +112,6 @@ begin
     UpdateInfraredDecoyList;
 end;
 
-procedure TfrmAvailableInfraredDecoy.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmAvailableInfraredDecoy.btnCopyClick(Sender: TObject);
 var
   newClassName : string;
@@ -111,7 +120,7 @@ var
 begin
   if lstInfraredDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Infrared Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Infrared Decoy ... !');
     Exit;
   end;
 
@@ -137,7 +146,7 @@ procedure TfrmAvailableInfraredDecoy.btnEditClick(Sender: TObject);
 begin
   if lstInfraredDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Infrared Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Infrared Decoy ... !');
     Exit;
   end;
 
@@ -149,6 +158,7 @@ begin
       ShowModal;
       FUpdateList := AfterClose;
     end;
+
   finally
     frmSummaryInfraredDecoy.Free;
   end;
@@ -163,11 +173,11 @@ var
 begin
   if lstInfraredDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Infrared Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Infrared Decoy ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -176,14 +186,14 @@ begin
     begin
       if dmTTT.GetCountermeasure_On_Board_By_Index(4, Infrared_Decoy_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(23, Infrared_Decoy_Index);
 
       if dmTTT.DeleteInfraredDecoyDef(Infrared_Decoy_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateInfraredDecoyList;
@@ -194,45 +204,27 @@ procedure TfrmAvailableInfraredDecoy.btnUsageClick(Sender: TObject);
 begin
   if lstInfraredDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Infrared Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Infrared Decoy ... !');
     Exit;
   end;
 
-  frmUsage := TfrmUsage.Create(Self);
-  try
-    with frmUsage do
-    begin
-      UId := FSelectedInfraredDecoy.FInfraredDecoy_Def.Infrared_Decoy_Index;
-      name_usage := FSelectedInfraredDecoy.FInfraredDecoy_Def.Infrared_Decoy_Identifier;
-      usage_title := 'On Board Vehicle:';
-      UIndex := 19;
+  with frmUsage do
+  begin
+    UId := FSelectedInfraredDecoy.FInfraredDecoy_Def.Infrared_Decoy_Index;
+    name_usage := FSelectedInfraredDecoy.FInfraredDecoy_Def.Infrared_Decoy_Identifier;
+    usage_title := 'On Board Vehicle:';
+    UIndex := 19;
 
-      ShowModal;
-    end;
-  finally
-    frmUsage.Free;
+    ShowModal;
   end;
-
 end;
 
-procedure TfrmAvailableInfraredDecoy.edtinfrareddecoyKeyPress(Sender: TObject;
-  var Key: Char);
- var
-  i : Integer;
-  infrareddecoy : TInfrared_Decoy_On_Board;
+procedure TfrmAvailableInfraredDecoy.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-  lstInfraredDecoy.Items.Clear;
-
-  dmTTT.GetfilterInfraredDecoyDef(FInfraredDecoyList,edtCheat.Text);
-
-    for i := 0 to FInfraredDecoyList.Count - 1 do
-    begin
-      infrareddecoy := FInfraredDecoyList.Items[i];
-    lstInfraredDecoy.Items.AddObject(infrareddecoy.FInfraredDecoy_Def.Infrared_Decoy_Identifier, infrareddecoy);
+    UpdateInfraredDecoyList
   end;
-end;
 end;
 
 procedure TfrmAvailableInfraredDecoy.lbSingleClick(Sender: TObject);
@@ -250,13 +242,20 @@ var
 begin
   lstInfraredDecoy.Items.Clear;
 
-  dmTTT.GetAllInfraredDecoyDef(FInfraredDecoyList);
+//  dmTTT.GetAllInfraredDecoyDef(FInfraredDecoyList);
+  dmTTT.GetFilterInfraredDecoyDef(FInfraredDecoyList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FInfraredDecoyList.Count;
 
   for i := 0 to FInfraredDecoyList.Count - 1 do
   begin
     infrareddecoy := FInfraredDecoyList.Items[i];
     lstInfraredDecoy.Items.AddObject(infrareddecoy.FInfraredDecoy_Def.Infrared_Decoy_Identifier, infrareddecoy);
+    frmProgress.increase(infrareddecoy.FInfraredDecoy_Def.Infrared_Decoy_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

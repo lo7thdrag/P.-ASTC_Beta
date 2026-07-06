@@ -4,13 +4,15 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ComCtrls;
+  Dialogs, StdCtrls, ComCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage;
 
 type
   TfrmConnectTerminate = class(TForm)
     tvMapping: TTreeView;
     btnOK: TButton;
     btnCancel: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
     procedure FormCreate(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
   private
@@ -37,13 +39,27 @@ var
 implementation
 
 uses
-  uDMGC, uNetSessionClient, ufGameReport;
+  uDMGC, uNetSessionClient;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 
 procedure TfrmConnectTerminate.FormCreate(Sender: TObject);
 begin
 //  show;
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmConnectTerminate.SetAsConnect;
@@ -61,7 +77,6 @@ begin
   Caption := 'Terminate';
   btnOK.Caption := '&Terminate';
   btnOK.OnClick := btnOKTerminateClick;
-
 
 end;
 
@@ -92,20 +107,12 @@ procedure TfrmConnectTerminate.btnOKTerminateClick(Sender: TObject);
 begin
   OKTerminate := True;
   Close;
-//  if tvMapping.Items.Count <> 0 then
-//  begin
-//    frmGameReportEditor.Show;
-//  end;
 end;
 
 procedure TfrmConnectTerminate.DisplayGroups(const scID: integer);
 var i, j: integer;
     lGrp, lPi : TList;
-
-//    gInfo, gInfoWasdal: TGroupInfo;
-
-    gInfo, gInfoVBS, gInfoWasdal: TGroupInfo;
-
+    gInfo: TGroupInfo;
     pInfo : TDeployedPlatformInfo;
     fNode, node: TTreeNode;
     scInfo: TScenarioInfo;
@@ -133,14 +140,6 @@ begin
       tvMapping.Items.AddChild(node, pInfo.Instance_Name);
     end;
   end;
-
-  gInfoWasdal := TGroupInfo.Create;
-  gInfoWasdal.Group_Identifier := 'PELAKU';
-  tvMapping.Items.AddChildObject(fNode, gInfoWasdal.Group_Identifier, gInfoWasdal);
-
-  gInfoVBS := TGroupInfo.Create;
-  gInfoVBS.Group_Identifier := 'VBS';
-  tvMapping.Items.AddChildObject(fNode, gInfoVBS.Group_Identifier, gInfoVBS);
 
   fNode.Expand(false);
   lPi.Free;

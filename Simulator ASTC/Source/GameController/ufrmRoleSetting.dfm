@@ -1,37 +1,36 @@
-object frmConnectTerminate: TfrmConnectTerminate
+object frmRoleSetting: TfrmRoleSetting
   Left = 0
   Top = 0
-  BorderWidth = 1
-  Caption = 'Connect'
-  ClientHeight = 451
-  ClientWidth = 470
-  Color = 2499101
+  BorderIcons = []
+  BorderStyle = bsSingle
+  ClientHeight = 267
+  ClientWidth = 389
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poMainFormCenter
+  Position = poScreenCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 470
-    Height = 451
+    Width = 389
+    Height = 267
     Align = alClient
+    BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 48
-    ExplicitTop = 416
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitWidth = 360
+    ExplicitHeight = 244
     object imgBackground: TImage
-      Left = 1
-      Top = 1
-      Width = 468
-      Height = 449
+      Left = 0
+      Top = 0
+      Width = 389
+      Height = 267
       Align = alClient
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000001FB0000
@@ -4299,24 +4298,92 @@ object frmConnectTerminate: TfrmConnectTerminate
         6549B826A0F02F28956D776E219FC38BF7DA0403A67CCEE6205DED250611E327
         6B3CD72008FBFF07693C48CBEF7115170000000049454E44AE426082}
       Stretch = True
-      ExplicitLeft = 328
-      ExplicitTop = 120
-      ExplicitWidth = 105
-      ExplicitHeight = 105
+      ExplicitWidth = 322
+      ExplicitHeight = 205
     end
-    object tvMapping: TTreeView
-      Left = 16
-      Top = 16
-      Width = 438
-      Height = 388
-      Align = alCustom
-      Anchors = [akLeft, akTop, akRight, akBottom]
-      Indent = 19
+    object lblRole: TLabel
+      Left = 18
+      Top = 15
+      Width = 91
+      Height = 21
+      Caption = 'Role Mode :'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 59
+      Top = 129
+      Width = 111
+      Height = 20
+      Caption = 'Tactical Screen'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 233
+      Top = 129
+      Width = 82
+      Height = 20
+      Caption = 'Tote Screen'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentFont = False
+    end
+    object cbbRole: TComboBox
+      Left = 115
+      Top = 62
+      Width = 145
+      Height = 27
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ItemIndex = 0
+      ParentFont = False
       TabOrder = 0
+      Text = 'Plotter'
+      Items.Strings = (
+        'Plotter'
+        'Navigasi'
+        'Atas Air'
+        'Bawah Air'
+        'General')
+    end
+    object btnOK: TButton
+      Left = 213
+      Top = 225
+      Width = 80
+      Height = 30
+      Align = alCustom
+      Anchors = [akRight, akBottom]
+      Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ModalResult = 1
+      ParentFont = False
+      TabOrder = 1
+      OnClick = btnOKClick
+      ExplicitLeft = 184
+      ExplicitTop = 202
     end
     object btnCancel: TButton
-      Left = 374
-      Top = 417
+      Left = 296
+      Top = 225
       Width = 80
       Height = 30
       Align = alCustom
@@ -4329,25 +4396,26 @@ object frmConnectTerminate: TfrmConnectTerminate
       Font.Style = [fsBold]
       ModalResult = 2
       ParentFont = False
-      TabOrder = 1
-      OnClick = btnCancelClick
-    end
-    object btnOK: TButton
-      Left = 291
-      Top = 417
-      Width = 80
-      Height = 30
-      Align = alCustom
-      Anchors = [akRight, akBottom]
-      Caption = '&Connect'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ModalResult = 1
-      ParentFont = False
       TabOrder = 2
+      OnClick = btnCancelClick
+      ExplicitLeft = 267
+      ExplicitTop = 202
+    end
+    object cbTacticalSreen: TComboBox
+      Left = 59
+      Top = 153
+      Width = 110
+      Height = 21
+      TabOrder = 3
+      OnChange = cbTacticalSreenChange
+    end
+    object cbToteScreen: TComboBox
+      Left = 219
+      Top = 153
+      Width = 110
+      Height = 21
+      TabOrder = 4
+      OnChange = cbToteScreenChange
     end
   end
 end

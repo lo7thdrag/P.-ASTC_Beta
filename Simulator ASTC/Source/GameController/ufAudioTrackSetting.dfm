@@ -4,29 +4,22 @@ object frmAudioTrackSetting: TfrmAudioTrackSetting
   Caption = 'frmAudioTrackSetting'
   ClientHeight = 438
   ClientWidth = 491
-  Color = 5980694
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 14
   object Label4: TLabel
     Left = 32
     Top = 32
-    Width = 217
-    Height = 17
+    Width = 241
+    Height = 28
     Caption = 'Select the audio tracks to be replayed'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
     WordWrap = True
   end
   object ListBox1: TListBox
@@ -36,12 +29,7 @@ object frmAudioTrackSetting: TfrmAudioTrackSetting
     Height = 305
     Align = alCustom
     Anchors = [akLeft, akTop, akRight, akBottom]
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
+    ItemHeight = 14
     TabOrder = 0
   end
   object btnOK: TButton
@@ -52,12 +40,6 @@ object frmAudioTrackSetting: TfrmAudioTrackSetting
     Align = alCustom
     Anchors = [akRight, akBottom]
     Caption = '&OK'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
     TabOrder = 1
   end
   object btnCancel: TButton
@@ -68,12 +50,6 @@ object frmAudioTrackSetting: TfrmAudioTrackSetting
     Align = alCustom
     Anchors = [akRight, akBottom]
     Caption = '&Cancel'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
     TabOrder = 2
   end
 end

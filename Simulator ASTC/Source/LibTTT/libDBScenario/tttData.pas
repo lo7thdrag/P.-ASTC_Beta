@@ -3340,6 +3340,7 @@ end;
     Parent : string[50];
     State : Integer;
   end;
+
  TRecGameReport = record
     Scenario_index : integer;
     Game_Name : string;

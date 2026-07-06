@@ -660,7 +660,7 @@ type
     {$ENDREGION}
 
     {$REGION ' Motion '}
-    function GetFilterMotionDef(var aList: TList; aFilter: String): Integer;
+    function GetFilterMotionCharacteristicDef(var aList: TList; aFilter: String): Integer;
     function GetAllMotionCharacteristicDef(aList: TList): Integer;
     function GetMotionCharacteristicDef(const aClassName: string): Integer; overload;
     function GetMotionCharacteristicDef(const aClassID: Integer; var aMotion: TMotion_Characteristics): Boolean; overload;
@@ -21378,8 +21378,9 @@ end;
 
 {$REGION ' Motion '}
 
-function TdmTTT.GetFilterMotionDef(var aList: TList; aFilter: String): Integer;
+function TdmTTT.GetFilterMotionCharacteristicDef(var aList: TList; aFilter: String): Integer;
 var
+  i : Integer;
   rec : TMotion_Characteristics;
 begin
   Result := -1;
@@ -21399,10 +21400,20 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
-      aList.Clear
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
     else
       aList := TList.Create;
+    {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -21447,10 +21458,8 @@ begin
           Fuel_Unit_Type := FieldByName('Fuel_Unit_Type').AsInteger;
           Max_Fuel_Capacity := FieldByName('Max_Fuel_Capacity').AsSingle;
           Min_Speed_Fuel_Consume := FieldByName('Min_Speed_Fuel_Consume').AsFloat;
-          Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume')
-            .AsFloat;
-          High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume')
-            .AsFloat;
+          Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume').AsFloat;
+          High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume').AsFloat;
           Max_Speed_Fuel_Consume := FieldByName('Max_Speed_Fuel_Consume').AsFloat;
         end;
 

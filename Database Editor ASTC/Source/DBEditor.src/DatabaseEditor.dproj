@@ -510,9 +510,6 @@
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Other\ufrmAvailableOverlay.pas">
             <Form>frmAvailableOverlay</Form>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\Admin Interface\Other\ufrmAvailableRuntimePlatformLibrary.pas">
-            <Form>frmAvailableRuntimePlatformLibrary</Form>
-        </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Other\ufrmAvailableTransport.pas">
             <Form>frmAvailableTransport</Form>
         </DCCReference>
@@ -1134,6 +1131,10 @@
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmElectroOpticalMount.pas">
             <Form>frmElectroOpticalMount</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\Other\ufrmAvailableRuntimePlatformLibrary.pas">
+            <Form>frmAvailableRuntimePlatformLibrary</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Debug">

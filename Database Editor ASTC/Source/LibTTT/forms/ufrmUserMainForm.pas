@@ -170,9 +170,8 @@ uses
   ufrmExercise, ufrmPlatforms, ufrmSensors, ufrmWeapons, ufrmCountermeasure, ufrmOther,
 
   ufrmAvailableScenario, ufrmAvailableResourceAllocation, {ufrmAvailableEnvironments,}
-  ufrmAvailableGameArea,
 
-  ufrmAvailableVehicle, {ufrmAvailableSatellite,} ufrmAvailableMotion,
+  ufrmAvailableVehicle,
 
   ufrmAvailableRadar, ufrmAvailableSonar,ufrmAvailableESM, ufrmAvailableEOD,
   ufrmAvailableSonobuoy,ufrmAvailableMAD,
@@ -182,11 +181,11 @@ uses
 
   ufrmAvailableAcousticDecoy, ufrmAvailableAirBubble, ufrmAvailableChaff,
   ufrmAvailableInfraredDecoy, ufrmAvailableFloatingDecoy, ufrmAvailableSelfDefensiveJammer,
-  ufrmAvailableTowedJammerDecoy, ufrmAvailableRadarNoiseJammer
+  ufrmAvailableTowedJammerDecoy, ufrmAvailableRadarNoiseJammer,
 
-  {ufrmAvailableRPL, ufrmAvailablePredifinedPattern,
-  ufrmAvailableRadarActivationIntervals,  ufrmAvailableGrapicalOverlay, ufrmAvailableStudentRoles,
-  ufrmAvailableGameDefaults, ufrmAvailableSNRvsPODCurve};
+  ufrmAvailableRuntimePlatformLibrary, ufrmAvailableOverlay, ufrmAvailableLogistic,
+  ufrmAvailableTransport, ufrmAvailableWaypoint, ufrmAvailableGameArea, ufrmAvailableMotion,
+  ufrmAvailableGameDefault, ufrmAvailableSNRvsPOD;
 
 {$R *.dfm}
 
@@ -540,38 +539,31 @@ begin
     {$REGION ' Other Sub Menu '}
     ftfrmAvailableRuntimePlatformLibrary :
     begin
-//      if not Assigned(frmAvailableRPL) then
-//          frmAvailableRPL := TfrmAvailableRPL.Create(self);
-//
-//      aForm := frmAvailableRPL;
+      if not Assigned(frmAvailableRuntimePlatformLibrary) then
+          frmAvailableRuntimePlatformLibrary := TfrmAvailableRuntimePlatformLibrary.Create(self);
+
+      aForm := frmAvailableRuntimePlatformLibrary;
     end;
     ftfrmAvailableGrapicalOverlay :
     begin
-//      if not Assigned(frmAvailableGrapicalOverlay) then
-//          frmAvailableGrapicalOverlay := TfrmAvailableGrapicalOverlay.Create(self);
-//
-//      aForm := frmAvailableGrapicalOverlay;
+      if not Assigned(frmAvailableOverlay) then
+          frmAvailableOverlay := TfrmAvailableOverlay.Create(self);
+
+      aForm := frmAvailableOverlay;
     end;
-    ftfrmAvailableStudentRoles :
+    ftfrmAvailableWaypoint :
     begin
-//      if not Assigned(frmAvailableStudentRoles) then
-//          frmAvailableStudentRoles := TfrmAvailableStudentRoles.Create(self);
-//
-//      aForm := frmAvailableStudentRoles;
+      if not Assigned(frmAvailableWaypoint) then
+          frmAvailableWaypoint := TfrmAvailableWaypoint.Create(self);
+
+      aForm := frmAvailableWaypoint;
     end;
-    ftfrmAvailableGameDefaults :
+    ftfrmAvailableGameArea :
     begin
-//      if not Assigned(frmAvailableGameDefaults) then
-//          frmAvailableGameDefaults := TfrmAvailableGameDefaults.Create(self);
-//
-//      aForm := frmAvailableGameDefaults;
-    end;
-    ftfrmAvailableSNRvsPODCurve :
-    begin
-//      if not Assigned(frmAvailableSNRvsPODCurve) then
-//          frmAvailableSNRvsPODCurve := TfrmAvailableSNRvsPODCurve.Create(self);
-//
-//      aForm := frmAvailableSNRvsPODCurve;
+      if not Assigned(frmAvailableGameArea) then
+          frmAvailableGameArea := TfrmAvailableGameArea.Create(self);
+
+      aForm := frmAvailableGameArea;
     end;
     ftfrmAvailableMotion :
     begin
@@ -579,6 +571,20 @@ begin
           frmAvailableMotion := TfrmAvailableMotion.Create(self);
 
       aForm := frmAvailableMotion;
+    end;
+    ftfrmAvailableSNRvsPODCurve :
+    begin
+      if not Assigned(frmAvailableSNRvsPOD) then
+          frmAvailableSNRvsPOD := TfrmAvailableSNRvsPOD.Create(self);
+
+      aForm := frmAvailableSNRvsPOD;
+    end;
+    ftfrmAvailableGameDefaults :
+    begin
+      if not Assigned(frmAvailableGameDefault) then
+          frmAvailableGameDefault := TfrmAvailableGameDefault.Create(self);
+
+      aForm := frmAvailableGameDefault;
     end;
     {$ENDREGION}
 
@@ -603,13 +609,6 @@ begin
 //          frmAvailableEnvironments := TfrmAvailableEnvironments.Create(self);
 //
 //      aForm := frmAvailableEnvironments;
-    end;
-    ftfrmAvailableGameArea :
-    begin
-      if not Assigned(frmAvailableGameArea) then
-          frmAvailableGameArea := TfrmAvailableGameArea.Create(self);
-
-      aForm := frmAvailableGameArea;
     end;
     {$ENDREGION}
 

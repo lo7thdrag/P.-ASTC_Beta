@@ -509,10 +509,9 @@ type
     ftfrmAvailableAcousticDecoy, ftfrmAvailableAirBubble, ftfrmAvailableChaff, ftfrmAvailableSelfDefensiveJammer,ftfrmAvailableInfraredDecoy,
     ftfrmAvailableTowedJammerDecoy, ftfrmAvailableRadarNoiseJammer, ftfrmAvailableFloatingDecoy,
     ftfrmAvailableVehicle,
-    ftfrmAvailableRuntimePlatformLibrary, ftfrmAvailableGrapicalOverlay, ftfrmAvailableStudentRoles, ftfrmAvailableGameDefaults,
-    ftfrmAvailableSNRvsPODCurve, ftfrmAvailableMotion,
-    ftfrmAvailableScenario, ftfrmAvailableResourceAllocation, ftfrmAvailableEnvironments, ftfrmAvailableGameArea,
-    ftShutdown);
+    ftfrmAvailableRuntimePlatformLibrary, ftfrmAvailableGrapicalOverlay, ftfrmAvailableWaypoint, ftfrmAvailableGameArea,
+    ftfrmAvailableMotion, ftfrmAvailableSNRvsPODCurve, ftfrmAvailableGameDefaults,
+    ftfrmAvailableScenario, ftfrmAvailableResourceAllocation, ftfrmAvailableEnvironments, ftShutdown);
 
   E_BlindZoneType = (bzcFireControl = 1, bzcESM, bzcEO, bzcVisual, bzcPointEffect, bzcWeapon, bzcSonar, bzcRadar);
 

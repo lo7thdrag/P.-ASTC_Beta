@@ -131,7 +131,6 @@ var
   motion : TMotion_Characteristics;
 begin
   lstAvailableMotion.Items.Clear;
-  dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
 
 //  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
   dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);

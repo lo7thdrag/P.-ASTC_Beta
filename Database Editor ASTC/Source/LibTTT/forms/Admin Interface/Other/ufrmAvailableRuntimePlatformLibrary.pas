@@ -9,22 +9,19 @@ uses
 
 type
   TfrmAvailableRuntimePlatformLibrary = class(TForm)
-    lstRuntimePlatformLibrary: TListBox;
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
+    pnlTableList: TPanel;
+    lstRuntimePlatformLibrary: TListBox;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
-
-    procedure FormActivate(Sender: TObject);
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -35,8 +32,8 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure btnCloseClick(Sender: TObject);
-    procedure edtrpllistKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -53,20 +50,35 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryRuntimePlatform, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryRuntimePlatform, ufrmUsage, ufProgress, uSimContainers;
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableRuntimePlatformLibrary.FormActivate(Sender: TObject);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-//  WindowState := wsMaximized;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableRuntimePlatformLibrary.FormCreate(Sender: TObject);
 begin
   FRuntimePlatformLibraryList := TList.Create;
+
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableRuntimePlatformLibrary.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FRuntimePlatformLibraryList);
 end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.FormShow(Sender: TObject);
@@ -80,25 +92,23 @@ end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.btnNewClick(Sender: TObject);
 begin
-  frmSummaryRuntimePlatform := TfrmSummaryRuntimePlatform.Create(Self);
+    frmSummaryRuntimePlatform := TfrmSummaryRuntimePlatform.Create(Self);
   try
     with frmSummaryRuntimePlatform do
     begin
       SelectedRPL := TRuntime_Platform_Library.Create;
       ShowModal;
+      SelectedRPL.Free;
+
       FUpdateList := AfterClose;
     end;
+
   finally
     frmSummaryRuntimePlatform.Free;
   end;
 
   if FUpdateList then
     UpdateRPLList;
-end;
-
-procedure TfrmAvailableRuntimePlatformLibrary.btnCloseClick(Sender: TObject);
-begin
-  Close;
 end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.btnCopyClick(Sender: TObject);
@@ -129,7 +139,7 @@ procedure TfrmAvailableRuntimePlatformLibrary.btnEditClick(Sender: TObject);
 begin
   if lstRuntimePlatformLibrary.ItemIndex = -1 then
   begin
-    ShowMessage('Select Runtime Platfor Library... !');
+    ShowMessage('Silahkan pilih salah satu data Runtime Platfor Library ... !');
     Exit;
   end;
 
@@ -156,11 +166,11 @@ var
 begin
   if lstRuntimePlatformLibrary.ItemIndex = -1 then
   begin
-    ShowMessage('Select Runtime Platform Library... !');
+    ShowMessage('Silahkan pilih salah satu data Runtime Platfor Library ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,mbOKCancel, 0);
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,mbOKCancel, 0);
 
   if warning = mrOK then
   begin
@@ -170,7 +180,7 @@ begin
     begin
       if dmTTT.GetRPLAtResourceAllocation(Platform_Library_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already used by some Resource Allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         tempList.Free;
         Exit;
       end;
@@ -179,7 +189,7 @@ begin
       dmTTT.DeletePlatformLibraryEntry(1, Platform_Library_Index);
 
       if dmTTT.DeleteRuntimePlatformLibraryDef(Platform_Library_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateRPLList;
@@ -190,24 +200,18 @@ procedure TfrmAvailableRuntimePlatformLibrary.btnUsageClick(Sender: TObject);
 begin
   if lstRuntimePlatformLibrary.ItemIndex = -1 then
   begin
-    ShowMessage('Select Runtime Platfrom Library... !');
+    ShowMessage('Silahkan pilih salah satu data Runtime Platfor Library ... !');
     Exit;
   end;
 
-  frmUsage := TfrmUsage.Create(Self);
-  try
-    with frmUsage do
-    begin
-      UId := FSelectedRuntimePlatformLibrary.FData.Platform_Library_Index;
-      name_usage := FSelectedRuntimePlatformLibrary.FData.Library_Name;
-      UIndex := 26;
+  with frmUsage do
+  begin
+    UId := FSelectedRuntimePlatformLibrary.FData.Platform_Library_Index;
+    name_usage := FSelectedRuntimePlatformLibrary.FData.Library_Name;
+    UIndex := 26;
 
-      ShowModal;
-    end;
-  finally
-    frmUsage.Free;
+    ShowModal;
   end;
-
 end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.lbSingleClick(Sender: TObject);
@@ -225,13 +229,20 @@ var
 begin
   lstRuntimePlatformLibrary.Items.Clear;
 
-  dmTTT.GetAllRuntimePlatformLibraryDef(FRuntimePlatformLibraryList);
+//  dmTTT.GetAllRuntimePlatformLibraryDef(FRuntimePlatformLibraryList);
+  dmTTT.GetFilterRuntimePlatformLibraryDef(FRuntimePlatformLibraryList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FRuntimePlatformLibraryList.Count;
 
   for i := 0 to FRuntimePlatformLibraryList.Count - 1 do
   begin
     runtimeplatformlibrary := FRuntimePlatformLibraryList.Items[i];
     lstRuntimePlatformLibrary.Items.AddObject(runtimeplatformlibrary.FData.Library_Name, runtimeplatformlibrary);
+    frmProgress.increase(runtimeplatformlibrary.FData.Library_Name);
   end;
+  frmProgress.Free;
 end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.CopyPlatfromLibraryEntry(const aLibraryIndex, aNewLibraryIndex: Integer);
@@ -276,29 +287,14 @@ begin
   libraryPlatformList.Free;
 end;
 
-
-procedure TfrmAvailableRuntimePlatformLibrary.edtrpllistKeyPress(
-  Sender: TObject; var Key: Char);
-  var
-  i : Integer;
-  runtimeplatformlibrary : TRuntime_Platform_Library;
+procedure TfrmAvailableRuntimePlatformLibrary.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-
-
-  lstRuntimePlatformLibrary.Items.Clear;
-
-    dmTTT.GetfilterRuntimePlatformLibraryDef(FRuntimePlatformLibraryList,edtCheat.Text);
-    for i := 0 to FRuntimePlatformLibraryList.Count - 1 do
-    begin
-    runtimeplatformlibrary := FRuntimePlatformLibraryList.Items[i];
-    lstRuntimePlatformLibrary.Items.AddObject(runtimeplatformlibrary.FData.Library_Name, runtimeplatformlibrary);
-    end;
+    UpdateRPLList
   end;
 end;
+
 {$ENDREGION}
-
-
 
 end.

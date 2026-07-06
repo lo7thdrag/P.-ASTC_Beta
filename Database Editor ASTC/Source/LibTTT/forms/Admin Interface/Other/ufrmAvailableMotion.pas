@@ -8,25 +8,22 @@ uses
   uDBAsset_MotionCharacteristics;
 
 type
-  TfrmAvailablemotion = class(TForm)
-    lbMotions: TListBox;
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+  TfrmAvailableMotion = class(TForm)
+    pnlMainTable: TPanel;
+    pnlTableList: TPanel;
+    lstMotions: TListBox;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
 
     procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormActivate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
     procedure lbSingleClick(Sender: TObject);
@@ -36,9 +33,8 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure btnCloseClick(Sender: TObject);
-    procedure edtmotionlistKeyPress(Sender: TObject; var Key: Char);
-
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -46,33 +42,44 @@ type
     FSelectedMotion : TMotion_Characteristics;
 
     procedure UpdateMotionList;
+
   end;
 
 var
-  frmAvailablemotion: TfrmAvailablemotion;
+  frmAvailableMotion: TfrmAvailableMotion;
 
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryMotion, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryMotion, ufrmUsage, ufProgress, uSimContainers;
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
-
-procedure TfrmAvailableMotion.FormActivate(Sender: TObject);
-begin
-//  WindowState := wsMaximized;
-end;
-
-procedure TfrmAvailablemotion.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Action := cafree;
-end;
 
 procedure TfrmAvailableMotion.FormCreate(Sender: TObject);
 begin
   FMotionList := TList.Create;
+
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableMotion.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FMotionList);
 end;
 
 procedure TfrmAvailableMotion.FormShow(Sender: TObject);
@@ -92,6 +99,8 @@ begin
     begin
       SelectedMotion := TMotion_Characteristics.Create;
       ShowModal;
+      SelectedMotion.Free;
+
       FUpdateList := AfterClose;
     end;
   finally
@@ -102,19 +111,14 @@ begin
     UpdateMotionList;
 end;
 
-procedure TfrmAvailablemotion.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmAvailableMotion.btnCopyClick(Sender: TObject);
 var
   newClassName : string;
   count : Integer;
 begin
-  if lbMotions.ItemIndex = -1 then
+  if lstMotions.ItemIndex = -1 then
   begin
-    ShowMessage('Select Motion... !');
+    ShowMessage('Silahkan pilih salah satu data Motion ... !');
     Exit;
   end;
 
@@ -137,9 +141,9 @@ end;
 
 procedure TfrmAvailableMotion.btnEditClick(Sender: TObject);
 begin
-  if lbMotions.ItemIndex = -1 then
+  if lstMotions.ItemIndex = -1 then
   begin
-    ShowMessage('Select Motion... !');
+    ShowMessage('Silahkan pilih salah satu data Motion ... !');
     Exit;
   end;
 
@@ -151,11 +155,10 @@ begin
       ShowModal;
       FUpdateList := AfterClose;
     end;
-
   finally
     frmSummaryMotion.Free;
   end;
-
+  
   if FUpdateList then
     UpdateMotionList;
 end;
@@ -166,13 +169,13 @@ var
   tempList : TList;
 
 begin
-  if lbMotions.ItemIndex = -1 then
+  if lstMotions.ItemIndex = -1 then
   begin
-    ShowMessage('Select Motion... !');
+    ShowMessage('Silahkan pilih salah satu data Motion ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Motion ?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -183,7 +186,7 @@ begin
       {Pengecekan Relasi Dengan Tabel Vehicle Definition}
       if dmTTT.GetMotionCharacteristicAtVehicleDef(Motion_Index,tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by Vehicle Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Vehicle Definition');
         tempList.Destroy;
         Exit;
       end;
@@ -191,7 +194,7 @@ begin
       {Catatan : Seharusnya ada Pengecekan Relasi Dengan Tabel Missile Definition}
       if dmTTT.GetMotionCharacteristicAtMissileDef(Motion_Index,tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by Missile Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Missile Definition');
         tempList.Destroy;
         Exit;
       end;
@@ -199,14 +202,14 @@ begin
       {Catatan : Seharusnya ada Pengecekan Relasi Dengan Tabel Torpedo Definition}
       if dmTTT.GetMotionCharacteristicAtTorpedoDef(Motion_Index,tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by Torpedo Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Torpedo Definition');
         tempList.Destroy;
         Exit;
       end;
       tempList.Destroy;
 
       if dmTTT.DeleteMotionCharacteristicDef(Motion_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
   end;
@@ -216,9 +219,9 @@ end;
 
 procedure TfrmAvailableMotion.btnUsageClick(Sender: TObject);
 begin
-  if lbMotions.ItemIndex = -1 then
+  if lstMotions.ItemIndex = -1 then
   begin
-    ShowMessage('Select Motion... !');
+    ShowMessage('Silahkan pilih salah satu data Motion ... !');
     Exit;
   end;
 
@@ -238,32 +241,20 @@ begin
   
 end;
 
-procedure TfrmAvailablemotion.edtmotionlistKeyPress(Sender: TObject;
-  var Key: Char);
-  var
-   i : Integer;
- motion : TMotion_Characteristics;
+procedure TfrmAvailableMotion.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-  lbMotions.Items.Clear;
-
-
-  dmTTT.GetFilterMotionDef(FMotionList,edtCheat.Text);
-    for i := 0 to  FMotionList.Count - 1 do
-    begin
- motion := FMotionList.Items[i];
-    lbMotions.Items.AddObject(motion.FData.Motion_Identifier, motion);
-    end;
+    UpdateMotionList
   end;
 end;
 
 procedure TfrmAvailableMotion.lbSingleClick(Sender: TObject);
 begin
-  if lbMotions.ItemIndex = -1 then
+  if lstMotions.ItemIndex = -1 then
     Exit;
 
-  FSelectedMotion := TMotion_Characteristics(lbMotions.Items.Objects[lbMotions.ItemIndex]);
+  FSelectedMotion := TMotion_Characteristics(lstMotions.Items.Objects[lstMotions.ItemIndex]);
 end;
 
 procedure TfrmAvailableMotion.UpdateMotionList;
@@ -271,15 +262,22 @@ var
   i : Integer;
   motion : TMotion_Characteristics;
 begin
-  lbMotions.Items.Clear;
+  lstMotions.Items.Clear;
 
-  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+//  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+  dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FMotionList.Count;
 
   for i := 0 to FMotionList.Count - 1 do
   begin
     motion := FMotionList.Items[i];
-    lbMotions.Items.AddObject(motion.FData.Motion_Identifier, motion);
+    lstMotions.Items.AddObject(motion.FData.Motion_Identifier, motion);
+    frmProgress.increase(motion.FData.Motion_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

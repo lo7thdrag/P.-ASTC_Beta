@@ -187,7 +187,6 @@ uses
   ufmEmbarkTrackIDInput in '..\LibTTT\forms\ufmEmbarkTrackIDInput.pas' {fmEmbarkTrackIDInput},
   ufrmAvailableBase in '..\LibTTT\forms\Admin Interface\Other\ufrmAvailableBase.pas' {frmAvailableBase},
   ufrmAvailableOverlay in '..\LibTTT\forms\Admin Interface\Other\ufrmAvailableOverlay.pas' {frmAvailableOverlay},
-  ufrmAvailableRuntimePlatformLibrary in '..\LibTTT\forms\Admin Interface\Other\ufrmAvailableRuntimePlatformLibrary.pas' {frmAvailableRuntimePlatformLibrary},
   ufrmAvailableTransport in '..\LibTTT\forms\Admin Interface\Other\ufrmAvailableTransport.pas' {frmAvailableTransport},
   ufrmAvailableWaypoint in '..\LibTTT\forms\Admin Interface\Other\ufrmAvailableWaypoint.pas' {frmAvailableWaypoint},
   ufrmSummaryBomb in '..\LibTTT\forms\Admin Interface\Weapon\ufrmSummaryBomb.pas' {frmSummaryBomb},
@@ -366,7 +365,8 @@ uses
   ufrmVehicleResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmVehicleResourceAllocationPickList.pas' {frmVehicleResourceAllocationPickList},
   ufrmWaypointResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmWaypointResourceAllocationPickList.pas' {frmWaypointResourceAllocationPickList},
   ufrmExercise in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmExercise.pas' {frmExercise},
-  ufrmElectroOpticalMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmElectroOpticalMount.pas' {frmElectroOpticalMount};
+  ufrmElectroOpticalMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmElectroOpticalMount.pas' {frmElectroOpticalMount},
+  ufrmAvailableRuntimePlatformLibrary in '..\LibTTT\forms\Admin Interface\Other\ufrmAvailableRuntimePlatformLibrary.pas' {frmAvailableRuntimePlatformLibrary};
 
 {$R *.res}
 
@@ -378,6 +378,7 @@ begin
   Application.CreateForm(TfrmUserMainForm, frmUserMainForm);
   Application.CreateForm(TdmTTT, dmTTT);
   Application.CreateForm(TfrmElectroOpticalMount, frmElectroOpticalMount);
+  Application.CreateForm(TfrmAvailableRuntimePlatformLibrary, frmAvailableRuntimePlatformLibrary);
   //  Application.CreateForm(TfrmExercise, frmExercise);
 //  Application.CreateForm(TfrmCountermeasure, frmCountermeasure);
 //  Application.CreateForm(TfrmOther, frmOther);

@@ -136,6 +136,7 @@ type
     VBSPath : string;
     SQFPath : string;
     GotoInterval : integer; //goto delta time interval in second
+    Role : Integer; {0:Poltter; 1:Navigasi; 2:Atas Air; 3:Bawah Air; 4:General}
   end;
   //----------------------------------------------------------------------------
 
@@ -464,6 +465,7 @@ begin
     VisibleCircleWP           := INIFReadBool(IniF, c_gdata, 'VisibleCircleWP', False);
     LogData                   := INIFReadBool(IniF, c_gdata, 'LogData', LogData); {Mubdi}
     GotoInterval              := INIFReadInteger(IniF, c_gdata, 'gotointerval', 10 ); // 10 second default
+    Role                      := INIFReadInteger (IniF, c_gdata, 'Role',0);
   end;
   result := true;
 end;
@@ -490,6 +492,7 @@ begin
     WriteInteger(c_gdata, 'DelaySendData', DelaySendData);
     WriteBool(c_gdata, 'VisibleCircleWP', False);
     WriteBool(c_gdata, 'LogData', LogData); {Mubdi}
+    WriteInteger(c_gdata, 'Role',  Role);
   end;
   inif.Free;
 

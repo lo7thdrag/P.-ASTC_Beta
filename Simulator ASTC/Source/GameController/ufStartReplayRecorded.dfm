@@ -4,14 +4,13 @@ object frmStartReplayRecorded: TfrmStartReplayRecorded
   Caption = 'Exercise Start Wizard'
   ClientHeight = 423
   ClientWidth = 552
-  Color = 5980694
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 14
@@ -32,6 +31,9 @@ object frmStartReplayRecorded: TfrmStartReplayRecorded
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitLeft = 8
+    ExplicitTop = -46
+    ExplicitWidth = 570
   end
   object PanelAudio: TPanel
     Left = 0
@@ -41,18 +43,15 @@ object frmStartReplayRecorded: TfrmStartReplayRecorded
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitTop = 63
+    ExplicitWidth = 698
+    ExplicitHeight = 395
     object Label4: TLabel
       Left = 48
       Top = 30
-      Width = 319
-      Height = 32
+      Width = 321
+      Height = 28
       Caption = 'The session %sessionname recorded %sessiontime will be replayed.'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
       WordWrap = True
     end
     object Panel2: TPanel
@@ -63,6 +62,8 @@ object frmStartReplayRecorded: TfrmStartReplayRecorded
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitTop = 567
+      ExplicitWidth = 782
       DesignSize = (
         552
         57)
@@ -83,13 +84,8 @@ object frmStartReplayRecorded: TfrmStartReplayRecorded
         Align = alCustom
         Anchors = [akTop, akRight]
         Caption = '&Finish'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
         TabOrder = 1
+        ExplicitLeft = 564
       end
       object btnCancel: TButton
         Left = 457
@@ -98,13 +94,8 @@ object frmStartReplayRecorded: TfrmStartReplayRecorded
         Height = 25
         Anchors = [akTop, akRight]
         Caption = '&Cancel'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
         TabOrder = 2
+        ExplicitLeft = 687
       end
       object btnBack: TButton
         Left = 253
@@ -114,12 +105,6 @@ object frmStartReplayRecorded: TfrmStartReplayRecorded
         Align = alCustom
         Anchors = [akTop, akRight]
         Caption = '< &Back'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
         TabOrder = 0
       end
     end
@@ -128,33 +113,14 @@ object frmStartReplayRecorded: TfrmStartReplayRecorded
       Top = 79
       Width = 361
       Height = 162
-      Caption = '                                 '
+      Caption = 'Recorded Audio Tracks'
       TabOrder = 1
       object Label5: TLabel
-        Left = 40
+        Left = 41
         Top = 45
-        Width = 195
-        Height = 16
+        Width = 184
+        Height = 14
         Caption = 'Number of Recorded Track Pairs: '
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label1: TLabel
-        Left = 11
-        Top = -1
-        Width = 126
-        Height = 16
-        Caption = 'Recorded Audio Track'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
       end
       object btnAudioTrackSettings: TButton
         Left = 88
@@ -164,14 +130,9 @@ object frmStartReplayRecorded: TfrmStartReplayRecorded
         Align = alCustom
         Anchors = [akLeft, akBottom]
         Caption = 'Audio Track Settings ...'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
         TabOrder = 0
         WordWrap = True
+        ExplicitTop = 106
       end
     end
   end

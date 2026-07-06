@@ -1,11 +1,12 @@
-  unit ufMainGC;
+unit ufMainGC;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, Buttons, StdCtrls, uExecuter, uTCPClient, ExtCtrls,
-  VrControls, VrButtons, Vcl.Imaging.pngimage, Vcl.Imaging.jpeg;
+  VrControls, VrButtons, {acPNG,} Vcl.Imaging.pngimage, Vcl.Imaging.jpeg,{ RzBmpBtnng.jpeg,}
+  RzBmpBtn{, Vcl.Imaging.jpeg};
 
 type
 
@@ -28,37 +29,32 @@ type
     mnLogout2: TMenuItem;
     mnContent1: TMenuItem;
     mnAbout: TMenuItem;
-//    imgAOPR: TImage;
     imgClose: TImage;
-    imgInfo: TImage;
-    imgAOPR: TImage;
-    lblConsoleName: TLabel;
-    pmConnect: TPopupMenu;
-    Connectas3D1: TMenuItem;
-    Connectas2D1: TMenuItem;
     pnlBackground: TPanel;
+    imgBackground: TImage;
+    lblConsoleName: TLabel;
+    btnEditor: TRzBmpButton;
+    btnConnect: TRzBmpButton;
+    btnTerminate: TRzBmpButton;
+    btnStart: TRzBmpButton;
     pnlButton: TPanel;
-    btnStart: TImage;
-    btnConnect: TImage;
-    btnEditor: TImage;
-    btnTerminate: TImage;
+    imgSetting: TImage;
+    lblRole: TLabel;
     procedure mnStart1Click(Sender: TObject);
-    procedure mnConnect(Sender: TObject);
+    procedure mnConnect1Click(Sender: TObject);
     procedure mnTerminate1Click(Sender: TObject);
     procedure mnDelete1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure mnStartDatabaseDeveloper1Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure pnlDragWindowMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure imgCloseClick(Sender: TObject);
+    procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
+      var Resize: Boolean);
+    procedure imgSettingClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure Label1Click(Sender: TObject);
-    procedure imgInfoClick(Sender: TObject);
-    procedure mnuConnect(Sender: TObject);
-    procedure FormResize(Sender: TObject);
-    procedure IconMenuMouseEnter(Sender: TObject);
-    procedure IconMenuMouseLeave(Sender: TObject);
-
   private
     { Private declarations }
     isCtrl: Boolean;
@@ -73,10 +69,6 @@ type
     FStubAddr   :  string;
 
     FConnectTimer : TTimer;
-    iconName : string;
-    filePath, imgChoice : string;
-
-    procedure IconLoad;
     procedure OnConnectTimer(Sender : TObject);
 
   public
@@ -96,10 +88,21 @@ implementation
 uses
   uNetSessionClient, ufStartSession, ufConnectTerminate, ufStartExerciseWizard,
   uLibSettingTTT , ufStartReplayRecorded, uGamePlayType, uSRRFunction, uSnapshotGCRec,
-  uGameData_TTT, uDMGC;
+  uGameData_TTT, ufrmRoleSetting;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
 
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TfrmMainGC.mnStart1Click(Sender: TObject);
 var
@@ -109,18 +112,10 @@ begin
   FIsStartingSession := false;
   frmStartSession.DisplaySenarioList;
 
-  if dmGC.GetStatusGC and (theClient.GameSessionExist) then
-  begin
-    ShowMessage('Game is running !!!! ');
-    btnTerminate.Visible := True;
-    btnStart.Visible := False;
-    Exit;
-  end
-  else
-    dmGC.ClearGC;
   mr := frmStartSession.ShowModal;
 
-  if (mr = mrOK) then begin
+  if (mr = mrOK) then
+  begin
     theClient.RequestOnlineList;
 
     frmStartExerciseWizard.ExerciseName := frmStartSession.SelectedName;
@@ -232,37 +227,8 @@ begin
   begin
     theClient.SendTerminateGameSession;
 
-    {Prince}
     btnTerminate.Visible := False;
     btnStart.Visible := True;
-  end;
-
-end;
-
-procedure TfrmMainGC.mnuConnect(Sender: TObject);
-var
-  mn : TMenuItem;
-begin
-  mn := sender as TMenuItem;
-
-  case mn.tag of
-     0 :
-        begin
-          theClient.RunVBS := True;
-        end;
-     1 :
-        begin
-          theClient.RunVBS := False;
-        end;
-  end;
-
-  frmConnectTerminate.SetAsConnect;
-  frmConnectTerminate.UpdateSession;
-
-  frmConnectTerminate.ShowModal;
-
-  if frmConnectTerminate.OKConnect then begin
-    theClient.ConnectGameSession;
   end;
 
 end;
@@ -274,26 +240,29 @@ begin
 
 end;
 
-procedure TfrmMainGC.mnConnect(Sender: TObject);
-var
-  pos: TPoint;
+procedure TfrmMainGC.pnlDragWindowMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+const
+  SC_DRAGMOVE = $F012;
 begin
-  if theClient.IsVBS then
+  if Button = mbLeft then
   begin
-    GetCursorPos(pos);
-    pmConnect.Popup(pos.X, pos.Y);
-  end
-  else
-  begin
-    frmConnectTerminate.SetAsConnect;
-    frmConnectTerminate.UpdateSession;
-
-    frmConnectTerminate.ShowModal;
-
-    if frmConnectTerminate.OKConnect then begin
-      theClient.ConnectGameSession;
-    end;
+    ReleaseCapture;
+    Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
   end;
+end;
+
+procedure TfrmMainGC.mnConnect1Click(Sender: TObject);
+begin
+  frmConnectTerminate.SetAsConnect;
+  frmConnectTerminate.UpdateSession;
+
+  frmConnectTerminate.ShowModal;
+
+  if frmConnectTerminate.OKConnect then begin
+    theClient.ConnectGameSession;
+  end;
+
 end;
 
 procedure TfrmMainGC.ApplySetting;
@@ -311,32 +280,17 @@ begin
     mnTerminate1.Enabled  := isCtrl;
     mnDelete1.Enabled     := isCtrl;
 
-    {Menghiden yang tidak diperlukan}
-    mnStart1.Visible      := isCtrl;
-    mnConnect1.Visible    := true;
-    mnTerminate1.Visible  := isCtrl;
-    mnDelete1.Visible     := False;
-
   mnDevelopment1.Enabled  := isCtrl;
     mnStartDatabaseDeveloper1.Enabled := isCtrl;
     mnPreplay1.Enabled                := false;
       mnStartStudentpreplay1.Enabled  := false;
       mnStudentPreplayStatus1.Enabled := false;
 
-    {Menghiden yang tidak diperlukan}
-    mnDevelopment1.Visible  := isCtrl;
-
   mnExplorer1.Enabled := true;
     mnStartExplorer1.Enabled := false;
 
-    {Menghiden yang tidak diperlukan}
-    mnStartExplorer1.Visible := false;
-
   mnLogOut1.Enabled := true;
-    mnLogout2.Enabled := false;
-
-    {Menghiden yang tidak diperlukan}
-    mnLogout2.Visible := false;
+    mnLogout2.Enabled := true;
 
   mnHelp.Enabled := true;
     mnContent1.Enabled := true;
@@ -344,33 +298,69 @@ begin
 
   DefaultMonitor := dmPrimary;
 
-  mnSession.Visible := false;
-  mnDevelopment1.Visible := false;
-  mnExplorer1.Visible := false;
-  mnStartExplorer1.Visible := false;
-  mnStartExplorer1.Visible := false;
-  mnLogOut1.Visible := false;
-  mnLogout2.Visible := false;
-  mnHelp.Visible := false;
+  {$REGION 'Hide Menu'}
+  mnSession.Visible := False;
+    mnStart1.Visible      := False;
+    mnConnect1.Visible    := False;
+    mnTerminate1.Visible  := False;
+    mnDelete1.Visible     := False;
 
-  btnTerminate.Visible := isCtrl;
-  btnStart.Visible := isCtrl;
-  btnEditor.Visible := isCtrl;
+  mnDevelopment1.Visible  := False;
+    mnStartDatabaseDeveloper1.Visible := False;
+    mnPreplay1.Visible                := false;
+    mnStartStudentpreplay1.Visible    := false;
+    mnStudentPreplayStatus1.Visible   := false;
 
-  if (vMapSetting.FormPlotter) or (vMapSetting.FormViewer) then
+  mnExplorer1.Visible := False;
+    mnStartExplorer1.Visible := False;
+
+  mnLogOut1.Visible := False;
+    mnLogout2.Visible := False;
+
+  mnHelp.Visible := False;
+    mnContent1.Visible := False;
+    mnAbout.Visible := False;
+  {$ENDREGION}
+//  if theClient.IsController then begin
+//    Left    := Screen.Monitors[0].Left;
+//    Width   := Screen.Monitors[0].Width div 2;
+//
+//    Top     := Screen.Monitors[0].Top;
+//    Height  := Screen.Monitors[0].Height;
+//  end
+//  else begin
+//    if Screen.MonitorCount > 1 then
+//      i := 1
+//    else
+//      i := 0;
+//    Left    := Screen.Monitors[i].Left;
+//    Height  := Screen.Monitors[i].Height div 2;
+//    Top     := Screen.Monitors[i].BoundsRect.Bottom - Height;
+//    Width   := Screen.Monitors[i].Width;
+//  end;
+
+  btnStart.Visible := False;
+  btnConnect.Visible := True;
+  btnEditor.Visible := False;
+  imgSetting.Visible := True;
+  lblRole.Visible := True;
+//  btnTerminate.Visible := False;
+
+  if theClient.IsController then
   begin
-    btnTerminate.Visible := False;
-    btnStart.Visible := False;
-    btnEditor.Visible := False;
+    btnStart.Visible := True;
+    btnConnect.Visible := True;
+    btnEditor.Visible := True;
+    imgSetting.Visible := False;
+    lblRole.Visible := False;
+//    btnTerminate.Visible := True;
   end;
-
 end;
 
 procedure TfrmMainGC.Button1Click(Sender: TObject);
 begin
 //  theclient.
 end;
-
 
 procedure TfrmMainGC.mnDelete1Click(Sender: TObject);
 begin
@@ -435,6 +425,24 @@ begin
 
 end;
 
+procedure TfrmMainGC.FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer; var Resize: Boolean);
+var
+  tempTop : Integer;
+begin
+  lblConsoleName.Left := (pnlBackground.Width-lblConsoleName.Width)div 2;
+  lblConsoleName.Top := (pnlBackground.Height-lblConsoleName.Height)div 4;
+
+  lblRole.Left := (pnlBackground.Width-lblConsoleName.Width)div 2;
+  lblRole.Top := (pnlBackground.Height-lblConsoleName.Height)div 7;
+
+  pnlButton.Left := (pnlBackground.Width-pnlButton.Width)div 2;
+
+  tempTop := (pnlBackground.Height-pnlButton.Height)div 4;
+  pnlButton.Top := tempTop * 3;
+
+//  imgClose.Left := pnlBackground.Width-50;
+end;
+
 procedure TfrmMainGC.FormCreate(Sender: TObject);
 begin
   DefaultMonitor  := dmPrimary;
@@ -446,7 +454,6 @@ begin
   LoadFF_GameSetting(vSettingFile, vGameDataSetting);
   LoadFF_AppSetting(vSettingFile,vAppSetting);
   LoadFF_NetSetting(vSettingFile,vNetSetting);
-  LoadFF_VBSSetting(vSettingFile, vVBSSetting);
 
   FAppReplay    := TAppExecute.Create;
   FAppReplay.OnStartExecute := nil;
@@ -460,6 +467,9 @@ begin
   FConnectTimer.Interval := 5000;
   FConnectTimer.OnTimer := OnConnectTimer;
   FConnectTimer.Enabled := true;
+
+  EnableComposited(pnlBackground);
+  EnableComposited(pnlButton);
 end;
 
 procedure TfrmMainGC.FormDestroy(Sender: TObject);
@@ -470,64 +480,22 @@ begin
   FAppReplay.Free;
 end;
 
-procedure TfrmMainGC.FormResize(Sender: TObject);
-var
-  tempTop : Integer;
-begin
-  lblConsoleName.Left := (pnlBackground.Width-lblConsoleName.Width)div 2;
-  lblConsoleName.Top := (pnlBackground.Height-lblConsoleName.Height)div 4;
-
-  pnlButton.Left := (pnlBackground.Width-pnlButton.Width)div 2;
-
-  tempTop := (pnlBackground.Height-pnlButton.Height)div 4;
-  pnlButton.Top := tempTop * 3;
-
-  imgClose.Left := pnlBackground.Width-50;
-end;
-
 procedure TfrmMainGC.FormShow(Sender: TObject);
+var
+  FileName: string;
 begin
-
-  imgAOPR.Visible := True;
-
-end;
-
-procedure TfrmMainGC.IconLoad;
-begin
-  if (iconName = 'btnStart') then
+  {ExtractFile dari Folder}
+  FileName := ExtractFilePath(ParamStr(0)) + 'Setting.ini';
+  if LoadFF_GameSetting(FileName, vGameDataSetting) then
   begin
-    btnStart.Picture.LoadFromFile(filePath + 'btnStart' + imgChoice);
-  end
-  else if (iconName = 'btnTerminate') then
-  begin
-    btnTerminate.Picture.LoadFromFile(filePath + 'btnTerminate' + imgChoice);
-  end
-  else if (iconName = 'btnConnect') then
-  begin
-    btnConnect.Picture.LoadFromFile(filePath + 'btnConnect' + imgChoice);
-  end
-  else if (iconName = 'btnEditor') then
-  begin
-    btnEditor.Picture.LoadFromFile(filePath + 'btnEditor' + imgChoice);
+    case vGameDataSetting.Role of
+        0: lblrole.Caption := 'Plotter';
+        1: lblrole.Caption := 'Navigasi';
+        2: lblrole.Caption := 'Atas Air';
+        3: lblrole.Caption := 'BawahAir';
+        4: lblrole.Caption := 'General';
+    end;
   end;
-end;
-
-procedure TfrmMainGC.IconMenuMouseEnter(Sender: TObject);
-begin
-  iconName := TImage(sender).Name;
-  filePath := 'data\Image Interface\GC\';
-  imgChoice := '_Select.PNG';
-
-  IconLoad;
-end;
-
-procedure TfrmMainGC.IconMenuMouseLeave(Sender: TObject);
-begin
-  iconName := TImage(sender).Name;
-  filePath := 'data\Image Interface\GC\';
-  imgChoice := '_Normal.PNG';
-
-  IconLoad;
 end;
 
 procedure TfrmMainGC.imgCloseClick(Sender: TObject);
@@ -535,14 +503,13 @@ begin
   Close;
 end;
 
-procedure TfrmMainGC.imgInfoClick(Sender: TObject);
+procedure TfrmMainGC.imgSettingClick(Sender: TObject);
 begin
-//  Form1.ShowModal;
-end;
-
-procedure TfrmMainGC.Label1Click(Sender: TObject);
-begin
-  Close;
+  if not Assigned(frmRoleSetting) then
+  begin
+    frmRoleSetting := TfrmRoleSetting.Create(Application);
+  end;
+  frmRoleSetting.Show;
 end;
 
 end.

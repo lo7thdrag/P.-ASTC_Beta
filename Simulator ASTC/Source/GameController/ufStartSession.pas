@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, ComCtrls, StdCtrls, ZConnection, DB, ZAbstractRODataset,
-  ZAbstractDataset, ZDataset;
+  ZAbstractDataset, ZDataset, Vcl.Imaging.pngimage;
 
 type
 
@@ -14,6 +14,8 @@ type
     Panel1: TPanel;
     btnOK: TButton;
     btnCancel: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
     procedure FormCreate(Sender: TObject);
     procedure lvScenarioChange(Sender: TObject; Item: TListItem;
       Change: TItemChange);
@@ -23,8 +25,6 @@ type
       Change: TItemChange);
     procedure lvRecordedChange(Sender: TObject; Item: TListItem;
       Change: TItemChange);
-    procedure lvScenarioSelectItem(Sender: TObject; Item: TListItem;
-      Selected: Boolean);
   private
     { Private declarations }
     FSceneData: TList;
@@ -63,17 +63,14 @@ begin
 end;
 
 procedure TfrmStartSession.btnOKClick(Sender: TObject);
+//var
 begin
-  if lvScenario.ItemIndex > -1 then
-  begin
+  if lvScenario.ItemIndex > -1 then begin
     Close;
     ModalResult := mrOK;
   end
   else
-  begin
-     ShowMessage('Select Scenario');
-  end;
-
+     ModalResult := mrCancel;
 end;
 
 procedure TfrmStartSession.ClearScenarioList;
@@ -242,15 +239,6 @@ begin
 
   end;
 
-end;
-
-procedure TfrmStartSession.lvScenarioSelectItem(Sender: TObject;
-  Item: TListItem; Selected: Boolean);
-begin
-  if Selected then
-    btnOK.Enabled := True
-  else
-    btnOK.Enabled := False;
 end;
 
 procedure TfrmStartSession.lvSnapshotChange(Sender: TObject; Item: TListItem;

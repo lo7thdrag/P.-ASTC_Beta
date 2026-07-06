@@ -4,39 +4,36 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, ComCtrls, Vcl.Imaging.pngimage,
-  uDBBlind_Zone, uBlindZoneView, uDBAsset_Vehicle, tttData,
-  uDBAsset_Radar;
+  Dialogs, StdCtrls, ExtCtrls, ComCtrls, uDBAsset_Radar, uBlindZoneView,
+  uDBBlind_Zone, uDBAsset_Vehicle, tttData, Vcl.Imaging.pngimage;
 
 type
   TfrmRadarMount = class(TForm)
-    pnl1Title: TPanel;
-    pnl2ControlPage: TPanel;
-    edtName: TEdit;
     PageControl1: TPageControl;
     General: TTabSheet;
+    lblClassName: TStaticText;
+    edtClassName: TEdit;
+    lblMountExtension: TStaticText;
     cbMountExtension: TComboBox;
-    edtAntenna: TEdit;
-    edtSubmerged: TEdit;
-    edtMaxOperational: TEdit;
+    lblBlindZones: TStaticText;
     pnlBlindZone: TPanel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
-    lbl6: TLabel;
-    lbl7: TLabel;
-    lbl8: TLabel;
-    lbl9: TLabel;
-    lbl10: TLabel;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
-    btnOK: TButton;
+    lblAntenna: TStaticText;
+    edtAntenna: TEdit;
+    lblFeetAntenna: TStaticText;
+    lblSubmergedAntenna: TStaticText;
+    edtSubmerged: TEdit;
+    lblFeetSubmerged: TStaticText;
+    lblMaxOperational: TStaticText;
+    edtMaxOperational: TEdit;
+    lblFeetMaxOperational: TStaticText;
+    pnl2ControlPage: TPanel;
+    pnl1Title: TPanel;
+    edtName: TEdit;
+    pnl3Button: TPanel;
     btnApply: TButton;
+    btnOK: TButton;
     btnCancel: TButton;
     txtClass: TLabel;
-    edtClassName: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -54,6 +51,8 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -68,7 +67,7 @@ type
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
-    LastName : string; {dicopy}
+    LastName : string;
 
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
     property SelectedRadar : TRadar_On_Board read FSelectedRadar write FSelectedRadar;
@@ -80,7 +79,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmBlindZoneAttachment;
+  uDataModuleTTT, ufrmBlindZoneAttachment ;
 
 {$R *.dfm}
 
@@ -88,8 +87,8 @@ uses
 
 procedure TfrmRadarMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FBlindZoneView.Free;
-  Action := cafree;
+//  FBlindZoneView.Free;
+//  Action := cafree;
 end;
 
 procedure TfrmRadarMount.FormCreate(Sender: TObject);
@@ -105,6 +104,11 @@ begin
     Width := pnlBlindZone.Width;
     OnClick := pnlBlindZoneClick;
   end;
+end;
+
+procedure TfrmRadarMount.FormDestroy(Sender: TObject);
+begin
+  FBlindZoneView.Free;
 end;
 
 procedure TfrmRadarMount.FormShow(Sender: TObject);
@@ -128,7 +132,7 @@ begin
   if btnApply.Enabled then
     btnApply.Click;
 
-  if isOk then{dicopy}
+  if isOk then
     Close;
 end;
 
@@ -144,7 +148,7 @@ begin
 
   with FSelectedRadar do
   begin
-    LastName := edtName.Text; {dicopy}
+    LastName := edtName.Text;
     FData.Instance_Identifier := edtName.Text;
     FData.Instance_Type := cbMountExtension.ItemIndex;
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
@@ -159,15 +163,15 @@ begin
       dmTTT.UpdateRadarOnBoard(FData);
   end;
 
-  isOK := True; {dicopy}
-  AfterClose := True;  {dicopy}
-  btnApply.Enabled := False;  {dicopy}
-  btnCancel.Enabled := False;  {dicopy}
+  isOK := True;
+  AfterClose := True;
+  btnApply.Enabled := False;
+  btnCancel.Enabled := False;
 end;
 
 procedure TfrmRadarMount.btnCancelClick(Sender: TObject);
 begin
-  AfterClose := False;  {dicopy}
+  AfterClose := False;
   Close;
 end;
 
@@ -189,12 +193,12 @@ begin
     {Jika inputan baru}
     if FSelectedRadar.FData.Radar_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate radar mount!' + Char(13) + 'Choose different mount to continue.');
+      ShowMessage('Mount Extension sudah digunakan, silahkan gunakan Mount Extension lain.');
       Exit;
     end
-    else if LastName <> edtName.Text then {dicopy}
+    else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -206,14 +210,14 @@ procedure TfrmRadarMount.DrawBlindZone;
 var
   i : Integer;
   blindZone : TBlind_Zone;
-  zoneSector : TZoneSector;
-
+  zs : TZoneSector;
 begin
   FBlindZoneView.ClearZone;
 
   with FSelectedRadar do
   begin
-    dmTTT.GetBlindZone(Ord(bzcRadar), FData.Radar_Instance_Index, FBlind);
+    dmTTT.GetBlindZone(Ord(bzcRadar), FData.Radar_Instance_Index,
+      FBlind);
 
     blindZone := TBlind_Zone.Create;
     FBZone_1 := blindZone.FData;
@@ -233,17 +237,17 @@ begin
     if (FBZone_1.BlindZone_Number <> 0) and
       (FBZone_1.Start_Angle <> FBZone_1.End_Angle) then
     begin
-      zoneSector := FBlindZoneView.AddZone;
-      zoneSector.StartAngle := FBZone_1.Start_Angle;
-      zoneSector.EndAngle := FBZone_1.End_Angle;
+      zs := FBlindZoneView.AddZone;
+      zs.StartAngle := FBZone_1.Start_Angle;
+      zs.EndAngle := FBZone_1.End_Angle;
     end;
 
     if (FBZone_2.BlindZone_Number <> 0) and
       (FBZone_2.Start_Angle <> FBZone_2.End_Angle) then
     begin
-      zoneSector := FBlindZoneView.AddZone;
-      zoneSector.StartAngle := FBZone_2.Start_Angle;
-      zoneSector.EndAngle := FBZone_2.End_Angle;
+      zs := FBlindZoneView.AddZone;
+      zs.StartAngle := FBZone_2.Start_Angle;
+      zs.EndAngle := FBZone_2.End_Angle;
     end;
   end;
 
@@ -254,7 +258,7 @@ procedure TfrmRadarMount.pnlBlindZoneClick(Sender: TObject);
 begin
   if FSelectedRadar.FData.Radar_Instance_Index = 0 then
   begin
-    ShowMessage('Save data before edit blind zone ');
+    ShowMessage('Simpan data terlebih dahulu sebelum mengubah nilai blind zone');
     Exit;
   end;
 
@@ -268,7 +272,7 @@ begin
     end;
 
     btnApply.Enabled := frmBlindZonesAttachment.AfterClose;
-    btnCancel.Enabled := not frmBlindZonesAttachment.AfterClose;
+    btnCancel.Enabled := not frmBlindZonesAttachment.AfterClose
 
   finally
     frmBlindZonesAttachment.Free;
@@ -288,12 +292,12 @@ begin
     else
       edtName.Text := FData.Instance_Identifier;
 
-    LastName := edtName.Text;   {dicopy}
-    edtClassName.Caption := FDef.Radar_Identifier;
+    LastName := edtName.Text;
+    edtClassName.Text := FDef.Radar_Identifier;
 
     DrawBlindZone;
 
-    edtAntenna.Text := FormatFloat('0', FData.Rel_Antenna_Height);
+    edtAntenna.Text := FormatFloat('0.0', FData.Rel_Antenna_Height);
     edtSubmerged.Text := FormatFloat('0', FData.Submerged_Antenna_Height);
     edtMaxOperational.Text := FormatFloat('0', FData.Max_Operational_Depth);
   end;

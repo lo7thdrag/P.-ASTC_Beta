@@ -213,7 +213,7 @@ uses
   ufrmSummaryOverlay in '..\LibTTT\forms\Admin Interface\Other\ufrmSummaryOverlay.pas' {frmSummaryOverlay},
   ufrmSummaryPlotting in '..\LibTTT\forms\Admin Interface\Other\ufrmSummaryPlotting.pas' {frmSummaryPlotting},
   ufrmSummaryPredefinedPattern in '..\LibTTT\forms\Admin Interface\Other\ufrmSummaryPredefinedPattern.pas' {frmSummaryPredefinedPattern},
-  ufrmSummaryRuntimePlatform in '..\LibTTT\forms\Admin Interface\Other\ufrmSummaryRuntimePlatform.pas' {FrmSummaryRuntimePlatform},
+  ufrmSummaryRuntimePlatform in '..\LibTTT\forms\Admin Interface\Other\ufrmSummaryRuntimePlatform.pas' {frmSummaryRuntimePlatform},
   ufrmSummaryStudentRole in '..\LibTTT\forms\Admin Interface\Other\ufrmSummaryStudentRole.pas' {frmSummaryStudentRole},
   ufrmSummarySNRvsPOD in '..\LibTTT\forms\Admin Interface\Other\ufrmSummarySNRvsPOD.pas' {frmSummarySnrVsPod},
   ufrmSummaryTransport in '..\LibTTT\forms\Admin Interface\Other\ufrmSummaryTransport.pas' {frmSummaryTransport},

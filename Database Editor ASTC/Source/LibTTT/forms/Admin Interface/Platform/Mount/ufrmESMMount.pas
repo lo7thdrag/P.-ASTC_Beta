@@ -81,7 +81,7 @@ implementation
 
 uses
   uDataModuleTTT, ufrmESMOnBoardPickList, ufrmSummaryVehicle,
-  uBlindZoneAttachment, ufrmRadarOnBoardPickList, uVehicleSelect, tttData;
+  ufrmBlindZoneAttachment, ufrmRadarOnBoardPickList, uVehicleSelect, tttData;
 
 {$R *.dfm}
 
@@ -259,9 +259,9 @@ begin
     Exit;
   end;
 
-  BlindZonesAttachmentForm := TBlindZonesAttachmentForm.Create(Self);
+  frmBlindZonesAttachment := TfrmBlindZonesAttachment.Create(Self);
   try
-    with BlindZonesAttachmentForm do
+    with frmBlindZonesAttachment do
     begin
       OnBoardType := bzcESM;
       OnBoardOwner := FSelectedESM;
@@ -269,7 +269,7 @@ begin
       DrawBlindZone;
     end;
   finally
-    BlindZonesAttachmentForm.Free;
+    frmBlindZonesAttachment.Free;
   end;
 
 end;

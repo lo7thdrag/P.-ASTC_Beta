@@ -44853,10 +44853,6 @@ object frmGunMount: TfrmGunMount
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 72
-    ExplicitTop = 8
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44907,8 +44903,6 @@ object frmGunMount: TfrmGunMount
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 0
-      ExplicitHeight = 435
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44919,10 +44913,8 @@ object frmGunMount: TfrmGunMount
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitHeight = 415
         object General: TTabSheet
           Caption = 'General'
-          ExplicitHeight = 375
           object lblClassName: TStaticText
             Left = 12
             Top = 18

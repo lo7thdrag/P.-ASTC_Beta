@@ -4,31 +4,29 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ComCtrls, ExtCtrls, uDBAsset_Sonobuoy, uDBAsset_Sonar,
-  uDBAsset_Vehicle, tttData, Vcl.Imaging.pngimage;
+  Dialogs, ExtCtrls, StdCtrls, ComCtrls, uDBAsset_Vehicle, uDBAsset_Sonobuoy,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmSonobuoyMount = class(TForm)
     pnl1Title: TPanel;
+    txtClass: TLabel;
     edtName: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     General: TTabSheet;
+    lblClassName: TStaticText;
+    edtClassName: TEdit;
+    lblMountExtension: TStaticText;
     cbMountExtension: TComboBox;
+    lblQuantity: TStaticText;
     edtQuantity: TEdit;
+    lblSonarMount: TStaticText;
     edtSonarMount: TEdit;
-    lbl1: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
+    pnl3Button: TPanel;
     btnApply: TButton;
-    btnCancel: TButton;
     btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
-    edtClassName: TLabel;
+    btnCancel: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -41,11 +39,9 @@ type
 
     procedure cbMountExtensionChange(Sender: TObject);
 
-
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -59,9 +55,8 @@ type
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     LastName : string;
 
-    property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-    property SelectedSonobuoy : TSonobuoy_On_Board read FSelectedSonobuoy write FSelectedSonobuoy;
-
+    property SelectedVehicle : TVehicle_Definition read FSelectedVehicle  write FSelectedVehicle;
+    property SelectedSonobuoy : TSonobuoy_On_Board read FSelectedSonobuoy  write FSelectedSonobuoy;
   end;
 
 var
@@ -70,10 +65,10 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSonobuoyOnBoardPickList ;
+  uDataModuleTTT, ufrmSonobuoyOnBoardPickList, ufrmSummaryVehicle,
+  uVehicleSelect;
 
 {$R *.dfm}
-
 
 {$REGION ' Form Handle '}
 
@@ -85,13 +80,6 @@ end;
 procedure TfrmSonobuoyMount.FormShow(Sender: TObject);
 begin
   UpdateSonobuoyData;
-
-  with FSelectedSonobuoy.FData do
-    btnApply.Enabled := Sonobuoy_Instance_Index = 0;
-
-  isOK := True;
-  AfterClose := True;
-  btnCancel.Enabled := True;
 end;
 
 {$ENDREGION}
@@ -163,12 +151,12 @@ begin
     {Jika inputan baru}
     if FSelectedSonobuoy.FData.Sonobuoy_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate Sonobuoy mount!' + Char(13) + 'Choose different mount to continue.');
+      ShowMessage('Mount Extension sudah digunakan, silahkan gunakan Mount Extension lain.');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -188,12 +176,9 @@ begin
       edtName.Text := FData.Instance_Identifier;
 
     LastName := edtName.Text;
-    edtClassName.Caption := FDef.Class_Identifier;
+    edtClassName.Text := FDef.Class_Identifier;
 
-    FData.Quantity := StrToInt(edtQuantity.Text);
-    FData.Sonar_Instance_Index := FDef.Sonar_Index;
-
-    edtQuantity.Text := FormatFloat('0', FData.Quantity);
+    edtQuantity.Text := IntToStr(FData.Quantity);
     edtSonarMount.Text := FSonar.FDef.Sonar_Identifier;
   end;
 end;
@@ -287,7 +272,5 @@ begin
 end;
 
 {$ENDREGION}
-
-
 
 end.

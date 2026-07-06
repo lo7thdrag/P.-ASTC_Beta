@@ -8,27 +8,37 @@ uses
   Vcl.Imaging.pngimage, Vcl.ComCtrls;
 
 type
-  TFrmSummaryRuntimePlatform = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    Label1: TLabel;
+  TfrmSummaryRuntimePlatform = class(TForm)
     pnl1Title: TPanel;
+    Label1: TLabel;
     edtName: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     tsGeneral: TTabSheet;
+    grbPlatforms: TGroupBox;
     btnVehicle: TButton;
-    txtClass: TLabel;
-    ImgHeader: TImage;
+    btnTorpedo: TButton;
+    btnMine: TButton;
+    btnMissile: TButton;
+    btnSonobuoy: TButton;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormShow(Sender: TObject);
     procedure btnVehicleClick(Sender: TObject);
+    procedure btnMissileClick(Sender: TObject);
+    procedure btnTorpedoClick(Sender: TObject);
+    procedure btnSonobuoyClick(Sender: TObject);
+    procedure btnMineClick(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure edtNameChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedRPL : TRuntime_Platform_Library;
@@ -45,7 +55,7 @@ type
   end;
 
 var
-  FrmSummaryRuntimePlatform: TFrmSummaryRuntimePlatform;
+  frmSummaryRuntimePlatform: TfrmSummaryRuntimePlatform;
 
 implementation
 
@@ -54,9 +64,26 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 {$REGION ' Form Handle '}
 
-procedure TFrmSummaryRuntimePlatform.FormShow(Sender: TObject);
+procedure TfrmSummaryRuntimePlatform.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmSummaryRuntimePlatform.FormShow(Sender: TObject);
 begin
   tsGeneral.Show;
   UpdateButtonState;
@@ -73,7 +100,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TFrmSummaryRuntimePlatform.btnOkClick(Sender: TObject);
+procedure TfrmSummaryRuntimePlatform.btnOkClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -82,7 +109,7 @@ begin
     Close;
 end;
 
-procedure TFrmSummaryRuntimePlatform.btnApplyClick(Sender: TObject);
+procedure TfrmSummaryRuntimePlatform.btnApplyClick(Sender: TObject);
 begin
 
   with FSelectedRPL do
@@ -98,14 +125,19 @@ begin
 
     if FData.Platform_Library_Index = 0 then
     begin
-      dmTTT.InsertRuntimePlatformLibraryDef(FData);
-      ShowMessage('Data has been saved');
+      if dmTTT.InsertRuntimePlatformLibraryDef(FData) then
+      begin
+        ShowMessage('Data berhasil disimpan');
+      end;
     end
     else
     begin
-      dmTTT.UpdateRuntimePlatformLibraryDef(FData);
-      ShowMessage('Data has been updated');
+        if dmTTT.UpdateRuntimePlatformLibraryDef(FData) then
+        begin
+          ShowMessage('Data berhasil diperbarui');
+        end;
     end;
+
   end;
 
   UpdateButtonState;
@@ -116,13 +148,13 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TFrmSummaryRuntimePlatform.btnCancelClick(Sender: TObject);
+procedure TfrmSummaryRuntimePlatform.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-procedure TFrmSummaryRuntimePlatform.btnVehicleClick(Sender: TObject);
+procedure TfrmSummaryRuntimePlatform.btnVehicleClick(Sender: TObject);
 begin
   frmVehicleRuntimePlatformLibraryPickList := TfrmVehicleRuntimePlatformLibraryPickList.Create(Self);
   try
@@ -140,7 +172,79 @@ begin
   btnApply.Enabled := True;
 end;
 
-function TFrmSummaryRuntimePlatform.CekInput: Boolean;
+procedure TfrmSummaryRuntimePlatform.btnMissileClick(Sender: TObject);
+begin
+//  frmMissileRuntimePlatformLibraryPickList := TfrmMissileRuntimePlatformLibraryPickList.Create(Self);
+//  try
+//    with frmMissileRuntimePlatformLibraryPickList do
+//    begin
+//      RuntimePlatformLibrary := FSelectedRPL;
+//      ShowModal;
+//
+//      btnCancel.Enabled := not isNoCancel;
+//    end;
+//  finally
+//    frmMissileRuntimePlatformLibraryPickList.Free;
+//  end;
+//
+//  btnApply.Enabled := True;
+end;
+
+procedure TfrmSummaryRuntimePlatform.btnTorpedoClick(Sender: TObject);
+begin
+//  frmTorpedoRuntimePlatformLibraryPickList := TfrmTorpedoRuntimePlatformLibraryPickList.Create(Self);
+//  try
+//    with frmTorpedoRuntimePlatformLibraryPickList do
+//    begin
+//      RuntimePlatformLibrary := FSelectedRPL;
+//      ShowModal;
+//
+//      btnCancel.Enabled := not isNoCancel;
+//    end;
+//  finally
+//    frmTorpedoRuntimePlatformLibraryPickList.Free;
+//  end;
+//
+//  btnApply.Enabled := True;
+end;
+
+procedure TfrmSummaryRuntimePlatform.btnMineClick(Sender: TObject);
+begin
+//  frmMineRuntimePlatformLibraryPickList := TfrmMineRuntimePlatformLibraryPickList.Create(Self);
+//  try
+//    with frmMineRuntimePlatformLibraryPickList do
+//    begin
+//      RuntimePlatformLibrary := FSelectedRPL;
+//      ShowModal;
+//
+//      btnCancel.Enabled := not isNoCancel;
+//    end;
+//  finally
+//    frmMineRuntimePlatformLibraryPickList.Free;
+//  end;
+//
+//  btnApply.Enabled := True;
+end;
+
+procedure TfrmSummaryRuntimePlatform.btnSonobuoyClick(Sender: TObject);
+begin
+//  frmSonobuoyRuntimePlatformLibraryPickList := TfrmSonobuoyRuntimePlatformLibraryPickList.Create(Self);
+//  try
+//    with frmSonobuoyRuntimePlatformLibraryPickList do
+//    begin
+//      RuntimePlatformLibrary := FSelectedRPL;
+//      ShowModal;
+//
+//      btnCancel.Enabled := not isNoCancel;
+//    end;
+//  finally
+//    frmSonobuoyRuntimePlatformLibraryPickList.Free;
+//  end;
+//
+//  btnApply.Enabled := True;
+end;
+
+function TfrmSummaryRuntimePlatform.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
 begin
@@ -149,7 +253,7 @@ begin
   {Jika inputan class name kosong}
   if (edtName.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -167,7 +271,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -178,12 +282,12 @@ begin
     {Jika inputan baru}
     if FSelectedRPL.FData.Platform_Library_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -191,12 +295,12 @@ begin
   Result := True;
 end;
 
-procedure TFrmSummaryRuntimePlatform.edtNameChange(Sender: TObject);
+procedure TfrmSummaryRuntimePlatform.edtNameChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TFrmSummaryRuntimePlatform.UpdateButtonState;
+procedure TfrmSummaryRuntimePlatform.UpdateButtonState;
 begin
   with FSelectedRPL.FData do
   begin
@@ -208,10 +312,13 @@ begin
     LastName := edtName.Text;
 
     btnVehicle.Enabled := Platform_Library_Index <> 0;
+    btnMissile.Enabled := Platform_Library_Index <> 0;
+    btnTorpedo.Enabled := Platform_Library_Index <> 0;
+    btnSonobuoy.Enabled := Platform_Library_Index <> 0;
+    btnMine.Enabled := Platform_Library_Index <> 0;
   end;
 end;
 
 {$ENDREGION}
-
 
 end.

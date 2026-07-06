@@ -75,7 +75,7 @@ implementation
 
 uses
   uDataModuleTTT, ufrmAvailableVehicle, ufrmSummaryVehicle,
-  uMissileLaunchers, ufrmMissileOnBoardPickList, uBlindZoneAttachment, ufrmGunOnBoardPickList, tttData;
+  ufrmMissileOnBoardPickList, ufrmBlindZoneAttachment, ufrmGunOnBoardPickList, tttData;
 
 {$R *.dfm}
 
@@ -254,9 +254,9 @@ begin
     Exit;
   end;
 
-  BlindZonesAttachmentForm := TBlindZonesAttachmentForm.Create(Self);
+  frmBlindZonesAttachment := TfrmBlindZonesAttachment.Create(Self);
   try
-    with BlindZonesAttachmentForm do
+    with frmBlindZonesAttachment do
     begin
       OnBoardType := bzcPointEffect;
       OnBoardOwner := FSelectedGun;
@@ -264,11 +264,11 @@ begin
       DrawBlindZone;
     end;
 
-    btnApply.Enabled := BlindZonesAttachmentForm.AfterClose;
-    btnCancel.Enabled := not BlindZonesAttachmentForm.AfterClose;
+    btnApply.Enabled := frmBlindZonesAttachment.AfterClose;
+    btnCancel.Enabled := not frmBlindZonesAttachment.AfterClose;
 
   finally
-    BlindZonesAttachmentForm.Free;
+    frmBlindZonesAttachment.Free;
   end;
 
 end;

@@ -9,20 +9,19 @@ uses
 
 type
   TfrmTowedJammerMount = class(TForm)
-    pnl1Title: TPanel;
-    edtName: TEdit;
-    pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     General: TTabSheet;
+    txtQuantity: TStaticText;
     edtQuantity: TEdit;
-    lbl1: TLabel;
-    lbl2: TLabel;
+    pnlMainBackground: TPanel;
+    pnl2ControlPage: TPanel;
+    pnl1Title: TPanel;
+    txtClass: TLabel;
+    edtName: TEdit;
+    pnl3Button: TPanel;
     btnApply: TButton;
-    btnCancel: TButton;
     btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
+    btnCancel: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -30,6 +29,8 @@ type
     //Global
     function GetNumberOfKoma(s : string): Boolean;
     procedure edtNumeralKeyPress(Sender: TObject; var Key: Char);
+    procedure ComboBoxDataChange(Sender: TObject);
+    procedure CheckBoxDataClick(Sender: TObject);
     procedure edtChange(Sender: TObject);
     procedure ValidationFormatInput();
 
@@ -43,6 +44,7 @@ type
 
     function CekInput: Boolean;
     procedure UpdateTowedJammerDecoyData;
+
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
@@ -50,12 +52,10 @@ type
 
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
     property SelectedTowedJammerDecoy : TTowed_Jammer_Decoy_On_Board read FSelectedTowedJammerDecoy write FSelectedTowedJammerDecoy;
-
   end;
 
 var
   frmTowedJammerMount: TfrmTowedJammerMount;
-
 
 implementation
 
@@ -66,7 +66,7 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TfrmTowedJammerMount.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmTowedJammerMount.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
   Action := cafree;
 end;
@@ -98,14 +98,6 @@ end;
 
 procedure TfrmTowedJammerMount.btnApplyClick(Sender: TObject);
 begin
-  if not CekInput then
-  begin
-    isOK := False;
-    Exit;
-  end;
-
-  ValidationFormatInput;
-
   with FSelectedTowedJammerDecoy do
   begin
     LastName := edtName.Text;
@@ -143,12 +135,12 @@ begin
     {Jika inputan baru}
     if FSelectedTowedJammerDecoy.FData.Towed_Decoy_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate Towed Jammer Decoy!' + Char(13) + 'Choose Towed Jammer Decoy to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -165,7 +157,7 @@ begin
     else
       edtName.Text := FData.Instance_Identifier;
 
-      LastName := edtName.Text;
+    LastName := edtName.Text;
 
     edtQuantity.Text := IntToStr(FData.Quantity);
   end;
@@ -224,6 +216,19 @@ begin
 
     btnApply.Enabled := True;
   end;
+end;
+
+procedure TfrmTowedJammerMount.CheckBoxDataClick(Sender: TObject);
+begin
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmTowedJammerMount.ComboBoxDataChange(Sender: TObject);
+begin
+  if TComboBox(Sender).ItemIndex = -1 then
+    TComboBox(Sender).ItemIndex := 0;
+
+  btnApply.Enabled := True;
 end;
 
 procedure TfrmTowedJammerMount.edtChange(Sender: TObject);

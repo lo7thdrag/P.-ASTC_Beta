@@ -4,35 +4,32 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, ComCtrls, Vcl.Imaging.pngimage, uBaseCoordSystem,
-  uDBBlind_Zone, uBlindZoneView, uDBAsset_Vehicle, tttData,
-  uDBAsset_Fitted, uDBAsset_Weapon, Vcl.Mask ;
+  Dialogs, StdCtrls, ExtCtrls, ComCtrls, uDBAsset_Vehicle, uDBAsset_Weapon,
+  uDBBlind_Zone, uBlindZoneView, uDBAsset_Fitted, Vcl.Imaging.pngimage, Vcl.Mask;
 
 type
   TfrmMissileMount = class(TForm)
     pnl1Title: TPanel;
+    txtClass: TLabel;
     edtName: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     General: TTabSheet;
+    lblClassName: TStaticText;
+    edtClassName: TEdit;
+    lblMountExtension: TStaticText;
     cbMountExtension: TComboBox;
+    lblBlindZones: TStaticText;
+    lblQuantity: TStaticText;
     edtQuantity: TEdit;
+    lblReload: TStaticText;
+    lblHourReload: TStaticText;
     btnEditLaunchers: TButton;
     pnlBlindZone: TPanel;
-    lbl1: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
-    lbl6: TLabel;
-    lbl7: TLabel;
+    pnl3Button: TPanel;
     btnApply: TButton;
-    btnCancel: TButton;
     btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
-    edtClassName: TLabel;
+    btnCancel: TButton;
     edtReload: TMaskEdit;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -52,6 +49,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure btnEditLaunchersClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
@@ -63,7 +61,6 @@ type
     function CekInput: Boolean;
     procedure UpdateMissileData;
     procedure DrawBlindZone;
-
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
@@ -79,8 +76,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmBlindZoneAttachment, ufrmLauncherList,
-  newClassASTT;
+  uDataModuleTTT, ufrmBlindZoneAttachment, ufrmLauncherList, newClassASTT, tttData;
 
 {$R *.dfm}
 
@@ -88,8 +84,8 @@ uses
 
 procedure TfrmMissileMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FBlindZoneView.Free;
-  Action := cafree;
+//  FBlindZoneView.Free;
+//  Action := cafree;
 end;
 
 procedure TfrmMissileMount.FormCreate(Sender: TObject);
@@ -105,6 +101,11 @@ begin
     Width := pnlBlindZone.Width;
     OnClick := pnlBlindZoneClick;
   end;
+end;
+
+procedure TfrmMissileMount.FormDestroy(Sender: TObject);
+begin
+  FBlindZoneView.Free;
 end;
 
 procedure TfrmMissileMount.FormShow(Sender: TObject);
@@ -166,6 +167,7 @@ begin
   UpdateMissileData;
 
   isOK := True;
+  AfterClose := True;
   btnApply.Enabled := False;
   btnCancel.Enabled := False;
 end;
@@ -182,7 +184,7 @@ begin
   try
     with frmLauncherList do
     begin
-      LauncherOwner := loMissile;
+       LauncherOwner := loMissile;
       SelectedWeapon := FSelectedMissile;
       ShowModal ;
     end;
@@ -213,12 +215,12 @@ begin
     {Jika inputan baru}
     if FSelectedMissile.FData.Fitted_Weap_Index = 0 then
     begin
-      ShowMessage('Duplicate missile mount!' + Char(13) + 'Choose different name to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
-    else if LastName <> edtName.Text then
+    else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -278,7 +280,7 @@ procedure TfrmMissileMount.pnlBlindZoneClick(Sender: TObject);
 begin
   if FSelectedMissile.FData.Fitted_Weap_Index = 0 then
   begin
-    ShowMessage('Save data before edit blind zone ');
+    ShowMessage('Simpan data terlebih dahulu sebelum mengubah nilai blind zone');
     Exit;
   end;
 
@@ -307,7 +309,7 @@ var
 begin
   with FSelectedMissile do
   begin
-    cbMountExtension.ItemIndex := FData.Instance_Type;
+    cbMountExtension.ItemIndex := FData.Mount_Type;
 
     if FData.Fitted_Weap_Index = 0 then
       edtName.Text := FDef.Class_Identifier + ' ' + cbMountExtension.Text
@@ -315,11 +317,11 @@ begin
       edtName.Text := FData.Instance_Identifier;
 
     LastName := edtName.Text;
-    edtClassName.Caption := FDef.Class_Identifier;
+    edtClassName.Text := FDef.Class_Identifier;
 
     DrawBlindZone;
 
-    edtQuantity.Text := FormatFloat('0', FData.Quantity);
+    edtQuantity.Text := IntToStr(FData.Quantity);
     SecondToTime(Round(FData.Firing_Delay), timeStr);
     edtReload.Text := timeStr;
 

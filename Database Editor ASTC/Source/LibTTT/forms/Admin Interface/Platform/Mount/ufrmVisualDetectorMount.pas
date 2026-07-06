@@ -3,29 +3,28 @@ unit ufrmVisualDetectorMount;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Sensor, uDBBlind_Zone, uBlindZoneView, tttData;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, ComCtrls, uDBAsset_Vehicle, uDBAsset_Sensor,
+  uBlindZoneView, Vcl.Imaging.pngimage;
 
 type
   TfrmVisualDetectorMount = class(TForm)
-    pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     General: TTabSheet;
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
-    pnl1Title: TPanel;
-    lbl1: TLabel;
-    edtName: TEdit;
     lblBlindZones: TStaticText;
+    pnlBlindZone: TPanel;
     lblObserver: TStaticText;
     edtObserver: TEdit;
     lblFeetObserver: TStaticText;
-    pnlBlindZone: TPanel;
+    pnlMainBackground: TPanel;
+    pnl2ControlPage: TPanel;
+    pnl1Title: TPanel;
+    txtClass: TLabel;
+    edtName: TEdit;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnOK: TButton;
+    btnCancel: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -42,6 +41,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -56,11 +56,10 @@ type
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
-    LastName : string;
+    LastName : string; {dicopy}
 
-    property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
+    property SelectedVehicle : TVehicle_Definition read FSelectedVehicle  write FSelectedVehicle;
     property SelectedVisual : TVisual_Sensor_On_Board read FSelectedVisual write FSelectedVisual;
-
   end;
 
 var
@@ -69,7 +68,8 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmBlindZoneAttachment;
+  uDataModuleTTT, uDBBlind_Zone, uBlindZoneAttachment, ufrmSummaryVehicle,
+  ufrmIFFOnBoardPickList, tttData;
 
 {$R *.dfm}
 
@@ -77,8 +77,7 @@ uses
 
 procedure TfrmVisualDetectorMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FBlindZoneView.Free;
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmVisualDetectorMount.FormCreate(Sender: TObject);
@@ -96,16 +95,17 @@ begin
   end;
 end;
 
+procedure TfrmVisualDetectorMount.FormDestroy(Sender: TObject);
+begin
+  FBlindZoneView.Free;
+end;
+
 procedure TfrmVisualDetectorMount.FormShow(Sender: TObject);
 begin
   UpdateVisualData;
 
   with FSelectedVisual.FData do
     btnApply.Enabled := Visual_Instance_Index = 0;
-
-  isOK := True;
-  AfterClose := True;
-  btnCancel.Enabled := True;
 end;
 
 {$ENDREGION}
@@ -157,41 +157,18 @@ begin
   Close;
 end;
 
-function TfrmVisualDetectorMount.CekInput: Boolean;
-begin
-  Result := False;
-
-  {Jika Mount Name sudah ada}
-  if dmTTT.GetVisualDetectorOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
-  begin
-    {Jika inputan baru}
-    if FSelectedVisual.FData.Visual_Instance_Index = 0 then
-    begin
-      ShowMessage('Duplicate Visual Detector !' + Char(13) + 'Choose only one Visual Detector.');
-      Exit;
-    end
-    else if LastName <> edtName.Text then
-    begin
-      ShowMessage('Please use another class name');
-      Exit;
-    end;
-  end;
-
-  Result := True;
-end;
-
 procedure TfrmVisualDetectorMount.DrawBlindZone;
 var
   i : Integer;
   blindZone : TBlind_Zone;
-  zoneSector : TZoneSector;
-
+  zs : TZoneSector;
 begin
   FBlindZoneView.ClearZone;
 
   with FSelectedVisual do
   begin
-    dmTTT.GetBlindZone(Ord(bzcVisual), FData.Visual_Instance_Index, FBlind);
+    dmTTT.GetBlindZone(Ord(bzcVisual), FData.Visual_Instance_Index,
+      FBlind);
 
     blindZone := TBlind_Zone.Create;
     FBZone_1 := blindZone.FData;
@@ -211,17 +188,17 @@ begin
     if (FBZone_1.BlindZone_Number <> 0) and
       (FBZone_1.Start_Angle <> FBZone_1.End_Angle) then
     begin
-      zoneSector := FBlindZoneView.AddZone;
-      zoneSector.StartAngle := FBZone_1.Start_Angle;
-      zoneSector.EndAngle := FBZone_1.End_Angle;
+      zs := FBlindZoneView.AddZone;
+      zs.StartAngle := FBZone_1.Start_Angle;
+      zs.EndAngle := FBZone_1.End_Angle;
     end;
 
     if (FBZone_2.BlindZone_Number <> 0) and
       (FBZone_2.Start_Angle <> FBZone_2.End_Angle) then
     begin
-      zoneSector := FBlindZoneView.AddZone;
-      zoneSector.StartAngle := FBZone_2.Start_Angle;
-      zoneSector.EndAngle := FBZone_2.End_Angle;
+      zs := FBlindZoneView.AddZone;
+      zs.StartAngle := FBZone_2.Start_Angle;
+      zs.EndAngle := FBZone_2.End_Angle;
     end;
   end;
 
@@ -238,35 +215,54 @@ begin
 
     DrawBlindZone;
 
-    edtObserver.Text := FormatFloat('0', Observer_Height);
+    edtObserver.Text := FormatFloat('0.0', Observer_Height);
   end;
+end;
+
+function TfrmVisualDetectorMount.CekInput: Boolean;
+begin
+  Result := False;
+
+  {Jika Mount Name sudah ada}
+  if dmTTT.GetVisualDetectorOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
+  begin
+    {Jika inputan baru}
+    if FSelectedVisual.FData.Visual_Instance_Index = 0 then
+    begin
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
+      Exit;
+    end
+    else if LastName <> edtName.Text then {dicopy}
+    begin
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
+      Exit;
+    end;
+  end;
+
+  Result := True;
 end;
 
 procedure TfrmVisualDetectorMount.pnlBlindZoneClick(Sender: TObject);
 begin
   if FSelectedVisual.FData.Visual_Instance_Index = 0 then
   begin
-    ShowMessage('Save data before edit blind zone ');
+    ShowMessage('Simpan data terlebih dahulu sebelum mengubah nilai blind zone');
     Exit;
   end;
 
-  frmBlindZonesAttachment := TfrmBlindZonesAttachment.Create(Self);
+  BlindZonesAttachmentForm := TBlindZonesAttachmentForm.Create(Self);
   try
-    with frmBlindZonesAttachment do
+    with BlindZonesAttachmentForm do
     begin
       OnBoardType := bzcVisual;
       OnBoardOwner := FSelectedVisual;
       ShowModal;
+      DrawBlindZone;
     end;
-
-    btnApply.Enabled := frmBlindZonesAttachment.AfterClose;
-    btnCancel.Enabled := not frmBlindZonesAttachment.AfterClose;
-
   finally
-    frmBlindZonesAttachment.Free;
+    BlindZonesAttachmentForm.Free;
   end;
 
-  DrawBlindZone
 end;
 
 {$ENDREGION}

@@ -589,7 +589,7 @@
             <Form>frmSummaryPredefinedPattern</Form>
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Other\ufrmSummaryRuntimePlatform.pas">
-            <Form>FrmSummaryRuntimePlatform</Form>
+            <Form>frmSummaryRuntimePlatform</Form>
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Other\ufrmSummaryStudentRole.pas">
             <Form>frmSummaryStudentRole</Form>

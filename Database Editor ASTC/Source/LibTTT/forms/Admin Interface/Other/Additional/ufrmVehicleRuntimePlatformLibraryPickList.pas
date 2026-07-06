@@ -9,18 +9,21 @@ uses
   uDBAssetObject, uDBAsset_Vehicle, uDBAsset_Runtime_Platform_Library;
 type
   TfrmVehicleRuntimePlatformLibraryPickList = class(TForm)
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnRemove: TButton;
     lbAllVehicleDef: TListBox;
     lbAllVehicleOnRPL: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -31,6 +34,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
  private
     FAllVehicleDefList : TList;
@@ -54,16 +59,38 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmVehicleRuntimePlatformLibraryPickList.FormCreate(Sender: TObject);
 begin
-  FAllVehicleDefList := TList.Create;
+  FAllVehicleDefList   := TList.Create;
   FAllVehicleOnRPLList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmVehicleRuntimePlatformLibraryPickList.FormDestroy(
+  Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllVehicleDefList);
+  FreeItemsAndFreeList(FAllVehicleOnRPLList);
 end;
 
 procedure TfrmVehicleRuntimePlatformLibraryPickList.FormShow(Sender: TObject);
@@ -112,6 +139,14 @@ begin
   UpdateVehicleList;
 end;
 
+procedure TfrmVehicleRuntimePlatformLibraryPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateVehicleList
+  end;
+end;
+
 procedure TfrmVehicleRuntimePlatformLibraryPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -143,7 +178,7 @@ begin
   lbAllVehicleDef.Items.Clear;
   lbAllVehicleOnRPL.Items.Clear;
 
-  dmTTT.GetAllVehicleDef(FAllVehicleDefList);
+  dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtSearch.Text);
   dmTTT.GetAllVehiclePlatformLibraryEntry(FRuntimePlatformLibrary.FData.Platform_Library_Index,FAllVehicleOnRPLList);
 
   for i := 0 to FAllVehicleDefList.Count - 1 do

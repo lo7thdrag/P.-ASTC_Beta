@@ -4,26 +4,24 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ComCtrls, ExtCtrls, uDBAsset_Sensor, uDBAsset_Vehicle, tttData,
+  Dialogs, ExtCtrls, StdCtrls, ComCtrls, uDBAsset_Vehicle, uDBAsset_Sensor,
   Vcl.Imaging.pngimage;
 
 type
   TfrmMADMount = class(TForm)
     pnl1Title: TPanel;
-    pnl2ControlPage: TPanel;
     edtName: TEdit;
+    pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     General: TTabSheet;
+    lblAntenna: TStaticText;
     edtAntenna: TEdit;
-    lbl1: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
+    lblFeetAntenna: TStaticText;
+    pnl3Button: TPanel;
     btnApply: TButton;
-    btnCancel: TButton;
     btnOK: TButton;
+    btnCancel: TButton;
+    txtClass: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -38,6 +36,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
 
+
   private
     FSelectedVehicle : TVehicle_Definition;
     FSelectedMAD : TMAD_On_Board;
@@ -50,22 +49,20 @@ type
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     LastName : string;
 
-    property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
+    property SelectedVehicle : TVehicle_Definition read FSelectedVehicle  write FSelectedVehicle;
     property SelectedMAD : TMAD_On_Board read FSelectedMAD write FSelectedMAD;
-
   end;
 
-
 var
+
   frmMADMount: TfrmMADMount;
 
 implementation
 
 uses
-  ufrmSummaryVehicle, uDataModuleTTT, ufrmMADOnBoardPickList;
+  uDataModuleTTT;
 
 {$R *.dfm}
-
 
 {$REGION ' Form Handle '}
 
@@ -80,10 +77,6 @@ begin
 
   with FSelectedMAD.FData do
     btnApply.Enabled := MAD_Instance_Index = 0;
-
-  isOK := True;
-  AfterClose := True;
-  btnCancel.Enabled := True;
 end;
 
 {$ENDREGION}
@@ -97,6 +90,29 @@ begin
 
   if isOk then
     Close;
+end;
+
+function TfrmMADMount.CekInput: Boolean;
+begin
+  Result := False;
+
+  {Jika Mount Name sudah ada}
+  if dmTTT.GetMADOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
+  begin
+    {Jika inputan baru}
+    if FSelectedMAD.FData.MAD_Instance_Index = 0 then
+    begin
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
+      Exit;
+    end
+    else if LastName <> edtName.Text then {dicopy}
+    begin
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
+      Exit;
+    end;
+  end;
+
+  Result := True;
 end;
 
 procedure TfrmMADMount.btnApplyClick(Sender: TObject);
@@ -113,9 +129,10 @@ begin
   begin
     LastName := edtName.Text;
     FData.Instance_Identifier := edtName.Text;
+    FData.Instance_Type := 0;
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
-    FData.Antenna_Height := StrToInt(edtAntenna.Text);
     FData.MAD_Index := FMAD_Def.MAD_Index;
+    FData.Antenna_Height := StrToFloat(edtAntenna.Text);
 
     if FData.MAD_Instance_Index = 0 then
       dmTTT.InsertMADOnBoard(FData)
@@ -123,39 +140,13 @@ begin
       dmTTT.UpdateMADOnBoard(FData);
   end;
 
-  isOK := True;
-  AfterClose := True;
   btnApply.Enabled := False;
-  btnCancel.Enabled := False;
 end;
 
 procedure TfrmMADMount.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
-end;
-
-function TfrmMADMount.CekInput: Boolean;
-begin
-  Result := False;
-
-  {Jika Mount Name sudah ada}
-  if dmTTT.GetMADOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtName.Text) then
-  begin
-    {Jika inputan baru}
-    if FSelectedMAD.FData.MAD_Instance_Index = 0 then
-    begin
-      ShowMessage('Duplicate MAD!' + Char(13) + 'Choose different MAD.');
-      Exit;
-    end
-    else if LastName <> edtName.Text then
-    begin
-      ShowMessage('Please use another class name');
-      Exit;
-    end;
-  end;
-
-  Result := True;
 end;
 
 procedure TfrmMADMount.UpdateMADData;
@@ -168,11 +159,12 @@ begin
       edtName.Text := FData.Instance_Identifier;
 
       LastName := edtName.Text;
-    edtAntenna.Text := FormatFloat('0', FData.Antenna_Height);
+
+    edtAntenna.Text := FormatFloat('0.0', FData.Antenna_Height)
   end;
 end;
 
-{$ENDREGION}
+ {$ENDREGION}
 
 {$REGION ' Filter Input '}
 
@@ -261,4 +253,5 @@ begin
 end;
 
 {$ENDREGION}
+
 end.

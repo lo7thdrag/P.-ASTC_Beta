@@ -5,8 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, ComCtrls, Vcl.Imaging.pngimage,
-  uDBBlind_Zone, uBlindZoneView, uDBAsset_Vehicle, tttData,
-  uDBAsset_Sonar ;
+  uDBBlind_Zone, uBlindZoneView, tttData, uDBAsset_Vehicle,
+  uDBAsset_Sonar, Vcl.Mask ;
 
 type
   TfrmSonarMount = class(TForm)
@@ -15,28 +15,26 @@ type
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     General: TTabSheet;
+    lblClassName: TStaticText;
+    edtClassName: TEdit;
+    lblMountExtension: TStaticText;
     cbMountExtension: TComboBox;
+    lblBlindZones: TStaticText;
+    lblHullMounted: TStaticText;
     edtHullMounted: TEdit;
-    edtDeployTime: TEdit;
-    edtStowTime: TEdit;
+    lblDeployTime: TStaticText;
+    lblStowTime: TStaticText;
+    lblFeetHullMounted: TStaticText;
+    txtDeployTime: TStaticText;
+    txtStowTime: TStaticText;
     pnlBlindZone: TPanel;
-    lbl1: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
-    lbl6: TLabel;
-    lbl7: TLabel;
-    lbl8: TLabel;
-    lbl9: TLabel;
-    lbl10: TLabel;
+    pnl3Button: TPanel;
     btnApply: TButton;
-    btnCancel: TButton;
     btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
-    edtClassName: TLabel;
+    btnCancel: TButton;
+    edtDeployTime: TMaskEdit;
+    edtStowTime: TMaskEdit;
+    txtClass: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -54,6 +52,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -70,9 +69,8 @@ type
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, btn Cancel di summary menyala}
     LastName : string;
 
-    property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-    property SelectedSonar : TSonar_On_Board read FSelectedSonar write FSelectedSonar;
-
+    property SelectedVehicle : TVehicle_Definition read FSelectedVehicle  write FSelectedVehicle;
+    property SelectedSonar : TSonar_On_Board read FSelectedSonar  write FSelectedSonar;
   end;
 
 var
@@ -81,7 +79,8 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmBlindZoneAttachment ;
+  ufrmSummaryVehicle, uDataModuleTTT, ufrmBlindZoneAttachment,
+  ufrmSonarOnBoardPickList, uVehicleSelect;
 
 {$R *.dfm}
 
@@ -89,8 +88,7 @@ uses
 
 procedure TfrmSonarMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FBlindZoneView.Free;
-  Action := cafree;
+//  FBlindZoneView.Free;
 end;
 
 procedure TfrmSonarMount.FormCreate(Sender: TObject);
@@ -106,6 +104,11 @@ begin
     Width := pnlBlindZone.Width;
     OnClick := pnlBlindZoneClick;
   end;
+end;
+
+procedure TfrmSonarMount.FormDestroy(Sender: TObject);
+begin
+  FBlindZoneView.Free;
 end;
 
 procedure TfrmSonarMount.FormShow(Sender: TObject);
@@ -134,6 +137,8 @@ begin
 end;
 
 procedure TfrmSonarMount.btnApplyClick(Sender: TObject);
+var
+  second : Integer;
 begin
   if not CekInput then
   begin
@@ -151,8 +156,12 @@ begin
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
     FData.Sonar_Index := FDef.Sonar_Index;
     FData.Minimum_Depth := StrToFloat(edtHullMounted.Text);
-    FData.Time_2_Deploy := StrToInt(edtDeployTime.Text);
-    FData.Time_2_Stow := StrToInt(edtStowTime.Text);
+
+    TimeToSecond(edtDeployTime.Text, second);
+    FData.Time_2_Deploy := second;
+
+    TimeToSecond(edtStowTime.Text, second);
+    FData.Time_2_Stow := second;
 
     if FData.Sonar_Instance_Index = 0 then
       dmTTT.InsertSonarOnBoard(FData)
@@ -190,12 +199,12 @@ begin
     {Jika inputan baru}
     if FSelectedSonar.FData.Sonar_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate sonar mount!' + Char(13) + 'Choose different mount to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -208,7 +217,6 @@ var
   i : Integer;
   blindZone : TBlind_Zone;
   zoneSector : TZoneSector;
-
 begin
   FBlindZoneView.ClearZone;
 
@@ -255,7 +263,7 @@ procedure TfrmSonarMount.pnlBlindZoneClick(Sender: TObject);
 begin
   if FSelectedSonar.FData.Sonar_Instance_Index = 0 then
   begin
-    ShowMessage('Save data before edit blind zone ');
+    ShowMessage('Simpan data terlebih dahulu sebelum mengubah nilai blind zone');
     Exit;
   end;
 
@@ -278,6 +286,8 @@ begin
 end;
 
 procedure TfrmSonarMount.UpdateSonarData;
+var
+  timeStr : string;
 begin
   with FSelectedSonar do
   begin
@@ -289,13 +299,15 @@ begin
       edtName.Text := FData.Instance_Identifier;
 
     LastName := edtName.Text;
-    edtClassName.Caption := FDef.Sonar_Identifier;
+    edtClassName.Text := FDef.Sonar_Identifier;
 
     DrawBlindZone;
 
     edtHullMounted.Text := FormatFloat('0', FData.Minimum_Depth);
-    edtDeployTime.Text := FormatFloat('0', FData.Time_2_Deploy);
-    edtStowTime.Text := FormatFloat('0', FData.Time_2_Stow);
+    SecondToTime(FData.Time_2_Deploy, timeStr);
+    edtDeployTime.Text := timeStr;
+    SecondToTime(FData.Time_2_Stow, timeStr);
+    edtStowTime.Text := timeStr;
   end;
 end;
 
@@ -361,8 +373,12 @@ end;
 
 procedure TfrmSonarMount.ValidationFormatInput;
 var
-  i: Integer;
+  i, j: Integer;
   value : Double;
+  hStr, mStr, sStr, hmSeparator, msSeparator : string;
+  h, m, s : Integer;
+  aTimeStr : string;
+  flag : Boolean;
 
 begin
   for i:=0 to ComponentCount-1 do
@@ -384,10 +400,45 @@ begin
         3: TEdit(Components[i]).Text := FormatFloat('0.000', value);
       end;
     end;
+
+    if Components[i] is TMaskEdit then
+    begin
+      aTimeStr := TMaskEdit(Components[i]).Text;
+      flag := False;
+
+      hStr := Copy(aTimeStr, 1, 2);
+      TryStrToInt(hStr, h);
+
+      mStr := Copy(aTimeStr, 4, 2);
+      TryStrToInt(mStr, m);
+
+      sStr := Copy(aTimeStr, 7, 2);
+      TryStrToInt(sStr, s);
+
+      if h > 23 then
+      begin
+        hStr := '23';
+        flag := True;
+      end;
+
+      if m > 59 then
+      begin
+        mStr := '59';
+        flag := True;
+      end;
+
+      if s > 59 then
+      begin
+        sStr := '59';
+        flag := True;
+      end;
+
+      if flag then
+        TMaskEdit(Components[i]).Text := hStr + ':' + mStr + ':' + sStr;
+    end;
   end;
 end;
 
 {$ENDREGION}
-
 
 end.

@@ -9,21 +9,20 @@ uses
 
 type
   TfrmRadarJammerMount = class(TForm)
-    pnl1Title: TPanel;
-    edtName: TEdit;
-    pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
     General: TTabSheet;
+    txtAntenna: TStaticText;
     edtAntenna: TEdit;
-    lbl1: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
+    txtFeetAntenna: TStaticText;
+    pnlMainBackground: TPanel;
+    pnl2ControlPage: TPanel;
+    pnl1Title: TPanel;
+    txtClass: TLabel;
+    edtName: TEdit;
+    pnl3Button: TPanel;
     btnApply: TButton;
-    btnCancel: TButton;
     btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
+    btnCancel: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -66,10 +65,9 @@ uses
 
 {$R *.dfm}
 
-
 {$REGION ' Form Handle '}
 
-procedure TfrmRadarJammerMount.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmRadarJammerMount.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
   Action := cafree;
 end;
@@ -101,14 +99,6 @@ end;
 
 procedure TfrmRadarJammerMount.btnApplyClick(Sender: TObject);
 begin
-  if not CekInput then
-  begin
-    isOK := False;
-    Exit;
-  end;
-
-  ValidationFormatInput;
-
   with FSelectedRadarJammer do
   begin
     LastName := edtName.Text;
@@ -146,12 +136,12 @@ begin
     {Jika inputan baru}
     if FSelectedRadarJammer.FData.Jammer_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate Radar Jammer!' + Char(13) + 'Choose Radar Jammer to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
-    else if LastName <> edtName.Text then
+    else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -168,9 +158,9 @@ begin
     else
       edtName.Text := FData.Instance_Identifier;
 
-      LastName := edtName.Text;
+    LastName := edtName.Text;
 
-    edtAntenna.Text := FormatFloat('0', FData.Antenna_Height);
+    edtAntenna.Text := FormatFloat('0.0', FData.Antenna_Height);
   end;
 end;
 
@@ -276,6 +266,5 @@ begin
 end;
 
 {$ENDREGION}
-
 
 end.

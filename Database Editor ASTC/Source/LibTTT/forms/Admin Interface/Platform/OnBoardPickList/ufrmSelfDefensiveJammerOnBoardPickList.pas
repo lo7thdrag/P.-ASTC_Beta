@@ -4,36 +4,43 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Countermeasure ;
+  Dialogs, StdCtrls, ExtCtrls, uDBAsset_Vehicle, uDBAsset_Countermeasure,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmSelfDefensiveJammerOnBoardPickList = class(TForm)
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEditMount: TButton;
+    btnRemove: TButton;
     lbAllDefensiveJammerDef: TListBox;
-    lbAllDefensiveJammerOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
-    ImgBackgroundForm: TImage;
+    lbAllDefensveJammerOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
     procedure lbAllDefensiveJammerDefClick(Sender: TObject);
-    procedure lbAllDefensiveJammerOnBoardClick(Sender: TObject);
+    procedure lbAllDefensveJammerOnBoardClick(Sender: TObject);
 
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
+    {tidak ada editmoun}
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
-    FAllDefensiveJammerDefList : TList;
+  FAllDefensiveJammerDefList : TList;
     FAllDefensiveJammerOnBoardList : TList;
 
     FSelectedVehicle : TVehicle_Definition;
@@ -44,7 +51,6 @@ type
 
   public
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
-
   end;
 
 var
@@ -53,16 +59,38 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, ufrmSummarySelfDefensiveJammer, uSimContainers;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmSelfDefensiveJammerOnBoardPickList.FormCreate(Sender: TObject);
 begin
-  FAllDefensiveJammerDefList := TList.Create;
+  FAllDefensiveJammerDefList     := TList.Create;
   FAllDefensiveJammerOnBoardList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmSelfDefensiveJammerOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllDefensiveJammerDefList);
+  FreeItemsAndFreeList(FAllDefensiveJammerOnBoardList);
+
 end;
 
 procedure TfrmSelfDefensiveJammerOnBoardPickList.FormShow(Sender: TObject);
@@ -70,7 +98,7 @@ begin
   UpdateDefensiveJammerList;
 end;
 
-{$ENDREGION}
+ {$ENDREGION}
 
 {$REGION ' Button Handle '}
 
@@ -78,11 +106,6 @@ procedure TfrmSelfDefensiveJammerOnBoardPickList.btnAddClick(Sender: TObject);
 begin
   if lbAllDefensiveJammerDef.ItemIndex = -1 then
     Exit;
-
-  if not CekInput then
-  begin
-    Exit;
-  end;
 
   with FSelectedDefensiveJammer do
   begin
@@ -100,6 +123,16 @@ begin
   UpdateDefensiveJammerList;
 end;
 
+procedure TfrmSelfDefensiveJammerOnBoardPickList.btnRemoveClick(Sender: TObject);
+begin
+  if lbAllDefensveJammerOnBoard.ItemIndex = -1 then
+    Exit;
+
+  with FSelectedDefensiveJammer.FData do
+    dmTTT.DeleteSelfDefensiveJammerOnBoard(2, Defensive_Jammer_Instance_Index);
+
+  UpdateDefensiveJammerList;
+end;
 
 function TfrmSelfDefensiveJammerOnBoardPickList.CekInput: Boolean;
 begin
@@ -119,17 +152,14 @@ begin
   Result := True;
 end;
 
-procedure TfrmSelfDefensiveJammerOnBoardPickList.btnRemoveClick(Sender: TObject);
+procedure TfrmSelfDefensiveJammerOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
 begin
-  if lbAllDefensiveJammerOnBoard.ItemIndex = -1 then
-    Exit;
-
-  with FSelectedDefensiveJammer.FData do
+  if Key = #13 then
   begin
-    dmTTT.DeleteSelfDefensiveJammerOnBoard(2, Defensive_Jammer_Instance_Index);
+    UpdateDefensiveJammerList;
   end;
 
-  UpdateDefensiveJammerList;
 end;
 
 procedure TfrmSelfDefensiveJammerOnBoardPickList.btnCloseClick(Sender: TObject);
@@ -141,40 +171,50 @@ procedure TfrmSelfDefensiveJammerOnBoardPickList.lbAllDefensiveJammerDefClick(Se
 begin
   if lbAllDefensiveJammerDef.ItemIndex = -1 then
     Exit;
-
   FSelectedDefensiveJammer := TDefensive_Jammer_On_Board(lbAllDefensiveJammerDef.Items.Objects[lbAllDefensiveJammerDef.ItemIndex]);
 end;
 
-procedure TfrmSelfDefensiveJammerOnBoardPickList.lbAllDefensiveJammerOnBoardClick(Sender: TObject);
+procedure TfrmSelfDefensiveJammerOnBoardPickList.lbAllDefensveJammerOnBoardClick(Sender: TObject);
 begin
-  if lbAllDefensiveJammerOnBoard.ItemIndex = -1 then
+  if lbAllDefensveJammerOnBoard.ItemIndex = -1 then
     Exit;
-
-  FSelectedDefensiveJammer := TDefensive_Jammer_On_Board(lbAllDefensiveJammerOnBoard.Items.Objects[lbAllDefensiveJammerOnBoard.ItemIndex]);
+  FSelectedDefensiveJammer := TDefensive_Jammer_On_Board(lbAllDefensveJammerOnBoard.Items.Objects[lbAllDefensveJammerOnBoard.ItemIndex]);
 end;
 
 procedure TfrmSelfDefensiveJammerOnBoardPickList.UpdateDefensiveJammerList;
 var
-  i : Integer;
-  definsivejammer : TDefensive_Jammer_On_Board;
+  i, j : Integer;
+  definsivejammer, definsivejammerOnboard  : TDefensive_Jammer_On_Board;
+  found : Boolean;
 begin
   lbAllDefensiveJammerDef.Items.Clear;
-  lbAllDefensiveJammerOnBoard.Items.Clear;
+  lbAllDefensveJammerOnBoard.Items.Clear;
 
-  dmTTT.GetAllSelfDefensiveJammerDef(FAllDefensiveJammerDefList);
+  dmTTT.GetFilterSelfDefensiveJammerDef(FAllDefensiveJammerDefList, edtSearch.Text);
   dmTTT.GetSelfDefensiveJammerOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllDefensiveJammerOnBoardList);
 
   for i := 0 to FAllDefensiveJammerDefList.Count - 1 do
   begin
     definsivejammer := FAllDefensiveJammerDefList.Items[i];
-    lbAllDefensiveJammerDef.Items.AddObject(definsivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammer);
+
+    found := False;
+    for j := 0 to FAllDefensiveJammerOnBoardList.Count - 1 do
+    begin
+      definsivejammerOnboard := FAllDefensiveJammerOnBoardList.Items[j];
+
+      if definsivejammerOnboard.FDefensiveJammer_Def.Defensive_Jammer_Index = definsivejammer.FDefensiveJammer_Def.Defensive_Jammer_Index then
+      begin
+        found := True;
+        Break;
+      end;
+    end;
+
+    if found then
+      lbAllDefensveJammerOnBoard.Items.AddObject(definsivejammerOnboard.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammerOnboard)
+    else
+      lbAllDefensiveJammerDef.Items.AddObject(definsivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammer);
   end;
 
-  for i := 0 to FAllDefensiveJammerOnBoardList.Count - 1 do
-  begin
-    definsivejammer := FAllDefensiveJammerOnBoardList.Items[i];
-    lbAllDefensiveJammerOnBoard.Items.AddObject(definsivejammer.FData.Instance_Identifier, definsivejammer);
-  end;
 end;
 
 {$ENDREGION}

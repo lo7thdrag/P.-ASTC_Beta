@@ -4,43 +4,50 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_Vehicle, uDBAsset_Sensor, uSimContainers;
+  Dialogs, ExtCtrls, StdCtrls, uDBAsset_Vehicle, uDBAsset_Sensor,
+  Vcl.Imaging.pngimage, uSimContainers;
 
 type
   TfrmVisualDetectorOnBoardPickList = class(TForm)
-    lbAllVisualDetectorDef: TListBox;
-    lbAllVisualDetectorOnBoard: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    Shape1: TShape;
+    pnlMain: TPanel;
+    btnAdd: TButton;
+    btnEdit: TButton;
+    btnRemove: TButton;
+    lbAllVisualDef: TListBox;
+    lbAllVisualOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
-    procedure lbAllVisualDetectorDefClick(Sender: TObject);
-    procedure lbAllVisualDetectorOnBoardClick(Sender: TObject);
+    procedure lbAllVisualDefClick(Sender: TObject);
+    procedure lbAllVisualOnBoardClick(Sender: TObject);
 
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+
 
   private
     FAllVisualDefList : TList;
     FAllVisualOnBoardList : TList;
 
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedVisual : TVisual_Sensor_On_Board;
+    FSelectedVisual, FDummyVisual : TVisual_Sensor_On_Board;
 
     procedure UpdateVisualList;
 
@@ -59,26 +66,43 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmVisualDetectorOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllVisualOnBoardList);
-  FreeItemsAndFreeList(FAllVisualDefList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmVisualDetectorOnBoardPickList.FormCreate(Sender: TObject);
-var
-  visual : TVisual_Sensor_On_Board;
 begin
   FAllVisualOnBoardList := TList.Create;
   FAllVisualDefList := TList.Create;
 
-  visual := TVisual_Sensor_On_Board.Create;
-  visual.FData.Instance_Identifier := 'Visual';
+  FDummyVisual := TVisual_Sensor_On_Board.Create;
+  FDummyVisual.FData.Instance_Identifier := 'Visual';
 
-  FAllVisualDefList.Add(visual);
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmVisualDetectorOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllVisualOnBoardList);
+  FreeItemsAndFreeList(FAllVisualDefList);
+
+  FDummyVisual.Free;
 end;
 
 procedure TfrmVisualDetectorOnBoardPickList.FormShow(Sender: TObject);
@@ -93,7 +117,7 @@ end;
 
 procedure TfrmVisualDetectorOnBoardPickList.btnAddClick(Sender: TObject);
 begin
-  if lbAllVisualDetectorDef.ItemIndex = -1 then
+  if lbAllVisualDef.ItemIndex = -1 then
     Exit;
 
   frmVisualDetectorMount := TfrmVisualDetectorMount.Create(Self);
@@ -114,7 +138,7 @@ end;
 
  procedure TfrmVisualDetectorOnBoardPickList.btnEditClick(Sender: TObject);
 begin
-  if lbAllVisualDetectorOnBoard.ItemIndex = -1 then
+  if lbAllVisualOnBoard.ItemIndex = -1 then
     Exit;
 
   frmVisualDetectorMount := TfrmVisualDetectorMount.Create(Self);
@@ -129,13 +153,13 @@ begin
   finally
     frmVisualDetectorMount.Free;
   end;
-
+  
   UpdateVisualList;
 end;
 
  procedure TfrmVisualDetectorOnBoardPickList.btnRemoveClick(Sender: TObject);
 begin
-  if lbAllVisualDetectorOnBoard.ItemIndex = -1 then
+  if lbAllVisualOnBoard.ItemIndex = -1 then
     Exit;
 
   with FSelectedVisual.FData do
@@ -147,25 +171,34 @@ begin
   UpdateVisualList;
 end;
 
+procedure TfrmVisualDetectorOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateVisualList;
+  end;
+end;
+
 procedure TfrmVisualDetectorOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmVisualDetectorOnBoardPickList.lbAllVisualDetectorDefClick(Sender: TObject);
+procedure TfrmVisualDetectorOnBoardPickList.lbAllVisualDefClick(Sender: TObject);
 begin
- if lbAllVisualDetectorDef.ItemIndex = -1 then
+ if lbAllVisualDef.ItemIndex = -1 then
     Exit;
 
-  FSelectedVisual := TVisual_Sensor_On_Board(lbAllVisualDetectorDef.Items.Objects[lbAllVisualDetectorDef.ItemIndex]);
+  FSelectedVisual := TVisual_Sensor_On_Board(lbAllVisualDef.Items.Objects[lbAllVisualDef.ItemIndex]);
 end;
 
-procedure TfrmVisualDetectorOnBoardPickList.lbAllVisualDetectorOnBoardClick(Sender: TObject);
+procedure TfrmVisualDetectorOnBoardPickList.lbAllVisualOnBoardClick(Sender: TObject);
 begin
- if lbAllVisualDetectorOnBoard.ItemIndex = -1 then
+ if lbAllVisualOnBoard.ItemIndex = -1 then
     Exit;
 
-  FSelectedVisual := TVisual_Sensor_On_Board(lbAllVisualDetectorOnBoard.Items.Objects[lbAllVisualDetectorOnBoard.ItemIndex]);
+  FSelectedVisual := TVisual_Sensor_On_Board(lbAllVisualOnBoard.Items.Objects[lbAllVisualOnBoard.ItemIndex]);
 end;
 
 procedure TfrmVisualDetectorOnBoardPickList.UpdateVisualList;
@@ -173,21 +206,20 @@ var
   i : Integer;
   visual : TVisual_Sensor_On_Board;
 begin
-  lbAllVisualDetectorDef.Items.Clear;
-  lbAllVisualDetectorOnBoard.Items.Clear;
+  lbAllVisualDef.Items.Clear;
+  lbAllVisualOnBoard.Items.Clear;
 
   dmTTT.GetVisualOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllVisualOnBoardList);
 
-  for i := 0 to FAllVisualDefList.Count - 1 do
+  if FAllVisualOnBoardList.Count = 0 then
   begin
-    visual := FAllVisualDefList.Items[i];
-    lbAllVisualDetectorDef.Items.AddObject(visual.FData.Instance_Identifier, visual);
+    lbAllVisualDef.Items.AddObject(FDummyVisual.FData.Instance_Identifier, FDummyVisual);
   end;
 
   for i := 0 to FAllVisualOnBoardList.Count - 1 do
   begin
     visual := FAllVisualOnBoardList.Items[i];
-    lbAllVisualDetectorOnBoard.Items.AddObject(visual.FData.Instance_Identifier, visual);
+    lbAllVisualOnBoard.Items.AddObject(visual.FData.Instance_Identifier, visual);
   end;
 end;
 

@@ -319,11 +319,7 @@ type
     btnApply: TButton;
     btnCancel: TButton;
     pnl1Title: TPanel;
-    txtClass: TLabel;
     edtClass: TEdit;
-    ImgHeader: TImage;
-    ImgBackgroundForm: TImage;
-    Label1: TLabel;
     imgEdit: TImage;
     lblFontTaktis: TLabel;
     lblKeteranganSymbol: TLabel;
@@ -334,6 +330,9 @@ type
     cbGangwayRear: TCheckBox;
     cbGangwayPort: TCheckBox;
     cbGangwayStarboard: TCheckBox;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
+    Label1: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);

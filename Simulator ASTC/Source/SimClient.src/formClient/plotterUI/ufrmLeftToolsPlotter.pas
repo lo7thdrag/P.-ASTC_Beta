@@ -48,7 +48,7 @@ var
 implementation
 
 uses ufTacticalDisplay, uSimMgr_Client,
-  uMapXHandler, MapXLib_TLB, Math, tttData, uBrowseMap, uRuler;
+  uMapXHandler, MapXLib_TLB, Math, tttData, uRuler, uBrowseMap;
 
 const
   CMin_Z = 0;
@@ -94,7 +94,7 @@ end;
 
 procedure TfrmLeftToolsPlotter.btnAirMapClick(Sender: TObject);
 begin
-  simMgrClient.SwitchMap(1);
+//  simMgrClient.SwitchMap(1);
 
 end;
 
@@ -137,8 +137,8 @@ begin
 
         VSimMap.SetMapCenter(simMgrClient.MyCenterHookedPlatfom.getPositionX,
               simMgrClient.MyCenterHookedPlatfom.getPositionY);
-        FLastMapCenterY := simMgrClient.MyCenterHookedPlatfom.getPositionY;
-        FLastMapCenterX := simMgrClient.MyCenterHookedPlatfom.getPositionX;
+//        FLastMapCenterY := simMgrClient.MyCenterHookedPlatfom.getPositionY;
+//        FLastMapCenterX := simMgrClient.MyCenterHookedPlatfom.getPositionX;
       except
         focusedTrack := nil;
         simMgrClient.MyCenterHookedPlatfom := nil;
@@ -186,7 +186,7 @@ end;
 
 procedure TfrmLeftToolsPlotter.btnLandMapClick(Sender: TObject);
 begin
-  simMgrClient.SwitchMap(2);
+//  simMgrClient.SwitchMap(2);
 
 end;
 
@@ -201,29 +201,37 @@ begin
       frmTacticalDisplay.btnOptions.Down := False
     else
       frmTacticalDisplay.btnOptions.Down := True;
-  frmTacticalDisplay.btnOptionsClick(nil)
+      frmTacticalDisplay.btnOptions.Click;
+
 end;
 
 procedure TfrmLeftToolsPlotter.btnPanClick(Sender: TObject);
 begin
-  if btnPan.Down then
-  begin
-    frmRuler.Close;
-    frmTacticalDisplay.Map1.CurrentTool := miPanTool;
-    frmTacticalDisplay.Map1.MousePointer := miPanCursor;
-    frmTacticalDisplay.Map1.IsPan := False;   {parameter untuk map agar tidak bisa digeser}
-    frmTacticalDisplay.StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
 
-    btnRuler.Down := False;
+  if Assigned(frmRuler) then
+  frmRuler.Hide;   // atau Close jika Action := caHide
 
-  end
-  else
-  begin
-    frmTacticalDisplay.Map1.CurrentTool := mtSelectObject;
-    frmTacticalDisplay.Map1.MousePointer := miDefaultCursor;
-    frmTacticalDisplay.Map1.IsPan := True;   {parameter untuk map agar bisa digeser}
-    frmTacticalDisplay.StatusBar1.Panels[0].Text := 'Select';
-  end;
+frmTacticalDisplay.Map1.CurrentTool := miPanTool;
+frmTacticalDisplay.Map1.MousePointer := miPanCursor;
+frmTacticalDisplay.Map1.IsPan := False;
+//  if btnPan.Down then
+//  begin
+//    frmRuler.Close;
+//    frmTacticalDisplay.Map1.CurrentTool := miPanTool;
+//    frmTacticalDisplay.Map1.MousePointer := miPanCursor;
+//    frmTacticalDisplay.Map1.IsPan := False;   {parameter untuk map agar tidak bisa digeser}
+//    frmTacticalDisplay.StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
+//
+//    btnRuler.Down := False;
+//
+//  end
+//  else
+//  begin
+//    frmTacticalDisplay.Map1.CurrentTool := mtSelectObject;
+//    frmTacticalDisplay.Map1.MousePointer := miDefaultCursor;
+//    frmTacticalDisplay.Map1.IsPan := True;   {parameter untuk map agar bisa digeser}
+//    frmTacticalDisplay.StatusBar1.Panels[0].Text := 'Select';
+//  end;
 
 end;
 
@@ -253,16 +261,16 @@ begin
     if btnRuler.Down then
     begin
 //      Map1.CurrentTool := mtRuler;
-      Map1.CurrentTool := mtSelectObject;
+      Map1.CurrentTool := miSelectTool;
       StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
 
       frmRuler.Show;
-
-      {Untuk mengembalikan tomol pan ke semula}
+//
+//      {Untuk mengembalikan tomol pan ke semula}
       btnPan.Down := False;
       Map1.IsPan := True;
-//      simMgrClient.LineVisual.Visible := True;
-//      simMgrClient.LineVisual.ShowRangeBearing := True;
+////      simMgrClient.LineVisual.Visible := True;
+////      simMgrClient.LineVisual.ShowRangeBearing := True;
     end
     else
     begin
@@ -278,7 +286,7 @@ end;
 
 procedure TfrmLeftToolsPlotter.btnSeaMapClick(Sender: TObject);
 begin
-  simMgrClient.SwitchMap(3);
+//  simMgrClient.SwitchMap(3);
 end;
 
 procedure TfrmLeftToolsPlotter.btnToolClick(Sender: TObject);

@@ -884,7 +884,7 @@ type
     procedure btnMonitorStudentClick(Sender: TObject);
     procedure mniAdd1Click(Sender: TObject);
     procedure mniRemove2Click(Sender: TObject);
-//    procedure Overlays1Click(Sender: TObject);
+    procedure Overlays1Click(Sender: TObject);
     procedure mniAutomatic1Click(Sender: TObject);
     procedure fmWeapon1btnWeaponClick(Sender: TObject);
     procedure fmPlatformGuidance1mnHelm1Click(Sender: TObject);
@@ -5657,10 +5657,10 @@ end;
 //  result := not PtInRect(Rect, pt);
 //end;
 
-//procedure TfrmTacticalDisplay.Overlays1Click(Sender: TObject);
-//begin
-//    fmOverlayEditor.Show;
-//end;
+procedure TfrmTacticalDisplay.Overlays1Click(Sender: TObject);
+begin
+    fmOverlayEditor.Show;
+end;
 
 procedure TfrmTacticalDisplay.PlatformView1Click(Sender: TObject);
 begin

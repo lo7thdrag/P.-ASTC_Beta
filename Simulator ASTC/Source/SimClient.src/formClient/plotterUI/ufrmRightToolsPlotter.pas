@@ -8,12 +8,11 @@ uses
 
 type
   TfrmRightToolsPlotter = class(TForm)
+    btnOverlayEditor: TRzBmpButton;
+    btnKeyboard: TRzBmpButton;
+    imgBackground: TImage;
     imgShow: TImage;
     pnlContent: TPanel;
-    imgBackground: TImage;
-    btnKeyboard: TRzBmpButton;
-    btnOverlayEditor: TRzBmpButton;
-    btnPlotting: TRzBmpButton;
     procedure btnKeyboardClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btnOverlayEditorClick(Sender: TObject);
@@ -42,17 +41,17 @@ end;
 
 procedure TfrmRightToolsPlotter.btnOverlayEditorClick(Sender: TObject);
 begin
-  frmTacticalDisplay.btnOverlayClick(nil);
+  frmTacticalDisplay.Overlays1Click(nil);
 end;
 
 procedure TfrmRightToolsPlotter.btnPlottingClick(Sender: TObject);
 begin
-  frmTacticalDisplay.btnPlottingClick(nil);
+//  frmTacticalDisplay.btnPlottingClick(nil);
 end;
 
 procedure TfrmRightToolsPlotter.FormActivate(Sender: TObject);
 begin
-  frmKeyboard.HandleOfTheTargetForm := Self.Handle;
+//  frmKeyboard.HandleOfTheTargetForm := Self.Handle;
 end;
 
 procedure TfrmRightToolsPlotter.imgShowClick(Sender: TObject);

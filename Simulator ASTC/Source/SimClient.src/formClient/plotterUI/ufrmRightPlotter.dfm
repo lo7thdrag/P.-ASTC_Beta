@@ -22,9 +22,8 @@ object frmRightPlotter: TfrmRightPlotter
     Height = 504
     Align = alClient
     BevelOuter = bvNone
-    Color = 3091499
+    Color = 6111773
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 120
   end
 end

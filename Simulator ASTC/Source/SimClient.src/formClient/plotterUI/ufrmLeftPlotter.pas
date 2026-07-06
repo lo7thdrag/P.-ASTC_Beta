@@ -31,7 +31,7 @@ uses
 { TfrmRight }
 
 const
-  cWidth = 186;
+  cWidth = 140;
 
 procedure TfrmLeftPlotter.FormCreate(Sender: TObject);
 begin

@@ -60,7 +60,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryInfraredDecoy, ufrmfIRmount;
+  uDataModuleTTT, ufrmSummaryInfraredDecoy, ufrmInfraRedmount;
 
 {$R *.dfm}
 
@@ -113,16 +113,16 @@ begin
   if lbAllInfraredDecoyDef.ItemIndex = -1 then
     Exit;
 
-  frmfIRmount := TfrmfIRmount.Create(Self);
+  frmInfraRedmount := TfrmInfraRedmount.Create(Self);
   try
-    with frmfIRmount do
+    with frmInfraRedmount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedInfraredDecoy := FSelectedInfraredDecoy;
       ShowModal;
     end;
   finally
-    frmfIRmount.Free;
+    frmInfraRedmount.Free;
   end;
 
   UpdateInfraredDecoyList;
@@ -133,16 +133,16 @@ begin
   if lbAllInfraredDecoyOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmfIRmount := TfrmfIRmount.Create(Self);
+  frmInfraRedmount := TfrmInfraRedmount.Create(Self);
   try
-    with frmfIRmount do
+    with frmInfraRedmount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedInfraredDecoy := FSelectedInfraredDecoy;
       ShowModal;
     end;
   finally
-    frmfIRmount.Free;
+    frmInfraRedmount.Free;
   end;
 
   UpdateInfraredDecoyList;

@@ -61,7 +61,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmBombDepthChargeMount;
+  uDataModuleTTT, ufrmBombMount;
 
 {$R *.dfm}
 
@@ -113,16 +113,16 @@ begin
   if lbAllBombDef.ItemIndex = -1 then
     Exit;
 
-  frmBombDepthChargeMount := TfrmBombDepthChargeMount.Create(Self);
+  frmBombMount := TfrmBombMount.Create(Self);
   try
-    with frmBombDepthChargeMount do
+    with frmBombMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedBomb := FSelectedBomb;
       ShowModal;
     end;
   finally
-    frmBombDepthChargeMount.Free;
+    frmBombMount.Free;
   end;
 
   UpdateBombList;
@@ -133,16 +133,16 @@ begin
   if lbAllBombOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmBombDepthChargeMount := TfrmBombDepthChargeMount.Create(Self);
+  frmBombMount := TfrmBombMount.Create(Self);
   try
-    with frmBombDepthChargeMount do
+    with frmBombMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedBomb := FSelectedBomb;
       ShowModal;
     end;
   finally
-    frmBombDepthChargeMount.Free;
+    frmBombMount.Free;
   end;
 
   UpdateBombList;

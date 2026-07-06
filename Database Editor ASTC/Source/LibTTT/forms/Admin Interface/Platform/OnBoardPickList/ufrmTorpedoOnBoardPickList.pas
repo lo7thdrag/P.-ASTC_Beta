@@ -63,7 +63,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmTorpedoMounts;
+  uDataModuleTTT, ufrmTorpedoMount;
 
 {$R *.dfm}
 
@@ -115,16 +115,16 @@ begin
   if lbAllTorpedoDef.ItemIndex = -1 then
     Exit;
 
-  frmTorpedoMounts := TfrmTorpedoMounts.Create(Self);
+  frmTorpedoMount := TfrmTorpedoMount.Create(Self);
   try
-    with frmTorpedoMounts do
+    with frmTorpedoMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedTorpedo := FSelectedTorpedo;
       ShowModal;
     end;
   finally
-    frmTorpedoMounts.Free;
+    frmTorpedoMount.Free;
   end;
 
   UpdateTorpedoList;
@@ -135,16 +135,16 @@ begin
   if lbAllTorpedoOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmTorpedoMounts := TfrmTorpedoMounts.Create(Self);
+  frmTorpedoMount := TfrmTorpedoMount.Create(Self);
   try
-    with frmTorpedoMounts do
+    with frmTorpedoMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedTorpedo := FSelectedTorpedo;
       ShowModal;
     end;
   finally
-    frmTorpedoMounts.Free;
+    frmTorpedoMount.Free;
   end;
 
   UpdateTorpedoList;

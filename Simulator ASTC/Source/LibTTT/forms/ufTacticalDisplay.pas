@@ -6026,10 +6026,8 @@ begin
         else
         begin
           if vMapSetting.FormPlotter then
-          begin
             SetupPlotterUI;
-          end
-          else if vMapSetting.FormViewer then
+          if vMapSetting.FormViewer then
           begin
             BorderStyle := bsNone;
             pnlTop.Hide;
@@ -6077,6 +6075,36 @@ begin
         GotoTime.Visible := True;
       end;
     crpCubicle:
+       begin  {0:Poltter; 1:Navigasi; 2:Atas Air; 3:BawahAir; 4:General}
+        case vGameDataSetting.Role of
+          0:
+          begin
+            {$REGION ' Plotter '}
+            SetUpPlotterUI;
+            {$ENDREGION}
+          end;
+          1:
+          begin
+            {$REGION ' Navigasi '}
+//            SetUpNavigasiUI;
+            {$ENDREGION}
+          end;
+          2:
+          begin
+            {$REGION ' Atas Air '}
+            {$ENDREGION}
+          end;
+          3:
+          begin
+            {$REGION ' BawahAir '}
+            {$ENDREGION}
+          end;
+          4:
+          begin
+            {$REGION ' General '}
+            {$ENDREGION}
+          end;
+        end;
       begin
         {Hide Menu}
         File1.Visible := False;
@@ -6133,9 +6161,10 @@ begin
         fTransferSonobuoy.btnSonobuoyControlCombo.Enabled := False;
       end;
   end;
-
+end;
   Refresh_AssumeControl;
 end;
+
 
 procedure TfrmTacticalDisplay.SetSelectedTrack(track: TSimObject);
 begin

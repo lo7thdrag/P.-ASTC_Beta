@@ -1,0 +1,28 @@
+Penting
+1. Mengecek fungsi Add, Copy, Edit, Usage dan Delete di setiap form  
+2. Mengecek memoryleak disetiap form
+3.
+
+
+
+
+- Melanjutkan Desain interface Role Navigasi (Tactical dan Tote)
+- Melanjutkan Desain interface Role Plotter (Tactical)
+- Melanjutkan Desain interface Role Atas Air (Tactical dan Tote)
+- Melanjutkan Desain interface Role Bawah Air (Tactical dan Tote)
+- Melanjutkan Desain interface Role General (Tactical dan Tote)
+
+- vehicle belum dicek semua
+
+- Game Time belum terhubung ke scenario
+
+//Plotter
+- Fitur Range Rings On Hook belum berfungsi.
+- Tombol Start dan End pada form Ruler masih mengalami error. 
+- btnCreate di form overlay Editor belum bisa.
+
+
+
+
+
+

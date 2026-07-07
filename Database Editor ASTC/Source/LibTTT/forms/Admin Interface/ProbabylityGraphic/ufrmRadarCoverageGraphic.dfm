@@ -17,6 +17,7 @@ object frmRadarCoverageGraphic: TfrmRadarCoverageGraphic
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44853,8 +44854,6 @@ object frmRadarCoverageGraphic: TfrmRadarCoverageGraphic
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 6
-    ExplicitTop = 8
     object pnlButton: TPanel
       Left = 1
       Top = 1

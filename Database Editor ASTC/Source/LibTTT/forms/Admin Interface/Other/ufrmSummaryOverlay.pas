@@ -4,31 +4,32 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, newClassASTT, uDBAsset_Geo, tttData,
-  uMainStaticShape, uMainDynamicShape, uRecord, Vcl.Imaging.pngimage,
-  Vcl.ComCtrls;
+  Dialogs, StdCtrls, ExtCtrls, Vcl.Imaging.pngimage, Vcl.ComCtrls,
+
+  newClassASTT, uDBAsset_Geo, tttData, uMainStaticShape, uMainDynamicShape, uRecord;
 
 type
   TfrmSummaryOverlay = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    pnl1Title: TPanel;
-    txtClass: TLabel;
-    edtName: TEdit;
     pnl2ControlPage: TPanel;
+    pnl1Title: TPanel;
+    pnl3Button: TPanel;
+    lbl1: TLabel;
+    edtName: TEdit;
     PageControl1: TPageControl;
     tsGeneral: TTabSheet;
-    lbl2: TLabel;
-    lbl3: TLabel;
     btnEditOverlay: TButton;
     cbbDomain: TComboBox;
     cbbType: TComboBox;
-    ImgHeader: TImage;
-    Label1: TLabel;
+    lbl2: TLabel;
+    lbl3: TLabel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
     procedure cbbTypeChange(Sender: TObject);
     procedure cbbDomainChange(Sender: TObject);
@@ -38,7 +39,6 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure edtNameChange(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
 
@@ -55,6 +55,7 @@ type
     LastName : string;
 
     property SelectedOverlay : TOverlay_Definition read FSelectedOverlay write FSelectedOverlay;
+
   end;
 
 var
@@ -67,11 +68,24 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
-procedure TfrmSummaryOverlay.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmSummaryOverlay.FormCreate(Sender: TObject);
 begin
-  Action := cafree;
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSummaryOverlay.FormShow(Sender: TObject);
@@ -115,7 +129,7 @@ begin
     {$REGION ' General '}
     FData.Overlay_Identifier := edtName.Text;
     FData.Name := edtName.Text;
-    FData.Tipe := 1;{static}
+    FData.Tipe := cbbType.ItemIndex;
     FData.Domain := cbbDomain.ItemIndex;
 
     OverlayDirOld := vAppDBSetting.OverlayPath + '\' + LastName + '.dat';
@@ -128,7 +142,7 @@ begin
     begin
       if dmTTT.InsertOverlayDef(FData) then
       begin
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -136,7 +150,7 @@ begin
       if dmTTT.UpdateOverlayDef(FData) then
       begin
         RenameFile(OverlayDirOld, OverlayDirNew);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -157,17 +171,21 @@ end;
 
 procedure TfrmSummaryOverlay.btnEditOverlayClick(Sender: TObject);
 begin
+  OverlayEditorForm := TOverlayEditorForm.Create(Self);
+  try
+    with OverlayEditorForm do
+    begin
+      SelectedOverlay := FSelectedOverlay;
+      ShowModal;
 
-  with OverlayEditorForm do
-  begin
-    SelectedOverlay := FSelectedOverlay;
-    ShowModal;
+    end;
+    AfterClose := OverlayEditorForm.AfterClose;
+
+    btnCancel.Enabled := not AfterClose;
+    btnApply.Enabled := AfterClose;
+  finally
+    OverlayEditorForm.Free;
   end;
-
-  AfterClose := OverlayEditorForm.AfterClose;
-
-  btnCancel.Enabled := not AfterClose;
-  btnApply.Enabled := true;
 end;
 
 procedure InitOleVariant(var TheVar: OleVariant);
@@ -207,6 +225,7 @@ begin
     cbbType.ItemIndex := Tipe;
     cbbDomain.ItemIndex := Domain;
 
+    cbbType.Enabled := Overlay_Index = 0;
     btnEditOverlay.Enabled := Overlay_Index <> 0;
   end;
 end;
@@ -220,7 +239,7 @@ begin
   {Jika inputan class name kosong}
   if edtName.Text = '' then
   begin
-    ShowMessage('Incomplete data input');
+    ShowMessage('Inputan tidak lengkap');
     Exit;
   end;
 
@@ -236,7 +255,7 @@ begin
     end;
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another name');
+      ShowMessage('Silahkan gunakan Name lain');
       Exit;
     end;
   end;
@@ -247,12 +266,12 @@ begin
     {Jika inputan baru}
     if FSelectedOverlay.FData.Overlay_Index = 0 then
     begin
-      ShowMessage('Please use another overlay name');
+      ShowMessage('Silahkan gunakan Name lain');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another overlay name');
+      ShowMessage('Silahkan gunakan Name lain');
       Exit;
     end;
   end;
@@ -266,6 +285,5 @@ begin
 end;
 
 {$ENDREGION}
-
 
 end.

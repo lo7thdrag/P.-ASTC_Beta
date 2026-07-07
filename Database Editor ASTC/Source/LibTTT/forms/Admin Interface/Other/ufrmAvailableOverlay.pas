@@ -4,28 +4,25 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls, newClassASTT, System.IOUtils;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+
+  newClassASTT, uSimContainers;
 
 type
   TfrmAvailableOverlay = class(TForm)
-    lstOverlay: TListBox;
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
+    pnlTableList: TPanel;
+    lstGrapicalOverlays: TListBox;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
-
-    procedure FormActivate(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
     procedure FormShow(Sender: TObject);
 
     procedure lbSingleClick(Sender: TObject);
@@ -35,9 +32,8 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure btnCloseClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure edtoverlaylistKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -45,7 +41,7 @@ type
     FSelectedOverlay : TOverlay_Definition;
 
     procedure UpdateOverlayList;
-
+    procedure CopyOverlayFileStream(fFile: String);
   end;
 
 var
@@ -54,25 +50,30 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryOverlay, ufrmUsage, uDBEditSetting;
+  uDataModuleTTT, ufrmSummaryOverlay, ufrmUsage, uDBEditSetting, ufProgress;
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableOverlay.FormActivate(Sender: TObject);
+procedure TfrmAvailableOverlay.FormDestroy(Sender: TObject);
 begin
-//  WindowState := wsMaximized;
-end;
+  FreeItemsAndFreeList(FOverlayList);
 
-procedure TfrmAvailableOverlay.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Action := cafree;
-end;
-
-procedure TfrmAvailableOverlay.FormCreate(Sender: TObject);
-begin
-  FOverlayList := TList.Create;
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableOverlay.FormShow(Sender: TObject);
@@ -86,13 +87,15 @@ end;
 
 procedure TfrmAvailableOverlay.btnNewClick(Sender: TObject);
 begin
-  frmSummaryOverlay := TfrmSummaryOverlay.Create(Self);
+
+ frmSummaryOverlay := TfrmSummaryOverlay.Create(Self);
   try
     with frmSummaryOverlay do
     begin
       SelectedOverlay := TOverlay_Definition.Create;
       ShowModal;
       FUpdateList := AfterClose;
+      SelectedOverlay.Free;
     end;
   finally
     frmSummaryOverlay.Free;
@@ -102,41 +105,37 @@ begin
     UpdateOverlayList;
 end;
 
-procedure TfrmAvailableOverlay.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmAvailableOverlay.btnCopyClick(Sender: TObject);
 var
   SourcePath, TargetPath : string;
-  oldOverlayName, newOverlayName : string;
+  newClassName, oldClassName : string;
   count : Integer;
 begin
-  if lstOverlay.ItemIndex = -1 then
+  if lstGrapicalOverlays.ItemIndex = -1 then
   begin
-    ShowMessage('Select Overlay... !');
+    ShowMessage('Silahkan pilih salah satu data Overlay ... !');
     Exit;
   end;
 
   with FSelectedOverlay do
   begin
-    oldOverlayName := FData.Overlay_Identifier;
-    newOverlayName := FData.Overlay_Identifier + ' - Copy';
+    oldClassName := FData.Overlay_Identifier;
+    newClassName := FData.Overlay_Identifier + ' - Copy';
 
-    count := dmTTT.GetOverlayDef(newOverlayName);
+    count := dmTTT.GetOverlayDef(newClassName);
 
     if count > 0 then
-      newOverlayName := newOverlayName + ' (' + IntToStr(count + 1) + ')';
+      newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
 
-    FData.Overlay_Identifier := newOverlayName;
-    FData.Name := newOverlayName;
+    FData.Overlay_Identifier := newClassName;
+    FData.Name := newClassName;
 
     dmTTT.InsertOverlayDef(FData);
+//    CopyOverlayFileStream(vAppDBSetting.OverlayPath + '\' + FData.Overlay_Filename + '.dat');
 
     {$REGION ' Copy file Overlay '}
-    SourcePath := vAppDBSetting.OverlayPath + '\'+ oldOverlayName + '.dat' ;
-    TargetPath := vAppDBSetting.OverlayPath + '\'+ newOverlayName + '.dat' ;
+    SourcePath := vAppDBSetting.OverlayPath + '\'+ oldClassName + '.dat' ;
+    TargetPath := vAppDBSetting.OverlayPath + '\'+ newClassName + '.dat' ;
 
     CopyFile(PChar(SourcePath), PChar(TargetPath), True);
     {$ENDREGION}
@@ -148,9 +147,9 @@ end;
 
 procedure TfrmAvailableOverlay.btnEditClick(Sender: TObject);
 begin
-  if lstOverlay.ItemIndex = -1 then
+  if lstGrapicalOverlays.ItemIndex = -1 then
   begin
-    ShowMessage('Select Overlay... !');
+    ShowMessage('Silahkan pilih salah satu data Overlay ... !');
     Exit;
   end;
 
@@ -162,7 +161,6 @@ begin
       ShowModal;
       FUpdateList := AfterClose;
     end;
-
   finally
     frmSummaryOverlay.Free;
   end;
@@ -176,13 +174,13 @@ var
   warning, i : Integer;
   tempList : TList;
 begin
-  if lstOverlay.ItemIndex = -1 then
+  if lstGrapicalOverlays.ItemIndex = -1 then
   begin
-    ShowMessage('Select Overlay !');
+    ShowMessage('Silahkan pilih salah satu data Overlay ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Overlay ?', mtConfirmation, mbOKCancel, 0);
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation, mbOKCancel, 0);
 
   if warning = mrOK then
   begin
@@ -192,7 +190,7 @@ begin
       tempList := TList.Create;
       if dmTTT.GetOverlayAtResourceAllocation(Overlay_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Resource Allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Resource Allocation');
         Exit;
         tempList.Destroy;
       end;
@@ -201,7 +199,7 @@ begin
       if dmTTT.DeleteOverlayDef(Overlay_Index) then
       begin
         DeleteFile(vAppDBSetting.OverlayPath + '\' + FSelectedOverlay.FData.Name + '.dat');
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
       end;
     end;
 
@@ -211,53 +209,48 @@ end;
 
 procedure TfrmAvailableOverlay.btnUsageClick(Sender: TObject);
 begin
-  if lstOverlay.ItemIndex = -1 then
+  if lstGrapicalOverlays.ItemIndex = -1 then
   begin
-    ShowMessage('Select Overlay... !');
+    ShowMessage('Silahkan pilih salah satu data Overlay ... !');
     Exit;
   end;
 
-  frmUsage := TfrmUsage.Create(Self);
-  try
-    with frmUsage do
-    begin
-      UId := FSelectedOverlay.FData.Overlay_Index;
-      name_usage := FSelectedOverlay.FData.Overlay_Identifier;
-      UIndex := 35;
+  with frmUsage do
+  begin
+    UId := FSelectedOverlay.FData.Overlay_Index;
+    name_usage := FSelectedOverlay.FData.Overlay_Identifier;
+    UIndex := 35;
 
-      ShowModal;
-    end;
-  finally
-    frmUsage.Free;
+    ShowModal;
   end;
-  
 end;
 
-procedure TfrmAvailableOverlay.edtoverlaylistKeyPress(Sender: TObject;
-  var Key: Char);
-  var
-  i : Integer;
-  overlay : TOverlay_Definition;
+procedure TfrmAvailableOverlay.CopyOverlayFileStream(fFile: String);
+var
+     Fs : TFileStream;
+begin
+
+  try
+    Fs := TFileStream.Create(fFile, fmOPENWRITE or fmCREATE);
+  except
+     Showmessage('Couldn''t save file overlay!' + #13);
+  end;
+  Fs.Free;  // << this actually writes the data to disk
+end;
+
+procedure TfrmAvailableOverlay.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-   lstOverlay.Items.Clear;
-
-//
-    dmTTT.GetfilterOverlayDef(FOverlayList,edtCheat.text);
-    for i := 0 to FOverlayList.Count - 1 do
-    begin
-    overlay := FOverlayList.Items[i];
-    lstOverlay.Items.AddObject(overlay.FData.Overlay_Identifier, overlay);
-    end;
+    UpdateOverlayList
   end;
 end;
 
 procedure TfrmAvailableOverlay.lbSingleClick(Sender: TObject);
 begin
-  if lstOverlay.ItemIndex = -1 then
+  if lstGrapicalOverlays.ItemIndex = -1 then
     Exit;
-  FSelectedOverlay := TOverlay_Definition(lstOverlay.Items.Objects[lstOverlay.ItemIndex]);
+  FSelectedOverlay := TOverlay_Definition(lstGrapicalOverlays.Items.Objects[lstGrapicalOverlays.ItemIndex]);
 end;
 
 procedure TfrmAvailableOverlay.UpdateOverlayList;
@@ -265,19 +258,24 @@ var
   i : Integer;
   overlay : TOverlay_Definition;
 begin
-  lstOverlay.Items.Clear;
+  lstGrapicalOverlays.Items.Clear;
 
-  dmTTT.GetAllOverlayDef(FOverlayList);
+//  dmTTT.GetAllOverlayDef(FOverlayList);
+  dmTTT.GetFilterOverlayDef(FOverlayList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FOverlayList.Count;
 
   for i := 0 to FOverlayList.Count - 1 do
   begin
     overlay := FOverlayList.Items[i];
-    lstOverlay.Items.AddObject(overlay.FData.Overlay_Identifier, overlay);
+    lstGrapicalOverlays.Items.AddObject(overlay.FData.Overlay_Identifier, overlay);
+    frmProgress.increase(overlay.FData.Overlay_Identifier);
   end;
-
+  frmProgress.Free;
 end;
 
 {$ENDREGION}
-
 
 end.

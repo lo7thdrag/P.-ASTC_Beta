@@ -44856,8 +44856,6 @@ object frmWaypointEditor: TfrmWaypointEditor
     BevelOuter = bvNone
     Color = 3683636
     TabOrder = 0
-    ExplicitWidth = 1432
-    ExplicitHeight = 846
     object pnlLeft: TPanel
       Left = 0
       Top = 25
@@ -44878,10 +44876,9 @@ object frmWaypointEditor: TfrmWaypointEditor
       ParentCtl3D = False
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 308
       object pnlTop2: TPanel
-        Left = 12
-        Top = 489
+        Left = 10
+        Top = 493
         Width = 294
         Height = 74
         BevelOuter = bvNone
@@ -44991,10 +44988,10 @@ object frmWaypointEditor: TfrmWaypointEditor
         end
       end
       object pnlTop: TPanel
-        Left = 11
+        Left = 10
         Top = 6
         Width = 295
-        Height = 473
+        Height = 285
         BevelOuter = bvNone
         BorderWidth = 10
         Color = 2499101
@@ -45078,133 +45075,6 @@ object frmWaypointEditor: TfrmWaypointEditor
           ShowHint = True
           OnClick = btnWaypointHadleClick
         end
-        object Label3: TLabel
-          Left = 10
-          Top = 292
-          Width = 49
-          Height = 15
-          Caption = 'Guidance'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lbl2: TLabel
-          Left = 25
-          Top = 313
-          Width = 50
-          Height = 15
-          Caption = 'Latitude :'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lbl1: TLabel
-          Left = 25
-          Top = 340
-          Width = 60
-          Height = 15
-          Caption = 'Longitude :'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lbl3: TLabel
-          Left = 25
-          Top = 367
-          Width = 81
-          Height = 15
-          Caption = 'Ground Speed :'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lbl6: TLabel
-          Left = 25
-          Top = 398
-          Width = 87
-          Height = 15
-          Caption = 'Altitude/ Depth :'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object btnControlComboInterval: TSpeedButton
-          Left = 263
-          Top = 309
-          Width = 24
-          Height = 50
-          Caption = '+'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          NumGlyphs = 2
-          ParentFont = False
-          OnClick = btnControlComboIntervalClick
-        end
-        object lbl4: TLabel
-          Left = 188
-          Top = 367
-          Width = 29
-          Height = 15
-          Caption = 'knots'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lbl5: TLabel
-          Left = 188
-          Top = 398
-          Width = 20
-          Height = 15
-          Caption = 'feet'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object btnUpdate: TSpeedButton
-          Left = 201
-          Top = 433
-          Width = 86
-          Height = 30
-          Caption = 'Update'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          NumGlyphs = 2
-          ParentFont = False
-          OnClick = btnUpdateClick
-        end
-        object Bevel1: TBevel
-          Left = 70
-          Top = 298
-          Width = 217
-          Height = 3
-        end
         object lvWaypoint: TListView
           Left = 10
           Top = 10
@@ -45249,10 +45119,160 @@ object frmWaypointEditor: TfrmWaypointEditor
           ViewStyle = vsReport
           OnClick = lvWaypointClick
         end
-        object edtAltitude: TEdit
-          Left = 118
-          Top = 394
-          Width = 63
+      end
+      object pnlWPGuidance: TPanel
+        Left = 10
+        Top = 296
+        Width = 295
+        Height = 192
+        BevelOuter = bvNone
+        Color = 2499101
+        ParentBackground = False
+        TabOrder = 2
+        object Label3: TLabel
+          Left = 10
+          Top = 10
+          Width = 49
+          Height = 15
+          Caption = 'Guidance'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Bevel1: TBevel
+          Left = 69
+          Top = 16
+          Width = 217
+          Height = 3
+        end
+        object lbl2: TLabel
+          Left = 24
+          Top = 32
+          Width = 50
+          Height = 15
+          Caption = 'Latitude :'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object btnControlComboInterval: TSpeedButton
+          Left = 262
+          Top = 28
+          Width = 24
+          Height = 50
+          Caption = '+'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          NumGlyphs = 2
+          ParentFont = False
+          OnClick = btnControlComboIntervalClick
+        end
+        object lbl1: TLabel
+          Left = 24
+          Top = 59
+          Width = 60
+          Height = 15
+          Caption = 'Longitude :'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl3: TLabel
+          Left = 24
+          Top = 86
+          Width = 81
+          Height = 15
+          Caption = 'Ground Speed :'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl4: TLabel
+          Left = 187
+          Top = 86
+          Width = 29
+          Height = 15
+          Caption = 'knots'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl6: TLabel
+          Left = 24
+          Top = 113
+          Width = 87
+          Height = 15
+          Caption = 'Altitude/ Depth :'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl5: TLabel
+          Left = 187
+          Top = 113
+          Width = 20
+          Height = 15
+          Caption = 'feet'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object btnUpdate: TSpeedButton
+          Left = 201
+          Top = 153
+          Width = 86
+          Height = 30
+          Caption = 'Update'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          NumGlyphs = 2
+          ParentFont = False
+          OnClick = btnUpdateClick
+        end
+        object edtLat: TEdit
+          Left = 117
+          Top = 28
+          Width = 142
+          Height = 23
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+        end
+        object edtLong: TEdit
+          Left = 117
+          Top = 55
+          Width = 142
           Height = 23
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -45263,8 +45283,8 @@ object frmWaypointEditor: TfrmWaypointEditor
           TabOrder = 1
         end
         object edtSpeed: TEdit
-          Left = 118
-          Top = 363
+          Left = 117
+          Top = 82
           Width = 63
           Height = 23
           Font.Charset = ANSI_CHARSET
@@ -45275,10 +45295,10 @@ object frmWaypointEditor: TfrmWaypointEditor
           ParentFont = False
           TabOrder = 2
         end
-        object edtLong: TEdit
-          Left = 118
-          Top = 336
-          Width = 142
+        object edtAltitude: TEdit
+          Left = 117
+          Top = 109
+          Width = 63
           Height = 23
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -45287,19 +45307,6 @@ object frmWaypointEditor: TfrmWaypointEditor
           Font.Style = []
           ParentFont = False
           TabOrder = 3
-        end
-        object edtLat: TEdit
-          Left = 118
-          Top = 309
-          Width = 142
-          Height = 23
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 4
         end
       end
     end
@@ -45353,8 +45360,8 @@ object frmWaypointEditor: TfrmWaypointEditor
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000038E997003D8D90
-          761F00000000000000208D90769879F20F761A67F778E9970000000000000000
+          0000000000000000000000000000000000000000000000000038CE97003D8D90
+          761F00000000000000208D90769879F20F763F67F778CE970000000000000000
           0000000088B3400000000000408F400001000001}
       end
       object pnlToolBar: TPanel
@@ -45367,7 +45374,6 @@ object frmWaypointEditor: TfrmWaypointEditor
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitWidth = 1088
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
@@ -45392,7 +45398,6 @@ object frmWaypointEditor: TfrmWaypointEditor
           Images = ilToolbar
           ParentColor = False
           TabOrder = 1
-          ExplicitWidth = 1231
           object btnDecrease: TToolButton
             Left = 0
             Top = 0
@@ -45405,7 +45410,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           end
           object cbSetScale: TComboBox
             Left = 42
-            Top = 8
+            Top = 0
             Width = 95
             Height = 21
             Hint = 'Map Scales'
@@ -45505,7 +45510,6 @@ object frmWaypointEditor: TfrmWaypointEditor
         BorderWidth = 3
         Color = 5980694
         TabOrder = 2
-        ExplicitWidth = 1256
         object grbCursorPosition: TGroupBox
           Left = 3
           Top = 3
@@ -45522,10 +45526,6 @@ object frmWaypointEditor: TfrmWaypointEditor
           ParentColor = False
           ParentFont = False
           TabOrder = 0
-          ExplicitLeft = 5
-          ExplicitTop = 6
-          ExplicitWidth = 1250
-          ExplicitHeight = 91
           object lblBearing: TLabel
             Left = 151
             Top = 12
@@ -45632,8 +45632,6 @@ object frmWaypointEditor: TfrmWaypointEditor
       BevelOuter = bvNone
       ParentBackground = False
       TabOrder = 2
-      ExplicitTop = 798
-      ExplicitWidth = 1432
       object Image2: TImage
         Left = 0
         Top = 0
@@ -45665,7 +45663,6 @@ object frmWaypointEditor: TfrmWaypointEditor
       BevelOuter = bvNone
       Color = 5980694
       TabOrder = 3
-      ExplicitTop = 859
       object Button2: TButton
         Left = 12
         Top = 6
@@ -45690,7 +45687,6 @@ object frmWaypointEditor: TfrmWaypointEditor
         BevelOuter = bvNone
         Color = 5980694
         TabOrder = 1
-        ExplicitTop = 1
         object btnClose: TButton
           Tag = 3
           Left = 126
@@ -45707,7 +45703,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           TabOrder = 0
           OnClick = btnCloseClick
         end
-        object btnOk: TButton
+        object btnSave: TButton
           Tag = 3
           Left = 40
           Top = 6
@@ -45734,7 +45730,6 @@ object frmWaypointEditor: TfrmWaypointEditor
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 4
-      ExplicitTop = 8
     end
   end
   object pmenuAction: TPopupMenu

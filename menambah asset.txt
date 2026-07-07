@@ -6,6 +6,13 @@ Penting
 4. summary waypoint perlu didesain ulang.
 
 
+Form yang perlu didesain ulang
+- form overlay editor
+- form waypoint editor
+- form game area editor
+
+
+
 
 
 - Melanjutkan Desain interface Role Navigasi (Tactical dan Tote)

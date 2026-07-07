@@ -44851,10 +44851,6 @@ object frmLogisticPickList: TfrmLogisticPickList
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 408
-    ExplicitTop = 464
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Header: TPanel
       Left = 0
       Top = 0
@@ -44877,8 +44873,6 @@ object frmLogisticPickList: TfrmLogisticPickList
       ParentShowHint = False
       ShowHint = False
       TabOrder = 0
-      ExplicitTop = 8
-      ExplicitWidth = 488
       object Label2: TLabel
         Left = 164
         Top = 15
@@ -44917,9 +44911,6 @@ object frmLogisticPickList: TfrmLogisticPickList
       BevelOuter = bvNone
       BorderWidth = 10
       TabOrder = 1
-      ExplicitTop = 42
-      ExplicitWidth = 488
-      ExplicitHeight = 559
       object lstAvailableLogistic: TListBox
         Left = 10
         Top = 10
@@ -44929,17 +44920,13 @@ object frmLogisticPickList: TfrmLogisticPickList
         BorderStyle = bsNone
         Color = clWhite
         Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = lstAvailableMotionClick
-        ExplicitLeft = 52
-        ExplicitTop = 44
-        ExplicitWidth = 331
-        ExplicitHeight = 517
       end
     end
     object pnl3Button: TPanel
@@ -44951,8 +44938,6 @@ object frmLogisticPickList: TfrmLogisticPickList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitTop = 595
-      ExplicitWidth = 488
       object btnCancel: TButton
         Left = 402
         Top = 1

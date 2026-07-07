@@ -9,11 +9,6 @@ uses
 
 type
   TfrmSummaryWaypoint = class(TForm)
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
     pnl1Title: TPanel;
     txtClass: TLabel;
     edtName: TEdit;
@@ -21,7 +16,8 @@ type
     PageControl1: TPageControl;
     tsGeneral: TTabSheet;
     btnEditWaypoint: TButton;
-    Label1: TLabel;
+    imgBackground: TImage;
+    pnlMainBAckground: TPanel;
 
     procedure edtChange(Sender: TObject);
 

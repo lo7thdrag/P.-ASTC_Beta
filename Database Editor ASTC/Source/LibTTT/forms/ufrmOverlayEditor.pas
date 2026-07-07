@@ -935,7 +935,7 @@ begin
   ShowMessage('Data has been saved');
 
   RefreshMousePointer;
-  btnPan.Down := false;
+//  btnPan.Down := false;
   btnZoom.Down := false;
   AfterClose := True;
   Close;
@@ -1996,8 +1996,8 @@ end;
 procedure TOverlayEditorForm.LoadNormalButtonImage;
 begin
   btnZoom.ImageIndex := 2;
-  btnPan.ImageIndex := 3;
-  btnout.ImageIndex := 7;
+//  btnPan.ImageIndex := 3;
+//  btnout.ImageIndex := 7;
 end;
 
 procedure TOverlayEditorForm.Map1DrawUserLayer(ASender: TObject;
@@ -2296,7 +2296,7 @@ end;
 
 procedure TOverlayEditorForm.btnZoomClick(Sender: TObject);
 begin
-  btnPan.Down := not btnPan.Down;
+//  btnPan.Down := not btnPan.Down;
   btnZoom.Down := false;
             btnruler.Down := False;
   FMapCursor := mcSelect;
@@ -2305,10 +2305,10 @@ begin
   Map1.CurrentTool := miPanTool;
   Map1.MousePointer := miPanCursor;
 
-  btnSelect.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
+//  btnSelect.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
   pnlStatic.Visible := false;
-  btnPan.ImageIndex := 6;
+//  btnPan.ImageIndex := 6;
 end;
 
 procedure TOverlayEditorForm.btnPasteArcClick(Sender: TObject);
@@ -2575,26 +2575,26 @@ begin
   Map1.CurrentTool := miSelectTool;
   Map1.MousePointer := miDefaultCursor;
 
-  btnSelect.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
-  btnText.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnText_Normal.PNG');
-  btnLine.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnLine_Normal.PNG');
-  btnRectangle.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnRectangle_Normal.PNG');
-  btnCircle.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnCircle_Normal.PNG');
-  btnEllipse.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnEllipse_Normal.PNG');
-  btnArc.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnArc_Normal.PNG');
-  btnSector.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnSector_Normal.PNG');
-  btnGrid.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnGrid_Normal.PNG');
-  btnPolygon.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnPolygon_Normal.PNG');
+//  btnSelect.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
+//  btnText.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnText_Normal.PNG');
+//  btnLine.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnLine_Normal.PNG');
+//  btnRectangle.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnRectangle_Normal.PNG');
+//  btnCircle.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnCircle_Normal.PNG');
+//  btnEllipse.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnEllipse_Normal.PNG');
+//  btnArc.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnArc_Normal.PNG');
+//  btnSector.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnSector_Normal.PNG');
+//  btnGrid.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnGrid_Normal.PNG');
+//  btnPolygon.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnPolygon_Normal.PNG');
 
   FisNoFill := True;
 end;
@@ -3074,8 +3074,8 @@ procedure TOverlayEditorForm.btnLayerToolClick(Sender: TObject);
 begin
   // if btnZoom.Down then
   // btnZoom.Down := False;
-  btnout.Down := not btnout.Down;
-  btnPan.Down := false;
+//  btnout.Down := not btnout.Down;
+//  btnPan.Down := false;
 
   FMapCursor := mcSelect;
   LoadNormalButtonImage;
@@ -3083,16 +3083,16 @@ begin
   Map1.CurrentTool := miZoomoutTool;
   Map1.MousePointer := miZoomoutCursor;
 
-  btnSelect.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
+//  btnSelect.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
   pnlStatic.Visible := false;
-  btnout.ImageIndex := 8;
+//  btnout.ImageIndex := 8;
 end;
 
 procedure TOverlayEditorForm.btnCloseClick(Sender: TObject);
 begin
   RefreshMousePointer;
-  btnPan.Down := false;
+//  btnPan.Down := false;
   btnZoom.Down := false;
 
   FMapCursor := mcSelect;

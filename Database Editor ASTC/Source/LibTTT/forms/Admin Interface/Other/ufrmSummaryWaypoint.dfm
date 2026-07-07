@@ -44963,6 +44963,7 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
+        OnClick = btnApplyClick
       end
       object btnCancel: TButton
         Left = 276
@@ -44978,6 +44979,7 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 1
+        OnClick = btnCancelClick
       end
       object btnOK: TButton
         Left = 106
@@ -44993,6 +44995,7 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 2
+        OnClick = btnOKClick
       end
     end
   end

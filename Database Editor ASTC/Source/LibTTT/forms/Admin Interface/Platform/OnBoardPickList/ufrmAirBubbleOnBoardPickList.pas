@@ -25,8 +25,6 @@ type
     pnl5: TPanel;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -78,11 +76,6 @@ begin
 end;
 
 {$REGION ' Form Handle '}
-
-procedure TfrmAirBubbleOnBoardPickList.FormClose(Sender: TObject;var Action: TCloseAction);
-begin
-//  Action := cafree;
-end;
 
 procedure TfrmAirBubbleOnBoardPickList.FormCreate(Sender: TObject);
 begin
@@ -159,8 +152,7 @@ begin
   UpdateAirBubbleList;
 end;
 
-procedure TfrmAirBubbleOnBoardPickList.edtSearchKeyPress(Sender: TObject;
-  var Key: Char);
+procedure TfrmAirBubbleOnBoardPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
@@ -201,6 +193,7 @@ begin
   dmTTT.GetFilterAirBubbleDef(FAllAirBubbleDefList, edtSearch.Text);
   dmTTT.GetAirBubbleOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllAirBubbleOnBoardList);
 
+  {$REGION ' Print Available '}
   for i := 0 to FAllAirBubbleDefList.Count - 1 do
   begin
     avaAirBubble := FAllAirBubbleDefList.Items[i];
@@ -217,13 +210,18 @@ begin
       end;
     end;
 
-    if found then
-      lbAirBubbleOnBoard.Items.AddObject(selAirBubble.FData.Instance_Identifier,
-        selAirBubble)
-    else
-      lbAllAirBubbleDef.Items.AddObject(
-        avaAirBubble.FAirBubble_Def.Air_Bubble_Identifier, avaAirBubble);
+    if not found then
+      lbAllAirBubbleDef.Items.AddObject(avaAirBubble.FAirBubble_Def.Air_Bubble_Identifier, avaAirBubble);
   end;
+  {$ENDREGION}
+
+  {$REGION ' Print Onboard '}
+  for j := 0 to FAllAirBubbleOnBoardList.Count - 1 do
+  begin
+    selAirBubble := FAllAirBubbleOnBoardList.Items[j];
+    lbAirBubbleOnBoard.Items.AddObject(selAirBubble.FData.Instance_Identifier, selAirBubble)
+  end;
+  {$ENDREGION}
 end;
 
 {$ENDREGION}

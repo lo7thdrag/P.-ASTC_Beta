@@ -25,8 +25,6 @@ type
     pnl5: TPanel;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -79,11 +77,6 @@ end;
 
 {$REGION ' Form Handle '}
 
-
-procedure TfrmInfraredDecoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-//  Action := cafree;
-end;
 
 procedure TfrmInfraredDecoyOnBoardPickList.FormCreate(Sender: TObject);
 begin
@@ -160,8 +153,7 @@ begin
   UpdateInfraredDecoyList;
 end;
 
-procedure TfrmInfraredDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
-  var Key: Char);
+procedure TfrmInfraredDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
@@ -200,6 +192,7 @@ begin
   dmTTT.GetFilterInfraredDecoyDef(FAllInfraredDecoyDefList, edtSearch.Text);
   dmTTT.GetInfraredDecoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllInfraredDecoyOnBoardList);
 
+  {$REGION ' Print Available '}
   for i := 0 to FAllInfraredDecoyDefList.Count - 1 do
   begin
     infrareddecoy := FAllInfraredDecoyDefList.Items[i];
@@ -216,11 +209,18 @@ begin
       end;
     end;
 
-    if found then
-      lbAllInfraredDecoyOnBoard.Items.AddObject(infrareddecoyOnBoard.FInfraRedDecoy_Def.Infrared_Decoy_Identifier, infrareddecoyOnBoard)
-    else
+    if not found then
       lbAllInfraredDecoyDef.Items.AddObject(infrareddecoy.FInfraRedDecoy_Def.Infrared_Decoy_Identifier, infrareddecoy);
   end;
+  {$ENDREGION}
+
+  {$REGION ' Print Onboard '}
+  for j := 0 to FAllInfraredDecoyOnBoardList.Count - 1 do
+  begin
+    infrareddecoyOnBoard := FAllInfraredDecoyOnBoardList.Items[j];
+    lbAllInfraredDecoyOnBoard.Items.AddObject(infrareddecoyOnBoard.FInfraRedDecoy_Def.Infrared_Decoy_Identifier, infrareddecoyOnBoard)
+  end;
+  {$ENDREGION}
 
 end;
 

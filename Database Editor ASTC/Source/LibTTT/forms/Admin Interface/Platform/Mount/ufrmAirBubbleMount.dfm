@@ -44972,6 +44972,7 @@ object frmAirBubbleMount: TfrmAirBubbleMount
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
+        OnClick = btnApplyClick
       end
       object btnOK: TButton
         Left = 177
@@ -44986,6 +44987,7 @@ object frmAirBubbleMount: TfrmAirBubbleMount
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 1
+        OnClick = btnOKClick
       end
       object btnCancel: TButton
         Left = 344
@@ -45000,6 +45002,7 @@ object frmAirBubbleMount: TfrmAirBubbleMount
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 2
+        OnClick = btnCancelClick
       end
     end
   end

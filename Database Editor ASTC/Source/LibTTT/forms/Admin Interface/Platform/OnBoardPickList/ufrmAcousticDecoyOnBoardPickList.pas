@@ -25,8 +25,6 @@ type
     pnl5: TPanel;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -80,11 +78,6 @@ end;
 
 {$REGION ' Form Handle '}
 
-
-procedure TfrmAcousticDecoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-//  Action := cafree;
-end;
 
 procedure TfrmAcousticDecoyOnBoardPickList.FormCreate(Sender: TObject);
 begin
@@ -163,8 +156,7 @@ begin
   UpdateAcousticDecoyList;
 end;
 
-procedure TfrmAcousticDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
-  var Key: Char);
+procedure TfrmAcousticDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
@@ -206,6 +198,7 @@ begin
   dmTTT.GetFilterAcousticDecoyDef(FAllAcousticDecoyDefList, edtSearch.Text);
   dmTTT.GetAcousticDecoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllAcousticDecoyOnBoardList);
 
+  {$REGION ' Print Available '}
   for i := 0 to FAllAcousticDecoyDefList.Count - 1 do
   begin
     acousticdecoy := FAllAcousticDecoyDefList.Items[i];
@@ -222,13 +215,21 @@ begin
       end;
     end;
 
-    if found then
-      lbAllAcousticDecoyOnBoard.Items.AddObject(acousticdecoyonboard.FAccousticDecoy_Def.Decoy_Identifier, acousticdecoyonboard)
-    else
+    if not found then
       lbAllAcousticDecoyDef.Items.AddObject(acousticdecoy.FAccousticDecoy_Def.Decoy_Identifier, acousticdecoy);
-  end;
-end;
 
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Print Onboard '}
+  for j := 0 to FAllAcousticDecoyOnBoardList.Count - 1 do
+  begin
+    acousticdecoyonboard := FAllAcousticDecoyOnBoardList.Items[j];
+    lbAllAcousticDecoyOnBoard.Items.AddObject(acousticdecoyonboard.FAccousticDecoy_Def.Decoy_Identifier, acousticdecoyonboard)
+  end;
+  {$ENDREGION}
+
+end;
 
 {$ENDREGION}
 

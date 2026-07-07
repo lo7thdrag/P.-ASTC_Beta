@@ -25,8 +25,6 @@ type
     pnl5: TPanel;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -78,12 +76,6 @@ begin
 end;
 
 {$REGION ' Form Handle '}
-
-
-procedure TfrmFloatingDecoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-//  Action := cafree;
-end;
 
 procedure TfrmFloatingDecoyOnBoardPickList.FormCreate(Sender: TObject);
 begin
@@ -160,8 +152,7 @@ begin
   UpdateFloatingDecoyList;
 end;
 
-procedure TfrmFloatingDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
-  var Key: Char);
+procedure TfrmFloatingDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
@@ -190,8 +181,10 @@ end;
 
 procedure TfrmFloatingDecoyOnBoardPickList.UpdateFloatingDecoyList;
 var
-  i : Integer;
-  floatingdecoy : TFloating_Decoy_On_Board;
+  i, j : Integer;
+  floatingdecoy, floatingdecoyonboard : TFloating_Decoy_On_Board;
+  found : Boolean;
+
 begin
   lbAllFloatingDecoyDef.Items.Clear;
   lbAllFloatingDecoyOnBoard.Items.Clear;
@@ -199,17 +192,37 @@ begin
   dmTTT.GetFilterFloatingDecoyDef(FAllFloatingDecoyDefList, edtSearch.Text);
   dmTTT.GetFloatingDecoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllFloatingDecoyOnBoardList);
 
+  {$REGION ' Print Available '}
   for i := 0 to FAllFloatingDecoyDefList.Count - 1 do
   begin
     floatingdecoy := FAllFloatingDecoyDefList.Items[i];
-    lbAllFloatingDecoyDef.Items.AddObject(floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier, floatingdecoy);
-  end;
 
-  for i := 0 to FAllFloatingDecoyOnBoardList.Count - 1 do
-  begin
-    floatingdecoy := FAllFloatingDecoyOnBoardList.Items[i];
-    lbAllFloatingDecoyOnBoard.Items.AddObject(floatingdecoy.FData.Instance_Identifier, floatingdecoy);
+    found := False;
+    for j := 0 to FAllFloatingDecoyOnBoardList.Count - 1 do
+    begin
+      floatingdecoyonboard := FAllFloatingDecoyDefList.Items[j];
+
+      if floatingdecoyonboard.FFloatingDecoy_Def.Floating_Decoy_Index = floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Index then
+      begin
+        found := True;
+        Break;
+      end;
+    end;
+
+    if not found then
+      lbAllFloatingDecoyDef.Items.AddObject(floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier, floatingdecoy);
+
   end;
+  {$ENDREGION}
+
+  {$REGION ' Print Onboard '}
+  for j := 0 to FAllFloatingDecoyOnBoardList.Count - 1 do
+  begin
+    floatingdecoyonboard := FAllFloatingDecoyOnBoardList.Items[j];
+    lbAllFloatingDecoyOnBoard.Items.AddObject(floatingdecoyonboard.FFloatingDecoy_Def.Floating_Decoy_Identifier, floatingdecoyonboard)
+  end;
+  {$ENDREGION}
+
 end;
 
 {$ENDREGION}

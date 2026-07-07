@@ -44850,10 +44850,6 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 168
-    ExplicitTop = -40
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44906,7 +44902,7 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
       Left = 10
       Top = 65
       Width = 348
-      Height = 248
+      Height = 209
       BevelOuter = bvNone
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
@@ -44919,18 +44915,16 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
         Left = 0
         Top = 0
         Width = 348
-        Height = 248
+        Height = 209
         ActivePage = tsGeneral
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 273
-        ExplicitHeight = 169
+        ExplicitHeight = 248
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 265
-          ExplicitHeight = 129
+          ExplicitHeight = 208
           object btnEditWaypoint: TButton
             Left = 60
             Top = 91
@@ -44941,6 +44935,64 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
             OnClick = btnEditWaypointClick
           end
         end
+      end
+    end
+    object pnl3Button: TPanel
+      Left = 0
+      Top = 280
+      Width = 368
+      Height = 43
+      Align = alBottom
+      BevelOuter = bvNone
+      Color = 2499101
+      TabOrder = 2
+      ExplicitLeft = 1
+      ExplicitTop = 279
+      ExplicitWidth = 366
+      object btnApply: TButton
+        Left = 191
+        Top = 3
+        Width = 80
+        Height = 30
+        Cursor = crHandPoint
+        Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+      end
+      object btnCancel: TButton
+        Left = 276
+        Top = 3
+        Width = 80
+        Height = 30
+        Cursor = crHandPoint
+        Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+      end
+      object btnOK: TButton
+        Left = 106
+        Top = 3
+        Width = 80
+        Height = 30
+        Cursor = crHandPoint
+        Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 2
       end
     end
   end

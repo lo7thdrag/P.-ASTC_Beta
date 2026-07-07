@@ -18,6 +18,10 @@ type
     btnEditWaypoint: TButton;
     imgBackground: TImage;
     pnlMainBAckground: TPanel;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
 
     procedure edtChange(Sender: TObject);
 

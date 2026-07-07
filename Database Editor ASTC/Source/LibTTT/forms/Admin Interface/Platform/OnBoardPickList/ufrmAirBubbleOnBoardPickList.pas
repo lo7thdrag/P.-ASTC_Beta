@@ -210,8 +210,7 @@ begin
     begin
       selAirBubble := FAllAirBubbleOnBoardList.Items[j];
 
-      if selAirBubble.FAirBubble_Def.Air_Bubble_Index = avaAirBubble.
-        FAirBubble_Def.Air_Bubble_Index then
+      if selAirBubble.FAirBubble_Def.Air_Bubble_Index = avaAirBubble.FAirBubble_Def.Air_Bubble_Index then
       begin
         found := True;
         Break;

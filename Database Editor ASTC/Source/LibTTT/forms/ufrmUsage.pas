@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAssetObject;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAssetObject, Vcl.Imaging.pngimage;
 
 type
   TfrmUsage = class(TForm)
@@ -16,6 +16,8 @@ type
     btnPrint: TButton;
     PrintDialog1: TPrintDialog;
     lbl1: TLabel;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnOkClick(Sender: TObject);

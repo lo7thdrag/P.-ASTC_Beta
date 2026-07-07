@@ -145459,7 +145459,7 @@ object frmUserMainForm: TfrmUserMainForm
       TabOrder = 3
       object pnl1ExerciseBody: TPanel
         Left = 20
-        Top = 701
+        Top = 485
         Width = 321
         Height = 25
         Align = alTop
@@ -145469,6 +145469,7 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 0
+        ExplicitTop = 701
         object Image3: TImage
           Left = 32
           Top = 79
@@ -145655,7 +145656,7 @@ object frmUserMainForm: TfrmUserMainForm
       end
       object pnl1Exercise: TPanel
         Left = 20
-        Top = 661
+        Top = 445
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -145666,7 +145667,7 @@ object frmUserMainForm: TfrmUserMainForm
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 1
-        ExplicitTop = 445
+        ExplicitTop = 661
         object imgExercise: TImage
           Left = 0
           Top = 0
@@ -147628,7 +147629,7 @@ object frmUserMainForm: TfrmUserMainForm
       end
       object pnl1ExerciseSparator: TPanel
         Left = 20
-        Top = 726
+        Top = 510
         Width = 321
         Height = 20
         Align = alTop
@@ -147638,7 +147639,7 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 4
-        ExplicitTop = 510
+        ExplicitTop = 726
       end
       object pnl2PlatformsSparator: TPanel
         Left = 20
@@ -151434,7 +151435,7 @@ object frmUserMainForm: TfrmUserMainForm
         Left = 20
         Top = 400
         Width = 321
-        Height = 241
+        Height = 25
         Align = alTop
         BevelOuter = bvNone
         BorderWidth = 3
@@ -151763,7 +151764,7 @@ object frmUserMainForm: TfrmUserMainForm
       end
       object pnl6OtherSparator: TPanel
         Left = 20
-        Top = 641
+        Top = 425
         Width = 321
         Height = 20
         Align = alTop
@@ -151773,12 +151774,12 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 17
-        ExplicitTop = 425
+        ExplicitTop = 641
       end
       object pnl8Shutdown: TPanel
         Tag = 2
         Left = 20
-        Top = 746
+        Top = 530
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -151789,7 +151790,7 @@ object frmUserMainForm: TfrmUserMainForm
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 18
-        ExplicitTop = 530
+        ExplicitTop = 746
         object imgShutdown: TImage
           Tag = 36
           Left = 0
@@ -152734,7 +152735,7 @@ object frmUserMainForm: TfrmUserMainForm
       end
       object pnl8ShutdownBody: TPanel
         Left = 20
-        Top = 786
+        Top = 570
         Width = 321
         Height = 25
         Align = alTop
@@ -152744,7 +152745,7 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 19
-        ExplicitTop = 570
+        ExplicitTop = 786
         object Image66: TImage
           Left = 32
           Top = 17
@@ -152792,7 +152793,7 @@ object frmUserMainForm: TfrmUserMainForm
       end
       object pnl8ShutdownSparator: TPanel
         Left = 20
-        Top = 811
+        Top = 595
         Width = 321
         Height = 8
         Align = alTop
@@ -152802,7 +152803,7 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 20
-        ExplicitTop = 595
+        ExplicitTop = 811
       end
       object pnl3Sensors: TPanel
         Tag = 2

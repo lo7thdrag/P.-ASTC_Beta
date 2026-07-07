@@ -5782,6 +5782,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -5794,6 +5795,7 @@ begin
     end
     else
       aList := TList.Create;
+    {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -5812,8 +5814,7 @@ begin
           Game_X_Dimension := FieldByName('Game_X_Dimension').AsFloat;
           Game_Y_Dimension := FieldByName('Game_Y_Dimension').AsFloat;
           Use_Real_World := FieldByName('Use_Real_World').AsInteger;
-          Use_Artificial_Landmass := FieldByName('Use_Artificial_Landmass')
-            .AsInteger;
+          Use_Artificial_Landmass := FieldByName('Use_Artificial_Landmass').AsInteger;
           Detail_Map := FieldByName('Detail_Map').AsString;
         end;
 

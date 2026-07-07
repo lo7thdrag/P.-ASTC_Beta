@@ -5,38 +5,37 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uDBAssetObject;
+
+  uDBAssetObject, uSimContainers;
 
 type
   TfrmAvailableWaypoint = class(TForm)
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
+    lbl1: TLabel;
+    pnlTableButton: TPanel;
+    imgDelete: TImage;
+    imgEdit: TImage;
+    imgCopy: TImage;
+    imgNew: TImage;
+    imgUsage: TImage;
+    lbl2: TLabel;
+    edtSearch: TEdit;
+    pnlTableList: TPanel;
     lstWaypoint: TListBox;
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
-    Label2: TLabel;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
-    btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
     procedure lbSingleClick(Sender: TObject);
 
-    procedure btnNewClick(Sender: TObject);
-    procedure btnCopyClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDeleteClick(Sender: TObject);
-    procedure btnUsageClick(Sender: TObject);
+    procedure imgNewClick(Sender: TObject);
+    procedure imgCopyClick(Sender: TObject);
+    procedure imgEditClick(Sender: TObject);
+    procedure imgDeleteClick(Sender: TObject);
+    procedure imgUsageClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure edtwaypointlistKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -51,21 +50,36 @@ var
 
 implementation
 
-{$R *.dfm}
-
 uses
   uDataModuleTTT, ufrmSummaryWaypoint, ufrmUsage;
 
-{$REGION ' Form Handle '}
+{$R *.dfm}
 
-procedure TfrmAvailableWaypoint.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  Action := cafree;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableWaypoint.FormCreate(Sender: TObject);
 begin
   FWaypointList := TList.Create;
+end;
+
+procedure TfrmAvailableWaypoint.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FWaypointList);
+
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableWaypoint.FormShow(Sender: TObject);
@@ -77,7 +91,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmAvailableWaypoint.btnNewClick(Sender: TObject);
+procedure TfrmAvailableWaypoint.imgNewClick(Sender: TObject);
 begin
   frmSummaryWaypoint := TfrmSummaryWaypoint.Create(Self);
   try
@@ -100,7 +114,7 @@ begin
  Close;
 end;
 
-procedure TfrmAvailableWaypoint.btnCopyClick(Sender: TObject);
+procedure TfrmAvailableWaypoint.imgCopyClick(Sender: TObject);
 var
   newClassName : string;
   count : Integer;
@@ -128,7 +142,7 @@ begin
   UpdateWaypointList;
 end;
 
-procedure TfrmAvailableWaypoint.btnEditClick(Sender: TObject);
+procedure TfrmAvailableWaypoint.imgEditClick(Sender: TObject);
 begin
   if lstWaypoint.ItemIndex = -1 then
   begin
@@ -153,7 +167,7 @@ begin
     UpdateWaypointList;
 end;
 
-procedure TfrmAvailableWaypoint.btnDeleteClick(Sender: TObject);
+procedure TfrmAvailableWaypoint.imgDeleteClick(Sender: TObject);
 var
   warning : Integer;
   tempList: TList;
@@ -161,11 +175,11 @@ var
 begin
   if lstWaypoint.ItemIndex = -1 then
   begin
-    ShowMessage('Select Waypoint Data ... !');
+    ShowMessage('Silahkan pilih salah satu data waypoint !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Waypoint Data ?', mtConfirmation,
+  warning := MessageDlg('Apakah anda yakin ingin menghapus Data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -177,7 +191,7 @@ begin
       {Pengecekan Relasi Dengan Resource Allocation}
       if dmTTT.GetWaypointAtResourceAllocation(Waypoint_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by Resource Allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang digunakan di Resource Allocation');
         tempList.Free;
         Exit;
       end;
@@ -187,7 +201,7 @@ begin
 
       if dmTTT.DeleteWaypointDef(Waypoint_Index) then
       begin
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data berhasil dihapus');
       end;
     end;
 
@@ -195,7 +209,7 @@ begin
   end;
 end;
 
-procedure TfrmAvailableWaypoint.btnUsageClick(Sender: TObject);
+procedure TfrmAvailableWaypoint.imgUsageClick(Sender: TObject);
 begin
   if lstWaypoint.ItemIndex = -1 then
   begin
@@ -219,23 +233,11 @@ begin
   
 end;
 
-procedure TfrmAvailableWaypoint.edtwaypointlistKeyPress(Sender: TObject;
-  var Key: Char);
-  var
-  i : Integer;
-  waypoint : TWaypoint_Def;
+procedure TfrmAvailableWaypoint.edtwaypointlistKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-
- lstWaypoint.Items.Clear;
-
-  dmTTT.GetFilterWaypointDef(FWaypointList,edtCheat.text);
-    for i := 0 to FWaypointList.Count - 1 do
-    begin
-     waypoint := FWaypointList.Items[i];
-    lstWaypoint.Items.AddObject(waypoint.FData.Waypoint_Name, waypoint);
-    end;
+    UpdateWaypointList
   end;
 end;
 
@@ -255,7 +257,7 @@ var
 begin
   lstWaypoint.Items.Clear;
 
-  dmTTT.GetAllWaypointDef(FWaypointList);
+  dmTTT.GetFilterWaypointDef(FWaypointList, edtSearch.text);
 
   for i := 0 to FWaypointList.Count - 1 do
   begin

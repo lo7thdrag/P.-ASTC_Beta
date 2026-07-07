@@ -8,20 +8,19 @@ uses
 
 type
   TfrmAvailableGameArea = class(TForm)
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
+    lbl1: TLabel;
+    pnlTableButton: TPanel;
+    imgDelete: TImage;
+    imgEdit: TImage;
+    imgCopy: TImage;
+    imgNew: TImage;
+    imgUsage: TImage;
+    lbl2: TLabel;
+    edtSearch: TEdit;
+    pnlTableList: TPanel;
     lstGameArea: TListBox;
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
-    Label2: TLabel;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
-    btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -29,14 +28,13 @@ type
 
     procedure lbSingleClick(Sender: TObject);
 
-    procedure btnNewClick(Sender: TObject);
-    procedure btnCopyClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnUsageClick(Sender: TObject);
-    procedure btnDeleteClick(Sender: TObject);
+    procedure imgNewClick(Sender: TObject);
+    procedure imgCopyClick(Sender: TObject);
+    procedure imgEditClick(Sender: TObject);
+    procedure imgUsageClick(Sender: TObject);
+    procedure imgDeleteClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure edtgameareaKeyPress(Sender: TObject; var Key: Char);
-//    procedure edtgameareaKeyPress(Sender: TObject; var Key: Char);
 
   private
     FUpdateList : Boolean;
@@ -56,9 +54,8 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmUsage,
-  usimDBEditor, uExerciseArea, uGameAreaSelection,
-  uBaseCoordSystem, uChooseMap,ufrmSummaryGameAreaEditor,{uENCSelect,} uDBEditSetting, ufrmAdminMainForm, uDBAsset_Geo;
+  uDataModuleTTT, uChooseMap, ufrmSummaryGameAreaEditor, ufrmUsage, uDBEditSetting,
+  IOUtils;
 
 {$R *.dfm}
 
@@ -83,7 +80,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmAvailableGameArea.btnNewClick(Sender: TObject);
+procedure TfrmAvailableGameArea.imgNewClick(Sender: TObject);
 begin
   frmSummaryGameAreaEditor := TfrmSummaryGameAreaEditor.Create(Self);
   try
@@ -107,7 +104,7 @@ begin
   Close;
 end;
 
-procedure TfrmAvailableGameArea.btnCopyClick(Sender: TObject);
+procedure TfrmAvailableGameArea.imgCopyClick(Sender: TObject);
 var
   SourcePath, TargetPath : string;
   oldAreaName, newAreaName : string;
@@ -147,7 +144,7 @@ begin
   UpdateGameAreaList;
 end;
 
-procedure TfrmAvailableGameArea.btnEditClick(Sender: TObject);
+procedure TfrmAvailableGameArea.imgEditClick(Sender: TObject);
 begin
   if lstGameArea.ItemIndex = -1 then
   begin
@@ -171,7 +168,7 @@ begin
     UpdateGameAreaList;
 end;
 
-procedure TfrmAvailableGameArea.btnDeleteClick(Sender: TObject);
+procedure TfrmAvailableGameArea.imgDeleteClick(Sender: TObject);
 var
   warning : Integer;
   tempList : TList;
@@ -219,7 +216,7 @@ begin
   end;
 end;
 
-procedure TfrmAvailableGameArea.btnUsageClick(Sender: TObject);
+procedure TfrmAvailableGameArea.imgUsageClick(Sender: TObject);
 begin
   if lstGameArea.ItemIndex = -1 then
   begin
@@ -303,23 +300,11 @@ begin
 end;
 
 
-procedure TfrmAvailableGameArea.edtgameareaKeyPress(Sender: TObject;
-  var Key: Char);
-  var
-  i : Integer;
-  gameArea : TGame_Environment_Definition;
+procedure TfrmAvailableGameArea.edtgameareaKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-    lstGameArea.Items.Clear;
-
-    dmTTT.GetfilterGameAreadef(FGameAreaList, edtCheat.text);
-
-    for i := 0 to FGameAreaList.Count - 1 do
-    begin
-      gamearea  := FGameAreaList[i];
-      lstGameArea.Items.AddObject(gamearea.FGameArea.Game_Area_Identifier, gamearea);
-    end;
+    UpdateGameAreaList
   end;
 end;
 
@@ -330,7 +315,7 @@ var
 begin
   lstGameArea.Items.Clear;
 
-  dmTTT.GetAllGameAreaDef(FGameAreaList);
+  dmTTT.GetfilterGameAreadef(FGameAreaList, edtSearch.text);
 
   for i := 0 to FGameAreaList.Count - 1 do
   begin

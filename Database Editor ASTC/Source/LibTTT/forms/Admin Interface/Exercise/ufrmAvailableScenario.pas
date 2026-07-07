@@ -4,230 +4,851 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, uDBAssetObject, Vcl.Imaging.pngimage, Vcl.ExtCtrls;
+  Dialogs, StdCtrls, uDBAssetObject, uDBAsset_Deploy, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls,
+
+  uDBAsset_GameEnvironment, uSimContainers;
 
 type
-  TfrmAvailableScenario = class(TForm)
-    lbScenarioList: TListBox;
-    btNew: TButton;
-    btEdit: TButton;
-    lbScenarioListIndex: TListBox;
-    btCopy: TButton;
-    btRemove: TButton;
-    btUsage: TButton;
-    btClose: TButton;
-    btFilter: TButton;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
-    btnDelete: TImage;
-    procedure FormShow(Sender: TObject);
-    procedure btNewClick(Sender: TObject);
-    procedure btEditClick(Sender: TObject);
-    procedure btCloseClick(Sender: TObject);
-    procedure btCopyClick(Sender: TObject);
-    procedure getScenario;
-    procedure FormCreate(Sender: TObject);
-    procedure btRemoveClick(Sender: TObject);
-    procedure lbScenarioListClick(Sender: TObject);
-    procedure btUsageClick(Sender: TObject);
-    procedure lbScenarioListDblClick(Sender: TObject);
-    procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
-  private
-    { Private declarations }
-    procedure getDataScenario;
+  TUpdatePlatformID = class
+
   public
-    { Public declarations }
+    OldId :  Integer;
+    NewId : Integer;
+
+  end;
+
+  TfrmAvailableScenario = class(TForm)
+    Image1: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
+    Label2: TLabel;
+    pnlTableButton: TPanel;
+    btnDelete: TImage;
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    pnlTableList: TPanel;
+    lstScenarioList: TListBox;
+    Label1: TLabel;
+    edtSearch: TEdit;
+
+    procedure FormShow(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
+    procedure lstScenarioListClick(Sender: TObject);
+
+    procedure btnNewClick(Sender: TObject);
+    procedure btnCopyClick(Sender: TObject);
+    procedure btnEditClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+
+  private
+    FUpdateList : Boolean;
+    FScenarioList : TList;
+    FIdTranslateList : TList;
+
+    FOldEnvironmentIndex : Integer;
+    FOldAssetDeploymentndex : Integer;
+    FOldResourceAllocationIndex : Integer;
+
+    FSelectedScenario : TScenario_Definition;
+    FSelectedAssetDeployment : TAsset_Deployment;
+    FSelectedResourceAllocation : TResource_Allocation;
+    FSelectedEnvironment : TGame_Environment_Definition;
+    FSelectedGameArea : TGame_Area_Definition;
+
+    function TranslatePlatformID(aOldPlatformIndex: Integer): Integer;
+
+    procedure UpdateScenarioList;
+
+    procedure CopyScenario;
+    procedure CopyPlatform(const aNewResourceAllocationIndex, aNewDeploymentIndex: Integer);
+    procedure CopyOverlay(const aNewResourceAllocationIndex: Integer);
+    procedure CopyRPL(const aNewResourceAllocationIndex: Integer);
+    procedure CopyWaypoint(const aNewResourceAllocationIndex: Integer);
+    procedure CopyPlatformActivation(const aNewDeploymentIndex: Integer);
+    procedure CopyCubicleGroup(const aNewDeploymentIndex: Integer);
+    procedure CopyCubicleGroupPlatformAndCommunication(const aCubGroupIndex, aNewCubGroupIndex, aNewDeploymentIndex: Integer);
 
   end;
 
 var
   frmAvailableScenario: TfrmAvailableScenario;
-  scenarioList      : TList;
-  id_scenario : string;
-  scenario          : TScenario_Definition;
 
 implementation
 
-uses uSimDBEditor,ufrmSummaryScenario, uDataModuleTTT, uDBAsset_Deploy,
-  uDBAsset_Cubicle, uDBFormation, ufrmUsage;
+uses
+  uDataModuleTTT, ufrmSummaryScenario, ufrmUsage, newClassASTT;
 
 {$R *.dfm}
 
-procedure TfrmAvailableScenario.btCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmAvailableScenario.btCopyClick(Sender: TObject);
-begin
- if lbScenarioList.ItemIndex = -1 then
- begin
-   Exit;
- end
- else begin
-//  frmSummaryScenario.isCopy := True;
-//  frmSummaryScenario.isNew := True;
-  getDataScenario;
- end;
-
-end;
-
-procedure TfrmAvailableScenario.btEditClick(Sender: TObject);
-begin
- //ambil nilai point scenario yg diload saja
- //CurrentClient := lstClients.Items.Objects [lstClients.ItemIndex] as TClient;
-// frmSummaryScenario.isCopy := False;
- //id_scenario := lbScenarioListIndex.Items.Strings[lbScenarioList.ItemIndex];
- getDataScenario;
-end;
-
-procedure TfrmAvailableScenario.getDataScenario;
-begin
-//  with frmSummaryScenario do begin
-//   isNew               := False;
-//   id_scenario         := lbScenarioListIndex.Items.Strings[lbScenarioList.ItemIndex];
-//   if isCopy then
-//   begin
-//      edScenarioName.Text := 'Copy Of ' + lbScenarioList.Items.Strings[lbScenarioList.ItemIndex];
-//      isNew := True;
-//      frmSummaryScenario.Apply.Enabled := true;
-//   end
-//   else begin
-//      edScenarioName.Text := lbScenarioList.Items.Strings[lbScenarioList.ItemIndex];
-//      frmSummaryScenario.Apply.Enabled := false;
-//      edResourceAllocation.Text:=IntToStr(ResourceAllocation.FData.Resource_Alloc_Index);
-//   end;
-//   selectedScenario    := StrToInt(lbScenarioListIndex.Items.Strings[lbScenarioList.ItemIndex]);
-//   Showmodal;
-// end;
-end;
-
-procedure TfrmAvailableScenario.btNewClick(Sender: TObject);
-begin
-//  with frmSummaryScenario do begin
-//    edScenarioName.Text := '[Noname]';
-//    edResourceAllocation.Text := '[None]';
-//    isNew := True;
-//    btGroups.Enabled := False;
-//    btLinks.Enabled  := False;
-//
-//    ShowModal;
-//  end;
-end;
-
-procedure TfrmAvailableScenario.btRemoveClick(Sender: TObject);
+procedure EnableComposited(WinControl:TWinControl);
 var
-  mList : TList;
-  asset : TAsset_Deployment;
-  cubicle : TCubicle_Group;
-  I: Integer;
-  warning: Integer;
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  if lbScenarioList.ItemIndex <> -1 then
-  begin
-    warning := MessageDlg('Are you sure you want to delete this item?',mtConfirmation,mbOKCancel,0);
-    if warning = mrOK then
-    begin
-      mList := TList.Create;
-      asset := TAsset_Deployment.Create;
-      cubicle := TCubicle_Group.Create;
-      dmTTT.GetAssetDeployment(StrToInt(lbScenarioListIndex.Items.Strings[lbScenarioList.ItemIndex]),asset);
-      dmTTT.getAllCubicle_Groups(asset.FData.Deployment_Index, 0, mList, cubicle);
-      for I := 0 to mList.Count - 1 do
-      begin
-        dmTTT.deleteCubicle_Group(IntToStr(TCubicle_Group(mList[I]).FData.Group_Index));
-      end;
-      mList.Clear;
-      dmTTT.deleteAllLink_Part(IntToStr(asset.FData.Deployment_Index));
-      dmTTT.deleteAllLink_Def(IntToStr(asset.FData.Deployment_Index));
-      dmTTT.getFormationDefinition(asset.FData.Deployment_Index, mList);
-      for I := 0 to mList.Count - 1 do
-      begin
-        dmTTT.deleteAllFormation_Assign(IntToStr(TFormation(mList[I]).FFormation_Def.Formation_Index));
-        dmTTT.deleteFormation_Def(IntToStr(TFormation(mList[I]).FFormation_Def.Formation_Index));
-      end;
-      dmTTT.deletePlatformActivationByDeploy(IntToStr(asset.FData.Deployment_Index));
-      dmTTT.DeleteAsset_Deployment_Definition(IntToStr(asset.FData.Deployment_Index));
-      dmTTT.DeleteScenario_Definition(IntToStr(asset.FData.Scenario_Index));
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
 
-      getScenario;
-    end;
-  end;
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
 
-procedure TfrmAvailableScenario.btUsageClick(Sender: TObject);
-begin
-  if lbScenarioList.ItemIndex <> -1 then begin
-    with frmUsage do begin
-      UIndex  := -1;
-      ShowModal;
-    end;
-  end;
-end;
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableScenario.FormCreate(Sender: TObject);
 begin
-  scenarioList := Tlist.Create;
-  scenario     := TScenario_Definition.Create;
+  FScenarioList := TList.Create;
+  FSelectedAssetDeployment := TAsset_Deployment.Create;
 end;
 
-procedure TfrmAvailableScenario.FormShortCut(var Msg: TWMKey;
-  var Handled: Boolean);
+procedure TfrmAvailableScenario.FormDestroy(Sender: TObject);
 begin
-  if GetKeyState(VK_ESCAPE)< 0 then
-  begin
-    case Msg.CharCode of
-     VK_ESCAPE:
-     begin
-       btClose.Click;
-     end;
-    end;
-  end;
+  FreeItemsAndFreeList(FScenarioList);
+  FreeAndNil(FSelectedAssetDeployment);
+
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableScenario.FormShow(Sender: TObject);
 begin
-   getScenario;
-   btEdit.Enabled := False;
-   btCopy.Enabled := False;
-   btRemove.Enabled := False;
-   btUsage.Enabled  := False;
-   btFilter.Enabled := False;
-
+  UpdateScenarioList;
 end;
 
-procedure TfrmAvailableScenario.getScenario;
-var I : integer;
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TfrmAvailableScenario.btnNewClick(Sender: TObject);
+begin
+  frmSummaryScenario := TfrmSummaryScenario.Create(Self);
+  try
+    with frmSummaryScenario do
+    begin
+      SelectedScenario := TScenario_Definition.Create;
+      SelectedAssetDeployment := FSelectedAssetDeployment;
+      ShowModal;
+//      FUpdateList := AfterClose;
+    end;
+  finally
+    frmSummaryScenario.Free;
+  end;
+
+  if FUpdateList then
+    UpdateScenarioList;
+end;
+
+procedure TfrmAvailableScenario.btnCopyClick(Sender: TObject);
+var
+  newClassName : string;
+  count, parentIndex : Integer;
+
+begin
+  if lstScenarioList.ItemIndex = -1 then
+  begin
+    ShowMessage('Silahkan pilih salah satu data Scenario ... !');
+    Exit;
+  end;
+
+  CopyScenario;
+  UpdateScenarioList;
+end;
+
+procedure TfrmAvailableScenario.btnEditClick(Sender: TObject);
+begin
+  if lstScenarioList.ItemIndex = -1 then
+  begin
+    ShowMessage('Silahkan pilih salah satu data Scenario ... !');
+    Exit;
+  end;
+
+  frmSummaryScenario := TfrmSummaryScenario.Create(Self);
+  try
+    with frmSummaryScenario do
+    begin
+      SelectedScenario := FSelectedScenario;
+      SelectedAssetDeployment := FSelectedAssetDeployment;
+      ShowModal;;
+//      FUpdateList := AfterClose;
+    end;
+  finally
+    frmSummaryScenario.Free;
+  end;
+
+  if FUpdateList then
+    UpdateScenarioList;
+end;
+
+procedure TfrmAvailableScenario.btnDeleteClick(Sender: TObject);
+var
+  warning : Integer;
+begin
+  if lstScenarioList.ItemIndex = -1 then
+  begin
+    ShowMessage('Silahkan pilih salah satu data Scenario ... !');
+    Exit;
+  end;
+
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
+    mbOKCancel, 0);
+
+  if warning = mrOK then
+  begin
+    {$REGION ' Delete Aset Deployment '}
+    with FSelectedAssetDeployment.FData do
+    begin
+      dmTTT.DeletePlatformActivation(1, Deployment_Index);
+
+      dmTTT.DeleteCubicleGroupAssignment(1, Deployment_Index);
+      dmTTT.DeleteCubicleGroupChannelAssignment(1, Deployment_Index);
+      dmTTT.DeleteCubicleGroup(1, Deployment_Index);
+    end;
+    {$ENDREGION}
+
+    {$REGION ' Delete Scenario Definition '}
+    with FSelectedScenario.FData do
+      dmTTT.DeleteScenarioDef(Scenario_Index);
+    {$ENDREGION}
+
+    {$REGION ' Delete Resource Allocation '}
+    with FSelectedResourceAllocation.FData do
+    begin
+      dmTTT.DeletePlatformInstance(1, Resource_Alloc_Index);
+      dmTTT.DeleteResourceBaseMapping(1, Resource_Alloc_Index, 0, 0);
+      dmTTT.DeleteResourceOverlayMapping(1, Resource_Alloc_Index);
+
+      dmTTT.DeleteResourceRPLMapping(1, Resource_Alloc_Index, 0);
+      dmTTT.DeleteResourceWaypointMapping(1, Resource_Alloc_Index, 0);
+
+      dmTTT.DeleteResourceAllocationDef(Resource_Alloc_Index);
+    end;
+    {$ENDREGION}
+
+    {$REGION ' Delete Environment '}
+    with FSelectedEnvironment.FData do
+    begin
+      dmTTT.DeleteGlobalConvergenceZone(Game_Enviro_Index);
+
+      dmTTT.DeleteEnvironmentDef(Game_Enviro_Index)
+    end;
+    {$ENDREGION}
+
+    UpdateScenarioList;
+  end;
+end;
+
+procedure TfrmAvailableScenario.lstScenarioListClick(Sender: TObject);
+begin
+  if lstScenarioList.ItemIndex = -1 then
+    Exit;
+
+  FSelectedScenario := TScenario_Definition(lstScenarioList.Items.Objects[lstScenarioList.ItemIndex]);
+
+  with FSelectedScenario.FData do
+    dmTTT.GetAssetDeployment(Scenario_Index, FSelectedAssetDeployment);
+end;
+
+function TfrmAvailableScenario.TranslatePlatformID(aOldPlatformIndex: Integer): Integer;
+var
+  i : Integer;
+  idTemp : TUpdatePlatformID;
+
+begin
+  Result := 0;
+
+  for i := 0 to FIdTranslateList.Count - 1 do
+  begin
+    idTemp := FIdTranslateList.Items[i];
+
+    if idTemp.OldId = aOldPlatformIndex then
+    begin
+      Result := idTemp.NewId;
+    end;
+  end;
+end;
+
+procedure TfrmAvailableScenario.CopyCubicleGroup(const aNewDeploymentIndex: Integer);
+var
+  i, j, parentIndex : Integer;
+  tempList : TList;
+  cubicleTemp : TCubicle_Group_Assignment;
+
+begin
+  tempList := TList.Create;
+
+  dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, 1, tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    cubicleTemp := tempList.Items[i];
+
+    with cubicleTemp do
+    begin
+      parentIndex := FData.Group_Index;
+      FData.Deployment_Index := aNewDeploymentIndex;
+
+      dmTTT.InsertCubicleGroup(FData);
+    end;
+  end;
+  tempList.Clear;
+
+  dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, 3, tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    cubicleTemp := tempList.Items[i];
+
+    with cubicleTemp do
+    begin
+      parentIndex := FData.Group_Index;
+      FData.Deployment_Index := aNewDeploymentIndex;
+
+      dmTTT.InsertCubicleGroup(FData);
+    end;
+  end;
+
+  tempList.Free;
+end;
+
+procedure TfrmAvailableScenario.CopyCubicleGroupPlatformAndCommunication(const aCubGroupIndex, aNewCubGroupIndex, aNewDeploymentIndex: Integer);
+var
+  cubGroupList : TList;
+  i : Integer;
+  cubGroup : TCubicle_Group_Assignment;
+begin
+  cubGroupList := TList.Create;
+
+  dmTTT.GetCubicleGroupAssignment(aCubGroupIndex, cubGroupList);
+
+  for i := 0 to cubGroupList.Count - 1 do
+  begin
+    cubGroup := cubGroupList.Items[i];
+
+    with cubGroup do
+    begin
+      FCubicle.Group_Index := aNewCubGroupIndex;
+      FCubicle.Deployment_Index := aNewDeploymentIndex;
+
+      dmTTT.InsertCubicleGroupAssignment(FCubicle);
+    end;
+  end;
+
+  for i := 0 to cubGroupList.Count - 1 do
+  begin
+    cubGroup := cubGroupList.Items[i];
+    cubGroup.Free;
+  end;
+
+  cubGroupList.Clear;
+
+  dmTTT.GetCubicleGroupChannelAssignment(aCubGroupIndex, cubGroupList);
+
+  for i := 0 to cubGroupList.Count - 1 do
+  begin
+    cubGroup := cubGroupList.Items[i];
+
+    with cubGroup do
+    begin
+      FChannel.Group_Index := aNewCubGroupIndex;
+//      FChannel.Deployment_Index := aNewDeploymentIndex;
+
+      dmTTT.InsertCubicleGroupChannelAssignment(FChannel);
+    end;
+  end;
+
+  for i := 0 to cubGroupList.Count - 1 do
+  begin
+    cubGroup := cubGroupList.Items[i];
+    cubGroup.Free;
+  end;
+
+  cubGroupList.Free;
+end;
+
+procedure TfrmAvailableScenario.CopyOverlay(const aNewResourceAllocationIndex: Integer);
+var
+  i, j : Integer;
+  tempList : TList;
+  overlayTemp : TResource_Overlay_Mapping;
+
+begin
+  tempList := TList.Create;
+
+  {$REGION ' Force  '}
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  1, tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    overlayTemp := tempList.Items[i];
+
+    with overlayTemp do
+    begin
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertResourceOverlayMapping(FData);
+    end;
+  end;
+  tempList.Clear;
+  {$ENDREGION}
+
+  {$REGION ' Force  '}
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  2, tempList);
+  for j := 0 to tempList.Count - 1 do
+  begin
+    overlayTemp := tempList.Items[j];
+
+    with overlayTemp do
+    begin
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertResourceOverlayMapping(FData);
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Force  '}
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  3, tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    overlayTemp := tempList.Items[i];
+
+    with overlayTemp do
+    begin
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertResourceOverlayMapping(FData);
+    end;
+  end;
+  tempList.Clear;
+  {$ENDREGION}
+
+  {$REGION ' Force  '}
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  4, tempList);
+  for j := 0 to tempList.Count - 1 do
+  begin
+    overlayTemp := tempList.Items[j];
+
+    with overlayTemp do
+    begin
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertResourceOverlayMapping(FData);
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Force  '}
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  5, tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    overlayTemp := tempList.Items[i];
+
+    with overlayTemp do
+    begin
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertResourceOverlayMapping(FData);
+    end;
+  end;
+  tempList.Clear;
+  {$ENDREGION}
+
+  {$REGION ' Force  '}
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  6, tempList);
+  for j := 0 to tempList.Count - 1 do
+  begin
+    overlayTemp := tempList.Items[j];
+
+    with overlayTemp do
+    begin
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertResourceOverlayMapping(FData);
+    end;
+  end;
+  {$ENDREGION}
+
+  tempList.Free;
+end;
+
+procedure TfrmAvailableScenario.CopyPlatform(const aNewResourceAllocationIndex, aNewDeploymentIndex: Integer);
+var
+  i, j : Integer;
+  tempList : TList;
+  platformTemp : TPlatform_Instance;
+  idTranslateTemp : TUpdatePlatformID;
+  oldPlatformID : Integer;
+
+begin
+  tempList := TList.Create;
+  FIdTranslateList.Clear;
+
+  {$REGION ' Force  '}
+  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, 1, tempList);
+  for j := 0 to tempList.Count - 1 do
+  begin
+    platformTemp := tempList.Items[j];
+
+    with platformTemp do
+    begin
+      oldPlatformID := FData.Platform_Instance_Index;
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertPlatformInstance(FData);
+
+      {Copy Platform Activation}
+      if dmTTT.GetPlatformActivation(FOldAssetDeploymentndex, oldPlatformID, FActivation) > 0 then
+      begin
+        FActivation.Deployment_Index := aNewDeploymentIndex;
+        FActivation.Platform_Instance_Index := FData.Platform_Instance_Index;
+
+        dmTTT.InsertPlatformActivation(FActivation);
+      end;
+
+      idTranslateTemp := TUpdatePlatformID.Create;
+      with idTranslateTemp do
+      begin
+        OldId := oldPlatformID;
+        NewId := FData.Platform_Instance_Index;
+
+        FIdTranslateList.Add(idTranslateTemp);
+      end;
+    end;
+  end;
+  tempList.Clear;
+  {$ENDREGION}
+
+  {$REGION ' Force  '}
+  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, 2, tempList);
+  for j := 0 to tempList.Count - 1 do
+  begin
+    platformTemp := tempList.Items[j];
+
+    with platformTemp do
+    begin
+      oldPlatformID := FData.Platform_Instance_Index;
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertPlatformInstance(FData);
+
+      {Copy Platform Activation}
+      if dmTTT.GetPlatformActivation(FOldAssetDeploymentndex, oldPlatformID, FActivation) > 0 then
+      begin
+        FActivation.Deployment_Index := aNewDeploymentIndex;
+        FActivation.Platform_Instance_Index := FData.Platform_Instance_Index;
+
+        dmTTT.InsertPlatformActivation(FActivation);
+      end;
+
+      idTranslateTemp := TUpdatePlatformID.Create;
+      with idTranslateTemp do
+      begin
+        OldId := oldPlatformID;
+        NewId := FData.Platform_Instance_Index;
+
+        FIdTranslateList.Add(idTranslateTemp);
+      end;
+    end;
+  end;
+  tempList.Clear;
+  {$ENDREGION}
+
+  {$REGION ' Force  '}
+  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, 3, tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    platformTemp := tempList.Items[i];
+
+    with platformTemp do
+    begin
+      oldPlatformID := FData.Platform_Instance_Index;
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertPlatformInstance(FData);
+
+      {Copy Platform Activation}
+      if dmTTT.GetPlatformActivation(FOldAssetDeploymentndex, oldPlatformID, FActivation) > 0 then
+      begin
+        FActivation.Deployment_Index := aNewDeploymentIndex;
+        FActivation.Platform_Instance_Index := FData.Platform_Instance_Index;
+
+        dmTTT.InsertPlatformActivation(FActivation);
+      end;
+
+      idTranslateTemp := TUpdatePlatformID.Create;
+      with idTranslateTemp do
+      begin
+        OldId := oldPlatformID;
+        NewId := FData.Platform_Instance_Index;
+
+        FIdTranslateList.Add(idTranslateTemp);
+      end;
+    end;
+  end;
+  tempList.Clear;
+  {$ENDREGION}
+
+  {$REGION ' Force  '}
+  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, 4, tempList);
+  for j := 0 to tempList.Count - 1 do
+  begin
+    platformTemp := tempList.Items[j];
+
+    with platformTemp do
+    begin
+      oldPlatformID := FData.Platform_Instance_Index;
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertPlatformInstance(FData);
+
+      {Copy Platform Activation}
+      if dmTTT.GetPlatformActivation(FOldAssetDeploymentndex, oldPlatformID, FActivation) > 0 then
+      begin
+        FActivation.Deployment_Index := aNewDeploymentIndex;
+        FActivation.Platform_Instance_Index := FData.Platform_Instance_Index;
+
+        dmTTT.InsertPlatformActivation(FActivation);
+      end;
+
+      idTranslateTemp := TUpdatePlatformID.Create;
+      with idTranslateTemp do
+      begin
+        OldId := oldPlatformID;
+        NewId := FData.Platform_Instance_Index;
+
+        FIdTranslateList.Add(idTranslateTemp);
+      end;
+    end;
+  end;
+  tempList.Clear;
+  {$ENDREGION}
+
+  {$REGION ' Force  '}
+  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, 5, tempList);
+  for j := 0 to tempList.Count - 1 do
+  begin
+    platformTemp := tempList.Items[j];
+
+    with platformTemp do
+    begin
+      oldPlatformID := FData.Platform_Instance_Index;
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertPlatformInstance(FData);
+
+      {Copy Platform Activation}
+      if dmTTT.GetPlatformActivation(FOldAssetDeploymentndex, oldPlatformID, FActivation) > 0 then
+      begin
+        FActivation.Deployment_Index := aNewDeploymentIndex;
+        FActivation.Platform_Instance_Index := FData.Platform_Instance_Index;
+
+        dmTTT.InsertPlatformActivation(FActivation);
+      end;
+
+      idTranslateTemp := TUpdatePlatformID.Create;
+      with idTranslateTemp do
+      begin
+        OldId := oldPlatformID;
+        NewId := FData.Platform_Instance_Index;
+
+        FIdTranslateList.Add(idTranslateTemp);
+      end;
+    end;
+  end;
+  tempList.Clear;
+  {$ENDREGION}
+
+  {$REGION ' Force  '}
+  dmTTT.GetPlatformActivation(aNewDeploymentIndex, tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    platformTemp := tempList.Items[i];
+
+    with platformTemp do
+    begin
+      FActivation.Host_ID := TranslatePlatformID(FActivation.Host_ID);
+      dmTTT.UpdatePlatformActivation(FActivation);
+    end;
+  end;
+  {$ENDREGION}
+
+  tempList.Free;
+end;
+
+procedure TfrmAvailableScenario.CopyPlatformActivation(const aNewDeploymentIndex: Integer);
+var
+  i : Integer;
+  tempList : TList;
+  platformTemp : TPlatform_Instance;
+
+begin
+  tempList := TList.Create;
+
+  dmTTT.GetPlatformActivation(FOldAssetDeploymentndex, tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    platformTemp := tempList.Items[i];
+
+    with platformTemp do
+    begin
+      FActivation.Deployment_Index := aNewDeploymentIndex;
+      dmTTT.InsertPlatformActivation(FActivation);
+    end;
+  end;
+  tempList.Free;
+end;
+
+procedure TfrmAvailableScenario.CopyRPL(const aNewResourceAllocationIndex: Integer);
+var
+  i : Integer;
+  tempList : TList;
+  rplTemp : TResource_Library_Mapping;
+
+begin
+  tempList := TList.Create;
+
+  dmTTT.GetResourceRPLMapping(FOldResourceAllocationIndex, tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    rplTemp := tempList.Items[i];
+
+    with rplTemp do
+    begin
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertResourceRPLMapping(FData);
+    end;
+  end;
+  tempList.Free;
+end;
+
+procedure TfrmAvailableScenario.CopyScenario;
+var
+  newScenarioName : string;
+  count, parentIndex : Integer;
+
 begin
 
-//get all scenario name
- uSimDBEditor.getPLatforms(scenarioList);
+  {$REGION ' Pengecekan nama scenario baru '}
+  with FSelectedScenario do
+  begin
+    newScenarioName := FData.Scenario_Identifier + ' - Copy';
 
- lbScenarioList.Clear;
- lbScenarioListIndex.Clear;
+    count := dmTTT.GetScenarioDef(newScenarioName);
 
- for I := 0 to scenarioList.Count - 1 do
- begin
-  lbScenarioList.Items.Add(TScenario_Definition(scenarioList[i]).FData.Scenario_Identifier);
-  lbScenarioListIndex.Items.Add(IntToStr(TScenario_Definition(scenarioList[I]).FData.Scenario_Index));
- end;
+    if count > 0 then
+      newScenarioName := newScenarioName + ' (' + IntToStr(count + 1) + ')';
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Insert Environtment '}
+  with FSelectedEnvironment do
+  begin
+    FOldEnvironmentIndex := FData.Game_Enviro_Index;
+
+    FData.Game_Enviro_Identifier := 'Scenario - ' + newScenarioName;
+    dmTTT.InsertEnvironmentDef(FData);
+
+    FGlobal_Conv.Game_Enviro_Index := FData.Game_Enviro_Index;
+    dmTTT.InsertGlobalConvergenceZone(FGlobal_Conv);
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Insert Resource Allocation '}
+  with FSelectedResourceAllocation do
+  begin
+    FOldResourceAllocationIndex := FData.Resource_Alloc_Index;
+
+    FData.Allocation_Identifier := 'Scenario - ' + newScenarioName;
+    FData.Game_Enviro_Index := FSelectedEnvironment.FData.Game_Enviro_Index;
+    dmTTT.InsertResourceAllocationDef(FData);
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Insert Scenario '}
+  with FSelectedScenario do
+  begin
+    FData.Resource_Alloc_Index := FSelectedResourceAllocation.FData.Resource_Alloc_Index;
+
+    FData.Scenario_Identifier := newScenarioName;
+    FData.Scenario_Code := 0;
+
+    if dmTTT.InsertScenarioDef(FSelectedScenario.FData) then
+    begin
+      with FSelectedAssetDeployment do
+      begin
+        FOldAssetDeploymentndex :=  FData.Deployment_Index;
+        FData.Deployment_Identifier := '(Scenario ' + newScenarioName + ')';
+        FData.Scenario_Index := FSelectedScenario.FData.Scenario_Index;
+
+        dmTTT.InsertAssetDeployment(FSelectedAssetDeployment.FData);
+      end;
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Copy Semua Resource '}
+
+  {Copy Platform}
+  CopyPlatform(FSelectedResourceAllocation.FData.Resource_Alloc_Index, FSelectedAssetDeployment.FData.Deployment_Index);
+
+  {Copy Overlay}
+  CopyOverlay(FSelectedResourceAllocation.FData.Resource_Alloc_Index);
+
+  {Copy RPL}
+  CopyRPL(FSelectedResourceAllocation.FData.Resource_Alloc_Index);
+
+  {Copy Waypoint}
+  CopyWaypoint(FSelectedResourceAllocation.FData.Resource_Alloc_Index);
+
+  {Copy Cubicle Group}
+  CopyCubicleGroup(FSelectedAssetDeployment.FData.Deployment_Index);
+
+  {$ENDREGION}
 
 end;
 
+procedure TfrmAvailableScenario.CopyWaypoint(const aNewResourceAllocationIndex: Integer);
+var
+  i : Integer;
+  tempList : TList;
+  waypointTemp : TResource_Waypoint_Mapping;
 
-procedure TfrmAvailableScenario.lbScenarioListClick(Sender: TObject);
 begin
-  btEdit.Enabled := True;
-  btCopy.Enabled := True;
-  btRemove.Enabled := True;
-  btUsage.Enabled  := True;
+  tempList := TList.Create;
+
+  dmTTT.GetResourceWaypointMapping(FOldResourceAllocationIndex, tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    waypointTemp := tempList.Items[i];
+
+    with waypointTemp do
+    begin
+      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
+      dmTTT.InsertResourceWaypointMapping(waypointTemp);
+    end;
+  end;
+  tempList.Free;
 end;
 
-procedure TfrmAvailableScenario.lbScenarioListDblClick(Sender: TObject);
+
+procedure TfrmAvailableScenario.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
 begin
-  btEdit.Click;
+if Key = #13 then
+  begin
+    UpdateScenarioList
+  end;
 end;
+
+procedure TfrmAvailableScenario.UpdateScenarioList;
+var
+  i : Integer;
+  FTempScenario : TScenario_Definition;
+
+begin
+  lstScenarioList.Items.Clear;
+
+//  dmTTT.GetAllScenarioDef(FScenarioList);
+  dmTTT.GetFilterScenarioDef(FScenarioList, edtSearch.Text);
+
+  for i := 0 to FScenarioList.Count - 1 do
+  begin
+    FTempScenario := FScenarioList.Items[i];
+    lstScenarioList.Items.AddObject(FTempScenario.FData.Scenario_Identifier,FTempScenario);
+  end;
+end;
+
+{$ENDREGION}
 
 end.

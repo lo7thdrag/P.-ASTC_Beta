@@ -68,7 +68,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, uAccousticDecoyProb;
+  uDataModuleTTT, ufrmAcousticDecoyProb;
 
 {$R *.dfm}
 
@@ -174,15 +174,15 @@ end;
 
 procedure TfrmSummaryAcousticDecoy.btnEdtProbOfHitClick(Sender: TObject);
 begin
-  fAccousticDecoyProb := TAccousticDecoyProb.Create(Self);
+  frmAcousticDecoyProb := TfrmAcousticDecoyProb.Create(Self);
   try
-    with fAccousticDecoyProb do
+    with frmAcousticDecoyProb do
     begin
       SelectedAcousticDecoy := FSelectedAcousticDecoy;
       ShowModal;
     end;
   finally
-    fAccousticDecoyProb.Free;
+    frmAcousticDecoyProb.Free;
   end;
 end;
 

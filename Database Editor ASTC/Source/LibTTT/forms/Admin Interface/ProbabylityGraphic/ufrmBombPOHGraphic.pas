@@ -22,14 +22,12 @@ type
   end;
 
   TfrmBombPOHGraphic = class(TForm)
-    il1: TImageList;
-    ImgBackgroundForm: TImage;
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;
-    Panel2: TPanel;
+    pnlGrafik: TPanel;
     imgGraph: TImage;
-    Panel1: TPanel;
+    pnlData: TPanel;
     grpAspect: TGroupBox;
     lb3: TLabel;
     lb4: TLabel;
@@ -54,12 +52,21 @@ type
     lb12: TLabel;
     edtProbabilityMin: TEdit;
     edtProbabilityMax: TEdit;
-    Panel3: TPanel;
+    pnlToolbar: TPanel;
     tlb1: TToolBar;
     btnSelect: TToolButton;
     btnAdd: TToolButton;
     btnSeparator: TToolButton;
     btnDelete: TToolButton;
+    imgBackground: TImage;
+    pnlButton: TPanel;
+    pnlMainBackground: TPanel;
+    pnlMainGrafik: TPanel;
+    lbl8: TLabel;
+    lbl7: TLabel;
+    lbl5: TLabel;
+    lblAspect: TLabel;
+    il1: TImageList;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

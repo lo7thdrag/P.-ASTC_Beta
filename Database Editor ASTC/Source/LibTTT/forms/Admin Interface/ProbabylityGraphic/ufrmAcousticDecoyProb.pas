@@ -1,4 +1,4 @@
-unit uAccousticDecoyProb;
+unit ufrmAcousticDecoyProb;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   uBlindZoneView, uDBBlind_Zone, uSimContainers, Vcl.Imaging.pngimage;
 
 type
-  TAccousticDecoyProb = class(TForm)
+  TfrmAcousticDecoyProb = class(TForm)
     grdpnlAcousticDecoyPOH: TGridPanel;
     pnl1: TPanel;
     pnlAspect: TPanel;
@@ -80,7 +80,7 @@ type
   end;
 
 var
-  fAccousticDecoyProb: TAccousticDecoyProb;
+  frmAcousticDecoyProb: TfrmAcousticDecoyProb;
 
 implementation
 
@@ -91,7 +91,7 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TAccousticDecoyProb.FormCreate(Sender: TObject);
+procedure TfrmAcousticDecoyProb.FormCreate(Sender: TObject);
 var
   zs : TZoneSector;
 begin
@@ -175,7 +175,7 @@ begin
 
 end;
 
-procedure TAccousticDecoyProb.FormDestroy(Sender: TObject);
+procedure TfrmAcousticDecoyProb.FormDestroy(Sender: TObject);
 begin
   FAspect1.Free;
   FAspect2.Free;
@@ -185,7 +185,7 @@ begin
   FreeItemsAndFreeList(FAcousticDecoyPOHList);
 end;
 
-procedure TAccousticDecoyProb.FormShow(Sender: TObject);
+procedure TfrmAcousticDecoyProb.FormShow(Sender: TObject);
 begin
   FAspect1.Repaint;
   FAspect2.Repaint;
@@ -195,7 +195,7 @@ begin
   UpdateAcousticDecoyPOHData;
 end;
 
-function TAccousticDecoyProb.GetNumberOfKoma(s: string): Boolean;
+function TfrmAcousticDecoyProb.GetNumberOfKoma(s: string): Boolean;
 var
   a, i : Integer;
 begin
@@ -216,7 +216,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TAccousticDecoyProb.addRecord(const g_type, aspect: Integer; poh : Single);
+procedure TfrmAcousticDecoyProb.addRecord(const g_type, aspect: Integer; poh : Single);
 var
   acousticDecoyPOH : TAcoustic_Decoy_POH_Modifier;
 
@@ -233,7 +233,7 @@ begin
   acousticDecoyPOH.Free;
 end;
 
-procedure TAccousticDecoyProb.btnApplyClick(Sender: TObject);
+procedure TfrmAcousticDecoyProb.btnApplyClick(Sender: TObject);
 var
   val: Double;
   isvalid: Boolean;
@@ -376,12 +376,12 @@ begin
   btnApply.Enabled := False;
 end;
 
-procedure TAccousticDecoyProb.btnCancelClick(Sender: TObject);
+procedure TfrmAcousticDecoyProb.btnCancelClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TAccousticDecoyProb.btnOKClick(Sender: TObject);
+procedure TfrmAcousticDecoyProb.btnOKClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -389,7 +389,7 @@ begin
   Close;
 end;
 
-procedure TAccousticDecoyProb.edtAspectPersentageKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmAcousticDecoyProb.edtAspectPersentageKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -419,12 +419,12 @@ begin
   end;
 end;
 
-procedure TAccousticDecoyProb.edtGeneralChange(Sender: TObject);
+procedure TfrmAcousticDecoyProb.edtGeneralChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TAccousticDecoyProb.UpdateAcousticDecoyPOHData;
+procedure TfrmAcousticDecoyProb.UpdateAcousticDecoyPOHData;
 var
   i : Integer;
   acousticDecoyPOH : TAcoustic_Decoy_POH_Modifier;
@@ -502,7 +502,7 @@ end;
 
 {$REGION ' Filter Input '}
 
-procedure TAccousticDecoyProb.ValidationFormatInput;
+procedure TfrmAcousticDecoyProb.ValidationFormatInput;
 var
   i: Integer;
   value : Double;

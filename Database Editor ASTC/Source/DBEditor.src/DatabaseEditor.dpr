@@ -137,7 +137,6 @@ uses
   ufrmEffectsTable in '..\LibTTT\forms\ufrmEffectsTable.pas' {frmEffectsTable},
   uDBEditSetting in 'uDBEditSetting.pas',
   uProbabilityGraph in '..\LibTTT\forms\uProbabilityGraph.pas' {ProbabilityGraph},
-  uAccousticDecoyProb in '..\LibTTT\forms\uAccousticDecoyProb.pas' {AccousticDecoyProb},
   uIFFMode in '..\LibTTT\forms\uIFFMode.pas' {IFFMode},
   uPredefinedPatternEvents in '..\LibTTT\forms\uPredefinedPatternEvents.pas' {EditEvents},
   uReferencePointEditor in '..\LibTTT\forms\uReferencePointEditor.pas' {fReferencePointEditor},
@@ -366,7 +365,8 @@ uses
   ufrmWaypointResourceAllocationPickList in '..\LibTTT\forms\Admin Interface\Exercise\ResourceAllocationPickList\ufrmWaypointResourceAllocationPickList.pas' {frmWaypointResourceAllocationPickList},
   ufrmExercise in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmExercise.pas' {frmExercise},
   ufrmElectroOpticalMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmElectroOpticalMount.pas' {frmElectroOpticalMount},
-  ufrmAvailableRuntimePlatformLibrary in '..\LibTTT\forms\Admin Interface\Other\ufrmAvailableRuntimePlatformLibrary.pas' {frmAvailableRuntimePlatformLibrary};
+  ufrmAvailableRuntimePlatformLibrary in '..\LibTTT\forms\Admin Interface\Other\ufrmAvailableRuntimePlatformLibrary.pas' {frmAvailableRuntimePlatformLibrary},
+  ufrmAcousticDecoyProb in '..\LibTTT\forms\Admin Interface\ProbabylityGraphic\ufrmAcousticDecoyProb.pas' {frmAcousticDecoyProb};
 
 {$R *.res}
 
@@ -377,8 +377,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmUserMainForm, frmUserMainForm);
   Application.CreateForm(TdmTTT, dmTTT);
-  Application.CreateForm(TfrmElectroOpticalMount, frmElectroOpticalMount);
-  Application.CreateForm(TfrmAvailableRuntimePlatformLibrary, frmAvailableRuntimePlatformLibrary);
   //  Application.CreateForm(TfrmExercise, frmExercise);
 //  Application.CreateForm(TfrmCountermeasure, frmCountermeasure);
 //  Application.CreateForm(TfrmOther, frmOther);

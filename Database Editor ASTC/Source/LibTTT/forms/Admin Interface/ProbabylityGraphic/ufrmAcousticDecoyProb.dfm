@@ -1,4 +1,4 @@
-object AccousticDecoyProb: TAccousticDecoyProb
+object frmAcousticDecoyProb: TfrmAcousticDecoyProb
   Left = 0
   Top = 0
   BorderIcons = []

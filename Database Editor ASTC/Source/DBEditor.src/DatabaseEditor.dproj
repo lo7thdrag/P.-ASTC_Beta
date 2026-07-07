@@ -388,9 +388,6 @@
         <DCCReference Include="..\LibTTT\forms\uProbabilityGraph.pas">
             <Form>ProbabilityGraph</Form>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\uAccousticDecoyProb.pas">
-            <Form>AccousticDecoyProb</Form>
-        </DCCReference>
         <DCCReference Include="..\LibTTT\forms\uIFFMode.pas">
             <Form>IFFMode</Form>
         </DCCReference>
@@ -1135,6 +1132,10 @@
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Admin Interface\Other\ufrmAvailableRuntimePlatformLibrary.pas">
             <Form>frmAvailableRuntimePlatformLibrary</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\ProbabylityGraphic\ufrmAcousticDecoyProb.pas">
+            <Form>frmAcousticDecoyProb</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Debug">

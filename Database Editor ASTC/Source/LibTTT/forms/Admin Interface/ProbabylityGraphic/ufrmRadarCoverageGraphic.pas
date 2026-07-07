@@ -60,7 +60,6 @@ type
     btnAdd: TToolButton;
     btn4: TToolButton;
     btnDelete: TToolButton;
-    il2: TImageList;
     GroupBox1: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
@@ -75,6 +74,7 @@ type
     pnlGrafik: TPanel;
     pnlAlignToolBar: TPanel;
     il1: TImageList;
+    pnlData: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

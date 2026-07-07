@@ -8,19 +8,19 @@ uses
 
 type
   TfrmSummarySnrVsPod = class(TForm)
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
     pnl1Title: TPanel;
     Label2: TLabel;
     edtName: TEdit;
     pnl2ControlPage: TPanel;
-    btnOK: TButton;
-    btnApply: TButton;
-    btnCancel: TButton;
     pgc1: TPageControl;
     tsGeneral: TTabSheet;
     btnEditList: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);

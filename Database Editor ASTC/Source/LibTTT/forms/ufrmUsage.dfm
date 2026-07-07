@@ -44849,9 +44849,6 @@ object frmUsage: TfrmUsage
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 416
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object Panel1: TPanel
       Left = 0
       Top = 57
@@ -44916,7 +44913,6 @@ object frmUsage: TfrmUsage
       Height = 41
       Align = alBottom
       TabOrder = 2
-      ExplicitTop = 360
       object btnOk: TButton
         Left = 633
         Top = 5
@@ -44945,6 +44941,7 @@ object frmUsage: TfrmUsage
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 1
+        Visible = False
         OnClick = btnPrintClick
       end
     end

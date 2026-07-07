@@ -9,11 +9,6 @@ uses
 
 type
   TfrmSummaryMotion = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    Label1: TLabel;
     pnl1Title: TPanel;
     txtClass: TLabel;
     edtClass: TEdit;
@@ -105,7 +100,12 @@ type
     cbxEnduranceType: TComboBox;
     lblTypeHorizontal: TLabel;
     CbbType: TComboBox;
-    ImgHeader: TImage;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
 
     procedure FormShow(Sender: TObject);
 

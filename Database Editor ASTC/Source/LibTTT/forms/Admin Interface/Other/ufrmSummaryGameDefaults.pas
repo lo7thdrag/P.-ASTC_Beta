@@ -9,11 +9,6 @@ uses
 
 type
   TfrmSummaryGameDefault = class(TForm)
-    lbl1: TLabel;
-    edtName: TEdit;
-    ImgBackgroundForm: TImage;
-    Label1: TLabel;
-    ImgHeader: TImage;
     pnl2ControlPage: TPanel;
     pgcData: TPageControl;
     tsAboveWater: TTabSheet;
@@ -266,9 +261,15 @@ type
     medtTimeRemoveStaleTrackESM: TMaskEdit;
     medtTimeRemoveStaleTrackSonar: TMaskEdit;
     btnSaveAsTrainer: TButton;
-    btnOK: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl3Button: TPanel;
     btnApply: TButton;
     btnCancel: TButton;
+    btnOK: TButton;
+    pnlTop: TPanel;
+    lbl1: TLabel;
+    edtName: TEdit;
 
     procedure FormShow(Sender: TObject);
 

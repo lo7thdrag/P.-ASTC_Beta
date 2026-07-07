@@ -15,18 +15,18 @@ type
     PageControl1: TPageControl;
     General: TTabSheet;
     lbl1: TLabel;
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
     lbl2: TLabel;
     edtMaxQuantity: TEdit;
     chkAngleRequired: TCheckBox;
     grbAngleRequired: TGroupBox;
     lblAngle: TLabel;
     edtAngle: TEdit;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
 
     procedure FormShow(Sender: TObject);
 

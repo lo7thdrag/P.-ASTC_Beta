@@ -9,438 +9,45 @@ uses
   OleCtrls, uMapXHandler, uCoordConvertor, uDBAsset_GameEnvironment, {TeCanvas,}
   ColorGrd, tttData,
   uMainStaticShape, uMainDynamicShape, uDrawOverlay, uMainOverlay, newClassASTT,
-  uFormula, RzButton, Menus, {acPNG,} System.ImageList, Vcl.Imaging.pngimage;
+  uFormula, RzButton, Menus, {acPNG,} System.ImageList, Vcl.Imaging.pngimage,
+  RzBmpBtn;
 
 type
   E_OverlayMapCursor = (mcSelect, mcAdd, mcEdit, mcRulerStart, mcRulerEnd);
   E_ShapeColor = (scOutline, scFill);
 
   TOverlayEditorForm = class(TForm)
-    ImageList1: TImageList;
-    pnlMap: TPanel;
-
-    pnlLeft: TPanel;
+    pnl3Map: TPanel;
+    pnlOverlayEditor: TPanel;
     Map1: TMap;
     RzToolButton1: TRzToolButton;
     ToolBar1: TToolBar;
-    btnIncrease: TToolButton;
+    btnDecreaseScale: TToolButton;
     cbSetScale: TComboBox;
-    btnDecrease: TToolButton;
+    btnIncreaseScale: TToolButton;
+    btnCenterOnGame: TToolButton;
     btnZoom: TToolButton;
-    btnPan: TToolButton;
-    btnCenterGame: TToolButton;
-    GroupBox8: TGroupBox;
-    lblShape: TLabel;
-    Label76: TLabel;
-    Label77: TLabel;
-    pnlStatic: TPanel;
-    grpNone: TGroupBox;
-    grpLine: TGroupBox;
-    SpeedButton1: TSpeedButton;
-    Label47: TLabel;
-    Label48: TLabel;
-    SpeedButton2: TSpeedButton;
-    edtLineStartPosLat: TEdit;
-    edtLineStartPosLong: TEdit;
-    edtLineEndPosLat: TEdit;
-    edtLineEndPosLong: TEdit;
-    grpArc: TGroupBox;
-    Label80: TLabel;
-    Label81: TLabel;
-    Label82: TLabel;
-    Label83: TLabel;
-    Label84: TLabel;
-    lbl7: TLabel;
-    lbl8: TLabel;
-    SpeedButton7: TSpeedButton;
-    edtArcPosLat: TEdit;
-    edtArcPosLong: TEdit;
-    edtArcRadius: TEdit;
-    edtArcStartAngle: TEdit;
-    edtArcEndAngle: TEdit;
-    grpCircle: TGroupBox;
-    lbl34: TLabel;
-    lbl35: TLabel;
-    lbl36: TLabel;
-    SpeedButton5: TSpeedButton;
-    edtCirclePosLong: TEdit;
-    edtCircleRadius: TEdit;
-    edtCirclePosLat: TEdit;
-    grpEllipse: TGroupBox;
-    Label63: TLabel;
-    lblHorizontal: TLabel;
-    Label78: TLabel;
-    lblVertical: TLabel;
-    lbl6: TLabel;
-    bvl1: TBevel;
-    Label79: TLabel;
-    SpeedButton6: TSpeedButton;
-    edtEllipsePosLat: TEdit;
-    edtEllipsePosLong: TEdit;
-    edtHorizontal: TEdit;
-    edtVertical: TEdit;
-    grpPolygon: TGroupBox;
-    Label91: TLabel;
-    SpeedButton10: TSpeedButton;
-    btnDeletePoly: TSpeedButton;
-    edtPolyPosLat: TEdit;
-    edtPolyPosLong: TEdit;
-    lvPolyVertex: TListView;
-    grpRectangle: TGroupBox;
-    Label49: TLabel;
-    Label50: TLabel;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
-    edtRectStartPosLat: TEdit;
-    edtRectStartPosLong: TEdit;
-    edtRectEndPosLat: TEdit;
-    edtRectEndPosLong: TEdit;
-    grpText: TGroupBox;
-    lblTextPosition: TLabel;
-    lblTextField: TLabel;
-    lblTextSize: TLabel;
-    SpeedButton: TSpeedButton;
-    edtTextField: TEdit;
-    cbbTextSize: TComboBox;
-    edtTextPosLAt: TEdit;
-    edtTextPosLong: TEdit;
-    grpGrid: TGroupBox;
-    Label85: TLabel;
-    Label86: TLabel;
-    Label87: TLabel;
-    Label88: TLabel;
-    Label89: TLabel;
-    lbl9: TLabel;
-    lbl10: TLabel;
-    bvl2: TBevel;
-    lbl14: TLabel;
-    lbl15: TLabel;
-    SpeedButton9: TSpeedButton;
-    Bevel9: TBevel;
-    edtTablePosLat: TEdit;
-    edtTablePosLong: TEdit;
-    edtTableHeight: TEdit;
-    edtTableWidth: TEdit;
-    edtTableColumn: TEdit;
-    edtTableRow: TEdit;
-    edtTableRotationAngle: TEdit;
-    grpSector: TGroupBox;
-    lblSectorCenter: TLabel;
-    lblSectorInner: TLabel;
-    lblSectorOuter: TLabel;
-    lblSectorStartAngle: TLabel;
-    lblSectorEndAngle: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
-    bvlAngle: TBevel;
-    lbl11: TLabel;
-    lbl12: TLabel;
-    SpeedButton8: TSpeedButton;
-    edtSectorPosLat: TEdit;
-    edtSectorInner: TEdit;
-    edtSectorOuter: TEdit;
-    edtSectorStartAngle: TEdit;
-    edtSectorEndAngle: TEdit;
-    edtSectorPosLong: TEdit;
-    pnlDynamic: TPanel;
-    grpTextD: TGroupBox;
-    lbl17: TLabel;
-    lbl18: TLabel;
-    Label51: TLabel;
-    edtTextRange: TEdit;
-    edtTextFieldD: TEdit;
-    edtTextBearing: TEdit;
-    cbbTextSizeD: TComboBox;
-    grpLineD: TGroupBox;
-    lbl20: TLabel;
-    lbl21: TLabel;
-    lbl23: TLabel;
-    lbl25: TLabel;
-    Label42: TLabel;
-    Label43: TLabel;
-    edtLineStartRange: TEdit;
-    edtLineStartBearing: TEdit;
-    edtLineEndRange: TEdit;
-    edtLineEndBearing: TEdit;
-    grpRectangleD: TGroupBox;
-    lbl26: TLabel;
-    lbl27: TLabel;
-    edtRecStartRange: TEdit;
-    edtRecStartBearing: TEdit;
-    edtRecEndRange: TEdit;
-    edtRecEndBearing: TEdit;
-    grpCircleD: TGroupBox;
-    Label52: TLabel;
-    lbl1: TLabel;
-    lblCentre: TLabel;
-    Label53: TLabel;
-    Label54: TLabel;
-    Label55: TLabel;
-    Label56: TLabel;
-    edtCircleRange: TEdit;
-    edtCircleBearing: TEdit;
-    edtCircleRadiusD: TEdit;
-    grpEllipseD: TGroupBox;
-    Label4: TLabel;
-    lbl48: TLabel;
-    lbl50: TLabel;
-    lbl51: TLabel;
-    lbl52: TLabel;
-    bvl4: TBevel;
-    lbl49: TLabel;
-    lbl79: TLabel;
-    lbl80: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    edtEllipseRange: TEdit;
-    edtEllipseBearing: TEdit;
-    edtEllipseHorizontalD: TEdit;
-    edtEllipseVerticalD: TEdit;
-    grpArcD: TGroupBox;
-    lbl40: TLabel;
-    lbl41: TLabel;
-    lbl42: TLabel;
-    lbl43: TLabel;
-    lbl44: TLabel;
-    lbl45: TLabel;
-    lbl46: TLabel;
-    Label57: TLabel;
-    Label58: TLabel;
-    Label3: TLabel;
-    Label60: TLabel;
-    edtArcRange: TEdit;
-    edtArcBearing: TEdit;
-    edtArcRadiusD: TEdit;
-    edtArcStartAngleD: TEdit;
-    edtArcEndAngleD: TEdit;
-    grpSectorD: TGroupBox;
-    lbl64: TLabel;
-    lbl65: TLabel;
-    lbl66: TLabel;
-    lbl67: TLabel;
-    lbl68: TLabel;
-    lbl69: TLabel;
-    lbl70: TLabel;
-    lbl71: TLabel;
-    lbl72: TLabel;
-    bvl7: TBevel;
-    bvl8: TBevel;
-    lbl73: TLabel;
-    lbl74: TLabel;
-    edtSectorRange: TEdit;
-    edtSectorInnerD: TEdit;
-    edtSectorOuterD: TEdit;
-    edtSectorStartAngleD: TEdit;
-    edtSectorEndAngleD: TEdit;
-    edtSectorBearing: TEdit;
-    grpGridD: TGroupBox;
-    lbl53: TLabel;
-    lbl54: TLabel;
-    lbl55: TLabel;
-    lbl56: TLabel;
-    lbl57: TLabel;
-    lbl58: TLabel;
-    lbl59: TLabel;
-    bvl5: TBevel;
-    lbl60: TLabel;
-    bvl6: TBevel;
-    lbl61: TLabel;
-    lbl62: TLabel;
-    Label44: TLabel;
-    Bevel12: TBevel;
-    edtTableRange: TEdit;
-    edtTableBearing: TEdit;
-    edtTableHeightD: TEdit;
-    edtTableWidthD: TEdit;
-    edtTableColumnD: TEdit;
-    edtTableRowD: TEdit;
-    edtRotationAngleD: TEdit;
-    grpPolygonD: TGroupBox;
-    AddPolyD: TSpeedButton;
-    btnDeletePolyD: TSpeedButton;
-    Label7: TLabel;
-    edtPolygonRange: TEdit;
-    edtPolygonBearing: TEdit;
-    lvPolyVertexD: TListView;
-    grpNoneD: TGroupBox;
+    btnMoveMap: TToolButton;
     pmOverlayEdit: TPopupMenu;
     mniControl: TMenuItem;
     mnitoFront: TMenuItem;
     mnitoBack: TMenuItem;
     mniDelete: TMenuItem;
     N1: TMenuItem;
-    Label8: TLabel;
-    Label64: TLabel;
-    Label9: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
-    Label16: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
-    Label19: TLabel;
-    Label20: TLabel;
-    Label21: TLabel;
-    Label22: TLabel;
-    Label23: TLabel;
-    Label24: TLabel;
-    Label25: TLabel;
-    Label26: TLabel;
-    Label27: TLabel;
-    Label28: TLabel;
-    ilColor: TImageList;
-    bvl9: TBevel;
-    Label32: TLabel;
-    lbl24: TLabel;
-    lbl39: TLabel;
-    lbl75: TLabel;
-    lbl76: TLabel;
-    lbl77: TLabel;
-    lbl78: TLabel;
-    bvl3: TBevel;
-    lbl84: TLabel;
-    lbl86: TLabel;
-    lbl87: TLabel;
-    Label34: TLabel;
-    bvl11: TBevel;
-    lbl92: TLabel;
-    bvl12: TBevel;
-    bvl13: TBevel;
-    lbl96: TLabel;
-    lbl97: TLabel;
-    lbl98: TLabel;
-    lbl94: TLabel;
-    lbl99: TLabel;
-    lbl100: TLabel;
-    lbl101: TLabel;
-    lbl102: TLabel;
-    lbl103: TLabel;
-    lbl104: TLabel;
-    lbl105: TLabel;
-    lbl106: TLabel;
-    lbl107: TLabel;
-    lbl108: TLabel;
-    lbl109: TLabel;
-    lbl110: TLabel;
-    lbl111: TLabel;
-    lbl112: TLabel;
-    lbl113: TLabel;
-    lbl114: TLabel;
-    lbl115: TLabel;
-    lbl116: TLabel;
-    lbl117: TLabel;
-    lbl118: TLabel;
-    lbl119: TLabel;
-    lbl120: TLabel;
-    lbl121: TLabel;
-    lbl122: TLabel;
-    lbl123: TLabel;
-    lbl124: TLabel;
-    lbl125: TLabel;
-    lbl126: TLabel;
-    lbl127: TLabel;
-    lbl128: TLabel;
-    lbl129: TLabel;
-    lbl130: TLabel;
-    lbl131: TLabel;
-    lbl132: TLabel;
-    Bevel1: TBevel;
-    lbl133: TLabel;
-    lbl134: TLabel;
-    lbl135: TLabel;
-    lbl136: TLabel;
-    lbl137: TLabel;
-    Bevel2: TBevel;
-    bvl14: TBevel;
-    lbl138: TLabel;
-    Label61: TLabel;
-    Bevel4: TBevel;
-    Label65: TLabel;
-    Bevel5: TBevel;
-    Label93: TLabel;
-    Bevel3: TBevel;
-    Label97: TLabel;
-    Label98: TLabel;
-    Bevel6: TBevel;
-    Label45: TLabel;
-    Label106: TLabel;
-    Label107: TLabel;
-    Label108: TLabel;
-    Label109: TLabel;
-    Label110: TLabel;
-    Label111: TLabel;
-    Label112: TLabel;
-    Label113: TLabel;
-    Label114: TLabel;
-    Label115: TLabel;
-    Label116: TLabel;
-    Label40: TLabel;
-    Label41: TLabel;
-    Label118: TLabel;
-    Label119: TLabel;
-    Label120: TLabel;
-    Label121: TLabel;
-    Bevel7: TBevel;
-    Label123: TLabel;
-    Label124: TLabel;
-    Label30: TLabel;
-    Label31: TLabel;
-    Label33: TLabel;
-    Label37: TLabel;
-    Label126: TLabel;
-    Label127: TLabel;
-    Bevel8: TBevel;
-    Label38: TLabel;
-    Label39: TLabel;
-    Label128: TLabel;
-    Label129: TLabel;
-    Label130: TLabel;
-    Label131: TLabel;
-    Label133: TLabel;
-    Label134: TLabel;
-    Label135: TLabel;
-    Label136: TLabel;
-    Label137: TLabel;
-    Label138: TLabel;
-    Label46: TLabel;
-    Label140: TLabel;
-    Label141: TLabel;
-    Label142: TLabel;
-    Label143: TLabel;
-    Label144: TLabel;
-    Label145: TLabel;
-    Label146: TLabel;
-    Label147: TLabel;
-    Label148: TLabel;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label152: TLabel;
-    Label153: TLabel;
-    Label154: TLabel;
-    Label155: TLabel;
-    Bevel10: TBevel;
-    Bevel11: TBevel;
-    Label157: TLabel;
-    Label158: TLabel;
     pnlWarning: TPanel;
     lblWarning: TLabel;
     lbl33: TLabel;
     pnlMainBackground: TPanel;
     pnlSparatorHor1: TPanel;
     Image2: TImage;
-    pnlButtom: TPanel;
+    pnl4Bottom: TPanel;
     Panel4: TPanel;
-    Button2: TButton;
+    btnScreenCapture: TButton;
     pnlSparatorVer1: TPanel;
     Image3: TImage;
     pnlToolBar: TPanel;
     pnlAlignToolBar: TPanel;
-    pnlCursorPosition: TPanel;
+    Panel1: TPanel;
     grbCursorPosition: TGroupBox;
     lblBearing: TLabel;
     lblDistance: TLabel;
@@ -455,22 +62,9 @@ type
     Label70: TLabel;
     Label71: TLabel;
     btnClose: TButton;
-    btnSelect: TImage;
-    btnText: TImage;
-    btnLine: TImage;
-    btnRectangle: TImage;
-    btnCircle: TImage;
-    btnEllipse: TImage;
-    btnArc: TImage;
-    btnSector: TImage;
-    btnGrid: TImage;
-    btnPolygon: TImage;
     btnOk: TButton;
-    btnDelPoly: TButton;
-    btnEditPoly: TButton;
-    btnout: TToolButton;
-    lblNameOverlay: TLabel;
-    btngamearea: TToolButton;
+    btnLayerTool: TToolButton;
+    btnGameArea: TToolButton;
     btnruler: TToolButton;
     imgBackground: TImage;
     pnlButton: TPanel;
@@ -494,6 +88,434 @@ type
     Label29: TLabel;
     cbbWeightPen: TComboBox;
     cbbDashesPen: TComboBox;
+    pnlShape: TPanel;
+    Label76: TLabel;
+    Label77: TLabel;
+    lblShape: TLabel;
+    pnlDynamic: TPanel;
+    grpArcD: TGroupBox;
+    lbl40: TLabel;
+    lbl41: TLabel;
+    lbl42: TLabel;
+    lbl43: TLabel;
+    lbl44: TLabel;
+    lbl45: TLabel;
+    lbl46: TLabel;
+    Label57: TLabel;
+    Label58: TLabel;
+    Label3: TLabel;
+    Label60: TLabel;
+    lbl124: TLabel;
+    lbl125: TLabel;
+    lbl126: TLabel;
+    lbl127: TLabel;
+    lbl128: TLabel;
+    lbl137: TLabel;
+    Bevel2: TBevel;
+    bvl14: TBevel;
+    lbl138: TLabel;
+    edtArcRange: TEdit;
+    edtArcBearing: TEdit;
+    edtArcRadiusD: TEdit;
+    edtArcStartAngleD: TEdit;
+    edtArcEndAngleD: TEdit;
+    grpEllipseD: TGroupBox;
+    Label4: TLabel;
+    lbl48: TLabel;
+    lbl50: TLabel;
+    lbl51: TLabel;
+    lbl52: TLabel;
+    bvl4: TBevel;
+    lbl49: TLabel;
+    lbl79: TLabel;
+    lbl80: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    lbl133: TLabel;
+    lbl134: TLabel;
+    lbl135: TLabel;
+    lbl136: TLabel;
+    edtEllipseRange: TEdit;
+    edtEllipseBearing: TEdit;
+    edtEllipseHorizontalD: TEdit;
+    edtEllipseVerticalD: TEdit;
+    grpGridD: TGroupBox;
+    lbl53: TLabel;
+    lbl54: TLabel;
+    lbl55: TLabel;
+    lbl56: TLabel;
+    lbl57: TLabel;
+    lbl58: TLabel;
+    lbl59: TLabel;
+    bvl5: TBevel;
+    lbl60: TLabel;
+    bvl6: TBevel;
+    lbl61: TLabel;
+    lbl62: TLabel;
+    Label44: TLabel;
+    Bevel12: TBevel;
+    Label45: TLabel;
+    Label106: TLabel;
+    Label107: TLabel;
+    Label108: TLabel;
+    Label109: TLabel;
+    Label110: TLabel;
+    Label111: TLabel;
+    Label112: TLabel;
+    Label113: TLabel;
+    Label114: TLabel;
+    Label115: TLabel;
+    Label116: TLabel;
+    edtTableRange: TEdit;
+    edtTableBearing: TEdit;
+    edtTableHeightD: TEdit;
+    edtTableWidthD: TEdit;
+    edtTableColumnD: TEdit;
+    edtTableRowD: TEdit;
+    edtRotationAngleD: TEdit;
+    grpLineD: TGroupBox;
+    lbl20: TLabel;
+    lbl21: TLabel;
+    lbl23: TLabel;
+    lbl25: TLabel;
+    Label42: TLabel;
+    Label43: TLabel;
+    Label40: TLabel;
+    Label41: TLabel;
+    Label118: TLabel;
+    Label119: TLabel;
+    Label120: TLabel;
+    Label121: TLabel;
+    Bevel7: TBevel;
+    Label123: TLabel;
+    Label124: TLabel;
+    edtLineStartRange: TEdit;
+    edtLineStartBearing: TEdit;
+    edtLineEndRange: TEdit;
+    edtLineEndBearing: TEdit;
+    grpPolygonD: TGroupBox;
+    AddPolyD: TSpeedButton;
+    btnDeletePolyD: TSpeedButton;
+    Label7: TLabel;
+    Label30: TLabel;
+    Label31: TLabel;
+    Label33: TLabel;
+    Label37: TLabel;
+    Label126: TLabel;
+    Label127: TLabel;
+    edtPolygonRange: TEdit;
+    edtPolygonBearing: TEdit;
+    lvPolyVertexD: TListView;
+    grpRectangleD: TGroupBox;
+    lbl26: TLabel;
+    lbl27: TLabel;
+    Bevel8: TBevel;
+    Label38: TLabel;
+    Label39: TLabel;
+    Label128: TLabel;
+    Label129: TLabel;
+    Label130: TLabel;
+    Label131: TLabel;
+    Label133: TLabel;
+    Label134: TLabel;
+    Label135: TLabel;
+    Label136: TLabel;
+    Label137: TLabel;
+    Label138: TLabel;
+    edtRecStartRange: TEdit;
+    edtRecStartBearing: TEdit;
+    edtRecEndRange: TEdit;
+    edtRecEndBearing: TEdit;
+    grpSectorD: TGroupBox;
+    lbl64: TLabel;
+    lbl65: TLabel;
+    lbl66: TLabel;
+    lbl67: TLabel;
+    lbl68: TLabel;
+    lbl69: TLabel;
+    lbl70: TLabel;
+    lbl71: TLabel;
+    lbl72: TLabel;
+    bvl7: TBevel;
+    bvl8: TBevel;
+    lbl73: TLabel;
+    lbl74: TLabel;
+    Label46: TLabel;
+    Label140: TLabel;
+    Label141: TLabel;
+    Label142: TLabel;
+    Label143: TLabel;
+    Label144: TLabel;
+    Label145: TLabel;
+    Label146: TLabel;
+    Label147: TLabel;
+    Label148: TLabel;
+    edtSectorRange: TEdit;
+    edtSectorInnerD: TEdit;
+    edtSectorOuterD: TEdit;
+    edtSectorStartAngleD: TEdit;
+    edtSectorEndAngleD: TEdit;
+    edtSectorBearing: TEdit;
+    grpTextD: TGroupBox;
+    lbl17: TLabel;
+    lbl18: TLabel;
+    Label51: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label152: TLabel;
+    Label153: TLabel;
+    Label154: TLabel;
+    Label155: TLabel;
+    Bevel10: TBevel;
+    Bevel11: TBevel;
+    Label157: TLabel;
+    Label158: TLabel;
+    edtTextRange: TEdit;
+    edtTextFieldD: TEdit;
+    edtTextBearing: TEdit;
+    cbbTextSizeD: TComboBox;
+    grpCircleD: TGroupBox;
+    Label52: TLabel;
+    lbl1: TLabel;
+    lblCentre: TLabel;
+    Label53: TLabel;
+    Label54: TLabel;
+    Label55: TLabel;
+    Label56: TLabel;
+    lbl129: TLabel;
+    lbl130: TLabel;
+    lbl131: TLabel;
+    lbl132: TLabel;
+    Bevel1: TBevel;
+    edtCircleRange: TEdit;
+    edtCircleBearing: TEdit;
+    edtCircleRadiusD: TEdit;
+    grpNoneD: TGroupBox;
+    pnlStatic: TPanel;
+    grpLine: TGroupBox;
+    SpeedButton1: TSpeedButton;
+    Label47: TLabel;
+    Label48: TLabel;
+    SpeedButton2: TSpeedButton;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label32: TLabel;
+    lbl24: TLabel;
+    lbl94: TLabel;
+    lbl99: TLabel;
+    Bevel6: TBevel;
+    edtLineStartPosLat: TEdit;
+    edtLineStartPosLong: TEdit;
+    edtLineEndPosLat: TEdit;
+    edtLineEndPosLong: TEdit;
+    grpEllipse: TGroupBox;
+    Label63: TLabel;
+    lblHorizontal: TLabel;
+    Label78: TLabel;
+    lblVertical: TLabel;
+    lbl6: TLabel;
+    bvl1: TBevel;
+    Label79: TLabel;
+    SpeedButton6: TSpeedButton;
+    Label11: TLabel;
+    Label12: TLabel;
+    lbl105: TLabel;
+    lbl106: TLabel;
+    lbl107: TLabel;
+    lbl108: TLabel;
+    edtEllipsePosLat: TEdit;
+    edtEllipsePosLong: TEdit;
+    edtHorizontal: TEdit;
+    edtVertical: TEdit;
+    grpArc: TGroupBox;
+    Label80: TLabel;
+    Label81: TLabel;
+    Label82: TLabel;
+    Label83: TLabel;
+    Label84: TLabel;
+    lbl7: TLabel;
+    lbl8: TLabel;
+    SpeedButton7: TSpeedButton;
+    Label8: TLabel;
+    Label64: TLabel;
+    lbl39: TLabel;
+    lbl75: TLabel;
+    lbl76: TLabel;
+    lbl77: TLabel;
+    lbl78: TLabel;
+    Label61: TLabel;
+    Bevel4: TBevel;
+    Label65: TLabel;
+    Bevel5: TBevel;
+    edtArcPosLat: TEdit;
+    edtArcPosLong: TEdit;
+    edtArcRadius: TEdit;
+    edtArcStartAngle: TEdit;
+    edtArcEndAngle: TEdit;
+    grpGrid: TGroupBox;
+    Label85: TLabel;
+    Label86: TLabel;
+    Label87: TLabel;
+    Label88: TLabel;
+    Label89: TLabel;
+    lbl9: TLabel;
+    lbl10: TLabel;
+    bvl2: TBevel;
+    lbl14: TLabel;
+    lbl15: TLabel;
+    SpeedButton9: TSpeedButton;
+    Bevel9: TBevel;
+    Label13: TLabel;
+    Label14: TLabel;
+    lbl115: TLabel;
+    lbl116: TLabel;
+    lbl117: TLabel;
+    lbl118: TLabel;
+    lbl119: TLabel;
+    lbl120: TLabel;
+    lbl121: TLabel;
+    Label93: TLabel;
+    Bevel3: TBevel;
+    Label97: TLabel;
+    Label98: TLabel;
+    edtTablePosLat: TEdit;
+    edtTablePosLong: TEdit;
+    edtTableWidth: TEdit;
+    edtTableColumn: TEdit;
+    edtTableRow: TEdit;
+    edtTableRotationAngle: TEdit;
+    edtTableHeight: TEdit;
+    grpRectangle: TGroupBox;
+    Label49: TLabel;
+    Label50: TLabel;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    bvl11: TBevel;
+    lbl100: TLabel;
+    lbl101: TLabel;
+    lbl102: TLabel;
+    lbl103: TLabel;
+    lbl104: TLabel;
+    edtRectStartPosLat: TEdit;
+    edtRectStartPosLong: TEdit;
+    edtRectEndPosLat: TEdit;
+    edtRectEndPosLong: TEdit;
+    grpText: TGroupBox;
+    lblTextPosition: TLabel;
+    lblTextField: TLabel;
+    lblTextSize: TLabel;
+    SpeedButton: TSpeedButton;
+    Label27: TLabel;
+    Label28: TLabel;
+    lbl92: TLabel;
+    bvl12: TBevel;
+    bvl13: TBevel;
+    lbl96: TLabel;
+    lbl97: TLabel;
+    lbl98: TLabel;
+    edtTextField: TEdit;
+    cbbTextSize: TComboBox;
+    edtTextPosLAt: TEdit;
+    edtTextPosLong: TEdit;
+    grpSector: TGroupBox;
+    lblSectorCenter: TLabel;
+    lblSectorInner: TLabel;
+    lblSectorOuter: TLabel;
+    lblSectorStartAngle: TLabel;
+    lblSectorEndAngle: TLabel;
+    lbl2: TLabel;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    lbl5: TLabel;
+    bvlAngle: TBevel;
+    lbl11: TLabel;
+    lbl12: TLabel;
+    SpeedButton8: TSpeedButton;
+    Label15: TLabel;
+    Label16: TLabel;
+    bvl9: TBevel;
+    lbl109: TLabel;
+    lbl110: TLabel;
+    lbl111: TLabel;
+    lbl112: TLabel;
+    lbl113: TLabel;
+    lbl114: TLabel;
+    edtSectorPosLat: TEdit;
+    edtSectorInner: TEdit;
+    edtSectorOuter: TEdit;
+    edtSectorStartAngle: TEdit;
+    edtSectorEndAngle: TEdit;
+    edtSectorPosLong: TEdit;
+    grpNone: TGroupBox;
+    grpCircle: TGroupBox;
+    lbl34: TLabel;
+    lbl35: TLabel;
+    lbl36: TLabel;
+    SpeedButton5: TSpeedButton;
+    Label9: TLabel;
+    Label10: TLabel;
+    bvl3: TBevel;
+    lbl84: TLabel;
+    lbl86: TLabel;
+    lbl87: TLabel;
+    Label34: TLabel;
+    edtCirclePosLong: TEdit;
+    edtCircleRadius: TEdit;
+    edtCirclePosLat: TEdit;
+    grpPolygon: TGroupBox;
+    Label91: TLabel;
+    SpeedButton10: TSpeedButton;
+    btnDeletePoly: TSpeedButton;
+    Label21: TLabel;
+    Label22: TLabel;
+    lbl122: TLabel;
+    lbl123: TLabel;
+    edtPolyPosLat: TEdit;
+    edtPolyPosLong: TEdit;
+    btnDelPoly: TButton;
+    btnEditPoly: TButton;
+    lvPolyVertex: TListView;
+    lblNameOverlay: TLabel;
+    btnSelect: TRzBmpButton;
+    btnText: TRzBmpButton;
+    btnLine: TRzBmpButton;
+    btnRectangle: TRzBmpButton;
+    btnCircle: TRzBmpButton;
+    btnEllipse: TRzBmpButton;
+    btnArc: TRzBmpButton;
+    btnSector: TRzBmpButton;
+    btnGrid: TRzBmpButton;
+    btnPolygon: TRzBmpButton;
+    pnl3SparatorHor1: TPanel;
+    btnCopyArc: TImage;
+    btnPasteArc: TImage;
+    btnCopyCircle: TImage;
+    btnPasteCircle: TImage;
+    btnCopyEllipse: TImage;
+    btnPasteEllipse: TImage;
+    btnCopyGrid: TImage;
+    btnPasteGrid: TImage;
+    btnCopyStartLine: TImage;
+    btnPasteStartLine: TImage;
+    btnCopyEndLine: TImage;
+    btnPasteEndLine: TImage;
+    btnCopyPolygon: TImage;
+    btnPastePolygon: TImage;
+    imgCopyStartRec: TImage;
+    imgPasteStartRec: TImage;
+    imgCopyEndRec: TImage;
+    imgPasteEndRec: TImage;
+    imgCopySector: TImage;
+    imgPasteSector: TImage;
+    imgCopyText: TImage;
+    imgPasteText: TImage;
+    pnl2Editor: TPanel;
     // Label61: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -516,11 +538,11 @@ type
     procedure OnKeyPress(Sender: TObject; var Key: Char);
 
     procedure cbSetScaleChange(Sender: TObject);
-    procedure btnIncreaseClick(Sender: TObject);
-    procedure btnDecreaseClick(Sender: TObject);
+    procedure btnDecreaseScaleClick(Sender: TObject);
+    procedure btnIncreaseScaleClick(Sender: TObject);
+    procedure btnCenterOnGameClick(Sender: TObject);
     procedure btnZoomClick(Sender: TObject);
-    procedure btnPanClick(Sender: TObject);
-    procedure btnCenterGameClick(Sender: TObject);
+    procedure btnMoveMapClick(Sender: TObject);
     procedure colorChooseChange(Sender: TObject);
     procedure AddPolyDClick(Sender: TObject);
     procedure btnDeletePolyDClick(Sender: TObject);
@@ -547,9 +569,31 @@ type
     procedure btnEditPolyClick(Sender: TObject);
     procedure lvPolyVertexSelectItem(Sender: TObject; Item: TListItem;
       Selected: Boolean);
-    procedure btnoutClick(Sender: TObject);
-    procedure btngameareaClick(Sender: TObject);
+    procedure btnLayerToolClick(Sender: TObject);
+    procedure btnGameAreaClick(Sender: TObject);
     procedure btnrulerClick(Sender: TObject);
+    procedure btnCopyArcClick(Sender: TObject);
+    procedure btnPasteArcClick(Sender: TObject);
+    procedure btnCopyCircleClick(Sender: TObject);
+    procedure btnPasteCircleClick(Sender: TObject);
+    procedure btnCopyEllipseClick(Sender: TObject);
+    procedure btnPasteEllipseClick(Sender: TObject);
+    procedure btnCopyGridClick(Sender: TObject);
+    procedure btnPasteGridClick(Sender: TObject);
+    procedure btnCopyStartLineClick(Sender: TObject);
+    procedure btnPasteStartLineClick(Sender: TObject);
+    procedure btnCopyEndLineClick(Sender: TObject);
+    procedure btnPasteEndLineClick(Sender: TObject);
+    procedure btnCopyPolygonClick(Sender: TObject);
+    procedure btnPastePolygonClick(Sender: TObject);
+    procedure imgCopyStartRecClick(Sender: TObject);
+    procedure imgPasteStartRecClick(Sender: TObject);
+    procedure imgCopyEndRecClick(Sender: TObject);
+    procedure imgPasteEndRecClick(Sender: TObject);
+    procedure imgCopySectorClick(Sender: TObject);
+    procedure imgPasteSectorClick(Sender: TObject);
+    procedure imgCopyTextClick(Sender: TObject);
+    procedure imgPasteTextClick(Sender: TObject);
 //        procedure TfrmWaypointEditor.OnAddRuller(Long, Lat: double);
   private
     FSelectedPolyID: Integer;
@@ -565,6 +609,9 @@ type
     yy: Double;
 
   public
+    Flatt : string;
+    Flong : string;
+
     isOK: Boolean; { Penanda jika gagal cek input, btn OK tidak langsung close }
     AfterClose: Boolean;
     { Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
@@ -652,6 +699,10 @@ type
     property SelectedOverlay: TOverlay_Definition read FSelectedOverlay
       write FSelectedOverlay;
     property MapCursor: E_OverlayMapCursor read FMapCursor write FMapCursor;
+
+    {Cicil}
+    procedure UpAllToolbarButton;
+    procedure NormalizeMousePointer;
   end;
 
 var
@@ -806,7 +857,7 @@ begin
 
   case FTipeOverlay of
 
-{$REGION ' Dynamic Section '}
+  {$REGION ' Dynamic Section '}
     osDynamic:
       begin
         pnlDynamic.Visible := True;
@@ -815,33 +866,43 @@ begin
         cbbTextSize.Text := '11';
         isDynamic := True;
       end;
-{$ENDREGION}
-{$REGION ' Static Section '}
+  {$ENDREGION}
+
+  {$REGION ' Static Section '}
     osStatic:
       begin
         pnlStatic.Visible := True;
         isDynamic := false;
       end
-{$ENDREGION}
+  {$ENDREGION}
   end;
 
   ShapeType := TImage(Sender).Tag;
   case ShapeType of
     0: { Select }
       begin
-        btnSelect.Picture.LoadFromFile
-          ('data\Image DBEditor\Interface\Button\btnCursor_Select.PNG');
+        btnSelect.Down := True;
+
         lblShape.Caption := '---';
+        grpNoneD.BringToFront;
         grpNone.BringToFront;
 
-        { merubah cursor }
         FMapCursor := mcEdit;
+      {$REGION ' LAMA '}
+//        btnSelect.Picture.LoadFromFile
+//          ('data\Image DBEditor\Interface\Button\btnCursor_Select.PNG');
+//        lblShape.Caption := '---';
+//        grpNone.BringToFront;
+//
+//        { merubah cursor }
+//        FMapCursor := mcEdit;
+      {$ENDREGION}
 
-{$REGION ' Button Handle '}
+      {$REGION ' Button Handle '}
         btnOutline.Visible := false;
         btnFill.Visible := false;
         pnlPenEditing.Visible := false;
-{$ENDREGION}
+      {$ENDREGION}
       end;
     ovText:
       LoadPanelText;
@@ -894,202 +955,208 @@ begin
   Map1.Repaint;
 end;
 
+procedure TOverlayEditorForm.NormalizeMousePointer;
+begin
+  Map1.CurrentTool := miSelectTool;
+//  Map1.MousePointer := miDefaultCursoNormalizeMousePointer;
+end;
+
 {$ENDREGION}
 {$REGION ' Load Panel Handle '}
 
 procedure TOverlayEditorForm.LoadPanelText;
 begin
   lblShape.Caption := 'Text';
-  btnText.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnText_Select.PNG');
 
-{$REGION ' Dynamic Handle '}
+  {$REGION ' Dynamic Handle '}
   grpTextD.BringToFront;
   grpTextD.Visible := false;
-{$ENDREGION}
-{$REGION ' Static Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Static Handle '}
   grpText.BringToFront;
   grpText.Visible := True;
-{$ENDREGION}
-{$REGION ' Button Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Button Handle '}
   btnOutline.Visible := True;
   btnFill.Visible := false;
   pnlPenEditing.Visible := false;
   SetNoFill(True);
   btnOutlineClick(nil);
-{$ENDREGION}
+  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.LoadPanelLine;
 begin
   lblShape.Caption := 'Line';
-  btnLine.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnLine_Select.PNG');
 
-{$REGION ' Dynamic Handle '}
+  {$REGION ' Dynamic Handle '}
   grpLineD.BringToFront;
   grpLineD.Visible := True;
-{$ENDREGION}
-{$REGION ' Static Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Static Handle '}
   grpLine.BringToFront;
   grpLine.Visible := True;
-{$ENDREGION}
-{$REGION ' Button Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Button Handle '}
   btnOutline.Visible := True;
   btnFill.Visible := false;
   pnlPenEditing.Visible := True;
   SetNoFill(True);
   btnOutlineClick(nil);
-{$ENDREGION}
+  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.LoadPanelRectangle;
 begin
   lblShape.Caption := 'Rectangle';
-  btnRectangle.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnRectangle_Select.PNG');
 
-{$REGION ' Dynamic Handle '}
+  {$REGION ' Dynamic Handle '}
   grpRectangleD.BringToFront;
   grpRectangleD.Visible := True;
-{$ENDREGION}
-{$REGION ' Static Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Static Handle '}
   grpRectangle.BringToFront;
   grpRectangle.Visible := True;
-{$ENDREGION}
-{$REGION ' Button Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Button Handle '}
   btnOutline.Visible := True;
   btnFill.Visible := True;
   pnlPenEditing.Visible := True;
   SetNoFill(false);
   btnOutlineClick(nil);
-{$ENDREGION}
+  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.LoadPanelCircle;
 begin
   lblShape.Caption := 'Circle';
-  btnCircle.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnCircle_Select.PNG');
 
-{$REGION ' Dynamic Handle '}
+  {$REGION ' Dynamic Handle '}
   grpCircleD.BringToFront;
   grpCircleD.Visible := True;
-{$ENDREGION}
-{$REGION ' Static Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Static Handle '}
   grpCircle.BringToFront;
   grpCircle.Visible := True;
-{$ENDREGION}
-{$REGION ' Button Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Button Handle '}
   btnOutline.Visible := True;
   btnFill.Visible := True;
   pnlPenEditing.Visible := True;
-{$ENDREGION}
+  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.LoadPanelEllipse;
 begin
   lblShape.Caption := 'Ellipse';
-  btnEllipse.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnEllipse_Select.PNG');
 
-{$REGION ' Dynamic Handle '}
+  {$REGION ' Dynamic Handle '}
   grpEllipseD.BringToFront;
   grpEllipseD.Visible := True;
-{$ENDREGION}
-{$REGION ' Static Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Static Handle '}
   grpEllipse.BringToFront;
   grpEllipse.Visible := True;
-{$ENDREGION}
-{$REGION ' Button Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Button Handle '}
   btnOutline.Visible := True;
   btnFill.Visible := True;
   pnlPenEditing.Visible := True;
-{$ENDREGION}
+  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.LoadPanelArc;
 begin
   lblShape.Caption := 'Arc';
-  btnArc.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnArc_Select.PNG');
 
-{$REGION ' Dynamic Handle '}
+  {$REGION ' Dynamic Handle '}
   grpArcD.BringToFront;
   grpArcD.Visible := True;
-{$ENDREGION}
-{$REGION ' Static Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Static Handle '}
   grpArc.BringToFront;
   grpArc.Visible := True;
-{$ENDREGION}
-{$REGION ' Button Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Button Handle '}
   btnOutline.Visible := True;
   btnFill.Visible := false;
   pnlPenEditing.Visible := True;
-{$ENDREGION}
+  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.LoadPanelSector;
 begin
   lblShape.Caption := 'Sector';
-  btnSector.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnSector_Select.PNG');
 
-{$REGION ' Dynamic Handle '}
+  {$REGION ' Dynamic Handle '}
   grpSectorD.BringToFront;
   grpSectorD.Visible := True;
-{$ENDREGION}
-{$REGION ' Static Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Static Handle '}
   grpSector.BringToFront;
   grpSector.Visible := True;
-{$ENDREGION}
-{$REGION ' Button Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Button Handle '}
   btnOutline.Visible := True;
   btnFill.Visible := false;
   pnlPenEditing.Visible := True;
-{$ENDREGION}
+  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.LoadPanelGrid;
 begin
   lblShape.Caption := 'Grid';
-  btnGrid.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnGrid_Select.PNG');
 
-{$REGION ' Dynamic Handle '}
+  {$REGION ' Dynamic Handle '}
   grpGridD.BringToFront;
   grpGridD.Visible := True;
-{$ENDREGION}
-{$REGION ' Static Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Static Handle '}
   grpGrid.BringToFront;
   grpGrid.Visible := True;
-{$ENDREGION}
-{$REGION ' Button Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Button Handle '}
   btnOutline.Visible := True;
   btnFill.Visible := false;
   pnlPenEditing.Visible := True;
-{$ENDREGION}
+  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.LoadPanelPolygon;
 begin
   lblShape.Caption := 'Polygon';
-  btnPolygon.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnPolygon_Select.PNG');
 
-{$REGION ' Dynamic Handle '}
+  {$REGION ' Dynamic Handle '}
   grpPolygonD.BringToFront;
   grpPolygonD.Visible := True;
-{$ENDREGION}
-{$REGION ' Static Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Static Handle '}
   grpPolygon.BringToFront;
   grpPolygon.Visible := True;
-{$ENDREGION}
-{$REGION ' Button Handle '}
+  {$ENDREGION}
+
+  {$REGION ' Button Handle '}
   btnOutline.Visible := True;
   btnFill.Visible := false;
   pnlPenEditing.Visible := True;
-{$ENDREGION}
+  {$ENDREGION}
 end;
 
 {$ENDREGION}
@@ -2166,18 +2233,33 @@ begin
 end;
 
 {$ENDREGION}
+
 {$REGION ' Toolbar Handle '}
 
-procedure TOverlayEditorForm.btnIncreaseClick(Sender: TObject);
+procedure TOverlayEditorForm.btnDecreaseScaleClick(Sender: TObject);
 begin
-  if cbSetScale.ItemIndex = 0 then
-    Exit;
+  if (cbSetScale.ItemIndex <= 500) then
+  begin
+    cbSetScale.ItemIndex := cbSetScale.ItemIndex + 1;
+    btnDecreaseScale.Enabled := true;
+  end;
 
-  cbSetScale.ItemIndex := cbSetScale.ItemIndex - 1;
   cbSetScaleChange(cbSetScale);
+
+  if (cbSetScale.ItemIndex = 0) then // sampai batas akhir  //10
+    btnIncreaseScale.Enabled := true // false
+  else
+    btnIncreaseScale.Enabled := true;
+
+  NormalizeMousePointer;
+//  if cbSetScale.ItemIndex = 0 then
+//    Exit;
+//
+//  cbSetScale.ItemIndex := cbSetScale.ItemIndex - 1;
+//  cbSetScaleChange(cbSetScale);
 end;
 
-procedure TOverlayEditorForm.btnDecreaseClick(Sender: TObject);
+procedure TOverlayEditorForm.btnIncreaseScaleClick(Sender: TObject);
 begin
   if cbSetScale.ItemIndex = 16 then
     Exit;
@@ -2186,25 +2268,33 @@ begin
   cbSetScaleChange(cbSetScale);
 end;
 
-procedure TOverlayEditorForm.btnZoomClick(Sender: TObject);
+procedure TOverlayEditorForm.btnCenterOnGameClick(Sender: TObject);
 begin
-  btnZoom.Down := not btnZoom.Down;
-  btnPan.Down := false;
+  UpAllToolbarButton;
+  btnZoom.Down := True;
 
-
-  FMapCursor := mcSelect;
-  LoadNormalButtonImage;
-
-  Map1.CurrentTool := miZoomInTool;
+  Map1.CurrentTool  := miZoomInTool;
   Map1.MousePointer := miZoomInCursor;
 
-  btnSelect.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
-  pnlStatic.Visible := false;
-  btnZoom.ImageIndex := 5;
+  {$REGION ' LAMA '}
+//  btnZoom.Down := not btnZoom.Down;
+//  btnPan.Down := false;
+//
+//
+//  FMapCursor := mcSelect;
+//  LoadNormalButtonImage;
+//
+//  Map1.CurrentTool := miZoomInTool;
+//  Map1.MousePointer := miZoomInCursor;
+//
+//  btnSelect.Picture.LoadFromFile
+//    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
+//  pnlStatic.Visible := false;
+//  btnZoom.ImageIndex := 5;
+  {$ENDREGION}
 end;
 
-procedure TOverlayEditorForm.btnPanClick(Sender: TObject);
+procedure TOverlayEditorForm.btnZoomClick(Sender: TObject);
 begin
   btnPan.Down := not btnPan.Down;
   btnZoom.Down := false;
@@ -2219,6 +2309,48 @@ begin
     ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
   pnlStatic.Visible := false;
   btnPan.ImageIndex := 6;
+end;
+
+procedure TOverlayEditorForm.btnPasteArcClick(Sender: TObject);
+begin
+  edtArcPosLat.Text   := Flatt;
+  edtArcPosLong.Text  := Flong;
+end;
+
+procedure TOverlayEditorForm.btnPasteCircleClick(Sender: TObject);
+begin
+  edtCirclePosLat.Text   := Flatt;
+  edtCirclePosLong.Text  := Flong;
+end;
+
+procedure TOverlayEditorForm.btnPasteEllipseClick(Sender: TObject);
+begin
+  edtEllipsePosLat.Text   := Flatt;
+  edtEllipsePosLong.Text  := Flong;
+end;
+
+procedure TOverlayEditorForm.btnPasteEndLineClick(Sender: TObject);
+begin
+  Flatt := edtLineEndPosLat.Text;
+  Flong := edtLineEndPosLong.Text;
+end;
+
+procedure TOverlayEditorForm.btnPasteGridClick(Sender: TObject);
+begin
+  edtTablePosLat.Text   := Flatt;
+  edtTablePosLong.Text  := Flong;
+end;
+
+procedure TOverlayEditorForm.btnPastePolygonClick(Sender: TObject);
+begin
+  edtPolyPosLat.Text  := Flatt;
+  edtPolyPosLong.Text := Flong;
+end;
+
+procedure TOverlayEditorForm.btnPasteStartLineClick(Sender: TObject);
+begin
+  edtLineStartPosLat.Text   := Flatt;
+  edtLineStartPosLong.Text  := Flong;
 end;
 
 procedure TOverlayEditorForm.btnrulerClick(Sender: TObject);
@@ -2274,7 +2406,7 @@ begin
   end;
 
 end;
-procedure TOverlayEditorForm.btnCenterGameClick(Sender: TObject);
+procedure TOverlayEditorForm.btnMoveMapClick(Sender: TObject);
 begin
   Map1.CenterX := centLong;
   Map1.CenterY := centLatt;
@@ -2526,6 +2658,54 @@ begin
         edtPolyPosLong.Text := formatDMS_long(mx);
       end;
   end;
+end;
+
+procedure TOverlayEditorForm.imgCopyEndRecClick(Sender: TObject);
+begin
+  Flatt := edtRectEndPosLat.Text;
+  Flong := edtRectEndPosLong.Text;
+end;
+
+procedure TOverlayEditorForm.imgCopySectorClick(Sender: TObject);
+begin
+  Flatt := edtSectorPosLat.Text;
+  Flong := edtSectorPosLong.Text;
+end;
+
+procedure TOverlayEditorForm.imgCopyStartRecClick(Sender: TObject);
+begin
+  Flatt := edtRectStartPosLat.Text;
+  Flong := edtRectStartPosLong.Text;
+end;
+
+procedure TOverlayEditorForm.imgCopyTextClick(Sender: TObject);
+begin
+  Flatt := edtTextPosLat.Text;
+  Flong := edtTextPosLong.Text;
+end;
+
+procedure TOverlayEditorForm.imgPasteEndRecClick(Sender: TObject);
+begin
+  edtRectEndPosLat.Text   := Flatt;
+  edtRectEndPosLong.Text  := Flong;
+end;
+
+procedure TOverlayEditorForm.imgPasteSectorClick(Sender: TObject);
+begin
+  edtSectorPosLat.Text   := Flatt;
+  edtSectorPosLong.Text  := Flong;
+end;
+
+procedure TOverlayEditorForm.imgPasteStartRecClick(Sender: TObject);
+begin
+  edtRectStartPosLat.Text   := Flatt;
+  edtRectStartPosLong.Text  := Flong;
+end;
+
+procedure TOverlayEditorForm.imgPasteTextClick(Sender: TObject);
+begin
+  edtTextPosLat.Text   := Flatt;
+  edtTextPosLong.Text  := Flong;
 end;
 
 function TOverlayEditorForm.GetGridLong(xCursorPoint: Double): string;
@@ -2864,6 +3044,17 @@ begin
   end;
 end;
 
+procedure TOverlayEditorForm.UpAllToolbarButton;
+begin
+  btnCenterOnGame.Down := False;
+  btnZoom.Down := False;
+  btnMoveMap.Down := False;
+  btnGameArea.Down := False;
+
+  Map1.CurrentTool  := miArrowTool;
+  Map1.MousePointer := miDefaultCursor;
+end;
+
 procedure TOverlayEditorForm.btnNoFillClick(Sender: TObject);
 begin
   case ShapeType of
@@ -2879,7 +3070,7 @@ begin
   end;
 end;
 
-procedure TOverlayEditorForm.btnoutClick(Sender: TObject);
+procedure TOverlayEditorForm.btnLayerToolClick(Sender: TObject);
 begin
   // if btnZoom.Down then
   // btnZoom.Down := False;
@@ -2909,6 +3100,48 @@ begin
 
   AfterClose := false;
   Close;
+end;
+
+procedure TOverlayEditorForm.btnCopyArcClick(Sender: TObject);
+begin
+  Flatt := edtArcPosLat.Text;
+  Flong := edtArcPosLong.Text;
+end;
+
+procedure TOverlayEditorForm.btnCopyCircleClick(Sender: TObject);
+begin
+  Flatt := edtCirclePosLat.Text;
+  Flong := edtCirclePosLong.Text;
+end;
+
+procedure TOverlayEditorForm.btnCopyEllipseClick(Sender: TObject);
+begin
+  Flatt := edtEllipsePosLat.Text;
+  Flong := edtEllipsePosLong.Text;
+end;
+
+procedure TOverlayEditorForm.btnCopyEndLineClick(Sender: TObject);
+begin
+  Flatt := edtLineEndPosLat.Text;
+  Flong := edtLineEndPosLong.Text;
+end;
+
+procedure TOverlayEditorForm.btnCopyGridClick(Sender: TObject);
+begin
+  Flatt := edtTablePosLat.Text;
+  Flong := edtTablePosLong.Text;
+end;
+
+procedure TOverlayEditorForm.btnCopyPolygonClick(Sender: TObject);
+begin
+  Flatt := edtPolyPosLat.Text;
+  Flong := edtPolyPosLong.Text;
+end;
+
+procedure TOverlayEditorForm.btnCopyStartLineClick(Sender: TObject);
+begin
+  Flatt := edtLineStartPosLat.Text;
+  Flong := edtLineStartPosLong.Text;
 end;
 
 procedure TOverlayEditorForm.AddPolyDClick(Sender: TObject);
@@ -2969,7 +3202,7 @@ begin
   // btnNoFill.OnClick(btnNoFill);
 end;
 
-procedure TOverlayEditorForm.btngameareaClick(Sender: TObject);
+procedure TOverlayEditorForm.btnGameAreaClick(Sender: TObject);
 begin
       frmGameAreaPickList:=TfrmGameAreaPickList.Create(self);
       try
@@ -3279,326 +3512,392 @@ begin
 end;
 
 function TOverlayEditorForm.CekInput(IdObject: Integer): Boolean;
+var
+  InnerRadius, OuterRadius, InputHeading: Double;
 begin
   Result := false;
 
   case FTipeOverlay of
 
-{$REGION ' Dynamic Section '}
+  {$REGION ' Dynamic Section '}
     osDynamic:
       begin
         case IdObject of
           ovText: { Text }
             begin
+              {$REGION ' Text '}
               if (edtTextRange.Text = '') or (edtTextBearing.Text = '') or
                 (edtTextFieldD.Text = '') or (cbbTextSizeD.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage('Incomplete data input');
                 Result := True;
               end
               else if (StrToInt(cbbTextSizeD.Text) > 72) or
                 (StrToInt(cbbTextSizeD.Text) = 0) then
               begin
-                lblWarning.Caption := 'Invalid size input';
+                ShowMessage('Invalid size input');
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovLine: { Line }
             begin
-              if (edtLineStartRange.Text = '') or
-                (edtLineStartBearing.Text = '') or (edtLineEndRange.Text = '')
-                or (edtLineEndBearing.Text = '') then
+              {$REGION ' Line '}
+              if (edtLineStartRange.Text = '') or (edtLineStartBearing.Text = '') or
+                (edtLineEndRange.Text = '') or (edtLineEndBearing.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage('Incomplete data input');
                 Result := True;
               end
               else if (edtLineStartRange.Text = edtLineEndRange.Text) and
                 (edtLineEndRange.Text = edtLineEndBearing.Text) then
               begin
-                lblWarning.Caption :=
-                  'Invalid input..., Start and End position can not be identical';
+                ShowMessage('Invalid input..., Start and End position can not be identical');
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovRectangle: { Rectangle }
             begin
+              {$REGION ' Rectangle '}
               if (edtRecStartRange.Text = '') or (edtRecStartBearing.Text = '')
                 or (edtRecEndRange.Text = '') or (edtRecEndBearing.Text = '')
               then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage( 'Incomplete data input' );
                 Result := True;
               end
               else if (edtRecStartRange.Text = edtRecEndRange.Text) and
                 (edtRecStartBearing.Text = edtRecEndBearing.Text) then
               begin
-                lblWarning.Caption :=
-                  'Invalid input..., Top-Left and Bottom-Right position can not be identical';
+                ShowMessage( 'Invalid input..., Top-Left and Bottom-Right position can not be identical' );
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovCircle: { Circle }
             begin
+              {$REGION ' Circle '}
               if (edtCircleRange.Text = '') or (edtCircleBearing.Text = '') or
                 (edtCircleRadiusD.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage('The provided input data is incomplete.');
                 Result := True;
               end
               else if (edtCircleRadiusD.Text = '0') then
               begin
-                lblWarning.Caption :=
-                  'Invalid radius input, minimum radius > 0';
+                ShowMessage('Invalid input. Radius must not be 0.');
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovEllipse: { Ellipse }
             begin
+              {$REGION ' Ellipse '}
               if (edtEllipseRange.Text = '') or (edtEllipseBearing.Text = '') or
-                (edtEllipseHorizontalD.Text = '') or
-                (edtEllipseVerticalD.Text = '') then
+              (edtEllipseHorizontalD.Text = '') or (edtEllipseVerticalD.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage( 'Incomplete data input' );
                 Result := True;
               end
-              else if (edtEllipseHorizontalD.Text = '0') or
-                (edtEllipseVerticalD.Text = '0') then
+              else if (edtEllipseHorizontalD.Text = '0') or (edtEllipseVerticalD.Text = '0') then
               begin
-                lblWarning.Caption :=
-                  'Invalid radius input, minimum radius > 0';
+                ShowMessage( 'Invalid radius input, minimum radius > 0' );
                 Result := True;
               end;
+              {$ENDREGION}
             end;
-
           ovArc: { Arc }
             begin
+              {$REGION ' Arc '}
               if (edtArcRange.Text = '') or (edtArcBearing.Text = '') or
                 (edtArcRadiusD.Text = '') or (edtArcStartAngleD.Text = '') or
                 (edtArcEndAngleD.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage( 'Incomplete data input' );
                 Result := True;
               end
               else if (edtArcRadiusD.Text = '0') then
               begin
-                lblWarning.Caption :=
-                  'Invalid radius input, minimum radius > 0';
+                ShowMessage( 'Invalid radius input, minimum radius > 0' );
                 Result := True;
               end
               else if (edtArcStartAngleD.Text = edtArcEndAngleD.Text) then
               begin
-                lblWarning.Caption :=
-                  'Invalid input..., Start and End Angle can not be identical';
+                ShowMessage( 'Invalid input..., Start and End Angle can not be identical' );
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovSector: { Sector }
             begin
-              if (edtSectorRange.Text = '') or (edtSectorBearing.Text = '') or
-                (edtSectorInnerD.Text = '') or (edtSectorOuterD.Text = '') or
-                (edtSectorStartAngleD.Text = '') or
-                (edtSectorEndAngleD.Text = '') then
+              {$REGION ' Sector '}
+              InnerRadius := StrToFloat(edtSectorInnerD.Text);
+              OuterRadius := StrToFloat(edtSectorOuterD.Text);
+
+              if(edtSectorInnerD.Text = '') or (edtSectorOuterD.Text = '')or
+              (edtSectorStartAngleD.Text = '') or (edtSectorEndAngleD.Text = '')or
+              (edtSectorRange.Text = '')or (edtSectorBearing.Text = '')then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage ('The provided input data is incomplete');
                 Result := True;
               end
-              else if (edtSectorInnerD.Text = '0') or
-                (edtSectorOuterD.Text = '0') then
+              else if (InnerRadius <= 0) or (OuterRadius <= 0) then
               begin
-                lblWarning.Caption :=
-                  'Invalid radius input, minimum radius > 0';
+                ShowMessage ('Invalid radius value. Radius must be greater than 0.');
                 Result := True;
               end
               else if (edtSectorStartAngleD.Text = edtSectorEndAngleD.Text) then
               begin
-                lblWarning.Caption :=
-                  'Invalid input..., Start and End Angle can not be identical';
+                ShowMessage ('Invalid input. Start Angle and End Angle cannot be same.');
                 Result := True;
               end
+              else if (InnerRadius = OuterRadius) then
+              begin
+                ShowMessage ('Invalid input. Inner Radius and Outer Radius must not be same.');
+                Result := True;
+              end
+              else if (InnerRadius > OuterRadius) then
+              begin
+                ShowMessage ('Invalid input data. The Inner Radius value cannot exceed the Outer Radius value.');
+                Result := True;
+              end
+              else if (OuterRadius < InnerRadius) then
+              begin
+                ShowMessage ('Invalid input. Outer Radius must not be smaller than Inner Radius.');
+                Result := True;
+              end;
+              {$ENDREGION}
+
+              {$REGION ' Sector - Lama '}
+//              if (edtSectorRange.Text = '') or (edtSectorBearing.Text = '') or
+//                (edtSectorInnerD.Text = '') or (edtSectorOuterD.Text = '') or
+//                (edtSectorStartAngleD.Text = '') or
+//                (edtSectorEndAngleD.Text = '') then
+//              begin
+//                lblWarning.Caption := 'Incomplete data input';
+//                Result := True;
+//              end
+//              else if (edtSectorInnerD.Text = '0') or
+//                (edtSectorOuterD.Text = '0') then
+//              begin
+//                lblWarning.Caption :=
+//                  'Invalid radius input, minimum radius > 0';
+//                Result := True;
+//              end
+//              else if (edtSectorStartAngleD.Text = edtSectorEndAngleD.Text) then
+//              begin
+//                lblWarning.Caption :=
+//                  'Invalid input..., Start and End Angle can not be identical';
+//                Result := True;
+//              end
+              {$ENDREGION}
             end;
           ovGrid: { Grid }
             begin
+              {$REGION ' Grid '}
               if (edtTableRange.Text = '') or (edtTableBearing.Text = '') or
                 (edtTableHeightD.Text = '') or (edtTableColumnD.Text = '') or
                 (edtTableWidthD.Text = '') or (edtTableRowD.Text = '') or
                 (edtRotationAngleD.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete Data Input';
+                ShowMessage( 'Incomplete Data Input' );
                 Result := True;
               end
-              else if (edtTableHeightD.Text = '0') or
-                (edtTableColumnD.Text = '0') or (edtTableWidthD.Text = '0') or
-                (edtTableRowD.Text = '0') then
+              else if (edtTableHeightD.Text = '0') or (edtTableColumnD.Text = '0') or
+              (edtTableWidthD.Text = '0') or (edtTableRowD.Text = '0') then
               begin
-                lblWarning.Caption :=
-                  'Invalid input, minimum Col, Row and height > 0';
+                ShowMessage( 'Invalid input, minimum Col, Row and height > 0' );
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovPolygon: { Polygon }
             begin
               if lvPolyVertexD.Items.Count < 1 then
               begin
-                lblWarning.Caption := 'Incomplete Data Input';
+                ShowMessage( 'Incomplete Data Input' );
                 Result := True;
               end;
             end;
         end;
       end;
-{$ENDREGION}
-{$REGION ' Static Section '}
+  {$ENDREGION}
+
+  {$REGION ' Static Section '}
     osStatic:
       begin
         case IdObject of
           ovText: { Text }
             begin
+              {$REGION ' Text '}
               if (edtTextPosLong.Text = '') or (edtTextPosLAt.Text = '') or
                 (edtTextField.Text = '') or (cbbTextSize.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage( 'Incomplete data input' );
                 Result := True;
               end
               else if (StrToInt(cbbTextSize.Text) > 72) or
                 (StrToInt(cbbTextSize.Text) = 0) then
               begin
-                lblWarning.Caption := 'Invalid size input';
+                ShowMessage( 'Invalid size input' );
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovLine: { Line }
             begin
-              if (edtLineStartPosLong.Text = '') or
-                (edtLineStartPosLat.Text = '') or (edtLineEndPosLong.Text = '')
-                or (edtLineEndPosLat.Text = '') then
+              {$REGION ' Line '}
+              if (edtLineStartPosLong.Text = '') or (edtLineStartPosLat.Text = '') or
+              (edtLineEndPosLong.Text = '') or (edtLineEndPosLat.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage( 'Incomplete data input' );
                 Result := True;
               end
               else if (edtLineStartPosLong.Text = edtLineEndPosLong.Text) and
                 (edtLineStartPosLat.Text = edtLineEndPosLat.Text) then
               begin
-                lblWarning.Caption :=
-                  'Invalid input..., Start and End position can not be identical';
+                ShowMessage( 'Invalid input..., Start and End position can not be identical' );
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovRectangle: { Rectangle }
             begin
-              if (edtRectStartPosLong.Text = '') or
-                (edtRectStartPosLat.Text = '') or (edtRectEndPosLong.Text = '')
-                or (edtRectEndPosLat.Text = '') then
+              {$REGION ' Rectangle '}
+              if (edtRectStartPosLong.Text = '') or (edtRectStartPosLat.Text = '') or
+              (edtRectEndPosLong.Text = '') or (edtRectEndPosLat.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage( 'Incomplete data input' );
                 Result := True;
               end
               else if (edtRectStartPosLong.Text = edtRectEndPosLong.Text) and
                 (edtRectStartPosLat.Text = edtRectEndPosLat.Text) then
               begin
-                lblWarning.Caption :=
-                  'Invalid input..., Top-Left and Bottom-Right position can not be identical';
+                ShowMessage( 'Invalid input..., Top-Left and Bottom-Right position can not be identical' );
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovCircle: { Circle }
             begin
+              {$REGION ' Circle '}
               if (edtCirclePosLong.Text = '') or (edtCirclePosLat.Text = '') or
                 (edtCircleRadius.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage('The provided input data is incomplete.');
                 Result := True;
               end
               else if (edtCircleRadius.Text = '0') then
               begin
-                lblWarning.Caption :=
-                  'Invalid radius input, minimum radius > 0';
+                ShowMessage('Invalid input. Radius must not be 0.');
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovEllipse: { Ellipse }
             begin
+              {$REGION ' ELlipse '}
               if (edtEllipsePosLong.Text = '') or (edtEllipsePosLat.Text = '')
                 or (edtHorizontal.Text = '') or (edtVertical.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage( 'Incomplete data input' );
                 Result := True;
               end
               else if (edtHorizontal.Text = '0') or (edtVertical.Text = '0')
               then
               begin
-                lblWarning.Caption :=
-                  'Invalid radius input, minimum radius > 0';
+                ShowMessage( 'Invalid radius input, minimum radius > 0' );
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovArc: { Arc }
             begin
+              {$REGION ' Arc '}
               if (edtArcPosLong.Text = '') or (edtArcPosLat.Text = '') or
                 (edtArcRadius.Text = '') or (edtArcEndAngle.Text = '') or
                 (edtArcStartAngle.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage( 'Incomplete data input' );
                 Result := True;
               end
               else if (edtArcRadius.Text = '0') then
               begin
-                lblWarning.Caption :=
-                  'Invalid radius input, minimum radius > 0';
+                ShowMessage( 'Invalid radius input, minimum radius > 0' );
                 Result := True;
               end
               else if (edtArcEndAngle.Text = edtArcStartAngle.Text) then
               begin
-                lblWarning.Caption :=
-                  'Invalid input..., Start and End Angle can not be identical';
+                ShowMessage( 'Invalid input..., Start and End Angle can not be identical' );
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovSector: { Sector }
             begin
-              if (edtSectorPosLong.Text = '') or (edtSectorPosLat.Text = '') or
-                (edtSectorInner.Text = '') or (edtSectorOuter.Text = '') or
-                (edtSectorStartAngle.Text = '') or (edtSectorEndAngle.Text = '')
-              then
+              {$REGION ' Sector '}
+              InnerRadius := StrToFloat(edtSectorInner.Text);
+              OuterRadius := StrToFloat(edtSectorOuter.Text);
+
+              if(edtSectorInner.Text = '') or (edtSectorOuter.Text = '')or
+              (edtSectorStartAngle.Text = '') or (edtSectorEndAngle.Text = '')or
+              (edtSectorPosLat.Text = '')or (edtSectorPosLong.Text = '')then
               begin
-                lblWarning.Caption := 'Incomplete data input';
+                ShowMessage ('The provided input data is incomplete');
                 Result := True;
               end
-              else if (edtSectorInner.Text = '0') or (edtSectorOuter.Text = '0')
-              then
+              else if (InnerRadius <= 0) or (OuterRadius <= 0) then
               begin
-                lblWarning.Caption :=
-                  'Invalid radius input, minimum radius > 0';
+                ShowMessage ('Invalid radius value. Radius must be greater than 0.');
                 Result := True;
               end
               else if (edtSectorStartAngle.Text = edtSectorEndAngle.Text) then
               begin
-                lblWarning.Caption :=
-                  'Invalid input..., Start and End Angle can not be identical';
+                ShowMessage ('Invalid input. Start Angle and End Angle cannot be same.');
                 Result := True;
               end
+              else if (InnerRadius = OuterRadius) then
+              begin
+                ShowMessage ('Invalid input. Inner Radius and Outer Radius must not be same.');
+                Result := True;
+              end
+              else if (InnerRadius > OuterRadius) then
+              begin
+                ShowMessage ('Invalid input data. The Inner Radius value cannot exceed the Outer Radius value.');
+                Result := True;
+              end
+              else if (OuterRadius < InnerRadius) then
+              begin
+                ShowMessage ('Invalid input. Outer Radius must not be smaller than Inner Radius.');
+                Result := True;
+              end;
+              {$ENDREGION}
             end;
           ovGrid: { Grid }
             begin
+              {$REGION ' Grid '}
               if (edtTablePosLong.Text = '') or (edtTablePosLat.Text = '') or
                 (edtTableHeight.Text = '') or (edtTableColumn.Text = '') or
                 (edtTableWidth.Text = '') or (edtTableRow.Text = '') or
                 (edtTableRotationAngle.Text = '') then
               begin
-                lblWarning.Caption := 'Incomplete Data Input';
+                ShowMessage( 'Incomplete Data Input' );
                 Result := True;
               end
               else if (edtTableHeight.Text = '0') or (edtTableColumn.Text = '0')
                 or (edtTableWidth.Text = '0') or (edtTableRow.Text = '0') then
               begin
-                lblWarning.Caption :=
-                  'Invalid input, minimum Col, Row and height > 0';
+                ShowMessage( 'Invalid input, minimum Col, Row and height > 0' );
                 Result := True;
               end;
+              {$ENDREGION}
             end;
           ovPolygon: { Polygon }
             begin
               if lvPolyVertex.Items.Count < 1 then
               begin
-                lblWarning.Caption := 'Incomplete Data Input';
+                ShowMessage( 'Incomplete Data Input' );
                 Result := True;
               end;
             end;
@@ -3609,12 +3908,12 @@ begin
 
   if Result then
   begin
-    pnlWarning.Visible := True;
-    lbl33.Visible := True;
-    lblWarning.Visible := True;
-    lbl33.Font.Color := clRed;
-    lbl33.Font.Style := [fsBold];
-    lblWarning.Font.Color := clRed;
+//    pnlWarning.Visible := True;
+//    lbl33.Visible := True;
+//    lblWarning.Visible := True;
+//    lbl33.Font.Color := clRed;
+//    lbl33.Font.Style := [fsBold];
+//    lblWarning.Font.Color := clRed;
     // isInputProblem := True;
   end;
 end;

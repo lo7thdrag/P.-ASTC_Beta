@@ -11,24 +11,28 @@ type
   E_LauncherOwner = (loMissile, loTorpedo);
 
   TfrmLauncherList = class(TForm)
+    pnlMainBackground: TPanel;
+    Image1: TImage;
+    pnl2ControlPage: TPanel;
     lbAllLauncher: TListBox;
-    ImgBackgroungList: TImage;
-    ImgBackground: TImage;
-    Label2: TLabel;
+    pnl3Button: TPanel;
+    btnClose: TButton;
+    pnlSparatorHor2: TPanel;
+    pnlTableHeader: TPanel;
     btnNew: TImage;
     btnEdit: TImage;
     btnDelete: TImage;
-    ImgBtnBack: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
-    procedure lstLauncherClick(Sender: TObject);
+    procedure lbAllLauncherClick(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FLauncherOwner : E_LauncherOwner;
@@ -54,12 +58,30 @@ uses
   uDataModuleTTT, ufrmMissileLauncher, ufrmTorpedoLauncher;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmLauncherList.FormCreate(Sender: TObject);
 begin
   FLauncherList := TList.Create;
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmLauncherList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FLauncherList);
 end;
 
 procedure TfrmLauncherList.FormShow(Sender: TObject);
@@ -69,8 +91,8 @@ end;
 
 procedure TfrmLauncherList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FLauncherList);
-  Action := cafree;
+//  FreeItemsAndFreeList(FLauncherList);
+//  Action := cafree;
 end;
 
 {$ENDREGION}
@@ -189,7 +211,7 @@ begin
   UpdateLauncherList;
 end;
 
-procedure TfrmLauncherList.lstLauncherClick(Sender: TObject);
+procedure TfrmLauncherList.lbAllLauncherClick(Sender: TObject);
 begin
   if lbAllLauncher.ItemIndex = -1 then
     Exit;

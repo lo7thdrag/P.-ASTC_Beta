@@ -44851,9 +44851,6 @@ object frmESMMount: TfrmESMMount
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 88
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44867,14 +44864,14 @@ object frmESMMount: TfrmESMMount
       object txtClass: TLabel
         Left = 10
         Top = 10
-        Width = 81
+        Width = 89
         Height = 16
         Caption = 'Mount Name :'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Tahoma'
-        Font.Style = []
+        Font.Style = [fsBold]
         ParentFont = False
       end
       object edtName: TEdit
@@ -44904,8 +44901,6 @@ object frmESMMount: TfrmESMMount
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 0
-      ExplicitHeight = 435
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44913,46 +44908,59 @@ object frmESMMount: TfrmESMMount
         Height = 350
         ActivePage = General
         Align = alClient
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = []
+        ParentFont = False
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitHeight = 415
         object General: TTabSheet
           Caption = 'General'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 375
           object lblClassName: TStaticText
-            Left = 12
+            Left = 10
             Top = 18
-            Width = 72
-            Height = 18
+            Width = 70
+            Height = 19
             Caption = 'Class Name :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 0
           end
           object edtClassName: TEdit
             Tag = 4
-            Left = 12
+            Left = 10
             Top = 41
             Width = 366
-            Height = 22
+            Height = 23
             Enabled = False
             TabOrder = 1
           end
           object lblMountExtension: TStaticText
-            Left = 12
+            Left = 10
             Top = 79
-            Width = 104
-            Height = 18
+            Width = 99
+            Height = 19
             Caption = 'Mount Extension :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 2
           end
           object cbMountExtension: TComboBox
-            Left = 12
+            Left = 10
             Top = 102
             Width = 366
-            Height = 22
+            Height = 23
             Style = csDropDownList
             TabOrder = 3
             OnChange = cbMountExtensionChange
@@ -44972,42 +44980,60 @@ object frmESMMount: TfrmESMMount
               'Starboard Mount')
           end
           object lblBlindZones: TStaticText
-            Left = 12
+            Left = 10
             Top = 149
-            Width = 74
-            Height = 18
+            Width = 70
+            Height = 19
             Caption = 'Blind Zones :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 4
           end
           object lblAntenna: TStaticText
             Left = 104
             Top = 151
-            Width = 99
-            Height = 18
+            Width = 94
+            Height = 19
             Caption = 'Antenna Height :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 5
           end
           object edtAntenna: TEdit
             Left = 276
             Top = 149
             Width = 68
-            Height = 22
+            Height = 23
             TabOrder = 6
             OnChange = edtChange
           end
           object lblSubmergedAntenna: TStaticText
             Left = 104
             Top = 178
-            Width = 166
-            Height = 18
+            Width = 157
+            Height = 19
             Caption = 'Submerged Antenna Height :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 7
           end
           object edtSubmerged: TEdit
             Left = 276
             Top = 176
             Width = 68
-            Height = 22
+            Height = 23
             TabOrder = 8
             OnChange = edtChange
             OnKeyPress = edtNumeralKeyPress
@@ -45015,16 +45041,22 @@ object frmESMMount: TfrmESMMount
           object lblMaxOperational: TStaticText
             Left = 104
             Top = 205
-            Width = 166
-            Height = 18
+            Width = 164
+            Height = 19
             Caption = 'Maximum Operational Depth :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 9
           end
           object edtMaxOperational: TEdit
             Left = 276
             Top = 203
             Width = 68
-            Height = 22
+            Height = 23
             TabOrder = 10
             OnChange = edtChange
             OnKeyPress = edtNumeralKeyPress
@@ -45032,29 +45064,47 @@ object frmESMMount: TfrmESMMount
           object lblFeetAntenna: TStaticText
             Left = 360
             Top = 205
-            Width = 27
-            Height = 18
+            Width = 24
+            Height = 19
             Caption = 'feet'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 11
           end
           object lblFeetSubmerged: TStaticText
             Left = 360
             Top = 178
-            Width = 27
-            Height = 18
+            Width = 24
+            Height = 19
             Caption = 'feet'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 12
           end
           object lblFeetMaxOperational: TStaticText
             Left = 360
             Top = 151
-            Width = 27
-            Height = 18
+            Width = 24
+            Height = 19
             Caption = 'feet'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 13
           end
           object pnlBlindZone: TPanel
-            Left = 12
+            Left = 10
             Top = 172
             Width = 66
             Height = 65

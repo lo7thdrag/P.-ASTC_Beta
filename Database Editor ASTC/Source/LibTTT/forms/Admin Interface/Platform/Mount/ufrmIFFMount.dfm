@@ -14,6 +14,7 @@ object frmIFFMount: TfrmIFFMount
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmIFFMount: TfrmIFFMount
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 160
-    ExplicitTop = 80
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44864,18 +44861,17 @@ object frmIFFMount: TfrmIFFMount
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitTop = 4
       object txtClass: TLabel
         Left = 10
         Top = 7
-        Width = 78
-        Height = 14
+        Width = 89
+        Height = 16
         Caption = 'Mount Name :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -12
+        Font.Height = -13
         Font.Name = 'Tahoma'
-        Font.Style = []
+        Font.Style = [fsBold]
         ParentFont = False
       end
       object edtName: TEdit
@@ -44905,8 +44901,6 @@ object frmIFFMount: TfrmIFFMount
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 0
-      ExplicitHeight = 435
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44914,18 +44908,22 @@ object frmIFFMount: TfrmIFFMount
         Height = 350
         ActivePage = General
         Align = alClient
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = []
+        ParentFont = False
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitTop = 14
         object General: TTabSheet
           Caption = 'General'
-          ExplicitHeight = 375
           object lblCapability: TStaticText
             Left = 12
             Top = 28
             Width = 62
-            Height = 18
+            Height = 19
             Caption = 'Capability :'
             TabOrder = 0
           end
@@ -44933,7 +44931,7 @@ object frmIFFMount: TfrmIFFMount
             Left = 96
             Top = 26
             Width = 140
-            Height = 22
+            Height = 23
             TabOrder = 1
             Items.Strings = (
               'Automatic/Designated'
@@ -44942,8 +44940,8 @@ object frmIFFMount: TfrmIFFMount
           object txtAntenna: TStaticText
             Left = 12
             Top = 53
-            Width = 99
-            Height = 18
+            Width = 94
+            Height = 19
             Caption = 'Antenna Height :'
             TabOrder = 2
           end
@@ -44951,7 +44949,7 @@ object frmIFFMount: TfrmIFFMount
             Left = 168
             Top = 51
             Width = 68
-            Height = 22
+            Height = 23
             TabOrder = 3
             OnChange = edtChange
             OnKeyPress = edtNumeralKeyPress
@@ -44959,8 +44957,8 @@ object frmIFFMount: TfrmIFFMount
           object txtSubmerged: TStaticText
             Left = 12
             Top = 79
-            Width = 166
-            Height = 18
+            Width = 157
+            Height = 19
             Caption = 'Submerged Antenna Height :'
             TabOrder = 4
           end
@@ -44968,7 +44966,7 @@ object frmIFFMount: TfrmIFFMount
             Left = 168
             Top = 77
             Width = 68
-            Height = 22
+            Height = 23
             TabOrder = 5
             OnChange = edtChange
             OnKeyPress = edtNumeralKeyPress
@@ -44976,8 +44974,8 @@ object frmIFFMount: TfrmIFFMount
           object lblMaxOperational: TStaticText
             Left = 12
             Top = 105
-            Width = 166
-            Height = 18
+            Width = 164
+            Height = 19
             Caption = 'Maximum Operational Depth :'
             TabOrder = 6
           end
@@ -44985,7 +44983,7 @@ object frmIFFMount: TfrmIFFMount
             Left = 168
             Top = 103
             Width = 68
-            Height = 22
+            Height = 23
             TabOrder = 7
             OnChange = edtChange
             OnKeyPress = edtNumeralKeyPress
@@ -44993,24 +44991,24 @@ object frmIFFMount: TfrmIFFMount
           object txtFeetAntenna: TStaticText
             Left = 242
             Top = 53
-            Width = 27
-            Height = 18
+            Width = 24
+            Height = 19
             Caption = 'feet'
             TabOrder = 8
           end
           object txtFeetSubmerged: TStaticText
             Left = 242
             Top = 79
-            Width = 27
-            Height = 18
+            Width = 24
+            Height = 19
             Caption = 'feet'
             TabOrder = 9
           end
           object txtFeetMaxOperational: TStaticText
             Left = 242
             Top = 105
-            Width = 27
-            Height = 18
+            Width = 24
+            Height = 19
             Caption = 'feet'
             TabOrder = 10
           end

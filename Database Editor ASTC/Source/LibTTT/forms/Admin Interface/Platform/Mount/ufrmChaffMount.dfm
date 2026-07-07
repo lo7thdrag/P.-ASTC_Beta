@@ -44859,8 +44859,6 @@ object frmChaffMountForm: TfrmChaffMountForm
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitTop = 70
-      ExplicitHeight = 360
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44868,44 +44866,59 @@ object frmChaffMountForm: TfrmChaffMountForm
         Height = 350
         ActivePage = General
         Align = alClient
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = []
+        ParentFont = False
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitTop = 6
-        ExplicitHeight = 340
         object General: TTabSheet
           Caption = 'General'
-          ExplicitHeight = 300
           object lblClass: TLabel
-            Left = 12
+            Left = 10
             Top = 18
-            Width = 64
-            Height = 14
+            Width = 63
+            Height = 15
             Caption = 'Class Name:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
           end
           object txtQuantity: TStaticText
-            Left = 12
-            Top = 79
-            Width = 59
-            Height = 18
+            Left = 136
+            Top = 146
+            Width = 56
+            Height = 19
             Caption = 'Quantity :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 0
           end
           object edtQuantity: TEdit
-            Left = 82
-            Top = 75
+            Left = 202
+            Top = 144
             Width = 68
-            Height = 22
+            Height = 23
             NumbersOnly = True
             TabOrder = 1
             OnChange = edtChange
           end
           object edtClass: TEdit
             Tag = 4
-            Left = 12
+            Left = 10
             Top = 41
             Width = 306
-            Height = 22
+            Height = 23
             Enabled = False
             TabOrder = 2
           end
@@ -44924,14 +44937,14 @@ object frmChaffMountForm: TfrmChaffMountForm
       object txtClass: TLabel
         Left = 10
         Top = 10
-        Width = 81
+        Width = 89
         Height = 16
         Caption = 'Mount Name :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Tahoma'
-        Font.Style = []
+        Font.Style = [fsBold]
         ParentFont = False
       end
       object cbbName: TComboBox
@@ -44963,7 +44976,6 @@ object frmChaffMountForm: TfrmChaffMountForm
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitTop = 436
       object btnApply: TButton
         Left = 261
         Top = 2

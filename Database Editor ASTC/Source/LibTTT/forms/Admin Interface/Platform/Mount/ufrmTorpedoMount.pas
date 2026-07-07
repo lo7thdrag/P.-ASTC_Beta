@@ -26,14 +26,14 @@ type
     lbl5: TLabel;
     lbl6: TLabel;
     lbl7: TLabel;
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
     edtClassName: TLabel;
     edtReload: TMaskEdit;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnOK: TButton;
+    btnCancel: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -83,7 +83,18 @@ uses
   newClassASTT;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
 
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
@@ -106,6 +117,7 @@ begin
     Width := pnlBlindZone.Width;
     OnClick := pnlBlindZoneClick;
   end;
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmTorpedoMount.FormShow(Sender: TObject);

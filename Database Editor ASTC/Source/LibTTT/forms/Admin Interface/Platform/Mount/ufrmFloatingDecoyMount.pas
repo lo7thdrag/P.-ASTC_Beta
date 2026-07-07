@@ -14,15 +14,15 @@ type
     General: TTabSheet;
     edtQuantity: TEdit;
     lbl2: TLabel;
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
     pnl1Title: TPanel;
     txtClass: TLabel;
     edtName: TEdit;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnOK: TButton;
+    btnCancel: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -38,6 +38,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -63,12 +64,29 @@ uses
   uDataModuleTTT;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmFloatingDecoyMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := cafree;
+end;
+
+procedure TfrmFloatingDecoyMount.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmFloatingDecoyMount.FormShow(Sender: TObject);

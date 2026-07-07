@@ -44862,6 +44862,12 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Berlin Sans FB'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
       object PageControl1: TPageControl
         Left = 10
@@ -44878,8 +44884,8 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
           object lblClassName: TStaticText
             Left = 12
             Top = 18
-            Width = 72
-            Height = 18
+            Width = 70
+            Height = 19
             Caption = 'Class Name :'
             TabOrder = 0
           end
@@ -44888,15 +44894,15 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
             Left = 12
             Top = 41
             Width = 351
-            Height = 22
+            Height = 23
             Enabled = False
             TabOrder = 1
           end
           object lblMountExtension: TStaticText
             Left = 12
             Top = 79
-            Width = 104
-            Height = 18
+            Width = 99
+            Height = 19
             Caption = 'Mount Extension :'
             TabOrder = 2
           end
@@ -44904,7 +44910,7 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
             Left = 12
             Top = 102
             Width = 351
-            Height = 22
+            Height = 23
             Style = csDropDownList
             TabOrder = 3
             OnChange = cbMountExtensionChange
@@ -44926,16 +44932,16 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
           object lblBlindZones: TStaticText
             Left = 12
             Top = 149
-            Width = 74
-            Height = 18
+            Width = 70
+            Height = 19
             Caption = 'Blind Zones :'
             TabOrder = 4
           end
           object lblAntenna: TStaticText
             Left = 104
             Top = 163
-            Width = 99
-            Height = 18
+            Width = 94
+            Height = 19
             Caption = 'Antenna Height :'
             TabOrder = 5
           end
@@ -44943,15 +44949,15 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
             Left = 230
             Top = 161
             Width = 68
-            Height = 22
+            Height = 23
             TabOrder = 6
             OnKeyPress = edtAntennaKeyPress
           end
           object lblFeetAntenna: TStaticText
             Left = 312
             Top = 163
-            Width = 27
-            Height = 18
+            Width = 24
+            Height = 19
             Caption = 'feet'
             TabOrder = 7
           end
@@ -44979,14 +44985,14 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
       object txtClass: TLabel
         Left = 10
         Top = 10
-        Width = 81
+        Width = 89
         Height = 16
         Caption = 'Mount Name :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Tahoma'
-        Font.Style = []
+        Font.Style = [fsBold]
         ParentFont = False
       end
       object edtName: TEdit

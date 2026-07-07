@@ -27,6 +27,8 @@ type
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -42,6 +44,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -69,12 +72,29 @@ uses
   uVehicleSelect;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmSonobuoyMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := cafree;
+end;
+
+procedure TfrmSonobuoyMount.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSonobuoyMount.FormShow(Sender: TObject);

@@ -16,6 +16,7 @@ object frmInfraredmount: TfrmInfraredmount
   OldCreateOrder = False
   Position = poScreenCenter
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44849,9 +44850,6 @@ object frmInfraredmount: TfrmInfraredmount
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 216
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44910,10 +44908,6 @@ object frmInfraredmount: TfrmInfraredmount
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 17
-      ExplicitTop = 135
-      ExplicitWidth = 400
-      ExplicitHeight = 250
       object pgc1: TPageControl
         Left = 10
         Top = 10
@@ -44923,22 +44917,19 @@ object frmInfraredmount: TfrmInfraredmount
         Align = alClient
         TabHeight = 30
         TabOrder = 0
-        TabWidth = 100
-        ExplicitTop = 6
+        TabWidth = 75
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 392
-          ExplicitHeight = 210
           object lbl2: TLabel
-            Left = 120
-            Top = 96
+            Left = 136
+            Top = 147
             Width = 55
             Height = 15
             Caption = 'Quantity  :'
           end
           object edtQuantity: TEdit
-            Left = 203
-            Top = 93
+            Left = 201
+            Top = 143
             Width = 68
             Height = 23
             TabOrder = 0

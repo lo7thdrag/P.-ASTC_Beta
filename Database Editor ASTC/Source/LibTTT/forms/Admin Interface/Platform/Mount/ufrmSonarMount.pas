@@ -35,6 +35,8 @@ type
     edtDeployTime: TMaskEdit;
     edtStowTime: TMaskEdit;
     txtClass: TLabel;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -83,6 +85,18 @@ uses
   ufrmSonarOnBoardPickList, uVehicleSelect;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
@@ -104,6 +118,7 @@ begin
     Width := pnlBlindZone.Width;
     OnClick := pnlBlindZoneClick;
   end;
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSonarMount.FormDestroy(Sender: TObject);

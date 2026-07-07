@@ -7,10 +7,10 @@ object frmGunMount: TfrmGunMount
   ClientHeight = 478
   ClientWidth = 434
   Color = clBtnShadow
-  Font.Charset = DEFAULT_CHARSET
+  Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
-  Font.Name = 'Tahoma'
+  Font.Height = -13
+  Font.Name = 'Berlin Sans FB'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
@@ -19,7 +19,7 @@ object frmGunMount: TfrmGunMount
   OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 14
+  TextHeight = 15
   object imgBackground: TImage
     Left = 0
     Top = 0
@@ -44866,14 +44866,14 @@ object frmGunMount: TfrmGunMount
       object txtClass: TLabel
         Left = 10
         Top = 10
-        Width = 81
+        Width = 89
         Height = 16
         Caption = 'Mount Name :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Tahoma'
-        Font.Style = []
+        Font.Style = [fsBold]
         ParentFont = False
       end
       object edtName: TEdit
@@ -44916,35 +44916,47 @@ object frmGunMount: TfrmGunMount
         object General: TTabSheet
           Caption = 'General'
           object lblClassName: TStaticText
-            Left = 12
+            Left = 10
             Top = 18
-            Width = 72
-            Height = 18
+            Width = 70
+            Height = 19
             Caption = 'Class Name :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 0
           end
           object edtClassName: TEdit
             Tag = 4
-            Left = 12
+            Left = 10
             Top = 41
             Width = 366
-            Height = 22
+            Height = 23
             Enabled = False
             TabOrder = 1
           end
           object lblMountExtension: TStaticText
-            Left = 12
+            Left = 10
             Top = 79
-            Width = 104
-            Height = 18
+            Width = 99
+            Height = 19
             Caption = 'Mount Extension :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 2
           end
           object cbMountExtension: TComboBox
-            Left = 12
+            Left = 10
             Top = 102
             Width = 366
-            Height = 22
+            Height = 23
             Style = csDropDownList
             TabOrder = 3
             OnChange = cbMountExtensionChange
@@ -44964,31 +44976,43 @@ object frmGunMount: TfrmGunMount
               'Starboard Mount')
           end
           object lblBlindZones: TStaticText
-            Left = 12
+            Left = 10
             Top = 149
-            Width = 74
-            Height = 18
+            Width = 70
+            Height = 19
             Caption = 'Blind Zones :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 4
           end
           object lblQuantity: TStaticText
             Left = 91
             Top = 172
-            Width = 59
-            Height = 18
+            Width = 56
+            Height = 19
             Caption = 'Quantity :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 5
           end
           object edtQuantity: TEdit
             Left = 168
             Top = 170
             Width = 68
-            Height = 22
+            Height = 23
             TabOrder = 6
             OnChange = edtQuantityChange
           end
           object pnlBlindZone: TPanel
-            Left = 12
+            Left = 10
             Top = 172
             Width = 66
             Height = 65

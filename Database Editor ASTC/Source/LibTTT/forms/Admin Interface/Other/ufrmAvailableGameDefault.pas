@@ -9,14 +9,13 @@ uses
 
 type
   TfrmAvailableGameDefault = class(TForm)
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
+    lbl1: TLabel;
+    pnlTableButton: TPanel;
+    imgEdit: TImage;
+    pnlTableList: TPanel;
     lstGameDefault: TListBox;
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
-    Label2: TLabel;
-    Image1: TImage;
-    btnEdit: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -24,7 +23,7 @@ type
 
     procedure btnNewClick(Sender: TObject);
     procedure btnCopyClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
+    procedure imgEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
@@ -121,7 +120,7 @@ begin
   UpdateGameDefaultList;
 end;
 
-procedure TfrmAvailableGameDefault.btnEditClick(Sender: TObject);
+procedure TfrmAvailableGameDefault.imgEditClick(Sender: TObject);
 begin
   if lstGameDefault.ItemIndex = -1 then
   begin

@@ -9,34 +9,33 @@ uses
 
 type
   TfrmAvailableSNRvsPOD = class(TForm)
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
-    Label2: TLabel;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
+    lbl1: TLabel;
+    pnlTableButton: TPanel;
+    imgDelete: TImage;
+    imgEdit: TImage;
+    imgCopy: TImage;
+    imgNew: TImage;
+    imgUsage: TImage;
+    lbl2: TLabel;
+    edtSearch: TEdit;
+    pnlTableList: TPanel;
     lstSNRvsPOD: TListBox;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtCheat: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
-    btnDelete: TImage;
-    imgImgBtnBack: TImage;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
     procedure lbSingleClick(Sender: TObject);
 
-    procedure btnNewClick(Sender: TObject);
-    procedure btnCopyClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDeleteClick(Sender: TObject);
-    procedure btnUsageClick(Sender: TObject);
+    procedure imgNewClick(Sender: TObject);
+    procedure imgCopyClick(Sender: TObject);
+    procedure imgEditClick(Sender: TObject);
+    procedure imgDeleteClick(Sender: TObject);
+    procedure imgUsageClick(Sender: TObject);
 
     procedure btnCloseClick(Sender: TObject);
     procedure edtsnrpodlistKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -53,20 +52,33 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummarySnrVsPod, ufrmUsage;
+  uDataModuleTTT, ufrmSummarySnrVsPod, ufrmUsage, ufProgress;
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableSNRvsPOD.FormClose(Sender: TObject;var Action: TCloseAction);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  FreeItemsAndFreeList(FSNRvsPODList);
-  Action := cafree;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableSNRvsPOD.FormCreate(Sender: TObject);
 begin
   FSNRvsPODList := TList.Create;
+  EnableComposited(pnlMainTable);
+end;
+
+procedure TfrmAvailableSNRvsPOD.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FSNRvsPODList);
 end;
 
 procedure TfrmAvailableSNRvsPOD.FormShow(Sender: TObject);
@@ -78,7 +90,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmAvailableSNRvsPOD.btnNewClick(Sender: TObject);
+procedure TfrmAvailableSNRvsPOD.imgNewClick(Sender: TObject);
 begin
   frmSummarySnrVsPod := TfrmSummarySnrVsPod.Create(Self);
   try
@@ -97,14 +109,14 @@ begin
     UpdateSNRvsPODList;
 end;
 
-procedure TfrmAvailableSNRvsPOD.btnCopyClick(Sender: TObject);
+procedure TfrmAvailableSNRvsPOD.imgCopyClick(Sender: TObject);
 var
   newClassName : string;
   count, parentIndex : Integer;
 begin
   if lstSNRvsPOD.ItemIndex = -1 then
   begin
-    ShowMessage('Select SNRvsPOD Data... !');
+    ShowMessage('Silahkan pilih salah satu data SNR vs POD Curve ... ');
     Exit;
   end;
 
@@ -127,11 +139,11 @@ begin
   UpdateSNRvsPODList;
 end;
 
-procedure TfrmAvailableSNRvsPOD.btnEditClick(Sender: TObject);
+procedure TfrmAvailableSNRvsPOD.imgEditClick(Sender: TObject);
 begin
   if lstSNRvsPOD.ItemIndex = -1 then
   begin
-    ShowMessage('Select SNRvsPOD Data... !');
+    ShowMessage('Silahkan pilih salah satu data SNR vs POD Curve ... !');
     Exit;
   end;
 
@@ -152,7 +164,7 @@ begin
     UpdateSNRvsPODList;
 end;
 
-procedure TfrmAvailableSNRvsPOD.btnDeleteClick(Sender: TObject);
+procedure TfrmAvailableSNRvsPOD.imgDeleteClick(Sender: TObject);
 var
   warning : Integer;
   tempList: TList;
@@ -160,11 +172,11 @@ var
 begin
   if lstSNRvsPOD.ItemIndex = -1 then
   begin
-    ShowMessage('Select Torpedo... !');
+    ShowMessage('Silahkan pilih salah satu data SNR vs POD Curve ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -175,14 +187,14 @@ begin
 
       if dmTTT.GetRadarByPOD_vs_SNR(Curve_Definition_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already used by some Radar Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Radar Definition');
         tempList.Free;
         Exit;
       end;
 
       if dmTTT.GetSonarByPOD_vs_SNR(Curve_Definition_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already used by some Sonar Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Sonar Definition');
         tempList.Free;
         Exit;
       end;
@@ -191,7 +203,7 @@ begin
       dmTTT.DeletePODvsSNRCurvePoint(1, Curve_Definition_Index);
 
       if dmTTT.DeletePODvsSNRCurveDef(Curve_Definition_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -199,11 +211,11 @@ begin
   end;
 end;
 
-procedure TfrmAvailableSNRvsPOD.btnUsageClick(Sender: TObject);
+procedure TfrmAvailableSNRvsPOD.imgUsageClick(Sender: TObject);
 begin
   if lstSNRvsPOD.ItemIndex = -1 then
   begin
-    ShowMessage('Select SNRvsPOD Data... !');
+    ShowMessage('Silahkan pilih salah satu data SNR vs POD Curve ... !');
     Exit;
   end;
 
@@ -254,24 +266,11 @@ begin
   PODvsSNRPointList.Free;
 end;
 
-procedure TfrmAvailableSNRvsPOD.edtsnrpodlistKeyPress(Sender: TObject;
-  var Key: Char);
-  var
-  i : Integer;
-  snrvspod : TPOD_vs_SNR_Curve_Definition;
+procedure TfrmAvailableSNRvsPOD.edtsnrpodlistKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-
-
-   lstSNRvsPOD.Items.Clear;
-
-    dmTTT.GetfilterPODvsSNRCurveDef(FSNRvsPODList,edtCheat.text);
-    for i := 0 to FSNRvsPODList.Count - 1 do
-    begin
-   snrvspod := FSNRvsPODList.Items[i];
-    lstSNRvsPOD.Items.AddObject(snrvspod.FData.Curve_Definition_Identifier, snrvspod);
-    end;
+    UpdateSNRvsPODList
   end;
 end;
 
@@ -284,6 +283,7 @@ procedure TfrmAvailableSNRvsPOD.lbSingleClick(Sender: TObject);
 begin
   if lstSNRvsPOD.ItemIndex = -1 then
     Exit;
+
   FSelectedSNRvsPOD := TPOD_vs_SNR_Curve_Definition(lstSNRvsPOD.Items.Objects[lstSNRvsPOD.ItemIndex]);
 end;
 
@@ -295,13 +295,19 @@ var
 begin
   lstSNRvsPOD.Items.Clear;
 
-  dmTTT.GetAllPODvsSNRCurveDef(FSNRvsPODList);
+  dmTTT.GetfilterPODvsSNRCurveDef(FSNRvsPODList,edtSearch.text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FSNRvsPODList.Count;
 
   for i := 0 to FSNRvsPODList.Count - 1 do
   begin
     snrvspod := FSNRvsPODList.Items[i];
     lstSNRvsPOD.Items.AddObject(snrvspod.FData.Curve_Definition_Identifier, snrvspod);
   end;
+  frmProgress.Free;
+
 end;
 
 {$ENDREGION}

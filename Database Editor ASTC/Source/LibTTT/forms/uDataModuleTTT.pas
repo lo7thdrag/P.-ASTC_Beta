@@ -41,6 +41,7 @@ type
 
     {$REGION ' Scenario '}
     function GetAllScenarioDef(var aList: TList): Integer;
+    function GetFilterScenarioDef(var aList: TList; aFilter: string): integer;
     function GetScenarioDef(const aScenarioIdentifier: string): Integer; overload;
 
     function InsertScenarioDef(var aRec: TRecScenario_Definition): Boolean;
@@ -2372,6 +2373,65 @@ begin
     Open;
 
     Result := RecordCount;
+  end;
+end;
+
+function TdmTTT.GetFilterScenarioDef(var aList: TList; aFilter: string): integer;
+var
+  i : Integer;
+  rec : TScenario_Definition;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Scenario_Definition');
+    SQL.Add('WHERE Scenario_Identifier like ' + QuotedStr('%' + aFilter + '%'));
+    SQL.Add('ORDER BY Scenario_Identifier');
+    Open;
+
+    Result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aList) then
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
+    else
+      aList := TList.Create;
+      {$ENDREGION}
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not Eof do
+      begin
+        rec := TScenario_Definition.Create;
+
+        with rec.FData do
+        begin
+          Scenario_Index := FieldByName('Scenario_Index').AsInteger;
+          Scenario_Identifier := FieldByName('Scenario_Identifier').AsString;
+          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
+        end;
+
+        aList.Add(rec);
+        Next;
+      end;
+    end;
   end;
 end;
 

@@ -2,8 +2,8 @@ object frmSonarPickList: TfrmSonarPickList
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsToolWindow
-  Caption = '   Sonar Definition List'
+  BorderStyle = bsSingle
+  Caption = 'Sonar List'
   ClientHeight = 671
   ClientWidth = 494
   Color = clBtnFace

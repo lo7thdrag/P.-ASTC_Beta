@@ -2,8 +2,8 @@ object frmMotionPickList: TfrmMotionPickList
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsToolWindow
-  Caption = '   Motion Characteristic List'
+  BorderStyle = bsSingle
+  Caption = 'Motion Characteristic List'
   ClientHeight = 671
   ClientWidth = 494
   Color = clBtnFace

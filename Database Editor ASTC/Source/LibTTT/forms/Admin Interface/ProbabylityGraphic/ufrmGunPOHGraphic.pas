@@ -5,9 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,Vcl.Imaging.pngimage, Math,
-  uScrCapture, ufCaptureRes,
-  uDBAsset_Weapon, tttData, System.ImageList, Vcl.ImgList, Vcl.ComCtrls,
-  Vcl.ToolWin;
+  uScrCapture, ufCaptureRes, Vcl.ToolWin, System.ImageList, Vcl.ImgList, Vcl.ComCtrls,
+
+  uDBAsset_Weapon, tttData, uSimContainers;
 
 type
 
@@ -86,6 +86,7 @@ type
     procedure edtAspectMaxKeyPress(Sender: TObject; var Key: Char);
     procedure edtProbabilityMinKeyPress(Sender: TObject; var Key: Char);
     procedure edtProbabilityMaxKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FProbabilityGraph : E_ProbabilityGraph;
@@ -130,6 +131,18 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
@@ -137,6 +150,14 @@ procedure TfrmGunPOHGraphic.FormCreate(Sender: TObject);
 begin
   FProbabilityPointList := TList.Create;
   FDeletedProbabilityPointList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmGunPOHGraphic.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FProbabilityPointList);
+  FreeItemsAndFreeList(FDeletedProbabilityPointList);
 end;
 
 procedure TfrmGunPOHGraphic.FormShow(Sender: TObject);

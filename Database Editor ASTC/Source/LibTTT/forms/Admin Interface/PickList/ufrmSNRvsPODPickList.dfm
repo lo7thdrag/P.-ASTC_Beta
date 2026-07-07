@@ -2,8 +2,8 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsToolWindow
-  Caption = '   SNR vs. POD Curve'
+  BorderStyle = bsSingle
+  Caption = 'SNR vs. POD Curve List'
   ClientHeight = 671
   ClientWidth = 494
   Color = clBtnFace
@@ -44850,8 +44850,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitTop = 40
-    ExplicitHeight = 588
     object pnl2ControlPage: TPanel
       Left = 1
       Top = 41
@@ -44862,10 +44860,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 40
-      ExplicitWidth = 494
-      ExplicitHeight = 588
       object lstAvailableSNRvsPOD: TListBox
         Left = 10
         Top = 10
@@ -44881,8 +44875,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
         TabOrder = 0
         OnClick = lstAvailableSNRvsPODClick
         OnDblClick = lstAvailableSNRvsPODDblClick
-        ExplicitWidth = 474
-        ExplicitHeight = 568
       end
     end
     object pnl3Button: TPanel
@@ -44894,9 +44886,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 628
-      ExplicitWidth = 494
       object btnCancel: TButton
         Left = 402
         Top = 2
@@ -44950,9 +44939,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
       ParentShowHint = False
       ShowHint = False
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 494
       object Label2: TLabel
         Left = 166
         Top = 14

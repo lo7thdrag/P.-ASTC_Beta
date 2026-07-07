@@ -3,7 +3,7 @@ object frmBombPOHGraphic: TfrmBombPOHGraphic
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'frmBombPOHGraphic'
+  Caption = 'Bomb POH Graphic'
   ClientHeight = 531
   ClientWidth = 725
   Color = 1119507
@@ -17,6 +17,7 @@ object frmBombPOHGraphic: TfrmBombPOHGraphic
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44852,8 +44853,6 @@ object frmBombPOHGraphic: TfrmBombPOHGraphic
     BevelOuter = bvNone
     BorderWidth = 10
     TabOrder = 0
-    ExplicitLeft = 6
-    ExplicitTop = 8
     object pnlButton: TPanel
       Left = 10
       Top = 476
@@ -44862,9 +44861,6 @@ object frmBombPOHGraphic: TfrmBombPOHGraphic
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 515
-      ExplicitWidth = 731
       object btnApply: TButton
         Left = 542
         Top = 14
@@ -44920,7 +44916,6 @@ object frmBombPOHGraphic: TfrmBombPOHGraphic
       BevelOuter = bvNone
       Color = 5980694
       TabOrder = 1
-      ExplicitHeight = 495
       object grpAspect: TGroupBox
         Left = 9
         Top = 244
@@ -45178,10 +45173,6 @@ object frmBombPOHGraphic: TfrmBombPOHGraphic
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitLeft = 237
-      ExplicitTop = 104
-      ExplicitWidth = 596
-      ExplicitHeight = 495
       object pnlToolbar: TPanel
         Left = 0
         Top = 0
@@ -45191,9 +45182,6 @@ object frmBombPOHGraphic: TfrmBombPOHGraphic
         BevelOuter = bvNone
         BorderWidth = 10
         TabOrder = 0
-        ExplicitLeft = 1
-        ExplicitTop = 1
-        ExplicitWidth = 594
         object tlb1: TToolBar
           Left = 214
           Top = 2
@@ -45250,10 +45238,6 @@ object frmBombPOHGraphic: TfrmBombPOHGraphic
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitLeft = 2
-        ExplicitTop = 2
-        ExplicitWidth = 594
-        ExplicitHeight = 493
         object imgGraph: TImage
           Left = 10
           Top = 10

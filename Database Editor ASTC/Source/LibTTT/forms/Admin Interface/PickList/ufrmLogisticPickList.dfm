@@ -3,6 +3,7 @@ object frmLogisticPickList: TfrmLogisticPickList
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
+  Caption = 'Logistic List'
   ClientHeight = 671
   ClientWidth = 494
   Color = 1119507

@@ -128,6 +128,18 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
@@ -135,6 +147,8 @@ procedure TfrmTorpedoProbabilityGraphic.FormCreate(Sender: TObject);
 begin
   FProbabilityPointList := TList.Create;
   FDeletedProbabilityPointList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmTorpedoProbabilityGraphic.FormDestroy(Sender: TObject);

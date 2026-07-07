@@ -3,6 +3,7 @@ object frmTorpedoProbabilityGraphic: TfrmTorpedoProbabilityGraphic
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
+  Caption = 'Torpedo POH Graphic'
   ClientHeight = 531
   ClientWidth = 725
   Color = 1119507
@@ -44852,8 +44853,6 @@ object frmTorpedoProbabilityGraphic: TfrmTorpedoProbabilityGraphic
     BevelOuter = bvNone
     BorderWidth = 10
     TabOrder = 0
-    ExplicitLeft = 6
-    ExplicitTop = 8
     object pnlButton: TPanel
       Left = 10
       Top = 476

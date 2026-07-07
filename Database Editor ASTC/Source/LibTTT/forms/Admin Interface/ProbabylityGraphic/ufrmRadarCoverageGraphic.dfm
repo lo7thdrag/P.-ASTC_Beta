@@ -3,6 +3,7 @@ object frmRadarCoverageGraphic: TfrmRadarCoverageGraphic
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
+  Caption = 'Radar Coverage Graphic'
   ClientHeight = 531
   ClientWidth = 725
   Color = 1119507
@@ -44862,9 +44863,6 @@ object frmRadarCoverageGraphic: TfrmRadarCoverageGraphic
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 723
       object btnOK: TButton
         Left = 457
         Top = 14
@@ -44955,9 +44953,6 @@ object frmRadarCoverageGraphic: TfrmRadarCoverageGraphic
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitHeight = 35
         end
         object tlb1: TToolBar
           Left = 217
@@ -44970,10 +44965,6 @@ object frmRadarCoverageGraphic: TfrmRadarCoverageGraphic
           Caption = 'tlb1'
           Images = il1
           TabOrder = 0
-          ExplicitLeft = 207
-          ExplicitTop = 0
-          ExplicitWidth = 343
-          ExplicitHeight = 35
           object btn4: TToolButton
             Left = 0
             Top = 0
@@ -45020,9 +45011,6 @@ object frmRadarCoverageGraphic: TfrmRadarCoverageGraphic
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitLeft = 10
-      ExplicitTop = 10
-      ExplicitHeight = 466
       object GroupBox1: TGroupBox
         Left = 9
         Top = 182

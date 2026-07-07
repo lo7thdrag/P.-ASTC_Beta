@@ -3,6 +3,7 @@ object frmMinePODGraphic: TfrmMinePODGraphic
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
+  Caption = 'Mine POD Graphic'
   ClientHeight = 531
   ClientWidth = 725
   Color = 1119507
@@ -16,6 +17,7 @@ object frmMinePODGraphic: TfrmMinePODGraphic
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44851,8 +44853,6 @@ object frmMinePODGraphic: TfrmMinePODGraphic
     BevelOuter = bvNone
     BorderWidth = 10
     TabOrder = 0
-    ExplicitLeft = 6
-    ExplicitTop = 8
     object pnlButton: TPanel
       Left = 10
       Top = 476

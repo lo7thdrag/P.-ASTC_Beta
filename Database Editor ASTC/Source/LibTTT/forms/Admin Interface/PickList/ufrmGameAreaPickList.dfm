@@ -2,8 +2,8 @@ object frmGameAreaPickList: TfrmGameAreaPickList
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsToolWindow
-  Caption = '   Game Area List'
+  BorderStyle = bsSingle
+  Caption = 'Game Area List'
   ClientHeight = 671
   ClientWidth = 494
   Color = clBtnShadow

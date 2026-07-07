@@ -3,6 +3,7 @@ object frmTransportPickList: TfrmTransportPickList
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
+  Caption = 'Transport List'
   ClientHeight = 671
   ClientWidth = 494
   Color = 1119507
@@ -44851,8 +44852,6 @@ object frmTransportPickList: TfrmTransportPickList
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 16
     object pnl2ControlPage: TPanel
       Left = 1
       Top = 41
@@ -44877,8 +44876,6 @@ object frmTransportPickList: TfrmTransportPickList
         ParentFont = False
         TabOrder = 0
         OnClick = lstAvailableTransportClick
-        ExplicitLeft = 9
-        ExplicitTop = 15
       end
     end
     object pnl3Button: TPanel
@@ -44890,8 +44887,6 @@ object frmTransportPickList: TfrmTransportPickList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 595
-      ExplicitWidth = 488
       object btnCancel: TButton
         Left = 402
         Top = 1
@@ -44945,7 +44940,6 @@ object frmTransportPickList: TfrmTransportPickList
       ParentShowHint = False
       ShowHint = False
       TabOrder = 2
-      ExplicitTop = 8
       object Label2: TLabel
         Left = 164
         Top = 15

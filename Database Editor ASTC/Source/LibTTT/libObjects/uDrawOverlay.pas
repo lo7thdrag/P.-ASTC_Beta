@@ -1680,13 +1680,13 @@ begin
       pnlDynamic.Visible := True;
       IdAction := 2;
 
-      if OverlayEditorForm.btnPan.Down = true then
-      begin
-        OverlayEditorForm.Map1.CurrentTool := miSelectTool;
-        OverlayEditorForm.Map1.MousePointer := miDefaultCursor;
-        OverlayEditorForm.btnPan.Down := false;
-        OverlayEditorForm.LoadNormalButtonImage;
-      end;
+//      if OverlayEditorForm.btnPan.Down = true then
+//      begin
+//        OverlayEditorForm.Map1.CurrentTool := miSelectTool;
+//        OverlayEditorForm.Map1.MousePointer := miDefaultCursor;
+////        OverlayEditorForm.btnPan.Down := false;
+//        OverlayEditorForm.LoadNormalButtonImage;
+//      end;
     end;
   end
   else
@@ -1698,12 +1698,12 @@ begin
       pnlDynamic.Visible := False;
       IdAction := 1;
 
-      if OverlayEditorForm.btnPan.Down = false then
-      begin
-        OverlayEditorForm.RefreshMousePointer;
-        OverlayEditorForm.btnSelect.OnClick(btnSelect);
-        OverlayEditorForm.btnDelete.Enabled := false;
-      end;
+//      if OverlayEditorForm.btnPan.Down = false then
+//      begin
+//        OverlayEditorForm.RefreshMousePointer;
+//        OverlayEditorForm.btnSelect.OnClick(btnSelect);
+//        OverlayEditorForm.btnDelete.Enabled := false;
+//      end;
     end;
   end;
 end;
@@ -2174,13 +2174,13 @@ begin
       pnlStatic.Visible := True;
       IdAction := 2;
 
-      if OverlayEditorForm.btnPan.Down = true then
-      begin
-        OverlayEditorForm.Map1.CurrentTool := miSelectTool;
-        OverlayEditorForm.Map1.MousePointer := miDefaultCursor;
-        OverlayEditorForm.btnPan.Down := false;
-        OverlayEditorForm.LoadNormalButtonImage;
-      end;
+//      if OverlayEditorForm.btnPan.Down = true then
+//      begin
+//        OverlayEditorForm.Map1.CurrentTool := miSelectTool;
+//        OverlayEditorForm.Map1.MousePointer := miDefaultCursor;
+//        OverlayEditorForm.btnPan.Down := false;
+//        OverlayEditorForm.LoadNormalButtonImage;
+//      end;
     end;
   end
   else
@@ -2192,12 +2192,12 @@ begin
       pnlDynamic.Visible := False;
       IdAction := 1;
 
-      if OverlayEditorForm.btnPan.Down = false then
-      begin
-        OverlayEditorForm.RefreshMousePointer;
-        OverlayEditorForm.btnSelect.OnClick(btnSelect);
-        OverlayEditorForm.btnDelete.Enabled := false;
-      end;
+//      if OverlayEditorForm.btnPan.Down = false then
+//      begin
+//        OverlayEditorForm.RefreshMousePointer;
+//        OverlayEditorForm.btnSelect.OnClick(btnSelect);
+//        OverlayEditorForm.btnDelete.Enabled := false;
+//      end;
     end;
   end;
 end;

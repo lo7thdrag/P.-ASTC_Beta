@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Grids, uDBAsset_FontTaktis, StdCtrls, ufrmSummaryVehicle;
+  Dialogs, Grids, uDBAsset_FontTaktis, StdCtrls, ufrmSummaryVehicle,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls;
 
 type
   TfrmSimbolTaktis = class(TForm)
@@ -13,6 +14,7 @@ type
     btnCancel: TButton;
     edt_searchsimbol: TEdit;
     lbl1: TLabel;
+    imgBackground: TImage;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);

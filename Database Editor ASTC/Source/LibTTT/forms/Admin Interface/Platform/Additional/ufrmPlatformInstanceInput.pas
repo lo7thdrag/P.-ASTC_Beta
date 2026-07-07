@@ -11,16 +11,18 @@ uses
 type
   TfrmPlatformInstanceInput = class(TForm)
     Image: TImage;
-    ImgBackgroundForm: TImage;
     pnl1Title: TPanel;
     txtClass: TLabel;
     edtName: TEdit;
     pnl2ModelImage: TPanel;
-    btnOK: TButton;
-    btnCancel: TButton;
     Panel1: TPanel;
     edtModelPath: TEdit;
     btnOpenFile: TSpeedButton;
+    imgBackground: TImage;
+    Panel2: TPanel;
+    pnl3Button: TPanel;
+    btnOK: TButton;
+    btnCancel: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);

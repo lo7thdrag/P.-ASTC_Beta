@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAssetObject, ImgList, ToolWin,
-  Buttons, newClassASTT, System.ImageList;
+  Buttons, newClassASTT, System.ImageList, Vcl.Imaging.pngimage;
 const
   Gun_Air = 1;
   Gun_LandSurface = 2;
@@ -16,14 +16,16 @@ const
   Torpedo_POH_Modifier = 8;
 type
   TProbabilityGraph = class(TForm)
-    Panel1: TPanel;
-    Panel2: TPanel;
-    tlb1: TToolBar;
-    btnDelete: TToolButton;
+    pnlGrafik: TPanel;
     il1: TImageList;
-    btnMove: TToolButton;
-    btnAdd: TToolButton;
-    btn4: TToolButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnlButton: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    btnScreenCapture: TButton;
+    pnlData: TPanel;
     grp1: TGroupBox;
     lb1: TLabel;
     lb2: TLabel;
@@ -48,11 +50,20 @@ type
     lb12: TLabel;
     edtProbMin: TEdit;
     edtProbMax: TEdit;
+    lbl8: TLabel;
+    lbl7: TLabel;
+    lbl5: TLabel;
+    lblAspect: TLabel;
+    pnlMainGrafik: TPanel;
     imgGraph: TImage;
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    btnScreenCapture: TButton;
+    pnlToolbar: TPanel;
+    tlb1: TToolBar;
+    btnMove: TToolButton;
+    btnAdd: TToolButton;
+    btn4: TToolButton;
+    btnDelete: TToolButton;
+    ToolButton1: TToolButton;
+    pnlAlignToolBar: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
@@ -124,6 +135,19 @@ implementation
 uses
   uDataModuleTTT, ufrmSummarySNRvsPOD, ufrmSummaryGun, uDBAsset_Weapon, math, ufrmSummaryMine,
   ufrmSummaryBomb, drawRec, uScrCapture, ufCaptureRes, ufrmSummarySonar, ufrmSummaryTorpedo;
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TProbabilityGraph.btnDeleteClick(Sender: TObject);
 begin
@@ -200,6 +224,8 @@ begin
   uList := TList.Create;
   mList := TList.Create;
   edit  := false;
+
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TProbabilityGraph.clearAll;

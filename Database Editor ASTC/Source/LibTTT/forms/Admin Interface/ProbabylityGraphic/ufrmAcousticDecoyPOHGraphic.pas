@@ -6,42 +6,57 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,Vcl.Imaging.pngimage, Math,
   uScrCapture, ufCaptureRes,
-  uDBAsset_Weapon;
+  uDBAsset_Weapon, Vcl.ComCtrls, Vcl.ToolWin, System.ImageList, Vcl.ImgList;
 
 type
   TfrmAcousticDecoyPOHGraphic = class(TForm)
+    il1: TImageList;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
+    pnlData: TPanel;
+    grpCursorPosition: TGroupBox;
+    lblCPAspect: TLabel;
+    lblCPProbability: TLabel;
+    lblCursorAspect: TLabel;
+    lblCursorProbability: TLabel;
+    lbl8: TLabel;
+    grpSelectedPoint: TGroupBox;
+    lblSPAspect: TLabel;
+    lblSPProbability: TLabel;
+    lblSelectedAspect: TLabel;
+    lblSelectedProbability: TLabel;
+    lbl7: TLabel;
+    grpProbability: TGroupBox;
+    lblProbabilityMin: TLabel;
+    lblProbabilityMax: TLabel;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    lbl5: TLabel;
+    edtProbabilityMin: TEdit;
+    edtProbabilityMax: TEdit;
+    grpAspect: TGroupBox;
+    lblAspectMin: TLabel;
+    lblAspectMax: TLabel;
+    lbl1: TLabel;
+    lbl2: TLabel;
+    lblAspect: TLabel;
+    edtAspectMin: TEdit;
+    edtAspectMax: TEdit;
+    pnlGrafik: TPanel;
+    pnlMainGrafik: TPanel;
+    imgGraph: TImage;
+    pnlToolbar: TPanel;
+    tlb1: TToolBar;
+    btnSelect: TToolButton;
+    btnAdd: TToolButton;
+    btnSeparator: TToolButton;
+    btnDelete: TToolButton;
+    pnlAlignToolBar: TPanel;
+    pnlButton: TPanel;
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    Panel1: TPanel;
-    Panel2: TPanel;
-    grp3: TGroupBox;
-    lb3: TLabel;
-    lb4: TLabel;
-    lb7: TLabel;
-    lb8: TLabel;
-    edtRatioMin: TEdit;
-    edtRatioMax: TEdit;
-    grp1: TGroupBox;
-    lb1: TLabel;
-    lb2: TLabel;
-    lbRatioCursor: TLabel;
-    lbProbCursor: TLabel;
-    grp2: TGroupBox;
-    lb5: TLabel;
-    lb6: TLabel;
-    lbRatioSelect: TLabel;
-    lbProbSelect: TLabel;
-    grp4: TGroupBox;
-    lb9: TLabel;
-    lb10: TLabel;
-    lb11: TLabel;
-    lb12: TLabel;
-    edtProbMin: TEdit;
-    edtProbMax: TEdit;
-    imgGraph: TImage;
-    Panel3: TPanel;
+    btnScreenCapture: TButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

@@ -19,7 +19,6 @@ type
     edtForward: TEdit;
     edtAverageSpeed: TEdit;
     lbl13: TLabel;
-    ImgBackgroundForm: TImage;
     btnOK: TButton;
     btnApply: TButton;
     btnCancel: TButton;
@@ -44,6 +43,7 @@ type
     edtDefaultRange: TEdit;
     lbl15: TLabel;
     lbl16: TLabel;
+    imgBackground: TImage;
 
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

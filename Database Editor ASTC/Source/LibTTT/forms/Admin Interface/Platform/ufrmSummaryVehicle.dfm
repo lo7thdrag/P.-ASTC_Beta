@@ -44910,7 +44910,7 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         Top = 0
         Width = 873
         Height = 438
-        ActivePage = tsGeneral
+        ActivePage = tsAssets
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -112076,23 +112076,23 @@ object frmSummaryVehicle: TfrmSummaryVehicle
             object edtRefuelTime: TMaskEdit
               Left = 127
               Top = 35
-              Width = 58
+              Width = 57
               Height = 23
               EditMask = '!90:00:00;1;_'
               MaxLength = 8
               TabOrder = 0
-              Text = '  :  :  '
+              Text = '00:00:00'
               OnChange = edtChange
             end
             object edtLaunchAlertTime: TMaskEdit
               Left = 127
               Top = 58
-              Width = 59
+              Width = 58
               Height = 23
               EditMask = '!90:00:00;1;_'
               MaxLength = 8
               TabOrder = 1
-              Text = '  :  :  '
+              Text = '00:00:00'
               OnChange = edtChange
             end
           end

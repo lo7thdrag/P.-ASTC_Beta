@@ -3,7 +3,6 @@ Penting
 2. Pengecekan posisi tombol Search, Add, Copy, Edit, Usage dan Delete yang tidak sama  
 2. Mengecek memoryleak disetiap form
 3. Showmassage dicek, masih ada yang Bahasa inggris
-13. Form Bomb/Depth Button Apply mati, harusnya menyala.
 16. ufrmAvailableRuntimePlatformLibrary, select data > klik usage, error Acsses violation. 
 18. Di form ufrmSummaryWaypoint Edit waypoint muncul error Acsses violation. 
 20. Button di Form Game Area masih eror.
@@ -21,6 +20,7 @@ Penting
 10. Semua search disamakan dengan punya Bomb/DepthOnboard.(sudah)
 11. Form AirBubbles, button Ok,Apply,Cancel.(sudah)
 12. invalid input format di formSummaryVehicle.(sudah)
+13. Form Bomb/Depth Button Apply mati, harusnya menyala.(Sudah)
 14. Summary Motion, Summary SNR vs POD, Summary game default perlu di desain ulang.(sudah)
 
 Form yang perlu didesain ulang

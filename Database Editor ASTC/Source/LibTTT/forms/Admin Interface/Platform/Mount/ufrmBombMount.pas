@@ -103,8 +103,8 @@ procedure TfrmBombMount.FormShow(Sender: TObject);
 begin
   UpdateBombData;
 
-  with FSelectedBomb.FData do
-    btnApply.Enabled := Bomb_Index = 0;
+  with FSelectedBomb.FPoint.FData do
+    btnApply.Enabled := Point_Effect_Index = 0;
 
   isOK := True;
   AfterClose := True;
@@ -150,7 +150,7 @@ begin
   end;
 
   isOK := True;
-  AfterClose := False;
+  AfterClose := True;
   btnApply.Enabled := False;
   btnCancel.Enabled := False;
 end;

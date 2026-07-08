@@ -19,7 +19,6 @@ type
     cbSecondBlindZone: TCheckBox;
     lbl3: TLabel;
     lbl4: TLabel;
-    ImgBackgroundForm: TImage;
     btnOK: TButton;
     btnApply: TButton;
     btnCancel: TButton;
@@ -36,8 +35,9 @@ type
     pnlFirstBlind: TPanel;
     lbl6: TLabel;
     pnlSecondBlind: TPanel;
+    imgBackground: TImage;
     Label1: TLabel;
-    ImgHeader: TImage;
+    Label2: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

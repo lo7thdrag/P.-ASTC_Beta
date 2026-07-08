@@ -45123,6 +45123,7 @@ object frmESMMount: TfrmESMMount
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
+      ExplicitTop = 431
       object btnApply: TButton
         Left = 261
         Top = 2

@@ -44916,6 +44916,7 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
+      ExplicitTop = 72
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44926,6 +44927,7 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
+        ExplicitTop = 14
         object tsGeneral: TTabSheet
           Caption = 'General'
           object grpDecoyNoise: TGroupBox

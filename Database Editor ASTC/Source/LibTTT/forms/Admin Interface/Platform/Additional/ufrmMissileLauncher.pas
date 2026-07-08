@@ -21,12 +21,12 @@ type
     lbl1: TLabel;
     lbl2: TLabel;
     lblAngle: TLabel;
+    imgBackground: TImage;
+    pnl3Button: TPanel;
+    btnOK: TButton;
     btnApply: TButton;
     btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);

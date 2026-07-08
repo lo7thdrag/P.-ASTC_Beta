@@ -202,6 +202,7 @@ begin
   dmTTT.GetFilterRadarNoiseJammerDef(FAllRadarJammerDefList, edtSearch.Text);
   dmTTT.GetRadarNoiseJammerOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllRadarJammerOnBoardList);
 
+  {$REGION ' Print Available '}
   for i := 0 to FAllRadarJammerDefList.Count - 1 do
   begin
     avaRadarJammer := FAllRadarJammerDefList.Items[i];
@@ -218,13 +219,19 @@ begin
       end;
     end;
 
-    if found then
-      lbRadarJammerOnBoard.Items.AddObject(
-        selRadarJammer.FData.Instance_Identifier, selRadarJammer)
-    else
-      lbAllRadarJammerDef.Items.AddObject(avaRadarJammer.FDef.Jammer_Identifier,
-        avaRadarJammer);
+    if not found then
+      lbAllRadarJammerDef.Items.AddObject(avaRadarJammer.FDef.Jammer_Identifier,avaRadarJammer);
+
   end;
+  {$ENDREGION}
+
+  {$REGION ' Print Onboard '}
+  for j := 0 to FAllRadarJammerOnBoardList.Count - 1 do
+  begin
+    selRadarJammer := FAllRadarJammerOnBoardList.Items[j];
+    lbRadarJammerOnBoard.Items.AddObject(selRadarJammer.FData.Instance_Identifier, selRadarJammer)
+  end;
+  {$ENDREGION}
 end;
 
 {$ENDREGION}

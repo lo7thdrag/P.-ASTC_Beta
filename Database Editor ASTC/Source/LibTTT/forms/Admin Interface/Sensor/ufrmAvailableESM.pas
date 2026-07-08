@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -221,6 +222,22 @@ begin
     frmUsage.Free;
   end;
 end;
+
+procedure TfrmAvailableESM.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  esm : TESM_On_Board;
+begin
+  lbESM.Items.Clear;
+
+  dmTTT.GetFilterESMDef(FESMList, edtSearch.Text);
+
+  for i := 0 to FESMList.Count - 1 do
+  begin
+    esm := FESMList.Items[i];
+    lbESM.Items.AddObject(esm.FESM_Def.Class_Identifier, esm);
+  end;
+  end;
 
 procedure TfrmAvailableESM.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin

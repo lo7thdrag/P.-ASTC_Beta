@@ -35,6 +35,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -224,6 +225,23 @@ begin
     frmUsage.Free;
   end;
   
+end;
+
+procedure TfrmAvailableAirBubble.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  airbubble : TAir_Bubble_On_Board;
+begin
+  lstAirBubble.Items.Clear;
+
+//  dmTTT.GetAllAirBubbleDef(FAirBubbleList);
+  dmTTT.GetFilterAirBubbleDef(FAirBubbleList, edtSearch.Text);
+
+  for i := 0 to FAirBubbleList.Count - 1 do
+  begin
+    airbubble := FAirBubbleList.Items[i];
+    lstAirBubble.Items.AddObject(airbubble.FAirBubble_Def.Air_Bubble_Identifier, airbubble);
+  end
 end;
 
 procedure TfrmAvailableAirBubble.edtSearchKeyPress(Sender: TObject; var Key: Char);

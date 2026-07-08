@@ -28,6 +28,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FSelectedLogisticId : Integer;
@@ -99,6 +100,25 @@ end;
 procedure TfrmLogisticPickList.btnCancelClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TfrmLogisticPickList.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  logistics : TLogistics;
+begin
+  lstAvailableLogistic.Items.Clear;
+
+//  dmTTT.GetAllLogisticDef(FLogisticList);
+  dmTTT.GetFilterLogisticDef(FLogisticList, edtSearch.Text);
+
+  for i := 0 to FLogisticList.Count - 1 do
+  begin
+    logistics := FLogisticList.Items[i];
+
+    lstAvailableLogistic.Items.AddObject(logistics.FData.Logistic_Identifier, logistics);
+
+  end;
 end;
 
 procedure TfrmLogisticPickList.edtSearchKeyPress(Sender: TObject;

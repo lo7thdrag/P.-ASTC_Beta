@@ -36,6 +36,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -216,6 +217,23 @@ begin
     UIndex := 19;
 
     ShowModal;
+  end;
+end;
+
+procedure TfrmAvailableInfraredDecoy.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  infrareddecoy : TInfrared_Decoy_On_Board;
+begin
+  lstInfraredDecoy.Items.Clear;
+
+//  dmTTT.GetAllInfraredDecoyDef(FInfraredDecoyList);
+  dmTTT.GetFilterInfraredDecoyDef(FInfraredDecoyList, edtSearch.Text);
+
+  for i := 0 to FInfraredDecoyList.Count - 1 do
+  begin
+    infrareddecoy := FInfraredDecoyList.Items[i];
+    lstInfraredDecoy.Items.AddObject(infrareddecoy.FInfraredDecoy_Def.Infrared_Decoy_Identifier, infrareddecoy);
   end;
 end;
 

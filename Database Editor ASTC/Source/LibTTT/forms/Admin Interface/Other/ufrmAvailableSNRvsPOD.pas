@@ -36,6 +36,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure edtsnrpodlistKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -264,6 +265,23 @@ begin
   end;
 
   PODvsSNRPointList.Free;
+end;
+
+procedure TfrmAvailableSNRvsPOD.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  snrvspod : TPOD_vs_SNR_Curve_Definition;
+
+begin
+  lstSNRvsPOD.Items.Clear;
+
+  dmTTT.GetfilterPODvsSNRCurveDef(FSNRvsPODList,edtSearch.text);
+
+  for i := 0 to FSNRvsPODList.Count - 1 do
+  begin
+    snrvspod := FSNRvsPODList.Items[i];
+    lstSNRvsPOD.Items.AddObject(snrvspod.FData.Curve_Definition_Identifier, snrvspod);
+  end;
 end;
 
 procedure TfrmAvailableSNRvsPOD.edtsnrpodlistKeyPress(Sender: TObject; var Key: Char);

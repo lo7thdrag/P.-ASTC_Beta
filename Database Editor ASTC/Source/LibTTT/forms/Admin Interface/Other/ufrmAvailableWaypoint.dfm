@@ -689,6 +689,7 @@ object frmAvailableWaypoint: TfrmAvailableWaypoint
           Font.Style = []
           ParentFont = False
           TabOrder = 0
+          OnChange = edtSearchChange
           OnKeyPress = edtwaypointlistKeyPress
         end
       end

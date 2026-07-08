@@ -34,6 +34,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -236,6 +237,23 @@ begin
      Showmessage('Couldn''t save file overlay!' + #13);
   end;
   Fs.Free;  // << this actually writes the data to disk
+end;
+
+procedure TfrmAvailableOverlay.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  overlay : TOverlay_Definition;
+begin
+  lstGrapicalOverlays.Items.Clear;
+
+//  dmTTT.GetAllOverlayDef(FOverlayList);
+  dmTTT.GetFilterOverlayDef(FOverlayList, edtSearch.Text);
+
+  for i := 0 to FOverlayList.Count - 1 do
+  begin
+    overlay := FOverlayList.Items[i];
+    lstGrapicalOverlays.Items.AddObject(overlay.FData.Overlay_Identifier, overlay);
+  end;
 end;
 
 procedure TfrmAvailableOverlay.edtSearchKeyPress(Sender: TObject; var Key: Char);

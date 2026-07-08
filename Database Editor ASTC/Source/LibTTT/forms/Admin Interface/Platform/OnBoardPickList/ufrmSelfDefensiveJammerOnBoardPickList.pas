@@ -193,6 +193,7 @@ begin
   dmTTT.GetFilterSelfDefensiveJammerDef(FAllDefensiveJammerDefList, edtSearch.Text);
   dmTTT.GetSelfDefensiveJammerOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllDefensiveJammerOnBoardList);
 
+  {$REGION ' Print Available '}
   for i := 0 to FAllDefensiveJammerDefList.Count - 1 do
   begin
     definsivejammer := FAllDefensiveJammerDefList.Items[i];
@@ -209,11 +210,19 @@ begin
       end;
     end;
 
-    if found then
-      lbAllDefensveJammerOnBoard.Items.AddObject(definsivejammerOnboard.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammerOnboard)
-    else
+    if not found then
       lbAllDefensiveJammerDef.Items.AddObject(definsivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammer);
+
   end;
+  {$ENDREGION}
+
+  {$REGION ' Print Onboard '}
+  for j := 0 to FAllDefensiveJammerOnBoardList.Count - 1 do
+  begin
+    definsivejammerOnboard := FAllDefensiveJammerOnBoardList.Items[j];
+    lbAllDefensveJammerOnBoard.Items.AddObject(definsivejammerOnboard.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammerOnboard)
+  end;
+  {$ENDREGION}
 
 end;
 

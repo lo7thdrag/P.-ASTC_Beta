@@ -28,6 +28,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FSelectedTransportId : Integer;
@@ -100,6 +101,25 @@ end;
 procedure TfrmTransportPickList.btnCancelClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TfrmTransportPickList.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  transport : TTransport;
+begin
+  lstAvailableTransport.Items.Clear;
+
+//  dmTTT.GetAllTransportDef(FTransportList);
+  dmTTT.GetFilterTransportDef(FTransportList, edtSearch.Text);
+
+  for i := 0 to FTransportList.Count - 1 do
+  begin
+    transport := FTransportList.Items[i];
+
+    lstAvailableTransport.Items.AddObject(transport.FData.Transport_Identifier, transport);
+
+  end;
 end;
 
 procedure TfrmTransportPickList.edtSearchKeyPress(Sender: TObject;

@@ -36,6 +36,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -258,6 +259,24 @@ begin
     end;
 
     PointList.Destroy;
+  end;
+end;
+
+procedure TfrmAvailableBomb.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  bomb : TBomb_Definition;
+
+begin
+  lstBomb.Items.Clear;
+
+//  dmTTT.GetAllBombDef(FBombList);
+  dmTTT.GetFilterBombDef(FBombList, edtSearch.Text);
+
+  for i := 0 to FBombList.Count - 1 do
+  begin
+    bomb := FBombList.Items[i];
+    lstBomb.Items.AddObject(bomb.FData.Bomb_Identifier, bomb);
   end;
 end;
 

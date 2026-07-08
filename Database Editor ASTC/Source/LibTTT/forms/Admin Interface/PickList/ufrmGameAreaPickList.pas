@@ -29,6 +29,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FSelectedGameAreaId : Integer;
@@ -110,6 +111,25 @@ end;
 procedure TfrmGameAreaPickList.btnCancelClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TfrmGameAreaPickList.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  gameArea : TGame_Environment_Definition;
+begin
+  lbAvailableGameArea.Items.Clear;
+
+//  dmTTT.GetAllGameAreaDef(FGameAreaList);
+  dmTTT.GetFilterGameAreaDef(FGameAreaList, edtSearch.Text);
+
+  for i := 0 to FGameAreaList.Count - 1 do
+  begin
+    gameArea := FGameAreaList.Items[i];
+
+    lbAvailableGameArea.Items.AddObject(gameArea.FGameArea.Game_Area_Identifier, gameArea);
+
+  end;
 end;
 
 procedure TfrmGameAreaPickList.edtSearchKeyPress(Sender: TObject;

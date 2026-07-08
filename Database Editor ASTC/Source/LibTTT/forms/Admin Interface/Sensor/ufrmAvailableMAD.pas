@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -220,6 +221,22 @@ begin
     end;
   finally
     frmUsage.Free;
+  end;
+end;
+
+procedure TfrmAvailableMAD.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  mad : TMAD_On_Board;
+begin
+  lbMAD.Items.Clear;
+
+  dmTTT.GetFilterMADDef(FMADList, edtSearch.Text);
+
+  for i := 0 to FMADList.Count - 1 do
+  begin
+    mad := FMADList.Items[i];
+    lbMAD.Items.AddObject(mad.FMAD_Def.Class_Identifier, mad);
   end;
 end;
 

@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -252,6 +253,22 @@ begin
     end;
 
     PointList.Destroy;
+  end;
+end;
+
+procedure TfrmAvailableAcousticDecoy.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  acousticdecoy : TAcoustic_Decoy_On_Board;
+begin
+  lstAcousticDecoy.Items.Clear;
+
+  dmTTT.GetFilterAcousticDecoyDef(FAcousticDecoyList, edtSearch.Text);
+
+  for i := 0 to FAcousticDecoyList.Count - 1 do
+  begin
+    acousticdecoy := FAcousticDecoyList.Items[i];
+    lstAcousticDecoy.Items.AddObject(acousticdecoy.FAccousticDecoy_Def.Decoy_Identifier, acousticdecoy);
   end;
 end;
 

@@ -44898,6 +44898,7 @@ object frmMotionPickList: TfrmMotionPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        OnChange = edtSearchChange
         OnKeyPress = edtSearchKeyPress
       end
     end

@@ -35,6 +35,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
    FUpdateList : Boolean;
@@ -215,6 +216,23 @@ begin
     UIndex := 18;
 
     ShowModal;
+  end;
+end;
+
+procedure TfrmAvailableRadarNoiseJammer.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  radarnoisejammer : TRadar_Noise_Jammer_On_Board;
+begin
+  lstRadarNoiseJammer.Items.Clear;
+
+//  dmTTT.GetAllRadarNoiseJammerDef(FRadarNoiseJammerList);
+  dmTTT.GetFilterRadarNoiseJammerDef(FRadarNoiseJammerList, edtSearch.Text);
+
+  for i := 0 to FRadarNoiseJammerList.Count - 1 do
+  begin
+    radarnoisejammer := FRadarNoiseJammerList.Items[i];
+    lstRadarNoiseJammer.Items.AddObject(radarnoisejammer.FDef.Jammer_Identifier, radarnoisejammer);
   end;
 end;
 

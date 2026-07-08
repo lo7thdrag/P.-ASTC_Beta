@@ -29,8 +29,6 @@ object frmAvailableGameArea: TfrmAvailableGameArea
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 884
-    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -41,7 +39,6 @@ object frmAvailableGameArea: TfrmAvailableGameArea
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 884
       object lbl1: TLabel
         Left = 10
         Top = 18
@@ -66,7 +63,6 @@ object frmAvailableGameArea: TfrmAvailableGameArea
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 304
         DesignSize = (
           580
           57)
@@ -691,6 +687,7 @@ object frmAvailableGameArea: TfrmAvailableGameArea
           Font.Style = []
           ParentFont = False
           TabOrder = 0
+          OnChange = edtSearchChange
           OnKeyPress = edtgameareaKeyPress
         end
       end
@@ -706,8 +703,6 @@ object frmAvailableGameArea: TfrmAvailableGameArea
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 884
-      ExplicitHeight = 404
       object lstGameArea: TListBox
         Left = 10
         Top = 10
@@ -724,8 +719,6 @@ object frmAvailableGameArea: TfrmAvailableGameArea
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = imgEditClick
-        ExplicitWidth = 864
-        ExplicitHeight = 384
       end
     end
   end

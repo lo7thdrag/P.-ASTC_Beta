@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -218,6 +219,22 @@ begin
     end;
   finally
     frmUsage.Free;
+  end;
+end;
+
+procedure TfrmAvailableEOD.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  eod : TEOD_On_Board;
+begin
+  lbEOD.Items.Clear;
+
+  dmTTT.GetFilterEODDef(FEODList, edtSearch.Text);
+
+  for i := 0 to FEODList.Count - 1 do
+  begin
+    eod := FEODList.Items[i];
+    lbEOD.Items.AddObject(eod.FEO_Def.Class_Identifier, eod);
   end;
 end;
 

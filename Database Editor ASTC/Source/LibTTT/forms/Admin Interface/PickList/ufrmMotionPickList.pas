@@ -30,6 +30,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FSelectedMotionId : Integer;
@@ -102,6 +103,23 @@ end;
 procedure TfrmMotionPickList.btnCancelClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TfrmMotionPickList.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  motion : TMotion_Characteristics;
+begin
+  lstAvailableMotion.Items.Clear;
+
+//  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+  dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
+
+  for i := 0 to FMotionList.Count - 1 do
+  begin
+    motion := FMotionList.Items[i];
+    lstAvailableMotion.Items.AddObject(motion.FData.Motion_Identifier, motion);
+  end;
 end;
 
 procedure TfrmMotionPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);

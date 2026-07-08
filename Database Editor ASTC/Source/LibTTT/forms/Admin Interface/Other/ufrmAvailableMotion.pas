@@ -35,6 +35,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -239,6 +240,23 @@ begin
     frmUsage.Free;
   end;
   
+end;
+
+procedure TfrmAvailableMotion.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  motion : TMotion_Characteristics;
+begin
+  lstMotions.Items.Clear;
+
+//  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+  dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
+
+  for i := 0 to FMotionList.Count - 1 do
+  begin
+    motion := FMotionList.Items[i];
+    lstMotions.Items.AddObject(motion.FData.Motion_Identifier, motion);
+  end;
 end;
 
 procedure TfrmAvailableMotion.edtSearchKeyPress(Sender: TObject; var Key: Char);

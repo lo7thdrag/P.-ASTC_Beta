@@ -35,6 +35,7 @@ type
     procedure imgDeleteClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure edtgameareaKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -305,6 +306,22 @@ begin
   if Key = #13 then
   begin
     UpdateGameAreaList
+  end;
+end;
+
+procedure TfrmAvailableGameArea.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  gameArea : TGame_Environment_Definition;
+begin
+  lstGameArea.Items.Clear;
+
+  dmTTT.GetfilterGameAreadef(FGameAreaList, edtSearch.text);
+
+  for i := 0 to FGameAreaList.Count - 1 do
+  begin
+    gameArea := FGameAreaList[i];
+    lstGameArea.Items.AddObject(gameArea.FGameArea.Game_Area_Identifier, gameArea);
   end;
 end;
 

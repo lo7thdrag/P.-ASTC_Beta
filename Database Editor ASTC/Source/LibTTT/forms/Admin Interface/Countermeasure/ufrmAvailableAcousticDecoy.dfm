@@ -685,6 +685,7 @@ object frmAvailableAcousticDecoy: TfrmAvailableAcousticDecoy
           Font.Style = []
           ParentFont = False
           TabOrder = 0
+          OnChange = edtSearchChange
           OnKeyPress = edtSearchKeyPress
         end
       end
@@ -716,7 +717,6 @@ object frmAvailableAcousticDecoy: TfrmAvailableAcousticDecoy
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitTop = 6
       end
     end
   end

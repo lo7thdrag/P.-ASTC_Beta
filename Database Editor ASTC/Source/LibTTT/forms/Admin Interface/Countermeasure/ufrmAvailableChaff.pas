@@ -35,6 +35,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -223,6 +224,23 @@ begin
     frmUsage.Free;
   end;
 
+end;
+
+procedure TfrmAvailableChaff.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  chaff : TChaff_On_Board;
+begin
+  lstChaff.Items.Clear;
+
+//  dmTTT.GetAllChaffDef(FChaffList);
+  dmTTT.GetFilterChaffDef(FChaffList, edtSearch.Text);
+
+  for i := 0 to FChaffList.Count - 1 do
+  begin
+    chaff := FChaffList.Items[i];
+    lstChaff.Items.AddObject(chaff.FChaff_Def.Chaff_Identifier, chaff);
+  end;
 end;
 
 procedure TfrmAvailableChaff.edtSearchKeyPress(Sender: TObject; var Key: Char);

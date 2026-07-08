@@ -37,6 +37,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -270,6 +271,24 @@ begin
     end;
 
     PointList.Destroy;
+  end;
+end;
+
+procedure TfrmAvailableGun.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  gun : TGun_Definition;
+
+begin
+  lstGun.Items.Clear;
+
+//  dmTTT.GetAllGunDef(FGunList);
+  dmTTT.GetFilterGunDef(FGunList, edtSearch.Text);
+
+  for i := 0 to FGunList.Count - 1 do
+  begin
+    gun := FGunList.Items[i];
+    lstGun.Items.AddObject(gun.FData.Gun_Identifier, gun);
   end;
 end;
 

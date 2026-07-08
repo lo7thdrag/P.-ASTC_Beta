@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -239,6 +240,22 @@ begin
     end;
   finally
     frmUsage.Free;
+  end;
+end;
+
+procedure TfrmAvailableSonobuoy.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  sonobuoy : TSonobuoy_On_Board;
+begin
+  lbSonobuoy.Items.Clear;
+
+  dmTTT.GetFilterSonobuoyDef(FSonobuoyList, edtSearch.Text);
+
+  for i := 0 to FSonobuoyList.Count - 1 do
+  begin
+    sonobuoy := FSonobuoyList.Items[i];
+    lbSonobuoy.Items.AddObject(sonobuoy.FDef.Class_Identifier, sonobuoy);
   end;
 end;
 

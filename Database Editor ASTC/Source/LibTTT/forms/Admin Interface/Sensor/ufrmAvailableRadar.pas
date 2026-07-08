@@ -36,6 +36,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -224,6 +225,22 @@ begin
     end;
   finally
     frmUsage.Free;
+  end;
+end;
+
+procedure TfrmAvailableRadar.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  radar : TRadar_On_Board;
+begin
+  lbRadars.Items.Clear;
+
+  dmTTT.GetFilterRadarDef(FRadarList, edtSearch.Text);
+
+  for i := 0 to FRadarList.Count - 1 do
+  begin
+    radar := FRadarList.Items[i];
+    lbRadars.Items.AddObject(radar.FDef.Radar_Identifier, radar);
   end;
 end;
 

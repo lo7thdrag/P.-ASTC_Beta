@@ -35,6 +35,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -251,6 +252,23 @@ begin
     frmUsage.Free;
   end;
   
+end;
+
+procedure TfrmAvailableMissile.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  missile : TMissile_On_Board;
+
+begin
+  lstMissile.Items.Clear;
+
+  dmTTT.GetFilterMissileDef(FMissileList, edtSearch.Text);
+
+  for i := 0 to FMissileList.Count - 1 do
+  begin
+    missile := FMissileList.Items[i];
+    lstMissile.Items.AddObject(missile.FDef.Class_Identifier, missile);
+  end;
 end;
 
 procedure TfrmAvailableMissile.edtSearchKeyPress(Sender: TObject; var Key: Char);

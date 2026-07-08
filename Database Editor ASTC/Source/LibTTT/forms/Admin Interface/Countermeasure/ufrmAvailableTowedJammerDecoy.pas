@@ -35,6 +35,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -215,6 +216,23 @@ begin
     UIndex := 17;
 
     ShowModal;
+  end;
+end;
+
+procedure TfrmAvailableTowedJammerDecoy.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  towedjammerdecoy : TTowed_Jammer_Decoy_On_Board;
+begin
+  lstTowedJammerDecoy.Items.Clear;
+
+//  dmTTT.GetAllTowedJammerDecoyDef(FTowedJammerDecoyList);
+  dmTTT.GetFilterTowedJammerDecoyDef(FTowedJammerDecoyList, edtSearch.Text);
+
+  for i := 0 to FTowedJammerDecoyList.Count - 1 do
+  begin
+    towedjammerdecoy := FTowedJammerDecoyList.Items[i];
+    lstTowedJammerDecoy.Items.AddObject(towedjammerdecoy.FDef.Towed_Decoy_Identifier, towedjammerdecoy);
   end;
 end;
 

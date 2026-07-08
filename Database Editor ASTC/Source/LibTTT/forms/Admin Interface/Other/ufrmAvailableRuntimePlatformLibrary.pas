@@ -34,6 +34,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -285,6 +286,23 @@ begin
   end;
 
   libraryPlatformList.Free;
+end;
+
+procedure TfrmAvailableRuntimePlatformLibrary.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  runtimeplatformlibrary : TRuntime_Platform_Library;
+begin
+  lstRuntimePlatformLibrary.Items.Clear;
+
+//  dmTTT.GetAllRuntimePlatformLibraryDef(FRuntimePlatformLibraryList);
+  dmTTT.GetFilterRuntimePlatformLibraryDef(FRuntimePlatformLibraryList, edtSearch.Text);
+
+  for i := 0 to FRuntimePlatformLibraryList.Count - 1 do
+  begin
+    runtimeplatformlibrary := FRuntimePlatformLibraryList.Items[i];
+    lstRuntimePlatformLibrary.Items.AddObject(runtimeplatformlibrary.FData.Library_Name, runtimeplatformlibrary);
+  end;
 end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.edtSearchKeyPress(Sender: TObject; var Key: Char);

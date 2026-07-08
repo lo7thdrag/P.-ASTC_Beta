@@ -34,6 +34,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -245,6 +246,24 @@ begin
     frmUsage.Free;
   end;
   
+end;
+
+procedure TfrmAvailableTorpedo.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  torpedo : TTorpedo_On_Board;
+
+begin
+  lstTorpedo.Items.Clear;
+
+//  dmTTT.GetAllTorpedoDef(FTorpedoList);
+  dmTTT.GetFilterTorpedoDef(FTorpedoList, edtSearch.Text);
+
+  for i := 0 to FTorpedoList.Count - 1 do
+  begin
+    torpedo := FTorpedoList.Items[i];
+    lstTorpedo.Items.AddObject(Torpedo.FDef.Class_Identifier, torpedo);
+  end;
 end;
 
 procedure TfrmAvailableTorpedo.edtSearchKeyPress(Sender: TObject; var Key: Char);

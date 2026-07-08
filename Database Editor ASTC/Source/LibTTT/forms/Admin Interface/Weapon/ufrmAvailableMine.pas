@@ -35,6 +35,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -279,6 +280,24 @@ begin
       end;
     end;
     PointList.Destroy;
+  end;
+end;
+
+procedure TfrmAvailableMine.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  mine : TMine_On_Board;
+
+begin
+  lstMine.Items.Clear;
+
+//  dmTTT.GetAllMineDef(FMineList);
+  dmTTT.GetFilterMineDef(FMineList, edtSearch.Text);
+
+  for i := 0 to FMineList.Count - 1 do
+  begin
+    mine := FMineList.Items[i];
+    lstMine.Items.AddObject(mine.FMine_Def.Mine_Identifier, mine);
   end;
 end;
 

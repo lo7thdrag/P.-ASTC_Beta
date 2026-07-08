@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -231,6 +232,22 @@ begin
     end;
   finally
     frmUsage.Free;
+  end;
+end;
+
+procedure TfrmAvailableSonar.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  sonar : TSonar_On_Board;
+begin
+  lbSonar.Items.Clear;
+
+  dmTTT.GetFilterSonarDef(FSonarList, edtSearch.Text);
+
+  for i := 0 to FSonarList.Count - 1 do
+  begin
+    sonar := FSonarList.Items[i];
+    lbSonar.Items.AddObject(sonar.FDef.Sonar_Identifier, sonar);
   end;
 end;
 

@@ -29,6 +29,7 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FSelectedPODvsSNRId : Integer;
@@ -101,6 +102,26 @@ end;
 procedure TfrmSNRvsPODPickList.btnCancelClick(Sender: TObject);
 begin
   Close
+end;
+
+procedure TfrmSNRvsPODPickList.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  snrVSpod : TPOD_vs_SNR_Curve_Definition;
+begin
+  lstAvailableSNRvsPOD.Items.Clear;
+
+//  dmTTT.GetAllPODvsSNRCurveDef(FSNRvsPODList);
+  dmTTT.GetFilterPODvsSNRCurveDef(FSNRvsPODList, edtSearch.Text);
+
+  for i := 0 to FSNRvsPODList.Count - 1 do
+  begin
+    snrVSpod := FSNRvsPODList.Items[i];
+
+    if snrVSpod.FData.Curve_Definition_Index <> FSelectedPODvsSNRId then
+      lstAvailableSNRvsPOD.Items.AddObject(snrVSpod.FData.Curve_Definition_Identifier, snrVSpod);
+
+  end;
 end;
 
 procedure TfrmSNRvsPODPickList.edtSearchKeyPress(Sender: TObject;

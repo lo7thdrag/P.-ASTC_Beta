@@ -36,6 +36,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure edtwaypointlistKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -231,6 +232,23 @@ begin
     frmUsage.Free;
   end;
   
+end;
+
+procedure TfrmAvailableWaypoint.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  waypoint : TWaypoint_Def;
+
+begin
+  lstWaypoint.Items.Clear;
+
+  dmTTT.GetFilterWaypointDef(FWaypointList, edtSearch.text);
+
+  for i := 0 to FWaypointList.Count - 1 do
+  begin
+    waypoint := FWaypointList.Items[i];
+    lstWaypoint.Items.AddObject(waypoint.FData.Waypoint_Name, waypoint);
+  end;
 end;
 
 procedure TfrmAvailableWaypoint.edtwaypointlistKeyPress(Sender: TObject; var Key: Char);

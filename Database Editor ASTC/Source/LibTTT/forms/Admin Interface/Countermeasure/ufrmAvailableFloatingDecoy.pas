@@ -35,6 +35,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -213,6 +214,23 @@ begin
     UIndex := 15;
 
     ShowModal;
+  end;
+end;
+
+procedure TfrmAvailableFloatingDecoy.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  floatingdecoy : TFloating_Decoy_On_Board;
+begin
+  lstFloatingDecoy.Items.Clear;
+
+//  dmTTT.GetAllFloatingDecoyDef(FFloatingDecoyList);
+  dmTTT.GetFilterFloatingDecoyDef(FFloatingDecoyList, edtSearch.Text);
+
+  for i := 0 to FFloatingDecoyList.Count - 1 do
+  begin
+    floatingdecoy := FFloatingDecoyList.Items[i];
+    lstFloatingDecoy.Items.AddObject(floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier, floatingdecoy);
   end;
 end;
 

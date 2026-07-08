@@ -75,7 +75,6 @@ object frmAvailableMissile: TfrmAvailableMissile
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 303
         DesignSize = (
           580
           57)
@@ -701,6 +700,7 @@ object frmAvailableMissile: TfrmAvailableMissile
           Font.Style = []
           ParentFont = False
           TabOrder = 0
+          OnChange = edtSearchChange
           OnKeyPress = edtSearchKeyPress
         end
       end

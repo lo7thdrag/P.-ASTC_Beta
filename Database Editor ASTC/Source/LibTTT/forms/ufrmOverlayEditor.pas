@@ -3204,18 +3204,18 @@ end;
 
 procedure TOverlayEditorForm.btnGameAreaClick(Sender: TObject);
 begin
-      frmGameAreaPickList:=TfrmGameAreaPickList.Create(self);
-      try
-        with frmGameAreaPickList do
-        begin
-          ShowModal;
-          LoadMap('D:\Map\GST_GAME\AOTC\'+ SelectedGameAreaName+'\' +SelectedGameAreaName+'.gst');
-
-        end;
-      finally
-       btngamearea.ImageIndex := 11;
-            frmGameAreaPickList.Free;
-      end;
+//      frmGameAreaPickList:=TfrmGameAreaPickList.Create(self);
+//      try
+//        with frmGameAreaPickList do
+//        begin
+//          ShowModal;
+//          LoadMap('D:\Map\GST_GAME\AOTC\'+ SelectedGameAreaName+'\' +SelectedGameAreaName+'.gst');
+//
+//        end;
+//      finally
+//       btngamearea.ImageIndex := 11;
+//            frmGameAreaPickList.Free;
+//      end;
 //       btnSelect.Picture.LoadFromFile
 //    ('data\Image DBEditor\Interface\Button\Db1.PNG');
 //  pnlStatic.Visible := false;

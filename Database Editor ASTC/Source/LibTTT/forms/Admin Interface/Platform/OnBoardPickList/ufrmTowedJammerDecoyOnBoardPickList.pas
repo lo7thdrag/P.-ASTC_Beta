@@ -189,8 +189,9 @@ end;
 
 procedure TfrmTowedJammerDecoyOnBoardPickList.UpdateTowedJammerDecoyList;
 var
-  i : Integer;
-  towedjammerdecoy : TTowed_Jammer_Decoy_On_Board;
+  i, j : Integer;
+  towedjammerdecoy, towedjammerdecoyonboard  : TTowed_Jammer_Decoy_On_Board;
+  found : Boolean;
 begin
   lbAllTowedJammerDecoyDef.Items.Clear;
   lbAllTowedJammerDecoyOnBoard.Items.Clear;
@@ -198,17 +199,36 @@ begin
   dmTTT.GetFilterTowedJammerDecoyDef(FAllTowedJammerDecoyDefList, edtSearch.Text);
   dmTTT.GetTowedJammerDecoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllTowedJammerDecoyOnBoardList);
 
+  {$REGION ' Print Available '}
   for i := 0 to FAllTowedJammerDecoyDefList.Count - 1 do
   begin
     towedjammerdecoy := FAllTowedJammerDecoyDefList.Items[i];
-    lbAllTowedJammerDecoyDef.Items.AddObject(towedjammerdecoy.FDef.Towed_Decoy_Identifier, towedjammerdecoy);
-  end;
 
-  for i := 0 to FAllTowedJammerDecoyOnBoardList.Count - 1 do
-  begin
-    towedjammerdecoy := FAllTowedJammerDecoyOnBoardList.Items[i];
-    lbAllTowedJammerDecoyOnBoard.Items.AddObject(towedjammerdecoy.FData.Instance_Identifier, towedjammerdecoy);
+    found := False;
+    for j := 0 to FAllTowedJammerDecoyOnBoardList.Count - 1 do
+    begin
+      towedjammerdecoyonboard := FAllTowedJammerDecoyOnBoardList.Items[j];
+
+      if towedjammerdecoyonboard.FDef.Towed_Decoy_Index = towedjammerdecoy.FDef.Towed_Decoy_Index then
+      begin
+        found := True;
+        Break;
+      end;
+    end;
+
+    if not found then
+      lbAllTowedJammerDecoyDef.Items.AddObject(towedjammerdecoy.FDef.Towed_Decoy_Identifier, towedjammerdecoy);
+
   end;
+  {$ENDREGION}
+
+  {$REGION ' Print Onboard '}
+  for j := 0 to FAllTowedJammerDecoyOnBoardList.Count - 1 do
+  begin
+    towedjammerdecoyonboard := FAllTowedJammerDecoyOnBoardList.Items[j];
+    lbAllTowedJammerDecoyOnBoard.Items.AddObject(towedjammerdecoy.FData.Instance_Identifier, towedjammerdecoy)
+  end;
+  {$ENDREGION}
 end;
 
 {$ENDREGION}

@@ -45,6 +45,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
 
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -821,6 +822,24 @@ begin
   tempList.Free;
 end;
 
+
+procedure TfrmAvailableScenario.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  FTempScenario : TScenario_Definition;
+
+begin
+  lstScenarioList.Items.Clear;
+
+//  dmTTT.GetAllScenarioDef(FScenarioList);
+  dmTTT.GetFilterScenarioDef(FScenarioList, edtSearch.Text);
+
+  for i := 0 to FScenarioList.Count - 1 do
+  begin
+    FTempScenario := FScenarioList.Items[i];
+    lstScenarioList.Items.AddObject(FTempScenario.FData.Scenario_Identifier,FTempScenario);
+  end;
+end;
 
 procedure TfrmAvailableScenario.edtSearchKeyPress(Sender: TObject;
   var Key: Char);

@@ -680,6 +680,7 @@ object frmAvailableSNRvsPOD: TfrmAvailableSNRvsPOD
           Font.Style = []
           ParentFont = False
           TabOrder = 0
+          OnChange = edtSearchChange
           OnKeyPress = edtsnrpodlistKeyPress
         end
       end

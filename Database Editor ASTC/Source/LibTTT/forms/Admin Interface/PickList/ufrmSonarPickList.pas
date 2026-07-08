@@ -29,6 +29,7 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FSelectedSonarId : Integer;
@@ -103,6 +104,23 @@ end;
 procedure TfrmSonarPickList.btnCancelClick(Sender: TObject);
 begin
   Close
+end;
+
+procedure TfrmSonarPickList.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  sonar : TSonar_On_Board;
+begin
+  lstAvailableSonar.Items.Clear;
+
+  dmTTT.GetFilterSonarDef(FSonarList, edtSearch.Text);
+//  dmTTT.GetAllSonarDef(FSonarList);
+
+  for i := 0 to FSonarList.Count - 1 do
+  begin
+    sonar := FSonarList.Items[i];
+    lstAvailableSonar.Items.AddObject(sonar.FDef.Sonar_Identifier, sonar);
+  end;
 end;
 
 procedure TfrmSonarPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);

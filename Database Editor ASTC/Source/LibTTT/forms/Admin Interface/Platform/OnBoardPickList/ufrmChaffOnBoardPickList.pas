@@ -201,6 +201,7 @@ begin
   dmTTT.GetFilterChaffDef(FAllChaffDefList, edtSearch.Text);
   dmTTT.GetChaffOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllChaffOnBoardList);
 
+  {$REGION ' Print Available '}
   for i := 0 to FAllChaffDefList.Count - 1 do
   begin
     chaff := FAllChaffDefList.Items[i];
@@ -217,11 +218,19 @@ begin
       end;
     end;
 
-    if found then
-      lbAllChaffOnBoard.Items.AddObject(chaffOnBoard.FChaff_Def.Chaff_Identifier, chaffOnBoard)
-    else
+    if not found then
       lbAllChaffDef.Items.AddObject(chaff.FChaff_Def.Chaff_Identifier, chaff);
+
   end;
+  {$ENDREGION}
+
+  {$REGION ' Print Onboard '}
+  for j := 0 to FAllChaffOnBoardList.Count - 1 do
+  begin
+    chaffOnBoard := FAllChaffOnBoardList.Items[j];
+    lbAllChaffOnBoard.Items.AddObject(chaffOnBoard.FChaff_Def.Chaff_Identifier, chaffOnBoard)
+  end;
+  {$ENDREGION}
 
 end;
 

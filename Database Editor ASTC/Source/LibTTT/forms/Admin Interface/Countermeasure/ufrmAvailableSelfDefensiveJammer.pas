@@ -35,6 +35,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -215,6 +216,23 @@ begin
     UIndex := 16;
 
     ShowModal;
+  end;
+end;
+
+procedure TfrmAvailableSelfDefensiveJammer.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  selfdefensivejammer : TDefensive_Jammer_On_Board;
+begin
+  lstSelfDefensiveJammer.Items.Clear;
+
+//  dmTTT.GetAllSelfDefensiveJammerDef(FSelfDefensiveJammerList);
+  dmTTT.GetFilterSelfDefensiveJammerDef(FSelfDefensiveJammerList, edtSearch.Text);
+
+  for i := 0 to FSelfDefensiveJammerList.Count - 1 do
+  begin
+    selfdefensivejammer := FSelfDefensiveJammerList.Items[i];
+    lstSelfDefensiveJammer.Items.AddObject(selfdefensivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier, selfdefensivejammer);
   end;
 end;
 

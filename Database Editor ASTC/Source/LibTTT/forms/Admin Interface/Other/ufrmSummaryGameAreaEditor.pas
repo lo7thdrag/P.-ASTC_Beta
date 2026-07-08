@@ -95,9 +95,10 @@ type
     procedure btnDecrease1Click(Sender: TObject);
     procedure btnSelectClick(Sender: TObject);
     procedure btnZoom1Click(Sender: TObject);
-    procedure btnCenterOnGameCenter1Click(Sender: TObject);
+    procedure btnCenterHookClik(Sender: TObject);
     procedure btnPan1Click(Sender: TObject);
     procedure cbbScaleChange(Sender: TObject);
+    procedure btnMultiSelectClick(Sender: TObject);
 
   private
     FSelectedGameArea : TGame_Environment_Definition;
@@ -133,12 +134,17 @@ type
 
     procedure LoadENC(ENCGeoset: string);
     procedure LoadNormalButtonImage;
+    procedure UpAllToolbarButton;
+
+
 
   public
     xx, yy : Double;
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
     LastName : string;
+
+    centLong, centLatt: Double;
 
     procedure getGridCursorPos;
 
@@ -200,6 +206,7 @@ begin
   FConverter := TCoordConverter.Create;
   FMap1 := TMap.Create(Self);
 
+
   FListMapIndex.LoadFromFile(vAppDBSetting.MapENC + '\' + 'mapindex.ini');
   chklstArea.Items := FListMapIndex;
 
@@ -222,6 +229,8 @@ var
 begin
   LoadENC(vAppDBSetting.MapSourceGeosetENC);
   FConverter.FMap := ENCmap;
+  centLong := 116.357322793642;
+  centLatt := -0.328853651464508;
 
   btnSelectClick(nil);
   cbbScale.ItemIndex := cbbScale.Items.Count - 1;
@@ -404,6 +413,17 @@ begin
   cbbScaleChange(cbbScale);
 end;
 
+procedure TfrmSummaryGameAreaEditor.btnMultiSelectClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnMultiSelect.Down := True;
+
+  FMapCursor := mcMultiSelect;
+
+  ENCmap.CurrentTool := miArrowTool;
+  ENCmap.MousePointer := miArrowCursor;
+end;
+
 procedure TfrmSummaryGameAreaEditor.btnDecrease1Click(Sender: TObject);
 begin
   if cbbScale.ItemIndex = 16 then
@@ -475,8 +495,10 @@ end;
 
 procedure TfrmSummaryGameAreaEditor.btnZoom1Click(Sender: TObject);
 begin
-  LoadNormalButtonImage;
-  FMapCursor := mcZoom;
+//  LoadNormalButtonImage;
+//  FMapCursor := mcZoom;
+  UpAllToolbarButton;
+  btnZoomTool.Down := True;
 
   ENCmap.CurrentTool := miZoomInTool;
   ENCmap.MousePointer := miZoomInCursor;
@@ -484,21 +506,25 @@ begin
 //  btnZoom.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnZoomIn_Select.PNG');
 end;
 
-procedure TfrmSummaryGameAreaEditor.btnCenterOnGameCenter1Click(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.btnCenterHookClik(Sender: TObject);
 begin
-  LoadNormalButtonImage;
+  UpAllToolbarButton;
+  btnCenterHook.Down := True;
   FMapCursor := mcGameCenter;
 
   ENCmap.CurrentTool := miArrowTool;
   ENCmap.MousePointer := miCrossCursor;
+
 
 //  btnCenterOnGameCenter.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCenterOnHook_Select.PNG');
 end;
 
 procedure TfrmSummaryGameAreaEditor.btnPan1Click(Sender: TObject);
 begin
-  LoadNormalButtonImage;
-  FMapCursor := mcPan;
+//  LoadNormalButtonImage;
+//  FMapCursor := mcPan;
+  UpAllToolbarButton;
+  btnPan.Down := True;
 
   ENCmap.CurrentTool := miPanTool;
   ENCmap.MousePointer := miPanCursor;
@@ -580,29 +606,22 @@ begin
       {$ENDREGION}
     end
     else if FMapCursor = mcMultiSelect then
+
+   if btnMultiSelect.Down then
     begin
-      {$REGION ' Select Multi Area '}
       if (layer.Bounds.XMin >= startLong) and (layer.Bounds.YMax <= startLat) and
         (layer.Bounds.XMax <= endLong) and (layer.Bounds.YMin >= endLat) then
       begin
         SeparateString(layer.Name, '_', layerID, layerName);
 
         if FListFiltered.Find(layerID, foundIndex) then
-        begin
-          FListFiltered.Delete(foundIndex);
-//          layer.OverrideStyle := False;
-        end
+          FListFiltered.Delete(foundIndex)
         else
-        begin
           FListFiltered.Add(layerID);
-//          layer.OverrideStyle := True;
-//          layer.Style.RegionColor := clRed;
-        end;
       end;
-      {$ENDREGION}
     end;
-  end;
-
+    {$ENDREGION}
+    end;
   {$ENDREGION}
 
   SetChecked;
@@ -659,6 +678,18 @@ begin
     else
       layer.OverrideStyle := False;
   end;
+end;
+
+procedure TfrmSummaryGameAreaEditor.UpAllToolbarButton;
+begin
+  btnSelect.Down := False;
+  btnMultiSelect.Down := False;
+  btnZoomTool.Down := False;
+  btnPan.Down := False;
+  btnCenterHook.Down := False;
+
+  ENCMap.CurrentTool  := miArrowTool;
+  ENCMap.MousePointer := miDefaultCursor;
 end;
 
 procedure TfrmSummaryGameAreaEditor.UpdateGeosetFile;
@@ -883,7 +914,7 @@ begin
   {$ENDREGION}
 
   {$Region ' Multiselect '}
-  if FMapCursor = mcMultiSelect then
+  if btnMultiSelect.Down  then
   begin
     FIsMouseDown := True;
 
@@ -937,13 +968,13 @@ var
   centerX, centerY : Double;
 
 begin
-//  if (FMapCursor = mcMultiSelect) and FIsMouseDown then
-//  begin
-//    FSelectionEndX := X;
-//    FSelectionEndY := Y;
-//
-//    ENCmap.Repaint;
-//  end;
+  if btnMultiSelect.Down and FIsMouseDown then
+  begin
+    FSelectionEndX := X;
+    FSelectionEndY := Y;
+
+    ENCmap.Repaint;
+  end;
 
   FConverter.ConvertToMap(X, Y, xx, yy);
 
@@ -1027,13 +1058,13 @@ end;
 procedure TfrmSummaryGameAreaEditor.ENCMapMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
-  if FMapCursor = mcSelect then
+  if btnSelect.Down then
   begin
     SelectionArea;
     ENCmap.Repaint;
   end;
 
-  if (FMapCursor = mcMultiSelect) and FIsMouseDown then
+  if btnMultiSelect.Down and FIsMouseDown then
   begin
     FIsMouseDown := False;
 //    FSelectionRectEnd := Point(X, Y);

@@ -17,6 +17,9 @@ type
     MapSourcePathVECT     : string;   //D:\TTT\mapsource\map
     MapSourceGeosetVECT   : string;   //D:\TTT\mapsource\map\world.gst
     MapDestPathVECT       : string;   //M:\map\game_area
+    MapOverlayStatic      : string;   //M:\map\game_area
+    MapOverlayDynamic     : string;   //M:\map\game_area
+
 //    SkinPath              : String;
 //    SkinName              : string;
 //    ProjectName           : string;
@@ -65,11 +68,14 @@ begin
       MapSourcePathVECT     := IniFReadstring(inif, c_appsetting, 'MapSourcePathVECT', 'D:\Map ASTC\MapSource' );
       MapSourceGeosetVECT   := IniFReadstring(inif, c_appsetting, 'MapSourceGeosetVECT', 'D:\Map ASTC\mapsource\world.gst' );
       MapDestPathVECT       := IniFReadstring(inif, c_appsetting, 'MapDestPathVECT', 'M:\map\game_area' );
+      MapOverlayStatic      := IniFReadstring(inif, c_appsetting, 'MapOverlayStatic', 'D:\Map ASTC\MapSource\background.gst' );
+      MapOverlayDynamic     := IniFReadstring(inif, c_appsetting, 'MapOverlayDynamic', 'D:\Map ASTC\MapSource\background.gst' );
 
       MapENC                := IniFReadstring(inif, c_appsetting, 'MapENC', 'D:\Map ASTC\MapSea' );
 
       OverlayPath           := IniFReadstring(inif, c_appsetting, 'OverlayPath', 'D:\Map ASTC\overlay\' );
       PlottingPath          := IniFReadString(IniF, c_appsetting, 'PlottingPath', 'D:\Map ASTC\plotting\');
+
       Pattern               := IniFReadstring(inif, c_appsetting, 'Pattern', 'D:\Map ASTC\MapSource\background.gst' );
       predefPattern         := IniFReadstring(inif, c_appsetting, 'predefPattern', 'D:\Map ASTC\pattern' );
       BMPPath               := IniFReadstring(inif, c_appsetting, 'BMPPath', str + '\data\Bitmap\' );

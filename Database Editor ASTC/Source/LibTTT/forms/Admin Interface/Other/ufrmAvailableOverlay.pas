@@ -278,7 +278,7 @@ var
 begin
   lstGrapicalOverlays.Items.Clear;
 
-//  dmTTT.GetAllOverlayDef(FOverlayList);
+  dmTTT.GetAllOverlayDef(FOverlayList);
   dmTTT.GetFilterOverlayDef(FOverlayList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);

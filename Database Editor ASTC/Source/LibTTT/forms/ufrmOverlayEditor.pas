@@ -4,13 +4,13 @@ interface
 
 uses
   MapXLib_TLB, Windows, Messages, SysUtils, Variants, Classes, Graphics,
-  Controls,
-  Forms, Dialogs, StdCtrls, Buttons, ExtCtrls, ImgList, ComCtrls, ToolWin,
+  Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls, ImgList, ComCtrls, ToolWin,
   OleCtrls, uMapXHandler, uCoordConvertor, uDBAsset_GameEnvironment, {TeCanvas,}
-  ColorGrd, tttData,
-  uMainStaticShape, uMainDynamicShape, uDrawOverlay, uMainOverlay, newClassASTT,
-  uFormula, RzButton, Menus, {acPNG,} System.ImageList, Vcl.Imaging.pngimage,
-  RzBmpBtn;
+  ColorGrd, RzButton, Menus, {acPNG,} System.ImageList, Vcl.Imaging.pngimage,
+  RzBmpBtn, math, ufCaptureRes, ComObj, uScrCapture,
+
+  tttData, uMainStaticShape, uMainDynamicShape, uDrawOverlay, uMainOverlay,
+  newClassASTT, uFormula;
 
 type
   E_OverlayMapCursor = (mcSelect, mcAdd, mcEdit, mcRulerStart, mcRulerEnd);
@@ -20,7 +20,6 @@ type
     pnl3Map: TPanel;
     pnlOverlayEditor: TPanel;
     Map1: TMap;
-    RzToolButton1: TRzToolButton;
     ToolBar1: TToolBar;
     btnDecreaseScale: TToolButton;
     cbSetScale: TComboBox;
@@ -34,42 +33,15 @@ type
     mnitoBack: TMenuItem;
     mniDelete: TMenuItem;
     N1: TMenuItem;
-    pnlWarning: TPanel;
-    lblWarning: TLabel;
-    lbl33: TLabel;
     pnlMainBackground: TPanel;
-    pnlSparatorHor1: TPanel;
-    Image2: TImage;
     pnl4Bottom: TPanel;
-    Panel4: TPanel;
     btnScreenCapture: TButton;
-    pnlSparatorVer1: TPanel;
-    Image3: TImage;
     pnlToolBar: TPanel;
     pnlAlignToolBar: TPanel;
-    Panel1: TPanel;
-    grbCursorPosition: TGroupBox;
-    lblBearing: TLabel;
-    lblDistance: TLabel;
-    lbSlPosition: TLabel;
-    lblnmSGrid: TLabel;
-    lblWPosition: TLabel;
-    lblnmWGrid: TLabel;
-    lbl47: TLabel;
-    Label67: TLabel;
-    Label68: TLabel;
-    Label69: TLabel;
-    Label70: TLabel;
-    Label71: TLabel;
-    btnClose: TButton;
-    btnOk: TButton;
     btnLayerTool: TToolButton;
     btnGameArea: TToolButton;
     btnruler: TToolButton;
     imgBackground: TImage;
-    pnlButton: TPanel;
-    btnDelete: TButton;
-    btnApply: TButton;
     ilToolbar: TImageList;
     pnlColor: TPanel;
     pnl1Header: TPanel;
@@ -516,20 +488,43 @@ type
     imgCopyText: TImage;
     imgPasteText: TImage;
     pnl2Editor: TPanel;
+    pnl2SparatorHor1: TPanel;
+    pnl2SparatorHor2: TPanel;
+    pnlButton: TPanel;
+    btnDelete: TButton;
+    btnApply: TButton;
+    pnlCursorPosition: TPanel;
+    lbl13: TLabel;
+    lbl19: TLabel;
+    lbl22: TLabel;
+    lbl28: TLabel;
+    lbl29: TLabel;
+    lbl30: TLabel;
+    lblBearingFCenter: TLabel;
+    lblDistanceFCenter: TLabel;
+    lblGridLat: TLabel;
+    lblGridLong: TLabel;
+    lblPosLat: TLabel;
+    lblPosLong: TLabel;
+    pnl3SparatorHor2: TPanel;
+    pnlVertical1: TPanel;
+    pnlVertical2: TPanel;
+    pnlVertical3: TPanel;
+    btnClose: TButton;
+    btnOk: TButton;
     // Label61: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
-    procedure Map1MouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
+    procedure Map1MouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
-    procedure Map1MouseUp(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
+    procedure Map1MouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure Map1MapViewChanged(Sender: TObject);
-    procedure Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch;
-      hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
+    procedure Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch; hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
+
+    procedure UpdateCursorPositionData(const X, Y: Integer);
 
     { Prince }
     procedure btnHandleShape(Sender: TObject);
@@ -553,7 +548,6 @@ type
     procedure mnitoFrontClick(Sender: TObject);
     procedure mnitoBackClick(Sender: TObject);
     procedure OnKeyPressTextSize(Sender: TObject; var Key: Char);
-    procedure pnlWarningClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
 
     procedure btnOutlineClick(Sender: TObject);
@@ -594,16 +588,21 @@ type
     procedure imgPasteSectorClick(Sender: TObject);
     procedure imgCopyTextClick(Sender: TObject);
     procedure imgPasteTextClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 //        procedure TfrmWaypointEditor.OnAddRuller(Long, Lat: double);
   private
     FSelectedPolyID: Integer;
     FTagTombolPosition: Integer;
     FSelectedOverlay: TOverlay_Definition;
     FConverter: TCoordConverter;
+
     FTipeOverlay: Integer; { tipe overlay utk kebutuhan tampilan }
 
     FMapCursor: E_OverlayMapCursor;
     FShapeColor: E_ShapeColor;
+
+    FZoomRectStart : TPoint;
+    FZoomRectEnd : TPoint;
 
     xx: Double;
     yy: Double;
@@ -612,17 +611,16 @@ type
     Flatt : string;
     Flong : string;
 
-    isOK: Boolean; { Penanda jika gagal cek input, btn OK tidak langsung close }
-    AfterClose: Boolean;
-    { Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
+    isOK : Boolean; { Penanda jika gagal cek input, btn OK tidak langsung close }
+    AfterClose : Boolean; { Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
 
-    IdAction: Byte; { 1: add; 2: Edit; 3: Delete }
+    IdAction : Byte; { 1: add; 2: Edit; 3: Delete }
 
-    ShapeType: Integer;
-    FisNoFill: Boolean;
-        isshow:Boolean;
-    IdSelectShape: Integer;
-    IsReEdit: Boolean;
+    ShapeType : Integer;
+    FisNoFill : Boolean;
+    isshow : Boolean;
+    IdSelectShape : Integer;
+    IsReEdit : Boolean;
 
     nameSelectedTemplate: string;
 
@@ -637,14 +635,17 @@ type
     FCanvas: TCanvas;
     FLyrDraw: CMapXLayer;
     fFtrFactory: CMapXFeatureFactory;
+
     MouseIsDown, isCapturingScreen: Boolean;
 
     DrawOverlay: TDrawOverlay;
     DrawFlagPoint: TDrawFlagPoint;
 
     centLong, centLatt: Double;
-           procedure OnAddRuller(Long,Lat : double);
+
+    procedure OnAddRuller(Long,Lat : double);
     { Prince }
+
     // procedure Apply;
     // procedure Deleted;
     procedure Canceled;
@@ -683,7 +684,6 @@ type
     procedure SetNoFill(val: Boolean);
 
     procedure setCBScale;
-    procedure getGridCursorPos;
     procedure GameCenterDynamic;
 
     function RecordToFileStream(fFile: String): Boolean;
@@ -691,18 +691,18 @@ type
     procedure ScreenShot(DestBitmap: TBitmap);
     procedure LoadMap(Geoset: String);
 
+    {Cicil}
+    procedure UpAllToolbarButton;
+    procedure NormalizeMousePointer;
+
     function CekInput(IdObject: Integer): Boolean;
     function GetInput(s: string): Boolean;
     function GetGridLatt(yCursorPoint: Double): string;
     function GetGridLong(xCursorPoint: Double): string;
 
-    property SelectedOverlay: TOverlay_Definition read FSelectedOverlay
-      write FSelectedOverlay;
     property MapCursor: E_OverlayMapCursor read FMapCursor write FMapCursor;
+    property SelectedOverlay: TOverlay_Definition read FSelectedOverlay write FSelectedOverlay;
 
-    {Cicil}
-    procedure UpAllToolbarButton;
-    procedure NormalizeMousePointer;
   end;
 
 var
@@ -710,10 +710,24 @@ var
 
 implementation
 
-uses uBaseCoordSystem, math, ufrmSummaryOverlay, ComObj, uScrCapture,
-  ufCaptureRes,ufrmGameAreaPickList,
-  uDBEditSetting, uDataModuleTTT, uRecord, ufrmRuler;
+uses
+  uBaseCoordSystem, ufrmSummaryOverlay,
+  ufrmGameAreaPickList, uDBEditSetting, uDataModuleTTT, uRecord, ufrmRuler;
+
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure InitOleVariant(var TheVar: OleVariant);
 begin
@@ -723,29 +737,20 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TOverlayEditorForm.FormClose(Sender: TObject;
-  var Action: TCloseAction);
+procedure TOverlayEditorForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   IsReEdit := True;
 end;
 
 procedure TOverlayEditorForm.FormCreate(Sender: TObject);
 begin
-  // Map1.DoubleBuffered   := true;
-
-  // FMapPlatform          := TSimMap.Create(Map1);
-
-  // Converter.FMap        := Self.Map1;
-  // OverlayGameEnviroDef  := TGame_Environment_Definition.Create;
-
-  // FMapPlatform.FMap.OnMouseMove     := Map1MouseMove;
-  // FMapPlatform.FMap.OnMouseDown     := Map1MouseDown;
-  // FMapPlatform.FMap.OnMouseUp       := Map1MouseUp;
-  // FMapPlatform.FMap.OnDrawUserLayer := Map1DrawUserLayer;
-
   FCanvas := TCanvas.Create;
   FConverter := TCoordConverter.Create;
+  FConverter.FMap := Map1;
   FFormula := TFormula.Create;
+
+  if not Assigned(frmRuler) then
+    frmRuler := TfrmRuler.Create(self);
 
   DrawOverlay := TDrawOverlay.Create;
   DrawOverlay.Converter := FConverter;
@@ -754,6 +759,18 @@ begin
   DrawFlagPoint.Converter := FConverter;
 
   btnOk.Enabled := false;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TOverlayEditorForm.FormDestroy(Sender: TObject);
+begin
+  FCanvas.Free;
+  FConverter.Free;
+  FFormula.Free;
+  frmRuler.Free;
+  DrawOverlay.Free;
+  DrawFlagPoint.Free;
 end;
 
 procedure TOverlayEditorForm.FormResize(Sender: TObject);
@@ -766,38 +783,63 @@ procedure TOverlayEditorForm.FormShow(Sender: TObject);
 var
   aGeoset, ENCGeoset, VektorGeoset, GameAreaName: string;
 begin
-  LoadMap(vAppDBSetting.Pattern);
+  FTipeOverlay := SelectedOverlay.FData.Tipe;
 
-  FConverter.FMap := Map1;
+  case FTipeOverlay of
+    osDynamic :
+    begin
+      btnZoom.Visible := False;
+      btnMoveMap.Visible := False;
+      btnCenterOnGame.Visible := False;
+      btnLayerTool.Visible := False;
 
-  cbSetScale.ItemIndex := cbSetScale.Items.Count - 1;
-  cbSetScaleChange(Sender);
+//      ToolBar1.Visible := False;
 
-  cbSetScale.Text := cbSetScale.Items.Strings[cbSetScale.ItemIndex];
+      LoadMap(vAppDBSetting.MapOverlayDynamic);
 
-  FTipeOverlay := osStatic;
+      setCBScale;
+      cbSetScale.ItemIndex := cbSetScale.Items.Count - 1;
+      cbSetScaleChange(Sender);
 
-  pnlStatic.Visible := True;
-  pnlDynamic.Visible := false;
+      cbSetScale.Text := cbSetScale.Items.Strings[OverlayEditorForm.cbSetScale.ItemIndex];
 
-  grpNone.BringToFront;
-  pnlWarning.Visible := false;
+      centLong := 0;
+      centLatt  := 0;
 
-  centLong := 116.357322793642;
-  centLatt := -0.328853651464508;
+      pnlDynamic.Visible := True;
+      pnlStatic.Visible := False;
+    end;
+    osStatic :
+    begin
+      btnZoom.Visible := True;
+      btnMoveMap.Visible := True;
+      btnCenterOnGame.Visible := True;
 
-  btnSelect.OnClick(btnSelect);
+      LoadMap(vAppDBSetting.MapOverlayStatic);
+
+      setCBScale;
+      cbSetScale.ItemIndex := cbSetScale.Items.Count - 1;
+      cbSetScaleChange(Sender);
+
+      cbSetScale.Text := cbSetScale.Items.Strings[cbSetScale.ItemIndex];
+      centLong := 116.357322793642;
+      centLatt := -0.328853651464508;
+
+      pnlStatic.Visible := True;
+      pnlDynamic.Visible := False;
+
+    end;
+  end;
 
   DrawOverlay.Clear;
 
-  LoadShape(vAppDBSetting.OverlayPath + '\' +
-    ufrmSummaryOverlay.frmSummaryOverlay.LastName + '.dat');
+  LoadShape(vAppDBSetting.OverlayPath + '\' + ufrmSummaryOverlay.frmSummaryOverlay.LastName + '.dat');
   RefreshForm;
 
-  cbSetScaleChange(Sender);
 end;
 
 {$ENDREGION}
+
 {$REGION ' Button Handle '}
 
 procedure TOverlayEditorForm.btnApplyClick(Sender: TObject);
@@ -857,24 +899,24 @@ begin
 
   case FTipeOverlay of
 
-  {$REGION ' Dynamic Section '}
+    {$REGION ' Dynamic Section '}
     osDynamic:
-      begin
-        pnlDynamic.Visible := True;
-        cbbWeightPen.Text := '1';
-        cbbDashesPen.Text := 'Solid';
-        cbbTextSize.Text := '11';
-        isDynamic := True;
-      end;
-  {$ENDREGION}
+    begin
+      pnlDynamic.Visible := True;
+      cbbWeightPen.Text := '1';
+      cbbDashesPen.Text := 'Solid';
+      cbbTextSize.Text := '11';
+      isDynamic := True;
+    end;
+    {$ENDREGION}
 
-  {$REGION ' Static Section '}
+    {$REGION ' Static Section '}
     osStatic:
-      begin
-        pnlStatic.Visible := True;
-        isDynamic := false;
-      end
-  {$ENDREGION}
+    begin
+      pnlStatic.Visible := True;
+      isDynamic := false;
+    end
+    {$ENDREGION}
   end;
 
   ShapeType := TImage(Sender).Tag;
@@ -962,6 +1004,7 @@ begin
 end;
 
 {$ENDREGION}
+
 {$REGION ' Load Panel Handle '}
 
 procedure TOverlayEditorForm.LoadPanelText;
@@ -1160,6 +1203,7 @@ begin
 end;
 
 {$ENDREGION}
+
 {$REGION ' Insert Shape Handle '}
 
 procedure TOverlayEditorForm.GbrText;
@@ -1957,6 +2001,7 @@ begin
 end;
 
 {$ENDREGION}
+
 {$REGION ' Map Handle '}
 
 procedure TOverlayEditorForm.LoadMap(Geoset: String);
@@ -2000,20 +2045,28 @@ begin
 //  btnout.ImageIndex := 7;
 end;
 
-procedure TOverlayEditorForm.Map1DrawUserLayer(ASender: TObject;
-  const Layer: IDispatch; hOutputDC, hAttributeDC: Integer;
-  const RectFull, RectInvalid: IDispatch);
-  var
-    I : Integer;
-   xWPPoint, yWPPoint : Single;
-   intWPPointX, intWPPointY : Integer;
+procedure TOverlayEditorForm.Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch; hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
+var
+  I : Integer;
+  xWPPoint, yWPPoint : Single;
+  intWPPointX, intWPPointY : Integer;
   sx, sy, ex, ey: Integer;
   itemStart, itemEnd  : TFlagPoint;
 
 begin
   if not Assigned(FCanvas) then
     Exit;
-  FCanvas.Handle := hOutputDC;
+
+  with FCanvas do
+  begin
+    Handle := hOutputDC;
+    Brush.Style := bsClear;
+  end;
+
+  case FSelectedOverlay.FData.Tipe of
+    osDynamic: GameCenterDynamic;
+//      osStatic : GameCenterStatic;
+  end;
 
   DrawOverlay.drawAll(FCanvas, Map1);
   DrawFlagPoint.Draw(FCanvas);
@@ -2024,30 +2077,44 @@ begin
     DrawOverlay.FSelectedDraw.Draw(FCanvas, Map1);
   end;
 
+  {$REGION ' Menggambar Zoom '}
+  if MouseIsDown and btnZoom.Down then
+  begin
+    with FCanvas do
+    begin
+      Pen.Color := clWhite;
+      Pen.Width := 1;
+      Pen.Style := psDash;
+      Brush.Style := bsClear;
+      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
+    end;
+  end;
+  {$ENDREGION}
 
-{$REGION ' Menggambar Ruler '}
+  {$REGION ' Menggambar Ruler '}
   if frmRuler.isshow then
-   begin
-      DrawFlagPoint.Draw(FCanvas);
+  begin
+    DrawFlagPoint.Draw(FCanvas);
 
-      if DrawFlagPoint.FList.Count = 2 then
+    if DrawFlagPoint.FList.Count = 2 then
+    begin
+      itemStart := DrawFlagPoint.FList[0];
+      itemEnd := DrawFlagPoint.FList[1];
+
+      FConverter.ConvertToScreen(itemStart.Post.X, itemStart.Post.Y, sx, sy);
+      FConverter.ConvertToScreen(itemEnd.Post.X, itemEnd.Post.Y, ex, ey);
+
+      with FCanvas do
       begin
-        itemStart := DrawFlagPoint.FList[0];
-        itemEnd := DrawFlagPoint.FList[1];
-
-        FConverter.ConvertToScreen(itemStart.Post.X, itemStart.Post.Y, sx, sy);
-        FConverter.ConvertToScreen(itemEnd.Post.X, itemEnd.Post.Y, ex, ey);
-
-        with FCanvas do
-        begin
-          Brush.Style := bsClear;
-          Pen.Color := clYellow ;
-                  Pen.Width:= 2;
-          MoveTo(sx, sy);
-          LineTo(ex, ey);
-        end;
+        Brush.Style := bsClear;
+        Pen.Color := clYellow ;
+                Pen.Width:= 2;
+        MoveTo(sx, sy);
+        LineTo(ex, ey);
       end;
-   end;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.Map1MapViewChanged(Sender: TObject);
@@ -2086,20 +2153,9 @@ begin
   end;
 end;
 
-procedure TOverlayEditorForm.Map1MouseMove(Sender: TObject; Shift: TShiftState;
-  X, Y: Integer);
-// var
-// xx: Double;
-// yy: Double;
+procedure TOverlayEditorForm.Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
-  FConverter.ConvertToMap(X, Y, xx, yy);
-
-  lblBearing.Caption := FormatFloat('0.00', CalcBearing(Map1.CenterX,
-    Map1.CenterY, xx, yy));
-  lblDistance.Caption := FormatFloat('0.00',
-    FConverter.Distance_nmi(Map1.CenterX, Map1.CenterY, xx, yy));
-  getGridCursorPos;
-
+  UpdateCursorPositionData(X, Y);
 end;
 
 procedure TOverlayEditorForm.Map1MouseUp(Sender: TObject; Button: TMouseButton;
@@ -2252,20 +2308,25 @@ begin
     btnIncreaseScale.Enabled := true;
 
   NormalizeMousePointer;
-//  if cbSetScale.ItemIndex = 0 then
-//    Exit;
-//
-//  cbSetScale.ItemIndex := cbSetScale.ItemIndex - 1;
-//  cbSetScaleChange(cbSetScale);
+
 end;
 
 procedure TOverlayEditorForm.btnIncreaseScaleClick(Sender: TObject);
 begin
-  if cbSetScale.ItemIndex = 16 then
-    Exit;
+  if cbSetScale.ItemIndex > 0 then
+  begin
+    cbSetScale.ItemIndex := cbSetScale.ItemIndex - 1;
+    btnIncreaseScale.Enabled := true;
+  end;
 
-  cbSetScale.ItemIndex := cbSetScale.ItemIndex + 1;
   cbSetScaleChange(cbSetScale);
+
+  if cbSetScale.ItemIndex = 0 then
+    btnDecreaseScale.Enabled := false
+  else
+    btnDecreaseScale.Enabled := true;
+
+  NormalizeMousePointer;
 end;
 
 procedure TOverlayEditorForm.btnCenterOnGameClick(Sender: TObject);
@@ -2421,16 +2482,17 @@ end;
 
 procedure TOverlayEditorForm.GameCenterDynamic;
 var
-  i, cx, cy, ex, ey, fx, fy, r: Integer;
+  i, cx, cy, ex, ey, fx, fy, r, rTemp: Integer;
   dx, dy: Double;
   Point: TRect;
 begin
   inherited;
 
+  rTemp := Round(StrToInt(cbSetScale.Text)/8);
   { Menggambar ring range }
   for i := 1 to 4 do
   begin
-    dx := Map1.CenterX + (i * 2) / 60;
+    dx := Map1.CenterX + (i * rTemp) / 60;
     dy := Map1.CenterY;
 
     FConverter.ConvertToScreen(Map1.CenterX, Map1.CenterY, cx, cy);
@@ -2452,6 +2514,14 @@ begin
       Pen.Width := 1;
 
       Ellipse(Point.Left, Point.Top, Point.Right, Point.Bottom);
+
+      Font.Color := clGray;
+      Font.Size := 8;
+
+      TextOut((cx - r), cy, IntToStr(i*rTemp) + ' nm');
+      TextOut((cx + r), cy, IntToStr(i*rTemp) + ' nm');
+      TextOut(cx, cy - r, IntToStr(i*rTemp) + ' nm');
+      TextOut(cx, cy + r, IntToStr(i*rTemp) + ' nm');
     end;
   end;
 
@@ -2490,11 +2560,6 @@ begin
     Exit;
   end;
 
-end;
-
-procedure TOverlayEditorForm.pnlWarningClick(Sender: TObject);
-begin
-  pnlWarning.Visible := false;
 end;
 
 function TOverlayEditorForm.RecordToFileStream(fFile: String): Boolean;
@@ -2757,43 +2822,6 @@ begin
   Result := gridLatt + ' nm ' + addStringY;
 end;
 
-procedure TOverlayEditorForm.getGridCursorPos;
-var
-  yCursorPoint, xCursorPoint, yCenter, xCenter, diffX, diffY: Double;
-  diffXnm, diffYnm: Double;
-  gridLatt, gridLong, addStringX, addStringY: string;
-begin
-  yCursorPoint := yy;
-  xCursorPoint := xx;
-
-  yCenter := Map1.CenterX;
-  xCenter := Map1.CenterY;
-
-  diffY := Abs(yCursorPoint - yCenter);
-  diffX := Abs(xCursorPoint - xCenter);
-
-  diffYnm := diffY * 60;
-  diffXnm := diffX * 60;
-
-  if yCursorPoint < yCenter then
-    addStringY := 'S'
-  else
-    addStringY := 'N';
-
-  if xCursorPoint < xCenter then
-    addStringX := 'W'
-  else
-    addStringX := 'E';
-
-  lbSlPosition.Caption := formatDMS_latt(yy);
-  lblWPosition.Caption := formatDMS_long(xx);
-
-  gridLatt := FormatFloat('0.00', diffYnm);
-  gridLong := FormatFloat('0.00', diffXnm);
-  lblnmSGrid.Caption := gridLatt + ' nm ' + addStringY;
-  lblnmWGrid.Caption := gridLong + ' nm ' + addStringX;
-end;
-
 procedure TOverlayEditorForm.ClearEditText;
 begin
   // * reset data & set button buat ambil koordinat down jadi false *\\
@@ -2922,7 +2950,6 @@ begin
 
   SpeedButton10.Down := false;
 
-  pnlWarning.Visible := false;
 end;
 
 procedure TOverlayEditorForm.ClearFlagPoint;
@@ -2954,8 +2981,7 @@ begin
   Fs.Free;
 end;
 
-procedure TOverlayEditorForm.lvPolyVertexSelectItem(Sender: TObject;
-  Item: TListItem; Selected: Boolean);
+procedure TOverlayEditorForm.lvPolyVertexSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 begin
   btnDelPoly.Visible := Selected;
   btnEditPoly.Visible := Selected;
@@ -2984,7 +3010,7 @@ begin
     osStatic:
       widthNM := floor(2500);
     osDynamic:
-      widthNM := floor(16);
+      widthNM := floor(2500);
   end;
 
   // widthNM := floor(2500{uOverlayTemplateEditor.fmOverlayTemplateEditor.GameArea.FGameArea.Game_X_Dimension});
@@ -3053,6 +3079,39 @@ begin
 
   Map1.CurrentTool  := miArrowTool;
   Map1.MousePointer := miDefaultCursor;
+end;
+
+procedure TOverlayEditorForm.UpdateCursorPositionData(const X, Y: Integer);
+var
+  dx, dy, diffX, diffY : Double;
+begin
+
+  FConverter.ConvertToMap(X, Y, dx, dy);
+
+  {Bearing From Center}
+  lblBearingFCenter.Caption := FormatFloat('0.00', CalcBearing(Map1.CenterX, Map1.CenterY, dx, dy));
+
+  {Distance From Center}
+  lblDistanceFCenter.Caption := FormatFloat('0.00', CalcRange(Map1.CenterX, Map1.CenterY, dx, dy));
+
+  {Corsor in Position}
+  lblPosLat.Caption := formatDM_latitude(dy);
+  lblPosLong.Caption := formatDM_longitude(dx);
+
+  {Cursor in Grid}
+  diffX := Abs(dx - Map1.CenterX) * 60;
+  diffY := Abs(dy - Map1.CenterY) * 60;
+
+  if dy < Map1.CenterX then
+    lblGridLat.Caption := FormatFloat('0.00', diffY) + ' nm S'
+  else
+    lblGridLat.Caption := FormatFloat('0.00', diffY) + ' nm N';
+
+  if dx < Map1.CenterY then
+    lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm W'
+  else
+    lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm E';
+
 end;
 
 procedure TOverlayEditorForm.btnNoFillClick(Sender: TObject);
@@ -3509,6 +3568,8 @@ begin
     cbSetScale.ItemIndex := cbSetScale.ItemIndex - 1;
 
   Map1.OnMapViewChanged := Map1MapViewChanged;
+
+  NormalizeMousePointer;
 end;
 
 function TOverlayEditorForm.CekInput(IdObject: Integer): Boolean;

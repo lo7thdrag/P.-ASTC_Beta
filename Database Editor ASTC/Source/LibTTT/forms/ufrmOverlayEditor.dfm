@@ -13,19 +13,16 @@ object OverlayEditorForm: TOverlayEditorForm
   FormStyle = fsStayOnTop
   OldCreateOrder = False
   PopupMenu = pmOverlayEdit
-  Position = poScreenCenter
+  Position = poDesigned
   WindowState = wsMaximized
   WindowMenu = mniDelete
   OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnResize = FormResize
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object RzToolButton1: TRzToolButton
-    Left = 664
-    Top = 376
-  end
   object imgBackground: TImage
     Left = 0
     Top = 0
@@ -44859,19 +44856,21 @@ object OverlayEditorForm: TOverlayEditorForm
     Color = 3683636
     TabOrder = 0
     object pnl2Editor: TPanel
-      Left = 5
+      Left = 10
       Top = 25
       Width = 308
-      Height = 828
+      Height = 833
       Align = alLeft
       BevelOuter = bvNone
       Color = clInactiveCaptionText
-      TabOrder = 5
+      TabOrder = 3
+      ExplicitLeft = 5
+      ExplicitHeight = 828
       object pnlOverlayEditor: TPanel
         Left = 0
         Top = 0
         Width = 308
-        Height = 828
+        Height = 833
         ParentCustomHint = False
         Align = alClient
         BevelOuter = bvNone
@@ -44887,6 +44886,9 @@ object OverlayEditorForm: TOverlayEditorForm
         ParentCtl3D = False
         ParentFont = False
         TabOrder = 0
+<<<<<<< HEAD
+        ExplicitHeight = 828
+=======
         object pnlWarning: TPanel
           Left = 15
           Top = 680
@@ -44923,17 +44925,22 @@ object OverlayEditorForm: TOverlayEditorForm
             OnClick = pnlWarningClick
           end
         end
+>>>>>>> edf72e5276138a69d3312cb5853bed3b9ba87726
         object pnlColor: TPanel
-          Left = 7
-          Top = 1
-          Width = 295
+          Left = 0
+          Top = 0
+          Width = 308
           Height = 154
+          Align = alTop
           BevelOuter = bvNone
           Color = 2499101
           ParentBackground = False
-          TabOrder = 1
+          TabOrder = 0
+          ExplicitLeft = 7
+          ExplicitTop = 1
+          ExplicitWidth = 295
           object grpColorEditing: TGroupBox
-            Left = 3
+            Left = 7
             Top = 6
             Width = 117
             Height = 83
@@ -45166,9 +45173,9 @@ object OverlayEditorForm: TOverlayEditorForm
             end
           end
           object grbColour: TGroupBox
-            Left = 122
+            Left = 126
             Top = 6
-            Width = 171
+            Width = 175
             Height = 83
             Color = 2499101
             ParentBackground = False
@@ -45213,9 +45220,9 @@ object OverlayEditorForm: TOverlayEditorForm
             end
           end
           object GroupBox1: TGroupBox
-            Left = 3
+            Left = 7
             Top = 94
-            Width = 290
+            Width = 294
             Height = 53
             Color = 2499101
             ParentBackground = False
@@ -45224,7 +45231,7 @@ object OverlayEditorForm: TOverlayEditorForm
             object pnlPenEditing: TPanel
               Left = 2
               Top = 8
-              Width = 288
+              Width = 290
               Height = 31
               BevelOuter = bvNone
               Color = 5980694
@@ -45289,14 +45296,19 @@ object OverlayEditorForm: TOverlayEditorForm
           end
         end
         object pnlShape: TPanel
-          Left = 6
-          Top = 162
-          Width = 294
-          Height = 660
+          Left = 0
+          Top = 164
+          Width = 308
+          Height = 614
+          Align = alClient
           BevelOuter = bvNone
           Color = 2499101
           ParentBackground = False
-          TabOrder = 2
+          TabOrder = 1
+          ExplicitLeft = 6
+          ExplicitTop = 162
+          ExplicitWidth = 294
+          ExplicitHeight = 660
           object Label76: TLabel
             Left = 202
             Top = 52
@@ -47378,2422 +47390,6 @@ object OverlayEditorForm: TOverlayEditorForm
             ShowHint = True
             TabOrder = 11
             OnClick = btnHandleShape
-          end
-          object pnlDynamic: TPanel
-            Left = 50
-            Top = 74
-            Width = 230
-            Height = 350
-            BevelOuter = bvNone
-            Color = 2499101
-            ParentBackground = False
-            TabOrder = 0
-            Visible = False
-            object grpArcD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 350
-              Align = alClient
-              TabOrder = 6
-              object lbl40: TLabel
-                Left = 13
-                Top = 20
-                Width = 33
-                Height = 13
-                Caption = 'Centre'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl41: TLabel
-                Left = 111
-                Top = 196
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl42: TLabel
-                Left = 111
-                Top = 218
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl43: TLabel
-                Left = 13
-                Top = 103
-                Width = 32
-                Height = 13
-                Caption = 'Radius'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl44: TLabel
-                Left = 111
-                Top = 128
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl45: TLabel
-                Left = 22
-                Top = 196
-                Width = 24
-                Height = 13
-                Caption = 'Start'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl46: TLabel
-                Left = 22
-                Top = 218
-                Width = 18
-                Height = 13
-                Caption = 'End'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label57: TLabel
-                Left = 22
-                Top = 45
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label58: TLabel
-                Left = 22
-                Top = 67
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label3: TLabel
-                Left = 113
-                Top = 67
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label60: TLabel
-                Left = 113
-                Top = 45
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl124: TLabel
-                Left = 62
-                Top = 196
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl125: TLabel
-                Left = 62
-                Top = 45
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl126: TLabel
-                Left = 62
-                Top = 128
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl127: TLabel
-                Left = 62
-                Top = 218
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl128: TLabel
-                Left = 62
-                Top = 67
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl137: TLabel
-                Left = 22
-                Top = 128
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Bevel2: TBevel
-                Left = 54
-                Top = 110
-                Width = 142
-                Height = 2
-              end
-              object bvl14: TBevel
-                Left = 55
-                Top = 178
-                Width = 141
-                Height = 2
-              end
-              object lbl138: TLabel
-                Left = 13
-                Top = 171
-                Width = 27
-                Height = 13
-                Caption = 'Angle'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object edtArcRange: TEdit
-                Left = 70
-                Top = 41
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 0
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtArcBearing: TEdit
-                Left = 70
-                Top = 63
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 1
-                Text = '0'
-              end
-              object edtArcRadiusD: TEdit
-                Left = 70
-                Top = 124
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 2
-                Text = '1'
-                OnKeyPress = OnKeyPress
-              end
-              object edtArcStartAngleD: TEdit
-                Left = 71
-                Top = 191
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 3
-                Text = '0'
-              end
-              object edtArcEndAngleD: TEdit
-                Left = 70
-                Top = 214
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 4
-                Text = '0'
-              end
-            end
-            object grpCircleD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 350
-              Align = alClient
-              TabOrder = 4
-              object Label52: TLabel
-                Left = 13
-                Top = 103
-                Width = 32
-                Height = 13
-                Caption = 'Radius'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl1: TLabel
-                Left = 112
-                Top = 128
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblCentre: TLabel
-                Left = 13
-                Top = 20
-                Width = 33
-                Height = 13
-                Caption = 'Centre'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label53: TLabel
-                Left = 22
-                Top = 45
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label54: TLabel
-                Left = 22
-                Top = 67
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label55: TLabel
-                Left = 112
-                Top = 67
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label56: TLabel
-                Left = 112
-                Top = 45
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl129: TLabel
-                Left = 62
-                Top = 45
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl130: TLabel
-                Left = 62
-                Top = 128
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl131: TLabel
-                Left = 62
-                Top = 67
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl132: TLabel
-                Left = 22
-                Top = 128
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Bevel1: TBevel
-                Left = 54
-                Top = 110
-                Width = 142
-                Height = 2
-              end
-              object edtCircleRange: TEdit
-                Left = 72
-                Top = 41
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 0
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtCircleBearing: TEdit
-                Left = 72
-                Top = 63
-                Width = 35
-                Height = 21
-                Hint = '185'
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 1
-                Text = '0'
-              end
-              object edtCircleRadiusD: TEdit
-                Left = 72
-                Top = 124
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 2
-                Text = '1'
-                OnKeyPress = OnKeyPress
-              end
-            end
-            object grpEllipseD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 350
-              Align = alClient
-              TabOrder = 5
-              object Label4: TLabel
-                Left = 13
-                Top = 20
-                Width = 33
-                Height = 13
-                Caption = 'Centre'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl48: TLabel
-                Left = 22
-                Top = 128
-                Width = 17
-                Height = 13
-                Caption = 'Hor'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl50: TLabel
-                Left = 112
-                Top = 128
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl51: TLabel
-                Left = 22
-                Top = 150
-                Width = 16
-                Height = 13
-                Caption = 'Ver'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl52: TLabel
-                Left = 112
-                Top = 150
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object bvl4: TBevel
-                Left = 86
-                Top = 110
-                Width = 115
-                Height = 2
-              end
-              object lbl49: TLabel
-                Left = 13
-                Top = 103
-                Width = 55
-                Height = 13
-                Caption = ' Semi - Axis'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                Transparent = False
-              end
-              object lbl79: TLabel
-                Left = 22
-                Top = 45
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl80: TLabel
-                Left = 112
-                Top = 45
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label5: TLabel
-                Left = 22
-                Top = 67
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label6: TLabel
-                Left = 112
-                Top = 67
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl133: TLabel
-                Left = 62
-                Top = 67
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl134: TLabel
-                Left = 62
-                Top = 45
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl135: TLabel
-                Left = 62
-                Top = 128
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl136: TLabel
-                Left = 62
-                Top = 150
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object edtEllipseRange: TEdit
-                Left = 72
-                Top = 41
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 0
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtEllipseBearing: TEdit
-                Left = 72
-                Top = 63
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 1
-                Text = '0'
-              end
-              object edtEllipseHorizontalD: TEdit
-                Left = 72
-                Top = 124
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 2
-                Text = '1'
-                OnKeyPress = OnKeyPress
-              end
-              object edtEllipseVerticalD: TEdit
-                Left = 72
-                Top = 146
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 3
-                Text = '1'
-                OnKeyPress = OnKeyPress
-              end
-            end
-            object grpGridD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 350
-              Align = alClient
-              TabOrder = 8
-              object lbl53: TLabel
-                Left = 13
-                Top = 20
-                Width = 33
-                Height = 13
-                Caption = 'Centre'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl54: TLabel
-                Left = 22
-                Top = 211
-                Width = 28
-                Height = 13
-                Caption = 'Width'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl55: TLabel
-                Left = 112
-                Top = 128
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl56: TLabel
-                Left = 22
-                Top = 128
-                Width = 31
-                Height = 13
-                Caption = 'Height'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl57: TLabel
-                Left = 22
-                Top = 233
-                Width = 29
-                Height = 13
-                Caption = 'Count'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl58: TLabel
-                Left = 112
-                Top = 211
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl59: TLabel
-                Left = 22
-                Top = 150
-                Width = 29
-                Height = 13
-                Caption = 'Count'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object bvl5: TBevel
-                Left = 89
-                Top = 110
-                Width = 110
-                Height = 2
-              end
-              object lbl60: TLabel
-                Left = 13
-                Top = 103
-                Width = 63
-                Height = 13
-                Caption = 'Vertical Cells '
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                Transparent = False
-              end
-              object bvl6: TBevel
-                Left = 99
-                Top = 276
-                Width = 100
-                Height = 2
-              end
-              object lbl61: TLabel
-                Left = 13
-                Top = 269
-                Width = 41
-                Height = 13
-                Caption = 'Rotation'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                Transparent = False
-              end
-              object lbl62: TLabel
-                Left = 112
-                Top = 294
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label44: TLabel
-                Left = 13
-                Top = 186
-                Width = 76
-                Height = 13
-                Caption = 'Horisontal Cells '
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                Transparent = False
-              end
-              object Bevel12: TBevel
-                Left = 99
-                Top = 193
-                Width = 100
-                Height = 2
-              end
-              object Label45: TLabel
-                Left = 22
-                Top = 45
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label106: TLabel
-                Left = 62
-                Top = 45
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label107: TLabel
-                Left = 22
-                Top = 67
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label108: TLabel
-                Left = 62
-                Top = 67
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label109: TLabel
-                Left = 112
-                Top = 67
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label110: TLabel
-                Left = 112
-                Top = 45
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label111: TLabel
-                Left = 62
-                Top = 128
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label112: TLabel
-                Left = 62
-                Top = 150
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label113: TLabel
-                Left = 62
-                Top = 211
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label114: TLabel
-                Left = 62
-                Top = 233
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label115: TLabel
-                Left = 22
-                Top = 294
-                Width = 27
-                Height = 13
-                Caption = 'Angle'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label116: TLabel
-                Left = 62
-                Top = 294
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object edtTableRange: TEdit
-                Left = 72
-                Top = 41
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 0
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtTableBearing: TEdit
-                Left = 72
-                Top = 63
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 1
-                Text = '0'
-              end
-              object edtTableHeightD: TEdit
-                Left = 72
-                Top = 124
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 2
-                Text = '1'
-                OnKeyPress = OnKeyPress
-              end
-              object edtTableWidthD: TEdit
-                Left = 72
-                Top = 207
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 3
-                Text = '1'
-                OnKeyPress = OnKeyPress
-              end
-              object edtTableColumnD: TEdit
-                Left = 72
-                Top = 146
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                NumbersOnly = True
-                TabOrder = 4
-                Text = '1'
-              end
-              object edtTableRowD: TEdit
-                Left = 72
-                Top = 229
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                NumbersOnly = True
-                TabOrder = 5
-                Text = '1'
-              end
-              object edtRotationAngleD: TEdit
-                Left = 72
-                Top = 290
-                Width = 30
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 6
-                Text = '0'
-              end
-            end
-            object grpLineD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 350
-              Align = alClient
-              TabOrder = 2
-              object lbl20: TLabel
-                Left = 13
-                Top = 20
-                Width = 24
-                Height = 13
-                Caption = 'Start'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl21: TLabel
-                Left = 14
-                Top = 103
-                Width = 18
-                Height = 13
-                Caption = 'End'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl23: TLabel
-                Left = 22
-                Top = 128
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl25: TLabel
-                Left = 112
-                Top = 150
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label42: TLabel
-                Left = 22
-                Top = 150
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label43: TLabel
-                Left = 112
-                Top = 128
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label40: TLabel
-                Left = 22
-                Top = 45
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label41: TLabel
-                Left = 22
-                Top = 67
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label118: TLabel
-                Left = 62
-                Top = 45
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label119: TLabel
-                Left = 62
-                Top = 67
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label120: TLabel
-                Left = 112
-                Top = 67
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label121: TLabel
-                Left = 112
-                Top = 45
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Bevel7: TBevel
-                Left = 50
-                Top = 110
-                Width = 149
-                Height = 2
-              end
-              object Label123: TLabel
-                Left = 62
-                Top = 128
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label124: TLabel
-                Left = 62
-                Top = 150
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object edtLineStartRange: TEdit
-                Left = 72
-                Top = 41
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 0
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtLineStartBearing: TEdit
-                Left = 72
-                Top = 63
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 1
-                Text = '0'
-              end
-              object edtLineEndRange: TEdit
-                Left = 72
-                Top = 124
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 2
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtLineEndBearing: TEdit
-                Left = 72
-                Top = 146
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 3
-                Text = '0'
-              end
-            end
-            object grpNoneD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 350
-              Align = alClient
-              TabOrder = 1
-            end
-            object grpPolygonD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 350
-              Align = alClient
-              TabOrder = 9
-              object AddPolyD: TSpeedButton
-                Tag = 1
-                Left = 156
-                Top = 41
-                Width = 43
-                Height = 43
-                Cursor = crHandPoint
-                Hint = 'Add'
-                ParentCustomHint = False
-                AllowAllUp = True
-                Caption = 'Add'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                OnClick = AddPolyDClick
-              end
-              object btnDeletePolyD: TSpeedButton
-                Tag = 1
-                Left = 95
-                Top = 296
-                Width = 104
-                Height = 30
-                Cursor = crHandPoint
-                Hint = 'Clear Point'
-                AllowAllUp = True
-                GroupIndex = 1
-                Caption = '  Clear Point'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                Glyph.Data = {
-                  E6040000424DE604000000000000360000002800000014000000140000000100
-                  180000000000B0040000120B0000120B00000000000000000000FFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303FFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303
-                  0303030303030303030303030303030303030303030303030303FFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303030303030303030303030303
-                  03030303030303030303030303030303030303030303030303FFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFF030303030303030303030303030303030303030303
-                  030303030303030303030303030303030303030303030303FFFFFFFFFFFFFFFF
-                  FFFFFFFF03030303030303030303030303030303030303030303030303030303
-                  0303FFFFFF030303030303030303030303030303030303FFFFFFFFFFFF030303
-                  030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFF03030303030303030303030303030303030303030303030303
-                  0303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFF030303030303030303030303030303030303030303030303FFFF
-                  FFFFFFFFFFFFFF030303030303030303030303030303FFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF
-                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF03030303
-                  0303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFF030303030303
-                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF0303030303
-                  03030303030303030303FFFFFFFFFFFFFFFFFF03030303030303030303030303
-                  0303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFEFEFE030303030303030303030303030303030303FFFFFFFFFF
-                  FF030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFF
-                  0303030303030303030303030303030303030303030303030303030303030303
-                  03030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03
-                  0303030303030303030303030303030303030303030303030303030303030303
-                  030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
-                  03030303030303030303030303030303030303030303030303030303030303FF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303
-                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFF}
-                ParentFont = False
-                OnClick = btnDeletePolyDClick
-              end
-              object Label7: TLabel
-                Left = 13
-                Top = 20
-                Width = 24
-                Height = 13
-                Caption = 'Point'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label30: TLabel
-                Left = 22
-                Top = 45
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label31: TLabel
-                Left = 62
-                Top = 45
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label33: TLabel
-                Left = 22
-                Top = 67
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label37: TLabel
-                Left = 62
-                Top = 67
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label126: TLabel
-                Left = 112
-                Top = 67
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label127: TLabel
-                Left = 112
-                Top = 45
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object edtPolygonRange: TEdit
-                Left = 70
-                Top = 41
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 0
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtPolygonBearing: TEdit
-                Left = 70
-                Top = 63
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 1
-                Text = '0'
-              end
-              object lvPolyVertexD: TListView
-                AlignWithMargins = True
-                Left = 13
-                Top = 102
-                Width = 186
-                Height = 186
-                Columns = <
-                  item
-                    Caption = '+'
-                    Width = 25
-                  end
-                  item
-                    Alignment = taCenter
-                    Caption = 'Range'
-                    Width = 79
-                  end
-                  item
-                    Alignment = taCenter
-                    Caption = 'Bearing'
-                    Width = 79
-                  end>
-                GridLines = True
-                RowSelect = True
-                TabOrder = 2
-                ViewStyle = vsReport
-              end
-            end
-            object grpRectangleD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 350
-              Align = alClient
-              TabOrder = 3
-              object lbl26: TLabel
-                Left = 13
-                Top = 20
-                Width = 47
-                Height = 13
-                Caption = 'Top - Left'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl27: TLabel
-                Left = 14
-                Top = 103
-                Width = 69
-                Height = 13
-                Caption = 'Bottom - Right'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Bevel8: TBevel
-                Left = 97
-                Top = 110
-                Width = 104
-                Height = 2
-              end
-              object Label38: TLabel
-                Left = 22
-                Top = 45
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label39: TLabel
-                Left = 62
-                Top = 45
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label128: TLabel
-                Left = 112
-                Top = 45
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label129: TLabel
-                Left = 22
-                Top = 67
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label130: TLabel
-                Left = 62
-                Top = 67
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label131: TLabel
-                Left = 112
-                Top = 67
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label133: TLabel
-                Left = 22
-                Top = 128
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label134: TLabel
-                Left = 62
-                Top = 128
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label135: TLabel
-                Left = 22
-                Top = 150
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label136: TLabel
-                Left = 62
-                Top = 150
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label137: TLabel
-                Left = 112
-                Top = 128
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label138: TLabel
-                Left = 112
-                Top = 150
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object edtRecStartRange: TEdit
-                Left = 72
-                Top = 41
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 0
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtRecStartBearing: TEdit
-                Left = 72
-                Top = 63
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 1
-                Text = '0'
-              end
-              object edtRecEndRange: TEdit
-                Left = 72
-                Top = 124
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 2
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtRecEndBearing: TEdit
-                Left = 72
-                Top = 146
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 3
-                Text = '0'
-              end
-            end
-            object grpSectorD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 350
-              Align = alClient
-              TabOrder = 7
-              object lbl64: TLabel
-                Left = 13
-                Top = 20
-                Width = 33
-                Height = 13
-                Caption = 'Centre'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl65: TLabel
-                Left = 22
-                Top = 128
-                Width = 26
-                Height = 13
-                Caption = 'Inner'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl66: TLabel
-                Left = 22
-                Top = 150
-                Width = 28
-                Height = 13
-                Caption = 'Outer'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl67: TLabel
-                Left = 22
-                Top = 211
-                Width = 24
-                Height = 13
-                Caption = 'Start'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl68: TLabel
-                Left = 22
-                Top = 233
-                Width = 18
-                Height = 13
-                Caption = 'End'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl69: TLabel
-                Left = 112
-                Top = 128
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl70: TLabel
-                Left = 112
-                Top = 150
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl71: TLabel
-                Left = 112
-                Top = 211
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl72: TLabel
-                Left = 112
-                Top = 233
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object bvl7: TBevel
-                Left = 59
-                Top = 110
-                Width = 140
-                Height = 2
-              end
-              object bvl8: TBevel
-                Left = 59
-                Top = 193
-                Width = 140
-                Height = 2
-              end
-              object lbl73: TLabel
-                Left = 13
-                Top = 103
-                Width = 35
-                Height = 13
-                Caption = ' Radius'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                Transparent = False
-              end
-              object lbl74: TLabel
-                Left = 13
-                Top = 186
-                Width = 38
-                Height = 13
-                Caption = ' Angles '
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                Transparent = False
-              end
-              object Label46: TLabel
-                Left = 22
-                Top = 45
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label140: TLabel
-                Left = 62
-                Top = 45
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label141: TLabel
-                Left = 22
-                Top = 67
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label142: TLabel
-                Left = 62
-                Top = 67
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label143: TLabel
-                Left = 112
-                Top = 45
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label144: TLabel
-                Left = 112
-                Top = 67
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label145: TLabel
-                Left = 62
-                Top = 128
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label146: TLabel
-                Left = 62
-                Top = 150
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label147: TLabel
-                Left = 62
-                Top = 211
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label148: TLabel
-                Left = 62
-                Top = 233
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object edtSectorRange: TEdit
-                Left = 72
-                Top = 41
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 0
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtSectorInnerD: TEdit
-                Left = 72
-                Top = 124
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 1
-                Text = '1'
-                OnKeyPress = OnKeyPress
-              end
-              object edtSectorOuterD: TEdit
-                Left = 72
-                Top = 146
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 2
-                Text = '1'
-                OnKeyPress = OnKeyPress
-              end
-              object edtSectorStartAngleD: TEdit
-                Left = 72
-                Top = 207
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 3
-                Text = '0'
-              end
-              object edtSectorEndAngleD: TEdit
-                Left = 72
-                Top = 229
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 4
-                Text = '0'
-              end
-              object edtSectorBearing: TEdit
-                Left = 72
-                Top = 63
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 5
-                Text = '0'
-              end
-            end
-            object grpTextD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 350
-              Align = alClient
-              TabOrder = 0
-              object lbl17: TLabel
-                Left = 13
-                Top = 103
-                Width = 22
-                Height = 13
-                Caption = 'Text'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl18: TLabel
-                Left = 13
-                Top = 171
-                Width = 19
-                Height = 13
-                Caption = 'Size'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label51: TLabel
-                Left = 13
-                Top = 20
-                Width = 24
-                Height = 13
-                Caption = 'Start'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label1: TLabel
-                Left = 22
-                Top = 45
-                Width = 31
-                Height = 13
-                Caption = 'Range'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label2: TLabel
-                Left = 62
-                Top = 45
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label152: TLabel
-                Left = 22
-                Top = 67
-                Width = 36
-                Height = 13
-                Caption = 'Bearing'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label153: TLabel
-                Left = 62
-                Top = 67
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label154: TLabel
-                Left = 112
-                Top = 45
-                Width = 14
-                Height = 13
-                Caption = 'nm'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label155: TLabel
-                Left = 112
-                Top = 67
-                Width = 18
-                Height = 13
-                Caption = 'deg'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Bevel10: TBevel
-                Left = 53
-                Top = 110
-                Width = 146
-                Height = 2
-              end
-              object Bevel11: TBevel
-                Left = 48
-                Top = 178
-                Width = 151
-                Height = 2
-              end
-              object Label157: TLabel
-                Left = 22
-                Top = 196
-                Width = 26
-                Height = 13
-                Caption = 'Value'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label158: TLabel
-                Left = 62
-                Top = 196
-                Width = 4
-                Height = 13
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object edtTextRange: TEdit
-                Left = 72
-                Top = 41
-                Width = 35
-                Height = 21
-                MaxLength = 4
-                TabOrder = 0
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtTextFieldD: TEdit
-                Left = 20
-                Top = 124
-                Width = 179
-                Height = 21
-                MaxLength = 30
-                TabOrder = 1
-                Text = 'None'
-              end
-              object edtTextBearing: TEdit
-                Left = 72
-                Top = 63
-                Width = 35
-                Height = 21
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 2
-                Text = '0'
-              end
-              object cbbTextSizeD: TComboBox
-                Left = 72
-                Top = 192
-                Width = 45
-                Height = 21
-                MaxLength = 2
-                TabOrder = 3
-                Text = '11'
-                OnKeyPress = OnKeyPressTextSize
-                Items.Strings = (
-                  '8'
-                  '9'
-                  '10'
-                  '11'
-                  '12'
-                  '14'
-                  '16'
-                  '18'
-                  '20'
-                  '22'
-                  '24'
-                  '26'
-                  '28'
-                  '36'
-                  '48'
-                  '72')
-              end
-            end
           end
           object pnlStatic: TPanel
             Left = 50
@@ -53700,17 +51296,6 @@ object OverlayEditorForm: TOverlayEditorForm
                 TabOrder = 5
               end
             end
-            object grpNone: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 351
-              Align = alClient
-              Color = 2499101
-              ParentBackground = False
-              ParentColor = False
-              TabOrder = 0
-            end
             object grpCircle: TGroupBox
               Left = 0
               Top = 0
@@ -54068,22 +51653,2522 @@ object OverlayEditorForm: TOverlayEditorForm
                 TabOrder = 0
               end
             end
+            object grpNone: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 351
+              Align = alClient
+              Color = 2499101
+              ParentBackground = False
+              ParentColor = False
+              TabOrder = 0
+            end
+          end
+          object pnlDynamic: TPanel
+            Left = 50
+            Top = 74
+            Width = 230
+            Height = 350
+            BevelOuter = bvNone
+            Color = 2499101
+            ParentBackground = False
+            TabOrder = 0
+            Visible = False
+            object grpArcD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 350
+              Align = alClient
+              TabOrder = 6
+              object lbl40: TLabel
+                Left = 13
+                Top = 20
+                Width = 33
+                Height = 13
+                Caption = 'Centre'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl41: TLabel
+                Left = 111
+                Top = 196
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl42: TLabel
+                Left = 111
+                Top = 218
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl43: TLabel
+                Left = 13
+                Top = 103
+                Width = 32
+                Height = 13
+                Caption = 'Radius'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl44: TLabel
+                Left = 111
+                Top = 128
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl45: TLabel
+                Left = 22
+                Top = 196
+                Width = 24
+                Height = 13
+                Caption = 'Start'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl46: TLabel
+                Left = 22
+                Top = 218
+                Width = 18
+                Height = 13
+                Caption = 'End'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label57: TLabel
+                Left = 22
+                Top = 45
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label58: TLabel
+                Left = 22
+                Top = 67
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label3: TLabel
+                Left = 113
+                Top = 67
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label60: TLabel
+                Left = 113
+                Top = 45
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl124: TLabel
+                Left = 62
+                Top = 196
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl125: TLabel
+                Left = 62
+                Top = 45
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl126: TLabel
+                Left = 62
+                Top = 128
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl127: TLabel
+                Left = 62
+                Top = 218
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl128: TLabel
+                Left = 62
+                Top = 67
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl137: TLabel
+                Left = 22
+                Top = 128
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Bevel2: TBevel
+                Left = 54
+                Top = 110
+                Width = 142
+                Height = 2
+              end
+              object bvl14: TBevel
+                Left = 55
+                Top = 178
+                Width = 141
+                Height = 2
+              end
+              object lbl138: TLabel
+                Left = 13
+                Top = 171
+                Width = 27
+                Height = 13
+                Caption = 'Angle'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object edtArcRange: TEdit
+                Left = 70
+                Top = 41
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 0
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtArcBearing: TEdit
+                Left = 70
+                Top = 63
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 1
+                Text = '0'
+              end
+              object edtArcRadiusD: TEdit
+                Left = 70
+                Top = 124
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 2
+                Text = '1'
+                OnKeyPress = OnKeyPress
+              end
+              object edtArcStartAngleD: TEdit
+                Left = 71
+                Top = 191
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 3
+                Text = '0'
+              end
+              object edtArcEndAngleD: TEdit
+                Left = 70
+                Top = 214
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 4
+                Text = '0'
+              end
+            end
+            object grpCircleD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 350
+              Align = alClient
+              TabOrder = 4
+              object Label52: TLabel
+                Left = 13
+                Top = 103
+                Width = 32
+                Height = 13
+                Caption = 'Radius'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl1: TLabel
+                Left = 112
+                Top = 128
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lblCentre: TLabel
+                Left = 13
+                Top = 20
+                Width = 33
+                Height = 13
+                Caption = 'Centre'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label53: TLabel
+                Left = 22
+                Top = 45
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label54: TLabel
+                Left = 22
+                Top = 67
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label55: TLabel
+                Left = 112
+                Top = 67
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label56: TLabel
+                Left = 112
+                Top = 45
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl129: TLabel
+                Left = 62
+                Top = 45
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl130: TLabel
+                Left = 62
+                Top = 128
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl131: TLabel
+                Left = 62
+                Top = 67
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl132: TLabel
+                Left = 22
+                Top = 128
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Bevel1: TBevel
+                Left = 54
+                Top = 110
+                Width = 142
+                Height = 2
+              end
+              object edtCircleRange: TEdit
+                Left = 72
+                Top = 41
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 0
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtCircleBearing: TEdit
+                Left = 72
+                Top = 63
+                Width = 35
+                Height = 21
+                Hint = '185'
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 1
+                Text = '0'
+              end
+              object edtCircleRadiusD: TEdit
+                Left = 72
+                Top = 124
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 2
+                Text = '1'
+                OnKeyPress = OnKeyPress
+              end
+            end
+            object grpEllipseD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 350
+              Align = alClient
+              TabOrder = 5
+              object Label4: TLabel
+                Left = 13
+                Top = 20
+                Width = 33
+                Height = 13
+                Caption = 'Centre'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl48: TLabel
+                Left = 22
+                Top = 128
+                Width = 17
+                Height = 13
+                Caption = 'Hor'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl50: TLabel
+                Left = 112
+                Top = 128
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl51: TLabel
+                Left = 22
+                Top = 150
+                Width = 16
+                Height = 13
+                Caption = 'Ver'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl52: TLabel
+                Left = 112
+                Top = 150
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object bvl4: TBevel
+                Left = 86
+                Top = 110
+                Width = 115
+                Height = 2
+              end
+              object lbl49: TLabel
+                Left = 13
+                Top = 103
+                Width = 55
+                Height = 13
+                Caption = ' Semi - Axis'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                Transparent = False
+              end
+              object lbl79: TLabel
+                Left = 22
+                Top = 45
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl80: TLabel
+                Left = 112
+                Top = 45
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label5: TLabel
+                Left = 22
+                Top = 67
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label6: TLabel
+                Left = 112
+                Top = 67
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl133: TLabel
+                Left = 62
+                Top = 67
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl134: TLabel
+                Left = 62
+                Top = 45
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl135: TLabel
+                Left = 62
+                Top = 128
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl136: TLabel
+                Left = 62
+                Top = 150
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object edtEllipseRange: TEdit
+                Left = 72
+                Top = 41
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 0
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtEllipseBearing: TEdit
+                Left = 72
+                Top = 63
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 1
+                Text = '0'
+              end
+              object edtEllipseHorizontalD: TEdit
+                Left = 72
+                Top = 124
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 2
+                Text = '1'
+                OnKeyPress = OnKeyPress
+              end
+              object edtEllipseVerticalD: TEdit
+                Left = 72
+                Top = 146
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 3
+                Text = '1'
+                OnKeyPress = OnKeyPress
+              end
+            end
+            object grpGridD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 350
+              Align = alClient
+              TabOrder = 8
+              object lbl53: TLabel
+                Left = 13
+                Top = 20
+                Width = 33
+                Height = 13
+                Caption = 'Centre'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl54: TLabel
+                Left = 22
+                Top = 211
+                Width = 28
+                Height = 13
+                Caption = 'Width'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl55: TLabel
+                Left = 112
+                Top = 128
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl56: TLabel
+                Left = 22
+                Top = 128
+                Width = 31
+                Height = 13
+                Caption = 'Height'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl57: TLabel
+                Left = 22
+                Top = 233
+                Width = 29
+                Height = 13
+                Caption = 'Count'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl58: TLabel
+                Left = 112
+                Top = 211
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl59: TLabel
+                Left = 22
+                Top = 150
+                Width = 29
+                Height = 13
+                Caption = 'Count'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object bvl5: TBevel
+                Left = 89
+                Top = 110
+                Width = 110
+                Height = 2
+              end
+              object lbl60: TLabel
+                Left = 13
+                Top = 103
+                Width = 63
+                Height = 13
+                Caption = 'Vertical Cells '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                Transparent = False
+              end
+              object bvl6: TBevel
+                Left = 99
+                Top = 276
+                Width = 100
+                Height = 2
+              end
+              object lbl61: TLabel
+                Left = 13
+                Top = 269
+                Width = 41
+                Height = 13
+                Caption = 'Rotation'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                Transparent = False
+              end
+              object lbl62: TLabel
+                Left = 112
+                Top = 294
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label44: TLabel
+                Left = 13
+                Top = 186
+                Width = 76
+                Height = 13
+                Caption = 'Horisontal Cells '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                Transparent = False
+              end
+              object Bevel12: TBevel
+                Left = 99
+                Top = 193
+                Width = 100
+                Height = 2
+              end
+              object Label45: TLabel
+                Left = 22
+                Top = 45
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label106: TLabel
+                Left = 62
+                Top = 45
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label107: TLabel
+                Left = 22
+                Top = 67
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label108: TLabel
+                Left = 62
+                Top = 67
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label109: TLabel
+                Left = 112
+                Top = 67
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label110: TLabel
+                Left = 112
+                Top = 45
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label111: TLabel
+                Left = 62
+                Top = 128
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label112: TLabel
+                Left = 62
+                Top = 150
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label113: TLabel
+                Left = 62
+                Top = 211
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label114: TLabel
+                Left = 62
+                Top = 233
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label115: TLabel
+                Left = 22
+                Top = 294
+                Width = 27
+                Height = 13
+                Caption = 'Angle'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label116: TLabel
+                Left = 62
+                Top = 294
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object edtTableRange: TEdit
+                Left = 72
+                Top = 41
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 0
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtTableBearing: TEdit
+                Left = 72
+                Top = 63
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 1
+                Text = '0'
+              end
+              object edtTableHeightD: TEdit
+                Left = 72
+                Top = 124
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 2
+                Text = '1'
+                OnKeyPress = OnKeyPress
+              end
+              object edtTableWidthD: TEdit
+                Left = 72
+                Top = 207
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 3
+                Text = '1'
+                OnKeyPress = OnKeyPress
+              end
+              object edtTableColumnD: TEdit
+                Left = 72
+                Top = 146
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                NumbersOnly = True
+                TabOrder = 4
+                Text = '1'
+              end
+              object edtTableRowD: TEdit
+                Left = 72
+                Top = 229
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                NumbersOnly = True
+                TabOrder = 5
+                Text = '1'
+              end
+              object edtRotationAngleD: TEdit
+                Left = 72
+                Top = 290
+                Width = 30
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 6
+                Text = '0'
+              end
+            end
+            object grpLineD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 350
+              Align = alClient
+              TabOrder = 2
+              object lbl20: TLabel
+                Left = 13
+                Top = 20
+                Width = 24
+                Height = 13
+                Caption = 'Start'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl21: TLabel
+                Left = 14
+                Top = 103
+                Width = 18
+                Height = 13
+                Caption = 'End'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl23: TLabel
+                Left = 22
+                Top = 128
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl25: TLabel
+                Left = 112
+                Top = 150
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label42: TLabel
+                Left = 22
+                Top = 150
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label43: TLabel
+                Left = 112
+                Top = 128
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label40: TLabel
+                Left = 22
+                Top = 45
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label41: TLabel
+                Left = 22
+                Top = 67
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label118: TLabel
+                Left = 62
+                Top = 45
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label119: TLabel
+                Left = 62
+                Top = 67
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label120: TLabel
+                Left = 112
+                Top = 67
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label121: TLabel
+                Left = 112
+                Top = 45
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Bevel7: TBevel
+                Left = 50
+                Top = 110
+                Width = 149
+                Height = 2
+              end
+              object Label123: TLabel
+                Left = 62
+                Top = 128
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label124: TLabel
+                Left = 62
+                Top = 150
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object edtLineStartRange: TEdit
+                Left = 72
+                Top = 41
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 0
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtLineStartBearing: TEdit
+                Left = 72
+                Top = 63
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 1
+                Text = '0'
+              end
+              object edtLineEndRange: TEdit
+                Left = 72
+                Top = 124
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 2
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtLineEndBearing: TEdit
+                Left = 72
+                Top = 146
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 3
+                Text = '0'
+              end
+            end
+            object grpPolygonD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 350
+              Align = alClient
+              TabOrder = 9
+              object AddPolyD: TSpeedButton
+                Tag = 1
+                Left = 156
+                Top = 41
+                Width = 43
+                Height = 43
+                Cursor = crHandPoint
+                Hint = 'Add'
+                ParentCustomHint = False
+                AllowAllUp = True
+                Caption = 'Add'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = [fsBold]
+                ParentFont = False
+                OnClick = AddPolyDClick
+              end
+              object btnDeletePolyD: TSpeedButton
+                Tag = 1
+                Left = 95
+                Top = 296
+                Width = 104
+                Height = 30
+                Cursor = crHandPoint
+                Hint = 'Clear Point'
+                AllowAllUp = True
+                GroupIndex = 1
+                Caption = '  Clear Point'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = [fsBold]
+                Glyph.Data = {
+                  E6040000424DE604000000000000360000002800000014000000140000000100
+                  180000000000B0040000120B0000120B00000000000000000000FFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303FFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303
+                  0303030303030303030303030303030303030303030303030303FFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303030303030303030303030303
+                  03030303030303030303030303030303030303030303030303FFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFF030303030303030303030303030303030303030303
+                  030303030303030303030303030303030303030303030303FFFFFFFFFFFFFFFF
+                  FFFFFFFF03030303030303030303030303030303030303030303030303030303
+                  0303FFFFFF030303030303030303030303030303030303FFFFFFFFFFFF030303
+                  030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFF03030303030303030303030303030303030303030303030303
+                  0303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFF030303030303030303030303030303030303030303030303FFFF
+                  FFFFFFFFFFFFFF030303030303030303030303030303FFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF
+                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF03030303
+                  0303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFF030303030303
+                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF0303030303
+                  03030303030303030303FFFFFFFFFFFFFFFFFF03030303030303030303030303
+                  0303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFEFEFE030303030303030303030303030303030303FFFFFFFFFF
+                  FF030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFF
+                  0303030303030303030303030303030303030303030303030303030303030303
+                  03030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03
+                  0303030303030303030303030303030303030303030303030303030303030303
+                  030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
+                  03030303030303030303030303030303030303030303030303030303030303FF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303
+                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFF}
+                ParentFont = False
+                OnClick = btnDeletePolyDClick
+              end
+              object Label7: TLabel
+                Left = 13
+                Top = 20
+                Width = 24
+                Height = 13
+                Caption = 'Point'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label30: TLabel
+                Left = 22
+                Top = 45
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label31: TLabel
+                Left = 62
+                Top = 45
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label33: TLabel
+                Left = 22
+                Top = 67
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label37: TLabel
+                Left = 62
+                Top = 67
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label126: TLabel
+                Left = 112
+                Top = 67
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label127: TLabel
+                Left = 112
+                Top = 45
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object edtPolygonRange: TEdit
+                Left = 70
+                Top = 41
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 0
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtPolygonBearing: TEdit
+                Left = 70
+                Top = 63
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 1
+                Text = '0'
+              end
+              object lvPolyVertexD: TListView
+                AlignWithMargins = True
+                Left = 13
+                Top = 102
+                Width = 186
+                Height = 186
+                Columns = <
+                  item
+                    Caption = '+'
+                    Width = 25
+                  end
+                  item
+                    Alignment = taCenter
+                    Caption = 'Range'
+                    Width = 79
+                  end
+                  item
+                    Alignment = taCenter
+                    Caption = 'Bearing'
+                    Width = 79
+                  end>
+                GridLines = True
+                RowSelect = True
+                TabOrder = 2
+                ViewStyle = vsReport
+              end
+            end
+            object grpRectangleD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 350
+              Align = alClient
+              TabOrder = 3
+              object lbl26: TLabel
+                Left = 13
+                Top = 20
+                Width = 47
+                Height = 13
+                Caption = 'Top - Left'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl27: TLabel
+                Left = 14
+                Top = 103
+                Width = 69
+                Height = 13
+                Caption = 'Bottom - Right'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Bevel8: TBevel
+                Left = 97
+                Top = 110
+                Width = 104
+                Height = 2
+              end
+              object Label38: TLabel
+                Left = 22
+                Top = 45
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label39: TLabel
+                Left = 62
+                Top = 45
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label128: TLabel
+                Left = 112
+                Top = 45
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label129: TLabel
+                Left = 22
+                Top = 67
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label130: TLabel
+                Left = 62
+                Top = 67
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label131: TLabel
+                Left = 112
+                Top = 67
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label133: TLabel
+                Left = 22
+                Top = 128
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label134: TLabel
+                Left = 62
+                Top = 128
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label135: TLabel
+                Left = 22
+                Top = 150
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label136: TLabel
+                Left = 62
+                Top = 150
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label137: TLabel
+                Left = 112
+                Top = 128
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label138: TLabel
+                Left = 112
+                Top = 150
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object edtRecStartRange: TEdit
+                Left = 72
+                Top = 41
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 0
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtRecStartBearing: TEdit
+                Left = 72
+                Top = 63
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 1
+                Text = '0'
+              end
+              object edtRecEndRange: TEdit
+                Left = 72
+                Top = 124
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 2
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtRecEndBearing: TEdit
+                Left = 72
+                Top = 146
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 3
+                Text = '0'
+              end
+            end
+            object grpSectorD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 350
+              Align = alClient
+              TabOrder = 7
+              object lbl64: TLabel
+                Left = 13
+                Top = 20
+                Width = 33
+                Height = 13
+                Caption = 'Centre'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl65: TLabel
+                Left = 22
+                Top = 128
+                Width = 26
+                Height = 13
+                Caption = 'Inner'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl66: TLabel
+                Left = 22
+                Top = 150
+                Width = 28
+                Height = 13
+                Caption = 'Outer'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl67: TLabel
+                Left = 22
+                Top = 211
+                Width = 24
+                Height = 13
+                Caption = 'Start'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl68: TLabel
+                Left = 22
+                Top = 233
+                Width = 18
+                Height = 13
+                Caption = 'End'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl69: TLabel
+                Left = 112
+                Top = 128
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl70: TLabel
+                Left = 112
+                Top = 150
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl71: TLabel
+                Left = 112
+                Top = 211
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl72: TLabel
+                Left = 112
+                Top = 233
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object bvl7: TBevel
+                Left = 59
+                Top = 110
+                Width = 140
+                Height = 2
+              end
+              object bvl8: TBevel
+                Left = 59
+                Top = 193
+                Width = 140
+                Height = 2
+              end
+              object lbl73: TLabel
+                Left = 13
+                Top = 103
+                Width = 35
+                Height = 13
+                Caption = ' Radius'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                Transparent = False
+              end
+              object lbl74: TLabel
+                Left = 13
+                Top = 186
+                Width = 38
+                Height = 13
+                Caption = ' Angles '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                Transparent = False
+              end
+              object Label46: TLabel
+                Left = 22
+                Top = 45
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label140: TLabel
+                Left = 62
+                Top = 45
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label141: TLabel
+                Left = 22
+                Top = 67
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label142: TLabel
+                Left = 62
+                Top = 67
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label143: TLabel
+                Left = 112
+                Top = 45
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label144: TLabel
+                Left = 112
+                Top = 67
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label145: TLabel
+                Left = 62
+                Top = 128
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label146: TLabel
+                Left = 62
+                Top = 150
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label147: TLabel
+                Left = 62
+                Top = 211
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label148: TLabel
+                Left = 62
+                Top = 233
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object edtSectorRange: TEdit
+                Left = 72
+                Top = 41
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 0
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtSectorInnerD: TEdit
+                Left = 72
+                Top = 124
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 1
+                Text = '1'
+                OnKeyPress = OnKeyPress
+              end
+              object edtSectorOuterD: TEdit
+                Left = 72
+                Top = 146
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 2
+                Text = '1'
+                OnKeyPress = OnKeyPress
+              end
+              object edtSectorStartAngleD: TEdit
+                Left = 72
+                Top = 207
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 3
+                Text = '0'
+              end
+              object edtSectorEndAngleD: TEdit
+                Left = 72
+                Top = 229
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 4
+                Text = '0'
+              end
+              object edtSectorBearing: TEdit
+                Left = 72
+                Top = 63
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 5
+                Text = '0'
+              end
+            end
+            object grpTextD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 350
+              Align = alClient
+              TabOrder = 0
+              object lbl17: TLabel
+                Left = 13
+                Top = 103
+                Width = 22
+                Height = 13
+                Caption = 'Text'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl18: TLabel
+                Left = 13
+                Top = 171
+                Width = 19
+                Height = 13
+                Caption = 'Size'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label51: TLabel
+                Left = 13
+                Top = 20
+                Width = 24
+                Height = 13
+                Caption = 'Start'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label1: TLabel
+                Left = 22
+                Top = 45
+                Width = 31
+                Height = 13
+                Caption = 'Range'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label2: TLabel
+                Left = 62
+                Top = 45
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label152: TLabel
+                Left = 22
+                Top = 67
+                Width = 36
+                Height = 13
+                Caption = 'Bearing'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label153: TLabel
+                Left = 62
+                Top = 67
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label154: TLabel
+                Left = 112
+                Top = 45
+                Width = 14
+                Height = 13
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label155: TLabel
+                Left = 112
+                Top = 67
+                Width = 18
+                Height = 13
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Bevel10: TBevel
+                Left = 53
+                Top = 110
+                Width = 146
+                Height = 2
+              end
+              object Bevel11: TBevel
+                Left = 48
+                Top = 178
+                Width = 151
+                Height = 2
+              end
+              object Label157: TLabel
+                Left = 22
+                Top = 196
+                Width = 26
+                Height = 13
+                Caption = 'Value'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label158: TLabel
+                Left = 62
+                Top = 196
+                Width = 4
+                Height = 13
+                Caption = ':'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object edtTextRange: TEdit
+                Left = 72
+                Top = 41
+                Width = 35
+                Height = 21
+                MaxLength = 4
+                TabOrder = 0
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtTextFieldD: TEdit
+                Left = 20
+                Top = 124
+                Width = 179
+                Height = 21
+                MaxLength = 30
+                TabOrder = 1
+                Text = 'None'
+              end
+              object edtTextBearing: TEdit
+                Left = 72
+                Top = 63
+                Width = 35
+                Height = 21
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 2
+                Text = '0'
+              end
+              object cbbTextSizeD: TComboBox
+                Left = 72
+                Top = 192
+                Width = 45
+                Height = 21
+                MaxLength = 2
+                TabOrder = 3
+                Text = '11'
+                OnKeyPress = OnKeyPressTextSize
+                Items.Strings = (
+                  '8'
+                  '9'
+                  '10'
+                  '11'
+                  '12'
+                  '14'
+                  '16'
+                  '18'
+                  '20'
+                  '22'
+                  '24'
+                  '26'
+                  '28'
+                  '36'
+                  '48'
+                  '72')
+              end
+            end
+            object grpNoneD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 350
+              Align = alClient
+              TabOrder = 1
+            end
+          end
+        end
+        object pnl2SparatorHor1: TPanel
+          Left = 0
+          Top = 154
+          Width = 308
+          Height = 10
+          Align = alTop
+          BevelOuter = bvNone
+          Color = 2499101
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 170
+        end
+        object pnl2SparatorHor2: TPanel
+          Left = 0
+          Top = 778
+          Width = 308
+          Height = 10
+          Align = alBottom
+          BevelOuter = bvNone
+          Color = 2499101
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 772
+        end
+        object pnlButton: TPanel
+          Left = 0
+          Top = 788
+          Width = 308
+          Height = 45
+          Align = alBottom
+          BevelOuter = bvNone
+          Color = 2499101
+          ParentBackground = False
+          TabOrder = 4
+          ExplicitTop = 792
+          object btnDelete: TButton
+            Tag = 1
+            Left = 217
+            Top = 6
+            Width = 80
+            Height = 30
+            Caption = 'Delete'
+            Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 0
+            OnClick = btnDeleteClick
+          end
+          object btnApply: TButton
+            Left = 133
+            Top = 6
+            Width = 80
+            Height = 30
+            Caption = 'Apply'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 1
+            OnClick = btnApplyClick
           end
         end
       end
     end
     object pnl3Map: TPanel
-      Left = 320
+      Left = 328
       Top = 25
-      Width = 1270
-      Height = 828
+      Width = 1262
+      Height = 833
+      Align = alClient
+      BevelOuter = bvNone
       Color = 3683636
       TabOrder = 0
+      ExplicitLeft = 320
+      ExplicitWidth = 1270
+      ExplicitHeight = 828
       object Map1: TMap
-        Left = 1
-        Top = 46
-        Width = 1268
-        Height = 736
+        Left = 0
+        Top = 45
+        Width = 1262
+        Height = 733
         ParentColor = False
         Align = alClient
         PopupMenu = pmOverlayEdit
@@ -54095,8 +54180,10 @@ object OverlayEditorForm: TOverlayEditorForm
         OnDrawUserLayer = Map1DrawUserLayer
         ExplicitLeft = -1
         ExplicitTop = 43
+        ExplicitWidth = 1268
+        ExplicitHeight = 736
         ControlData = {
-          8A1A06000D830000114C0000010000000F0000FF0D47656F44696374696F6E61
+          8A1A06006E820000C24B0000010000000F0000FF0D47656F44696374696F6E61
           727905456D70747900E8030000000000000000000002000E001E000000000000
           0000000000000000000000000000000000000000000600010000000002202050
           00010100000A0000000001F4010000050000800C000000000000000000000000
@@ -54108,7 +54195,11 @@ object OverlayEditorForm: TOverlayEditorForm
           0B918FCE119DE300AA004BB851010000009001DC7C010005417269616C000352
           E30B918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D
           626F6C730000000000000001000100FFFFFF000200FFFFFF0000000000000100
+<<<<<<< HEAD
+          000001000118010000608B8E0401000000000000001C00000000000000000000
+=======
           000001000118010000D0B5452A01000000D695D2501C00000000000000000000
+>>>>>>> edf72e5276138a69d3312cb5853bed3b9ba87726
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0002000000000000000000000000000000000000000000000000000000000000
@@ -54117,27 +54208,39 @@ object OverlayEditorForm: TOverlayEditorForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           00008076C000000000008056C000000000008076400000000000805640010000
+<<<<<<< HEAD
+          0018010000608B8E0401000000000000001C0000000000000000000000000000
+=======
           0018010000D0B5452A01000000B83EA5771C0000000000000000000000000000
+>>>>>>> edf72e5276138a69d3312cb5853bed3b9ba87726
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
+<<<<<<< HEAD
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+=======
           0000000000000000000000000000000000000000000000000000020000000000
           000A000000A26569328CE99700FEFFFFFF00000000BA8DE83100000000000000
+>>>>>>> edf72e5276138a69d3312cb5853bed3b9ba87726
           0000000088B3400000000000408F400001000001}
       end
       object pnlToolBar: TPanel
-        Left = 1
-        Top = 1
-        Width = 1268
+        Left = 0
+        Top = 0
+        Width = 1262
         Height = 35
         Align = alTop
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
+        ExplicitLeft = 1
+        ExplicitTop = 1
+        ExplicitWidth = 1268
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
@@ -54152,7 +54255,7 @@ object OverlayEditorForm: TOverlayEditorForm
         object ToolBar1: TToolBar
           Left = 25
           Top = 0
-          Width = 1243
+          Width = 1237
           Height = 35
           Align = alClient
           ButtonHeight = 38
@@ -54162,6 +54265,7 @@ object OverlayEditorForm: TOverlayEditorForm
           Images = ilToolbar
           ParentColor = False
           TabOrder = 1
+          ExplicitWidth = 1243
           object btnIncreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -54174,7 +54278,7 @@ object OverlayEditorForm: TOverlayEditorForm
           end
           object cbSetScale: TComboBox
             Left = 42
-            Top = 0
+            Top = 8
             Width = 95
             Height = 21
             Hint = 'Map Scales'
@@ -54267,158 +54371,206 @@ object OverlayEditorForm: TOverlayEditorForm
           end
         end
       end
-      object Panel1: TPanel
-        Left = 1
-        Top = 782
-        Width = 1268
-        Height = 45
-        Align = alBottom
-        BevelOuter = bvNone
-        BorderWidth = 3
-        Color = 5980694
-        TabOrder = 2
-        object grbCursorPosition: TGroupBox
-          Left = 3
-          Top = 3
-          Width = 1262
-          Height = 39
-          Align = alClient
-          Color = 2499101
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentBackground = False
-          ParentColor = False
-          ParentFont = False
-          TabOrder = 0
-          object lblBearing: TLabel
-            Left = 151
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblDistance: TLabel
-            Left = 539
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lbSlPosition: TLabel
-            Left = 890
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblnmSGrid: TLabel
-            Left = 1154
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblWPosition: TLabel
-            Left = 972
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblnmWGrid: TLabel
-            Left = 1236
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lbl47: TLabel
-            Left = 29
-            Top = 12
-            Width = 116
-            Height = 15
-            Caption = 'Bearing from Centre  :'
-          end
-          object Label67: TLabel
-            Left = 411
-            Top = 12
-            Width = 116
-            Height = 15
-            Caption = 'Distance from Centre :'
-          end
-          object Label68: TLabel
-            Left = 813
-            Top = 12
-            Width = 47
-            Height = 15
-            Caption = 'Position :'
-          end
-          object Label69: TLabel
-            Left = 1077
-            Top = 12
-            Width = 48
-            Height = 15
-            Caption = 'Grid        :'
-          end
-          object Label70: TLabel
-            Left = 195
-            Top = 12
-            Width = 48
-            Height = 15
-            Caption = 'degress T'
-          end
-          object Label71: TLabel
-            Left = 583
-            Top = 12
-            Width = 17
-            Height = 15
-            Caption = 'nm'
-          end
-        end
-      end
       object pnl3SparatorHor1: TPanel
-        Left = 1
-        Top = 36
-        Width = 1268
+        Left = 0
+        Top = 35
+        Width = 1262
         Height = 10
         Align = alTop
         BevelOuter = bvNone
         Color = 2499101
-        TabOrder = 3
+        TabOrder = 2
+        ExplicitLeft = 1
+        ExplicitTop = 36
+        ExplicitWidth = 1268
       end
-    end
-    object pnlSparatorHor1: TPanel
-      Left = 0
-      Top = 853
-      Width = 1600
-      Height = 5
-      Align = alBottom
-      BevelOuter = bvNone
-      ParentBackground = False
-      TabOrder = 1
-      object Image2: TImage
+      object pnlCursorPosition: TPanel
         Left = 0
-        Top = 0
-        Width = 1600
-        Height = 5
-        Cursor = crHandPoint
-        Align = alClient
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-          001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-          000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-          005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-          0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-          658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-          E3070080B203BC0200156C14659F0000000049454E44AE426082}
-        Stretch = True
-        ExplicitLeft = -2
-        ExplicitTop = -2
-        ExplicitWidth = 8
-        ExplicitHeight = 637
+        Top = 788
+        Width = 1262
+        Height = 45
+        Align = alBottom
+        BevelOuter = bvNone
+        Color = 2499101
+        ParentBackground = False
+        TabOrder = 3
+        ExplicitTop = 791
+        DesignSize = (
+          1262
+          45)
+        object lbl13: TLabel
+          Left = 28
+          Top = 15
+          Width = 128
+          Height = 16
+          Caption = 'Bearing From Center :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl19: TLabel
+          Left = 388
+          Top = 15
+          Width = 133
+          Height = 16
+          Caption = 'Distance From Center :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl22: TLabel
+          Left = 791
+          Top = 15
+          Width = 53
+          Height = 16
+          Caption = 'Position :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl28: TLabel
+          Left = 976
+          Top = 15
+          Width = 32
+          Height = 16
+          Anchors = [akTop, akRight]
+          Caption = 'Grid :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ExplicitLeft = 982
+        end
+        object lbl29: TLabel
+          Left = 210
+          Top = 15
+          Width = 58
+          Height = 16
+          Caption = 'degrees T'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl30: TLabel
+          Left = 570
+          Top = 15
+          Width = 18
+          Height = 16
+          Caption = 'nm'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblBearingFCenter: TLabel
+          Left = 169
+          Top = 15
+          Width = 5
+          Height = 16
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblDistanceFCenter: TLabel
+          Left = 529
+          Top = 15
+          Width = 5
+          Height = 16
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblGridLat: TLabel
+          Left = 1045
+          Top = 15
+          Width = 5
+          Height = 16
+          Anchors = [akTop, akRight]
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ExplicitLeft = 1051
+        end
+        object lblGridLong: TLabel
+          Left = 1143
+          Top = 15
+          Width = 5
+          Height = 16
+          Anchors = [akTop, akRight]
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ExplicitLeft = 1149
+        end
+        object lblPosLat: TLabel
+          Left = 860
+          Top = 15
+          Width = 5
+          Height = 16
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblPosLong: TLabel
+          Left = 958
+          Top = 15
+          Width = 5
+          Height = 16
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+      end
+      object pnl3SparatorHor2: TPanel
+        Left = 0
+        Top = 778
+        Width = 1262
+        Height = 10
+        Align = alBottom
+        BevelOuter = bvNone
+        Color = 2499101
+        TabOrder = 4
+        ExplicitTop = 781
       end
     end
     object pnl4Bottom: TPanel
@@ -54429,6 +54581,12 @@ object OverlayEditorForm: TOverlayEditorForm
       Align = alBottom
       BevelOuter = bvNone
       Color = 5980694
+<<<<<<< HEAD
+      TabOrder = 1
+      DesignSize = (
+        1600
+        43)
+=======
       TabOrder = 2
       object Panel4: TPanel
         Left = 1384
@@ -54472,6 +54630,7 @@ object OverlayEditorForm: TOverlayEditorForm
           OnClick = btnSave
         end
       end
+>>>>>>> edf72e5276138a69d3312cb5853bed3b9ba87726
       object btnScreenCapture: TButton
         Left = 380
         Top = 6
@@ -54484,81 +54643,42 @@ object OverlayEditorForm: TOverlayEditorForm
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 0
         Visible = False
       end
-      object pnlButton: TPanel
-        Left = 15
-        Top = 1
-        Width = 294
-        Height = 36
-        BevelOuter = bvNone
-        Color = 2499101
-        ParentBackground = False
-        TabOrder = 2
-        object btnDelete: TButton
-          Tag = 1
-          Left = 214
-          Top = 6
-          Width = 75
-          Height = 25
-          Caption = 'Delete'
-          Enabled = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-          OnClick = btnDeleteClick
-        end
-        object btnApply: TButton
-          Left = 133
-          Top = 6
-          Width = 75
-          Height = 25
-          Caption = 'Apply'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 1
-          OnClick = btnApplyClick
-        end
+      object btnClose: TButton
+        Tag = 3
+        Left = 1510
+        Top = 5
+        Width = 80
+        Height = 30
+        Anchors = [akTop, akRight]
+        Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        OnClick = btnCloseClick
       end
-    end
-    object pnlSparatorVer1: TPanel
-      Left = 0
-      Top = 25
-      Width = 5
-      Height = 828
-      Align = alLeft
-      BevelOuter = bvNone
-      ParentBackground = False
-      TabOrder = 3
-      object Image3: TImage
-        Left = 0
-        Top = 0
-        Width = 5
-        Height = 828
-        Cursor = crHandPoint
-        Align = alClient
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-          001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-          000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-          005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-          0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-          658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-          E3070080B203BC0200156C14659F0000000049454E44AE426082}
-        Stretch = True
-        ExplicitLeft = -2
-        ExplicitTop = -2
-        ExplicitWidth = 8
-        ExplicitHeight = 637
+      object btnOk: TButton
+        Tag = 3
+        Left = 1424
+        Top = 5
+        Width = 80
+        Height = 30
+        Anchors = [akTop, akRight]
+        Caption = 'Save'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 2
+        OnClick = btnSave
       end
     end
     object pnl1Header: TPanel
@@ -54569,7 +54689,40 @@ object OverlayEditorForm: TOverlayEditorForm
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
+      TabOrder = 2
+    end
+    object pnlVertical1: TPanel
+      Left = 0
+      Top = 25
+      Width = 10
+      Height = 833
+      Align = alLeft
+      BevelOuter = bvNone
+      Color = 2499101
       TabOrder = 4
+      ExplicitHeight = 836
+    end
+    object pnlVertical2: TPanel
+      Left = 318
+      Top = 25
+      Width = 10
+      Height = 833
+      Align = alLeft
+      BevelOuter = bvNone
+      Color = 2499101
+      TabOrder = 5
+      ExplicitHeight = 836
+    end
+    object pnlVertical3: TPanel
+      Left = 1590
+      Top = 25
+      Width = 10
+      Height = 833
+      Align = alRight
+      BevelOuter = bvNone
+      Color = 2499101
+      TabOrder = 6
+      ExplicitHeight = 836
     end
   end
   object pmOverlayEdit: TPopupMenu

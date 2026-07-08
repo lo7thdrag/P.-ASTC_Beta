@@ -14,41 +14,71 @@ type
   E_MapCursor = (mcSelect, mcMultiSelect, mcZoom, mcGameCenter, mcPan);
 
   TfrmSummaryGameAreaEditor = class(TForm)
-    ImgBackground: TImage;
     pnlMap: TPanel;
     ENCMap: TMap;
-    chklstArea: TCheckListBox;
-    pnlSearch: TPanel;
-    lblSearch: TStaticText;
-    edtSearch: TEdit;
-    btnIncrease: TImage;
-    cbbScale: TComboBox;
-    Image7: TImage;
-    btnDecrease: TImage;
-    btnSelect: TImage;
-    btnZoom: TImage;
-    btnCenterOnGameCenter: TImage;
-    btnPan: TImage;
     lblName: TStaticText;
-    edtName: TEdit;
-    btnOk: TImage;
-    btnCancel: TImage;
     ProgressBar1: TProgressBar;
     pnlCursorPosition: TPanel;
+    pnlMainBackground: TPanel;
+    ilToolbar: TImageList;
+    Image1: TImage;
+    pnl1Header: TPanel;
+    pnl2Editor: TPanel;
+    pnlListMap: TPanel;
+    pnlVertical1: TPanel;
+    pnlGameAreaEditor: TPanel;
+    pnlIdentification: TPanel;
+    Label1: TLabel;
+    edtName: TEdit;
+    chklstArea: TCheckListBox;
+    pnlCaption: TPanel;
+    lbl2: TLabel;
+    lblWidth: TLabel;
+    pnlSearch: TPanel;
+    lblSearch: TLabel;
+    edtSearch: TEdit;
+    pnlVertical2: TPanel;
+    pnl3SparatorHor1: TPanel;
+    pnlToolbar: TPanel;
+    pnlAlignToolBar: TPanel;
+    btnCenterOnGameCenter1: TImage;
+    btnDecrease1: TImage;
+    btnIncrease1: TImage;
+    btnPan1: TImage;
+    btnSelect1: TImage;
+    btnZoom1: TImage;
+    cbbScale1: TComboBox;
+    Image7: TImage;
+    ToolBar1: TToolBar;
+    btnIncreaseScale: TToolButton;
+    cbbScale: TComboBox;
+    btnDecreaseScale: TToolButton;
+    btnSelect: TToolButton;
+    btnMultiSelect: TToolButton;
+    btnZoomTool: TToolButton;
+    btnPan: TToolButton;
+    btnCenterHook: TToolButton;
+    pnlVertical3: TPanel;
     grbCursorPosition: TGroupBox;
     lblBearing: TLabel;
     lblDistance: TLabel;
     lbSlPosition: TLabel;
+    lblnmSGrid: TLabel;
     lblWPosition: TLabel;
+    lblnmWGrid: TLabel;
     lbl47: TLabel;
     Label67: TLabel;
     Label68: TLabel;
+    Label69: TLabel;
     Label70: TLabel;
     Label71: TLabel;
+    pnl4Bottom: TPanel;
+    btnCancel: TButton;
+    btnOk: TButton;
     procedure btnCancelClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure cbbScaleChange(Sender: TObject);
+    procedure cbbScale1Change(Sender: TObject);
     procedure ENCMapDrawUserLayer(ASender: TObject; const Layer: IDispatch;
       hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
     procedure ENCMapMapViewChanged(Sender: TObject);
@@ -61,12 +91,13 @@ type
     procedure chklstAreaClickCheck(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
-    procedure btnIncreaseClick(Sender: TObject);
-    procedure btnDecreaseClick(Sender: TObject);
+    procedure btnIncrease1Click(Sender: TObject);
+    procedure btnDecrease1Click(Sender: TObject);
     procedure btnSelectClick(Sender: TObject);
-    procedure btnZoomClick(Sender: TObject);
-    procedure btnCenterOnGameCenterClick(Sender: TObject);
-    procedure btnPanClick(Sender: TObject);
+    procedure btnZoom1Click(Sender: TObject);
+    procedure btnCenterOnGameCenter1Click(Sender: TObject);
+    procedure btnPan1Click(Sender: TObject);
+    procedure cbbScaleChange(Sender: TObject);
 
   private
     FSelectedGameArea : TGame_Environment_Definition;
@@ -364,7 +395,7 @@ end;
 
 {$REGION ' ToolBar Handle '}
 
-procedure TfrmSummaryGameAreaEditor.btnIncreaseClick(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.btnIncrease1Click(Sender: TObject);
 begin
   if cbbScale.ItemIndex = 0 then
     Exit;
@@ -373,7 +404,7 @@ begin
   cbbScaleChange(cbbScale);
 end;
 
-procedure TfrmSummaryGameAreaEditor.btnDecreaseClick(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.btnDecrease1Click(Sender: TObject);
 begin
   if cbbScale.ItemIndex = 16 then
     Exit;
@@ -382,7 +413,7 @@ begin
   cbbScaleChange(cbbScale);
 end;
 
-procedure TfrmSummaryGameAreaEditor.cbbScaleChange(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.cbbScale1Change(Sender: TObject);
 var
   z : Double;
   s : string;
@@ -405,6 +436,32 @@ begin
 //  ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
 end;
 
+procedure TfrmSummaryGameAreaEditor.cbbScaleChange(Sender: TObject);
+var
+  z : Double;
+  s : string;
+
+begin
+  ENCmap.OnMapViewChanged := nil;
+
+  if cbbScale.ItemIndex < 0  then Exit;
+
+  if (cbbScale.ItemIndex <= 500) then
+  begin
+    s := cbbScale.Items[cbbScale.ItemIndex];
+    try
+      z := StrToFloat(s);
+      ENCmap.ZoomTo(z, ENCmap.CenterX, ENCmap.CenterY);
+    finally
+
+    end;
+  end
+  else
+    cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
+
+  ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
+ end;
+
 procedure TfrmSummaryGameAreaEditor.btnSelectClick(Sender: TObject);
 begin
   LoadNormalButtonImage;
@@ -413,10 +470,10 @@ begin
   ENCmap.CurrentTool := miSelectTool;
   ENCmap.MousePointer := miDefaultCursor;
 
-  btnSelect.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCursor_Select.PNG');
+//  btnSelect.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCursor_Select.PNG');
 end;
 
-procedure TfrmSummaryGameAreaEditor.btnZoomClick(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.btnZoom1Click(Sender: TObject);
 begin
   LoadNormalButtonImage;
   FMapCursor := mcZoom;
@@ -424,10 +481,10 @@ begin
   ENCmap.CurrentTool := miZoomInTool;
   ENCmap.MousePointer := miZoomInCursor;
 
-  btnZoom.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnZoomIn_Select.PNG');
+//  btnZoom.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnZoomIn_Select.PNG');
 end;
 
-procedure TfrmSummaryGameAreaEditor.btnCenterOnGameCenterClick(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.btnCenterOnGameCenter1Click(Sender: TObject);
 begin
   LoadNormalButtonImage;
   FMapCursor := mcGameCenter;
@@ -435,10 +492,10 @@ begin
   ENCmap.CurrentTool := miArrowTool;
   ENCmap.MousePointer := miCrossCursor;
 
-  btnCenterOnGameCenter.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCenterOnHook_Select.PNG');
+//  btnCenterOnGameCenter.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCenterOnHook_Select.PNG');
 end;
 
-procedure TfrmSummaryGameAreaEditor.btnPanClick(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.btnPan1Click(Sender: TObject);
 begin
   LoadNormalButtonImage;
   FMapCursor := mcPan;
@@ -446,15 +503,15 @@ begin
   ENCmap.CurrentTool := miPanTool;
   ENCmap.MousePointer := miPanCursor;
 
-  btnPan.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnMove_Select.PNG');
+//  btnPan.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnMove_Select.PNG');
 end;
 
 procedure TfrmSummaryGameAreaEditor.LoadNormalButtonImage;
 begin
-  btnSelect.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
-  btnZoom.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnZoomIn_Normal.PNG');
-  btnCenterOnGameCenter.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCenterOnHook_Normal.PNG');
-  btnPan.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnMove_Normal.PNG');
+//  btnSelect.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
+//  btnZoom.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnZoomIn_Normal.PNG');
+//  btnCenterOnGameCenter.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCenterOnHook_Normal.PNG');
+//  btnPan.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnMove_Normal.PNG');
 end;
 
 {$ENDREGION}

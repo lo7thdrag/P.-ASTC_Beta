@@ -36,6 +36,9 @@ Form yang perlu didesain ulang
 - Tombol Start dan End pada form Ruler masih mengalami error. 
 - btnCreate di form overlay Editor belum bisa.
 
+catatan: 
+yang Waypoint editor dikasih overlay atau tidak?
+
 
 
 

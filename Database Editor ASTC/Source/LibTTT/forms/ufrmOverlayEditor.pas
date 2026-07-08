@@ -2326,10 +2326,10 @@ end;
 procedure TOverlayEditorForm.btnCenterOnGameClick(Sender: TObject);
 begin
   UpAllToolbarButton;
-  btnZoom.Down := True;
+  btnCenterOnGame.Down := True;
 
-  Map1.CurrentTool  := miZoomInTool;
-  Map1.MousePointer := miZoomInCursor;
+  Map1.CenterX := centLong;
+  Map1.CenterY := centLatt;
 
   {$REGION ' LAMA '}
 //  btnZoom.Down := not btnZoom.Down;
@@ -2351,18 +2351,21 @@ end;
 
 procedure TOverlayEditorForm.btnZoomClick(Sender: TObject);
 begin
-//  btnPan.Down := not btnPan.Down;
-  btnZoom.Down := false;
-            btnruler.Down := False;
-  FMapCursor := mcSelect;
-  LoadNormalButtonImage;
 
-  Map1.CurrentTool := miPanTool;
-  Map1.MousePointer := miPanCursor;
+  UpAllToolbarButton;
+  btnZoom.Down := True;
+
+  Map1.CurrentTool := miZoomInTool;
+  Map1.MousePointer := miZoomInCursor;
+
+//  btnPan.Down := not btnPan.Down;
+//  btnruler.Down := False;
+//  FMapCursor := mcSelect;
+//  LoadNormalButtonImage;
 
 //  btnSelect.Picture.LoadFromFile
 //    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
-  pnlStatic.Visible := false;
+//  pnlStatic.Visible := false;
 //  btnPan.ImageIndex := 6;
 end;
 
@@ -2463,13 +2466,19 @@ begin
 end;
 procedure TOverlayEditorForm.btnMoveMapClick(Sender: TObject);
 begin
-  Map1.CenterX := centLong;
-  Map1.CenterY := centLatt;
+  UpAllToolbarButton;
+  btnMoveMap.Down := True;
 
-  LoadNormalButtonImage;
-  pnlStatic.Visible := false;
+  Map1.CurrentTool := miPanTool;
+  Map1.MousePointer := miPanCursor;
 
-  RefreshMousePointer;
+//  Map1.CenterX := centLong;
+//  Map1.CenterY := centLatt;
+//
+//  LoadNormalButtonImage;
+//  pnlStatic.Visible := false;
+//
+//  RefreshMousePointer;
 end;
 
 {$ENDREGION}
@@ -3070,6 +3079,7 @@ begin
   btnZoom.Down := False;
   btnMoveMap.Down := False;
   btnGameArea.Down := False;
+  btnLayerTool.Down := False;
 
   Map1.CurrentTool  := miArrowTool;
   Map1.MousePointer := miDefaultCursor;
@@ -3124,21 +3134,26 @@ begin
 end;
 
 procedure TOverlayEditorForm.btnLayerToolClick(Sender: TObject);
+var
+  vHelpFile, vHelpID : OleVariant;
 begin
-  // if btnZoom.Down then
-  // btnZoom.Down := False;
+  UpAllToolbarButton;
+  btnCenterOnGame.Down := True;
+  Map1.Layers.LayersDlg(vHelpFile, vHelpID);
+// if btnZoom.Down then
+// btnZoom.Down := False;
 //  btnout.Down := not btnout.Down;
 //  btnPan.Down := false;
 
-  FMapCursor := mcSelect;
-  LoadNormalButtonImage;
-
-  Map1.CurrentTool := miZoomoutTool;
-  Map1.MousePointer := miZoomoutCursor;
+//  FMapCursor := mcSelect;
+//  LoadNormalButtonImage;
+//
+//  Map1.CurrentTool := miZoomoutTool;
+//  Map1.MousePointer := miZoomoutCursor;
 
 //  btnSelect.Picture.LoadFromFile
 //    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
-  pnlStatic.Visible := false;
+//  pnlStatic.Visible := false;
 //  btnout.ImageIndex := 8;
 end;
 
@@ -3257,18 +3272,19 @@ end;
 
 procedure TOverlayEditorForm.btnGameAreaClick(Sender: TObject);
 begin
-//      frmGameAreaPickList:=TfrmGameAreaPickList.Create(self);
-//      try
-//        with frmGameAreaPickList do
-//        begin
-//          ShowModal;
-//          LoadMap('D:\Map\GST_GAME\AOTC\'+ SelectedGameAreaName+'\' +SelectedGameAreaName+'.gst');
-//
-//        end;
-//      finally
+  UpAllToolbarButton;
+  frmGameAreaPickList:=TfrmGameAreaPickList.Create(self);
+    try
+      with frmGameAreaPickList do
+      begin
+        ShowModal;
+        LoadMap(vAppDBSetting.MapGSTGame +'\'+ SelectedGameAreaName+'\' +SelectedGameAreaName+'.gst');
+
+        end;
+    finally
 //       btngamearea.ImageIndex := 11;
-//            frmGameAreaPickList.Free;
-//      end;
+       frmGameAreaPickList.Free;
+      end;
 //       btnSelect.Picture.LoadFromFile
 //    ('data\Image DBEditor\Interface\Button\Db1.PNG');
 //  pnlStatic.Visible := false;
@@ -3278,7 +3294,7 @@ end;
 procedure TOverlayEditorForm.btnOutlineClick(Sender: TObject);
 begin
   btnOutline.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnOutline_Select.PNG');
+      ('data\Image DBEditor\Interface\Button\btnOutline_Select.PNG');
   btnFill.Picture.LoadFromFile
     ('data\Image DBEditor\Interface\Button\btnFill_Normal.PNG');
 

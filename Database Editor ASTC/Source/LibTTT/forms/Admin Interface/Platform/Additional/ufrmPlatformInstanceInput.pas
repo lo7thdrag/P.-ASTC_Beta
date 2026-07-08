@@ -143,12 +143,12 @@ begin
     if FData.Instance_Ident_Index = 0 then
     begin
       if dmTTT.InsertPlatformInstanceIdentifier(FData) then
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
     end
     else
     begin
       if dmTTT.UpdatePlatformInstanceIdentifier(FData) then
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil di perbarui');
     end;
   end;
 

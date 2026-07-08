@@ -3,7 +3,7 @@ object frmPlatformInstanceInput: TfrmPlatformInstanceInput
   Top = 0
   BorderIcons = []
   BorderStyle = bsDialog
-  Caption = 'frmPlatformInstanceInput'
+  Caption = 'Platform'
   ClientHeight = 469
   ClientWidth = 484
   Color = 1119507
@@ -44854,10 +44854,6 @@ object frmPlatformInstanceInput: TfrmPlatformInstanceInput
     BevelOuter = bvNone
     Caption = 'Panel2'
     TabOrder = 0
-    ExplicitLeft = 272
-    ExplicitTop = 80
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44867,7 +44863,6 @@ object frmPlatformInstanceInput: TfrmPlatformInstanceInput
       BevelOuter = bvNone
       Color = 5980694
       TabOrder = 0
-      ExplicitWidth = 490
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -44917,10 +44912,6 @@ object frmPlatformInstanceInput: TfrmPlatformInstanceInput
       ParentCtl3D = False
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 45
-      ExplicitTop = 124
-      ExplicitWidth = 400
-      ExplicitHeight = 305
       object Image: TImage
         Left = 10
         Top = 10
@@ -109786,8 +109777,6 @@ object frmPlatformInstanceInput: TfrmPlatformInstanceInput
         ParentCtl3D = False
         ParentFont = False
         TabOrder = 0
-        ExplicitTop = 256
-        ExplicitWidth = 380
         object btnOpenFile: TSpeedButton
           Left = 431
           Top = 6
@@ -109813,7 +109802,6 @@ object frmPlatformInstanceInput: TfrmPlatformInstanceInput
           Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
-          ReadOnly = True
           TabOrder = 0
         end
       end
@@ -109827,7 +109815,6 @@ object frmPlatformInstanceInput: TfrmPlatformInstanceInput
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitTop = 422
       object btnOK: TButton
         Left = 313
         Top = -1

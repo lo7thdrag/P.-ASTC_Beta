@@ -193,8 +193,9 @@ end;
 
 procedure TfrmSonobuoyOnBoardPickList.UpdateSonobuoyList;
 var
-  i : Integer;
-  sonobuoy : TSonobuoy_On_Board;
+  i, j : Integer;
+  sonobuoy, sonobuoyonboard : TSonobuoy_On_Board;
+  found : Boolean;
 begin
   lbAllSonobuoyDef.Items.Clear;
   lbAllSonobuoyOnBoard.Items.Clear;
@@ -202,17 +203,35 @@ begin
   dmTTT.GetFilterSonobuoyDef(FAllSonobuoyDefList, edtSearch.Text);
   dmTTT.GetSonobuoyOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllSonobuoyOnBoardList);
 
+  {$REGION ' Print Available '}
   for i := 0 to FAllSonobuoyDefList.Count - 1 do
   begin
     sonobuoy := FAllSonobuoyDefList.Items[i];
-    lbAllSonobuoyDef.Items.AddObject(sonobuoy.FDef.Class_Identifier, sonobuoy);
-  end;
 
-  for i := 0 to FAllSonobuoyOnBoardList.Count - 1 do
-  begin
-    sonobuoy := FAllSonobuoyOnBoardList.Items[i];
-    lbAllSonobuoyOnBoard.Items.AddObject(sonobuoy.FData.Instance_Identifier, sonobuoy);
+    found := False;
+    for j := 0 to FAllSonobuoyOnBoardList.Count - 1 do
+    begin
+      sonobuoyonboard := FAllSonobuoyOnBoardList.Items[j];
+
+      if sonobuoy.FDef.Sonobuoy_Index = sonobuoyonboard.FDef.Sonobuoy_Index then
+      begin
+        found := True;
+        Break;
+      end;
+    end;
+
+    if not found then
+      lbAllSonobuoyDef.Items.AddObject(sonobuoy.FDef.Class_Identifier, sonobuoy);
   end;
+  {$ENDREGION}
+
+  {$REGION ' Print Onboard '}
+  for j := 0 to FAllSonobuoyOnBoardList.Count - 1 do
+  begin
+    sonobuoyonboard := FAllSonobuoyOnBoardList.Items[j];
+    lbAllSonobuoyOnBoard.Items.AddObject(sonobuoyonboard.FData.Instance_Identifier, sonobuoyonboard);
+  end;
+  {$ENDREGION}
 end;
 
 {$ENDREGION}

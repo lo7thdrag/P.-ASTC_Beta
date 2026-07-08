@@ -133,7 +133,7 @@ begin
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
     FData.Sonobuoy_Index := FDef.Sonobuoy_Index;
     FData.Quantity := StrToInt(edtQuantity.Text);
-    FData.Sonar_Instance_Index := FDef.Sonar_Index;
+    FData.Sonar_Instance_Index := FData.Sonar_Instance_Index;
 
     if FData.Sonobuoy_Instance_Index = 0 then
       dmTTT.InsertSonobuoyOnBoard(FData)
@@ -179,6 +179,16 @@ begin
       ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
+  end;
+
+  {Jika tidak ada sonar yang sesuai dengan sonobuoy}
+  FSelectedSonobuoy.FData.Sonar_Instance_Index := dmTTT.GetSonarOnBoardIndexBySonobuoy(FSelectedVehicle.FData.Vehicle_Index, FSelectedSonobuoy.FDef.Sonar_Index,
+  FSelectedSonobuoy.FData.Instance_Type);
+  if FSelectedSonobuoy.FData.Sonar_Instance_Index = 0 then
+  begin
+    {Jika inputan baru}
+    ShowMessage('Data tidak bisa ditambahkan, karena tidak ada tipe sonar yang sesuai dengan sonobuoy ini ');
+    Exit;
   end;
 
   Result := True;

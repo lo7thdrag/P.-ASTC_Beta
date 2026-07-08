@@ -650,7 +650,7 @@ begin
       if dmTTT.InsertVehicleDef(FData) then
       begin
         dmTTT.InsertNoteStorage(1, FData.Vehicle_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -658,7 +658,7 @@ begin
       if dmTTT.UpdateVehicleDef(FData) then
       begin
         dmTTT.UpdateNoteStorage(FData.Vehicle_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -687,7 +687,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before Add/ Edit member of class  ');
+    ShowMessage('Simpan data class terlebih dahulu sebelum menambah kapal  ');
     Exit;
   end;
   {$ENDREGION}
@@ -750,8 +750,8 @@ begin
     {Pengecekan Relasi Dengan Resource Allocation}
     if dmTTT.GetPlatformInstanceIdentifierAtResourceAllocation(FSelectedPIIdent.FData.Instance_Ident_Index, tempList) then
     begin
-      warning := MessageDlg('This Platform is already in used by some resource allocation, please chek usage at Vehicle Definition.' + Char(13) +
-      'Are you sure to delete this Vehicle Data ?', mtConfirmation, mbOKCancel, 0);
+      warning := MessageDlg('Platform ini terhubung ke scenario, silahkan cek keterkaitannya di Menu Vehicle.' + Char(13) +
+      'Apakah anda yakin ingin menghapus data ini ?', mtConfirmation, mbOKCancel, 0);
 
       FreeItemsAndFreeList(tempList);
       if warning = mrOK then

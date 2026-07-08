@@ -44868,10 +44868,6 @@ object frmSonobuoyOnBoardPickList: TfrmSonobuoyOnBoardPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 754
-      ExplicitHeight = 639
       object lbl1: TLabel
         Left = 12
         Top = 544

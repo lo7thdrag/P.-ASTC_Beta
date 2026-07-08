@@ -319,47 +319,40 @@ begin
   iResult := mrNone;
 
   {$REGION ' Koneksi Database '}
-  repeat
-    with vDBSetting do
-    begin
-      bResult := dmTTT.InitZDB(dbServer, dbProto, dbName, dbUser, dbPass);
-    end;
-
-    if not bResult then begin
-
-      with vDBSetting do begin
-        frmDBSetting.dbServer := DBServer;
-        frmDBSetting.dbName   := DBName;
-        frmDBSetting.dbUser   := DBUser;
-        frmDBSetting.dbPass   := DBPass;
-      end;
-
-      iResult := frmDBSEtting.ShowModal;
-
-      if iResult = mrOk then begin
-        vDBSetting.DBServer  := frmDBSetting.dbServer ;
-        vDBSetting.DBName    := frmDBSetting.dbName   ;
-        vDBSetting.DBUser    := frmDBSetting.dbUser   ;
-        vDBSetting.DBPass    := frmDBSetting.dbPass   ;
-        vDBSetting.dbProto   := c_defaultDBProto ;
-      end;
-    end
-    else begin
-      if (iResult = mrOk) then
-        SaveFF_dBaseSetting(vSettingFile, vDBSetting);
-
-    end;
-  until  bResult or (iResult = mrCancel);
-  frmDBSetting.Free;
-
-  //get message untuk status Scenario Development
-  //sementara diskip, anggap tidak ada scenario yg jalan
-  //mulai load scenario
+//  repeat
+//    with vDBSetting do
+//    begin
+//      bResult := dmTTT.InitZDB(dbServer, dbProto, dbName, dbUser, dbPass);
+//    end;
+//
+//    if not bResult then begin
+//
+//      with vDBSetting do begin
+//        frmDBSetting.dbServer := DBServer;
+//        frmDBSetting.dbName   := DBName;
+//        frmDBSetting.dbUser   := DBUser;
+//        frmDBSetting.dbPass   := DBPass;
+//      end;
+//
+//      iResult := frmDBSEtting.ShowModal;
+//
+//      if iResult = mrOk then begin
+//        vDBSetting.DBServer  := frmDBSetting.dbServer ;
+//        vDBSetting.DBName    := frmDBSetting.dbName   ;
+//        vDBSetting.DBUser    := frmDBSetting.dbUser   ;
+//        vDBSetting.DBPass    := frmDBSetting.dbPass   ;
+//        vDBSetting.dbProto   := c_defaultDBProto ;
+//      end;
+//    end
+//    else begin
+//      if (iResult = mrOk) then
+//        SaveFF_dBaseSetting(vSettingFile, vDBSetting);
+//
+//    end;
+//  until  bResult or (iResult = mrCancel);
+//  frmDBSetting.Free;
 
   LoadFF_AppDBSetting('Setting.ini', vAppDBSetting);
-
-   {Comment karena bocor}
-//   simMgr := TT3DBScenario.Create;
 
 end;
 

@@ -7,6 +7,13 @@ Penting
 9. form frmBlindZonesAttachment desain perlu diubah.
 10. Semua search disamakan dengan punya Bomb/DepthOnboard.
 13. Form Bomb/Depth Button Apply mati, harusnya menyala.
+16. ufrmAvailableRuntimePlatformLibrary, select data > klik usage, error Acsses violation. 
+18. Di form ufrmSummaryWaypoint Edit waypoint muncul error Acsses violation. 
+20. Button di Form Game Area masih eror.
+24. Ketika Klik Add di ufrmAvailableScenario muncul Error Accsess violation.
+25. ufrmSummaryScenario perlu di desain ulang.
+26. ufrmSummaryScenario bagian advance setting dan next error Accsess violation.
+
 
 4. summary waypoint perlu didesain ulang.(sudah)
 5. Form platform, vehicle, dibagian Add frmPlatformInstanceInput deesain perlu diubah.(sudah)

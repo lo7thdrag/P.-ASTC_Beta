@@ -510,8 +510,8 @@ type
     pnlVertical1: TPanel;
     pnlVertical2: TPanel;
     pnlVertical3: TPanel;
-    btnClose: TButton;
-    btnOk: TButton;
+    btn1: TButton;
+    btn2: TButton;
     // Label61: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -749,16 +749,13 @@ begin
   FConverter.FMap := Map1;
   FFormula := TFormula.Create;
 
-  if not Assigned(frmRuler) then
-    frmRuler := TfrmRuler.Create(self);
-
   DrawOverlay := TDrawOverlay.Create;
   DrawOverlay.Converter := FConverter;
 
   DrawFlagPoint := TDrawFlagPoint.Create;
   DrawFlagPoint.Converter := FConverter;
 
-  btnOk.Enabled := false;
+//  btnOk.Enabled := false;
 
   EnableComposited(pnlMainBackground);
 end;
@@ -768,7 +765,6 @@ begin
   FCanvas.Free;
   FConverter.Free;
   FFormula.Free;
-  frmRuler.Free;
   DrawOverlay.Free;
   DrawFlagPoint.Free;
 end;
@@ -866,7 +862,7 @@ begin
   end;
 
   btnSelect.OnClick(btnSelect);
-  btnOk.Enabled := True;
+//  btnOk.Enabled := True;
 
   Map1.Refresh;
   Map1.Repaint;
@@ -969,12 +965,10 @@ end;
 
 procedure TOverlayEditorForm.btnSave(Sender: TObject);
 begin
-  DeleteFile(vAppDBSetting.OverlayPath + '\' +
-    SelectedOverlay.FData.Overlay_Identifier + '.dat');
-  RecordToFileStream(vAppDBSetting.OverlayPath + '\' +
-    SelectedOverlay.FData.Overlay_Identifier + '.dat');
+  DeleteFile(vAppDBSetting.OverlayPath + '\' + SelectedOverlay.FData.Overlay_Identifier + '.dat');
+  RecordToFileStream(vAppDBSetting.OverlayPath + '\' + SelectedOverlay.FData.Overlay_Identifier + '.dat');
 
-  ShowMessage('Data has been saved');
+  ShowMessage('Data berhasil disimpan');
 
   RefreshMousePointer;
 //  btnPan.Down := false;
@@ -1295,7 +1289,7 @@ begin
         LineDynamic.postStart.Range := StrToFloat(edtLineStartRange.Text);
         LineDynamic.PostEnd.Bearing := StrToInt(edtLineEndBearing.Text);
         LineDynamic.PostEnd.Range := StrToFloat(edtLineEndRange.Text);
-        // LineDynamic.Color := txtColorSelect.color;
+        LineDynamic.Color := pnlOutline.Color;
         LineDynamic.lineType := TPenStyle(cbbDashesPen.ItemIndex);
         LineDynamic.weight := StrToInt(cbbWeightPen.Text);
         if IdAction <> 2 then
@@ -3155,7 +3149,7 @@ begin
   btnZoom.Down := false;
 
   FMapCursor := mcSelect;
-  btnOk.Enabled := false;
+//  btnOk.Enabled := false;
 
   AfterClose := false;
   Close;

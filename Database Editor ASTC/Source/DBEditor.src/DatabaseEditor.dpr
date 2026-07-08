@@ -377,6 +377,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmUserMainForm, frmUserMainForm);
   Application.CreateForm(TdmTTT, dmTTT);
+  Application.CreateForm(TfrmRuler, frmRuler);
   //  Application.CreateForm(TfrmExercise, frmExercise);
 //  Application.CreateForm(TfrmCountermeasure, frmCountermeasure);
 //  Application.CreateForm(TfrmOther, frmOther);
@@ -390,7 +391,7 @@ begin
 //  Application.CreateForm(TfrmHullView, frmHullView);
 //  Application.CreateForm(TfrmAssetDetail, frmAssetDetail);
 //  Application.CreateForm(Tpickpoint, pickpoint);
-//  Application.CreateForm(TfrmRuler, frmRuler);
+
 //  Application.CreateForm(TfrmGroupMemberSelection, frmGroupMemberSelection);
 
   uSimDBEditor.StartInitialize;

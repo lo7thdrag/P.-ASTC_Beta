@@ -54169,7 +54169,7 @@ object OverlayEditorForm: TOverlayEditorForm
           0B918FCE119DE300AA004BB851010000009001DC7C010005417269616C000352
           E30B918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D
           626F6C730000000000000001000100FFFFFF000200FFFFFF0000000000000100
-          00000100011801000038AD980401000000000000001C00000000000000000000
+          000001000118010000B868810F01000000000000001C00000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0002000000000000000000000000000000000000000000000000000000000000
@@ -54178,7 +54178,7 @@ object OverlayEditorForm: TOverlayEditorForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           00008076C000000000008056C000000000008076400000000000805640010000
-          001801000038AD980401000000000000001C0000000000000000000000000000
+          0018010000B868810F01000000000000001C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -54534,48 +54534,9 @@ object OverlayEditorForm: TOverlayEditorForm
       BevelOuter = bvNone
       Color = 5980694
       TabOrder = 2
-      object Panel4: TPanel
-        Left = 1384
-        Top = 0
-        Width = 216
-        Height = 43
-        Align = alRight
-        BevelOuter = bvNone
-        Color = 5980694
-        TabOrder = 1
-        object btnClose: TButton
-          Tag = 3
-          Left = 126
-          Top = 5
-          Width = 80
-          Height = 30
-          Caption = 'Cancel'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-          OnClick = btnCloseClick
-        end
-        object btnOk: TButton
-          Tag = 3
-          Left = 40
-          Top = 6
-          Width = 80
-          Height = 30
-          Caption = 'Save'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 1
-          OnClick = btnSave
-        end
-      end
+      DesignSize = (
+        1600
+        43)
       object btnScreenCapture: TButton
         Left = 380
         Top = 6
@@ -54590,6 +54551,26 @@ object OverlayEditorForm: TOverlayEditorForm
         ParentFont = False
         TabOrder = 0
         Visible = False
+      end
+      object btn1: TButton
+        Left = 1434
+        Top = 6
+        Width = 75
+        Height = 25
+        Anchors = [akTop, akRight]
+        Caption = 'btn1'
+        TabOrder = 1
+        OnClick = btnSave
+      end
+      object btn2: TButton
+        Left = 1515
+        Top = 6
+        Width = 75
+        Height = 25
+        Anchors = [akTop, akRight]
+        Caption = 'btn1'
+        TabOrder = 2
+        OnClick = btnCloseClick
       end
     end
     object pnl1Header: TPanel

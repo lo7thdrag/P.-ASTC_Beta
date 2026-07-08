@@ -44961,6 +44961,7 @@ object frmMineOnBoardPickList: TfrmMineOnBoardPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 5
+        OnChange = edtSearchChange
         OnKeyPress = edtSearchKeyPress
       end
       object pnl1: TPanel

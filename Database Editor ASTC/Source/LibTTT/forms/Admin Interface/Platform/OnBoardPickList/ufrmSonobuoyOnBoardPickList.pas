@@ -40,6 +40,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -133,7 +134,10 @@ end;
 procedure TfrmSonobuoyOnBoardPickList.btnEditMountClick(Sender: TObject);
 begin
   if lbAllSonobuoyOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmSonobuoyMount := TfrmSonobuoyMount.Create(Self);
   try
@@ -160,6 +164,11 @@ begin
     dmTTT.DeleteSonobuoyOnBoard(2, Sonobuoy_Instance_Index);
   end;
 
+  UpdateSonobuoyList;
+end;
+
+procedure TfrmSonobuoyOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateSonobuoyList;
 end;
 

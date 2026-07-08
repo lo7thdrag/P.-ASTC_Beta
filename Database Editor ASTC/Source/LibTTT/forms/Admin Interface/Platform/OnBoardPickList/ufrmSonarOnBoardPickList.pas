@@ -41,6 +41,7 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FAllSonarDefList : TList;
@@ -129,7 +130,10 @@ end;
 procedure TfrmSonarOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllSonarOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmSonarMount := TfrmSonarMount.Create(Self);
   try
@@ -158,6 +162,11 @@ begin
     dmTTT.DeleteSonarOnBoard(2, Sonar_Instance_Index);
   end;
 
+  UpdateSonarList;
+end;
+
+procedure TfrmSonarOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateSonarList;
 end;
 

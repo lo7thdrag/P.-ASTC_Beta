@@ -43,6 +43,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -135,7 +136,10 @@ end;
 procedure TfrmMissileOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllMissileOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmMissileMount := TfrmMissileMount.Create(Self);
   try
@@ -164,6 +168,11 @@ begin
     dmTTT.DeleteFittedWeaponOnBoard(2, Fitted_Weap_Index);
   end;
 
+  UpdateMissileList;
+end;
+
+procedure TfrmMissileOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateMissileList;
 end;
 

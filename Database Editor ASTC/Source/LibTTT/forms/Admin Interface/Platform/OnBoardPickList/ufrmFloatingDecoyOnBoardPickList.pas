@@ -37,6 +37,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FAllFloatingDecoyDefList : TList;
@@ -123,7 +124,10 @@ end;
 procedure TfrmFloatingDecoyOnBoardPickList.btnEditMountClick(Sender: TObject);
 begin
   if lbAllFloatingDecoyOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmFloatingDecoyMount := TfrmFloatingDecoyMount.Create(Self);
   try
@@ -149,6 +153,11 @@ begin
     dmTTT.DeleteFloatingDecoyOnBoard(2, Floating_Decoy_Instance_Index);
 
   AfterClose := True;
+  UpdateFloatingDecoyList;
+end;
+
+procedure TfrmFloatingDecoyOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateFloatingDecoyList;
 end;
 

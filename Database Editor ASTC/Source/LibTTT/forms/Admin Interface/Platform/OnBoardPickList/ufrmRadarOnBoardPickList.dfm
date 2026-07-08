@@ -45019,6 +45019,7 @@ object frmRadarOnBoardPickList: TfrmRadarOnBoardPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 7
+        OnChange = edtSearchChange
         OnKeyPress = edtSearchKeyPress
       end
       object btnClose: TButton

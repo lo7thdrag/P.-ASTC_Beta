@@ -39,6 +39,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FAllChaffDefList : TList;
@@ -131,7 +132,10 @@ end;
 procedure TfrmChaffOnBoardPickList.btnEditMountClick(Sender: TObject);
 begin
   if lbAllChaffOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmChaffMountForm := TfrmChaffMountForm.Create(Self);
   try
@@ -157,6 +161,11 @@ begin
     dmTTT.DeleteChaffOnBoard(2, Chaff_Instance_Index);
 
   AfterClose := True;
+  UpdateChaffList;
+end;
+
+procedure TfrmChaffOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateChaffList;
 end;
 

@@ -43,6 +43,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -135,7 +136,10 @@ end;
 procedure TfrmMineOnBoardPickList.btnEditTrackClick(Sender: TObject);
 begin
   if lbAllMineOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmMineMount := TfrmMineMount.Create(Self);
   try
@@ -164,6 +168,11 @@ begin
     dmTTT.DeleteFittedWeaponOnBoard(2, Fitted_Weap_Index);
   end;
 
+  UpdateMineList;
+end;
+
+procedure TfrmMineOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateMineList;
 end;
 

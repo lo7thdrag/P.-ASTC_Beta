@@ -39,6 +39,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -132,7 +133,10 @@ end;
  procedure TfrmMADOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllMADOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmMADMount := TfrmMADMount.Create(Self);
   try
@@ -159,6 +163,11 @@ begin
     dmTTT.DeleteMADOnBoard(2, MAD_Instance_Index);
   end;
 
+  UpdateMADList;
+end;
+
+procedure TfrmMADOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateMADList;
 end;
 

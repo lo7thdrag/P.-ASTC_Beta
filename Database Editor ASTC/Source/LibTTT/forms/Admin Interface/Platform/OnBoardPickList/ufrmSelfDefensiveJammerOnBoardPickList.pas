@@ -38,6 +38,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
   FAllDefensiveJammerDefList : TList;
@@ -150,6 +151,12 @@ begin
   end;
 
   Result := True;
+end;
+
+procedure TfrmSelfDefensiveJammerOnBoardPickList.edtSearchChange(
+  Sender: TObject);
+begin
+  UpdateDefensiveJammerList;
 end;
 
 procedure TfrmSelfDefensiveJammerOnBoardPickList.edtSearchKeyPress(Sender: TObject;

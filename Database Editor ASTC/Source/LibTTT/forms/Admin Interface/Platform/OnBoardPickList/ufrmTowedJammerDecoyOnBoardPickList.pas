@@ -39,6 +39,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FAllTowedJammerDecoyDefList : TList;
@@ -130,7 +131,10 @@ end;
 procedure TfrmTowedJammerDecoyOnBoardPickList.btnEditMountClick(Sender: TObject);
 begin
   if lbAllTowedJammerDecoyOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmTowedJammerMount := TfrmTowedJammerMount.Create(Self);
   try
@@ -156,6 +160,11 @@ begin
     dmTTT.DeleteTowedJammerDecoyOnBoard(2, Towed_Decoy_Instance_Index);
 
   AfterClose := True;
+  UpdateTowedJammerDecoyList;
+end;
+
+procedure TfrmTowedJammerDecoyOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateTowedJammerDecoyList;
 end;
 

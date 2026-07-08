@@ -40,6 +40,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -139,7 +140,10 @@ end;
  procedure TfrmVisualDetectorOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllVisualOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmVisualDetectorMount := TfrmVisualDetectorMount.Create(Self);
   try
@@ -168,6 +172,11 @@ begin
     dmTTT.DeleteVisualOnBoard(2, Visual_Instance_Index);
   end;
 
+  UpdateVisualList;
+end;
+
+procedure TfrmVisualDetectorOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateVisualList;
 end;
 

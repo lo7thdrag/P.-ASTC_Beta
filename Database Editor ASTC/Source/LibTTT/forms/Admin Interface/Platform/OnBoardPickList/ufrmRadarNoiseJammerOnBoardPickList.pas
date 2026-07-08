@@ -39,6 +39,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -131,7 +132,10 @@ end;
 procedure TfrmRadarNoiseJammerOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbRadarJammerOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmRadarJammerMount := TfrmRadarJammerMount.Create(Self);
   try
@@ -159,6 +163,11 @@ begin
   end;
 
   AfterClose := True;
+  UpdateRadarJammerList;
+end;
+
+procedure TfrmRadarNoiseJammerOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateRadarJammerList;
 end;
 

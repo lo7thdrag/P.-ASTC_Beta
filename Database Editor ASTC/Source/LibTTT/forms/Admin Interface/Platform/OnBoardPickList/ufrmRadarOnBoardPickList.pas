@@ -38,6 +38,7 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FAllRadarDefList : TList;
@@ -123,7 +124,10 @@ end;
 procedure TfrmRadarOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllRadarOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmRadarMount := TfrmRadarMount.Create(Self);
   try
@@ -152,6 +156,11 @@ begin
     dmTTT.DeleteRadarOnBoard(2, Radar_Instance_Index);
   end;
 
+  UpdateRadarList;
+end;
+
+procedure TfrmRadarOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateRadarList;
 end;
 

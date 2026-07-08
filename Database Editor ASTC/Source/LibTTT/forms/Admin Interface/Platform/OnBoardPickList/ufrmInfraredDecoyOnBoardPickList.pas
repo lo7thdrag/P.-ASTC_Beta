@@ -37,6 +37,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FAllInfraredDecoyDefList : TList;
@@ -124,7 +125,10 @@ end;
 procedure TfrmInfraredDecoyOnBoardPickList.btnEditSelectedClick(Sender: TObject);
 begin
   if lbAllInfraredDecoyOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmInfraRedmount := TfrmInfraRedmount.Create(Self);
   try
@@ -150,6 +154,11 @@ begin
     dmTTT.DeleteInfraredDecoyOnBoard(2, Infrared_Decoy_Instance_Index);
 
   AfterClose := True;
+  UpdateInfraredDecoyList;
+end;
+
+procedure TfrmInfraredDecoyOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateInfraredDecoyList;
 end;
 

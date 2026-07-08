@@ -39,6 +39,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -131,7 +132,10 @@ end;
 procedure TfrmBombOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllBombOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmBombMount := TfrmBombMount.Create(Self);
   try
@@ -159,6 +163,11 @@ begin
   end;
 
   AfterClose := True;
+  UpdateBombList;
+end;
+
+procedure TfrmBombOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateBombList;
 end;
 

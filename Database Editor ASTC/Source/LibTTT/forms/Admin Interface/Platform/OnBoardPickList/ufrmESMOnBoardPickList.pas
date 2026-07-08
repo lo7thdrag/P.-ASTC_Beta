@@ -40,6 +40,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -132,7 +133,10 @@ end;
 procedure TfrmESMOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllESMOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmESMMount := TfrmESMMount.Create(Self);
   try
@@ -160,6 +164,11 @@ begin
     dmTTT.DeleteESMOnBoard(2, ESM_Instance_Index);
   end;
 
+  UpdateESMList;
+end;
+
+procedure TfrmESMOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateESMList;
 end;
 

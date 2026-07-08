@@ -39,6 +39,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -131,7 +132,10 @@ end;
 procedure TfrmEODOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllEODOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmElectroOpticalMount := TfrmElectroOpticalMount.Create(Self);
   try
@@ -159,6 +163,11 @@ begin
     dmTTT.DeleteEOOnBoard(2, EO_Instance_Index);
   end;
 
+  UpdateEOList;
+end;
+
+procedure TfrmEODOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateEOList;
 end;
 

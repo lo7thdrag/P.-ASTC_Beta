@@ -39,6 +39,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -131,7 +132,10 @@ end;
 procedure TfrmGunOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllGunOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmGunMount := TfrmGunMount.Create(Self);
   try
@@ -160,6 +164,11 @@ begin
   end;
 
   AfterClose := True;
+  UpdateGunList;
+end;
+
+procedure TfrmGunOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateGunList;
 end;
 

@@ -37,6 +37,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FAllAirBubbleDefList : TList;
@@ -123,7 +124,10 @@ end;
 procedure TfrmAirBubbleOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAirBubbleOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmAirBubbleMount := TfrmAirBubbleMount.Create(Self);
   try
@@ -149,6 +153,11 @@ begin
     dmTTT.DeleteAirBubbleOnBoard(2, Air_Bubble_Instance_Index);
 
   AfterClose := True;
+  UpdateAirBubbleList;
+end;
+
+procedure TfrmAirBubbleOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateAirBubbleList;
 end;
 

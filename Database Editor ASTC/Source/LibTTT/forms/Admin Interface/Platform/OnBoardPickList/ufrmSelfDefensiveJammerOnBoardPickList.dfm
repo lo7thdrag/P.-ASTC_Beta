@@ -44966,6 +44966,7 @@ object frmSelfDefensiveJammerOnBoardPickList: TfrmSelfDefensiveJammerOnBoardPick
         Font.Style = []
         ParentFont = False
         TabOrder = 6
+        OnChange = edtSearchChange
         OnKeyPress = edtSearchKeyPress
       end
       object pnl1: TPanel

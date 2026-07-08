@@ -38,6 +38,7 @@ type
     procedure btnUsageClick(Sender: TObject);
 
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -1040,6 +1041,22 @@ begin
   assetList.Free;
   {$ENDREGION}
 
+end;
+
+procedure TfrmAvailableVehicle.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  vehicle : TVehicle_Definition;
+begin
+  lstVehicle.Items.Clear;
+
+  dmTTT.GetFilterVehicleDef(FVehicleList, edtSearch.Text);
+
+  for i := 0 to FVehicleList.Count - 1 do
+  begin
+    vehicle := FVehicleList.Items[i];
+    lstVehicle.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
+  end;
 end;
 
 procedure TfrmAvailableVehicle.edtSearchKeyPress(Sender: TObject; var Key: Char);

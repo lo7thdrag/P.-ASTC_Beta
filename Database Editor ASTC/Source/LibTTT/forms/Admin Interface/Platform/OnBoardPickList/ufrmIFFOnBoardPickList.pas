@@ -37,6 +37,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -130,7 +131,10 @@ end;
 procedure TfrmIFFOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllIFFOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmIFFMount := TfrmIFFMount.Create(Self);
   try
@@ -161,6 +165,11 @@ begin
   UpdateIFFList;
 
   AfterClose := True;
+end;
+
+procedure TfrmIFFOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
+  UpdateIFFList;
 end;
 
 procedure TfrmIFFOnBoardPickList.edtSearchKeyPress(Sender: TObject;

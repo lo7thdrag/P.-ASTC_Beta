@@ -37,6 +37,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -125,7 +126,10 @@ end;
 procedure TfrmAcousticDecoyOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllAcousticDecoyOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmAcousticDecoyMount := TfrmAcousticDecoyMount.Create(Self);
   try
@@ -153,6 +157,11 @@ begin
   end;
 
   AfterClose := True;
+  UpdateAcousticDecoyList;
+end;
+
+procedure TfrmAcousticDecoyOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateAcousticDecoyList;
 end;
 

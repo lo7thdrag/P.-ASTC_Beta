@@ -42,6 +42,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FAllTorpedoDefList : TList;
@@ -133,7 +134,10 @@ end;
 procedure TfrmTorpedoOnBoardPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllTorpedoOnBoard.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   frmTorpedoMount := TfrmTorpedoMount.Create(Self);
   try
@@ -162,6 +166,11 @@ begin
     dmTTT.DeleteFittedWeaponOnBoard(2, Fitted_Weap_Index);
   end;
 
+  UpdateTorpedoList;
+end;
+
+procedure TfrmTorpedoOnBoardPickList.edtSearchChange(Sender: TObject);
+begin
   UpdateTorpedoList;
 end;
 

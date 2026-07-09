@@ -42,21 +42,21 @@ type
     lbl3: TLabel;
     edtPersonelMaxCapacity: TEdit;
     chkPersonelUnitCarried: TCheckBox;
-    ImgBackgroundForm: TImage;
-    Label5: TLabel;
-    ImgHeader: TImage;
     pnl1Title: TPanel;
     txtClass: TLabel;
     edtClass: TEdit;
-    btnOK: TButton;
-    btnApply: TButton;
-    btnCancel: TButton;
     lbl6: TLabel;
     Label7: TLabel;
     edtDeckMaxWide: TEdit;
     lbl13: TLabel;
     edtDeckMaxLength: TEdit;
     Label8: TLabel;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
 
     procedure FormShow(Sender: TObject);
 

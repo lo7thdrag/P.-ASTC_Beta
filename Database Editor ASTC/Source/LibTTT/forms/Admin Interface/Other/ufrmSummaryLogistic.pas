@@ -23,15 +23,9 @@ type
     edtPA: TEdit;
     edtBA: TEdit;
     edtTA: TEdit;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    btnOK: TButton;
-    btnApply: TButton;
-    btnCancel: TButton;
     pnl1Title: TPanel;
     txtClass: TLabel;
     edtClass: TEdit;
-    Label1: TLabel;
     lblMaxAltitudeDiff: TLabel;
     edtMaxAltitudeDiff: TEdit;
     Label8: TLabel;
@@ -88,6 +82,12 @@ type
     edtFoodTrS: TEdit;
     edtFuelTrS: TEdit;
     chTransferCapability: TCheckBox;
+    pnlMainBackground: TPanel;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    imgBackground: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);

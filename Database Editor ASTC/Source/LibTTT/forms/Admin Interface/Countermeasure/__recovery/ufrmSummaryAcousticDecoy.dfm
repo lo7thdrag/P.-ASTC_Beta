@@ -1,30 +1,28 @@
-object frmSummaryLogistic: TfrmSummaryLogistic
+object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsDialog
-  Caption = 'Logistics Data'
-  ClientHeight = 585
-  ClientWidth = 562
-  Color = 1119507
-  TransparentColor = True
-  TransparentColorValue = 1119507
+  BorderStyle = bsSingle
+  Caption = ' Acoustic Decoy'
+  ClientHeight = 386
+  ClientWidth = 466
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -12
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 14
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 562
-    Height = 585
+    Width = 466
+    Height = 386
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44840,716 +44838,31 @@ object frmSummaryLogistic: TfrmSummaryLogistic
       638A52EECF558B599F22458A142952A448F113E2FF018F0E1FFAC27F4F700000
       000049454E44AE426082}
     Stretch = True
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 466
-    ExplicitHeight = 386
+    ExplicitLeft = -296
+    ExplicitTop = -59
+    ExplicitWidth = 762
+    ExplicitHeight = 445
   end
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 562
-    Height = 585
+    Width = 466
+    Height = 386
     Align = alClient
-    BevelOuter = bvNone
+    Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 112
-    ExplicitTop = -120
-    ExplicitWidth = 185
-    ExplicitHeight = 41
-    object pnl1Title: TPanel
-      Left = 0
-      Top = 0
-      Width = 562
-      Height = 65
-      Align = alTop
-      BevelOuter = bvNone
-      Color = 5980694
-      TabOrder = 0
-      ExplicitWidth = 693
-      object txtClass: TLabel
-        Left = 10
-        Top = 10
-        Width = 44
-        Height = 16
-        Caption = 'Name :'
-        Color = 5980694
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentColor = False
-        ParentFont = False
-      end
-      object edtClass: TEdit
-        Tag = 4
-        Left = 10
-        Top = 30
-        Width = 542
-        Height = 24
-        AutoSize = False
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
-        OnChange = edtChange
-      end
-    end
-    object pnl2ControlPage: TPanel
-      Left = 0
-      Top = 65
-      Width = 562
-      Height = 477
-      Align = alClient
-      BevelOuter = bvNone
-      BorderWidth = 10
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Berlin Sans FB'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 1
-      ExplicitLeft = 64
-      ExplicitTop = 70
-      ExplicitWidth = 565
-      ExplicitHeight = 471
-      object PageControl1: TPageControl
-        Left = 10
-        Top = 10
-        Width = 542
-        Height = 457
-        ActivePage = tsGeneral
-        Align = alClient
-        MultiLine = True
-        TabHeight = 30
-        TabOrder = 0
-        TabWidth = 100
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 565
-        ExplicitHeight = 471
-        object tsGeneral: TTabSheet
-          Caption = 'General'
-          ExplicitWidth = 557
-          ExplicitHeight = 431
-          object lblMaxAltitudeDiff: TLabel
-            Left = 4
-            Top = 42
-            Width = 260
-            Height = 15
-            Caption = 'Maximum Altitude Difference between Platform  :'
-          end
-          object Label8: TLabel
-            Left = 401
-            Top = 42
-            Width = 20
-            Height = 15
-            Caption = 'feet'
-          end
-          object Label9: TLabel
-            Left = 4
-            Top = 16
-            Width = 136
-            Height = 15
-            Caption = 'Maximum transfer range :'
-          end
-          object Label10: TLabel
-            Left = 401
-            Top = 16
-            Width = 17
-            Height = 15
-            Caption = 'nm'
-          end
-          object grp1: TGroupBox
-            Left = 4
-            Top = 81
-            Width = 255
-            Height = 155
-            TabOrder = 2
-            object lbl1: TLabel
-              Left = 46
-              Top = 44
-              Width = 43
-              Height = 13
-              Caption = 'Perwira :'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl2: TLabel
-              Left = 46
-              Top = 69
-              Width = 41
-              Height = 13
-              Caption = 'Bintara :'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl3: TLabel
-              Left = 46
-              Top = 94
-              Width = 51
-              Height = 13
-              Caption = 'Tamtama :'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl35: TLabel
-              Left = 165
-              Top = 43
-              Width = 43
-              Height = 15
-              Caption = 'personel'
-            end
-            object lbl36: TLabel
-              Left = 165
-              Top = 68
-              Width = 43
-              Height = 15
-              Caption = 'personel'
-            end
-            object lbl37: TLabel
-              Left = 165
-              Top = 93
-              Width = 43
-              Height = 15
-              Caption = 'personel'
-            end
-            object Label2: TLabel
-              Left = 15
-              Top = 17
-              Width = 37
-              Height = 13
-              Caption = 'Officer'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object edtPA: TEdit
-              Left = 117
-              Top = 39
-              Width = 43
-              Height = 23
-              NumbersOnly = True
-              TabOrder = 0
-              Text = '0'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-            object edtBA: TEdit
-              Left = 117
-              Top = 64
-              Width = 43
-              Height = 23
-              NumbersOnly = True
-              TabOrder = 1
-              Text = '0'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-            object edtTA: TEdit
-              Left = 117
-              Top = 89
-              Width = 43
-              Height = 23
-              NumbersOnly = True
-              TabOrder = 2
-              Text = '0'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-          end
-          object edtMaxAltitudeDiff: TEdit
-            Left = 342
-            Top = 39
-            Width = 53
-            Height = 23
-            TabOrder = 1
-            Text = '0'
-            OnChange = edtChange
-            OnClick = edtChange
-            OnKeyPress = edtNumeralKeyPress
-          end
-          object edtMaxRange: TEdit
-            Tag = 2
-            Left = 342
-            Top = 13
-            Width = 53
-            Height = 23
-            TabOrder = 0
-            Text = '0.00'
-            OnChange = edtChange
-            OnClick = edtChange
-            OnKeyPress = edtNumeralKeyPress
-          end
-          object GroupBox2: TGroupBox
-            Left = 275
-            Top = 81
-            Width = 255
-            Height = 155
-            TabOrder = 3
-            object lbl6: TLabel
-              Left = 15
-              Top = 17
-              Width = 49
-              Height = 13
-              Caption = 'Capacity'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbl20: TLabel
-              Left = 32
-              Top = 43
-              Width = 60
-              Height = 15
-              Caption = 'Lubricants :'
-            end
-            object lbl16: TLabel
-              Left = 184
-              Top = 43
-              Width = 16
-              Height = 15
-              Caption = 'm3'
-            end
-            object Label4: TLabel
-              Left = 32
-              Top = 68
-              Width = 39
-              Height = 15
-              Caption = 'Water :'
-            end
-            object Label6: TLabel
-              Left = 184
-              Top = 68
-              Width = 16
-              Height = 15
-              Caption = 'm3'
-            end
-            object Label22: TLabel
-              Left = 32
-              Top = 93
-              Width = 34
-              Height = 15
-              Caption = 'Food :'
-            end
-            object Label24: TLabel
-              Left = 184
-              Top = 93
-              Width = 18
-              Height = 15
-              Caption = 'ton'
-            end
-            object Label11: TLabel
-              Left = 29
-              Top = 118
-              Width = 3
-              Height = 15
-            end
-            object Label12: TLabel
-              Left = 28
-              Top = 123
-              Width = 199
-              Height = 15
-              Caption = '* Fuel Capacity set in motion summary'
-            end
-            object edtML: TEdit
-              Tag = 1
-              Left = 108
-              Top = 39
-              Width = 70
-              Height = 23
-              Alignment = taRightJustify
-              TabOrder = 0
-              Text = '0.0'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-            object edtAT: TEdit
-              Tag = 1
-              Left = 108
-              Top = 64
-              Width = 70
-              Height = 23
-              Alignment = taRightJustify
-              TabOrder = 1
-              Text = '0.0'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-            object edtFood: TEdit
-              Tag = 1
-              Left = 108
-              Top = 89
-              Width = 70
-              Height = 23
-              Alignment = taRightJustify
-              TabOrder = 2
-              Text = '0.0'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-          end
-          object GroupBox3: TGroupBox
-            Left = 4
-            Top = 250
-            Width = 255
-            Height = 155
-            TabOrder = 4
-            object lbl7: TLabel
-              Left = 15
-              Top = 17
-              Width = 77
-              Height = 13
-              Caption = 'Consumption '
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object Label5: TLabel
-              Left = 27
-              Top = 68
-              Width = 39
-              Height = 15
-              Caption = 'Water :'
-            end
-            object Label7: TLabel
-              Left = 177
-              Top = 68
-              Width = 52
-              Height = 15
-              Caption = 'm3/ hours'
-            end
-            object lbl21: TLabel
-              Left = 27
-              Top = 43
-              Width = 60
-              Height = 15
-              Caption = 'Lubricants :'
-            end
-            object lbl23: TLabel
-              Left = 177
-              Top = 43
-              Width = 52
-              Height = 15
-              Caption = 'm3/ hours'
-            end
-            object Label23: TLabel
-              Left = 27
-              Top = 93
-              Width = 34
-              Height = 15
-              Caption = 'Food :'
-            end
-            object Label25: TLabel
-              Left = 177
-              Top = 93
-              Width = 54
-              Height = 15
-              Caption = 'ton/ hours'
-            end
-            object Label13: TLabel
-              Left = 16
-              Top = 123
-              Width = 223
-              Height = 15
-              Caption = '* Fuel Consumption set in motion summary'
-            end
-            object edtAT_Consumption: TEdit
-              Tag = 2
-              Left = 100
-              Top = 64
-              Width = 70
-              Height = 23
-              Alignment = taRightJustify
-              TabOrder = 1
-              Text = '0.00'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-            object edtML_Consumption: TEdit
-              Tag = 2
-              Left = 100
-              Top = 39
-              Width = 70
-              Height = 23
-              Alignment = taRightJustify
-              TabOrder = 0
-              Text = '0.00'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-            object edtFood_Consumption: TEdit
-              Tag = 2
-              Left = 100
-              Top = 89
-              Width = 70
-              Height = 23
-              Alignment = taRightJustify
-              TabOrder = 2
-              Text = '0.00'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-          end
-          object grbTranferRate: TGroupBox
-            Left = 275
-            Top = 250
-            Width = 255
-            Height = 155
-            Enabled = False
-            TabOrder = 5
-            object lbl8: TLabel
-              Left = 638
-              Top = 22
-              Width = 38
-              Height = 13
-              Caption = 'AVTUR'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbl11: TLabel
-              Left = 639
-              Top = 197
-              Width = 76
-              Height = 15
-              Caption = 'Consumption :'
-            end
-            object lbl12: TLabel
-              Left = 659
-              Top = 167
-              Width = 52
-              Height = 15
-              Caption = 'Capacity :'
-            end
-            object lbl18: TLabel
-              Left = 791
-              Top = 55
-              Width = 63
-              Height = 15
-              Caption = 'cubic metres'
-            end
-            object lbl5: TLabel
-              Left = 640
-              Top = 139
-              Width = 23
-              Height = 13
-              Caption = 'HSD'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbl13: TLabel
-              Left = 792
-              Top = 167
-              Width = 63
-              Height = 15
-              Caption = 'cubic metres'
-            end
-            object lbl19: TLabel
-              Left = 794
-              Top = 197
-              Width = 50
-              Height = 15
-              Caption = 'per Hours'
-            end
-            object lbl24: TLabel
-              Left = 791
-              Top = 85
-              Width = 50
-              Height = 15
-              Caption = 'per Hours'
-            end
-            object lbl27: TLabel
-              Left = 658
-              Top = 52
-              Width = 52
-              Height = 15
-              Caption = 'Capacity :'
-            end
-            object lbl28: TLabel
-              Left = 638
-              Top = 82
-              Width = 76
-              Height = 15
-              Caption = 'Consumption :'
-            end
-            object Label21: TLabel
-              Left = 16
-              Top = 17
-              Width = 84
-              Height = 13
-              Caption = 'Transfer Rate :'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbl22: TLabel
-              Left = 27
-              Top = 43
-              Width = 60
-              Height = 15
-              Caption = 'Lubricants :'
-            end
-            object lbl25: TLabel
-              Left = 180
-              Top = 43
-              Width = 52
-              Height = 15
-              Caption = 'm3/ hours'
-            end
-            object lbl26: TLabel
-              Left = 27
-              Top = 93
-              Width = 39
-              Height = 15
-              Caption = 'Water :'
-            end
-            object lbl29: TLabel
-              Left = 180
-              Top = 93
-              Width = 52
-              Height = 15
-              Caption = 'm3/ hours'
-            end
-            object lbl9: TLabel
-              Left = 27
-              Top = 118
-              Width = 34
-              Height = 15
-              Caption = 'Food :'
-            end
-            object lbl10: TLabel
-              Left = 180
-              Top = 118
-              Width = 54
-              Height = 15
-              Caption = 'ton/ hours'
-            end
-            object lbl15: TLabel
-              Left = 27
-              Top = 68
-              Width = 28
-              Height = 15
-              Caption = 'Fuel :'
-            end
-            object lbl17: TLabel
-              Left = 180
-              Top = 68
-              Width = 52
-              Height = 15
-              Caption = 'm3/ hours'
-            end
-            object edtLubricantsTrS: TEdit
-              Tag = 2
-              Left = 100
-              Top = 39
-              Width = 70
-              Height = 23
-              Alignment = taRightJustify
-              TabOrder = 0
-              Text = '0.00'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-            object edtFreshWaterTrS: TEdit
-              Tag = 2
-              Left = 100
-              Top = 89
-              Width = 70
-              Height = 23
-              Alignment = taRightJustify
-              TabOrder = 2
-              Text = '0.00'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-            object edtFoodTrS: TEdit
-              Tag = 2
-              Left = 100
-              Top = 114
-              Width = 70
-              Height = 23
-              Alignment = taRightJustify
-              TabOrder = 3
-              Text = '0.00'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-            object edtFuelTrS: TEdit
-              Tag = 2
-              Left = 100
-              Top = 64
-              Width = 70
-              Height = 23
-              Alignment = taRightJustify
-              TabOrder = 1
-              Text = '0.00'
-              OnChange = edtChange
-              OnKeyPress = edtNumeralKeyPress
-            end
-          end
-          object chTransferCapability: TCheckBox
-            Left = 275
-            Top = 241
-            Width = 121
-            Height = 17
-            Caption = 'Transfer Capability '
-            TabOrder = 6
-            OnClick = chTransferCapabilityClick
-          end
-        end
-      end
-    end
     object pnl3Button: TPanel
-      Left = 0
-      Top = 542
-      Width = 562
+      Left = 1
+      Top = 342
+      Width = 464
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
-      TabOrder = 2
-      ExplicitLeft = 1
+      TabOrder = 0
       ExplicitTop = 338
-      ExplicitWidth = 464
       object btnApply: TButton
-        Left = 387
+        Left = 289
         Top = 0
         Width = 80
         Height = 30
@@ -45564,7 +44877,7 @@ object frmSummaryLogistic: TfrmSummaryLogistic
         OnClick = btnApplyClick
       end
       object btnCancel: TButton
-        Left = 472
+        Left = 374
         Top = 0
         Width = 80
         Height = 30
@@ -45579,7 +44892,7 @@ object frmSummaryLogistic: TfrmSummaryLogistic
         OnClick = btnCancelClick
       end
       object btnOK: TButton
-        Left = 302
+        Left = 203
         Top = 0
         Width = 80
         Height = 30
@@ -45592,6 +44905,154 @@ object frmSummaryLogistic: TfrmSummaryLogistic
         ParentFont = False
         TabOrder = 2
         OnClick = btnOKClick
+      end
+    end
+    object pnl2ControlPage: TPanel
+      Left = 1
+      Top = 66
+      Width = 464
+      Height = 276
+      Align = alClient
+      BevelOuter = bvNone
+      BorderWidth = 10
+      Color = 2499101
+      TabOrder = 1
+      object PageControl1: TPageControl
+        Left = 10
+        Top = 10
+        Width = 444
+        Height = 256
+        ActivePage = tsGeneral
+        Align = alClient
+        TabHeight = 30
+        TabOrder = 0
+        TabWidth = 100
+        object tsGeneral: TTabSheet
+          Caption = 'General'
+          object grpDecoyNoise: TGroupBox
+            Left = 8
+            Top = 11
+            Width = 423
+            Height = 105
+            Caption = ' Decoy Noise Contributors   '
+            TabOrder = 0
+            object lblTrackbar500dB: TLabel
+              Left = 343
+              Top = 82
+              Width = 39
+              Height = 14
+              Caption = '500 dB'
+            end
+            object lblTrackbar0dB: TLabel
+              Left = 10
+              Top = 82
+              Width = 25
+              Height = 14
+              Caption = '0 dB'
+            end
+            object lblOwnshipAmbientNoiseIntensityIncrease: TLabel
+              Left = 11
+              Top = 24
+              Width = 237
+              Height = 14
+              Caption = 'Ownship/Ambient Noise Intensity Increase:'
+            end
+            object edtDecoyNoise: TEdit
+              Left = 374
+              Top = 54
+              Width = 39
+              Height = 22
+              MaxLength = 3
+              NumbersOnly = True
+              TabOrder = 0
+              Text = '0'
+              OnChange = edtGeneralChange
+            end
+            object trckbrDecoyNoise: TTrackBar
+              Left = 11
+              Top = 53
+              Width = 357
+              Height = 32
+              Max = 500
+              Frequency = 100
+              TabOrder = 1
+              OnChange = trckbrGeneralChange
+            end
+          end
+          object grpProbOfHit: TGroupBox
+            Left = 8
+            Top = 122
+            Width = 423
+            Height = 85
+            Caption = ' Probability of Hit Modifiers   '
+            TabOrder = 1
+            object btnEdtProbOfHit: TButton
+              Left = 112
+              Top = 32
+              Width = 193
+              Height = 33
+              Caption = 'Edit...'
+              TabOrder = 0
+              OnClick = btnEdtProbOfHitClick
+            end
+          end
+        end
+        object tsNotes: TTabSheet
+          BorderWidth = 10
+          Caption = 'Notes'
+          ImageIndex = 1
+          object mmoNotes: TMemo
+            Left = 0
+            Top = 0
+            Width = 416
+            Height = 196
+            Align = alClient
+            Lines.Strings = (
+              '')
+            TabOrder = 0
+            OnChange = edtChange
+          end
+        end
+      end
+    end
+    object pnl1Title: TPanel
+      Left = 1
+      Top = 1
+      Width = 464
+      Height = 65
+      Align = alTop
+      BevelOuter = bvNone
+      BorderWidth = 4
+      Color = 2499101
+      TabOrder = 2
+      object Label1: TLabel
+        Left = 10
+        Top = 9
+        Width = 39
+        Height = 16
+        Caption = 'Class :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object edtClass: TEdit
+        Tag = 4
+        Left = 10
+        Top = 30
+        Width = 444
+        Height = 24
+        AutoSize = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        OnChange = edtChange
       end
     end
   end

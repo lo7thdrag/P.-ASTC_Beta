@@ -9,9 +9,6 @@ Penting
 25. ufrmSummaryScenario perlu di desain ulang.
 26. ufrmSummaryScenario bagian advance setting dan next error Accsess violation.
 27. Ketika sudah menginputkan data general/lainnya > apply, lalu isi data di notes> Apply lagi. isi note tidak ada.
-29. form RangeVsProbabilityCurve btn(x) showmessage masih bhsInggris.
-32. Ketika form summary DefensiveJammer tampil btn Apply masih menyala.
-33. Ketika form summary Towedjammer tampil btn Apply masih menyala.
 34. form tacticalSymbol bagian searchnya bisa tapi, belum disamakan dengan yang lain.
 35. form MADMount bagian btnOk > diklik , form tidak mau nutup.
 36. di form sonoboyMount Ketika di Apply muncul ShowMessage "data tdk bisa di tambahkan, karena tidak ada tipe sonar yang sesuai dengan sonobuoy in".
@@ -22,7 +19,6 @@ Penting
 43. di form Towed/jammerDecoyOnboard data yang sudah di add kan tidak tampil dalam listOfTowedDecoyOnboard. 
 44. di form SummaryVehicle data yang sudah di inputkan tidak muncul Ketika klik btnEdit.
 45. form VehicleRPlPickListOnboard bagian searchnya bisa tapi, belum disamakan dengan yang lain dan btn editnya tidak ada.
-46. di form Available ListOfRuntimePlatformLibrary bagian btnCopy jika di tidak muncul showmessage, malah copy data yang sebelumnya sudah terhapus.(belum selesai)
 48. di form availableListOfGameArea > klik add > muncul error.
 50. form summarySignalToNoiseVsProbability masih menggunakan bahasa inggris.
 53. form AvailablelisOfScenario > klik btnCopy > terjadi error/bug.
@@ -31,10 +27,6 @@ Penting
 
 
 note yang di bomb tadi salah data.
-
-
-
-
 
 
 4. summary waypoint perlu didesain ulang.(sudah)

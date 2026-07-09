@@ -112,8 +112,8 @@ begin
   tsGeneral.Show;
   UpdateDefensiveJammerData;
 
-  with FSelectedDefensiveJammer.FData do
-    btnApply.Enabled := Defensive_Jammer_Instance_Index = 0;
+   with FSelectedDefensiveJammer.FDefensiveJammer_Def do
+    btnApply.Enabled := Defensive_Jammer_Index = 0;
 
   isOK := True;
   AfterClose := True;
@@ -135,8 +135,6 @@ end;
 
 procedure TfrmSummarySelfDefensiveJammer.btnApplyClick(Sender: TObject);
 begin
-  if not CekInput then
-    Exit;
   with FSelectedDefensiveJammer do
   begin
 

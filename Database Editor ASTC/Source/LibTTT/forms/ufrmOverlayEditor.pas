@@ -2092,20 +2092,6 @@ begin
     DrawOverlay.FSelectedDraw.Draw(FCanvas, Map1);
   end;
 
-//  {$REGION ' Menggambar Zoom '}
-//  if MouseIsDown and btnZoom.Down then
-//  begin
-//    with FCanvas do
-//    begin
-//      Pen.Color := clWhite;
-//      Pen.Width := 1;
-//      Pen.Style := psDash;
-//      Brush.Style := bsClear;
-//      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
-//    end;
-//  end;
-//  {$ENDREGION}
-
   {$REGION ' Menggambar Ruler '}
   if frmRuler.isshow then
   begin

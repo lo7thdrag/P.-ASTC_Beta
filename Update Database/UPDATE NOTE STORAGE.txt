@@ -1,0 +1,95 @@
+UPDATE NOTE STORAGE
+
+UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 1
+ WHERE Vehicle_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 2
+ WHERE Missile_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 3
+ WHERE Mine_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 4
+ WHERE Torpedo_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 5
+ WHERE Satellite_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 6
+ WHERE Sonobuoy_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 7
+ WHERE Radar_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 8
+ WHERE FCR_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 9
+ WHERE Sonar_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 10
+ WHERE ESM_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 11
+ WHERE MAD_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 12
+ WHERE EO_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 13
+ WHERE Gun_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 14
+ WHERE Bomb_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 15
+ WHERE Jammer_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 16
+ WHERE Defensive_Jammer_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 17
+ WHERE Towed_Decoy_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 18
+ WHERE Floating_Decoy_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 19
+ WHERE Chaff_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 20
+ WHERE Decoy_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 21
+ WHERE Air_Bubble_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 22
+ WHERE Pattern_Index > 0
+
+ UPDATE [dbo].[Note_Storage]
+   SET [Note_Type] = 23
+ WHERE Infrared_decoy_Index > 0
+
+GO

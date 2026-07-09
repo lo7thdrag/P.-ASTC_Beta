@@ -1,0 +1,23 @@
+DELETE DATABASE
+
+DELETE FROM [runtime_db].[dbo].[Pattern_Radar_Event]
+      WHERE [Scripted_Pattern_Index] > 0
+GO
+
+DELETE FROM [runtime_db].[dbo].[Pattern_Weapon_Event]
+      WHERE [Scripted_Pattern_Index] > 0
+GO
+
+DELETE FROM [runtime_db].[dbo].[Scripted_Pattern_Point]
+      WHERE [Scripted_Pattern_Index] > 0
+GO
+
+KHUSUS DELETE DIBAWAH INI, CARI ERRORNYA LALU LIHAT TABELNYA LALU WHERE DIMANA ERRORNYA ATAU BISA LANGSUNG KLIK TABEL ERRORNYA TERUS HAPUS ERRORNYA SEPERTI 
+
+DELETE FROM [runtime_db].[dbo].[Predefined_Pattern]
+      WHERE Vehicle_Index > 0
+GO
+
+DELETE FROM [dbo].[Note_Storage]
+      WHERE Pattern_Index > 0
+GO

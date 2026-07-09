@@ -601,6 +601,10 @@ type
     FMapCursor: E_OverlayMapCursor;
     FShapeColor: E_ShapeColor;
 
+    isAdd : Boolean;
+    FDrawRect : TRect;
+    FIsCapturingScreen : Boolean;
+    FIsMouseDown : Boolean;
     FZoomRectStart : TPoint;
     FZoomRectEnd : TPoint;
 
@@ -2053,8 +2057,25 @@ begin
 
   with FCanvas do
   begin
-    Handle := hOutputDC;
-    Brush.Style := bsClear;
+    if FIsMouseDown and btnZoom.Down then
+    begin
+      Handle := hOutputDC;
+      Pen.Color := clBlack;
+      Pen.Width := 1;
+      Pen.Style := psDash;
+      Brush.Style := bsClear;
+      Font.Name := 'Courier';
+      Font.Size := 12;
+//      Pen.Width := 2  ;
+//      Pen.Style := psSolid;
+//      Pen.Color := clWhite;
+//      Font.Name := 'Courier';
+//      Brush.Style := bsClear;
+//      Font.Size := 12;
+//      Font.Color := clGray;
+
+      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
+    end;
   end;
 
   case FSelectedOverlay.FData.Tipe of
@@ -2071,19 +2092,19 @@ begin
     DrawOverlay.FSelectedDraw.Draw(FCanvas, Map1);
   end;
 
-  {$REGION ' Menggambar Zoom '}
-  if MouseIsDown and btnZoom.Down then
-  begin
-    with FCanvas do
-    begin
-      Pen.Color := clWhite;
-      Pen.Width := 1;
-      Pen.Style := psDash;
-      Brush.Style := bsClear;
-      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
-    end;
-  end;
-  {$ENDREGION}
+//  {$REGION ' Menggambar Zoom '}
+//  if MouseIsDown and btnZoom.Down then
+//  begin
+//    with FCanvas do
+//    begin
+//      Pen.Color := clWhite;
+//      Pen.Width := 1;
+//      Pen.Style := psDash;
+//      Brush.Style := bsClear;
+//      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
+//    end;
+//  end;
+//  {$ENDREGION}
 
   {$REGION ' Menggambar Ruler '}
   if frmRuler.isshow then
@@ -2149,7 +2170,27 @@ end;
 
 procedure TOverlayEditorForm.Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
+//  UpdateCursorPositionData(X, Y);
   UpdateCursorPositionData(X, Y);
+
+  if isAdd and FIsMouseDown then
+  begin
+    FDrawRect.BottomRight := Point(X, Y);
+    Map1.Repaint;
+  end;
+
+  if FIsCapturingScreen and FIsMouseDown then
+  begin
+    fScrCapture.PActually := Point(X, Y);
+    FDrawRect.BottomRight := Point(X, Y);
+    Map1.Repaint;
+  end;
+
+  if btnZoom.Down and FIsMouseDown then
+  begin
+    FZoomRectEnd := Point(X, Y);
+    Map1.Repaint;
+  end;
 end;
 
 procedure TOverlayEditorForm.Map1MouseUp(Sender: TObject; Button: TMouseButton;
@@ -2186,7 +2227,17 @@ begin
       // end;
     end;
   end;
-  Map1.Repaint; // dimatikan dl, msh coba polygon nya
+    {$Region ' Set Zoom '}
+  if btnZoom.Down and FIsMouseDown then
+  begin
+    FIsMouseDown := False;
+
+    FZoomRectEnd:= Point(X, Y);
+    Map1.OnMapViewChanged := Map1MapViewChanged;
+    Map1.Repaint;
+  end;
+  {$ENDREGION}
+//  Map1.Repaint; // dimatikan dl, msh coba polygon nya
 end;
 
 procedure TOverlayEditorForm.Map1MouseDown(Sender: TObject;
@@ -2267,6 +2318,16 @@ begin
     if IdAction = 2 then
       pmOverlayEdit.Popup(pos.X, pos.Y);
   end;
+
+  {$Region ' Set Zoom '}
+  if btnZoom.Down then
+  begin
+    FIsMouseDown := True;
+
+    FZoomRectStart := Point(X, Y);
+    FZoomRectEnd := Point(X, Y);
+  end;
+  {$ENDREGION}
 
   if isCapturingScreen then
   begin

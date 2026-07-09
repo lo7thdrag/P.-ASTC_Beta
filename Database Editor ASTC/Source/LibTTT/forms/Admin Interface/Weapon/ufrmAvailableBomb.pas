@@ -153,7 +153,10 @@ end;
 procedure TfrmAvailableBomb.btnEditClick(Sender: TObject);
 begin
   if lstBomb.ItemIndex = -1 then
+  begin
+    ShowMessage('Silahkan pilih salah satu data Bomb ... !');
     Exit;
+  end;
 
   frmSummaryBomb := TfrmSummaryBomb.Create(Self);
   try
@@ -217,8 +220,10 @@ end;
 procedure TfrmAvailableBomb.btnUsageClick(Sender: TObject);
 begin
   if lstBomb.ItemIndex = -1 then
+  begin
+    ShowMessage('Silahkan pilih salah satu data Bomb ... !');
     Exit;
-
+  end;
   frmUsage := TfrmUsage.Create(Self);
   try
     with frmUsage do

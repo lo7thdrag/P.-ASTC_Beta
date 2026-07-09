@@ -154,8 +154,10 @@ end;
 procedure TfrmAvailableGun.btnEditClick(Sender: TObject);
 begin
   if lstGun.ItemIndex = -1 then
+  begin
+    ShowMessage('Silahkan pilih salah satu data Gun ... !');
     Exit;
-
+  end;
   frmSummaryGun := TfrmSummaryGun.Create(Self);
   try
     with frmSummaryGun do
@@ -220,8 +222,10 @@ end;
 procedure TfrmAvailableGun.btnUsageClick(Sender: TObject);
 begin
   if lstGun.ItemIndex = -1 then
+  begin
+    ShowMessage('Silahkan pilih salah satu data Gun ... !');
     Exit;
-
+  end;
   frmUsage := TfrmUsage.Create(Self);
   try
     with frmUsage do

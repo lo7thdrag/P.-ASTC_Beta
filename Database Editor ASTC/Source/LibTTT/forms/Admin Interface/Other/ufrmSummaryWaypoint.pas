@@ -100,14 +100,14 @@ begin
     begin
       if dmTTT.InsertWaypointDef(FData) then
       begin
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
     begin
       if dmTTT.UpdateWaypointDef(FData) then
       begin
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
 
@@ -163,7 +163,7 @@ begin
   {Jika inputan class name kosong}
   if edtName.Text = '' then
   begin
-    ShowMessage('Incomplete data input');
+    ShowMessage('Silahkan masukkan nama waypoint');
     Exit;
   end;
 
@@ -179,7 +179,7 @@ begin
     end;
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another name');
+      ShowMessage('Silahkan gunakan nama lain');
       Exit;
     end;
   end;
@@ -190,12 +190,12 @@ begin
     {Jika inputan baru}
     if FSelectedWaypoint.FData.Waypoint_Index = 0 then
     begin
-      ShowMessage('Please use another waypoint name');
+      ShowMessage('Silahkan gunakan nama lain');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another waypoint name');
+      ShowMessage('Silahkan gunakan nama lain');
       Exit;
     end;
   end;

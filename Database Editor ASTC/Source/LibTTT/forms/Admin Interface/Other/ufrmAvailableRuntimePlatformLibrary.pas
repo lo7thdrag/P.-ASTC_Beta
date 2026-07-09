@@ -277,14 +277,6 @@ begin
     lstRuntimePlatformLibrary.Items.AddObject(runtimeplatformlibrary.FData.Library_Name, runtimeplatformlibrary);
     frmProgress.increase(runtimeplatformlibrary.FData.Library_Name);
   end;
-  for i := 0 to FPlatform_Library_Entry.Count - 1 do
-begin
-  Entry := TPlatform_Library_Entry(FPlatform_Library_Entry[i]);
-
-  Entry.FData.Library_Index := FData.Platform_Library_Index;
-
-  dmTTT.InsertPlatform_Library_Entry(Entry);
-end;
   frmProgress.Free;
 end;
 

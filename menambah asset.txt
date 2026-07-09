@@ -22,7 +22,7 @@ Penting
 43. di form Towed/jammerDecoyOnboard data yang sudah di add kan tidak tampil dalam listOfTowedDecoyOnboard. 
 44. di form SummaryVehicle data yang sudah di inputkan tidak muncul Ketika klik btnEdit.
 45. form VehicleRPlPickListOnboard bagian searchnya bisa tapi, belum disamakan dengan yang lain dan btn editnya tidak ada.
-46. di form Available ListOfRuntimePlatformLibrary bagian btnCopy jika di tidak muncul showmessage, malah copy data yang sebelumnya sudah terhapus.
+46. di form Available ListOfRuntimePlatformLibrary bagian btnCopy jika di tidak muncul showmessage, malah copy data yang sebelumnya sudah terhapus.(belum selesai)
 48. di form availableListOfGameArea > klik add > muncul error.
 50. form summarySignalToNoiseVsProbability masih menggunakan bahasa inggris.
 53. form AvailablelisOfScenario > klik btnCopy > terjadi error/bug.

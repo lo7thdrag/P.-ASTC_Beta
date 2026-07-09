@@ -4,8 +4,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'frmAvailableFloatingDecoy'
-  ClientHeight = 461
-  ClientWidth = 884
+  ClientHeight = 500
+  ClientWidth = 900
   Color = cl3DDkShadow
   DoubleBuffered = True
   ParentFont = True
@@ -20,18 +20,20 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 884
-    Height = 461
+    Width = 900
+    Height = 500
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 884
+    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 884
-      Height = 46
+      Width = 900
+      Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
@@ -39,7 +41,7 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
       TabOrder = 0
       object Label2: TLabel
         Left = 10
-        Top = 13
+        Top = 25
         Width = 177
         Height = 21
         Caption = 'List of Floating Decoy '
@@ -51,19 +53,21 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 304
+        Left = 320
         Top = 0
         Width = 580
-        Height = 46
+        Height = 57
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 4
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 304
+        ExplicitHeight = 46
         object btnDelete: TImage
-          Left = 532
-          Top = 8
+          Left = 540
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -194,8 +198,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 437
-          Top = 8
+          Left = 450
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -300,8 +304,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 397
-          Top = 8
+          Left = 410
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -425,8 +429,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 357
-          Top = 8
+          Left = 370
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -519,8 +523,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 492
-          Top = 8
+          Left = 500
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -652,8 +656,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           OnClick = btnUsageClick
         end
         object Label1: TLabel
-          Left = 13
-          Top = 13
+          Left = 22
+          Top = 25
           Width = 72
           Height = 21
           Caption = 'Search : '
@@ -665,8 +669,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           ParentFont = False
         end
         object edtSearch: TEdit
-          Left = 95
-          Top = 10
+          Left = 91
+          Top = 23
           Width = 247
           Height = 25
           AutoSize = False
@@ -684,20 +688,23 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
     end
     object pnlTableList: TPanel
       Left = 0
-      Top = 46
-      Width = 884
-      Height = 415
+      Top = 57
+      Width = 900
+      Height = 443
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitTop = 46
+      ExplicitWidth = 884
+      ExplicitHeight = 415
       object lstFloatingDecoy: TListBox
         Left = 10
         Top = 10
-        Width = 864
-        Height = 395
+        Width = 880
+        Height = 423
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -709,6 +716,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
+        ExplicitWidth = 864
+        ExplicitHeight = 395
       end
     end
   end

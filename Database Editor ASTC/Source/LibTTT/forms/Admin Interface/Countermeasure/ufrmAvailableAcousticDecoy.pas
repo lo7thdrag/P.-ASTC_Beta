@@ -150,7 +150,7 @@ procedure TfrmAvailableAcousticDecoy.btnEditClick(Sender: TObject);
 begin
   if lstAcousticDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Silahkan pilih salah satu data  Acoustic Decoy ... !');
+    ShowMessage('Silahkan pilih salah satu data Acoustic Decoy ... !');
     Exit;
   end;
 

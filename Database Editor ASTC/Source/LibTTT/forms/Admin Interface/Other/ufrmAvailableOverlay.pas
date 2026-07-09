@@ -191,7 +191,7 @@ begin
       tempList := TList.Create;
       if dmTTT.GetOverlayAtResourceAllocation(Overlay_Index, tempList) then
       begin
-        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Resource Allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Scenario');
         Exit;
         tempList.Destroy;
       end;

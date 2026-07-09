@@ -52,7 +52,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryWaypoint, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryWaypoint, ufrmUsage, ufProgress;
 
 {$R *.dfm}
 
@@ -122,7 +122,7 @@ var
 begin
   if lstWaypoint.ItemIndex = -1 then
   begin
-    ShowMessage('Select Waypoint Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Waypoint ... !');
     Exit;
   end;
 
@@ -147,7 +147,7 @@ procedure TfrmAvailableWaypoint.imgEditClick(Sender: TObject);
 begin
   if lstWaypoint.ItemIndex = -1 then
   begin
-    ShowMessage('Select Waypoint Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Waypoint ... !');
     Exit;
   end;
 
@@ -214,7 +214,7 @@ procedure TfrmAvailableWaypoint.imgUsageClick(Sender: TObject);
 begin
   if lstWaypoint.ItemIndex = -1 then
   begin
-    ShowMessage('Select Waypoint Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Waypoint ... !');
     Exit;
   end;
 
@@ -277,11 +277,18 @@ begin
 
   dmTTT.GetFilterWaypointDef(FWaypointList, edtSearch.text);
 
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Mengisi data dari database';
+  frmProgress.MaxJob := FWaypointList.Count;
+
   for i := 0 to FWaypointList.Count - 1 do
   begin
     waypoint := FWaypointList.Items[i];
     lstWaypoint.Items.AddObject(waypoint.FData.Waypoint_Name, waypoint);
+    frmProgress.increase(waypoint.FData.Waypoint_Name);
   end;
+
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

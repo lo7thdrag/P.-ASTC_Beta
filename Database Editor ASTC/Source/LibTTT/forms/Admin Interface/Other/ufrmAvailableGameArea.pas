@@ -113,7 +113,7 @@ var
 begin
   if lstGameArea.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Area !');
+    ShowMessage('Silahkan pilih salah satu data Game Area !');
     Exit;
   end;
 
@@ -149,7 +149,7 @@ procedure TfrmAvailableGameArea.imgEditClick(Sender: TObject);
 begin
   if lstGameArea.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Area !');
+    ShowMessage('Silahkan pilih salah satu data Game Area !');
     Exit;
   end;
 
@@ -178,11 +178,11 @@ var
 begin
   if lstGameArea.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Area !');
+    ShowMessage('Silahkan pilih salah satu data Game Area !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Game Area ?', mtConfirmation, mbOKCancel, 0);
+  warning := MessageDlg('Apakah anda yakin ingin menghapus Data ini ?', mtConfirmation, mbOKCancel, 0);
 
   if warning = mrOK then
   begin
@@ -192,7 +192,7 @@ begin
       tempList := TList.Create;
       if dmTTT.GetGameAreaAtEnvironment(Game_Area_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Environment');
+        ShowMessage('Data tidak bisa dihapus, karena sedang digunakan di Scenario');
         Exit;
         FreeItemsAndFreeList(tempList);
       end;
@@ -200,7 +200,7 @@ begin
       {Pengecekan Relasi Dengan Tabel Overlay Definition}
       if dmTTT.GetGameAreaAtOverlayDef(Game_Area_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Overlay');
+        ShowMessage('Data tidak bisa dihapus, karena sedang digunakan di Overlay');
         Exit;
         FreeItemsAndFreeList(tempList);
       end;
@@ -210,7 +210,7 @@ begin
       DeleteGameAreaDirectory(MapDirPath, MapDirPath);
 
       if dmTTT.DeleteGameAreaDef(Game_Area_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data berhasil dihapus');
     end;
 
     UpdateGameAreaList;
@@ -221,7 +221,7 @@ procedure TfrmAvailableGameArea.imgUsageClick(Sender: TObject);
 begin
   if lstGameArea.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Area !');
+    ShowMessage('Silahkan pilih salah satu data Game Area !');
     Exit;
   end;
 

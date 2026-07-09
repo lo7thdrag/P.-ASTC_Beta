@@ -124,7 +124,7 @@ procedure TfrmAvailableGameDefault.imgEditClick(Sender: TObject);
 begin
   if lstGameDefault.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Default... !');
+    ShowMessage('Silahkan pilih salah satu data Game Default... !');
     Exit;
   end;
 

@@ -13562,7 +13562,7 @@ object frmAvailableLogistic: TfrmAvailableLogistic
     OnClick = lbSingleClick
     OnDblClick = btnEditClick
   end
-  object edtCheat: TEdit
+  object edtSearch: TEdit
     Left = 50
     Top = 94
     Width = 173
@@ -13575,7 +13575,7 @@ object frmAvailableLogistic: TfrmAvailableLogistic
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    OnChange = lbSingleClick
+    OnChange = edtSearchChange
     OnKeyPress = edtloglistKeyPress
   end
 end

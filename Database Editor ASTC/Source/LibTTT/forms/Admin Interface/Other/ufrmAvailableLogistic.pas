@@ -15,7 +15,7 @@ type
     lbLogistic: TListBox;
     Image1: TImage;
     lbl_search: TLabel;
-    edtCheat: TEdit;
+    edtSearch: TEdit;
     btnNew: TImage;
     btnCopy: TImage;
     btnEdit: TImage;
@@ -37,6 +37,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure edtloglistKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -54,7 +55,7 @@ implementation
 {$R *.dfm}
 
 uses
-  uDataModuleTTT, ufrmSummaryLogistic, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryLogistic, ufrmUsage, ufProgress;
 
 {$REGION ' Form Handle '}
 
@@ -107,7 +108,7 @@ var
 begin
   if lbLogistic.ItemIndex = -1 then
   begin
-    ShowMessage('Select Logistic Data... !');
+    ShowMessage('Silahkan pilih salah satu data Logistic ... !');
     Exit;
   end;
 
@@ -132,7 +133,7 @@ procedure TfrmAvailableLogistic.btnEditClick(Sender: TObject);
 begin
   if lbLogistic.ItemIndex = -1 then
   begin
-    ShowMessage('Select Logistic Data... !');
+    ShowMessage('Silahkan pilih salah satu data Logistic ... !');
     Exit;
   end;
 
@@ -160,7 +161,7 @@ var
 begin
   if lbLogistic.ItemIndex = -1 then
   begin
-    ShowMessage('Select Logistic Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Logistic ... !');
     Exit;
   end;
 
@@ -175,7 +176,7 @@ begin
       {Pengecekan Relasi Dengan Tabel Vehicle Definition}
       if dmTTT.GetLogisticAtVehicle(Logistic_Index,tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by Vehicle Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang digunakan di Vehicle Definition');
         tempList.Destroy;
         Exit;
       end;
@@ -183,7 +184,7 @@ begin
 
       if dmTTT.DeleteLogisticDef(Logistic_Index) then
       begin
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data berhasil dihapus');
       end;
 
     end;
@@ -196,7 +197,7 @@ procedure TfrmAvailableLogistic.btnUsageClick(Sender: TObject);
 begin
   if lbLogistic.ItemIndex = -1 then
   begin
-    ShowMessage('Select Logistic Data... !');
+    ShowMessage('Silahkan pilih salah satu data ... !');
     Exit;
   end;
 
@@ -215,25 +216,27 @@ begin
   
 end;
 
-
-
-procedure TfrmAvailableLogistic.edtloglistKeyPress(Sender: TObject;
-  var Key: Char);
-  var
-   i : Integer;
-logistic : TLogistics;
+procedure TfrmAvailableLogistic.edtloglistKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-    lbLogistic.Items.Clear;
+    UpdateLogisticList
+  end;
+end;
 
-    dmTTT.GetfilterLogisticDef(FLogisticList,edtCheat.Text);
+procedure TfrmAvailableLogistic.edtSearchChange(Sender: TObject);
+var
+  i : Integer;
+  logistic : TLogistics;
+begin
+  lbLogistic.Items.Clear;
 
-    for i := 0 to FLogisticList.Count - 1 do
-    begin
-  logistic := TLogistics(FLogisticList.Items[i]);
+  dmTTT.GetfilterLogisticDef(FLogisticList,edtSearch.Text);
+
+  for i := 0 to FLogisticList.Count - 1 do
+  begin
+    logistic := TLogistics(FLogisticList.Items[i]);
     lbLogistic.Items.AddObject(logistic.FData.Logistic_Identifier, logistic);
-    end;
   end;
 end;
 
@@ -254,11 +257,17 @@ begin
 
   dmTTT.GetAllLogisticDef(FLogisticList);
 
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Mengisi data dari database';
+  frmProgress.MaxJob := FLogisticList.Count;
+
   for i := 0 to FLogisticList.Count - 1 do
   begin
     logistic := TLogistics(FLogisticList.Items[i]);
     lbLogistic.Items.AddObject(logistic.FData.Logistic_Identifier, logistic);
+    frmProgress.increase(logistic.FData.Logistic_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

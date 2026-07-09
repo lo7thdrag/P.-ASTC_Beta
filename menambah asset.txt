@@ -2,8 +2,7 @@ Penting
 1. Mengecek fungsi Search, Add, Copy, Edit, Usage dan Delete di setiap form 
 2. Pengecekan posisi tombol Search, Add, Copy, Edit, Usage dan Delete yang tidak sama  
 2. Mengecek memoryleak disetiap form
-3. Showmassage dicek, masih ada yang Bahasa inggris
-16. ufrmAvailableRuntimePlatformLibrary, select data > klik usage, error Acsses violation. 
+3. Showmassage dicek, masih ada yang Bahasa inggris 
 18. Di form ufrmSummaryWaypoint Edit waypoint muncul error Acsses violation. 
 20. Button di Form Game Area masih eror.
 24. Ketika Klik Add di ufrmAvailableScenario muncul Error Accsess violation.
@@ -22,6 +21,7 @@ Penting
 12. invalid input format di formSummaryVehicle.(sudah)
 13. Form Bomb/Depth Button Apply mati, harusnya menyala.(Sudah)
 14. Summary Motion, Summary SNR vs POD, Summary game default perlu di desain ulang.(sudah)
+16. ufrmAvailableRuntimePlatformLibrary, select data > klik usage, error Acsses violation.(sudah)
 
 Form yang perlu didesain ulang
 - form overlay editor

@@ -13562,7 +13562,7 @@ object frmAvailableTransport: TfrmAvailableTransport
     OnClick = lbSingleClick
     OnDblClick = btnEditClick
   end
-  object edtCheat: TEdit
+  object edtSearch: TEdit
     Left = 50
     Top = 93
     Width = 173
@@ -13575,7 +13575,7 @@ object frmAvailableTransport: TfrmAvailableTransport
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    OnChange = lbSingleClick
+    OnChange = edtSearchChange
     OnDblClick = btnEditClick
     OnKeyPress = edttransportlistKeyPress
   end

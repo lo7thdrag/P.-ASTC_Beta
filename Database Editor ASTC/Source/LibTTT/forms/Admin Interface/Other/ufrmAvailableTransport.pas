@@ -15,7 +15,7 @@ type
     Label2: TLabel;
     Image1: TImage;
     lbl_search: TLabel;
-    edtCheat: TEdit;
+    edtSearch: TEdit;
     btnNew: TImage;
     btnCopy: TImage;
     btnEdit: TImage;
@@ -37,6 +37,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure edttransportlistKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
 
   private
@@ -55,7 +56,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryTransport, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryTransport, ufrmUsage, ufProgress;
 
 {$R *.dfm}
 
@@ -135,7 +136,7 @@ procedure TfrmAvailableTransport.btnEditClick(Sender: TObject);
 begin
   if lstTransport.ItemIndex = -1 then
   begin
-    ShowMessage('Select Transport Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Transport ... !');
     Exit;
   end;
 
@@ -164,11 +165,11 @@ var
 begin
   if lstTransport.ItemIndex = -1 then
   begin
-    ShowMessage('Select Transport Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Transport ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Transport Data ?', mtConfirmation,
+  warning := MessageDlg('Apakah anda yakin ingin menghapus Data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -180,7 +181,7 @@ begin
       {Pengecekan Relasi Dengan Tabel Vehicle Definition}
       if dmTTT.GetTransportAtVehicle(Transport_Index,tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by Vehicle Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang digunakan di Vehicle Definition');
         tempList.Destroy;
         Exit;
       end;
@@ -188,7 +189,7 @@ begin
 
       if dmTTT.DeleteTransportDef(Transport_Index) then
       begin
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data berhasil dihapus');
       end;
 
     end;
@@ -201,7 +202,7 @@ procedure TfrmAvailableTransport.btnUsageClick(Sender: TObject);
 begin
   if lstTransport.ItemIndex = -1 then
   begin
-    ShowMessage('Select Transport Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Transport ... !');
     Exit;
   end;
 
@@ -221,25 +222,28 @@ begin
   
 end;
 
-procedure TfrmAvailableTransport.edttransportlistKeyPress(Sender: TObject;
-  var Key: Char);
-
-  var
+procedure TfrmAvailableTransport.edtSearchChange(Sender: TObject);
+var
   i : Integer;
  transport: TTransport;
+
+begin
+  lstTransport.Items.Clear;
+
+  dmTTT.GetFilterTransportDef(FTransportList, edtSearch.Text);
+
+  for i := 0 to FTransportList.Count - 1 do
+  begin
+    transport := FTransportList.Items[i];
+    lstTransport.Items.AddObject(Transport.FData.Transport_Identifier, transport);
+  end;
+end;
+
+procedure TfrmAvailableTransport.edttransportlistKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-
-
-   lstTransport.Items.Clear;
-
-  dmTTT.GetfilterTransportDef(FTransportList,edtCheat.Text);
-    for i := 0 to FTransportList.Count - 1 do
-    begin
-  transport := FTransportList.Items[i];
-    lstTransport.Items.AddObject(Transport.FData.Transport_Identifier, transport);
-    end;
+    UpdateTransportList
   end;
 end;
 
@@ -258,13 +262,19 @@ var
 begin
   lstTransport.Items.Clear;
 
-  dmTTT.GetAllTransportDef(FTransportList);
+  dmTTT.GetFilterTransportDef(FTransportList, edtSearch.Text);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Mengisi data dari database';
+  frmProgress.MaxJob := FTransportList.Count;
 
   for i := 0 to FTransportList.Count - 1 do
   begin
     transport := FTransportList.Items[i];
     lstTransport.Items.AddObject(Transport.FData.Transport_Identifier, transport);
+    frmProgress.increase(Transport.FData.Transport_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

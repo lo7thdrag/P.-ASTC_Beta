@@ -305,11 +305,10 @@ var
 begin
   lstVehicle.Items.Clear;
 
-//  dmTTT.GetAllVehicleDef(FVehicleList);
   dmTTT.GetFilterVehicleDef(FVehicleList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
-  frmProgress.Caption := 'Loading data from database';
+  frmProgress.Caption := 'Mengisi data dari database';
   frmProgress.MaxJob := FVehicleList.Count;
 
   for i := 0 to FVehicleList.Count - 1 do

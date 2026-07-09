@@ -115,26 +115,55 @@ end;
 procedure TfrmAvailableRuntimePlatformLibrary.btnCopyClick(Sender: TObject);
 var
   newClassName : string;
-  count, parentIndex : Integer;
+  count : Integer;
+  idTemp : Integer;
+
 begin
+  if lstRuntimePlatformLibrary.ItemIndex = -1 then
+  begin
+    ShowMessage('Silahkan pilih salah satu data Runtime Platform Library ... !');
+    Exit;
+  end;
+
+
   with FSelectedRuntimePlatformLibrary do
   begin
-    parentIndex := FData.Platform_Library_Index;
     newClassName := FData.Library_Name + ' - Copy';
 
     count := dmTTT.GetRuntimePlatformLibraryDef(newClassName);
 
     if count > 0 then
-    newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+      newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
 
     FData.Library_Name := newClassName;
 
     dmTTT.InsertRuntimePlatformLibraryDef(FData);
-    CopyPlatfromLibraryEntry(parentIndex, FData.Platform_Library_Index);
+    dmTTT.InsertNoteStorage(24, FData.Platform_Library_Index, FNote);
   end;
-
   UpdateRPLList;
 end;
+//var
+//  newClassName : string;
+//  count, parentIndex : Integer;
+//begin
+//  with FSelectedRuntimePlatformLibrary do
+//  begin
+//    parentIndex := FData.Platform_Library_Index;
+//    newClassName := FData.Library_Name + ' - Copy';
+//
+//    count := dmTTT.GetRuntimePlatformLibraryDef(newClassName);
+//
+//    if count > 0 then
+//    newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+//
+//    FData.Library_Name := newClassName;
+//
+//    dmTTT.InsertRuntimePlatformLibraryDef(FData);
+//    CopyPlatfromLibraryEntry(parentIndex, FData.Platform_Library_Index);
+//  end;
+//
+//  UpdateRPLList;
+//end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.btnEditClick(Sender: TObject);
 begin
@@ -248,6 +277,14 @@ begin
     lstRuntimePlatformLibrary.Items.AddObject(runtimeplatformlibrary.FData.Library_Name, runtimeplatformlibrary);
     frmProgress.increase(runtimeplatformlibrary.FData.Library_Name);
   end;
+  for i := 0 to FPlatform_Library_Entry.Count - 1 do
+begin
+  Entry := TPlatform_Library_Entry(FPlatform_Library_Entry[i]);
+
+  Entry.FData.Library_Index := FData.Platform_Library_Index;
+
+  dmTTT.InsertPlatform_Library_Entry(Entry);
+end;
   frmProgress.Free;
 end;
 

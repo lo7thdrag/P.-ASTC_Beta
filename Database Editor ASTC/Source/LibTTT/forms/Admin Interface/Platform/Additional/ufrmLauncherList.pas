@@ -144,7 +144,10 @@ end;
 procedure TfrmLauncherList.btnEditClick(Sender: TObject);
 begin
   if lbAllLauncher.ItemIndex = -1 then
+  begin
+    ShowMessage('Silahkan pilih salah satu data Launcher ... !');
     Exit;
+  end;
 
   case FLauncherOwner of
     loMissile:
@@ -194,11 +197,11 @@ var
 begin
   if lbAllLauncher.ItemIndex = -1 then
   begin
-    ShowMessage('Select Launcher Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Launcher ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then

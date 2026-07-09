@@ -257,12 +257,12 @@ begin
     if FData.Motion_Index = 0 then
     begin
       if dmTTT.InsertMotionCharacteristicDef(FData) then
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
     end
     else
     begin
       if dmTTT.UpdateMotionCharacteristicDef(FData) then
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
     end;
   end;
 

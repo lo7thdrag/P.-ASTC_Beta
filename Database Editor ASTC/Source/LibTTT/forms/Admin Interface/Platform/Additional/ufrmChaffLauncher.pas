@@ -159,12 +159,12 @@ begin
     if not dmTTT.GetChaffLauncherOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, FData.Launcher_Number) then
     begin
       if dmTTT.InsertChaffLauncherOnBoard(FData) then
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
     end
     else
     begin
       if dmTTT.UpdateChaffLauncherOnBoard(FData) then
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
     end;
   end;
 

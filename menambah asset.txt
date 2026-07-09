@@ -9,7 +9,6 @@ Penting
 25. ufrmSummaryScenario perlu di desain ulang.
 26. ufrmSummaryScenario bagian advance setting dan next error Accsess violation.
 27. Ketika sudah menginputkan data general/lainnya > apply, lalu isi data di notes> Apply lagi. isi note tidak ada.
-29. form RangeVsProbabilityCurve btn(x) showmessage masih bhsInggris.
 34. form tacticalSymbol bagian searchnya bisa tapi, belum disamakan dengan yang lain.
 35. form MADMount bagian btnOk > diklik , form tidak mau nutup.
 36. di form sonoboyMount Ketika di Apply muncul ShowMessage "data tdk bisa di tambahkan, karena tidak ada tipe sonar yang sesuai dengan sonobuoy in".

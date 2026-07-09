@@ -284,7 +284,7 @@ begin
 
   if TPOD_vs_SNR_Point(FSelectedPoint).FData.List_Index = 0 then
   begin
-    ShowMessage('Apply the data first!');
+    ShowMessage('Simpan data terlebih dahulu !');
     Exit;
   end;
 

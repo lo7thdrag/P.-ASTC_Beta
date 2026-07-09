@@ -26926,6 +26926,7 @@ begin
         21: SQL.Add('Air_Bubble_Index)');
         22: SQL.Add('Pattern_Index)');
         23: SQL.Add('Infrared_decoy_Index)');
+        24: SQL.Add('Platform_Library_Index)');
       end;
 
       SQL.Add('VALUES (');

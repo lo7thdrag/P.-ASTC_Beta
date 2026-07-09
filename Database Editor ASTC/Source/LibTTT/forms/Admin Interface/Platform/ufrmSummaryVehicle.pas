@@ -459,7 +459,7 @@ uses
 
   ufrmChaffAssets, ufrmEmbarkedOnBoardPickList,
   ufrmSummaryResourceAllocation, uEmbarkedSelect, uHelicopterLimitations, ufrmAvailableLogistic,
-  ufrmTacticalSymbol, uSimbolTaktis, uDBAsset_FontTaktis;
+  ufrmTacticalSymbol, uSimbolTaktis, uDBAsset_FontTaktis, uDBEditSetting;
 
 
 {$REGION ' Form Handle '}
@@ -835,7 +835,7 @@ begin
   end;
 
   try
-    Image.Picture.LoadFromFile('data\Image DBEditor\Interface\' + edtModelPath.Text + '.PNG');
+    Image.Picture.LoadFromFile(vAppDBSetting.ModelPath + edtModelPath.Text + '.PNG');
   except
     ShowMessage('Model is not found');
   end;
@@ -1824,9 +1824,9 @@ begin
     lblKeteranganSymbol.Caption := aFontTaktis.FData.KETERANGAN;
 
     try
-      Image.Picture.LoadFromFile('data\Image DBEditor\Interface\' + Vbs_Class_Name + '.PNG');
+      Image.Picture.LoadFromFile(vAppDBSetting.ModelPath + Vbs_Class_Name + '.PNG');
     except
-      Image.Picture.LoadFromFile('data\Image DBEditor\Interface\NoModel.bmp');
+      Image.Picture.LoadFromFile(vAppDBSetting.ModelPath + 'NoModel.bmp');
     end;
 
   end;

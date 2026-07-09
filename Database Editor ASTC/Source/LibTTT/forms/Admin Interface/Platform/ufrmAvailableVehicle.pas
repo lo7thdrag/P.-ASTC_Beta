@@ -314,8 +314,8 @@ begin
   for i := 0 to FVehicleList.Count - 1 do
   begin
     vehicle := FVehicleList.Items[i];
-    frmProgress.increase(vehicle.FData.Vehicle_Identifier);
     lstVehicle.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
+    frmProgress.increase(vehicle.FData.Vehicle_Identifier);
   end;
   frmProgress.Free;
 end;

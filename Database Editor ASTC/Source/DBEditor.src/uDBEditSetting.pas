@@ -11,6 +11,7 @@ type
     Pattern               : String;   //D:\TTT\mapsource\map\background.gst
     predefPattern         : String;   //M:\map\pattern
     BMPPath               : String;
+    ModelPath             : String;
     MapENC                : string;   //D:\TTT\map\mapsea
 
     MapSourceGeosetENC    : string;   //D:\TTT\mapsource\coverage\AreaCoverage.gst
@@ -79,7 +80,7 @@ begin
       Pattern               := IniFReadstring(inif, c_appsetting, 'Pattern', 'D:\Map ASTC\MapSource\background.gst' );
       predefPattern         := IniFReadstring(inif, c_appsetting, 'predefPattern', 'D:\Map ASTC\pattern' );
       BMPPath               := IniFReadstring(inif, c_appsetting, 'BMPPath', str + '\data\Bitmap\' );
-
+      ModelPath             := IniFReadstring(inif, c_appsetting, 'ModelPath', str + '\data\BiImage DBEditor\Interface\Model\' );
       MapGSTGame            := INIFReadString(IniF, c_appsetting, 'MapGSTGame', 'D:\Map ASTC\GameArea');
       RootRecordPath        := INIFReadString(IniF, c_appsetting, 'rootrecordpath', 'C:\T3RecordPath');
     end;

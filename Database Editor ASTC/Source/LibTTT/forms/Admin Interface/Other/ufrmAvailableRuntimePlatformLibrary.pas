@@ -116,7 +116,7 @@ procedure TfrmAvailableRuntimePlatformLibrary.btnCopyClick(Sender: TObject);
 var
   newClassName : string;
   count : Integer;
-  idTemp : Integer;
+  parentIndex : Integer;
 
 begin
   if lstRuntimePlatformLibrary.ItemIndex = -1 then
@@ -125,9 +125,9 @@ begin
     Exit;
   end;
 
-
   with FSelectedRuntimePlatformLibrary do
   begin
+    parentIndex := FData.Platform_Library_Index;
     newClassName := FData.Library_Name + ' - Copy';
 
     count := dmTTT.GetRuntimePlatformLibraryDef(newClassName);
@@ -139,31 +139,10 @@ begin
 
     dmTTT.InsertRuntimePlatformLibraryDef(FData);
     dmTTT.InsertNoteStorage(24, FData.Platform_Library_Index, FNote);
+    CopyPlatfromLibraryEntry(parentIndex, FData.Platform_Library_Index);
   end;
   UpdateRPLList;
 end;
-//var
-//  newClassName : string;
-//  count, parentIndex : Integer;
-//begin
-//  with FSelectedRuntimePlatformLibrary do
-//  begin
-//    parentIndex := FData.Platform_Library_Index;
-//    newClassName := FData.Library_Name + ' - Copy';
-//
-//    count := dmTTT.GetRuntimePlatformLibraryDef(newClassName);
-//
-//    if count > 0 then
-//    newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
-//
-//    FData.Library_Name := newClassName;
-//
-//    dmTTT.InsertRuntimePlatformLibraryDef(FData);
-//    CopyPlatfromLibraryEntry(parentIndex, FData.Platform_Library_Index);
-//  end;
-//
-//  UpdateRPLList;
-//end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.btnEditClick(Sender: TObject);
 begin

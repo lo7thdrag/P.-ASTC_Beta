@@ -170,8 +170,8 @@ begin
   tsGeneral.Show;
   UpdateTowedJammerDecoyData;
 
-  with FSelectedTowedJammerDecoy.FData do
-    btnApply.Enabled := Towed_Decoy_Instance_Index = 0;
+  with FSelectedTowedJammerDecoy.FDef do
+    btnApply.Enabled := Towed_Decoy_Index = 0;
 
   isOK := True;
   AfterClose := True;

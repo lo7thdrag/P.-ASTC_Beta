@@ -8,18 +8,20 @@ uses
 
 type
   TfrmWaypointResourceAllocationPickList = class(TForm)
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    btnAdd: TButton;
+    btnRemove: TButton;
+    pnl5: TPanel;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
     lbAllWaypoinDef: TListBox;
     lbAllWaypoinOnScenario: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -30,6 +32,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchChange(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -114,6 +118,21 @@ begin
 
 end;
 
+procedure TfrmWaypointResourceAllocationPickList.edtSearchChange(
+  Sender: TObject);
+begin
+  UpdateWaypointList;
+end;
+
+procedure TfrmWaypointResourceAllocationPickList.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateWaypointList;
+  end;
+end;
+
 procedure TfrmWaypointResourceAllocationPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -144,7 +163,8 @@ begin
   lbAllWaypoinDef.Items.Clear;
   lbAllWaypoinOnScenario.Items.Clear;
 
-  dmTTT.GetAllWaypointDef(FAllWaypointDefList);
+//  dmTTT.GetAllWaypointDef(FAllWaypointDefList);
+  dmTTT.GetFilterWaypointDef(FAllWaypointDefList, edtSearch.Text);
   dmTTT.GetResourceWaypointMapping(FResourceAllocation.FData.Resource_Alloc_Index, FAllWaypointOnScenarioList);
 
   for i := 0 to FAllWaypointDefList.Count - 1 do

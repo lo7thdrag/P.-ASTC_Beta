@@ -11,13 +11,13 @@ type
   E_InputNameCaller = (incVehicle, incEmbark);
 
   TfrmResourceAllocationInputName = class(TForm)
-    ImgBackgroundForm: TImage;
     cbbName: TComboBox;
     edtTrackId: TEdit;
     lblName: TLabel;
     lblTrackID: TLabel;
     btnOK: TButton;
     btnCancel: TButton;
+    imgBackground: TImage;
 
     procedure FormShow(Sender: TObject);
 

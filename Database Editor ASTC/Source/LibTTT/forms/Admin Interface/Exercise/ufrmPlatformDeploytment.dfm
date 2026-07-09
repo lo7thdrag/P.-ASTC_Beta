@@ -15,7 +15,8 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poDesigned
+  WindowState = wsMaximized
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
@@ -44853,10 +44854,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 376
-    ExplicitTop = 16
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnlMap: TPanel
       Left = 321
       Top = 25
@@ -44871,10 +44868,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 423
-      ExplicitTop = 71
-      ExplicitWidth = 1183
-      ExplicitHeight = 651
       object Map1: TMap
         Left = 1
         Top = 48
@@ -44906,7 +44899,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000957696E6764696E6773
           0000000000000001000100FFFFFF000200FFFFFF000000000000010000000000
-          0118010000D0B5452A01000000FC9AA8771C0000000000000000000000000000
+          0118010000F0ED300E01000000000000001C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -44915,15 +44908,15 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000008076
           C000000000008056C00000000000807640000000000080564001000000180100
-          00D0B5452A01000000881300C01C000000000000000000000000000000000000
+          00F0ED300E010000004EA205501C000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000002000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
-          00000000000000000000000000000000000000000038E997003D8D90761F0000
-          0000000000208D9076481CFF29529DDDEA78E997000000000000000000000000
+          00000000000000000000000000000000000000000090021677A9051677A88E31
+          20D48BE249D8C8AF00000000002D000000D8C8AF000000000000000000000000
           88B3400000000000408F400000000000}
       end
       object pnlToolBar: TPanel
@@ -44936,9 +44929,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 1265
         object ToolBar1: TToolBar
           Left = 14
           Top = 0
@@ -44965,7 +44955,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           end
           object ComboBox1: TComboBox
             Left = 39
-            Top = 8
+            Top = 0
             Width = 72
             Height = 22
             Hint = 'Map Scales'
@@ -45092,9 +45082,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 2
-        ExplicitLeft = 0
-        ExplicitTop = 37
-        ExplicitWidth = 1265
       end
       object pnlCursorPosition: TPanel
         Left = 1
@@ -45107,9 +45094,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Color = 2499101
         ParentBackground = False
         TabOrder = 3
-        ExplicitLeft = 102
-        ExplicitTop = 736
-        ExplicitWidth = 1183
         object grpCursorPosition: TGroupBox
           Left = 3
           Top = 3
@@ -45241,7 +45225,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 603
           object Label65: TLabel
             Left = 28
             Top = 23
@@ -46790,7 +46773,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 8
     end
     object pnlVertical1: TPanel
       Left = 0
@@ -46801,9 +46783,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 9
-      ExplicitTop = 30
-      ExplicitHeight = 852
     end
     object pnl2Editor: TPanel
       Left = 10
@@ -46813,8 +46792,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitLeft = 14
-      ExplicitHeight = 905
       object pnlListPlatform: TPanel
         Left = 0
         Top = 4
@@ -46864,9 +46841,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
             TabHeight = 30
             TabOrder = 0
             TabWidth = 75
-            ExplicitHeight = 416
             object tsPlatforms: TTabSheet
               Caption = 'Platforms'
+              ExplicitLeft = 0
+              ExplicitTop = 0
               ExplicitWidth = 261
               ExplicitHeight = 292
               object lvPlatform: TListView
@@ -46911,6 +46889,8 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
             object tsBases: TTabSheet
               Caption = 'Bases'
               ImageIndex = 1
+              ExplicitLeft = 0
+              ExplicitTop = 0
               ExplicitWidth = 261
               ExplicitHeight = 292
               object lvBase: TListView
@@ -46951,8 +46931,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
             object tsOverlays: TTabSheet
               Caption = 'Overlays'
               ImageIndex = 2
-              ExplicitWidth = 261
-              ExplicitHeight = 292
               object lvOverlay: TListView
                 Left = 0
                 Top = 0
@@ -46988,9 +46966,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                 ParentFont = False
                 TabOrder = 0
                 ViewStyle = vsReport
-                ExplicitLeft = -8
-                ExplicitTop = 4
-                ExplicitHeight = 347
               end
               object Panel1: TPanel
                 Left = 0
@@ -47000,8 +46975,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                 Align = alBottom
                 BevelOuter = bvNone
                 TabOrder = 1
-                ExplicitLeft = -8
-                ExplicitTop = 322
                 object Label27: TLabel
                   Left = 11
                   Top = 10
@@ -47664,6 +47637,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
             object TabSheet3: TTabSheet
               Caption = 'Transport'
               ImageIndex = 2
+              ExplicitLeft = 0
+              ExplicitTop = 0
+              ExplicitWidth = 0
+              ExplicitHeight = 0
               object lvTransport: TListView
                 Left = 0
                 Top = 0
@@ -47734,8 +47711,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = clBlack
       TabOrder = 4
-      ExplicitLeft = 316
-      ExplicitHeight = 905
     end
     object pnl4Bottom: TPanel
       Left = 0
@@ -47746,8 +47721,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 5
-      ExplicitTop = 858
-      ExplicitWidth = 1600
       DesignSize = (
         1606
         43)
@@ -47812,8 +47785,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 6
-      ExplicitLeft = 1590
-      ExplicitHeight = 833
     end
   end
   object ilToolbar: TImageList

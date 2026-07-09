@@ -9,18 +9,20 @@ uses
 
 type
   TfrmRPLResourceAllocationPickList = class(TForm)
-    lbAllPlatformLibraryDef: TListBox;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnAdd: TButton;
+    btnRemove: TButton;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
     lbAllPlatformLibraryOnScenario: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    lbAllPlatformLibraryDef: TListBox;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -32,6 +34,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
    private
     FSelectedForce : Integer;
@@ -123,6 +127,20 @@ begin
   UpdateRuntaimePlatformLibraryList;
 end;
 
+procedure TfrmRPLResourceAllocationPickList.edtSearchChange(Sender: TObject);
+begin
+  UpdateRuntaimePlatformLibraryList;
+end;
+
+procedure TfrmRPLResourceAllocationPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateRuntaimePlatformLibraryList;
+  end;
+end;
+
 procedure TfrmRPLResourceAllocationPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -153,7 +171,8 @@ begin
   lbAllPlatformLibraryDef.Items.Clear;
   lbAllPlatformLibraryOnScenario.Items.Clear;
 
-  dmTTT.GetAllRuntimePlatformLibraryDef(FAllRuntaimePlatformLibraryDefList);
+//  dmTTT.GetAllRuntimePlatformLibraryDef(FAllRuntaimePlatformLibraryDefList);
+  dmTTT.GetFilterRuntimePlatformLibraryDef(FAllRuntaimePlatformLibraryDefList, edtSearch.Text);
   dmTTT.GetResourceRPLMapping(FResourceAllocation.FData.Resource_Alloc_Index, FAllRuntaimePlatformLibraryOnScenarioList);
 
   for i := 0 to FAllRuntaimePlatformLibraryDefList.Count - 1 do

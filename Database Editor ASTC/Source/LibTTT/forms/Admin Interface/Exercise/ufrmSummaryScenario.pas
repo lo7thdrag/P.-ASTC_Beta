@@ -5,11 +5,11 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, DateUtils,
   Dialogs, StdCtrls, Buttons, ComCtrls, ExtCtrls, Vcl.Imaging.pngimage, VrControls, VrWheel,
-  uDBAssetObject, uDBEditSetting, uDBAsset_GameEnvironment, uDBAsset_Deploy;
+  uDBAssetObject, uDBEditSetting, uDBAsset_GameEnvironment, uDBAsset_Deploy,
+  Vcl.Imaging.jpeg;
 
 type
   TfrmSummaryScenario = class(TForm)
-    ImgBackgroundForm: TImage;
     Img1Scenario: TImage;
     lblTabNotes: TLabel;
     ImgDash1: TImage;
@@ -28,18 +28,13 @@ type
     Img4Deployment: TImage;
     Label5: TLabel;
     Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
     ImgBtnNext: TImage;
     ImgBtnBack: TImage;
     ImgDash2: TImage;
     ImgHome: TImage;
     edtName: TEdit;
     Label3: TLabel;
-    Image1: TImage;
     pnlTabEnvironment: TPanel;
-    Image2: TImage;
     lbl14: TLabel;
     lbl8: TLabel;
     Label1: TLabel;
@@ -68,7 +63,6 @@ type
     trckbrSeaState: TTrackBar;
     edtSeaState: TEdit;
     ImgDash3: TImage;
-    Label4: TLabel;
     Img2Environment: TImage;
     Label10: TLabel;
     Label11: TLabel;
@@ -78,8 +72,6 @@ type
     pnlTabDeployment: TPanel;
     Label13: TLabel;
     Label14: TLabel;
-    Image4: TImage;
-    Image3: TImage;
     btnFinish: TImage;
     btnGroup: TImage;
     rbBluePlatform: TRadioButton;
@@ -92,6 +84,8 @@ type
     ImgRPL: TImage;
     rbBlue: TRadioButton;
     rbRed: TRadioButton;
+    pnlMainBackground: TPanel;
+    ImgBackgroundForm: TImage;
 
     //Global
     function GetNumberOfKoma(s : string): Boolean;

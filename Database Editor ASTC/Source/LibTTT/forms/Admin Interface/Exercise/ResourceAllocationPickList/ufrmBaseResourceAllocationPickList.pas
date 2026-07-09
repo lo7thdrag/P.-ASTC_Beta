@@ -9,18 +9,20 @@ uses
 
 type
   TfrmBaseResourceAllocationPickList = class(TForm)
+    pnlMainBackground: TPanel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnAdd: TButton;
+    btnRemove: TButton;
+    btnClose: TButton;
     lbAllBasaDef: TListBox;
     lbAllBaseOnScenario: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    lbl1: TLabel;
+    edtCheat: TEdit;
+    imgBackground: TImage;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -32,6 +34,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtCheatKeyPress(Sender: TObject; var Key: Char);
+    procedure edtCheatChange(Sender: TObject);
 
   private
     FSelectedForce : Integer;
@@ -132,6 +136,20 @@ begin
 
 end;
 
+procedure TfrmBaseResourceAllocationPickList.edtCheatChange(Sender: TObject);
+begin
+  UpdateBaseList;
+end;
+
+procedure TfrmBaseResourceAllocationPickList.edtCheatKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateBaseList;
+  end;
+end;
+
 procedure TfrmBaseResourceAllocationPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -162,7 +180,8 @@ begin
   lbAllBasaDef.Items.Clear;
   lbAllBaseOnScenario.Items.Clear;
 
-  dmTTT.GetAllBaseDef(FAllBaseDefList);
+//  dmTTT.GetAllBaseDef(FAllBaseDefList);
+  dmTTT.GetFilterBaseDef(FAllBaseDefList, edtCheat.Text);
   dmTTT.GetResourceBaseMapping(ResourceAllocation.FData.Resource_Alloc_Index, FSelectedForce, FAllBaseOnScenarioList);
 
   for i := 0 to FAllBaseDefList.Count - 1 do

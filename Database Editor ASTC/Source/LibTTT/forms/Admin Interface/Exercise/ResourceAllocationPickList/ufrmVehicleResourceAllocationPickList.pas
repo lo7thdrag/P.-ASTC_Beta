@@ -9,21 +9,21 @@ uses
   uDBAssetObject, uDBAsset_Vehicle, uDBAsset_Deploy;
 type
   TfrmVehicleResourceAllocationPickList = class(TForm)
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnEdit: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    btnAdd: TButton;
+    btnRemove: TButton;
     lbAllVehicleDef: TListBox;
     lbAllVehicleOnScenario: TListBox;
+    btnEdit: TButton;
+    lbl1: TLabel;
     edtCheat: TEdit;
-    Label3: TLabel;
+    btnClose: TButton;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -36,6 +36,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure edtCheatKeyPress(Sender: TObject; var Key: Char);
+    procedure edtCheatChange(Sender: TObject);
 
   private
     FSelectedForce : Integer;
@@ -162,6 +163,11 @@ begin
   UpdateVehicleList;
 end;
 
+procedure TfrmVehicleResourceAllocationPickList.edtCheatChange(Sender: TObject);
+begin
+  UpdateVehicleList;
+end;
+
 procedure TfrmVehicleResourceAllocationPickList.edtCheatKeyPress(
   Sender: TObject; var Key: Char);
 var
@@ -170,16 +176,20 @@ var
 begin
   if Key = #13 then
   begin
-    lbAllVehicleDef.Items.Clear;
-
-    dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtCheat.text);
-
-    for i := 0 to FAllVehicleDefList.Count - 1 do
-    begin
-      vehicle := FAllVehicleDefList.Items[i];
-      lbAllVehicleDef.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
-    end;
+    UpdateVehicleList;
   end;
+//  if Key = #13 then
+//  begin
+//    lbAllVehicleDef.Items.Clear;
+//
+//    dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtCheat.text);
+//
+//    for i := 0 to FAllVehicleDefList.Count - 1 do
+//    begin
+//      vehicle := FAllVehicleDefList.Items[i];
+//      lbAllVehicleDef.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
+//    end;
+//  end;
 end;
 
 procedure TfrmVehicleResourceAllocationPickList.btnCloseClick(Sender: TObject);
@@ -213,7 +223,8 @@ begin
   lbAllVehicleDef.Items.Clear;
   lbAllVehicleOnScenario.Items.Clear;
 
-  dmTTT.GetAllVehicleDef(FAllVehicleDefList);
+//  dmTTT.GetAllVehicleDef(FAllVehicleDefList);
+  dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtCheat.Text);
   dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 1, FSelectedForce, FAllVehicleOnRAList);
 
   for i := 0 to FAllVehicleDefList.Count - 1 do

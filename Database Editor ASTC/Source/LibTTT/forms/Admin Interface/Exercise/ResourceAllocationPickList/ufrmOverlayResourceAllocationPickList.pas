@@ -9,18 +9,20 @@ uses
 
 type
   TfrmOverlayResourceAllocationPickList = class(TForm)
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnAdd: TButton;
+    btnRemove: TButton;
+    btnClose: TButton;
+    lbl1: TLabel;
+    edtCheat: TEdit;
     lbAllOverlayDef: TListBox;
     lbAllOverlayOnScenario: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -31,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtCheatChange(Sender: TObject);
+    procedure edtCheatKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedForce : Integer;
@@ -120,6 +124,20 @@ begin
 
 end;
 
+procedure TfrmOverlayResourceAllocationPickList.edtCheatChange(Sender: TObject);
+begin
+  UpdateOverlayList;
+end;
+
+procedure TfrmOverlayResourceAllocationPickList.edtCheatKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateOverlayList;
+  end;
+end;
+
 procedure TfrmOverlayResourceAllocationPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -151,7 +169,8 @@ begin
   lbAllOverlayDef.Items.Clear;
   lbAllOverlayOnScenario.Items.Clear;
 
-  dmTTT.GetAllOverlayDef(FAllOverlayDefList);
+//  dmTTT.GetAllOverlayDef(FAllOverlayDefList);
+  dmTTT.GetFilterOverlayDef(FAllOverlayDefList, edtCheat.Text);
   dmTTT.GetResourceOverlayMapping(FResourceAllocation.FData.Resource_Alloc_Index, FSelectedForce, FAllOverlayOnScenarioList);
 
   for i := 0 to FAllOverlayDefList.Count - 1 do

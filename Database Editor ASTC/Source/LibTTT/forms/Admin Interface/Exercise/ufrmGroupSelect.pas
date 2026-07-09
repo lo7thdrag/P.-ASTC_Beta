@@ -10,14 +10,16 @@ uses
 type
   TfrmGroupSelect = class(TForm)
     lstGroup: TListBox;
-    btnDelete: TImage;
-    btnEdit: TImage;
-    btnNew: TImage;
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
-    ImgBtnBack: TImage;
-    Label2: TLabel;
+    pnlMainBAckground: TPanel;
+    imgBackground: TImage;
+    pnl3Button: TPanel;
+    btnCancel: TButton;
+    pnlTableHeader: TPanel;
     lblForce: TLabel;
+    btnNew: TImage;
+    btnEdit: TImage;
+    btnDelete: TImage;
+    pnlMain: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

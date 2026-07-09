@@ -208,14 +208,19 @@ begin
     Exit;
   end;
 
-  with frmUsage do
-  begin
-    UId := FSelectedSelfDefensiveJammer.FDefensiveJammer_Def.Defensive_Jammer_Index;
-    name_usage := FSelectedSelfDefensiveJammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier;
-    usage_title := 'On Board Vehicle:';
-    UIndex := 16;
+  frmUsage := TfrmUsage.Create(Self);
+  try
+    with frmUsage do
+    begin
+      UId := FSelectedSelfDefensiveJammer.FDefensiveJammer_Def.Defensive_Jammer_Index;
+      name_usage := FSelectedSelfDefensiveJammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier;
+      usage_title := 'On Board Vehicle:';
+      UIndex := 16;
 
-    ShowModal;
+      ShowModal;
+    end;
+  finally
+    frmUsage.Free;
   end;
 end;
 

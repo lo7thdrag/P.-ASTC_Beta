@@ -208,14 +208,19 @@ begin
     Exit;
   end;
 
-  with frmUsage do
-  begin
-    UId := FSelectedTowedJammerDecoy.FDef.Towed_Decoy_Index;
-    name_usage := FSelectedTowedJammerDecoy.FDef.Towed_Decoy_Identifier;
-    usage_title := 'On Board Vehicle:';
-    UIndex := 17;
+  frmUsage := TfrmUsage.Create(Self);
+  try
+    with frmUsage do
+    begin
+      UId := FSelectedTowedJammerDecoy.FDef.Towed_Decoy_Index;
+      name_usage := FSelectedTowedJammerDecoy.FDef.Towed_Decoy_Identifier;
+      usage_title := 'On Board Vehicle:';
+      UIndex := 17;
 
-    ShowModal;
+      ShowModal;
+    end;
+  finally
+    frmUsage.Free
   end;
 end;
 

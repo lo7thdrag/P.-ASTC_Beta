@@ -208,15 +208,20 @@ begin
     Exit;
   end;
 
-  with frmUsage do
-  begin
-    UId := FSelectedRadarNoiseJammer.FDef.Jammer_Index;
-    name_usage := FSelectedRadarNoiseJammer.FDef.Jammer_Identifier;
-    usage_title := 'On Board Vehicle:';
-    UIndex := 18;
+  frmUsage := TfrmUsage.Create(Self);
+  try
+    with frmUsage do
+    begin
+      UId := FSelectedRadarNoiseJammer.FDef.Jammer_Index;
+      name_usage := FSelectedRadarNoiseJammer.FDef.Jammer_Identifier;
+      usage_title := 'On Board Vehicle:';
+      UIndex := 18;
 
-    ShowModal;
-  end;
+      ShowModal;
+    end;
+  finally
+    frmUsage.Free;
+  end
 end;
 
 procedure TfrmAvailableRadarNoiseJammer.edtSearchChange(Sender: TObject);

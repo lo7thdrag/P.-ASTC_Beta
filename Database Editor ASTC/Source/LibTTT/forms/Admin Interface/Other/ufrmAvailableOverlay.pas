@@ -216,13 +216,18 @@ begin
     Exit;
   end;
 
-  with frmUsage do
-  begin
-    UId := FSelectedOverlay.FData.Overlay_Index;
-    name_usage := FSelectedOverlay.FData.Overlay_Identifier;
-    UIndex := 35;
-
-    ShowModal;
+  frmUsage := TfrmUsage.Create(Self);
+  try
+    with frmUsage do
+    begin
+      UId := FSelectedOverlay.FData.Overlay_Index;
+      name_usage := FSelectedOverlay.FData.Overlay_Identifier;
+      usage_title := 'On Scenario : ';
+      UIndex := 35;
+      ShowModal;
+    end;
+  finally
+    frmUsage.Free;
   end;
 end;
 

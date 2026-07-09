@@ -209,14 +209,19 @@ begin
     Exit;
   end;
 
-  with frmUsage do
-  begin
-    UId := FSelectedInfraredDecoy.FInfraredDecoy_Def.Infrared_Decoy_Index;
-    name_usage := FSelectedInfraredDecoy.FInfraredDecoy_Def.Infrared_Decoy_Identifier;
-    usage_title := 'On Board Vehicle:';
-    UIndex := 19;
+  frmUsage := TfrmUsage.Create(Self);
+  try
+    with frmUsage do
+    begin
+      UId := FSelectedInfraredDecoy.FInfraredDecoy_Def.Infrared_Decoy_Index;
+      name_usage := FSelectedInfraredDecoy.FInfraredDecoy_Def.Infrared_Decoy_Identifier;
+      usage_title := 'On Board Vehicle:';
+      UIndex := 19;
 
-    ShowModal;
+      ShowModal;
+    end;
+  finally
+    frmUsage.Free;
   end;
 end;
 

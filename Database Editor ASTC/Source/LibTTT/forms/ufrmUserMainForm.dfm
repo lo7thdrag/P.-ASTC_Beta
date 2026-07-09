@@ -145469,7 +145469,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 0
-        ExplicitTop = 701
         object Image3: TImage
           Left = 32
           Top = 79
@@ -145636,7 +145635,7 @@ object frmUserMainForm: TfrmUserMainForm
           Visible = False
         end
         object mnScenario: TLabel
-          Tag = 33
+          Tag = 35
           Left = 63
           Top = 17
           Width = 59
@@ -145667,7 +145666,6 @@ object frmUserMainForm: TfrmUserMainForm
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 1
-        ExplicitTop = 661
         object imgExercise: TImage
           Left = 0
           Top = 0
@@ -147639,7 +147637,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 4
-        ExplicitTop = 726
       end
       object pnl2PlatformsSparator: TPanel
         Left = 20
@@ -151581,7 +151578,7 @@ object frmUserMainForm: TfrmUserMainForm
         object mnGameDefaults: TLabel
           Tag = 32
           Left = 58
-          Top = 199
+          Top = 202
           Width = 103
           Height = 21
           Cursor = crHandPoint
@@ -151600,10 +151597,10 @@ object frmUserMainForm: TfrmUserMainForm
           Tag = 27
           Left = 58
           Top = 48
-          Width = 140
+          Width = 55
           Height = 21
           Cursor = crHandPoint
-          Caption = 'Graphical Overlays'
+          Caption = 'Overlay'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
           Font.Height = -21
@@ -151761,6 +151758,96 @@ object frmUserMainForm: TfrmUserMainForm
           OnMouseEnter = SubMenuMouseEnter
           OnMouseLeave = SuMenuMouseLeave
         end
+        object img5: TImage
+          Left = 32
+          Top = 234
+          Width = 20
+          Height = 20
+          Picture.Data = {
+            0954506E67496D61676589504E470D0A1A0A0000000D49484452000000140000
+            001408060000008D891D0D00000009704859730000375D0000375D011980465D
+            000001F94944415478DAB5D44F4B14611C07F0EFF3CCB46AB35BAE5B5DC293C4
+            B297C8F022B210A2EEA64128B24A127A8DC87F482FA1A32F427C2375E814E441
+            90886E4156BBABADAEBA3B3BF3F47DE67934063A6DD3035F0606F6C3EFCFEC23
+            DE6C6FAB423E0FD775E1FB3EBA39411044BFCF781EC4FCE2A21A1E1941AD5AC5
+            A78383AE407DEE0E0EA2582C423C999D55A36363D87BBE841B5246490B893E21
+            D0CBA41897D1A7A314DACC0573CE9CAA108DD0A4F5E2259ECECD413C5B5E56E5
+            E969BC1D7F842CB17EE9202D053C8BFE0DD45893D869A8701C06382278BEF51A
+            DAB9023F4E8C2347ACDF56E911E9E3B30702D78C075F012D1024D024AA2B3B66
+            6A44BF6F6EC5C1CF9313C8391203442FDBBE2E4DDB2E6C8530ED9E857FDAAD13
+            AB0521BE6C6CC6C1AF5393B8ED3804256E12CDD8B67B84AE50D80A155AB6DD13
+            A2BF88D589FEE496F7D737E260B534853B1A746CDB57154AA4EC26DBCC05315D
+            61439976EBC47E301FD6D6E360A35C8A403DC72C5BCF10F2089B4D5B50216AB9
+            49E884E05160E6A7C1F7AB6B71F0EC7139026FD94D9B39B2425699B2336CEB19
+            46F3BB5C48802A9F1A7CF76AF53F8389B79CF85212FF6C12FFB013FFEB257639
+            2CADACA8CAC202761F3EF8A7EBEBFECE2EEE0D0D990B76BE52419AB76DBBCB1B
+            FBDBE121FC4E07B96C16A23433A3F44BC9CA74BA391D62FAE40B05FC067A85D3
+            CD3F2BB6910000000049454E44AE426082}
+          Stretch = True
+        end
+        object mnTransport: TLabel
+          Tag = 33
+          Left = 58
+          Top = 233
+          Width = 68
+          Height = 21
+          Cursor = crHandPoint
+          Caption = 'Transport'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -21
+          Font.Name = 'Deusex'
+          Font.Style = []
+          ParentFont = False
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
+        end
+        object img6: TImage
+          Left = 32
+          Top = 265
+          Width = 20
+          Height = 20
+          Picture.Data = {
+            0954506E67496D61676589504E470D0A1A0A0000000D49484452000000140000
+            001408060000008D891D0D00000009704859730000375D0000375D011980465D
+            000001F94944415478DAB5D44F4B14611C07F0EFF3CCB46AB35BAE5B5DC293C4
+            B297C8F022B210A2EEA64128B24A127A8DC87F482FA1A32F427C2375E814E441
+            90886E4156BBABADAEBA3B3BF3F47DE67934063A6DD3035F0606F6C3EFCFEC23
+            DE6C6FAB423E0FD775E1FB3EBA39411044BFCF781EC4FCE2A21A1E1941AD5AC5
+            A78383AE407DEE0E0EA2582C423C999D55A36363D87BBE841B5246490B893E21
+            D0CBA41897D1A7A314DACC0573CE9CAA108DD0A4F5E2259ECECD413C5B5E56E5
+            E969BC1D7F842CB17EE9202D053C8BFE0DD45893D869A8701C06382278BEF51A
+            DAB9023F4E8C2347ACDF56E911E9E3B30702D78C075F012D1024D024AA2B3B66
+            6A44BF6F6EC5C1CF9313C8391203442FDBBE2E4DDB2E6C8530ED9E857FDAAD13
+            AB0521BE6C6CC6C1AF5393B8ED3804256E12CDD8B67B84AE50D80A155AB6DD13
+            A2BF88D589FEE496F7D737E260B534853B1A746CDB57154AA4EC26DBCC05315D
+            61439976EBC47E301FD6D6E360A35C8A403DC72C5BCF10F2089B4D5B50216AB9
+            49E884E05160E6A7C1F7AB6B71F0EC7139026FD94D9B39B2425699B2336CEB19
+            46F3BB5C48802A9F1A7CF76AF53F8389B79CF85212FF6C12FFB013FFEB257639
+            2CADACA8CAC202761F3EF8A7EBEBFECE2EEE0D0D990B76BE52419AB76DBBCB1B
+            FBDBE121FC4E07B96C16A23433A3F44BC9CA74BA391D62FAE40B05FC067A85D3
+            CD3F2BB6910000000049454E44AE426082}
+          Stretch = True
+        end
+        object mnLogistic: TLabel
+          Tag = 34
+          Left = 58
+          Top = 265
+          Width = 54
+          Height = 21
+          Cursor = crHandPoint
+          Caption = 'Logistic'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -21
+          Font.Name = 'Deusex'
+          Font.Style = []
+          ParentFont = False
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
+        end
       end
       object pnl6OtherSparator: TPanel
         Left = 20
@@ -151774,7 +151861,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 17
-        ExplicitTop = 641
       end
       object pnl8Shutdown: TPanel
         Tag = 2
@@ -151790,9 +151876,8 @@ object frmUserMainForm: TfrmUserMainForm
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 18
-        ExplicitTop = 746
         object imgShutdown: TImage
-          Tag = 36
+          Tag = 38
           Left = 0
           Top = 0
           Width = 321
@@ -152745,7 +152830,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 19
-        ExplicitTop = 786
         object Image66: TImage
           Left = 32
           Top = 17
@@ -152803,7 +152887,6 @@ object frmUserMainForm: TfrmUserMainForm
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 20
-        ExplicitTop = 811
       end
       object pnl3Sensors: TPanel
         Tag = 2

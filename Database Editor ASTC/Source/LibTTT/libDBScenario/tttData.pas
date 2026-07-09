@@ -510,7 +510,7 @@ type
     ftfrmAvailableTowedJammerDecoy, ftfrmAvailableRadarNoiseJammer, ftfrmAvailableFloatingDecoy,
     ftfrmAvailableVehicle,
     ftfrmAvailableRuntimePlatformLibrary, ftfrmAvailableGrapicalOverlay, ftfrmAvailableWaypoint, ftfrmAvailableGameArea,
-    ftfrmAvailableMotion, ftfrmAvailableSNRvsPODCurve, ftfrmAvailableGameDefaults,
+    ftfrmAvailableMotion, ftfrmAvailableSNRvsPODCurve, ftfrmAvailableGameDefaults, ftfrmAvailableTransport, ftfrmAvailableLogistic,
     ftfrmAvailableScenario, ftfrmAvailableResourceAllocation, ftfrmAvailableEnvironments, ftShutdown);
 
   E_BlindZoneType = (bzcFireControl = 1, bzcESM, bzcEO, bzcVisual, bzcPointEffect, bzcWeapon, bzcSonar, bzcRadar);

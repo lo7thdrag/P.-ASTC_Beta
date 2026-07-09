@@ -205,13 +205,18 @@ begin
     Exit;
   end;
 
-  with frmUsage do
-  begin
-    UId := FSelectedRuntimePlatformLibrary.FData.Platform_Library_Index;
-    name_usage := FSelectedRuntimePlatformLibrary.FData.Library_Name;
-    UIndex := 26;
-
-    ShowModal;
+  frmUsage := TfrmUsage.Create(Self);
+  try
+    with frmUsage do
+    begin
+      UId := FSelectedRuntimePlatformLibrary.FData.Platform_Library_Index;
+      name_usage := FSelectedRuntimePlatformLibrary.FData.Library_Name;
+      usage_title := 'On Scenario : ';
+      UIndex := 26;
+      ShowModal;
+    end;
+  finally
+    frmUsage.Free;
   end;
 end;
 

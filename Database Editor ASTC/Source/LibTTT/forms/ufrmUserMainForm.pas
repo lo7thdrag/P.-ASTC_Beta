@@ -121,6 +121,10 @@ type
     pnlSparatorCenterRight: TPanel;
     pnlSparatorCenterLeft: TPanel;
     imgBackground: TImage;
+    img5: TImage;
+    mnTransport: TLabel;
+    img6: TImage;
+    mnLogistic: TLabel;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -586,6 +590,20 @@ begin
 
       aForm := frmAvailableGameDefault;
     end;
+    ftfrmAvailableTransport :
+    begin
+      if not Assigned(frmAvailableTransport) then
+          frmAvailableTransport := TfrmAvailableTransport.Create(self);
+
+      aForm := frmAvailableTransport;
+    end;
+    ftfrmAvailableLogistic :
+    begin
+      if not Assigned(frmAvailableLogistic) then
+          frmAvailableLogistic := TfrmAvailableLogistic.Create(self);
+
+      aForm := frmAvailableLogistic;
+    end;
     {$ENDREGION}
 
     {$REGION ' Exercise Sub Menu '}
@@ -736,14 +754,14 @@ begin
     end;
      5:
     begin
-      if pnl6OtherBody.Height < (mnGameDefaults.Top + 38) then
+      if pnl6OtherBody.Height < (mnLogistic.Top + 38) then
         pnl6OtherBody.Height := pnl6OtherBody.Height + 2
       else
       begin
         Timer1.Enabled := false;
       end;
     end;
-    36:
+    38:
     begin
       if pnl8ShutdownBody.Height < (mnShutdownDatabaseEditor.Top + 38) then
         pnl8ShutdownBody.Height := pnl8ShutdownBody.Height + 2

@@ -44924,6 +44924,9 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
         ExplicitHeight = 248
         object tsGeneral: TTabSheet
           Caption = 'General'
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
           ExplicitHeight = 208
           object btnEditWaypoint: TButton
             Left = 60

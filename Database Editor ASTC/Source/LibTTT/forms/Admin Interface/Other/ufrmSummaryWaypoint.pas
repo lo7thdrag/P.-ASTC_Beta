@@ -135,16 +135,21 @@ end;
 
 procedure TfrmSummaryWaypoint.btnEditWaypointClick(Sender: TObject);
 begin
-  with frmWaypointEditor do
-  begin
-    SelectedWaypoint := FSelectedWaypoint;
-    ShowModal;
+  frmWaypointEditor := TfrmWaypointEditor.Create(Self);
+  try
+    with frmWaypointEditor do
+    begin
+      SelectedWaypoint := FSelectedWaypoint;
+      ShowModal;
+
+    end;
+    AfterClose := frmWaypointEditor.AfterClose;
+
+    btnCancel.Enabled := not AfterClose;
+    btnApply.Enabled := AfterClose;
+  finally
+    frmWaypointEditor.Free;
   end;
-
-  AfterClose := frmWaypointEditor.AfterClose;
-
-  btnCancel.Enabled := not AfterClose;
-  btnApply.Enabled := true;
 end;
 
 procedure TfrmSummaryWaypoint.btnOKClick(Sender: TObject);

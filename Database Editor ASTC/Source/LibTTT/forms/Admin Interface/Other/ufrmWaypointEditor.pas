@@ -15,8 +15,8 @@ type
 
   TfrmWaypointEditor = class(TForm)
     pnlMainBackground: TPanel;
-    pnlLeft: TPanel;
-    pnlMap: TPanel;
+    pnl2Editor: TPanel;
+    pnl3Map: TPanel;
     Map1: TMap;
     pnlToolBar: TPanel;
     pnlAlignToolBar: TPanel;
@@ -28,11 +28,8 @@ type
     btnPan: TToolButton;
     btnCenterGame: TToolButton;
     pnlCursorPosition: TPanel;
-    pnlSparatorHor1: TPanel;
-    Image2: TImage;
-    pnlButtom: TPanel;
+    pnl4Bottom: TPanel;
     Button2: TButton;
-    RzToolButton1: TRzToolButton;
     pmenuAction: TPopupMenu;
     mniContinueonlastheadingandgroundspeed1: TMenuItem;
     mniContinueonterminalheading1: TMenuItem;
@@ -46,36 +43,22 @@ type
     btnruler: TToolButton;
     imgBackground: TImage;
     ilToolbar: TImageList;
-    pnlTop: TPanel;
+    pnlListWP: TPanel;
     btnAdd: TSpeedButton;
     btnDelete: TSpeedButton;
     btnDeleteAll: TSpeedButton;
     lvWaypoint: TListView;
-    pnlTop2: TPanel;
+    pnlTermination: TPanel;
     lbl7: TLabel;
     bvl2: TBevel;
     lbl8: TLabel;
     edtTermination: TEdit;
     btnAction: TSpeedButton;
-    pnl3SparatorHor1: TPanel;
     pnl1Header: TPanel;
-    grbCursorPosition: TGroupBox;
-    lblBearing: TLabel;
-    lblDistance: TLabel;
-    lbSlPosition: TLabel;
-    lblnmSGrid: TLabel;
-    lblWPosition: TLabel;
-    lblnmWGrid: TLabel;
-    lbl47: TLabel;
-    Label67: TLabel;
-    Label68: TLabel;
-    Label69: TLabel;
-    Label70: TLabel;
-    Label71: TLabel;
     Panel4: TPanel;
     btnClose: TButton;
     btnSave: TButton;
-    pnlWPGuidance: TPanel;
+    pnlWPDetail: TPanel;
     Label3: TLabel;
     Bevel1: TBevel;
     lbl2: TLabel;
@@ -90,6 +73,26 @@ type
     edtAltitude: TEdit;
     lbl5: TLabel;
     btnUpdate: TSpeedButton;
+    pnlVertical1: TPanel;
+    pnlVertical2: TPanel;
+    pnlVertical3: TPanel;
+    pnlOverlayEditor: TPanel;
+    pnl2SparatorHor1: TPanel;
+    pnl2SparatorHor2: TPanel;
+    pnl3SparatorHor1: TPanel;
+    pnl3SparatorHor2: TPanel;
+    mn1: TLabel;
+    mn2: TLabel;
+    mn3: TLabel;
+    mn4: TLabel;
+    mn5: TLabel;
+    mnlbl47: TLabel;
+    lblBearingFCenter: TLabel;
+    lblDistanceFCenter: TLabel;
+    lblGridLat: TLabel;
+    lblGridLong: TLabel;
+    lblPosLong: TLabel;
+    lblPosLat: TLabel;
     procedure btnIncreaseClick(Sender: TObject);
     procedure cbSetScaleChange(Sender: TObject);
     procedure btnDecreaseClick(Sender: TObject);
@@ -120,6 +123,8 @@ type
     procedure btngamearea1Click(Sender: TObject);
     procedure btnrulerClick(Sender: TObject);
 
+    procedure UpdateCursorPositionData(const X, Y: Integer);
+
   private
     xx: Double;
     yy: Double;
@@ -147,9 +152,9 @@ type
     procedure ClearDataForm;
     procedure LoadNormalButtonImage;
 
-    procedure getGridCursorPos;
     procedure UpdateSelectedWaypointData;
     procedure UpdateTerminationData;
+
 
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
@@ -229,44 +234,7 @@ begin
 
   UpdateTerminationData;
 
-  pnlWPGuidance.Visible := False;
-end;
-
-procedure TfrmWaypointEditor.getGridCursorPos;
-var
-  yCursorPoint, xCursorPoint, yCenter, xCenter, diffX, diffY: Double;
-  diffXnm, diffYnm: Double;
-  gridLatt, gridLong, addStringX, addStringY: string;
-begin
-  yCursorPoint := yy;
-  xCursorPoint := xx;
-
-  yCenter := Map1.CenterX;
-  xCenter := Map1.CenterY;
-
-  diffY := abs(yCursorPoint - yCenter);
-  diffX := abs(xCursorPoint - xCenter);
-
-  diffYnm := diffY * 60;
-  diffXnm := diffX * 60;
-
-  if yCursorPoint < yCenter then
-    addStringY := 'S'
-  else
-    addStringY := 'N';
-
-  if xCursorPoint < xCenter then
-    addStringX := 'W'
-  else
-    addStringX := 'E';
-
-  lbSlPosition.Caption := formatDMS_latt(yy);
-  lblWPosition.Caption := formatDMS_long(xx);
-
-  gridLatt := FormatFloat('0.00', diffYnm);
-  gridLong := FormatFloat('0.00', diffXnm);
-  lblnmSGrid.Caption := gridLatt + ' nm ' + addStringY;
-  lblnmWGrid.Caption := gridLong + ' nm ' + addStringX;
+  pnlWPDetail.Visible := False;
 end;
 
 procedure TfrmWaypointEditor.getTermination(TerminationIndex: Integer);
@@ -331,7 +299,7 @@ begin
 
       btnSave.Enabled := true;
 
-      pnlWPGuidance.Visible := False;
+      pnlWPDetail.Visible := False;
     end;
     3 :
     begin
@@ -408,7 +376,7 @@ var
 begin
   if lvWaypoint.Selected = nil then
   begin
-    pnlWPGuidance.Visible := False;
+    pnlWPDetail.Visible := False;
     Exit;
   end;
 
@@ -427,7 +395,7 @@ begin
   edtSpeed.Text := FormatFloat('0.00', FSelectedWaypointData.FData.Speed);
   edtAltitude.Text := FormatFloat('0.00', FSelectedWaypointData.FData.Altitude);
 
-  pnlWPGuidance.Visible := True;
+  pnlWPDetail.Visible := True;
 end;
 
 procedure TfrmWaypointEditor.Map1DrawUserLayer(ASender: TObject;
@@ -565,11 +533,13 @@ end;
 
 procedure TfrmWaypointEditor.Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
-  FConverter.ConvertToMap(X, Y, xx, yy);
+  UpdateCursorPositionData(X, Y);
 
-  lblBearing.Caption  := FormatFloat('0.00', CalcBearing(Map1.CenterX, Map1.CenterY, xx, yy));
-  lblDistance.Caption := FormatFloat('0.00', FConverter.Distance_nmi(Map1.CenterX, Map1.CenterY, xx, yy));
-  getGridCursorPos;
+//  FConverter.ConvertToMap(X, Y, xx, yy);
+//
+//  lblBearing.Caption  := FormatFloat('0.00', CalcBearing(Map1.CenterX, Map1.CenterY, xx, yy));
+//  lblDistance.Caption := FormatFloat('0.00', FConverter.Distance_nmi(Map1.CenterX, Map1.CenterY, xx, yy));
+//  getGridCursorPos;
 
 end;
 
@@ -697,6 +667,39 @@ begin
       SubItems.Add(FormatFloat('0.00',(TWaypoint_Data(FListWpData.Items[i]).FData.Altitude)));
     end;
   end;
+
+end;
+
+procedure TfrmWaypointEditor.UpdateCursorPositionData(const X, Y: Integer);
+var
+  dx, dy, diffX, diffY : Double;
+begin
+
+  FConverter.ConvertToMap(X, Y, dx, dy);
+
+  {Bearing From Center}
+  lblBearingFCenter.Caption := FormatFloat('0.00', CalcBearing(Map1.CenterX, Map1.CenterY, dx, dy));
+
+  {Distance From Center}
+  lblDistanceFCenter.Caption := FormatFloat('0.00', CalcRange(Map1.CenterX, Map1.CenterY, dx, dy));
+
+  {Corsor in Position}
+  lblPosLat.Caption := formatDM_latitude(dy);
+  lblPosLong.Caption := formatDM_longitude(dx);
+
+  {Cursor in Grid}
+  diffX := Abs(dx - Map1.CenterX) * 60;
+  diffY := Abs(dy - Map1.CenterY) * 60;
+
+  if dy < Map1.CenterX then
+    lblGridLat.Caption := FormatFloat('0.00', diffY) + ' nm S'
+  else
+    lblGridLat.Caption := FormatFloat('0.00', diffY) + ' nm N';
+
+  if dx < Map1.CenterY then
+    lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm W'
+  else
+    lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm E';
 
 end;
 

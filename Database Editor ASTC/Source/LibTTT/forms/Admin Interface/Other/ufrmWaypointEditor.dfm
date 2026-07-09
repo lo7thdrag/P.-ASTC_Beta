@@ -2,7 +2,6 @@ object frmWaypointEditor: TfrmWaypointEditor
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  Caption = 'frmWaypointEditor'
   ClientHeight = 901
   ClientWidth = 1600
   Color = clBtnFace
@@ -12,7 +11,7 @@ object frmWaypointEditor: TfrmWaypointEditor
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poDesigned
   WindowState = wsMaximized
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -20,10 +19,6 @@ object frmWaypointEditor: TfrmWaypointEditor
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object RzToolButton1: TRzToolButton
-    Left = 664
-    Top = 376
-  end
   object imgBackground: TImage
     Left = 0
     Top = 0
@@ -44856,13 +44851,13 @@ object frmWaypointEditor: TfrmWaypointEditor
     BevelOuter = bvNone
     Color = 3683636
     TabOrder = 0
-    object pnlLeft: TPanel
-      Left = 0
+    object pnl2Editor: TPanel
+      Left = 10
       Top = 25
-      Width = 1600
-      Height = 828
+      Width = 308
+      Height = 833
       ParentCustomHint = False
-      Align = alClient
+      Align = alLeft
       BevelOuter = bvNone
       BiDiMode = bdLeftToRight
       Color = 5980694
@@ -44876,452 +44871,509 @@ object frmWaypointEditor: TfrmWaypointEditor
       ParentCtl3D = False
       ParentFont = False
       TabOrder = 0
-      object pnlTop2: TPanel
-        Left = 10
-        Top = 493
-        Width = 294
-        Height = 74
+      object pnlOverlayEditor: TPanel
+        Left = 0
+        Top = 0
+        Width = 308
+        Height = 833
+        ParentCustomHint = False
+        Align = alClient
         BevelOuter = bvNone
+        BiDiMode = bdLeftToRight
         Color = 2499101
-        ParentBackground = False
-        TabOrder = 1
-        object lbl7: TLabel
-          Left = 13
-          Top = 9
-          Width = 63
-          Height = 15
-          Caption = 'Termination'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object bvl2: TBevel
-          Left = 88
-          Top = 15
-          Width = 198
-          Height = 3
-        end
-        object lbl8: TLabel
-          Left = 21
-          Top = 39
-          Width = 43
-          Height = 15
-          Caption = 'Action : '
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object btnAction: TSpeedButton
-          Left = 262
-          Top = 35
-          Width = 24
-          Height = 23
-          Glyph.Data = {
-            D6050000424DD605000000000000360000002800000017000000140000000100
-            180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-            000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-          OnClick = btnActionClick
-        end
-        object edtTermination: TEdit
-          Left = 88
-          Top = 35
-          Width = 170
-          Height = 23
-          Enabled = False
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-      object pnlTop: TPanel
-        Left = 10
-        Top = 6
-        Width = 295
-        Height = 285
-        BevelOuter = bvNone
-        BorderWidth = 10
-        Color = 2499101
-        ParentBackground = False
+        Ctl3D = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBiDiMode = False
+        ParentCtl3D = False
+        ParentFont = False
         TabOrder = 0
-        object btnAdd: TSpeedButton
-          Tag = 1
-          Left = 184
-          Top = 247
-          Width = 30
-          Height = 30
-          Hint = 'Add Waypoint'
-          AllowAllUp = True
-          GroupIndex = 1
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000130B0000130B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-            33333333FF33333333FF333993333333300033377F3333333777333993333333
-            300033F77FFF3333377739999993333333333777777F3333333F399999933333
-            33003777777333333377333993333333330033377F3333333377333993333333
-            3333333773333333333F333333333333330033333333F33333773333333C3333
-            330033333337FF3333773333333CC333333333FFFFF77FFF3FF33CCCCCCCCCC3
-            993337777777777F77F33CCCCCCCCCC3993337777777777377333333333CC333
-            333333333337733333FF3333333C333330003333333733333777333333333333
-            3000333333333333377733333333333333333333333333333333}
-          NumGlyphs = 2
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnWaypointHadleClick
-        end
-        object btnDelete: TSpeedButton
-          Tag = 2
-          Left = 220
-          Top = 247
-          Width = 30
-          Height = 30
-          Hint = 'Delete Selected Waypoint'
-          AllowAllUp = True
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000130B0000130B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-            333333333333333333FF33333333333330003333333333333777333333333333
-            300033FFFFFF3333377739999993333333333777777F3333333F399999933333
-            3300377777733333337733333333333333003333333333333377333333333333
-            3333333333333333333F333333333333330033333F33333333773333C3333333
-            330033337F3333333377333CC3333333333333F77FFFFFFF3FF33CCCCCCCCCC3
-            993337777777777F77F33CCCCCCCCCC399333777777777737733333CC3333333
-            333333377F33333333FF3333C333333330003333733333333777333333333333
-            3000333333333333377733333333333333333333333333333333}
-          NumGlyphs = 2
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnWaypointHadleClick
-        end
-        object btnDeleteAll: TSpeedButton
-          Tag = 3
-          Left = 257
-          Top = 247
-          Width = 30
-          Height = 30
-          Hint = 'Delete All Waypoints'
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000130B0000130B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-            3333333333FFFFF3333333333999993333333333F77777FFF333333999999999
-            33333337777FF377FF3333993370739993333377FF373F377FF3399993000339
-            993337777F777F3377F3393999707333993337F77737333337FF993399933333
-            399377F3777FF333377F993339903333399377F33737FF33377F993333707333
-            399377F333377FF3377F993333101933399377F333777FFF377F993333000993
-            399377FF3377737FF7733993330009993933373FF3777377F7F3399933000399
-            99333773FF777F777733339993707339933333773FF7FFF77333333999999999
-            3333333777333777333333333999993333333333377777333333}
-          NumGlyphs = 2
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnWaypointHadleClick
-        end
-        object lvWaypoint: TListView
-          Left = 10
-          Top = 10
-          Width = 277
-          Height = 231
-          Columns = <
-            item
-              Caption = 'No'
-              Width = 30
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Latitude'
-              Width = 85
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Longitude'
-              Width = 85
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Speed'
-              Width = 55
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Altitude'
-              MaxWidth = 100
-              MinWidth = 5
-              Width = 55
-            end>
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          GridLines = True
-          RowSelect = True
-          ParentFont = False
+        object pnlListWP: TPanel
+          Left = 0
+          Top = 0
+          Width = 308
+          Height = 547
+          Align = alClient
+          BevelOuter = bvNone
+          BorderWidth = 10
+          Color = 2499101
+          ParentBackground = False
           TabOrder = 0
-          ViewStyle = vsReport
-          OnClick = lvWaypointClick
+          ExplicitLeft = 10
+          ExplicitTop = 6
+          ExplicitWidth = 295
+          ExplicitHeight = 285
+          object btnAdd: TSpeedButton
+            Tag = 1
+            Left = 196
+            Top = 509
+            Width = 30
+            Height = 30
+            Hint = 'Add Waypoint'
+            AllowAllUp = True
+            GroupIndex = 1
+            Glyph.Data = {
+              76010000424D7601000000000000760000002800000020000000100000000100
+              04000000000000010000130B0000130B00001000000000000000000000000000
+              800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+              FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+              33333333FF33333333FF333993333333300033377F3333333777333993333333
+              300033F77FFF3333377739999993333333333777777F3333333F399999933333
+              33003777777333333377333993333333330033377F3333333377333993333333
+              3333333773333333333F333333333333330033333333F33333773333333C3333
+              330033333337FF3333773333333CC333333333FFFFF77FFF3FF33CCCCCCCCCC3
+              993337777777777F77F33CCCCCCCCCC3993337777777777377333333333CC333
+              333333333337733333FF3333333C333330003333333733333777333333333333
+              3000333333333333377733333333333333333333333333333333}
+            NumGlyphs = 2
+            ParentShowHint = False
+            ShowHint = True
+            OnClick = btnWaypointHadleClick
+          end
+          object btnDelete: TSpeedButton
+            Tag = 2
+            Left = 232
+            Top = 509
+            Width = 30
+            Height = 30
+            Hint = 'Delete Selected Waypoint'
+            AllowAllUp = True
+            Glyph.Data = {
+              76010000424D7601000000000000760000002800000020000000100000000100
+              04000000000000010000130B0000130B00001000000000000000000000000000
+              800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+              FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+              333333333333333333FF33333333333330003333333333333777333333333333
+              300033FFFFFF3333377739999993333333333777777F3333333F399999933333
+              3300377777733333337733333333333333003333333333333377333333333333
+              3333333333333333333F333333333333330033333F33333333773333C3333333
+              330033337F3333333377333CC3333333333333F77FFFFFFF3FF33CCCCCCCCCC3
+              993337777777777F77F33CCCCCCCCCC399333777777777737733333CC3333333
+              333333377F33333333FF3333C333333330003333733333333777333333333333
+              3000333333333333377733333333333333333333333333333333}
+            NumGlyphs = 2
+            ParentShowHint = False
+            ShowHint = True
+            OnClick = btnWaypointHadleClick
+          end
+          object btnDeleteAll: TSpeedButton
+            Tag = 3
+            Left = 269
+            Top = 509
+            Width = 30
+            Height = 30
+            Hint = 'Delete All Waypoints'
+            Glyph.Data = {
+              76010000424D7601000000000000760000002800000020000000100000000100
+              04000000000000010000130B0000130B00001000000000000000000000000000
+              800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+              FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+              3333333333FFFFF3333333333999993333333333F77777FFF333333999999999
+              33333337777FF377FF3333993370739993333377FF373F377FF3399993000339
+              993337777F777F3377F3393999707333993337F77737333337FF993399933333
+              399377F3777FF333377F993339903333399377F33737FF33377F993333707333
+              399377F333377FF3377F993333101933399377F333777FFF377F993333000993
+              399377FF3377737FF7733993330009993933373FF3777377F7F3399933000399
+              99333773FF777F777733339993707339933333773FF7FFF77333333999999999
+              3333333777333777333333333999993333333333377777333333}
+            NumGlyphs = 2
+            ParentShowHint = False
+            ShowHint = True
+            OnClick = btnWaypointHadleClick
+          end
+          object lvWaypoint: TListView
+            Left = 7
+            Top = 10
+            Width = 294
+            Height = 487
+            Columns = <
+              item
+                Caption = 'No'
+                Width = 30
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Latitude'
+                Width = 85
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Longitude'
+                Width = 85
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Speed'
+                Width = 45
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Altitude'
+                MaxWidth = 100
+                MinWidth = 5
+                Width = 55
+              end>
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            GridLines = True
+            RowSelect = True
+            ParentFont = False
+            TabOrder = 0
+            ViewStyle = vsReport
+            OnClick = lvWaypointClick
+          end
         end
-      end
-      object pnlWPGuidance: TPanel
-        Left = 10
-        Top = 296
-        Width = 295
-        Height = 192
-        BevelOuter = bvNone
-        Color = 2499101
-        ParentBackground = False
-        TabOrder = 2
-        object Label3: TLabel
-          Left = 10
-          Top = 10
-          Width = 49
-          Height = 15
-          Caption = 'Guidance'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Bevel1: TBevel
-          Left = 69
-          Top = 16
-          Width = 217
-          Height = 3
-        end
-        object lbl2: TLabel
-          Left = 24
-          Top = 32
-          Width = 50
-          Height = 15
-          Caption = 'Latitude :'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object btnControlComboInterval: TSpeedButton
-          Left = 262
-          Top = 28
-          Width = 24
-          Height = 50
-          Caption = '+'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          NumGlyphs = 2
-          ParentFont = False
-          OnClick = btnControlComboIntervalClick
-        end
-        object lbl1: TLabel
-          Left = 24
-          Top = 59
-          Width = 60
-          Height = 15
-          Caption = 'Longitude :'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lbl3: TLabel
-          Left = 24
-          Top = 86
-          Width = 81
-          Height = 15
-          Caption = 'Ground Speed :'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lbl4: TLabel
-          Left = 187
-          Top = 86
-          Width = 29
-          Height = 15
-          Caption = 'knots'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lbl6: TLabel
-          Left = 24
-          Top = 113
-          Width = 87
-          Height = 15
-          Caption = 'Altitude/ Depth :'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lbl5: TLabel
-          Left = 187
-          Top = 113
-          Width = 20
-          Height = 15
-          Caption = 'feet'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object btnUpdate: TSpeedButton
-          Left = 201
-          Top = 153
-          Width = 86
-          Height = 30
-          Caption = 'Update'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          NumGlyphs = 2
-          ParentFont = False
-          OnClick = btnUpdateClick
-        end
-        object edtLat: TEdit
-          Left = 117
-          Top = 28
-          Width = 142
-          Height = 23
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-        object edtLong: TEdit
-          Left = 117
-          Top = 55
-          Width = 142
-          Height = 23
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
+        object pnlWPDetail: TPanel
+          Left = 0
+          Top = 557
+          Width = 308
+          Height = 192
+          Align = alBottom
+          BevelOuter = bvNone
+          Color = 2499101
+          ParentBackground = False
           TabOrder = 1
+          ExplicitLeft = 10
+          ExplicitTop = 296
+          ExplicitWidth = 295
+          object Label3: TLabel
+            Left = 10
+            Top = 10
+            Width = 49
+            Height = 15
+            Caption = 'Guidance'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Bevel1: TBevel
+            Left = 69
+            Top = 16
+            Width = 217
+            Height = 3
+          end
+          object lbl2: TLabel
+            Left = 24
+            Top = 32
+            Width = 50
+            Height = 15
+            Caption = 'Latitude :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object btnControlComboInterval: TSpeedButton
+            Left = 262
+            Top = 28
+            Width = 24
+            Height = 50
+            Caption = '+'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            NumGlyphs = 2
+            ParentFont = False
+            OnClick = btnControlComboIntervalClick
+          end
+          object lbl1: TLabel
+            Left = 24
+            Top = 59
+            Width = 60
+            Height = 15
+            Caption = 'Longitude :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl3: TLabel
+            Left = 24
+            Top = 86
+            Width = 81
+            Height = 15
+            Caption = 'Ground Speed :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl4: TLabel
+            Left = 187
+            Top = 86
+            Width = 29
+            Height = 15
+            Caption = 'knots'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl6: TLabel
+            Left = 24
+            Top = 113
+            Width = 87
+            Height = 15
+            Caption = 'Altitude/ Depth :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl5: TLabel
+            Left = 187
+            Top = 113
+            Width = 20
+            Height = 15
+            Caption = 'feet'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object btnUpdate: TSpeedButton
+            Left = 201
+            Top = 153
+            Width = 86
+            Height = 30
+            Caption = 'Update'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            NumGlyphs = 2
+            ParentFont = False
+            OnClick = btnUpdateClick
+          end
+          object edtLat: TEdit
+            Left = 117
+            Top = 28
+            Width = 142
+            Height = 23
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+          object edtLong: TEdit
+            Left = 117
+            Top = 55
+            Width = 142
+            Height = 23
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+          end
+          object edtSpeed: TEdit
+            Left = 117
+            Top = 82
+            Width = 63
+            Height = 23
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+          end
+          object edtAltitude: TEdit
+            Left = 117
+            Top = 109
+            Width = 63
+            Height = 23
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+          end
         end
-        object edtSpeed: TEdit
-          Left = 117
-          Top = 82
-          Width = 63
-          Height = 23
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
+        object pnl2SparatorHor1: TPanel
+          Left = 0
+          Top = 547
+          Width = 308
+          Height = 10
+          Align = alBottom
+          BevelOuter = bvNone
+          Color = 2499101
           TabOrder = 2
+          ExplicitTop = 154
         end
-        object edtAltitude: TEdit
-          Left = 117
-          Top = 109
-          Width = 63
-          Height = 23
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
+        object pnlTermination: TPanel
+          Left = 0
+          Top = 759
+          Width = 308
+          Height = 74
+          Align = alBottom
+          BevelOuter = bvNone
+          Color = 2499101
+          ParentBackground = False
           TabOrder = 3
+          ExplicitLeft = 10
+          ExplicitTop = 493
+          ExplicitWidth = 294
+          object lbl7: TLabel
+            Left = 13
+            Top = 9
+            Width = 63
+            Height = 15
+            Caption = 'Termination'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object bvl2: TBevel
+            Left = 88
+            Top = 15
+            Width = 198
+            Height = 3
+          end
+          object lbl8: TLabel
+            Left = 21
+            Top = 39
+            Width = 43
+            Height = 15
+            Caption = 'Action : '
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object btnAction: TSpeedButton
+            Left = 262
+            Top = 35
+            Width = 24
+            Height = 23
+            Glyph.Data = {
+              D6050000424DD605000000000000360000002800000017000000140000000100
+              180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
+              000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+              0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
+            OnClick = btnActionClick
+          end
+          object edtTermination: TEdit
+            Left = 88
+            Top = 35
+            Width = 170
+            Height = 23
+            Enabled = False
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+        end
+        object pnl2SparatorHor2: TPanel
+          Left = 0
+          Top = 749
+          Width = 308
+          Height = 10
+          Align = alBottom
+          BevelOuter = bvNone
+          Color = 2499101
+          TabOrder = 4
+          ExplicitTop = 778
         end
       end
     end
-    object pnlMap: TPanel
+    object pnl3Map: TPanel
       Left = 320
       Top = 25
       Width = 1270
       Height = 828
+      BevelOuter = bvNone
       Color = 3683636
       TabOrder = 1
       object Map1: TMap
-        Left = 1
-        Top = 46
-        Width = 1268
-        Height = 736
+        Left = 0
+        Top = 45
+        Width = 1270
+        Height = 728
         ParentColor = False
         Align = alClient
         TabOrder = 0
@@ -45330,9 +45382,12 @@ object frmWaypointEditor: TfrmWaypointEditor
         OnMouseDown = Map1MouseDown
         OnMapViewChanged = Map1MapViewChanged
         OnDrawUserLayer = Map1DrawUserLayer
+        ExplicitLeft = 1
         ExplicitTop = 43
+        ExplicitWidth = 1268
+        ExplicitHeight = 736
         ControlData = {
-          8A1A06000D830000114C0000010000000F0000FF0D47656F44696374696F6E61
+          8A1A0600428300003E4B0000010000000F0000FF0D47656F44696374696F6E61
           727905456D70747900E8030000000000000000000002000E001E000000000000
           0000000000000000000000000000000000000000000600010000000002202050
           00010100000A0000000001F4010000050000800C000000000000000000000000
@@ -45344,7 +45399,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           0B918FCE119DE300AA004BB851010000009001DC7C010005417269616C000352
           E30B918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D
           626F6C730000000000000001000100FFFFFF000200FFFFFF0000000000000100
-          000001000118010000B061E90F01000000FC9AA8771C00000000000000000000
+          000001000118010000E01A452801000000E0884B031C00000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0002000000000000000000000000000000000000000000000000000000000000
@@ -45353,27 +45408,30 @@ object frmWaypointEditor: TfrmWaypointEditor
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           00008076C000000000008056C000000000008076400000000000805640010000
-          0018010000B061E90F01000000000000001C0000000000000000000000000000
+          0018010000E01A452801000000880300C01C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000038CE97003D8D90
-          761F00000000000000208D90769879F20F763F67F778CE970000000000000000
+          0000000000000000000000000000000000000000000000000001400100850906
+          5018394B03A504065001E99700DB51BB7778F0F6501103065000000000000000
           0000000088B3400000000000408F400001000001}
       end
       object pnlToolBar: TPanel
-        Left = 1
-        Top = 1
-        Width = 1268
+        Left = 0
+        Top = 0
+        Width = 1270
         Height = 35
         Align = alTop
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
+        ExplicitLeft = 1
+        ExplicitTop = 1
+        ExplicitWidth = 1268
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
@@ -45388,7 +45446,7 @@ object frmWaypointEditor: TfrmWaypointEditor
         object ToolBar1: TToolBar
           Left = 25
           Top = 0
-          Width = 1243
+          Width = 1245
           Height = 35
           Align = alClient
           ButtonHeight = 38
@@ -45398,19 +45456,20 @@ object frmWaypointEditor: TfrmWaypointEditor
           Images = ilToolbar
           ParentColor = False
           TabOrder = 1
-          object btnDecrease: TToolButton
+          ExplicitWidth = 1243
+          object btnIncrease: TToolButton
             Left = 0
             Top = 0
-            Hint = 'Decrease Scale'
-            Caption = 'btnDecrease'
-            ImageIndex = 1
+            Hint = 'Increase Scale'
+            Caption = 'btnIncrease'
+            ImageIndex = 2
             ParentShowHint = False
             ShowHint = True
-            OnClick = btnDecreaseClick
+            OnClick = btnIncreaseClick
           end
           object cbSetScale: TComboBox
             Left = 42
-            Top = 0
+            Top = 8
             Width = 95
             Height = 21
             Hint = 'Map Scales'
@@ -45436,15 +45495,15 @@ object frmWaypointEditor: TfrmWaypointEditor
               '2048'
               '2500')
           end
-          object btnIncrease: TToolButton
+          object btnDecrease: TToolButton
             Left = 137
             Top = 0
-            Hint = 'Increase Scale'
-            Caption = 'btnIncrease'
-            ImageIndex = 2
+            Hint = 'Decrease Scale'
+            Caption = 'btnDecrease'
+            ImageIndex = 1
             ParentShowHint = False
             ShowHint = True
-            OnClick = btnIncreaseClick
+            OnClick = btnDecreaseClick
           end
           object btnSelect: TToolButton
             Left = 179
@@ -45479,7 +45538,7 @@ object frmWaypointEditor: TfrmWaypointEditor
             Top = 0
             Hint = 'Center On Game Center'
             Caption = 'btnCenterGame'
-            ImageIndex = 8
+            ImageIndex = 5
             ParentShowHint = False
             ShowHint = True
             OnClick = btnCenterGameClick
@@ -45495,166 +45554,213 @@ object frmWaypointEditor: TfrmWaypointEditor
             Left = 389
             Top = 0
             Caption = 'btnruler'
-            ImageIndex = 9
+            ImageIndex = 8
             OnClick = btnrulerClick
           end
         end
       end
       object pnlCursorPosition: TPanel
-        Left = 1
-        Top = 782
-        Width = 1268
+        Left = 0
+        Top = 783
+        Width = 1270
         Height = 45
         Align = alBottom
         BevelOuter = bvNone
         BorderWidth = 3
-        Color = 5980694
+        Color = 2499101
+        ParentBackground = False
         TabOrder = 2
-        object grbCursorPosition: TGroupBox
-          Left = 3
-          Top = 3
-          Width = 1262
-          Height = 39
-          Align = alClient
-          Color = 2499101
-          Font.Charset = ANSI_CHARSET
+        ExplicitLeft = 1
+        ExplicitTop = 782
+        ExplicitWidth = 1268
+        DesignSize = (
+          1270
+          45)
+        object mn1: TLabel
+          Left = 411
+          Top = 12
+          Width = 130
+          Height = 16
+          Caption = 'Distance from Centre :'
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
           Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
+          Font.Name = 'Tahoma'
           Font.Style = []
-          ParentBackground = False
-          ParentColor = False
           ParentFont = False
-          TabOrder = 0
-          object lblBearing: TLabel
-            Left = 151
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblDistance: TLabel
-            Left = 539
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lbSlPosition: TLabel
-            Left = 890
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblnmSGrid: TLabel
-            Left = 1154
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblWPosition: TLabel
-            Left = 972
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblnmWGrid: TLabel
-            Left = 1236
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lbl47: TLabel
-            Left = 29
-            Top = 12
-            Width = 116
-            Height = 15
-            Caption = 'Bearing from Centre  :'
-          end
-          object Label67: TLabel
-            Left = 411
-            Top = 12
-            Width = 116
-            Height = 15
-            Caption = 'Distance from Centre :'
-          end
-          object Label68: TLabel
-            Left = 813
-            Top = 12
-            Width = 47
-            Height = 15
-            Caption = 'Position :'
-          end
-          object Label69: TLabel
-            Left = 1077
-            Top = 12
-            Width = 48
-            Height = 15
-            Caption = 'Grid        :'
-          end
-          object Label70: TLabel
-            Left = 195
-            Top = 12
-            Width = 48
-            Height = 15
-            Caption = 'degress T'
-          end
-          object Label71: TLabel
-            Left = 583
-            Top = 12
-            Width = 17
-            Height = 15
-            Caption = 'nm'
-          end
+        end
+        object mn2: TLabel
+          Left = 791
+          Top = 12
+          Width = 53
+          Height = 16
+          Caption = 'Position :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object mn3: TLabel
+          Left = 976
+          Top = 12
+          Width = 60
+          Height = 16
+          Anchors = [akTop, akRight]
+          Caption = 'Grid        :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object mn4: TLabel
+          Left = 210
+          Top = 12
+          Width = 57
+          Height = 16
+          Caption = 'degress T'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object mn5: TLabel
+          Left = 591
+          Top = 12
+          Width = 18
+          Height = 16
+          Caption = 'nm'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object mnlbl47: TLabel
+          Left = 29
+          Top = 12
+          Width = 129
+          Height = 16
+          Caption = 'Bearing from Centre  :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblBearingFCenter: TLabel
+          Left = 166
+          Top = 12
+          Width = 15
+          Height = 16
+          Caption = '---'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblDistanceFCenter: TLabel
+          Left = 547
+          Top = 12
+          Width = 15
+          Height = 16
+          Caption = '---'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblGridLat: TLabel
+          Left = 1045
+          Top = 12
+          Width = 15
+          Height = 16
+          Anchors = [akTop, akRight]
+          Caption = '---'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblGridLong: TLabel
+          Left = 1143
+          Top = 12
+          Width = 15
+          Height = 16
+          Anchors = [akTop, akRight]
+          Caption = '---'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblPosLong: TLabel
+          Left = 958
+          Top = 12
+          Width = 15
+          Height = 16
+          Caption = '---'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblPosLat: TLabel
+          Left = 860
+          Top = 12
+          Width = 15
+          Height = 16
+          Caption = '---'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
       end
       object pnl3SparatorHor1: TPanel
-        Left = 1
-        Top = 36
-        Width = 1268
+        Left = 0
+        Top = 35
+        Width = 1270
         Height = 10
         Align = alTop
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 3
+        ExplicitWidth = 1262
       end
-    end
-    object pnlSparatorHor1: TPanel
-      Left = 0
-      Top = 853
-      Width = 1600
-      Height = 5
-      Align = alBottom
-      BevelOuter = bvNone
-      ParentBackground = False
-      TabOrder = 2
-      object Image2: TImage
+      object pnl3SparatorHor2: TPanel
         Left = 0
-        Top = 0
-        Width = 1600
-        Height = 5
-        Cursor = crHandPoint
-        Align = alClient
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-          001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-          000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-          005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-          0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-          658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-          E3070080B203BC0200156C14659F0000000049454E44AE426082}
-        Stretch = True
-        ExplicitLeft = -2
-        ExplicitTop = -2
-        ExplicitWidth = 8
-        ExplicitHeight = 637
+        Top = 773
+        Width = 1270
+        Height = 10
+        Align = alBottom
+        BevelOuter = bvNone
+        Color = 2499101
+        TabOrder = 4
+        ExplicitTop = 778
+        ExplicitWidth = 1262
       end
     end
-    object pnlButtom: TPanel
+    object pnl4Bottom: TPanel
       Left = 0
       Top = 858
       Width = 1600
@@ -45662,7 +45768,7 @@ object frmWaypointEditor: TfrmWaypointEditor
       Align = alBottom
       BevelOuter = bvNone
       Color = 5980694
-      TabOrder = 3
+      TabOrder = 2
       object Button2: TButton
         Left = 12
         Top = 6
@@ -45729,7 +45835,40 @@ object frmWaypointEditor: TfrmWaypointEditor
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
+      TabOrder = 3
+    end
+    object pnlVertical1: TPanel
+      Left = 0
+      Top = 25
+      Width = 10
+      Height = 833
+      Align = alLeft
+      BevelOuter = bvNone
+      Color = 2499101
       TabOrder = 4
+    end
+    object pnlVertical2: TPanel
+      Left = 318
+      Top = 25
+      Width = 10
+      Height = 833
+      Align = alLeft
+      BevelOuter = bvNone
+      Color = 2499101
+      TabOrder = 5
+      ExplicitLeft = 308
+      ExplicitTop = 24
+      ExplicitHeight = 828
+    end
+    object pnlVertical3: TPanel
+      Left = 1590
+      Top = 25
+      Width = 10
+      Height = 833
+      Align = alRight
+      BevelOuter = bvNone
+      Color = 2499101
+      TabOrder = 6
     end
   end
   object pmenuAction: TPopupMenu
@@ -45749,23 +45888,27 @@ object frmWaypointEditor: TfrmWaypointEditor
       Caption = 
         'Repeat the pattern, using the current position as the anchor poi' +
         'nt'
+      Visible = False
       OnClick = MenuItemOnClick
     end
     object mniRepeatthepatternreusingtheexistingwaypointpositions1: TMenuItem
       Tag = 3
       Caption = 'Repeat the pattern, reusing the existing waypoint positions'
+      Visible = False
       OnClick = MenuItemOnClick
     end
     object mniReturntolaunchingbase1: TMenuItem
       Tag = 4
       Caption = 'Return to launching base'
       Enabled = False
+      Visible = False
       OnClick = MenuItemOnClick
     end
     object mniRemoveplatformfromexercise1: TMenuItem
       Tag = 5
       Caption = 'Remove platform from exercise'
       Enabled = False
+      Visible = False
       OnClick = MenuItemOnClick
     end
     object mniStoponlastwaypoint1: TMenuItem
@@ -45778,20 +45921,19 @@ object frmWaypointEditor: TfrmWaypointEditor
     BkColor = 14215660
     Height = 32
     Width = 32
-    Left = 400
-    Top = 136
+    Left = 32
     Bitmap = {
-      494C01010A002400040020002000ECE9D800FF10FFFFFFFFFFFFFFFF424D3600
+      494C010109002400040020002000ECE9D800FF10FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000008000000060000000010020000000000000C0
       000000000000000000000000000000000000D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
-      EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
-      EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
-      EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
-      EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -45803,11 +45945,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       2A0042413C004A4A46004B4B470049494500302D29002B2723002B2723002B27
       23002B2723002B2723002B2723002B2723002B2723002B2723002B2723002B27
       23002B2723002B2723002B272300302D2900494945004B4B47004A4A46004241
-      3C00312E2A0026221D0026221D00D8E9EC00D8E9EC0026221D0026221D00312E
-      2A0042413C004A4A46004B4B470049494500302D29002B2723002B2723002B27
-      23002B2723002B2723002B2723002B2723002B2723002B2723002B2723002B27
-      23002B2723002B2723002B272300302D2900494945004B4B47004A4A46004241
       3C00312E2A0026221D0026221D00D8E9EC000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -45819,10 +45961,6 @@ object frmWaypointEditor: TfrmWaypointEditor
       47004B4B4700808079009D9D96009F9F98008F8F87006C6C660065655F006565
       5F0065655F0065655F0065655F0065655F0065655F0065655F0065655F006565
       5F0065655F0065655F0063635E0065655F0074746E008787800076766F005C5C
-      57005959550046443E0026221D00D8E9EC00D8E9EC0026221D00393732004B4B
-      47004B4B4700808079009D9D96009F9F98008F8F87006C6C660065655F006565
-      5F0065655F0065655F0065655F0065655F0065655F0065655F0065655F006565
-      5F0065655F0065655F0063635E0065655F0074746E008787800076766F005C5C
       57005959550046443E0026221D00D8E9EC000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -45831,11 +45969,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      000000000000000000000000000000000000D8E9EC00302E29004B4B47007676
-      6F00BABAB500C0C0BC00AEADA8009D9D98009C9C97009A999400989893009898
-      9300989893009898930098989300989893009898930098989300989893009898
-      93009898930098989300989792009595900094948E009F9F9900A8A8A1009D9D
-      96008F8F8700808079003F3C3700D8E9EC00D8E9EC00312E29004B4B47007676
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000D8E9EC00312E29004B4B47007676
       6F00BABAB500C0C0BC00AEADA8009D9D98009C9C97009A999400989893009898
       9300989893009898930098989300989893009898930098989300989893009898
       93009898930098989300989792009595900094948E009F9F9900A8A8A1009D9D
@@ -45847,11 +45985,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      000000000000000000000000000000000000D8E9EC0041403C0054544F00B7B7
-      B100B3B2AD0043413E0013110E0014120F001513100015131000151310001513
-      1000151310001513100015131000151310001513100015131000151310001513
-      10001513100015131000151310001513100015131000171512003D3A35007D7D
-      7600888881009F9F980076746D00D8E9EC00D8E9EC0041403C0054545000B7B7
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000D8E9EC0041403C0054545000B7B7
       B100B3B2AD0043413E0013110E0014120F001513100015131000151310001513
       1000151310001513100015131000151310001513100015131000151310001513
       10001513100015131000151310001513100015131000171512003D3A35007D7D
@@ -45863,11 +46001,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC004949450086867E00B7B7
-      B20043413D00151310001A1714001E1A17001D1A16001D1A16001D1A16001D1A
-      16001D1A16001D1A16001E1B17001E1B17001E1B17001E1B17001D1A16001D1A
-      16001D1A16001D1A16001D1A16001D1A16001E1B17001E1B1700211E19003835
-      2F0062625C00A5A59E0099999200D8E9EC00D8E9EC004949450086867E00B7B7
       B20043413D00151310001A1714001E1A17001E1B17001E1B17001E1B17001D1A
       16001D1A16001D1A16001D1A16001E1B17001E1B17001E1B17001E1B17001E1B
       17001E1B17001E1B17001E1B17001E1B17001E1B17001E1B1700211E19003835
@@ -45879,11 +46017,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      000000000000000000000000000000000000D8E9EC004B4B47009E9E9600A7A7
-      A100151310001C191500221F1A0025221C0025221C0025211B0024201B002420
-      1B0024211B0025221C0025221C0025211C0025211C0025221C0025221C002521
-      1B0024201B0024201B0024211B0025221C0025221C0025211C0034312C003A36
-      31004C4C4800A3A39C00ABABA500D8E9EC00D8E9EC004B4B47009E9E9700A7A7
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000D8E9EC004B4B47009E9E9700A7A7
       A100151310001C19150023201B0026221D0026221D0025211C0024201C002825
       1D00312E2000312D1F0028241D0024211C0025211C0026221D0026221D002622
       1D0026221D0026221D0026221D0026221D0026221D0026221D0034312C003A36
@@ -45895,11 +46033,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC0058575200A4A49D00A09F
-      9900181512001F1C180024211C002F2B1F004F4D2C0059572F0058562F005856
-      2F0059572F004F4D2D00302D1F0025211B0024201B002F2B1E004F4D2C005957
-      2F0058562F0058562F0059572F004F4D2D00302D1F0025221C003F3C37004B48
-      44004B4A4600AFAFA900ACACA700D8E9EC00D8E9EC0058575200A4A49D00A09F
       9900181512001F1C180026221D0026221D0025211C0024201B0027251C003F3D
       2500A6A656009D9D51003D3A240027241C0024201B0025211C0026221D002622
       1D0026221D0026221D0026221D0026221D0026221D0026221D00403D38004B48
@@ -45911,11 +46049,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC0033302B0096968E009F9E
-      9800181512001E1B170023201B00413D2500EDEE7C00EDEE7C00EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C004E4C2C0024211B00221F1A00413D2500EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C00EDEE7C00EDEE7C004E4C2C0025221C003E3C37004D4A
-      460050504B00B4B4AE0048454000D8E9EC00D8E9EC0033302B0096968E009F9E
       9800181512001F1C180026221D0025211C0024201B0027251C003F3C2400AEAE
       5900EDEE7C00EDEE7C00A5A554003C39230027231C0024201B0025211C002622
       1D0026221D0026221D0026221D0026221D0026221D0026221D00403D38004D4A
@@ -45927,11 +46065,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A27220072726B009B9B
-      9500181512001E1B1700231F1A0048462800EDEE7C00EDEE7C00EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C0056552F0023201A00211E190048462800EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C00EDEE7C00EDEE7C0056552F0024211B003E3B36004D4A
-      460050504B00AAAAA30036322D00D8E9EC00D8E9EC002A27220072726B009B9B
       9500181512001F1C180025211C0024201C0027251C003F3C2400AEAE5900EDEE
       7C00EDEE7C00EDEE7C00EDED7C00A5A554003C39230027231C0024201B002521
       1C0026221D0026221D0026221D0026221D0026221D0026221D00403D38004D4A
@@ -45943,11 +46081,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001E1B1700221F1A0048452700EDEE7C00EDEE7C00EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C0055542D00221E1900201C180047452600EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C00EDEE7C00EDEE7C0055542E0024201B003D3B36004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001F1C180025211C0028251C003F3D2500AEAE5900EDEE7C00E8E8
       79009B9B4D00DCDD7200EDEE7C00EDED7C00A5A554003C39230027231C002420
       1B0025211C0026221D0026221D0026221D0026221D0026221D00403D38004D4A
@@ -45959,11 +46097,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001E1B1700221F1A0048452700EDEE7C00EDEE7C00EDEE7C00EDEE
-      7C00EDEE7C00EDEE7E005E5C300025211A00231F1900504E2900EDEE7E00EDEE
-      7C00EDEE7C00EDEE7C00EDEE7C00EDEE7C0055542E0024201B003D3B36004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001E1B180028241C003E3B2500AEAE5900EDEE7C00E8E979008585
       420061602E00C1C26300EDEE7C00EDEE7C00EDED7C00A5A554003C3923002723
       1C0024201B0025211C0026221D0026221D0026221D0026221D00403D38004D4A
@@ -45975,11 +46113,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001E1B1700231F1A0048462800EDEE7C00EDEE7C00EDEE7C00EDEE
-      7C00EDEF8000EEEF8700B4B46200403E23003D3B2200ADAD5D00EEEF8700EDEF
-      8100EDEE7C00EDEE7C00EDEE7C00EDEE7C0056552F0025211B003E3B36004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001E1B17002C281E008D8C4A00EDEE7C00E8E97900868643005655
       2B00BEBE6100EDEE7C00EDEE7C00EDEE7C00EDEE7C00EDEE7C00A5A554003C39
       230027231C0024201B0025211C0026221D0026221D0026221D00403D38004D4A
@@ -45991,11 +46129,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001E1B170023201B00403D2500EDEE7C00EDEE7C00EDEE7C00EDEE
-      7D00EEEF8600EFF08E00F0F19200ABAB6100A4A35B00F0F19200EFF18F00EEEF
-      8700EDEE7E00EDEE7C00EDEE7C00EDEE7C004E4B2B0025221C003E3C37004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001E1B180029251D004C492B00C7C767008281420059572D00BEBF
       6200EAEA7A00ABAC5700E8E97900EDEE7C00EDEE7C00EDEE7C00EDEE7C00A5A5
       54003C39230027231C0024201B0025211C0026221D0026221D00403D38004D4A
@@ -46007,11 +46145,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001F1C180025211C002D291F00403D250048462800484527004F4E
-      2900A9AA5B00EFF09200F0F29700F0F19A00EFF09900F0F29700F0F19200B1B1
-      6000514F29004745260048462800413D25002E2A1F0025221C003F3C37004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001F1C180025211C002C291E003431210044422600BBBC6100EAEB
       7A008D8C460065643000C4C46500EBEC7B00A4A45200DCDD7200EDEE7C00EDEE
       7C00A5A554003C39230027231C0024201B0025211C0026221D00403D38004D4A
@@ -46023,11 +46161,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001F1C180025211C0024201B00231F1A00211E1900201D18002320
-      19003B392100A1A15900EFF09900F1F29C00F1F29C00F0F19A00A8A75E003F3C
-      220024211900201C1800211E1900231F1A0024201B0025211C003F3D38004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001F1C180025211C0025211C0024211B003F3C2600C6C667008785
       450057552C00B8B85E00EBEC7B00939349005E5D2D00B7B75D00EDEE7C00EDEE
       7C00EDEE7C00A5A554003C39230027231C0024201B0025211C003F3D38004D4A
@@ -46039,11 +46177,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001F1C180025211C0024201B00231F1A00211E1900201D18002320
-      19003C3A2200A3A35A00EFF09900F1F29C00F1F29C00F0F19A00A9A960003F3C
-      220024211900201C1800211E1900231F1A0024201B0025211C003F3D38004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001F1C180026221D0025211D0025211C002C281E00353221004341
       2600B4B45D00EBEC7B0093924A0054522A00B0B05900EDEE7C00EDEE7C00EDEE
       7C00EDEE7C00EDEE7C00A5A554003C39230027241C0024201C003F3C37004D4A
@@ -46055,11 +46193,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001F1C180025211C002D291F00403D25004846280048452700504F
-      2900AAAB5C00EFF09200F0F29700F0F19A00EFF09900F0F29700F0F19200B2B2
-      6100514F29004745260048462800413D25002E2A1F0025221C003F3C37004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001F1C180026221D0026221D0026221D0025211C0025211B003F3C
       2600C8C868008E8D490055532C00B1B15A00EDEE7C00ECED7C00E9EA7A00EDEE
       7C00EDEE7C00EDEE7C00EDEE7C00A5A554003D3A230028241C003E3B36004C49
@@ -46071,11 +46209,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001E1B170023201B00403D2500EDEE7C00EDEE7C00EDEE7C00EDEE
-      7D00EEEF8600EFF08E00F0F19200ABAB6100A4A35B00F0F19200EFF18F00EEEF
-      8700EDEE7E00EDEE7C00EDEE7C00EDEE7C004E4B2B0025221C003E3C37004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001F1C180026221D0026221D0026221D0026221D0025211C002D29
       1E0037332100423F2500AFAF5A00EDEE7C00EDED7C00A2A352008C8C4500E9EA
       7A00EDEE7C00E7E87900EDEE7C00EDEE7C00A3A35300363322003E3B35004C49
@@ -46087,11 +46225,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001E1B1700231F1A0048462800EDEE7C00EDEE7C00EDEE7C00EDEE
-      7C00EDEF8000EEEF8700B3B36200403D23003D3B2200ABAB5C00EEEF8700EDEF
-      8100EDEE7C00EDEE7C00EDEE7C00EDEE7C0056552F0025211B003E3B36004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001F1C180026221D0026221D0026221D0026221D0026221D002521
       1C0024201B003B392300CECE6B00EDEE7C00A2A2520056552B00A6A65300EDED
       7C00B5B55C007D7D3C00DFDF7400EDEE7C00E7E87900514F2E003D3B36004C49
@@ -46103,11 +46241,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001E1B1700221F1A0048452700EDEE7C00EDEE7C00EDEE7C00EDEE
-      7C00EDEE7C00EDEE7E005E5C300025211A00231F1900504E2900EDEE7E00EDEE
-      7C00EDEE7C00EDEE7C00EDEE7C00EDEE7C0055542E0024201B003D3B36004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001F1C180026221D0026221D0026221D0026221D0026221D002521
       1D0025211C002C291F004B492A008483450052502B00A4A35300EDEE7C00B6B6
       5C005554290094944900EAEB7A00E7E87900807E4200322F20003E3B36004C49
@@ -46119,11 +46257,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A2722006A6A65009999
-      9300181512001E1B1700221F1A0048452700EDEE7C00EDEE7C00EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C0055542D00221E1900201C180047452600EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C00EDEE7C00EDEE7C0055542E0024201B003D3B36004D4A
-      46004F4F4B00A7A7A10035322D00D8E9EC00D8E9EC002A2722006A6A65009999
       9300181512001F1C180026221D0026221D0026221D0026221D0026221D002622
       1D0025211C0025211C0027231C00312D200085844600EDEE7C00B7B65D005654
       2B008F8F4700EAEB7A00E7E87800807F41003531210025211C003E3B36004C49
@@ -46135,11 +46273,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC002A272200676761009898
-      9100181512001E1B1700231F1A0048462800EDEE7C00EDEE7C00EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C0056552F0023201A00211E190048462800EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C00EDEE7C00EDEE7C0056552F0024211B003E3B36004D4A
-      46004B4A4600A2A29B0034312C00D8E9EC00D8E9EC002A272200676761009898
       9100181512001F1C180026221D0026221D0026221D0026221D0026221D002622
       1D0026221D0025211D0025211C0027241C004542280094934D0054522B00908F
       4900EAEB7A00E7E87800807F41003531210025211B0025211C003F3C37004D4A
@@ -46151,11 +46289,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC00302D28005E5E59009494
-      8D00181512001E1B170023201B00413D2500EDEE7C00EDEE7C00EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C004E4C2C0024211B00221F1A00413D2500EDEE7C00EDEE
-      7C00EDEE7C00EDEE7C00EDEE7C00EDEE7C004E4C2C0025221C003E3C37004D4A
-      46004747430086867F00423F3900D8E9EC00D8E9EC00302D28005E5E59009494
       8D00181512001F1C180026221D0026221D0026221D0026221D0026221D002622
       1D0026221D0026221D0026221D0025211C0029261D00312D200075743E00EAEB
       7A00E7E87800808042003531210025211C0025211C0025211D00403D38004D4A
@@ -46167,11 +46305,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC00494945006A6A64009191
-      8A00181613001F1C180024211C002F2B1F004F4D2C0059572F0058562F005856
-      2F0059572F004F4D2D00302D1F0025211B0024201B002F2B1E004F4D2C005957
-      2F0058562F0058562F0059572F004F4D2D00302D1F0025221C00433F3B00504C
-      4800474743007A7A73008D8C8500D8E9EC00D8E9EC00494945006A6A64009191
       8A00181613001F1C180026221D0026221D0026221D0026221D0026221D002622
       1D0026221D0026221D0026221D0026221D0025211C0027241C0048462A00C6C6
       67007D7B41003632210025211C0025211C0025211D0026221D0044403C00504C
@@ -46183,11 +46321,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC004B4B470082827B009594
-      8D001B1A1500201D190028241F0025221C0025221C0025211B0024201B002420
-      1B0024211B0025221C0025221C0025211C0025211C0025221C0025221C002521
-      1B0024201B0024201B0024211B0025221C0025221C0034312C00514E4A005E5B
-      5700494844008A8A8200A6A69F00D8E9EC00D8E9EC004B4B470082827B009594
       8D001B1A1500201D19002925200026221D0026221D0026221D0026221D002622
       1D0026221D0026221D0026221D0026221D0025211D0025211C002C281E003431
       22002F2B1F0026221C0025211C0025211D0026221D0035322D00524F4B005E5B
@@ -46199,11 +46337,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC0049484400797972009898
-      90003D3B360026221D0045423F004B4844004A47430049464300494642004946
-      4200494643004A4743004B4844004B4844004B4844004B4844004A4743004946
-      43004946420049464200494643004A4743004F4B47005C5956006D6A67005653
-      4F004B4B47009F9F9700A6A6A000D8E9EC00D8E9EC0049484400797972009898
       90003D3B360026221D0046433F004C4945004C4945004C4945004C4945004C49
       45004C4945004C4945004C4945004C4945004B4844004B4844004A4743004946
       43004A4743004A4743004B4844004C494500504C48005D5A57006D6A67005653
@@ -46215,11 +46353,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      000000000000000000000000000000000000D8E9EC004D4C470073736D009191
-      8A0064645F003C3A3500524F4B00615E5A0063605D0063605D0063605D006360
-      5D0063605D0063605D0063605D0063605D0063605D0063605D0063605D006360
-      5D0063605D0063605D0063605D0063605D0066635F006F6C6900585652004948
-      440060605B00B5B5B0008E8D8800D8E9EC00D8E9EC004D4C470073736D009292
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000D8E9EC004D4C470073736D009292
       8A0064645F003C3A3500524F4B00615E5A0063605D0063605D0063605D006360
       5D0063605D0063605D0063605D0063605D0063605D0063605D00625F5C00625F
       5C00625F5C0063605D0063605D0063605D0066635F006F6C6900585652004948
@@ -46231,11 +46369,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      000000000000000000000000000000000000D8E9EC0038352F007D7D76009797
-      8F007D7D77004B4B470049494500474742004747430047474300474743004747
-      4300474743004747430047474300474743004747430047474300474743004747
-      43004747430047474300474743004747430047474300494945004B4B47005E5E
-      5900B2B2AC00C0C0BB004C494400D8E9EC00D8E9EC00383530007D7D76009797
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000D8E9EC00383530007D7D76009797
       8F007D7D77004B4B470049494500474742004747430047474300474743004747
       4300474743004747430047474300474743004747430047474300474743004747
       43004747430047474300474743004747430047474300494945004B4B47005E5E
@@ -46247,11 +46385,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC0026221D00504E48009696
-      8E00A9A9A200ACACA600A4A49E00ADADA700B4B4AF00B3B3AD00B1B1AB00B1B1
-      AB00B1B1AB00B1B1AB00B1B1AB00B1B1AB00B1B1AB00B1B1AB00B1B1AB00B1B1
-      AB00B1B1AB00B1B1AB00ADADA600989890008787800091918A00A7A7A000BCBC
-      B700C2C2BE006B69640026221D00D8E9EC00D8E9EC0026221D00504E48009696
       8E00A9A9A200ACACA600A4A49E00ADADA700B4B4AF00B3B3AD00B1B1AB00B1B1
       AB00B1B1AB00B1B1AB00B1B1AB00B1B1AB00B1B1AB00B1B1AB00B1B1AB00B1B1
       AB00B1B1AB00B1B1AB00ADADA600989890008787800091918A00A7A7A000BCBC
@@ -46263,11 +46401,11 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC0026221D0026221D00413E
-      39007D7B7500A3A39D00AFAFAA00AEADA90047443F00302C2700302C2700302C
-      2700302C2700302C2700302C2700302C2700302C2700302C2700302C2700302C
-      2700302C2700302C27002F2C2700403D380097969000ABABA500ADADA800908F
-      8A004B48430026221D0026221D00D8E9EC00D8E9EC0026221D0026221D00413E
       39007D7B7500A3A39D00AFAFAA00AEADA90047443F00302C2700302C2700302C
       2700302C2700302C2700302C2700302C2700302C2700302C2700302C2700302C
       2700302C2700302C27002F2C2700403D380097969000ABABA500ADADA800908F
@@ -46279,15 +46417,19 @@ object frmWaypointEditor: TfrmWaypointEditor
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
-      EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
-      EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
-      EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
-      EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -47321,23 +47463,23 @@ object frmWaypointEditor: TfrmWaypointEditor
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00424D3E000000000000003E000000
       2800000080000000600000000100010000000000000600000000000000000000
-      000000000000000000000000FFFFFF00FFFFFFFFFFFFFFFF0000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      8000000180000001000000000000000080000001800000010000000000000000
-      FFFFFFFFFFFFFFFF0000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      000000000000000000000000FFFFFF00FFFFFFFF000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      8000000100000000000000000000000080000001000000000000000000000000
+      FFFFFFFF000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       8000000180000001800000018000000180000001800000018000000180000001
       8000000180000001800000018000000180000001800000018000000180000001
       8000000180000001800000018000000180000001800000018000000180000001

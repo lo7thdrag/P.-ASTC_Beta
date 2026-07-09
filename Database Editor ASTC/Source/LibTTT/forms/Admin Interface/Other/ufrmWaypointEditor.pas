@@ -44,9 +44,6 @@ type
     imgBackground: TImage;
     ilToolbar: TImageList;
     pnlListWP: TPanel;
-    btnAdd: TSpeedButton;
-    btnDelete: TSpeedButton;
-    btnDeleteAll: TSpeedButton;
     lvWaypoint: TListView;
     pnlTermination: TPanel;
     lbl7: TLabel;
@@ -93,6 +90,10 @@ type
     lblGridLong: TLabel;
     lblPosLong: TLabel;
     lblPosLat: TLabel;
+    pnl1: TPanel;
+    btnAdd: TSpeedButton;
+    btnDelete: TSpeedButton;
+    btnDeleteAll: TSpeedButton;
     procedure btnIncreaseClick(Sender: TObject);
     procedure cbSetScaleChange(Sender: TObject);
     procedure btnDecreaseClick(Sender: TObject);
@@ -105,8 +106,6 @@ type
     procedure Map1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
-    procedure Map1MouseUp(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -134,13 +133,12 @@ type
     FConverter : TCoordConverter;
     FListWpData : TList;
 
-    FMapCursor : E_WaypointMapCursor;
-
     FCentLong  : double;
     FCentLatt  : double;
 
     FSelectedWaypoint : TWaypoint_Def;
     FSelectedWaypointData : TWaypoint_Data;
+    FMapCursor : E_WaypointMapCursor;
 
     TerminationIndex : Integer;
 
@@ -150,16 +148,12 @@ type
     procedure RefreshListWaypoint;
     procedure getTermination(TerminationIndex : Integer);
     procedure ClearDataForm;
-    procedure LoadNormalButtonImage;
 
     procedure UpdateSelectedWaypointData;
-    procedure UpdateTerminationData;
-
 
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
-    property SelectedWaypoint : TWaypoint_Def read FSelectedWaypoint write FSelectedWaypoint;
 
     procedure LoadMap(Geoset: String);
     procedure OnSelectedWaypoint(Long,Lat : double);
@@ -169,6 +163,7 @@ type
     procedure EditFlagPoint(id: Integer; mx, my: Double);
 
     property MapCursor: E_WaypointMapCursor read FMapCursor write FMapCursor;
+    property SelectedWaypoint : TWaypoint_Def read FSelectedWaypoint write FSelectedWaypoint;
   end;
 
 var
@@ -192,9 +187,9 @@ begin
 
   FCanvas  := TCanvas.Create;
   FConverter := TCoordConverter.Create;
+  FConverter.FMap := Map1;
 
   FListWpData := TList.Create;
-  FSelectedWaypoint := TWaypoint_Def.Create;
 
   DrawFlagPoint := TDrawFlagPoint.Create;
   DrawFlagPoint.Converter := FConverter;
@@ -206,9 +201,9 @@ procedure TfrmWaypointEditor.FormDestroy(Sender: TObject);
 begin
   FCanvas.Free;
   FConverter.Free;
-//  FListWpData.Free;
+
   FreeItemsAndFreeList(FListWpData);
-  FSelectedWaypoint.Free;
+  DrawFlagPoint.Free;
 end;
 
 procedure TfrmWaypointEditor.FormResize(Sender: TObject);
@@ -218,9 +213,7 @@ end;
 
 procedure TfrmWaypointEditor.FormShow(Sender: TObject);
 begin
-  LoadMap(vAppDBSetting.Pattern);
-
-  FConverter.FMap := Map1;
+  LoadMap(vAppDBSetting.MapOverlayStatic);
 
   cbSetScale.ItemIndex := cbSetScale.Items.Count -1;
   cbSetScaleChange(Sender);
@@ -231,10 +224,6 @@ begin
   FCentLatt := -0.328853651464508;
 
   UpdateSelectedWaypointData;
-
-  UpdateTerminationData;
-
-  pnlWPDetail.Visible := False;
 end;
 
 procedure TfrmWaypointEditor.getTermination(TerminationIndex: Integer);
@@ -264,11 +253,9 @@ begin
     begin
       if TSpeedButton(Sender).Down then
       begin
-        LoadNormalButtonImage;
         btnZoom.Down := False;
         btnPan.Down := False;
         btnSelect.Down := False;
-
 
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
@@ -283,12 +270,8 @@ begin
     2 :
     begin
       RefreshCursor;
-      LoadNormalButtonImage;
       btnZoom.Down := False;
       btnPan.Down := False;
-      btnZoom.ImageIndex := 2;
-      btnPan.ImageIndex := 3;
-      btnSelect.ImageIndex := 8; //btn select ke-select
 
       if lvWaypoint.Selected = nil then
         Exit;
@@ -299,7 +282,7 @@ begin
 
       btnSave.Enabled := true;
 
-      pnlWPDetail.Visible := False;
+//      pnlWPDetail.Visible := False;
     end;
     3 :
     begin
@@ -321,7 +304,6 @@ end;
 procedure TfrmWaypointEditor.btnControlComboIntervalClick(Sender: TObject);
 begin
   RefreshCursor;
-  LoadNormalButtonImage;
   btnZoom.Down := False;
   btnPan.Down := False;
   btnSelect.Down := False;
@@ -376,12 +358,10 @@ var
 begin
   if lvWaypoint.Selected = nil then
   begin
-    pnlWPDetail.Visible := False;
     Exit;
   end;
 
   btnSelect.Down := true;
-  btnSelect.ImageIndex := 8;
   btnZoom.Down := False;
   btnPan.Down := False;
   btnCenterGame.Down := False;
@@ -395,7 +375,6 @@ begin
   edtSpeed.Text := FormatFloat('0.00', FSelectedWaypointData.FData.Speed);
   edtAltitude.Text := FormatFloat('0.00', FSelectedWaypointData.FData.Altitude);
 
-  pnlWPDetail.Visible := True;
 end;
 
 procedure TfrmWaypointEditor.Map1DrawUserLayer(ASender: TObject;
@@ -450,29 +429,29 @@ begin
   end;
 
   {$REGION ' Menggambar Ruler '}
-  if frmRuler.isshow then
-  begin
-    DrawFlagPoint.Draw(FCanvas);
-
-    if DrawFlagPoint.FList.Count = 2 then
-    begin
-      itemStart := DrawFlagPoint.FList[0];
-      itemEnd := DrawFlagPoint.FList[1];
-
-      FConverter.ConvertToScreen(itemStart.Post.X, itemStart.Post.Y, sx, sy);
-      FConverter.ConvertToScreen(itemEnd.Post.X, itemEnd.Post.Y, ex, ey);
-
-      with FCanvas do
-      begin
-        Brush.Style := bsClear;
-        Pen.Color := clYellow  ;
-        Pen.Width:= 2;
-        MoveTo(sx, sy);
-        LineTo(ex, ey);
-      end;
-    end;
-  end;
-  {$ENDREGION}
+//  if frmRuler.isshow then
+//  begin
+//    DrawFlagPoint.Draw(FCanvas);
+//
+//    if DrawFlagPoint.FList.Count = 2 then
+//    begin
+//      itemStart := DrawFlagPoint.FList[0];
+//      itemEnd := DrawFlagPoint.FList[1];
+//
+//      FConverter.ConvertToScreen(itemStart.Post.X, itemStart.Post.Y, sx, sy);
+//      FConverter.ConvertToScreen(itemEnd.Post.X, itemEnd.Post.Y, ex, ey);
+//
+//      with FCanvas do
+//      begin
+//        Brush.Style := bsClear;
+//        Pen.Color := clYellow  ;
+//        Pen.Width:= 2;
+//        MoveTo(sx, sy);
+//        LineTo(ex, ey);
+//      end;
+//    end;
+//  end;
+//  {$ENDREGION}
 end;
 
 procedure TfrmWaypointEditor.Map1MapViewChanged(Sender: TObject);
@@ -534,19 +513,6 @@ end;
 procedure TfrmWaypointEditor.Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
   UpdateCursorPositionData(X, Y);
-
-//  FConverter.ConvertToMap(X, Y, xx, yy);
-//
-//  lblBearing.Caption  := FormatFloat('0.00', CalcBearing(Map1.CenterX, Map1.CenterY, xx, yy));
-//  lblDistance.Caption := FormatFloat('0.00', FConverter.Distance_nmi(Map1.CenterX, Map1.CenterY, xx, yy));
-//  getGridCursorPos;
-
-end;
-
-procedure TfrmWaypointEditor.Map1MouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-begin
-
-  //
 end;
 
 procedure TfrmWaypointEditor.MenuItemOnClick(Sender: TObject);
@@ -651,8 +617,7 @@ end;
 procedure TfrmWaypointEditor.RefreshListWaypoint;
 var
   i : integer;
-  speed:Double;
-  Altitude:Double;
+
 begin
   lvWaypoint.Clear;
   for I := 0 to FListWpData.Count - 1 do
@@ -709,20 +674,22 @@ var
 begin
   lvWaypoint.Clear;
 
-  with FSelectedWaypoint.FData do
+  dmTTT.GetWaypointData(FSelectedWaypoint.FData.Waypoint_Index, FListWpData);
+
+  for I := 0 to FListWpData.Count - 1 do
   begin
-    dmTTT.GetWaypointData(Waypoint_Index, FListWpData)
+    with lvWaypoint.Items.Add do
+    begin
+      Data := FListWpData.Items[i];
+      Caption := IntToStr(i + 1);
+      SubItems.Add(formatDMS_latt(TWaypoint_Data(FListWpData.Items[i]).FData.Waypoint_Latitude));
+      SubItems.Add(formatDMS_long(TWaypoint_Data(FListWpData.Items[i]).FData.Waypoint_Longitude));
+      SubItems.Add(FormatFloat('0.00',(TWaypoint_Data(FListWpData.Items[i]).FData.Speed)));
+      SubItems.Add(FormatFloat('0.00',(TWaypoint_Data(FListWpData.Items[i]).FData.Altitude)));
+    end;
   end;
 
-  RefreshListWaypoint;
-end;
-
-procedure TfrmWaypointEditor.UpdateTerminationData;
-begin
-  with FSelectedWaypoint.FData do
-  begin
-    getTermination(Termination);
-  end;
+  getTermination(FSelectedWaypoint.FData.Termination);
 end;
 
 procedure TfrmWaypointEditor.GbrFlagPoint(mx, my: Double);
@@ -771,7 +738,6 @@ end;
 procedure TfrmWaypointEditor.btnGameArea1Click(Sender: TObject);
 begin
   frmGameAreaPickList := TfrmGameAreaPickList.Create(Self);
-  btnGameArea1.ImageIndex := 10;
   try
     with frmGameAreaPickList do
     begin
@@ -780,12 +746,9 @@ begin
 
     end;
   finally
-//   btngamearea1.ImageIndex := 11;
-        frmGameAreaPickList.Free;
+    frmGameAreaPickList.Free;
   end;
-//       btnSelect.Picture.LoadFromFile
-//    ('data\Image DBEditor\Interface\Button\Db1.PNG');
-//  pnlStatic.Visible := false;
+
 end;
 
 procedure TfrmWaypointEditor.btnIncreaseClick(Sender: TObject);
@@ -805,12 +768,9 @@ begin
   btnSelect.Down := false;
 
   FMapCursor := mcSelect;
-  LoadNormalButtonImage;
 
   Map1.CurrentTool  := miPanTool;
   Map1.MousePointer := miPanCursor;
-
-  btnPan.ImageIndex := 7;
 end;
 
 
@@ -823,7 +783,6 @@ begin
     with frmRuler do
     begin
       IDForm := 0;
-      btnruler.ImageIndex := 13;
       Show;
     end;
   end
@@ -831,7 +790,7 @@ begin
   begin
 
     frmRuler.Hide;
-       Map1.Repaint;
+    Map1.Repaint;
   end;
 
 end;
@@ -844,7 +803,7 @@ var
 begin
   if edtTermination.Text = '' then
   begin
-    ShowMessage('Input Termination First');
+    ShowMessage('Termination belum dipilih');
     Exit;
   end;
 
@@ -870,17 +829,18 @@ begin
     FData.Termination := TerminationIndex;
 
     if FData.Waypoint_Index = 0 then
-      dmTTT.InsertWaypointDef(FData)
+    begin
+      dmTTT.InsertWaypointDef(FData);
+      ShowMessage('Data berhasil disimpan');
+    end
     else
+    begin
       dmTTT.UpdateWaypointDef(FData);
+      ShowMessage('Data berhasil diperbarui');
+    end;
   end;
 
-  ShowMessage('Data has been saved');
-
   RefreshCursor;
-  btnZoom.ImageIndex := 2;
-  btnPan.ImageIndex := 3;
-  btnSelect.ImageIndex := 8;
   btnSelect.Down := true;
 
   btnSave.Enabled := False;
@@ -891,8 +851,6 @@ end;
 
 procedure TfrmWaypointEditor.btnSelectClick(Sender: TObject);
 begin
-  LoadNormalButtonImage;
-
   btnSelect.Down := not btnSelect.Down;
 
   if btnAdd.Down = true then
@@ -905,7 +863,6 @@ begin
   Map1.CurrentTool := miSelectTool;
   Map1.MousePointer := miDefaultCursor;
 
-  btnSelect.ImageIndex := 8;
 end;
 
 procedure TfrmWaypointEditor.btnUpdateClick(Sender: TObject);
@@ -932,12 +889,9 @@ begin
   btnSelect.Down := false;
 
   FMapCursor := mcSelect;
-  LoadNormalButtonImage;
 
   Map1.CurrentTool  := miZoomInTool;
   Map1.MousePointer := miZoomInCursor;
-
-  btnZoom.ImageIndex := 6;
 end;
 
 procedure TfrmWaypointEditor.cbSetScaleChange(Sender: TObject);
@@ -993,22 +947,10 @@ begin
   Map1.CenterY := FCentLatt;
 end;
 
-procedure TfrmWaypointEditor.LoadNormalButtonImage;
-begin
-  btnZoom.ImageIndex := 2;
-  btnPan.ImageIndex := 3;
-  btnSelect.ImageIndex := 5;
-   btnruler.ImageIndex := 12;
-//  btnGameArea.ImageIndex := 9;
-end;
-
 procedure TfrmWaypointEditor.btnCloseClick(Sender: TObject);
 begin
   AfterClose := false;
   RefreshCursor;
-  btnZoom.ImageIndex := 2;
-  btnPan.ImageIndex := 3;
-  btnSelect.ImageIndex := 8;
   btnSelect.Down := true;
   btnSave.Enabled := false;
   Close;

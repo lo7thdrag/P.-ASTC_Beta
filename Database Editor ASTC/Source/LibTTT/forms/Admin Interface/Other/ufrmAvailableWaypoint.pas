@@ -98,7 +98,7 @@ begin
   try
     with frmSummaryWaypoint do
     begin
-       SelectedWaypoint := TWaypoint_Def.Create;
+      SelectedWaypoint := TWaypoint_Def.Create;
       ShowModal;
       FUpdateList := AfterClose;
     end;

@@ -44854,7 +44854,7 @@ object frmWaypointEditor: TfrmWaypointEditor
     object pnl2Editor: TPanel
       Left = 10
       Top = 25
-      Width = 308
+      Width = 389
       Height = 833
       ParentCustomHint = False
       Align = alLeft
@@ -44874,7 +44874,7 @@ object frmWaypointEditor: TfrmWaypointEditor
       object pnlOverlayEditor: TPanel
         Left = 0
         Top = 0
-        Width = 308
+        Width = 389
         Height = 833
         ParentCustomHint = False
         Align = alClient
@@ -44891,10 +44891,11 @@ object frmWaypointEditor: TfrmWaypointEditor
         ParentCtl3D = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 308
         object pnlListWP: TPanel
           Left = 0
           Top = 0
-          Width = 308
+          Width = 389
           Height = 547
           Align = alClient
           BevelOuter = bvNone
@@ -44906,89 +44907,12 @@ object frmWaypointEditor: TfrmWaypointEditor
           ExplicitTop = 6
           ExplicitWidth = 295
           ExplicitHeight = 285
-          object btnAdd: TSpeedButton
-            Tag = 1
-            Left = 196
-            Top = 509
-            Width = 30
-            Height = 30
-            Hint = 'Add Waypoint'
-            AllowAllUp = True
-            GroupIndex = 1
-            Glyph.Data = {
-              76010000424D7601000000000000760000002800000020000000100000000100
-              04000000000000010000130B0000130B00001000000000000000000000000000
-              800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-              FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-              33333333FF33333333FF333993333333300033377F3333333777333993333333
-              300033F77FFF3333377739999993333333333777777F3333333F399999933333
-              33003777777333333377333993333333330033377F3333333377333993333333
-              3333333773333333333F333333333333330033333333F33333773333333C3333
-              330033333337FF3333773333333CC333333333FFFFF77FFF3FF33CCCCCCCCCC3
-              993337777777777F77F33CCCCCCCCCC3993337777777777377333333333CC333
-              333333333337733333FF3333333C333330003333333733333777333333333333
-              3000333333333333377733333333333333333333333333333333}
-            NumGlyphs = 2
-            ParentShowHint = False
-            ShowHint = True
-            OnClick = btnWaypointHadleClick
-          end
-          object btnDelete: TSpeedButton
-            Tag = 2
-            Left = 232
-            Top = 509
-            Width = 30
-            Height = 30
-            Hint = 'Delete Selected Waypoint'
-            AllowAllUp = True
-            Glyph.Data = {
-              76010000424D7601000000000000760000002800000020000000100000000100
-              04000000000000010000130B0000130B00001000000000000000000000000000
-              800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-              FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-              333333333333333333FF33333333333330003333333333333777333333333333
-              300033FFFFFF3333377739999993333333333777777F3333333F399999933333
-              3300377777733333337733333333333333003333333333333377333333333333
-              3333333333333333333F333333333333330033333F33333333773333C3333333
-              330033337F3333333377333CC3333333333333F77FFFFFFF3FF33CCCCCCCCCC3
-              993337777777777F77F33CCCCCCCCCC399333777777777737733333CC3333333
-              333333377F33333333FF3333C333333330003333733333333777333333333333
-              3000333333333333377733333333333333333333333333333333}
-            NumGlyphs = 2
-            ParentShowHint = False
-            ShowHint = True
-            OnClick = btnWaypointHadleClick
-          end
-          object btnDeleteAll: TSpeedButton
-            Tag = 3
-            Left = 269
-            Top = 509
-            Width = 30
-            Height = 30
-            Hint = 'Delete All Waypoints'
-            Glyph.Data = {
-              76010000424D7601000000000000760000002800000020000000100000000100
-              04000000000000010000130B0000130B00001000000000000000000000000000
-              800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-              FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-              3333333333FFFFF3333333333999993333333333F77777FFF333333999999999
-              33333337777FF377FF3333993370739993333377FF373F377FF3399993000339
-              993337777F777F3377F3393999707333993337F77737333337FF993399933333
-              399377F3777FF333377F993339903333399377F33737FF33377F993333707333
-              399377F333377FF3377F993333101933399377F333777FFF377F993333000993
-              399377FF3377737FF7733993330009993933373FF3777377F7F3399933000399
-              99333773FF777F777733339993707339933333773FF7FFF77333333999999999
-              3333333777333777333333333999993333333333377777333333}
-            NumGlyphs = 2
-            ParentShowHint = False
-            ShowHint = True
-            OnClick = btnWaypointHadleClick
-          end
           object lvWaypoint: TListView
-            Left = 7
+            Left = 10
             Top = 10
-            Width = 294
-            Height = 487
+            Width = 369
+            Height = 486
+            Align = alClient
             Columns = <
               item
                 Caption = 'No'
@@ -44997,24 +44921,23 @@ object frmWaypointEditor: TfrmWaypointEditor
               item
                 Alignment = taCenter
                 Caption = 'Latitude'
-                Width = 85
+                Width = 100
               end
               item
                 Alignment = taCenter
                 Caption = 'Longitude'
-                Width = 85
+                Width = 100
               end
               item
                 Alignment = taCenter
                 Caption = 'Speed'
-                Width = 45
               end
               item
                 Alignment = taCenter
                 Caption = 'Altitude'
                 MaxWidth = 100
                 MinWidth = 5
-                Width = 55
+                Width = 85
               end>
             Font.Charset = ANSI_CHARSET
             Font.Color = clWindowText
@@ -45027,12 +44950,104 @@ object frmWaypointEditor: TfrmWaypointEditor
             TabOrder = 0
             ViewStyle = vsReport
             OnClick = lvWaypointClick
+            ExplicitWidth = 330
+          end
+          object pnl1: TPanel
+            Left = 10
+            Top = 496
+            Width = 369
+            Height = 41
+            Align = alBottom
+            BevelOuter = bvNone
+            Color = 2499101
+            TabOrder = 1
+            ExplicitLeft = -2
+            ExplicitTop = 408
+            ExplicitWidth = 288
+            object btnAdd: TSpeedButton
+              Tag = 1
+              Left = 271
+              Top = 10
+              Width = 30
+              Height = 30
+              Hint = 'Add Waypoint'
+              AllowAllUp = True
+              GroupIndex = 1
+              Glyph.Data = {
+                76010000424D7601000000000000760000002800000020000000100000000100
+                04000000000000010000130B0000130B00001000000000000000000000000000
+                800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+                FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+                33333333FF33333333FF333993333333300033377F3333333777333993333333
+                300033F77FFF3333377739999993333333333777777F3333333F399999933333
+                33003777777333333377333993333333330033377F3333333377333993333333
+                3333333773333333333F333333333333330033333333F33333773333333C3333
+                330033333337FF3333773333333CC333333333FFFFF77FFF3FF33CCCCCCCCCC3
+                993337777777777F77F33CCCCCCCCCC3993337777777777377333333333CC333
+                333333333337733333FF3333333C333330003333333733333777333333333333
+                3000333333333333377733333333333333333333333333333333}
+              NumGlyphs = 2
+              ParentShowHint = False
+              ShowHint = True
+              OnClick = btnWaypointHadleClick
+            end
+            object btnDelete: TSpeedButton
+              Tag = 2
+              Left = 305
+              Top = 10
+              Width = 30
+              Height = 30
+              Hint = 'Delete Selected Waypoint'
+              AllowAllUp = True
+              Glyph.Data = {
+                76010000424D7601000000000000760000002800000020000000100000000100
+                04000000000000010000130B0000130B00001000000000000000000000000000
+                800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+                FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+                333333333333333333FF33333333333330003333333333333777333333333333
+                300033FFFFFF3333377739999993333333333777777F3333333F399999933333
+                3300377777733333337733333333333333003333333333333377333333333333
+                3333333333333333333F333333333333330033333F33333333773333C3333333
+                330033337F3333333377333CC3333333333333F77FFFFFFF3FF33CCCCCCCCCC3
+                993337777777777F77F33CCCCCCCCCC399333777777777737733333CC3333333
+                333333377F33333333FF3333C333333330003333733333333777333333333333
+                3000333333333333377733333333333333333333333333333333}
+              NumGlyphs = 2
+              ParentShowHint = False
+              ShowHint = True
+              OnClick = btnWaypointHadleClick
+            end
+            object btnDeleteAll: TSpeedButton
+              Tag = 3
+              Left = 339
+              Top = 10
+              Width = 30
+              Height = 30
+              Hint = 'Delete All Waypoints'
+              Glyph.Data = {
+                76010000424D7601000000000000760000002800000020000000100000000100
+                04000000000000010000130B0000130B00001000000000000000000000000000
+                800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+                FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+                3333333333FFFFF3333333333999993333333333F77777FFF333333999999999
+                33333337777FF377FF3333993370739993333377FF373F377FF3399993000339
+                993337777F777F3377F3393999707333993337F77737333337FF993399933333
+                399377F3777FF333377F993339903333399377F33737FF33377F993333707333
+                399377F333377FF3377F993333101933399377F333777FFF377F993333000993
+                399377FF3377737FF7733993330009993933373FF3777377F7F3399933000399
+                99333773FF777F777733339993707339933333773FF7FFF77333333999999999
+                3333333777333777333333333999993333333333377777333333}
+              NumGlyphs = 2
+              ParentShowHint = False
+              ShowHint = True
+              OnClick = btnWaypointHadleClick
+            end
           end
         end
         object pnlWPDetail: TPanel
           Left = 0
           Top = 557
-          Width = 308
+          Width = 389
           Height = 192
           Align = alBottom
           BevelOuter = bvNone
@@ -45058,7 +45073,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           object Bevel1: TBevel
             Left = 69
             Top = 16
-            Width = 217
+            Width = 310
             Height = 3
           end
           object lbl2: TLabel
@@ -45075,7 +45090,7 @@ object frmWaypointEditor: TfrmWaypointEditor
             ParentFont = False
           end
           object btnControlComboInterval: TSpeedButton
-            Left = 262
+            Left = 355
             Top = 28
             Width = 24
             Height = 50
@@ -45116,7 +45131,7 @@ object frmWaypointEditor: TfrmWaypointEditor
             ParentFont = False
           end
           object lbl4: TLabel
-            Left = 187
+            Left = 196
             Top = 86
             Width = 29
             Height = 15
@@ -45142,7 +45157,7 @@ object frmWaypointEditor: TfrmWaypointEditor
             ParentFont = False
           end
           object lbl5: TLabel
-            Left = 187
+            Left = 196
             Top = 113
             Width = 20
             Height = 15
@@ -45155,7 +45170,7 @@ object frmWaypointEditor: TfrmWaypointEditor
             ParentFont = False
           end
           object btnUpdate: TSpeedButton
-            Left = 201
+            Left = 293
             Top = 153
             Width = 86
             Height = 30
@@ -45170,9 +45185,9 @@ object frmWaypointEditor: TfrmWaypointEditor
             OnClick = btnUpdateClick
           end
           object edtLat: TEdit
-            Left = 117
+            Left = 126
             Top = 28
-            Width = 142
+            Width = 223
             Height = 23
             Font.Charset = ANSI_CHARSET
             Font.Color = clBlack
@@ -45183,9 +45198,9 @@ object frmWaypointEditor: TfrmWaypointEditor
             TabOrder = 0
           end
           object edtLong: TEdit
-            Left = 117
+            Left = 126
             Top = 55
-            Width = 142
+            Width = 223
             Height = 23
             Font.Charset = ANSI_CHARSET
             Font.Color = clBlack
@@ -45196,7 +45211,7 @@ object frmWaypointEditor: TfrmWaypointEditor
             TabOrder = 1
           end
           object edtSpeed: TEdit
-            Left = 117
+            Left = 126
             Top = 82
             Width = 63
             Height = 23
@@ -45209,7 +45224,7 @@ object frmWaypointEditor: TfrmWaypointEditor
             TabOrder = 2
           end
           object edtAltitude: TEdit
-            Left = 117
+            Left = 126
             Top = 109
             Width = 63
             Height = 23
@@ -45225,18 +45240,19 @@ object frmWaypointEditor: TfrmWaypointEditor
         object pnl2SparatorHor1: TPanel
           Left = 0
           Top = 547
-          Width = 308
+          Width = 389
           Height = 10
           Align = alBottom
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 2
           ExplicitTop = 154
+          ExplicitWidth = 308
         end
         object pnlTermination: TPanel
           Left = 0
           Top = 759
-          Width = 308
+          Width = 389
           Height = 74
           Align = alBottom
           BevelOuter = bvNone
@@ -45262,7 +45278,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           object bvl2: TBevel
             Left = 88
             Top = 15
-            Width = 198
+            Width = 291
             Height = 3
           end
           object lbl8: TLabel
@@ -45279,7 +45295,7 @@ object frmWaypointEditor: TfrmWaypointEditor
             ParentFont = False
           end
           object btnAction: TSpeedButton
-            Left = 262
+            Left = 355
             Top = 35
             Width = 24
             Height = 23
@@ -45336,7 +45352,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           object edtTermination: TEdit
             Left = 88
             Top = 35
-            Width = 170
+            Width = 261
             Height = 23
             Enabled = False
             Font.Charset = ANSI_CHARSET
@@ -45351,33 +45367,37 @@ object frmWaypointEditor: TfrmWaypointEditor
         object pnl2SparatorHor2: TPanel
           Left = 0
           Top = 749
-          Width = 308
+          Width = 389
           Height = 10
           Align = alBottom
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 4
           ExplicitTop = 778
+          ExplicitWidth = 308
         end
       end
     end
     object pnl3Map: TPanel
-      Left = 320
+      Left = 409
       Top = 25
-      Width = 1270
-      Height = 828
+      Width = 1181
+      Height = 833
+      Align = alClient
       BevelOuter = bvNone
       Color = 3683636
       TabOrder = 1
+      ExplicitLeft = 320
+      ExplicitWidth = 1270
+      ExplicitHeight = 828
       object Map1: TMap
         Left = 0
         Top = 45
-        Width = 1270
-        Height = 728
+        Width = 1181
+        Height = 733
         ParentColor = False
         Align = alClient
         TabOrder = 0
-        OnMouseUp = Map1MouseUp
         OnMouseMove = Map1MouseMove
         OnMouseDown = Map1MouseDown
         OnMapViewChanged = Map1MapViewChanged
@@ -45387,7 +45407,7 @@ object frmWaypointEditor: TfrmWaypointEditor
         ExplicitWidth = 1268
         ExplicitHeight = 736
         ControlData = {
-          8A1A0600428300003E4B0000010000000F0000FF0D47656F44696374696F6E61
+          8A1A06000F7A0000C24B0000010000000F0000FF0D47656F44696374696F6E61
           727905456D70747900E8030000000000000000000002000E001E000000000000
           0000000000000000000000000000000000000000000600010000000002202050
           00010100000A0000000001F4010000050000800C000000000000000000000000
@@ -45415,14 +45435,14 @@ object frmWaypointEditor: TfrmWaypointEditor
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000001400100850906
+          0000000000000000000000000000000000000000000000000001800100850906
           5018394B03A504065001E99700DB51BB7778F0F6501103065000000000000000
           0000000088B3400000000000408F400001000001}
       end
       object pnlToolBar: TPanel
         Left = 0
         Top = 0
-        Width = 1270
+        Width = 1181
         Height = 35
         Align = alTop
         BevelOuter = bvNone
@@ -45446,7 +45466,7 @@ object frmWaypointEditor: TfrmWaypointEditor
         object ToolBar1: TToolBar
           Left = 25
           Top = 0
-          Width = 1245
+          Width = 1156
           Height = 35
           Align = alClient
           ButtonHeight = 38
@@ -45561,8 +45581,8 @@ object frmWaypointEditor: TfrmWaypointEditor
       end
       object pnlCursorPosition: TPanel
         Left = 0
-        Top = 783
-        Width = 1270
+        Top = 788
+        Width = 1181
         Height = 45
         Align = alBottom
         BevelOuter = bvNone
@@ -45574,7 +45594,7 @@ object frmWaypointEditor: TfrmWaypointEditor
         ExplicitTop = 782
         ExplicitWidth = 1268
         DesignSize = (
-          1270
+          1181
           45)
         object mn1: TLabel
           Left = 411
@@ -45603,7 +45623,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           ParentFont = False
         end
         object mn3: TLabel
-          Left = 976
+          Left = 887
           Top = 12
           Width = 60
           Height = 16
@@ -45615,6 +45635,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
+          ExplicitLeft = 976
         end
         object mn4: TLabel
           Left = 210
@@ -45682,7 +45703,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           ParentFont = False
         end
         object lblGridLat: TLabel
-          Left = 1045
+          Left = 956
           Top = 12
           Width = 15
           Height = 16
@@ -45694,9 +45715,10 @@ object frmWaypointEditor: TfrmWaypointEditor
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
+          ExplicitLeft = 1045
         end
         object lblGridLong: TLabel
-          Left = 1143
+          Left = 1054
           Top = 12
           Width = 15
           Height = 16
@@ -45708,6 +45730,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
+          ExplicitLeft = 1143
         end
         object lblPosLong: TLabel
           Left = 958
@@ -45739,7 +45762,7 @@ object frmWaypointEditor: TfrmWaypointEditor
       object pnl3SparatorHor1: TPanel
         Left = 0
         Top = 35
-        Width = 1270
+        Width = 1181
         Height = 10
         Align = alTop
         BevelOuter = bvNone
@@ -45749,14 +45772,13 @@ object frmWaypointEditor: TfrmWaypointEditor
       end
       object pnl3SparatorHor2: TPanel
         Left = 0
-        Top = 773
-        Width = 1270
+        Top = 778
+        Width = 1181
         Height = 10
         Align = alBottom
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 4
-        ExplicitTop = 778
         ExplicitWidth = 1262
       end
     end
@@ -45796,7 +45818,7 @@ object frmWaypointEditor: TfrmWaypointEditor
         object btnClose: TButton
           Tag = 3
           Left = 126
-          Top = 5
+          Top = 6
           Width = 80
           Height = 30
           Caption = 'Cancel'
@@ -45848,7 +45870,7 @@ object frmWaypointEditor: TfrmWaypointEditor
       TabOrder = 4
     end
     object pnlVertical2: TPanel
-      Left = 318
+      Left = 399
       Top = 25
       Width = 10
       Height = 833

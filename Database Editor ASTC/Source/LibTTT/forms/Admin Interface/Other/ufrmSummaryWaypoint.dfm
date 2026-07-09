@@ -16,7 +16,6 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44921,13 +44920,8 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitHeight = 248
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 208
           object btnEditWaypoint: TButton
             Left = 60
             Top = 91
@@ -44949,9 +44943,6 @@ object frmSummaryWaypoint: TfrmSummaryWaypoint
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 1
-      ExplicitTop = 279
-      ExplicitWidth = 366
       object btnApply: TButton
         Left = 191
         Top = 3

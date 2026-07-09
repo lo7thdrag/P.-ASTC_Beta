@@ -6079,6 +6079,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -6091,6 +6092,7 @@ begin
     end
     else
       aList := TList.Create;
+    {$ENDREGION}
 
     if not IsEmpty then
     begin

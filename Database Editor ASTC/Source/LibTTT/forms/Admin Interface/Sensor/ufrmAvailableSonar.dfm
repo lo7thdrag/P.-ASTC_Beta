@@ -37,7 +37,7 @@ object frmAvailableSonar: TfrmAvailableSonar
       TabOrder = 0
       object Label2: TLabel
         Left = 10
-        Top = 18
+        Top = 25
         Width = 111
         Height = 21
         Caption = 'List of Sonar '
@@ -63,8 +63,8 @@ object frmAvailableSonar: TfrmAvailableSonar
           580
           57)
         object btnDelete: TImage
-          Left = 532
-          Top = 13
+          Left = 540
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -196,8 +196,8 @@ object frmAvailableSonar: TfrmAvailableSonar
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 437
-          Top = 13
+          Left = 450
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -303,8 +303,8 @@ object frmAvailableSonar: TfrmAvailableSonar
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 397
-          Top = 13
+          Left = 410
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -429,8 +429,8 @@ object frmAvailableSonar: TfrmAvailableSonar
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 357
-          Top = 13
+          Left = 370
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -524,8 +524,8 @@ object frmAvailableSonar: TfrmAvailableSonar
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 492
-          Top = 13
+          Left = 500
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -658,8 +658,8 @@ object frmAvailableSonar: TfrmAvailableSonar
           OnClick = btnUsageClick
         end
         object Label1: TLabel
-          Left = 13
-          Top = 18
+          Left = 22
+          Top = 25
           Width = 72
           Height = 21
           Anchors = [akTop, akRight]
@@ -672,8 +672,8 @@ object frmAvailableSonar: TfrmAvailableSonar
           ParentFont = False
         end
         object edtSearch: TEdit
-          Left = 82
-          Top = 16
+          Left = 91
+          Top = 23
           Width = 247
           Height = 25
           Anchors = [akTop, akRight]

@@ -42,7 +42,7 @@ object frmAvailableWaypoint: TfrmAvailableWaypoint
       TabOrder = 0
       object lbl1: TLabel
         Left = 10
-        Top = 18
+        Top = 25
         Width = 121
         Height = 21
         Caption = 'List of Waypoint'
@@ -68,8 +68,8 @@ object frmAvailableWaypoint: TfrmAvailableWaypoint
           580
           57)
         object imgDelete: TImage
-          Left = 532
-          Top = 13
+          Left = 540
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -201,8 +201,8 @@ object frmAvailableWaypoint: TfrmAvailableWaypoint
           OnClick = imgDeleteClick
         end
         object imgEdit: TImage
-          Left = 437
-          Top = 13
+          Left = 450
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -308,8 +308,8 @@ object frmAvailableWaypoint: TfrmAvailableWaypoint
           OnClick = imgEditClick
         end
         object imgCopy: TImage
-          Left = 397
-          Top = 13
+          Left = 410
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -434,8 +434,8 @@ object frmAvailableWaypoint: TfrmAvailableWaypoint
           OnClick = imgCopyClick
         end
         object imgNew: TImage
-          Left = 357
-          Top = 13
+          Left = 370
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -529,8 +529,8 @@ object frmAvailableWaypoint: TfrmAvailableWaypoint
           OnClick = imgNewClick
         end
         object imgUsage: TImage
-          Left = 496
-          Top = 13
+          Left = 500
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -663,8 +663,8 @@ object frmAvailableWaypoint: TfrmAvailableWaypoint
           OnClick = imgUsageClick
         end
         object lbl2: TLabel
-          Left = 13
-          Top = 18
+          Left = 22
+          Top = 25
           Width = 72
           Height = 21
           Caption = 'Search : '
@@ -676,8 +676,8 @@ object frmAvailableWaypoint: TfrmAvailableWaypoint
           ParentFont = False
         end
         object edtSearch: TEdit
-          Left = 82
-          Top = 16
+          Left = 91
+          Top = 23
           Width = 247
           Height = 25
           Anchors = [akTop, akRight]

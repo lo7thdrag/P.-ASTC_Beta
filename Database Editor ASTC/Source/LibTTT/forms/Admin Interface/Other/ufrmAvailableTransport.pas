@@ -9,20 +9,19 @@ uses
 
 type
   TfrmAvailableTransport = class(TForm)
-    lstTransport: TListBox;
-    ImgBackground: TImage;
-    ImgBackgroungList: TImage;
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
     Label2: TLabel;
-    Image1: TImage;
-    lbl_search: TLabel;
-    edtSearch: TEdit;
-    btnNew: TImage;
-    btnCopy: TImage;
-    btnEdit: TImage;
-    btnUsage: TImage;
+    pnlTableButton: TPanel;
     btnDelete: TImage;
-    imgImgBtnBack: TImage;
-    Image2: TImage;
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
+    pnlTableList: TPanel;
+    lstTransport: TListBox;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -38,6 +37,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure edttransportlistKeyPress(Sender: TObject; var Key: Char);
     procedure edtSearchChange(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -236,6 +236,15 @@ begin
   begin
     transport := FTransportList.Items[i];
     lstTransport.Items.AddObject(Transport.FData.Transport_Identifier, transport);
+  end;
+end;
+
+procedure TfrmAvailableTransport.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateTransportList
   end;
 end;
 

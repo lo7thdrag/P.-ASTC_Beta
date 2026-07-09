@@ -4,8 +4,8 @@ object frmAvailableScenario: TfrmAvailableScenario
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Scenario'
-  ClientHeight = 461
-  ClientWidth = 884
+  ClientHeight = 500
+  ClientWidth = 900
   Color = clBtnFace
   DoubleBuffered = True
   ParentFont = True
@@ -20,8 +20,8 @@ object frmAvailableScenario: TfrmAvailableScenario
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 884
-    Height = 461
+    Width = 900
+    Height = 500
     Cursor = crHandPoint
     Align = alClient
     Picture.Data = {
@@ -40,26 +40,29 @@ object frmAvailableScenario: TfrmAvailableScenario
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 884
-    Height = 461
+    Width = 900
+    Height = 500
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 884
+    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 884
+      Width = 900
       Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 884
       object Label2: TLabel
         Left = 10
-        Top = 18
+        Top = 25
         Width = 129
         Height = 21
         Caption = 'List of Scenario '
@@ -71,7 +74,7 @@ object frmAvailableScenario: TfrmAvailableScenario
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 304
+        Left = 320
         Top = 0
         Width = 580
         Height = 57
@@ -81,12 +84,13 @@ object frmAvailableScenario: TfrmAvailableScenario
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 304
         DesignSize = (
           580
           57)
         object btnDelete: TImage
-          Left = 537
-          Top = 13
+          Left = 540
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -218,8 +222,8 @@ object frmAvailableScenario: TfrmAvailableScenario
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 442
-          Top = 13
+          Left = 450
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -325,8 +329,8 @@ object frmAvailableScenario: TfrmAvailableScenario
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 402
-          Top = 13
+          Left = 410
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -451,8 +455,8 @@ object frmAvailableScenario: TfrmAvailableScenario
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 362
-          Top = 13
+          Left = 370
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -546,8 +550,8 @@ object frmAvailableScenario: TfrmAvailableScenario
           OnClick = btnNewClick
         end
         object Label1: TLabel
-          Left = 13
-          Top = 18
+          Left = 22
+          Top = 25
           Width = 72
           Height = 21
           Caption = 'Search : '
@@ -559,8 +563,8 @@ object frmAvailableScenario: TfrmAvailableScenario
           ParentFont = False
         end
         object edtSearch: TEdit
-          Left = 82
-          Top = 17
+          Left = 91
+          Top = 23
           Width = 247
           Height = 25
           Anchors = [akLeft, akTop, akRight]
@@ -580,19 +584,21 @@ object frmAvailableScenario: TfrmAvailableScenario
     object pnlTableList: TPanel
       Left = 0
       Top = 57
-      Width = 884
-      Height = 404
+      Width = 900
+      Height = 443
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitWidth = 884
+      ExplicitHeight = 404
       object lstScenarioList: TListBox
         Left = 10
         Top = 10
-        Width = 864
-        Height = 384
+        Width = 880
+        Height = 423
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -604,6 +610,8 @@ object frmAvailableScenario: TfrmAvailableScenario
         TabOrder = 0
         OnClick = lstScenarioListClick
         OnDblClick = btnEditClick
+        ExplicitWidth = 864
+        ExplicitHeight = 384
       end
     end
   end

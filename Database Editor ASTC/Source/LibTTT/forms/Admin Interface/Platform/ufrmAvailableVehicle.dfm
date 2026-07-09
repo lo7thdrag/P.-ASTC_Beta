@@ -4,8 +4,8 @@ object frmAvailableVehicle: TfrmAvailableVehicle
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Vehicle'
-  ClientHeight = 461
-  ClientWidth = 884
+  ClientHeight = 500
+  ClientWidth = 900
   Color = clBtnFace
   DoubleBuffered = True
   ParentFont = True
@@ -28,26 +28,29 @@ object frmAvailableVehicle: TfrmAvailableVehicle
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 884
-    Height = 461
+    Width = 900
+    Height = 500
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 884
+    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 884
+      Width = 900
       Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 884
       object Label2: TLabel
         Left = 10
-        Top = 18
+        Top = 25
         Width = 109
         Height = 21
         Caption = 'List of Vehicle'
@@ -59,7 +62,7 @@ object frmAvailableVehicle: TfrmAvailableVehicle
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 304
+        Left = 320
         Top = 0
         Width = 580
         Height = 57
@@ -69,12 +72,13 @@ object frmAvailableVehicle: TfrmAvailableVehicle
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 304
         DesignSize = (
           580
           57)
         object btnDelete: TImage
-          Left = 532
-          Top = 13
+          Left = 540
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -206,8 +210,8 @@ object frmAvailableVehicle: TfrmAvailableVehicle
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 437
-          Top = 13
+          Left = 450
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -313,8 +317,8 @@ object frmAvailableVehicle: TfrmAvailableVehicle
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 397
-          Top = 13
+          Left = 410
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -439,8 +443,8 @@ object frmAvailableVehicle: TfrmAvailableVehicle
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 357
-          Top = 13
+          Left = 370
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -534,8 +538,8 @@ object frmAvailableVehicle: TfrmAvailableVehicle
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 492
-          Top = 13
+          Left = 500
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -668,8 +672,8 @@ object frmAvailableVehicle: TfrmAvailableVehicle
           OnClick = btnUsageClick
         end
         object Label1: TLabel
-          Left = 13
-          Top = 18
+          Left = 22
+          Top = 25
           Width = 72
           Height = 21
           Anchors = [akTop, akRight]
@@ -682,8 +686,8 @@ object frmAvailableVehicle: TfrmAvailableVehicle
           ParentFont = False
         end
         object edtSearch: TEdit
-          Left = 82
-          Top = 16
+          Left = 91
+          Top = 23
           Width = 247
           Height = 25
           Anchors = [akTop, akRight]
@@ -703,19 +707,21 @@ object frmAvailableVehicle: TfrmAvailableVehicle
     object pnlTableList: TPanel
       Left = 0
       Top = 57
-      Width = 884
-      Height = 404
+      Width = 900
+      Height = 443
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
-      Color = clBlack
+      Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitWidth = 884
+      ExplicitHeight = 404
       object lstVehicle: TListBox
         Left = 10
         Top = 10
-        Width = 864
-        Height = 384
+        Width = 880
+        Height = 423
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -727,6 +733,8 @@ object frmAvailableVehicle: TfrmAvailableVehicle
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
+        ExplicitWidth = 864
+        ExplicitHeight = 384
       end
     end
   end

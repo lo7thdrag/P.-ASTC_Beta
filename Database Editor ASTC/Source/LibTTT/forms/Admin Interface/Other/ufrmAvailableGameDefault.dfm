@@ -41,7 +41,7 @@ object frmAvailableGameDefault: TfrmAvailableGameDefault
       TabOrder = 0
       object lbl1: TLabel
         Left = 10
-        Top = 18
+        Top = 25
         Width = 173
         Height = 21
         Caption = 'List of Game Defaults '
@@ -67,8 +67,8 @@ object frmAvailableGameDefault: TfrmAvailableGameDefault
           580
           57)
         object imgEdit: TImage
-          Left = 532
-          Top = 13
+          Left = 540
+          Top = 20
           Width = 30
           Height = 30
           Cursor = crHandPoint

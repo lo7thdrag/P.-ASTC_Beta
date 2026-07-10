@@ -4,10 +4,8 @@ Penting
 2. Mengecek memoryleak disetiap form
 3. Showmassage dicek, masih ada yang Bahasa inggris 
 
-20. Button di Form Game Area masih harus diperbaiki lagi.
-48. di form availableListOfGameArea > klik add > muncul error.
-49. di form AvailableTransport bagian serachnya belum bisa.
-50. di form AvailableLogistic bagian serachnya belum bisa.
+4. ubah desain formPick di game area
+ 
 
 
 
@@ -15,7 +13,6 @@ Penting
 {Scenario}
 24. Ketika Klik Add di ufrmAvailableScenario muncul Error Accsess violation.
 53. form AvailablelisOfScenario > klik btnCopy > terjadi error/bug.
-25. ufrmSummaryScenario perlu di desain ulang.
 26. ufrmSummaryScenario bagian advance setting dan next error Accsess violation.
 
 

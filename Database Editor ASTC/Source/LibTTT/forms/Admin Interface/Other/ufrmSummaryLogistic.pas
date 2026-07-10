@@ -202,14 +202,14 @@ begin
     begin
       if dmTTT.InsertLogisticDef(FData) then
       begin
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
     begin
       if dmTTT.UpdateLogisticDef(FData) then
       begin
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;

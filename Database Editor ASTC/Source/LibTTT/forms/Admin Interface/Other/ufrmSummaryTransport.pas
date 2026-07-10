@@ -176,14 +176,14 @@ begin
     begin
       if dmTTT.InsertTransportDef(FData) then
       begin
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
     begin
       if dmTTT.UpdateTransportDef(FData) then
       begin
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;

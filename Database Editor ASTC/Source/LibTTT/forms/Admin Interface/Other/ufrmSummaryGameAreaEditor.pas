@@ -39,14 +39,6 @@ type
     pnl3SparatorHor1: TPanel;
     pnlToolbar: TPanel;
     pnlAlignToolBar: TPanel;
-    btnCenterOnGameCenter1: TImage;
-    btnDecrease1: TImage;
-    btnIncrease1: TImage;
-    btnPan1: TImage;
-    btnSelect1: TImage;
-    btnZoom1: TImage;
-    cbbScale1: TComboBox;
-    Image7: TImage;
     ToolBar1: TToolBar;
     btnIncreaseScale: TToolButton;
     cbbScale: TComboBox;
@@ -96,12 +88,14 @@ type
     procedure btnDecrease1Click(Sender: TObject);
     procedure btnSelectClick(Sender: TObject);
     procedure btnZoom1Click(Sender: TObject);
-    procedure btnCenterHookClik(Sender: TObject);
+
     procedure btnPan1Click(Sender: TObject);
     procedure cbbScaleChange(Sender: TObject);
     procedure btnMultiSelectClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure lblWidthClick(Sender: TObject);
+    procedure btnCenterHookClick(Sender: TObject);
+    procedure FormResize(Sender: TObject);
 
   private
     FSelectedGameArea : TGame_Environment_Definition;
@@ -246,6 +240,11 @@ begin
   FMap1.Free;
   FCanvas.Free;
   FConverter.Free;
+end;
+
+procedure TfrmSummaryGameAreaEditor.FormResize(Sender: TObject);
+begin
+  pnlAlignToolBar.Width := round((pnlToolBar.Width - 385) / 2);
 end;
 
 procedure TfrmSummaryGameAreaEditor.FormShow(Sender: TObject);
@@ -531,17 +530,14 @@ begin
   Map1.MousePointer := miZoomInCursor;
 end;
 
-procedure TfrmSummaryGameAreaEditor.btnCenterHookClik(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.btnCenterHookClick(Sender: TObject);
 begin
   UpAllToolbarButton;
   btnCenterHook.Down := True;
-  FMapCursor := mcGameCenter;
+//  FMapCursor := mcGameCenter;
 
   Map1.CurrentTool := miArrowTool;
   Map1.MousePointer := miCrossCursor;
-
-
-//  btnCenterOnGameCenter.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCenterOnHook_Select.PNG');
 end;
 
 procedure TfrmSummaryGameAreaEditor.btnPan1Click(Sender: TObject);

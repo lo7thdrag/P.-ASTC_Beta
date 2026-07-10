@@ -5,10 +5,10 @@ Penting
 3. Showmassage dicek, masih ada yang Bahasa inggris 
 
 20. Button di Form Game Area masih harus diperbaiki lagi.
-37. Form TorpedoLauncher bagian angle Required tidak bisa di inputkan data.
-40. di form ChaffLauncher klik apply > Ok, langsung muncul error acsses violation.
-43. di form Towed/jammerDecoyOnboard data yang sudah di add kan tidak tampil dalam listOfTowedDecoyOnboard. 
 48. di form availableListOfGameArea > klik add > muncul error.
+49. di form AvailableTransport bagian serachnya belum bisa.
+50. di form AvailableLogistic bagian serachnya belum bisa.
+
 
 
 
@@ -34,6 +34,7 @@ Penting
 16. ufrmAvailableRuntimePlatformLibrary, select data > klik usage, error Acsses violation.(sudah)
 18. Di form ufrmSummaryWaypoint Edit waypoint muncul error Acsses violation. (sudah)
 28. form AvailableGun bagian edit dan Usage belum ada ShowMessage.
+
 
 
 Form yang perlu didesain ulang

@@ -44850,18 +44850,23 @@ object frmEODOnBoardPickList: TfrmEODOnBoardPickList
     Width = 754
     Height = 639
     Align = alClient
+    BevelOuter = bvNone
     Caption = 'pnlMainBackground'
     TabOrder = 0
     object pnlMain: TPanel
-      Left = 1
-      Top = 1
-      Width = 752
-      Height = 637
+      Left = 0
+      Top = 0
+      Width = 754
+      Height = 639
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 752
+      ExplicitHeight = 637
       object lbl1: TLabel
         Left = 12
         Top = 544

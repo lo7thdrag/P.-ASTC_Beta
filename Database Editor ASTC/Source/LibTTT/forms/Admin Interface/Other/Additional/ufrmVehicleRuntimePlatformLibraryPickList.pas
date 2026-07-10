@@ -24,6 +24,7 @@ type
     pnl5: TPanel;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
+    btnEditMount: TButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -36,6 +37,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
  private
     FAllVehicleDefList : TList;
@@ -136,6 +138,12 @@ begin
  if dmTTT.DeletePlatformLibraryEntry(2, FSelectedPlatformLibrary.FData.Library_Entry_Index)then
     isNoCancel := True;;
 
+  UpdateVehicleList;
+end;
+
+procedure TfrmVehicleRuntimePlatformLibraryPickList.edtSearchChange(
+  Sender: TObject);
+begin
   UpdateVehicleList;
 end;
 

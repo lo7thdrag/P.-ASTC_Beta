@@ -161,12 +161,6 @@ type
     edtGridBottomRight2: TEdit;
     grbCommunicationEffects: TGroupBox;
     cbHFTransmission: TCheckBox;
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
     GroupBox1: TGroupBox;
     lblStillSeaState: TStaticText;
     trckbrSeaState: TTrackBar;
@@ -181,6 +175,12 @@ type
     lblLegend1: TStaticText;
     lblLegend2: TStaticText;
     lblLegend3: TStaticText;
+    pnlMainBackground: TPanel;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnOK: TButton;
+    btnCancel: TButton;
+    imgBackground: TImage;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);

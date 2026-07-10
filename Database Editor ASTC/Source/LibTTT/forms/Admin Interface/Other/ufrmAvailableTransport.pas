@@ -5,7 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uDBAsset_Transport;
+  uDBAsset_Transport,
+
+  uSimContainers;
 
 type
   TfrmAvailableTransport = class(TForm)
@@ -22,8 +24,6 @@ type
     edtSearch: TEdit;
     pnlTableList: TPanel;
     lstTransport: TListBox;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -38,6 +38,7 @@ type
     procedure edttransportlistKeyPress(Sender: TObject; var Key: Char);
     procedure edtSearchChange(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
@@ -62,14 +63,14 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableTransport.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Action := cafree;
-end;
-
 procedure TfrmAvailableTransport.FormCreate(Sender: TObject);
 begin
   FTransportList := TList.Create;
+end;
+
+procedure TfrmAvailableTransport.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FTransportList);
 end;
 
 procedure TfrmAvailableTransport.FormShow(Sender: TObject);
@@ -235,7 +236,7 @@ begin
   for i := 0 to FTransportList.Count - 1 do
   begin
     transport := FTransportList.Items[i];
-    lstTransport.Items.AddObject(Transport.FData.Transport_Identifier, transport);
+    lstTransport.Items.AddObject(transport.FData.Transport_Identifier, transport);
   end;
 end;
 
@@ -250,10 +251,10 @@ end;
 
 procedure TfrmAvailableTransport.edttransportlistKeyPress(Sender: TObject; var Key: Char);
 begin
-  if Key = #13 then
-  begin
-    UpdateTransportList
-  end;
+//  if Key = #13 then
+//  begin
+//    UpdateTransportList
+//  end;
 end;
 
 procedure TfrmAvailableTransport.lbSingleClick(Sender: TObject);

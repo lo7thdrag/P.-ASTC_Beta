@@ -20,9 +20,9 @@ object frmSimbolTaktis: TfrmSimbolTaktis
   TextHeight = 13
   object imgBackground: TImage
     Left = 0
-    Top = 673
+    Top = 0
     Width = 510
-    Height = 46
+    Height = 719
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44839,77 +44839,117 @@ object frmSimbolTaktis: TfrmSimbolTaktis
       000049454E44AE426082}
     Stretch = True
     ExplicitLeft = -384
-    ExplicitTop = 0
     ExplicitWidth = 894
     ExplicitHeight = 568
   end
-  object lbl1: TLabel
-    Left = 21
-    Top = 690
-    Width = 40
-    Height = 13
-    Caption = 'Search :'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object drwgrdFontTaktis: TDrawGrid
+  object pnlMainBackground: TPanel
     Left = 0
     Top = 0
     Width = 510
-    Height = 673
-    Align = alTop
-    ColCount = 1
-    DefaultColWidth = 2000
-    DefaultRowHeight = 40
-    FixedColor = clWhite
-    FixedCols = 0
-    RowCount = 530
-    FixedRows = 0
-    GridLineWidth = 0
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
+    Height = 719
+    Align = alClient
+    BevelOuter = bvNone
+    BorderWidth = 10
     TabOrder = 0
-    OnDrawCell = drwgrdFontTaktisDrawCell
-  end
-  object btnOK: TButton
-    Left = 332
-    Top = 683
-    Width = 80
-    Height = 30
-    Caption = 'OK'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 1
-    OnClick = btnOKClick
-  end
-  object btnCancel: TButton
-    Left = 413
-    Top = 683
-    Width = 80
-    Height = 30
-    Caption = 'Cancel'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 2
-    OnClick = btnCancelClick
-  end
-  object edt_searchsimbol: TEdit
-    Left = 76
-    Top = 687
-    Width = 121
-    Height = 21
-    TabOrder = 3
-    OnKeyPress = edt_searchsimbolKeyPress
+    ExplicitLeft = 48
+    ExplicitTop = 664
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object drwgrdFontTaktis: TDrawGrid
+      Left = 10
+      Top = 10
+      Width = 490
+      Height = 656
+      Align = alClient
+      ColCount = 1
+      DefaultColWidth = 2000
+      DefaultRowHeight = 40
+      FixedColor = clWhite
+      FixedCols = 0
+      RowCount = 530
+      FixedRows = 0
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      GridLineWidth = 0
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
+      ParentFont = False
+      TabOrder = 0
+      OnDrawCell = drwgrdFontTaktisDrawCell
+      ExplicitHeight = 640
+    end
+    object pnl3Button: TPanel
+      Left = 10
+      Top = 666
+      Width = 490
+      Height = 43
+      Align = alBottom
+      BevelOuter = bvNone
+      Color = 2499101
+      TabOrder = 1
+      ExplicitLeft = 34
+      ExplicitTop = 676
+      object lbl1: TLabel
+        Left = 4
+        Top = 17
+        Width = 62
+        Height = 21
+        Caption = 'Search :'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Deusex'
+        Font.Style = []
+        ParentFont = False
+      end
+      object btnCancel: TButton
+        Left = 410
+        Top = 13
+        Width = 80
+        Height = 30
+        Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+        OnClick = btnCancelClick
+      end
+      object btnOK: TButton
+        Left = 329
+        Top = 13
+        Width = 80
+        Height = 30
+        Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        OnClick = btnOKClick
+      end
+      object edt_searchsimbol: TEdit
+        Left = 70
+        Top = 15
+        Width = 131
+        Height = 25
+        AutoSize = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        OnChange = edt_searchsimbolChange
+        OnKeyPress = edt_searchsimbolKeyPress
+      end
+    end
   end
 end

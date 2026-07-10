@@ -541,54 +541,54 @@ begin
     {$ENDREGION}
 
     {$REGION ' Other Sub Menu '}
-    ftfrmAvailableRuntimePlatformLibrary :
+    ftfrmAvailableRuntimePlatformLibrary : //26
     begin
       if not Assigned(frmAvailableRuntimePlatformLibrary) then
           frmAvailableRuntimePlatformLibrary := TfrmAvailableRuntimePlatformLibrary.Create(self);
 
       aForm := frmAvailableRuntimePlatformLibrary;
     end;
-    ftfrmAvailableGrapicalOverlay :
+    ftfrmAvailableGrapicalOverlay :  //27
     begin
       if not Assigned(frmAvailableOverlay) then
           frmAvailableOverlay := TfrmAvailableOverlay.Create(self);
 
       aForm := frmAvailableOverlay;
     end;
-    ftfrmAvailableWaypoint :
+    ftfrmAvailableWaypoint : //28
     begin
       if not Assigned(frmAvailableWaypoint) then
           frmAvailableWaypoint := TfrmAvailableWaypoint.Create(self);
 
       aForm := frmAvailableWaypoint;
     end;
-    ftfrmAvailableGameArea :
+    ftfrmAvailableGameArea :  //29
     begin
       if not Assigned(frmAvailableGameArea) then
           frmAvailableGameArea := TfrmAvailableGameArea.Create(self);
 
       aForm := frmAvailableGameArea;
     end;
-    ftfrmAvailableMotion :
+    ftfrmAvailableMotion :    //30
     begin
       if not Assigned(frmAvailableMotion) then
           frmAvailableMotion := TfrmAvailableMotion.Create(self);
 
       aForm := frmAvailableMotion;
     end;
-    ftfrmAvailableSNRvsPODCurve :
+    ftfrmAvailableSNRvsPODCurve :  //31
     begin
       if not Assigned(frmAvailableSNRvsPOD) then
           frmAvailableSNRvsPOD := TfrmAvailableSNRvsPOD.Create(self);
 
       aForm := frmAvailableSNRvsPOD;
     end;
-    ftfrmAvailableGameDefaults :
+    ftfrmAvailableGameDefaults :     //32
     begin
       if not Assigned(frmAvailableGameDefault) then
           frmAvailableGameDefault := TfrmAvailableGameDefault.Create(self);
 
-      aForm := frmAvailableGameDefault;
+      aForm := frmAvailableGameDefault;   //33
     end;
     ftfrmAvailableTransport :
     begin
@@ -597,7 +597,7 @@ begin
 
       aForm := frmAvailableTransport;
     end;
-    ftfrmAvailableLogistic :
+    ftfrmAvailableLogistic :    //34
     begin
       if not Assigned(frmAvailableLogistic) then
           frmAvailableLogistic := TfrmAvailableLogistic.Create(self);

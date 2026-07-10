@@ -47,8 +47,6 @@ object frmAvailableScenario: TfrmAvailableScenario
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 884
-    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -59,7 +57,6 @@ object frmAvailableScenario: TfrmAvailableScenario
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 884
       object Label2: TLabel
         Left = 10
         Top = 25
@@ -84,7 +81,6 @@ object frmAvailableScenario: TfrmAvailableScenario
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 304
         DesignSize = (
           580
           57)
@@ -592,8 +588,6 @@ object frmAvailableScenario: TfrmAvailableScenario
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 884
-      ExplicitHeight = 404
       object lstScenarioList: TListBox
         Left = 10
         Top = 10
@@ -610,8 +604,6 @@ object frmAvailableScenario: TfrmAvailableScenario
         TabOrder = 0
         OnClick = lstScenarioListClick
         OnDblClick = btnEditClick
-        ExplicitWidth = 864
-        ExplicitHeight = 384
       end
     end
   end

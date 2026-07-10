@@ -7,7 +7,6 @@ object frmAvailableTransport: TfrmAvailableTransport
   ClientHeight = 500
   ClientWidth = 900
   Color = 1119507
-  TransparentColor = True
   TransparentColorValue = 1119507
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWhite
@@ -17,8 +16,8 @@ object frmAvailableTransport: TfrmAvailableTransport
   OldCreateOrder = False
   Position = poScreenCenter
   ShowHint = True
-  OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 16

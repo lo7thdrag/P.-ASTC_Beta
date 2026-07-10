@@ -7,7 +7,6 @@ object frmAvailableLogistic: TfrmAvailableLogistic
   ClientHeight = 500
   ClientWidth = 900
   Color = 1119507
-  TransparentColor = True
   TransparentColorValue = 1119507
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

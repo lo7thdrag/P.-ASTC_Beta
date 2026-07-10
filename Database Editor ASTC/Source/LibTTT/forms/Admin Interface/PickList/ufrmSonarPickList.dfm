@@ -44850,13 +44850,14 @@ object frmSonarPickList: TfrmSonarPickList
     Width = 494
     Height = 671
     Align = alClient
+    BevelOuter = bvNone
     Caption = 'pnlMainBackground'
     TabOrder = 0
     object pnl2ControlPage: TPanel
-      Left = 1
-      Top = 41
-      Width = 492
-      Height = 586
+      Left = 0
+      Top = 40
+      Width = 494
+      Height = 588
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
@@ -44865,8 +44866,8 @@ object frmSonarPickList: TfrmSonarPickList
       object lstAvailableSonar: TListBox
         Left = 10
         Top = 10
-        Width = 472
-        Height = 566
+        Width = 474
+        Height = 568
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -44880,9 +44881,9 @@ object frmSonarPickList: TfrmSonarPickList
       end
     end
     object pnl3Button: TPanel
-      Left = 1
-      Top = 627
-      Width = 492
+      Left = 0
+      Top = 628
+      Width = 494
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
@@ -44920,9 +44921,9 @@ object frmSonarPickList: TfrmSonarPickList
       end
     end
     object pnlTableHeader: TPanel
-      Left = 1
-      Top = 1
-      Width = 492
+      Left = 0
+      Top = 0
+      Width = 494
       Height = 40
       ParentCustomHint = False
       Align = alTop
@@ -44941,6 +44942,7 @@ object frmSonarPickList: TfrmSonarPickList
       ParentShowHint = False
       ShowHint = False
       TabOrder = 2
+      ExplicitTop = 4
       object Label2: TLabel
         Left = 166
         Top = 14

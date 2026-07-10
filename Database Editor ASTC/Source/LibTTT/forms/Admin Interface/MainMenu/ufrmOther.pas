@@ -9,7 +9,6 @@ uses
 
 type
   TfrmOther = class(TForm)
-    imgBackground: TImage;
     pnlMainBackground: TPanel;
     imgGameDefault: TImage;
     imgGraphicalOverlay: TImage;
@@ -21,6 +20,15 @@ type
     lblMotionCount: TLabel;
     lblRPLCount: TLabel;
     lblSNRvsPODCount: TLabel;
+    imgWaypoint: TImage;
+    imgGameArea: TImage;
+    imgBackground: TImage;
+    imgLogistic: TImage;
+    imgTransport: TImage;
+    lblLogisticCount: TLabel;
+    lblGameAreaCount: TLabel;
+    lblWaypointCount: TLabel;
+    lblTransportCount: TLabel;
 
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
@@ -96,6 +104,22 @@ begin
   else if iconName = 'imgSNR' then
   begin
     imgSNR.Picture.LoadFromFile(filePath + 'imgSNR' + imgChoice);
+  end
+  else if iconName = 'imgWaypoint' then
+  begin
+    imgWaypoint.Picture.LoadFromFile(filePath + 'waypoint' + imgChoice);
+  end
+  else if iconName = 'imgTransport' then
+  begin
+    imgTransport.Picture.LoadFromFile(filePath + 'transport' + imgChoice);
+  end
+  else if iconName = 'imgGameArea' then
+  begin
+    imgGameArea.Picture.LoadFromFile(filePath + 'gamearea' + imgChoice);
+  end
+  else if iconName = 'imgLogistic' then
+  begin
+    imgLogistic.Picture.LoadFromFile(filePath + 'logistic' + imgChoice);
   end
 end;
 

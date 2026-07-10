@@ -3,7 +3,7 @@ object frmVehicleRuntimePlatformLibraryPickList: TfrmVehicleRuntimePlatformLibra
   Top = 0
   BorderIcons = []
   BorderStyle = bsToolWindow
-  Caption = '   Vehicle RPL Pick List'
+  Caption = '   Vehicle RPL PickList'
   ClientHeight = 639
   ClientWidth = 754
   Color = clBtnShadow
@@ -44960,6 +44960,7 @@ object frmVehicleRuntimePlatformLibraryPickList: TfrmVehicleRuntimePlatformLibra
         Font.Style = []
         ParentFont = False
         TabOrder = 5
+        OnChange = edtSearchChange
         OnKeyPress = edtSearchKeyPress
       end
       object pnl1: TPanel
@@ -45029,6 +45030,21 @@ object frmVehicleRuntimePlatformLibraryPickList: TfrmVehicleRuntimePlatformLibra
         Color = clTeal
         ParentBackground = False
         TabOrder = 8
+      end
+      object btnEditMount: TButton
+        Left = 430
+        Top = 542
+        Width = 313
+        Height = 25
+        Caption = 'Edit'
+        Enabled = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 9
       end
     end
   end

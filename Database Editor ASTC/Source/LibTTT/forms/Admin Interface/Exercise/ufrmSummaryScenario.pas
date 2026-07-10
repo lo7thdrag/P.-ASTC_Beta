@@ -78,7 +78,6 @@ type
     rbRedPlatform: TRadioButton;
     Image5: TImage;
     btnVehicle: TImage;
-    btnBase: TImage;
     btnOverlay: TImage;
     ImgWaypoint: TImage;
     ImgRPL: TImage;
@@ -86,6 +85,22 @@ type
     rbRed: TRadioButton;
     pnlMainBackground: TPanel;
     ImgBackgroundForm: TImage;
+    rbGreen: TRadioButton;
+    rbNoForce: TRadioButton;
+    rbYellow: TRadioButton;
+    Label4: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    rbRedGroup: TRadioButton;
+    rbYellowGroup: TRadioButton;
+    rbBlueGroup: TRadioButton;
+    rbNoForceGroup: TRadioButton;
+    rbGreenGroup: TRadioButton;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
 
     //Global
     function GetNumberOfKoma(s : string): Boolean;
@@ -591,38 +606,103 @@ end;
 
 procedure TfrmSummaryScenario.ForceChoseClick(Sender: TObject);
 begin
-  if rbBlue.Checked then
-  begin
-    FSelectedForce := 3;
-
-    btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Blue.PNG');
-    btnBase.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnBase_Blue.PNG');
-    btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Blue.PNG');
-  end
-  else
+  if rbRed.Checked then        //ok
   begin
     FSelectedForce := 1;
 
     btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Red.PNG');
-    btnBase.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnBase_Red.PNG');
     btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Red.PNG');
-  end;
+  end
+  else if rbYellow.Checked then
+  begin
+    FSelectedForce := 2;    //ok
+
+    btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Yellow.PNG');
+    btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Yellow.PNG');
+  end
+  else if rbBlue.Checked then    //ok
+  begin
+    FSelectedForce := 3;
+
+    btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Blue.PNG');
+    btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Blue.PNG');
+  end
+  else if rbGreen.Checked then    //ok
+  begin
+    FSelectedForce := 4;
+
+    btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Green.PNG');
+    btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Green.PNG');
+  end
+  else if rbNoForce.Checked then    //ok
+  begin
+    FSelectedForce := 5;
+
+    btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_NoForce.PNG');
+    btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_NoForce.PNG');
+  end
+
+//  if rbBlue.Checked then
+//  begin
+//    FSelectedForce := 3;
+//
+//    btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Blue.PNG');
+//    btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Blue.PNG');
+//  end
+//  else if rbRed.Checked then
+//  begin
+//    FSelectedForce := 1;
+//
+//    btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Red.PNG');
+//    btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Red.PNG');
+//  end
+
 end;
 
 procedure TfrmSummaryScenario.ForceChosePlatformClick(Sender: TObject);
 begin
-  if rbBluePlatform.Checked then
+  if rbRedGroup.Checked then        //ok
   begin
-    FSelectedForce2 := 3;
+    FSelectedForce := 1;
+
+    btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Red.PNG');
+  end
+  else if rbYellowGroup.Checked then
+  begin
+    FSelectedForce := 2;    //ok
+
+    btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Yellow.PNG');
+  end
+  else if rbBlueGroup.Checked then    //ok
+  begin
+    FSelectedForce := 3;
 
     btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Blue.PNG');
   end
-  else
+  else if rbGreenGroup.Checked then    //ok
   begin
-    FSelectedForce2 := 1;
+    FSelectedForce := 4;
 
-    btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Red.PNG');
-  end;
+    btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Green.PNG');
+  end
+  else if rbNoForceGroup.Checked then    //ok
+  begin
+    FSelectedForce := 5;
+
+    btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_NoForce.PNG');
+  end
+//  if rbBluePlatform.Checked then
+//  begin
+//    FSelectedForce2 := 3;
+//
+//    btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Blue.PNG');
+//  end
+//  else
+//  begin
+//    FSelectedForce2 := 1;
+//
+//    btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Red.PNG');
+//  end;
 end;
 
 procedure TfrmSummaryScenario.UpdatePage;

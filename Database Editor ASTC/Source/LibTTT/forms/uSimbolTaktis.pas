@@ -10,11 +10,13 @@ uses
 type
   TfrmSimbolTaktis = class(TForm)
     drwgrdFontTaktis: TDrawGrid;
-    btnOK: TButton;
-    btnCancel: TButton;
-    edt_searchsimbol: TEdit;
-    lbl1: TLabel;
+    pnlMainBackground: TPanel;
     imgBackground: TImage;
+    pnl3Button: TPanel;
+    btnCancel: TButton;
+    btnOK: TButton;
+    lbl1: TLabel;
+    edt_searchsimbol: TEdit;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -23,7 +25,8 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnOKClick(Sender: TObject);
     procedure edt_searchsimbolKeyPress(Sender: TObject; var Key: Char);
-    procedure filtersearch; //dng
+    procedure filtersearch;
+    procedure edt_searchsimbolChange(Sender: TObject); //dng
   private
     { Private declarations }
   public
@@ -81,6 +84,19 @@ begin
       drwgrdFontTaktis.Canvas.TextOut(Rect.Left + 60, Rect.Top, char(aFontTaktis.FData.FONT_INDEX));
     end;
   end;
+end;
+
+procedure TfrmSimbolTaktis.edt_searchsimbolChange(Sender: TObject);
+var
+ i : Integer;
+begin
+  if Assigned(FontTaktisList) then
+    FontTaktisList.Clear
+  else
+    FontTaktisList.Create;
+
+  dmTTT.getFilterSimbol(edt_searchsimbol.Text,FontType,FontTaktisList);
+  drwgrdFontTaktis.RowCount := FontTaktisList.Count;
 end;
 
 procedure TfrmSimbolTaktis.edt_searchsimbolKeyPress(Sender: TObject;

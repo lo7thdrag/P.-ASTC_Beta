@@ -103,12 +103,12 @@ begin
     if FData.Curve_Definition_Index = 0 then
     begin
       if dmTTT.InsertPODvsSNRCurveDef(FData) then
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
     end
     else
     begin
       if dmTTT.UpdatePODvsSNRCurveDef(FData) then
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
     end;
 
   end;
@@ -169,7 +169,7 @@ begin
   {Jika inputan class name kosong}
   if (edtName.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -187,7 +187,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakann nama class lain');
       Exit;
     end;
   end;
@@ -198,12 +198,12 @@ begin
     {Jika inputan baru}
     if FSelectedSNRvsPOD.FData.Curve_Definition_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakann nama class lain');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakann nama class lain');
       Exit;
     end;
   end;

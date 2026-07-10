@@ -218,10 +218,10 @@ end;
 
 procedure TfrmAvailableLogistic.edtloglistKeyPress(Sender: TObject; var Key: Char);
 begin
-  if Key = #13 then
-  begin
-    UpdateLogisticList
-  end;
+//  if Key = #13 then
+//  begin
+//    UpdateLogisticList
+//  end;
 end;
 
 procedure TfrmAvailableLogistic.edtSearchChange(Sender: TObject);
@@ -264,7 +264,8 @@ var
 begin
   lbLogistic.Items.Clear;
 
-  dmTTT.GetAllLogisticDef(FLogisticList);
+//  dmTTT.GetAllLogisticDef(FLogisticList);
+  dmTTT.GetFilterLogisticDef(FLogisticList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Mengisi data dari database';

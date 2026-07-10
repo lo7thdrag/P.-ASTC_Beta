@@ -822,7 +822,6 @@ begin
   tempList.Free;
 end;
 
-
 procedure TfrmAvailableScenario.edtSearchChange(Sender: TObject);
 var
   i : Integer;

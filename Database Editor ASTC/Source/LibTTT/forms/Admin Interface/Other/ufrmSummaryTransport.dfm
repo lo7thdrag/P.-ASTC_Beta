@@ -44937,6 +44937,8 @@ object frmSummaryTransport: TfrmSummaryTransport
         ExplicitHeight = 356
         object tsGeneral: TTabSheet
           Caption = 'General'
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 525
           ExplicitHeight = 316
           object chkCarriableUnit: TCheckBox

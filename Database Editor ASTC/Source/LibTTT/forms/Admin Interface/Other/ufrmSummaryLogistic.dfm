@@ -44935,6 +44935,8 @@ object frmSummaryLogistic: TfrmSummaryLogistic
         ExplicitHeight = 471
         object tsGeneral: TTabSheet
           Caption = 'General'
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 557
           ExplicitHeight = 431
           object lblMaxAltitudeDiff: TLabel

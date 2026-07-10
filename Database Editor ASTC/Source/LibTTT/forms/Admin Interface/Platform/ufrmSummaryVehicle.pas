@@ -990,7 +990,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply   ');
     Exit;
   end;
   {$ENDREGION}
@@ -1017,7 +1017,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1042,7 +1042,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1067,7 +1067,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1092,7 +1092,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1117,7 +1117,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply ');
     Exit;
   end;
   {$ENDREGION}
@@ -1142,7 +1142,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1167,7 +1167,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1193,7 +1193,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply ');
     Exit;
   end;
   {$ENDREGION}
@@ -1218,7 +1218,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply ');
     Exit;
   end;
   {$ENDREGION}
@@ -1243,7 +1243,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply');
     Exit;
   end;
   {$ENDREGION}
@@ -1268,7 +1268,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1293,7 +1293,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply ');
     Exit;
   end;
   {$ENDREGION}
@@ -1319,7 +1319,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply ');
     Exit;
   end;
   {$ENDREGION}
@@ -1344,7 +1344,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1369,7 +1369,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1395,7 +1395,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1420,7 +1420,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1445,7 +1445,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1470,7 +1470,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1495,7 +1495,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1556,7 +1556,7 @@ begin
   {$REGION ' Jika class belum tersimpan '}
   if FSelectedVehicle.FData.Vehicle_Index = 0 then
   begin
-    ShowMessage('Save data Class before continue  ');
+    ShowMessage('Simpan data Vehicle sebelum melanjutkan dengan menekan tombol Apply  ');
     Exit;
   end;
   {$ENDREGION}
@@ -1587,7 +1587,7 @@ begin
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -1605,7 +1605,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -1616,12 +1616,12 @@ begin
     {Jika inputan baru}
     if FSelectedVehicle.FData.Vehicle_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -1629,21 +1629,21 @@ begin
   {Jika inputan Motion Characteristic masih kosong}
   if FSelectedVehicle.FData.Motion_Characteristics = 0 then
   begin
-    ShowMessage('Motion Characteristics not selected');
+    ShowMessage('Motion Characteristics belum dipilih');
     Exit;
   end;
 
   {Jika inputan Logistic masih kosong}
   if FSelectedVehicle.FData.Logistics_Index = 0 then
   begin
-    ShowMessage('Logistic Characteristics not selected');
+    ShowMessage('Logistic Characteristics belum dipilih');
     Exit;
   end;
 
   {Jika inputan Transport masih kosong}
   if FSelectedVehicle.FData.Platform_Capability_Index = 0 then
   begin
-    ShowMessage('Transport Characteristics not selected');
+    ShowMessage('Transport Characteristics belum dipilih');
     Exit;
   end;
 

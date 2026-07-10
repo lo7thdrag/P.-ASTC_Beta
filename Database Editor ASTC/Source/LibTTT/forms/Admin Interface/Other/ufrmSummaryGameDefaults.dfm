@@ -44852,10 +44852,6 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 56
-    ExplicitTop = -120
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl2ControlPage: TPanel
       Left = 0
       Top = 65
@@ -44865,10 +44861,6 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
       BevelOuter = bvNone
       BorderWidth = 10
       TabOrder = 0
-      ExplicitLeft = 60
-      ExplicitTop = 138
-      ExplicitWidth = 806
-      ExplicitHeight = 456
       object pgcData: TPageControl
         Left = 10
         Top = 10
@@ -44885,14 +44877,8 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
         TabHeight = 30
         TabOrder = 0
         TabWidth = 110
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 806
-        ExplicitHeight = 456
         object tsAboveWater: TTabSheet
           Caption = 'Above Water'
-          ExplicitWidth = 806
-          ExplicitHeight = 384
           object grpRadarEffect: TGroupBox
             Left = 14
             Top = 15
@@ -45408,6 +45394,8 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
         object tsUnderWater: TTabSheet
           Caption = 'Under Water'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 798
           ExplicitHeight = 416
           object lblSonobuoy: TLabel
@@ -45688,6 +45676,8 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
         object tsTrack: TTabSheet
           Caption = 'Tracks'
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 798
           ExplicitHeight = 416
           object lblClutterReduction: TLabel
@@ -46175,6 +46165,8 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
         object tsGuidance: TTabSheet
           Caption = 'Guidance'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 798
           ExplicitHeight = 416
           object lblZigZagPredefinedLegs: TLabel
@@ -46412,6 +46404,8 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
         object tsESMIFF: TTabSheet
           Caption = 'ESM/IFF'
           ImageIndex = 4
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 798
           ExplicitHeight = 416
           object lblESMBearingErrorRate: TLabel
@@ -46538,6 +46532,8 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
         object tsAllocatioinMax: TTabSheet
           Caption = 'Allocation Max'
           ImageIndex = 5
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 798
           ExplicitHeight = 416
           object lblMaxRadarClass: TLabel
@@ -46702,6 +46698,8 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
         object tsCommunication: TTabSheet
           Caption = 'Communication'
           ImageIndex = 6
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 798
           ExplicitHeight = 416
           object grpMHSDelayTime: TGroupBox
@@ -46904,8 +46902,6 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 508
-      ExplicitWidth = 833
       object btnApply: TButton
         Left = 652
         Top = 1
@@ -46969,7 +46965,6 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitWidth = 921
       object lbl1: TLabel
         Left = 10
         Top = 10
@@ -46989,7 +46984,7 @@ object frmSummaryGameDefault: TfrmSummaryGameDefault
         Left = 10
         Top = 32
         Width = 807
-        Height = 24
+        Height = 21
         TabOrder = 0
       end
     end

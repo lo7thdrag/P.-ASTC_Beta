@@ -867,7 +867,7 @@ begin
   {Jika inputan Motion Characteristic masih kosong}
   if FSelectedTorpedo.FDef.Motion_Index = 0 then
   begin
-    ShowMessage('Motion Characteristics not selected');
+    ShowMessage('Motion Characteristics belum dipilih');
     Exit;
   end;
 

@@ -408,7 +408,7 @@ begin
   {Jika inputan class name kosong}
   if (edtClass.Text = '') or (edtClass.Text = ' ') then
   begin
-    ShowMessage('Please use another class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -426,7 +426,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -437,12 +437,12 @@ begin
     {Jika inputan baru}
     if FSelectedMotion.FData.Motion_Index= 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;

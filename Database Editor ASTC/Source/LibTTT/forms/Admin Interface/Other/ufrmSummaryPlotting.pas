@@ -274,7 +274,7 @@ begin
 
   if dmTTT.CekPlottingInsert(edtPlotName.Text) and (IdAction<>2) then
   begin
-    ShowMessage('Please use another name');
+    ShowMessage('Silahkan gunakan nama lain');
     Exit;
   end;
 
@@ -282,7 +282,7 @@ begin
   begin
     if dmTTT.CekPlottingInsert(edtPlotName.Text) then
     begin
-      ShowMessage('Please use another name');
+      ShowMessage('Silahkan gunakan nama lain');
       Exit;
     end;
   end;

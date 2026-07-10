@@ -692,12 +692,12 @@ begin
         end;
       end;
 
-      ShowMessage('Data has been saved');
+      ShowMessage('Data berhasil disimpan');
     end
     else
     begin
       dmTTT.UpdateGameDefaultDef(FData);
-      ShowMessage('Data has been updated');
+      ShowMessage('Data berhasil diperbarui');
     end;
   end;
 
@@ -925,7 +925,7 @@ begin
   {Jika inputan class name kosong}
   if (edtName.Text = '') or (edtName.Text = ' ') then
   begin
-    ShowMessage('Please use another name');
+    ShowMessage('Silahkan gunakan nama lain');
     Exit;
   end;
 
@@ -941,7 +941,7 @@ begin
     end;
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another name');
+      ShowMessage('Silahkan gunakan nama lain');
       Exit;
     end;
   end;
@@ -951,7 +951,7 @@ begin
   begin
     if LastName <> edtName.Text then
     begin
-      ShowMessage('Cannot Rename this Game Default');
+      ShowMessage('Nama Game Default ini tidak bisa diubah ');
         Exit;
     end;
   end;
@@ -963,12 +963,12 @@ begin
     {Jika inputan baru}
     if FSelectedGameDefault.FData.Defaults_Index= 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;

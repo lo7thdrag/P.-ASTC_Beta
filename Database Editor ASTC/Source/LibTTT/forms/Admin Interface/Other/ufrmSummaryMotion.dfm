@@ -44953,6 +44953,8 @@ object frmSummaryMotion: TfrmSummaryMotion
         ExplicitHeight = 270
         object tsHorizontal: TTabSheet
           Caption = 'Horizontal'
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 467
           ExplicitHeight = 236
           object grpIRCM: TGroupBox
@@ -45240,6 +45242,9 @@ object frmSummaryMotion: TfrmSummaryMotion
           Caption = 'Vertical'
           ImageIndex = 1
           ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object lblMaxAltitude: TLabel
             Left = 4
             Top = 24

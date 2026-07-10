@@ -715,8 +715,8 @@ var
 implementation
 
 uses
-  uBaseCoordSystem, ufrmSummaryOverlay,
-  ufrmGameAreaPickList, uDBEditSetting, uDataModuleTTT, uRecord, ufrmRuler;
+  uBaseCoordSystem, ufrmSummaryOverlay, ufrmGameAreaPickList,
+  uDBEditSetting, uDataModuleTTT, uRecord, ufrmRuler;
 
 {$R *.dfm}
 
@@ -2057,6 +2057,9 @@ begin
 
   with FCanvas do
   begin
+    Handle := hOutputDC;
+    Brush.Style := bsClear;
+
     if FIsMouseDown and btnZoom.Down then
     begin
       Handle := hOutputDC;
@@ -2066,14 +2069,6 @@ begin
       Brush.Style := bsClear;
       Font.Name := 'Courier';
       Font.Size := 12;
-//      Pen.Width := 2  ;
-//      Pen.Style := psSolid;
-//      Pen.Color := clWhite;
-//      Font.Name := 'Courier';
-//      Brush.Style := bsClear;
-//      Font.Size := 12;
-//      Font.Color := clGray;
-
       Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
     end;
   end;
@@ -3320,30 +3315,24 @@ end;
 procedure TOverlayEditorForm.btnGameAreaClick(Sender: TObject);
 begin
   UpAllToolbarButton;
-  frmGameAreaPickList:=TfrmGameAreaPickList.Create(self);
-    try
-      with frmGameAreaPickList do
-      begin
-        ShowModal;
-        LoadMap(vAppDBSetting.MapGSTGame +'\'+ SelectedGameAreaName+'\' +SelectedGameAreaName+'.gst');
 
-        end;
-    finally
-//       btngamearea.ImageIndex := 11;
-       frmGameAreaPickList.Free;
+  frmGameAreaPickList := TfrmGameAreaPickList.Create(self);
+  try
+    with frmGameAreaPickList do
+    begin
+      ShowModal;
+      LoadMap(vAppDBSetting.MapGSTGame +'\'+ SelectedGameAreaName+'\' +SelectedGameAreaName+'.gst');
+
       end;
-//       btnSelect.Picture.LoadFromFile
-//    ('data\Image DBEditor\Interface\Button\Db1.PNG');
-//  pnlStatic.Visible := false;
-
+  finally
+     frmGameAreaPickList.Free;
+  end;
 end;
 
 procedure TOverlayEditorForm.btnOutlineClick(Sender: TObject);
 begin
-  btnOutline.Picture.LoadFromFile
-      ('data\Image DBEditor\Interface\Button\btnOutline_Select.PNG');
-  btnFill.Picture.LoadFromFile
-    ('data\Image DBEditor\Interface\Button\btnFill_Normal.PNG');
+  btnOutline.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOutline_Select.PNG');
+  btnFill.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnFill_Normal.PNG');
 
   FShapeColor := scOutline;
 end;

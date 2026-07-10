@@ -144,6 +144,12 @@ begin
   if btnApply.Enabled then
     btnApply.Click;
 
+  if not dmTTT.GetFittedWeaponLauncherOnBoardSum(FSelectedMissile.FData.Fitted_Weap_Index) then
+  begin
+    ShowMessage('Launcher belum di set...');
+    Exit
+  end;
+
   if isOk then
     Close;
 end;

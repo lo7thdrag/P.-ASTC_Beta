@@ -27,8 +27,6 @@ type
     btnApply: TButton;
     btnCancel: TButton;
     pnlMainBackground: TPanel;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
 
     //Global
@@ -72,11 +70,6 @@ uses
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
-
-procedure TfrmMissileLauncher.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-   Action := cafree;
-end;
 
 procedure TfrmMissileLauncher.FormShow(Sender: TObject);
 begin

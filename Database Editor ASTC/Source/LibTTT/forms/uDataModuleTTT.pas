@@ -456,6 +456,7 @@ type
     function GetFittedWeaponOnBoardCount(const aVehicleID: Integer; const aIdentifier: string): Boolean;
     function GetPointEffectOnBoardCount(const aVehicleID: Integer; const aIdentifier: string): Boolean;
     function GetFittedWeaponLauncherOnBoardCount(const aFittedWeapID: Integer; const aType: Integer): Boolean;
+    function GetFittedWeaponLauncherOnBoardSum(const aFittedWeapID: Integer): Boolean;
     function GetFittedWeaponLauncherOnBoard(const aWeaponID: Integer; var aList: TList): Boolean;
 
     function InsertFittedWeaponOnBoard(const aInsertType: Byte;var aRec: TRecFitted_Weapon_On_Board): Boolean;
@@ -15999,8 +16000,7 @@ begin
         begin
           Fitted_Weap_Index := FieldByName('Fitted_Weap_Index').AsInteger;
           Launcher_Type := FieldByName('Launcher_Type').AsInteger;
-          Launcher_Angle_Required := FieldByName('Launcher_Angle_Required')
-            .AsInteger;
+          Launcher_Angle_Required := FieldByName('Launcher_Angle_Required').AsInteger;
           Launcher_Angle := FieldByName('Launcher_Angle').AsInteger;
           Launcher_Max_Qty := FieldByName('Launcher_Max_Qty').AsInteger;
         end;
@@ -16027,6 +16027,26 @@ begin
     SQL.Add('FROM Fitted_Weap_Launcher_On_Board');
     SQL.Add('WHERE Fitted_Weap_Index = ' + IntToStr(aFittedWeapID));
     SQL.Add('AND Launcher_Type = ' + IntToStr(aType));
+    Open;
+
+    Result := RecordCount > 0;
+  end;
+end;
+
+function TdmTTT.GetFittedWeaponLauncherOnBoardSum(const aFittedWeapID: Integer): Boolean;
+begin
+  Result := False;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Fitted_Weap_Launcher_On_Board');
+    SQL.Add('WHERE Fitted_Weap_Index = ' + IntToStr(aFittedWeapID));
     Open;
 
     Result := RecordCount > 0;

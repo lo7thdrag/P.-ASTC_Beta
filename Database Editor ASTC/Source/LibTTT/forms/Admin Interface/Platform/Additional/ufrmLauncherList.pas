@@ -23,7 +23,6 @@ type
     btnEdit: TImage;
     btnDelete: TImage;
 
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -87,12 +86,6 @@ end;
 procedure TfrmLauncherList.FormShow(Sender: TObject);
 begin
   UpdateLauncherList;
-end;
-
-procedure TfrmLauncherList.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-//  FreeItemsAndFreeList(FLauncherList);
-//  Action := cafree;
 end;
 
 {$ENDREGION}
@@ -240,15 +233,19 @@ begin
 
     with launcher.FData do
     begin
-      if Launcher_Type <= 8 then
-        lbAllLauncher.Items.AddObject('Launcher ' + IntToStr(Launcher_Type), launcher)
-      else
-      begin
-        case FLauncherOwner of
-          loMissile: lbAllLauncher.Items.AddObject('Missile Cell ' + IntToStr(Launcher_Type - 8), launcher);
-          loTorpedo: lbAllLauncher.Items.AddObject('Torpedo Tube ' + IntToStr(Launcher_Type - 8), launcher);
-        end;
+      case FLauncherOwner of
+        loMissile: lbAllLauncher.Items.AddObject('Launcher ' + IntToStr(Launcher_Type), launcher);
+        loTorpedo: lbAllLauncher.Items.AddObject('Torpedo Tube ' + IntToStr(Launcher_Type), launcher);
       end;
+//      if Launcher_Type <= 8 then
+//        lbAllLauncher.Items.AddObject('Launcher ' + IntToStr(Launcher_Type), launcher)
+//      else
+//      begin
+//        case FLauncherOwner of
+//          loMissile: lbAllLauncher.Items.AddObject('Missile Cell ' + IntToStr(Launcher_Type - 8), launcher);
+//          loTorpedo: lbAllLauncher.Items.AddObject('Torpedo Tube ' + IntToStr(Launcher_Type - 8), launcher);
+//        end;
+//      end;
     end;
   end;
 end;

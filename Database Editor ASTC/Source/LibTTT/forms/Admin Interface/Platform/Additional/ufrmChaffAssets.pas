@@ -156,6 +156,8 @@ begin
     FData.Seduction_Mode_Prob := trckbrProbabilitySuccess.Position / 100;
 
     dmTTT.UpdateVehicleDef(FData);
+
+    ShowMessage('Data berhasil diperbarui');
   end;
 
   isOK := True;

@@ -43,7 +43,6 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
     FSelectedTorpedo : TTorpedo_On_Board;
@@ -73,11 +72,6 @@ uses
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
-
-procedure TfrmTorpedoLauncher.FormClose(Sender: TObject;var Action: TCloseAction);
-begin
-   Action := cafree;
-end;
 
 procedure TfrmTorpedoLauncher.FormShow(Sender: TObject);
 begin
@@ -125,9 +119,13 @@ begin
     begin
       FData.Fitted_Weap_Index := FSelectedTorpedo.FData.Fitted_Weap_Index;
       dmTTT.InsertFittedWeaponLauncherOnBoard(FData);
+      ShowMessage('Data berhasil disimpan');
     end
     else
+    begin
       dmTTT.UpdateFittedWeaponLauncherOnBoard(FData);
+      ShowMessage('Data berhasil diperbarui');
+    end;
   end;
 
   isOK := True;
@@ -169,6 +167,7 @@ procedure TfrmTorpedoLauncher.UpdateLauncherData;
 begin
   with FSelectedLauncher.FData do
   begin
+    LastLauncher_Type := Launcher_Type;
     cbbName.ItemIndex := Launcher_Type - 1;
     edtMaxQuantity.Text := FormatFloat('0', Launcher_Max_Qty);
     chkAngleRequired.Checked := Boolean(Launcher_Angle_Required);
@@ -233,7 +232,7 @@ end;
 
 procedure TfrmTorpedoLauncher.chkAngleRequiredClick(Sender: TObject);
 begin
- chkAngleRequired.Enabled := chkAngleRequired.Checked;
+ grbAngleRequired.Enabled := chkAngleRequired.Checked;
 
   if not chkAngleRequired.Checked then
   begin

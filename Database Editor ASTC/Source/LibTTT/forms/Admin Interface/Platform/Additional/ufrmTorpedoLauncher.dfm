@@ -16,7 +16,6 @@ object frmTorpedoLauncher: TfrmTorpedoLauncher
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44852,10 +44851,6 @@ object frmTorpedoLauncher: TfrmTorpedoLauncher
     BevelOuter = bvNone
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 296
-    ExplicitTop = 71
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44887,17 +44882,9 @@ object frmTorpedoLauncher: TfrmTorpedoLauncher
         BevelOuter = bvNone
         ItemIndex = 0
         TabOrder = 0
-        Text = 'Launcher 1'
+        Text = 'Torpedo Tube 1'
         OnChange = ComboBoxDataChange
         Items.Strings = (
-          'Launcher 1'
-          'Launcher 2'
-          'Launcher 3'
-          'Launcher 4'
-          'Launcher 5'
-          'Launcher 6'
-          'Launcher 7'
-          'Launcher 8'
           'Torpedo Tube 1'
           'Torpedo Tube 2'
           'Torpedo Tube 3'
@@ -44923,10 +44910,6 @@ object frmTorpedoLauncher: TfrmTorpedoLauncher
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 45
-      ExplicitTop = 117
-      ExplicitWidth = 400
-      ExplicitHeight = 250
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44937,14 +44920,8 @@ object frmTorpedoLauncher: TfrmTorpedoLauncher
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 400
-        ExplicitHeight = 250
         object General: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 392
-          ExplicitHeight = 210
           object lbl2: TLabel
             Left = 119
             Top = 52
@@ -45010,7 +44987,6 @@ object frmTorpedoLauncher: TfrmTorpedoLauncher
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitTop = 320
       object btnApply: TButton
         Left = 270
         Top = 4

@@ -16,7 +16,6 @@ object frmMissileLauncher: TfrmMissileLauncher
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 15
@@ -44852,10 +44851,6 @@ object frmMissileLauncher: TfrmMissileLauncher
     BevelOuter = bvNone
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 281
-    ExplicitTop = 71
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44885,7 +44880,6 @@ object frmMissileLauncher: TfrmMissileLauncher
         Height = 23
         BevelInner = bvNone
         BevelOuter = bvNone
-        ItemIndex = 0
         TabOrder = 0
         Text = 'Launcher 1'
         OnChange = ComboBoxDataChange
@@ -44897,15 +44891,7 @@ object frmMissileLauncher: TfrmMissileLauncher
           'Launcher 5'
           'Launcher 6'
           'Launcher 7'
-          'Launcher 8'
-          'Missile Cell 1'
-          'Missile Cell 2'
-          'Missile Cell 3'
-          'Missile Cell 4'
-          'Missile Cell 5'
-          'Missile Cell 6'
-          'Missile Cell 7'
-          'Missile Cell 8')
+          'Launcher 8')
       end
     end
     object pnl2ControlPage: TPanel
@@ -44917,8 +44903,6 @@ object frmMissileLauncher: TfrmMissileLauncher
       BevelOuter = bvNone
       BorderWidth = 10
       TabOrder = 1
-      ExplicitTop = 0
-      ExplicitHeight = 324
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44929,10 +44913,8 @@ object frmMissileLauncher: TfrmMissileLauncher
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitHeight = 304
         object General: TTabSheet
           Caption = 'General'
-          ExplicitHeight = 264
           object lbl2: TLabel
             Left = 119
             Top = 52

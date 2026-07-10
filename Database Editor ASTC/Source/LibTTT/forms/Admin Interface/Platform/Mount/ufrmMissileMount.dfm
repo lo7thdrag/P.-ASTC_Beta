@@ -44850,10 +44850,6 @@ object frmMissileMount: TfrmMissileMount
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 176
-    ExplicitTop = 48
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44906,8 +44902,6 @@ object frmMissileMount: TfrmMissileMount
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 0
-      ExplicitHeight = 478
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44924,10 +44918,8 @@ object frmMissileMount: TfrmMissileMount
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitHeight = 393
         object General: TTabSheet
           Caption = 'General'
-          ExplicitHeight = 418
           object lblClassName: TStaticText
             Left = 10
             Top = 16
@@ -45056,7 +45048,6 @@ object frmMissileMount: TfrmMissileMount
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitTop = 431
       object btnApply: TButton
         Left = 261
         Top = 2

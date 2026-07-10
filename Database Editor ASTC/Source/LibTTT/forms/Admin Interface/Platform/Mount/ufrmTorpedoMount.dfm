@@ -44852,10 +44852,6 @@ object frmTorpedoMount: TfrmTorpedoMount
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 176
-    ExplicitTop = 8
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44871,9 +44867,6 @@ object frmTorpedoMount: TfrmTorpedoMount
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 34
-      ExplicitTop = 79
-      ExplicitWidth = 400
       object lbl1: TLabel
         Left = 10
         Top = 10
@@ -44912,10 +44905,6 @@ object frmTorpedoMount: TfrmTorpedoMount
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 34
-      ExplicitTop = 135
-      ExplicitWidth = 400
-      ExplicitHeight = 250
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44926,14 +44915,8 @@ object frmTorpedoMount: TfrmTorpedoMount
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 400
-        ExplicitHeight = 250
         object General: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 392
-          ExplicitHeight = 210
           object lbl2: TLabel
             Left = 10
             Top = 8
@@ -45055,7 +45038,6 @@ object frmTorpedoMount: TfrmTorpedoMount
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitTop = 431
       object btnApply: TButton
         Left = 261
         Top = 2

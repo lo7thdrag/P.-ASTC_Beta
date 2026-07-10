@@ -44914,7 +44914,7 @@ object frmChaffAssets: TfrmChaffAssets
       Top = 8
       Width = 440
       Height = 253
-      ActivePage = ts1
+      ActivePage = tsGeneral
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -13

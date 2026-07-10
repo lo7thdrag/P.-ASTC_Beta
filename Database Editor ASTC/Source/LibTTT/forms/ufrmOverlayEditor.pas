@@ -2062,7 +2062,6 @@ begin
 
     if FIsMouseDown and btnZoom.Down then
     begin
-      Handle := hOutputDC;
       Pen.Color := clBlack;
       Pen.Width := 1;
       Pen.Style := psDash;

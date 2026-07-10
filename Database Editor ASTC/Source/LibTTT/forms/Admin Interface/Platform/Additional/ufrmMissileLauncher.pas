@@ -117,9 +117,13 @@ begin
     begin
       FData.Fitted_Weap_Index := FSelectedMissile.FData.Fitted_Weap_Index;
       dmTTT.InsertFittedWeaponLauncherOnBoard(FData);
+      ShowMessage('Data berhasil disimpan');
     end
     else
+    begin
       dmTTT.UpdateFittedWeaponLauncherOnBoard(FData);
+      ShowMessage('Data berhasil diperbarui');
+    end;
   end;
 
   isOK := True;
@@ -161,6 +165,7 @@ procedure TfrmMissileLauncher.UpdateLauncherData;
 begin
   with FSelectedLauncher.FData do
   begin
+    LastLauncher_Type := Launcher_Type;
     cbbName.ItemIndex := Launcher_Type - 1;
     edtMaxQuantity.Text := FormatFloat('0', Launcher_Max_Qty);
     cbAngleRequired.Checked := Boolean(Launcher_Angle_Required);

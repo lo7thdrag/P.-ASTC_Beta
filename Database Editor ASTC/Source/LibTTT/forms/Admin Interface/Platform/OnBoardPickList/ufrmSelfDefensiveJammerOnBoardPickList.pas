@@ -106,7 +106,10 @@ end;
 procedure TfrmSelfDefensiveJammerOnBoardPickList.btnAddClick(Sender: TObject);
 begin
   if lbAllDefensiveJammerDef.ItemIndex = -1 then
+  begin
+    ShowMessage('Data belum dipilih');
     Exit;
+  end;
 
   with FSelectedDefensiveJammer do
   begin

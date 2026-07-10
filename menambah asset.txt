@@ -5,28 +5,19 @@ Penting
 3. Showmassage dicek, masih ada yang Bahasa inggris 
 
 20. Button di Form Game Area masih harus diperbaiki lagi.
-24. Ketika Klik Add di ufrmAvailableScenario muncul Error Accsess violation.
-25. ufrmSummaryScenario perlu di desain ulang.
-26. ufrmSummaryScenario bagian advance setting dan next error Accsess violation.
-27. Ketika sudah menginputkan data general/lainnya > apply, lalu isi data di notes> Apply lagi. isi note tidak ada.
-34. form tacticalSymbol bagian searchnya bisa tapi, belum disamakan dengan yang lain.
-35. form MADMount bagian btnOk > diklik , form tidak mau nutup.
-36. di form sonoboyMount Ketika di Apply muncul ShowMessage "data tdk bisa di tambahkan, karena tidak ada tipe sonar yang sesuai dengan sonobuoy in".
 37. Form TorpedoLauncher bagian angle Required tidak bisa di inputkan data.
 40. di form ChaffLauncher klik apply > Ok, langsung muncul error acsses violation.
-41. form InfraredDecoy bagian Name masih bisa di isi/di ubah.
-42. di form DefensiveJammerOnBoard bagian btnedit mati.
 43. di form Towed/jammerDecoyOnboard data yang sudah di add kan tidak tampil dalam listOfTowedDecoyOnboard. 
-44. di form SummaryVehicle data yang sudah di inputkan tidak muncul Ketika klik btnEdit.
-45. form VehicleRPlPickListOnboard bagian searchnya bisa tapi, belum disamakan dengan yang lain dan btn editnya tidak ada.
 48. di form availableListOfGameArea > klik add > muncul error.
-50. form summarySignalToNoiseVsProbability masih menggunakan bahasa inggris.
+
+
+
+{Scenario}
+24. Ketika Klik Add di ufrmAvailableScenario muncul Error Accsess violation.
 53. form AvailablelisOfScenario > klik btnCopy > terjadi error/bug.
+25. ufrmSummaryScenario perlu di desain ulang.
+26. ufrmSummaryScenario bagian advance setting dan next error Accsess violation.
 
-
-
-
-note yang di bomb tadi salah data.
 
 
 4. summary waypoint perlu didesain ulang.(sudah)

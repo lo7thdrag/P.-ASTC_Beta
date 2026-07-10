@@ -27,8 +27,6 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 884
-    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -39,7 +37,6 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 884
       object Label2: TLabel
         Left = 10
         Top = 25
@@ -64,7 +61,6 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 304
         DesignSize = (
           580
           57)
@@ -706,8 +702,6 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 884
-      ExplicitHeight = 404
       object lstRuntimePlatformLibrary: TListBox
         Left = 10
         Top = 10
@@ -724,8 +718,6 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitWidth = 864
-        ExplicitHeight = 384
       end
     end
   end

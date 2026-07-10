@@ -44868,9 +44868,6 @@ object frmSummaryTransport: TfrmSummaryTransport
       BevelOuter = bvNone
       Color = 5980694
       TabOrder = 0
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 553
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -44918,10 +44915,6 @@ object frmSummaryTransport: TfrmSummaryTransport
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 1
-      ExplicitTop = 66
-      ExplicitWidth = 553
-      ExplicitHeight = 376
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44933,14 +44926,8 @@ object frmSummaryTransport: TfrmSummaryTransport
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 533
-        ExplicitHeight = 356
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 525
-          ExplicitHeight = 316
           object chkCarriableUnit: TCheckBox
             Left = 10
             Top = 11
@@ -45235,9 +45222,6 @@ object frmSummaryTransport: TfrmSummaryTransport
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 1
-      ExplicitTop = 442
-      ExplicitWidth = 553
       object btnApply: TButton
         Left = 378
         Top = 0

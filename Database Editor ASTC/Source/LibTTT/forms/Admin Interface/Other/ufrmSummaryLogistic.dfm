@@ -44853,10 +44853,6 @@ object frmSummaryLogistic: TfrmSummaryLogistic
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 112
-    ExplicitTop = -120
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44866,7 +44862,6 @@ object frmSummaryLogistic: TfrmSummaryLogistic
       BevelOuter = bvNone
       Color = 5980694
       TabOrder = 0
-      ExplicitWidth = 693
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -44914,10 +44909,6 @@ object frmSummaryLogistic: TfrmSummaryLogistic
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 64
-      ExplicitTop = 70
-      ExplicitWidth = 565
-      ExplicitHeight = 471
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44929,16 +44920,8 @@ object frmSummaryLogistic: TfrmSummaryLogistic
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 565
-        ExplicitHeight = 471
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 557
-          ExplicitHeight = 431
           object lblMaxAltitudeDiff: TLabel
             Left = 4
             Top = 42
@@ -45547,9 +45530,6 @@ object frmSummaryLogistic: TfrmSummaryLogistic
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 1
-      ExplicitTop = 338
-      ExplicitWidth = 464
       object btnApply: TButton
         Left = 387
         Top = 0

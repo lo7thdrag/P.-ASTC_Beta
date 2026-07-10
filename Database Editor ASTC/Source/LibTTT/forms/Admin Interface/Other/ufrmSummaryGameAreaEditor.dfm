@@ -45116,7 +45116,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000957696E6764696E6773
           0000000000000001000100FFFFFF000200FFFFFF000000000000010000000000
-          011801000048F8292C01000000000000001C0000000000000000000000000000
+          0118010000B0EA530F01000000000000001C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -45125,7 +45125,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000008076
           C000000000008056C00000000000807640000000000080564001000000180100
-          0048F8292C010000006CAF11771C000000000000000000000000000000000000
+          00B0EA530F010000006CB058771C000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000002000000000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -45133,7 +45133,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
-          004813C600000000000000000000000000304BBE6D0000000000000000000000
+          004813A700000000000000000000000000204BD76C0000000000000000000000
           88B3400000000000408F400000000000}
       end
       object pnl3SparatorHor1: TPanel
@@ -45145,8 +45145,6 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 1
-        ExplicitLeft = 6
-        ExplicitTop = 34
       end
       object pnlToolbar: TPanel
         Left = 0
@@ -45158,8 +45156,6 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
         Color = 2499101
         ParentBackground = False
         TabOrder = 2
-        ExplicitTop = 10
-        ExplicitWidth = 385
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
@@ -45170,7 +45166,6 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           Color = 2499101
           ParentBackground = False
           TabOrder = 0
-          ExplicitHeight = 41
         end
         object ToolBar1: TToolBar
           Left = 22
@@ -45185,8 +45180,6 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           Images = ilToolbar
           ParentColor = False
           TabOrder = 1
-          ExplicitWidth = 371
-          ExplicitHeight = 41
           object btnIncreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -45199,7 +45192,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           end
           object cbbScale: TComboBox
             Left = 39
-            Top = 8
+            Top = 0
             Width = 90
             Height = 22
             Hint = 'Map Scales'

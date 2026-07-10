@@ -503,6 +503,7 @@ const
   ///  Torpedo
 
 type
+  TForceGroup  = (fgRed = 1, fgYellow, fgBlue, fgGreen, fgNoForce = 6);
   E_FormType = (ftfrmExercise = 0, ftfrmPlatform, ftfrmSensor, ftfrmWeapon, ftfrmCountermaesure, ftfrmOther,
     ftfrmAvailableRadar, ftfrmAvailableSonar, ftfrmAvailableESM, ftfrmAvailableEOD, ftfrmAvailableMAD, ftfrmAvailableSonobuoy,
     ftfrmAvailableMissile, ftfrmAvailableTorpedo, ftfrmAvailableMine, ftfrmAvailableGun, ftfrmAvailableBomb,

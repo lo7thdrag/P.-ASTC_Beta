@@ -4,7 +4,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
   BorderStyle = bsNone
   Caption = 'frmSummaryGameAreaEditor'
   ClientHeight = 815
-  ClientWidth = 1355
+  ClientWidth = 1600
   Color = 1119507
   TransparentColor = True
   TransparentColorValue = 1119507
@@ -17,13 +17,14 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
   Position = poDesigned
   WindowState = wsMaximized
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 1355
+    Width = 1600
     Height = 815
     Align = alClient
     Picture.Data = {
@@ -44848,11 +44849,12 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 1355
+    Width = 1600
     Height = 815
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 1355
     object pnl2Editor: TPanel
       Left = 0
       Top = 25
@@ -44860,110 +44862,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
       Height = 750
       Align = alLeft
       BevelOuter = bvNone
-      TabOrder = 4
-      object pnlListMap: TPanel
-        Left = 10
-        Top = 94
-        Width = 375
-        Height = 659
-        BevelOuter = bvNone
-        Color = 2499101
-        ParentBackground = False
-        TabOrder = 0
-        object chklstArea: TCheckListBox
-          Left = 10
-          Top = 40
-          Width = 354
-          Height = 570
-          OnClickCheck = chklstAreaClickCheck
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ItemHeight = 15
-          ParentFont = False
-          Sorted = True
-          TabOrder = 0
-        end
-        object pnlCaption: TPanel
-          Left = 10
-          Top = 7
-          Width = 354
-          Height = 35
-          BevelOuter = bvNone
-          Color = 2499101
-          ParentBackground = False
-          TabOrder = 1
-          DesignSize = (
-            354
-            35)
-          object lbl2: TLabel
-            Left = 0
-            Top = 10
-            Width = 63
-            Height = 16
-            Caption = 'List Map :'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
-            ParentFont = False
-            Layout = tlCenter
-          end
-          object lblWidth: TLabel
-            Left = 311
-            Top = 10
-            Width = 33
-            Height = 16
-            Cursor = crHandPoint
-            Anchors = [akTop, akRight]
-            Caption = '>>>'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
-            ParentFont = False
-            Layout = tlCenter
-            ExplicitLeft = 332
-          end
-        end
-        object pnlSearch: TPanel
-          Left = 0
-          Top = 624
-          Width = 375
-          Height = 35
-          Align = alBottom
-          BevelOuter = bvNone
-          Color = 2499101
-          ParentBackground = False
-          TabOrder = 2
-          object lblSearch: TLabel
-            Left = 10
-            Top = 5
-            Width = 54
-            Height = 16
-            Caption = 'Search :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object edtSearch: TEdit
-            Left = 71
-            Top = 2
-            Width = 294
-            Height = 21
-            CharCase = ecUpperCase
-            TabOrder = 0
-            OnKeyPress = edtSearchKeyPress
-          end
-        end
-      end
+      TabOrder = 3
       object pnlVertical1: TPanel
         Left = 0
         Top = 0
@@ -44972,24 +44871,68 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
         Align = alLeft
         BevelOuter = bvNone
         Color = 2499101
-        TabOrder = 1
+        TabOrder = 0
       end
       object pnlGameAreaEditor: TPanel
-        Left = 0
-        Top = 8
-        Width = 385
-        Height = 80
+        Left = 10
+        Top = 0
+        Width = 375
+        Height = 750
+        ParentCustomHint = False
+        Align = alClient
         BevelOuter = bvNone
-        TabOrder = 2
-        object pnlIdentification: TPanel
-          Left = 10
-          Top = -2
+        BiDiMode = bdLeftToRight
+        Color = 2499101
+        Ctl3D = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBiDiMode = False
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 1
+        ExplicitLeft = 0
+        ExplicitWidth = 308
+        ExplicitHeight = 833
+        object pnl2SparatorHor1: TPanel
+          Left = 0
+          Top = 80
           Width = 375
-          Height = 81
+          Height = 10
+          Align = alTop
+          BevelOuter = bvNone
+          Color = 2499101
+          TabOrder = 0
+          ExplicitLeft = 6
+          ExplicitTop = 81
+        end
+        object pnl2SparatorHor2: TPanel
+          Left = 0
+          Top = 695
+          Width = 375
+          Height = 10
+          Align = alBottom
+          BevelOuter = bvNone
+          Color = 2499101
+          TabOrder = 1
+          ExplicitLeft = 4
+          ExplicitTop = 701
+        end
+        object pnlName: TPanel
+          Left = 0
+          Top = 0
+          Width = 375
+          Height = 80
+          Align = alTop
           BevelOuter = bvNone
           Color = 2499101
           ParentBackground = False
-          TabOrder = 0
+          TabOrder = 2
+          ExplicitLeft = -10
+          ExplicitTop = 8
+          ExplicitWidth = 385
           object Label1: TLabel
             Left = 10
             Top = 16
@@ -45018,15 +44961,147 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
             Text = '(noname)'
           end
         end
+        object pnlListMap: TPanel
+          Left = 0
+          Top = 90
+          Width = 375
+          Height = 605
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 2499101
+          ParentBackground = False
+          TabOrder = 3
+          ExplicitLeft = 10
+          ExplicitTop = 0
+          ExplicitHeight = 750
+          object pnlCaption: TPanel
+            Left = 0
+            Top = 0
+            Width = 375
+            Height = 35
+            Align = alTop
+            BevelOuter = bvNone
+            Color = 2499101
+            ParentBackground = False
+            TabOrder = 0
+            ExplicitLeft = 10
+            ExplicitTop = 7
+            ExplicitWidth = 354
+            DesignSize = (
+              375
+              35)
+            object lbl2: TLabel
+              Left = 10
+              Top = 10
+              Width = 63
+              Height = 16
+              Caption = 'List Map :'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = [fsBold]
+              ParentFont = False
+              Layout = tlCenter
+            end
+            object lblWidth: TLabel
+              Left = 332
+              Top = 10
+              Width = 33
+              Height = 16
+              Cursor = crHandPoint
+              Anchors = [akTop, akRight]
+              Caption = '>>>'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = [fsBold]
+              ParentFont = False
+              Layout = tlCenter
+              OnClick = lblWidthClick
+            end
+          end
+          object pnlCheckList: TPanel
+            Left = 0
+            Top = 35
+            Width = 375
+            Height = 570
+            Align = alClient
+            BevelOuter = bvNone
+            BorderWidth = 10
+            Color = 2499101
+            ParentBackground = False
+            TabOrder = 1
+            ExplicitTop = 659
+            ExplicitHeight = 81
+            object chklstArea: TCheckListBox
+              Left = 10
+              Top = 10
+              Width = 355
+              Height = 550
+              OnClickCheck = chklstAreaClickCheck
+              Align = alClient
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Berlin Sans FB'
+              Font.Style = []
+              ItemHeight = 15
+              ParentFont = False
+              Sorted = True
+              TabOrder = 0
+              ExplicitLeft = 0
+              ExplicitTop = 0
+              ExplicitWidth = 375
+              ExplicitHeight = 534
+            end
+          end
+        end
+        object pnlSearch: TPanel
+          Left = 0
+          Top = 705
+          Width = 375
+          Height = 45
+          Align = alBottom
+          BevelOuter = bvNone
+          Color = 2499101
+          ParentBackground = False
+          TabOrder = 4
+          ExplicitTop = 715
+          object lblSearch: TLabel
+            Left = 10
+            Top = 15
+            Width = 54
+            Height = 16
+            Caption = 'Search :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object edtSearch: TEdit
+            Left = 71
+            Top = 12
+            Width = 294
+            Height = 21
+            CharCase = ecUpperCase
+            TabOrder = 0
+            OnKeyPress = edtSearchKeyPress
+          end
+        end
       end
     end
-    object pnlMap: TPanel
+    object pnl3Map: TPanel
       Left = 395
       Top = 25
-      Width = 950
+      Width = 1195
       Height = 750
       Align = alClient
-      Color = clBtnShadow
+      BevelOuter = bvNone
+      Color = 3683636
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -45034,24 +45109,26 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      object ENCMap: TMap
-        Left = 1
-        Top = 52
-        Width = 948
-        Height = 652
+      ExplicitWidth = 950
+      object Map1: TMap
+        Left = 0
+        Top = 51
+        Width = 1195
+        Height = 644
         ParentColor = False
         Align = alClient
         TabOrder = 0
-        OnMouseUp = ENCMapMouseUp
-        OnMouseMove = ENCMapMouseMove
-        OnMouseDown = ENCMapMouseDown
-        OnMapViewChanged = ENCMapMapViewChanged
-        OnDrawUserLayer = ENCMapDrawUserLayer
+        OnMouseUp = Map1MouseUp
+        OnMouseMove = Map1MouseMove
+        OnMouseDown = Map1MouseDown
+        OnMapViewChanged = Map1MapViewChanged
+        OnDrawUserLayer = Map1DrawUserLayer
         ExplicitLeft = -4
         ExplicitTop = 49
+        ExplicitWidth = 948
         ExplicitHeight = 698
         ControlData = {
-          8A1A0600FB61000063430000010000000F0000FF0D47656F44696374696F6E61
+          8A1A0600827B00008F420000010000000F0000FF0D47656F44696374696F6E61
           727905456D70747900E8030000000000000000000002000E001E000000000000
           0000000000000000000000000000000000000000000600010000000000500001
           0100000A0000000001F4010000050000800C000000000000000000000000FFFF
@@ -45063,7 +45140,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000957696E6764696E6773
           0000000000000001000100FFFFFF000200FFFFFF000000000000010000000000
-          01180100005891951001000000E0E997001C0000000000000000000000000000
+          0118010000A82B702801000000000000001C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -45072,149 +45149,43 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000008076
           C000000000008056C00000000000807640000000000080564001000000180100
-          005891951001000000880300C01C000000000000000000000000000000000000
+          00A82B7028010000006CB028771C000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000002000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
-          000000000000000000000000000000000000000000000000009301000014EB97
-          003A727651FEFFFFFF18E997006F4B716EF8EA97000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          004813B600000000000000000000000000204B70730000000000000000000000
           88B3400000000000408F400000000000}
       end
-      object pnlCursorPosition: TPanel
-        Left = 1
-        Top = 704
-        Width = 948
-        Height = 45
-        Align = alBottom
-        BevelOuter = bvNone
-        BorderWidth = 3
-        Color = 5980694
-        TabOrder = 1
-        object grbCursorPosition: TGroupBox
-          Left = 3
-          Top = 3
-          Width = 942
-          Height = 39
-          Align = alClient
-          Color = 2499101
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentBackground = False
-          ParentColor = False
-          ParentFont = False
-          TabOrder = 0
-          object lblBearing: TLabel
-            Left = 151
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblDistance: TLabel
-            Left = 539
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lbSlPosition: TLabel
-            Left = 890
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblnmSGrid: TLabel
-            Left = 1154
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblWPosition: TLabel
-            Left = 972
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lblnmWGrid: TLabel
-            Left = 1236
-            Top = 12
-            Width = 15
-            Height = 15
-            Caption = '---'
-          end
-          object lbl47: TLabel
-            Left = 29
-            Top = 12
-            Width = 116
-            Height = 15
-            Caption = 'Bearing from Centre  :'
-          end
-          object Label67: TLabel
-            Left = 411
-            Top = 12
-            Width = 116
-            Height = 15
-            Caption = 'Distance from Centre :'
-          end
-          object Label68: TLabel
-            Left = 813
-            Top = 12
-            Width = 47
-            Height = 15
-            Caption = 'Position :'
-          end
-          object Label69: TLabel
-            Left = 1077
-            Top = 12
-            Width = 48
-            Height = 15
-            Caption = 'Grid        :'
-          end
-          object Label70: TLabel
-            Left = 195
-            Top = 12
-            Width = 48
-            Height = 15
-            Caption = 'degress T'
-          end
-          object Label71: TLabel
-            Left = 583
-            Top = 12
-            Width = 17
-            Height = 15
-            Caption = 'nm'
-          end
-        end
-      end
       object pnl3SparatorHor1: TPanel
-        Left = 1
-        Top = 42
-        Width = 948
+        Left = 0
+        Top = 41
+        Width = 1195
         Height = 10
         Align = alTop
         BevelOuter = bvNone
         Color = 2499101
-        TabOrder = 2
+        TabOrder = 1
+        ExplicitLeft = 1
+        ExplicitTop = 42
+        ExplicitWidth = 948
       end
       object pnlToolbar: TPanel
-        Left = 1
-        Top = 1
-        Width = 948
+        Left = 0
+        Top = 0
+        Width = 1195
         Height = 41
         Align = alTop
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
-        TabOrder = 3
+        TabOrder = 2
+        ExplicitLeft = 1
+        ExplicitTop = 1
+        ExplicitWidth = 948
         object btnCenterOnGameCenter1: TImage
           Left = 768
           Top = -3
@@ -45339,7 +45310,6 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           Stretch = True
           Transparent = True
           Visible = False
-          OnClick = btnCenterOnGameCenter1Click
         end
         object btnDecrease1: TImage
           Left = 604
@@ -46042,7 +46012,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
         object ToolBar1: TToolBar
           Left = 22
           Top = 0
-          Width = 926
+          Width = 1173
           Height = 41
           Align = alClient
           ButtonHeight = 38
@@ -46052,6 +46022,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           Images = ilToolbar
           ParentColor = False
           TabOrder = 2
+          ExplicitWidth = 926
           object btnIncreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -46064,7 +46035,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
           end
           object cbbScale: TComboBox
             Left = 39
-            Top = 0
+            Top = 8
             Width = 90
             Height = 22
             Hint = 'Map Scales'
@@ -46121,6 +46092,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
             ParentShowHint = False
             ShowHint = True
             Style = tbsCheck
+            OnClick = btnMultiSelectClick
           end
           object btnZoomTool: TToolButton
             Left = 246
@@ -46153,8 +46125,195 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
             ParentShowHint = False
             ShowHint = True
             Style = tbsCheck
-            OnClick = btnCenterOnGameCenter1Click
           end
+        end
+      end
+      object pnl3SparatorHor2: TPanel
+        Left = 0
+        Top = 695
+        Width = 1195
+        Height = 10
+        Align = alBottom
+        BevelOuter = bvNone
+        Color = 2499101
+        TabOrder = 3
+        ExplicitLeft = 6
+        ExplicitTop = 701
+        ExplicitWidth = 950
+      end
+      object pnlCursorPosition: TPanel
+        Left = 0
+        Top = 705
+        Width = 1195
+        Height = 45
+        Align = alBottom
+        BevelOuter = bvNone
+        Color = 2499101
+        ParentBackground = False
+        TabOrder = 4
+        ExplicitTop = 791
+        ExplicitWidth = 1262
+        DesignSize = (
+          1195
+          45)
+        object lbl1: TLabel
+          Left = 28
+          Top = 15
+          Width = 128
+          Height = 16
+          Caption = 'Bearing From Center :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl3: TLabel
+          Left = 388
+          Top = 15
+          Width = 133
+          Height = 16
+          Caption = 'Distance From Center :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl4: TLabel
+          Left = 791
+          Top = 15
+          Width = 53
+          Height = 16
+          Caption = 'Position :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl5: TLabel
+          Left = 982
+          Top = 15
+          Width = 32
+          Height = 16
+          Anchors = [akTop, akRight]
+          Caption = 'Grid :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl6: TLabel
+          Left = 210
+          Top = 15
+          Width = 58
+          Height = 16
+          Caption = 'degrees T'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl7: TLabel
+          Left = 570
+          Top = 15
+          Width = 18
+          Height = 16
+          Caption = 'nm'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblBearingFCenter: TLabel
+          Left = 169
+          Top = 15
+          Width = 5
+          Height = 16
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblDistanceFCenter: TLabel
+          Left = 529
+          Top = 15
+          Width = 5
+          Height = 16
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblGridLat: TLabel
+          Left = 1051
+          Top = 15
+          Width = 5
+          Height = 16
+          Anchors = [akTop, akRight]
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblGridLong: TLabel
+          Left = 1149
+          Top = 15
+          Width = 5
+          Height = 16
+          Anchors = [akTop, akRight]
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblPosLat: TLabel
+          Left = 860
+          Top = 15
+          Width = 5
+          Height = 16
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblPosLong: TLabel
+          Left = 958
+          Top = 15
+          Width = 5
+          Height = 16
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
       end
     end
@@ -46167,32 +46326,16 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
       TabOrder = 1
       Visible = False
     end
-    object lblName: TStaticText
-      Left = 322
-      Top = 7
-      Width = 53
-      Height = 22
-      Caption = 'Name :'
-      Color = 5980694
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -16
-      Font.Name = 'Berlin Sans FB'
-      Font.Style = []
-      ParentColor = False
-      ParentFont = False
-      TabOrder = 2
-      Visible = False
-    end
     object pnl1Header: TPanel
       Left = 0
       Top = 0
-      Width = 1355
+      Width = 1600
       Height = 25
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
-      TabOrder = 3
+      TabOrder = 2
+      ExplicitWidth = 1355
     end
     object pnlVertical2: TPanel
       Left = 385
@@ -46202,32 +46345,34 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
       Align = alLeft
       BevelOuter = bvNone
       Color = clBlack
-      TabOrder = 5
+      TabOrder = 4
     end
     object pnlVertical3: TPanel
-      Left = 1345
+      Left = 1590
       Top = 25
       Width = 10
       Height = 750
       Align = alRight
       BevelOuter = bvNone
       Color = 2499101
-      TabOrder = 6
+      TabOrder = 5
+      ExplicitLeft = 1345
     end
     object pnl4Bottom: TPanel
       Left = 0
       Top = 775
-      Width = 1355
+      Width = 1600
       Height = 40
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
-      TabOrder = 7
+      TabOrder = 6
+      ExplicitWidth = 1355
       DesignSize = (
-        1355
+        1600
         40)
       object btnCancel: TButton
-        Left = 1265
+        Left = 1510
         Top = 5
         Width = 80
         Height = 30
@@ -46241,9 +46386,10 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
         ParentFont = False
         TabOrder = 0
         OnClick = btnCancelClick
+        ExplicitLeft = 1265
       end
       object btnOk: TButton
-        Left = 1179
+        Left = 1424
         Top = 6
         Width = 80
         Height = 30
@@ -46257,6 +46403,7 @@ object frmSummaryGameAreaEditor: TfrmSummaryGameAreaEditor
         ParentFont = False
         TabOrder = 1
         OnClick = btnOkClick
+        ExplicitLeft = 1179
       end
     end
   end

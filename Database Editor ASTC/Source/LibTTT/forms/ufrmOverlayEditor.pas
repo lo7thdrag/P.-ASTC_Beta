@@ -512,9 +512,6 @@ type
     pnlVertical3: TPanel;
     btn1: TButton;
     btn2: TButton;
-    // Label61: TLabel;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -622,7 +619,7 @@ type
     FisNoFill : Boolean;
     isshow : Boolean;
     IdSelectShape : Integer;
-    IsReEdit : Boolean;
+
 
     nameSelectedTemplate: string;
 
@@ -699,8 +696,8 @@ type
 
     function CekInput(IdObject: Integer): Boolean;
     function GetInput(s: string): Boolean;
-    function GetGridLatt(yCursorPoint: Double): string;
-    function GetGridLong(xCursorPoint: Double): string;
+//    function GetGridLatt(yCursorPoint: Double): string;
+//    function GetGridLong(xCursorPoint: Double): string;
 
     property MapCursor: E_OverlayMapCursor read FMapCursor write FMapCursor;
     property SelectedOverlay: TOverlay_Definition read FSelectedOverlay write FSelectedOverlay;
@@ -738,11 +735,6 @@ begin
 end;
 
 {$REGION ' Form Handle '}
-
-procedure TOverlayEditorForm.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  IsReEdit := True;
-end;
 
 procedure TOverlayEditorForm.FormCreate(Sender: TObject);
 begin
@@ -2806,21 +2798,21 @@ begin
   edtTextPosLong.Text  := Flong;
 end;
 
-function TOverlayEditorForm.GetGridLong(xCursorPoint: Double): string;
-var
-  xCenter, diffX, diffXnm: Double;
-  gridLong, addStringX: string;
-begin
-  // xCenter := ufrmSummaryOverlay.frmSummaryOverlay.GameArea.FGameArea.Game_Centre_Long;
-  diffX := Abs(xCursorPoint - xCenter);
-  diffXnm := diffX * 60;
-  if xCursorPoint < xCenter then
-    addStringX := 'W'
-  else
-    addStringX := 'E';
-  gridLong := FormatFloat('0.00', diffXnm);
-  Result := gridLong + ' nm ' + addStringX;;
-end;
+//function TOverlayEditorForm.GetGridLong(xCursorPoint: Double): string;
+//var
+//  xCenter, diffX, diffXnm: Double;
+//  gridLong, addStringX: string;
+//begin
+//  // xCenter := ufrmSummaryOverlay.frmSummaryOverlay.GameArea.FGameArea.Game_Centre_Long;
+//  diffX := Abs(xCursorPoint - xCenter);
+//  diffXnm := diffX * 60;
+//  if xCursorPoint < xCenter then
+//    addStringX := 'W'
+//  else
+//    addStringX := 'E';
+//  gridLong := FormatFloat('0.00', diffXnm);
+//  Result := gridLong + ' nm ' + addStringX;;
+//end;
 
 function TOverlayEditorForm.GetInput(s: string): Boolean;
 var
@@ -2839,21 +2831,21 @@ begin
     Result := True;
 end;
 
-function TOverlayEditorForm.GetGridLatt(yCursorPoint: Double): string;
-var
-  yCenter, diffY, diffYnm: Double;
-  gridLatt, addStringY: string;
-begin
-  // yCenter  := ufrmSummaryOverlay.frmSummaryOverlay.GameArea.FGameArea.Game_Centre_Lat;
-  diffY := Abs(yCursorPoint - yCenter);
-  diffYnm := diffY * 60;
-  if yCursorPoint < yCenter then
-    addStringY := 'S'
-  else
-    addStringY := 'N';
-  gridLatt := FormatFloat('0.00', diffYnm);
-  Result := gridLatt + ' nm ' + addStringY;
-end;
+//function TOverlayEditorForm.GetGridLatt(yCursorPoint: Double): string;
+//var
+//  yCenter, diffY, diffYnm: Double;
+//  gridLatt, addStringY: string;
+//begin
+//  // yCenter  := ufrmSummaryOverlay.frmSummaryOverlay.GameArea.FGameArea.Game_Centre_Lat;
+//  diffY := Abs(yCursorPoint - yCenter);
+//  diffYnm := diffY * 60;
+//  if yCursorPoint < yCenter then
+//    addStringY := 'S'
+//  else
+//    addStringY := 'N';
+//  gridLatt := FormatFloat('0.00', diffYnm);
+//  Result := gridLatt + ' nm ' + addStringY;
+//end;
 
 procedure TOverlayEditorForm.ClearEditText;
 begin

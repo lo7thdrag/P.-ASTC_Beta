@@ -4,21 +4,19 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.ToolWin,
-  System.ImageList, Vcl.ImgList, Vcl.OleCtrls, MapXLib_TLB, Vcl.CheckLst,
-  Vcl.ExtCtrls, Vcl.Imaging.pngimage,
-  uDBAsset_GameEnvironment, uCoordConvertor, uDBEditSetting, ufrmPickPoint, uBaseCoordSystem;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.OleCtrls, MapXLib_TLB, Vcl.ExtCtrls, Vcl.CheckLst,
+  Vcl.ImgList, Vcl.ComCtrls, Vcl.ToolWin, System.ImageList, Vcl.Imaging.pngimage, Types, math,
+
+  uDBAsset_GameEnvironment, uCoordConvertor, uDBEditSetting, ufrmPickPoint, uBaseCoordSystem, uSimContainers;
 
 type
 
-  E_MapCursor = (mcSelect, mcMultiSelect, mcZoom, mcGameCenter, mcPan);
+//  E_MapCursor = (mcSelect, mcMultiSelect, mcZoom, mcGameCenter, mcPan);
 
   TfrmSummaryGameAreaEditor = class(TForm)
-    pnlMap: TPanel;
-    ENCMap: TMap;
-    lblName: TStaticText;
+    pnl3Map: TPanel;
+    Map1: TMap;
     ProgressBar1: TProgressBar;
-    pnlCursorPosition: TPanel;
     pnlMainBackground: TPanel;
     ilToolbar: TImageList;
     Image1: TImage;
@@ -26,8 +24,8 @@ type
     pnl2Editor: TPanel;
     pnlListMap: TPanel;
     pnlVertical1: TPanel;
-    pnlGameAreaEditor: TPanel;
-    pnlIdentification: TPanel;
+    pnlName: TPanel;
+    pnlCheckList: TPanel;
     Label1: TLabel;
     edtName: TEdit;
     chklstArea: TCheckListBox;
@@ -59,35 +57,38 @@ type
     btnPan: TToolButton;
     btnCenterHook: TToolButton;
     pnlVertical3: TPanel;
-    grbCursorPosition: TGroupBox;
-    lblBearing: TLabel;
-    lblDistance: TLabel;
-    lbSlPosition: TLabel;
-    lblnmSGrid: TLabel;
-    lblWPosition: TLabel;
-    lblnmWGrid: TLabel;
-    lbl47: TLabel;
-    Label67: TLabel;
-    Label68: TLabel;
-    Label69: TLabel;
-    Label70: TLabel;
-    Label71: TLabel;
     pnl4Bottom: TPanel;
     btnCancel: TButton;
     btnOk: TButton;
-    procedure btnCancelClick(Sender: TObject);
+    pnl3SparatorHor2: TPanel;
+    pnlCursorPosition: TPanel;
+    lbl1: TLabel;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    lbl5: TLabel;
+    lbl6: TLabel;
+    lbl7: TLabel;
+    lblBearingFCenter: TLabel;
+    lblDistanceFCenter: TLabel;
+    lblGridLat: TLabel;
+    lblGridLong: TLabel;
+    lblPosLat: TLabel;
+    lblPosLong: TLabel;
+    pnlGameAreaEditor: TPanel;
+    pnl2SparatorHor1: TPanel;
+    pnl2SparatorHor2: TPanel;
+
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+
+    procedure Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch;hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
+    procedure Map1MapViewChanged(Sender: TObject);
+    procedure Map1MouseDown(Sender: TObject; Button: TMouseButton;Shift: TShiftState; X, Y: Integer);
+    procedure Map1MouseMove(Sender: TObject; Shift: TShiftState; X,Y: Integer);
+    procedure Map1MouseUp(Sender: TObject; Button: TMouseButton;Shift: TShiftState; X, Y: Integer);
+
+    procedure btnCancelClick(Sender: TObject);
     procedure cbbScale1Change(Sender: TObject);
-    procedure ENCMapDrawUserLayer(ASender: TObject; const Layer: IDispatch;
-      hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
-    procedure ENCMapMapViewChanged(Sender: TObject);
-    procedure ENCMapMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure ENCMapMouseMove(Sender: TObject; Shift: TShiftState; X,
-      Y: Integer);
-    procedure ENCMapMouseUp(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
     procedure chklstAreaClickCheck(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
@@ -99,6 +100,8 @@ type
     procedure btnPan1Click(Sender: TObject);
     procedure cbbScaleChange(Sender: TObject);
     procedure btnMultiSelectClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure lblWidthClick(Sender: TObject);
 
   private
     FSelectedGameArea : TGame_Environment_Definition;
@@ -110,11 +113,10 @@ type
     startX, startY, endX, endY : Single;
     squareLeftLong, squareTopLatt, squareRightLong, squareBottomLatt : Double;
 
-    FSelectionStartX, FSelectionStartY : single;
-    FSelectionEndX, FSelectionEndY : single;
-
     FSelectionRectStart : TPoint;
     FSelectionRectEnd : TPoint;
+    FZoomRectStart : TPoint;
+    FZoomRectEnd : TPoint;
 
     FCanvas : TCanvas;
     FConverter : TCoordConverter;
@@ -132,11 +134,8 @@ type
     procedure UpdateGeosetFile;
     procedure DeleteGameAreaDirectory(const aPathName, aFileName: string);
 
-    procedure LoadENC(ENCGeoset: string);
-    procedure LoadNormalButtonImage;
+    procedure LoadMap(ENCGeoset: string);
     procedure UpAllToolbarButton;
-
-
 
   public
     xx, yy : Double;
@@ -146,12 +145,10 @@ type
 
     centLong, centLatt: Double;
 
-    procedure getGridCursorPos;
+    procedure setCBScale(max : Integer);
+    procedure UpdateCursorPositionData(const X, Y: Integer);
 
     function CekInput: Boolean;
-
-    function GetGridLatt(yCursorPoint: Double): string;
-    function GetGridLong(xCursorPoint: Double): string;
 
     property SelectedGameArea : TGame_Environment_Definition read FSelectedGameArea write FSelectedGameArea;
   end;
@@ -166,7 +163,21 @@ implementation
 
 uses
   uDataModuleTTT;
+
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure InitOleVariant(var TheVar: OleVariant);
 begin
@@ -193,21 +204,21 @@ begin
   result := (s1 <> '') and (s2 <> '');
 end;
 
-
 {$REGION ' Form Handle '}
 
 procedure TfrmSummaryGameAreaEditor.FormCreate(Sender: TObject);
 var
   itemMaxWidth, i, itemWidth : Integer;
 begin
-  FListMapIndex := TStringList.Create;
-  FListFiltered := TStringList.Create;
   FCanvas := TCanvas.Create;
   FConverter := TCoordConverter.Create;
+  FConverter.FMap := Map1;
   FMap1 := TMap.Create(Self);
 
+  FListMapIndex := TStringList.Create;
+  FListFiltered := TStringList.Create;
 
-  FListMapIndex.LoadFromFile(vAppDBSetting.MapENC + '\' + 'mapindex.ini');
+  FListMapIndex.LoadFromFile(vAppDBSetting.MapSourcePathENC + '\ENC\' + 'mapindex.ini');
   chklstArea.Items := FListMapIndex;
 
   //Set Checklist Area Width
@@ -220,21 +231,39 @@ begin
       itemMaxWidth := itemWidth;
   end;
   SendMessage(chklstArea.Handle, LB_SETHORIZONTALEXTENT, itemMaxWidth + 20, 0);
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmSummaryGameAreaEditor.FormDestroy(Sender: TObject);
+begin
+  if Assigned(FListMapIndex) then
+    FreeAndNil(FListMapIndex);
+
+  if Assigned(FListFiltered) then
+    FreeAndNil(FListFiltered);
+
+  FMap1.Free;
+  FCanvas.Free;
+  FConverter.Free;
 end;
 
 procedure TfrmSummaryGameAreaEditor.FormShow(Sender: TObject);
 var
   i, itemMaxWidth, itemWidth : Integer;
   sourceCopy, destCopy : string;
-begin
-  LoadENC(vAppDBSetting.MapSourceGeosetENC);
-  FConverter.FMap := ENCmap;
-  centLong := 116.357322793642;
-  centLatt := -0.328853651464508;
 
+begin
+
+  LoadMap(vAppDBSetting.MapSourceGeosetENC);
+
+  setCBScale(3500);
   btnSelectClick(nil);
   cbbScale.ItemIndex := cbbScale.Items.Count - 1;
   cbbScaleChange(cbbScale);
+
+  centLong := 116.357322793642;
+  centLatt := -0.328853651464508;
 
   with FSelectedGameArea.FGameArea do
   begin
@@ -263,6 +292,30 @@ begin
 
   ProgressBar1.Position := 100;
   ProgressBar1.Visible := False;
+end;
+
+procedure TfrmSummaryGameAreaEditor.lblWidthClick(Sender: TObject);
+begin
+  if lblWidth.Caption = '>>>' then
+  begin
+    lblWidth.Caption := '<<<';
+//    lblWidth.Left := 662;
+    pnl2Editor.Width := 700;
+    edtSearch.Width := 619;
+    edtName.Width := 680;
+
+    pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
+  end
+  else
+  begin
+    lblWidth.Caption := '>>>';
+//    lblWidth.Left := 347;
+    pnl2Editor.Width := 385;
+    edtSearch.Width := 304;
+    edtName.Width := 365;
+
+    pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
+  end;
 end;
 
 {$ENDREGION}
@@ -378,26 +431,6 @@ begin
     FListFiltered.Add(layerID);
 
   SetMapArea;
-
-//  FListFiltered.Sort;
-//
-//  for i := 1 to ENCmap.Layers.Count do
-//  begin
-//    layer := ENCmap.Layers.Item(i);
-//
-//    if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') then
-//      Continue;
-//
-//    SeparateString(layer.Name, '_', layerID, layerName);
-//
-//    if FListFiltered.Find(layerID, foundIndex) then
-//    begin
-//      layer.OverrideStyle := True;
-//      layer.Style.RegionColor := clRed;
-//    end
-//    else
-//      layer.OverrideStyle := False;
-//  end;
 end;
 
 {$ENDREGION}
@@ -418,15 +451,13 @@ begin
   UpAllToolbarButton;
   btnMultiSelect.Down := True;
 
-  FMapCursor := mcMultiSelect;
-
-  ENCmap.CurrentTool := miArrowTool;
-  ENCmap.MousePointer := miArrowCursor;
+  Map1.CurrentTool := miArrowTool;
+  Map1.MousePointer := miArrowCursor;
 end;
 
 procedure TfrmSummaryGameAreaEditor.btnDecrease1Click(Sender: TObject);
 begin
-  if cbbScale.ItemIndex = 16 then
+  if cbbScale.ItemIndex = 17 then
     Exit;
 
   cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
@@ -438,7 +469,7 @@ var
   z : Double;
   s : string;
 begin
-  ENCmap.OnMapViewChanged := nil;
+  Map1.OnMapViewChanged := nil;
 
   if cbbScale.ItemIndex < 0  then Exit;
 
@@ -447,7 +478,7 @@ begin
    s := cbbScale.Items[cbbScale.ItemIndex];
    try
      z := StrToFloat(s);
-     ENCmap.ZoomTo(z, ENCmap.CenterX, ENCmap.CenterY);
+     Map1.ZoomTo(z, Map1.CenterX, Map1.CenterY);
    finally
 
    end;
@@ -462,7 +493,7 @@ var
   s : string;
 
 begin
-  ENCmap.OnMapViewChanged := nil;
+  Map1.OnMapViewChanged := nil;
 
   if cbbScale.ItemIndex < 0  then Exit;
 
@@ -471,7 +502,7 @@ begin
     s := cbbScale.Items[cbbScale.ItemIndex];
     try
       z := StrToFloat(s);
-      ENCmap.ZoomTo(z, ENCmap.CenterX, ENCmap.CenterY);
+      Map1.ZoomTo(z, Map1.CenterX, Map1.CenterY);
     finally
 
     end;
@@ -479,31 +510,25 @@ begin
   else
     cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
 
-  ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
+  Map1.OnMapViewChanged := Map1MapViewChanged;
  end;
 
 procedure TfrmSummaryGameAreaEditor.btnSelectClick(Sender: TObject);
 begin
-  LoadNormalButtonImage;
-  FMapCursor := mcSelect;
+  UpAllToolbarButton;
+  btnSelect.Down := True;
 
-  ENCmap.CurrentTool := miSelectTool;
-  ENCmap.MousePointer := miDefaultCursor;
-
-//  btnSelect.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCursor_Select.PNG');
+  Map1.CurrentTool := miSelectTool;
+  Map1.MousePointer := miDefaultCursor;
 end;
 
 procedure TfrmSummaryGameAreaEditor.btnZoom1Click(Sender: TObject);
 begin
-//  LoadNormalButtonImage;
-//  FMapCursor := mcZoom;
   UpAllToolbarButton;
   btnZoomTool.Down := True;
 
-  ENCmap.CurrentTool := miZoomInTool;
-  ENCmap.MousePointer := miZoomInCursor;
-
-//  btnZoom.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnZoomIn_Select.PNG');
+  Map1.CurrentTool := miZoomInTool;
+  Map1.MousePointer := miZoomInCursor;
 end;
 
 procedure TfrmSummaryGameAreaEditor.btnCenterHookClik(Sender: TObject);
@@ -512,8 +537,8 @@ begin
   btnCenterHook.Down := True;
   FMapCursor := mcGameCenter;
 
-  ENCmap.CurrentTool := miArrowTool;
-  ENCmap.MousePointer := miCrossCursor;
+  Map1.CurrentTool := miArrowTool;
+  Map1.MousePointer := miCrossCursor;
 
 
 //  btnCenterOnGameCenter.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCenterOnHook_Select.PNG');
@@ -521,23 +546,11 @@ end;
 
 procedure TfrmSummaryGameAreaEditor.btnPan1Click(Sender: TObject);
 begin
-//  LoadNormalButtonImage;
-//  FMapCursor := mcPan;
   UpAllToolbarButton;
   btnPan.Down := True;
 
-  ENCmap.CurrentTool := miPanTool;
-  ENCmap.MousePointer := miPanCursor;
-
-//  btnPan.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnMove_Select.PNG');
-end;
-
-procedure TfrmSummaryGameAreaEditor.LoadNormalButtonImage;
-begin
-//  btnSelect.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
-//  btnZoom.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnZoomIn_Normal.PNG');
-//  btnCenterOnGameCenter.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCenterOnHook_Normal.PNG');
-//  btnPan.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnMove_Normal.PNG');
+  Map1.CurrentTool := miPanTool;
+  Map1.MousePointer := miPanCursor;
 end;
 
 {$ENDREGION}
@@ -554,26 +567,26 @@ var
 begin
 
   {$REGION ' Validation Point Cursor '}
-  if FSelectionStartX < FSelectionEndX then
+  if FSelectionRectStart.X < FSelectionRectEnd.X then
   begin
-    startX := Round(FSelectionStartX);
-    endX := Round(FSelectionEndX);
+    startX := Round(FSelectionRectStart.X);
+    endX := Round(FSelectionRectEnd.X);
   end
   else
   begin
-    startX := Round(FSelectionEndX);
-    endX := Round(FSelectionStartX);
+    startX := Round(FSelectionRectEnd.X);
+    endX := Round(FSelectionRectStart.X);
   end;
 
-  if FSelectionStartY < FSelectionEndY then
+  if FSelectionRectStart.Y < FSelectionRectEnd.Y then
   begin
-    startY := Round(FSelectionStartY);
-    endY := Round(FSelectionEndY);
+    startY := Round(FSelectionRectStart.Y);
+    endY := Round(FSelectionRectEnd.Y);
   end
   else
   begin
-    startY := Round(FSelectionEndY);
-    endY := Round(FSelectionStartY);
+    startY := Round(FSelectionRectEnd.Y);
+    endY := Round(FSelectionRectStart.Y);
   end;
 
   FConverter.ConvertToMap(startX, startY, startLong, startLat);
@@ -583,16 +596,16 @@ begin
 
   {$REGION ' Select Area '}
 
-  for i := 1 to ENCmap.Layers.Count do
+  for i := 1 to Map1.Layers.Count do
   begin
-    layer := ENCmap.Layers.Item(i);
+    layer := Map1.Layers.Item(i);
 
     if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') or (layer.Name = 'ID2000_land')then
       Continue;
 
-    if FMapCursor = mcSelect then
+    {$REGION ' Select Single Area '}
+    if btnSelect.Down then
     begin
-      {$REGION ' Select Single Area '}
       if (startLong >= layer.Bounds.XMin) and (startLat <= layer.Bounds.YMax) and
         (endLong <= layer.Bounds.XMax) and (endLat >= layer.Bounds.YMin) then
       begin
@@ -603,11 +616,12 @@ begin
         else
           FListFiltered.Add(layerID);
       end;
-      {$ENDREGION}
-    end
-    else if FMapCursor = mcMultiSelect then
 
-   if btnMultiSelect.Down then
+    end;
+    {$ENDREGION}
+
+    {$REGION ' Select Multi Area '}
+    if btnMultiSelect.Down then
     begin
       if (layer.Bounds.XMin >= startLong) and (layer.Bounds.YMax <= startLat) and
         (layer.Bounds.XMax <= endLong) and (layer.Bounds.YMin >= endLat) then
@@ -621,11 +635,61 @@ begin
       end;
     end;
     {$ENDREGION}
-    end;
+
+  end;
   {$ENDREGION}
 
   SetChecked;
   SetMapArea;
+end;
+
+procedure TfrmSummaryGameAreaEditor.setCBScale(max: Integer);
+var
+  widthNM: Integer;
+  limitWidth: Array [0 .. 15] of Double;
+  arrayTemp: Array [0 .. 30] of Double;
+  arrayStringTemp: Array [0 .. 30] of String;
+  resultTemp: Array [0 .. 30] of String;
+  a, b: Integer;
+begin
+  widthNM := floor(max);
+  // isi combo box
+  cbbScale.Clear;
+  // widthNM := strtoint(ExerciseAreaForm.edtMaximum.Text);
+
+  limitWidth[0] := 0.125;
+  limitWidth[1] := 0.25;
+  limitWidth[2] := 0.5;
+  limitWidth[3] := 1;
+  limitWidth[4] := 2;
+  limitWidth[5] := 4;
+  limitWidth[6] := 8;
+  limitWidth[7] := 16;
+  limitWidth[8] := 32;
+  limitWidth[9] := 64;
+  limitWidth[10] := 128;
+  limitWidth[11] := 256;
+  limitWidth[12] := 512;
+  limitWidth[13] := 1024;
+  limitWidth[14] := 2048;
+  limitWidth[15] := 2500;
+
+  a := 0;
+  while limitWidth[a] < widthNM do
+  begin
+    arrayTemp[a] := limitWidth[a];
+    a := a + 1;
+  end;
+  arrayTemp[a] := widthNM;
+
+  for b := 0 to a do
+    arrayStringTemp[b] := floattostr(arrayTemp[b]);
+
+  for b := 0 to a do
+  begin
+    resultTemp[b] := arrayStringTemp[b];
+    cbbScale.Items.add(resultTemp[b]);
+  end;
 end;
 
 procedure TfrmSummaryGameAreaEditor.SetChecked;
@@ -661,11 +725,11 @@ var
 begin
   FListFiltered.Sort;
 
-  for i := 1 to ENCmap.Layers.Count do
+  for i := 1 to Map1.Layers.Count do
   begin
-    layer := ENCmap.Layers.Item(i);
+    layer := Map1.Layers.Item(i);
 
-    if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') then
+    if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') or (layer.Name = 'ID2000_land') then
       Continue;
 
     SeparateString(layer.Name, '_', layerID, layerName);
@@ -688,8 +752,41 @@ begin
   btnPan.Down := False;
   btnCenterHook.Down := False;
 
-  ENCMap.CurrentTool  := miArrowTool;
-  ENCMap.MousePointer := miDefaultCursor;
+  Map1.CurrentTool  := miArrowTool;
+  Map1.MousePointer := miDefaultCursor;
+end;
+
+procedure TfrmSummaryGameAreaEditor.UpdateCursorPositionData(const X, Y: Integer);
+var
+  dx, dy, diffX, diffY : Double;
+begin
+
+  FConverter.ConvertToMap(X, Y, dx, dy);
+
+  {Bearing From Center}
+  lblBearingFCenter.Caption := FormatFloat('0.00', CalcBearing(Map1.CenterX, Map1.CenterY, dx, dy));
+
+  {Distance From Center}
+  lblDistanceFCenter.Caption := FormatFloat('0.00', CalcRange(Map1.CenterX, Map1.CenterY, dx, dy));
+
+  {Corsor in Position}
+  lblPosLat.Caption := formatDM_latitude(dy);
+  lblPosLong.Caption := formatDM_longitude(dx);
+
+  {Cursor in Grid}
+  diffX := Abs(dx - Map1.CenterX) * 60;
+  diffY := Abs(dy - Map1.CenterY) * 60;
+
+  if dy < Map1.CenterX then
+    lblGridLat.Caption := FormatFloat('0.00', diffY) + ' nm S'
+  else
+    lblGridLat.Caption := FormatFloat('0.00', diffY) + ' nm N';
+
+  if dx < Map1.CenterY then
+    lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm W'
+  else
+    lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm E';
+
 end;
 
 procedure TfrmSummaryGameAreaEditor.UpdateGeosetFile;
@@ -743,18 +840,18 @@ begin
   end;
 
   {Memaksa memberi background indonesia}
-  fileDest := vAppDBSetting.Pattern;
+  fileDest := vAppDBSetting.MapSourcePathENC + '\Indonesia.gst' ;
   FMap1.Layers.AddGeoSetLayers(fileDest);
 
   for i := 0 to FListFiltered.Count - 1 do
   begin
     if SeparateString(FListFiltered.Strings[I], '\', indx, mtype)then
     begin
-      fileDest := vAppDBSetting.MapTypePath + '\' + mtype + '\' + indx + '\' + indx + '.gst';
+      fileDest := vAppDBSetting.MapSourcePathENC + '\ENC\' + mtype + '\' + indx + '\' + indx + '.gst';
     end
     else
     begin
-      fileDest := vAppDBSetting.MapTypePath + '\_MAP_ENC\' + FListFiltered[i] + '\' + FListFiltered[i] + '.gst';
+      fileDest := vAppDBSetting.MapSourcePathENC + '\ENC\' + FListFiltered[i] + '\' + FListFiltered[i] + '.gst';
     end;
 
     FMap1.Layers.AddGeoSetLayers(fileDest);
@@ -799,9 +896,9 @@ var
   layer : CMapXLayer;
   layerID, layerName : string;
 begin
-  for i := 1 to ENCmap.Layers.Count do
+  for i := 1 to Map1.Layers.Count do
   begin
-    layer := ENCmap.Layers.Item(i);
+    layer := Map1.Layers.Item(i);
 
     if (layer.Name = 'Indonesia_Coastline_Darat') or
       (layer.Name = 'LYR_DRAW') then
@@ -844,9 +941,7 @@ begin
   end;
 end;
 
-procedure TfrmSummaryGameAreaEditor.ENCMapDrawUserLayer(ASender: TObject;
-  const Layer: IDispatch; hOutputDC, hAttributeDC: Integer; const RectFull,
-  RectInvalid: IDispatch);
+procedure TfrmSummaryGameAreaEditor.Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch; hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
 begin
   with FCanvas do
   begin
@@ -857,46 +952,54 @@ begin
       Pen.Color := clYellow;
       Pen.Width := 3;
       Brush.Style := bsClear;
-      Rectangle(Round(FSelectionStartX), Round(FSelectionStartY), Round(FSelectionEndX), Round(FSelectionEndY));
-//      Rectangle(FSelectionStartX, FSelectionStartY), Round(FSelectionEndX), Round(FSelectionEndY));
+      Rectangle(FSelectionRectStart.X, FSelectionRectStart.Y, FSelectionRectEnd.X, FSelectionRectEnd.Y);
+    end;
+
+    if FIsMouseDown and btnZoomTool.Down then
+    begin
+      Pen.Color := clWhite;
+      Pen.Width := 1;
+      Pen.Style := psDash;
+      Brush.Style := bsClear;
+      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
     end;
   end;
 end;
 
-procedure TfrmSummaryGameAreaEditor.ENCMapMapViewChanged(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.Map1MapViewChanged(Sender: TObject);
 var
   tempZoom : double;
 begin
-  if (ENCmap.CurrentTool = miZoomInTool)  or (ENCmap.CurrentTool = miZoomOutTool) then
+  if (Map1.CurrentTool = miZoomInTool)  or (Map1.CurrentTool = miZoomOutTool) then
   begin
-     if ENCmap.Zoom <= 0.125 then tempZoom := 0.125;
-     if (ENCmap.Zoom > 0.125) AND (ENCmap.Zoom < 1) then tempZoom := ENCmap.Zoom;
-     if (ENCmap.Zoom >= 1) AND (ENCmap.Zoom <= 2500) then tempZoom := round(ENCmap.Zoom);
-     if ENCmap.Zoom > 2500 then tempZoom := 2500;
+     if Map1.Zoom <= 0.125 then tempZoom := 0.125;
+     if (Map1.Zoom > 0.125) AND (Map1.Zoom < 1) then tempZoom := Map1.Zoom;
+     if (Map1.Zoom >= 1) AND (Map1.Zoom <= 3500) then tempZoom := round(Map1.Zoom);
+     if Map1.Zoom > 3500 then tempZoom := 3500;
 
-     ENCmap.OnMapViewChanged := nil;
-     ENCmap.ZoomTo(tempZoom, ENCmap.CenterX, ENCmap.CenterY);
+     Map1.OnMapViewChanged := nil;
+     Map1.ZoomTo(tempZoom, Map1.CenterX, Map1.CenterY);
 
-     if (ENCmap.Zoom > 0.125) AND (ENCmap.Zoom < 0.25) then
+     if (Map1.Zoom > 0.125) AND (Map1.Zoom < 0.25) then
      begin
        cbbScale.Text := FormatFloat('0.000', tempZoom);
      end
-     else if (ENCmap.Zoom >= 0.25) AND (ENCmap.Zoom < 0.5) then
+     else if (Map1.Zoom >= 0.25) AND (Map1.Zoom < 0.5) then
      begin
        cbbScale.Text := FormatFloat('0.00', tempZoom);
      end
-     else if (ENCmap.Zoom >= 0.5) AND (ENCmap.Zoom < 1) then
+     else if (Map1.Zoom >= 0.5) AND (Map1.Zoom < 1) then
      begin
        cbbScale.Text := FormatFloat('0.0', tempZoom);
      end
      else
        cbbScale.Text := floattostr(tempZoom);
 
-     ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
+     Map1.OnMapViewChanged := Map1MapViewChanged;
   end;
 end;
 
-procedure TfrmSummaryGameAreaEditor.ENCMapMouseDown(Sender: TObject;Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+procedure TfrmSummaryGameAreaEditor.Map1MouseDown(Sender: TObject;Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 var
   castX, castY : single;
   i : Integer;
@@ -904,12 +1007,10 @@ var
 begin
 
   {$Region ' Select '}
-  if FMapCursor = mcSelect then
+  if btnSelect.Down then
   begin
-    FSelectionStartX := X;
-    FSelectionStartY := Y;
-    FSelectionEndX := X;
-    FSelectionEndY := Y;
+    FSelectionRectStart := Point(X, Y);
+    FSelectionRectEnd := Point(X, Y);
   end;
   {$ENDREGION}
 
@@ -920,192 +1021,135 @@ begin
 
     FListFiltered.Clear;
 
-    FSelectionStartX := X;
-    FSelectionStartY := Y;
-    FSelectionEndX := X;
-    FSelectionEndY := Y;
+    FSelectionRectStart := Point(X, Y);
+    FSelectionRectEnd := Point(X, Y);
+  end;
+  {$ENDREGION}
 
-//    for i := 1 to ENCmap.Layers.Count do
-//    begin
-//      layer := ENCmap.Layers.Item(i);
-//
-//      if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') then
-//        Continue;
-//
-//      layer.OverrideStyle := False;
-//    end;
-//
-//    ENCmap.Repaint;
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down then
+  begin
+    FIsMouseDown := True;
+
+    FZoomRectStart := Point(X, Y);
+    FZoomRectEnd := Point(X, Y);
   end;
   {$ENDREGION}
 
   {$Region ' Set Game Center '}
 
-  if FMapCursor = mcGameCenter then
+  if btnCenterHook.Down then
   begin
-
     FConverter.ConvertToMap(X, Y, FSelectedGameArea.FGameArea.Game_Centre_Long, FSelectedGameArea.FGameArea.Game_Centre_Lat);
 
-    with pickpoint do
-    begin
-      edtlattitude.Text := formatDMS_latt(FSelectedGameArea.FGameArea.Game_Centre_Lat);
-      edtlongtitude.Text := formatDMS_long(FSelectedGameArea.FGameArea.Game_Centre_Long);
-
-      Show;
-
-      if not isCancel then
+    pickpoint := Tpickpoint.Create(Self);
+    try
+      with pickpoint do
       begin
-        FSelectedGameArea.FGameArea.Game_Centre_Lat := dmsToLatt(edtlattitude.Text);
-        FSelectedGameArea.FGameArea.Game_Centre_Long := dmsToLong(edtlongtitude.Text);
+        edtlattitude.Text := formatDMS_latt(FSelectedGameArea.FGameArea.Game_Centre_Lat);
+        edtlongtitude.Text := formatDMS_long(FSelectedGameArea.FGameArea.Game_Centre_Long);
+
+        ShowModal;
+
+        if not isCancel then
+        begin
+          FSelectedGameArea.FGameArea.Game_Centre_Lat := dmsToLatt(edtlattitude.Text);
+          FSelectedGameArea.FGameArea.Game_Centre_Long := dmsToLong(edtlongtitude.Text);
+
+          ShowMessage('Game Center telah berhasil diset');
+        end;
       end;
+    finally
+      pickpoint.Free;
     end;
+
+  end;
+
+  {$ENDREGION}
+end;
+
+procedure TfrmSummaryGameAreaEditor.Map1MouseMove(Sender: TObject;Shift: TShiftState; X, Y: Integer);
+begin
+  UpdateCursorPositionData(X, Y);
+
+  {$Region ' Set Multi Select '}
+  if btnMultiSelect.Down and FIsMouseDown then
+  begin
+    FSelectionRectEnd := Point(X, Y);
+    Map1.Repaint;
+  end;
+  {$ENDREGION}
+
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down and FIsMouseDown then
+  begin
+    FZoomRectEnd := Point(X, Y);
+    Map1.Repaint;
   end;
   {$ENDREGION}
 end;
 
-procedure TfrmSummaryGameAreaEditor.ENCMapMouseMove(Sender: TObject;Shift: TShiftState; X, Y: Integer);
-var
-  centerX, centerY : Double;
-
+procedure TfrmSummaryGameAreaEditor.Map1MouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
-  if btnMultiSelect.Down and FIsMouseDown then
-  begin
-    FSelectionEndX := X;
-    FSelectionEndY := Y;
-
-    ENCmap.Repaint;
-  end;
-
-  FConverter.ConvertToMap(X, Y, xx, yy);
-
-  centerX := FSelectedGameArea.FGameArea.Game_Centre_Long;
-  centerY := FSelectedGameArea.FGameArea.Game_Centre_Lat;
-
-
-  lblBearing.Caption := FormatFloat('0.00', CalcBearing(centerX, centerY, xx, yy));
-  lblDistance.Caption := FormatFloat('0.00',CalcRange(centerX, centerY, xx, yy));
-  getGridCursorPos;
-
-end;
-
-procedure TfrmSummaryGameAreaEditor.getGridCursorPos;
-var
-  yCursorPoint, xCursorPoint, yCenter, xCenter, diffX, diffY: Double;
-  diffXnm, diffYnm: Double;
-  gridLatt, gridLong, addStringX, addStringY: string;
-begin
-  yCursorPoint := yy;
-  xCursorPoint := xx;
-
-  yCenter := ENCMap.CenterX;
-  xCenter := ENCMap.CenterY;
-
-  diffY := Abs(yCursorPoint - yCenter);
-  diffX := Abs(xCursorPoint - xCenter);
-
-  diffYnm := diffY * 60;
-  diffXnm := diffX * 60;
-
-  if yCursorPoint < yCenter then
-    addStringY := 'S'
-  else
-    addStringY := 'N';
-
-  if xCursorPoint < xCenter then
-    addStringX := 'W'
-  else
-    addStringX := 'E';
-
-  lbSlPosition.Caption := formatDMS_latt(yy);
-  lblWPosition.Caption := formatDMS_long(xx);
-
-  gridLatt := FormatFloat('0.00', diffYnm);
-  gridLong := FormatFloat('0.00', diffXnm);
-end;
-
-function TfrmSummaryGameAreaEditor.GetGridLatt(yCursorPoint: Double): string;
-var
-  yCenter, diffY, diffYnm: Double;
-  gridLatt, addStringY: string;
-begin
-  // yCenter  := ufrmSummaryOverlay.frmSummaryOverlay.GameArea.FGameArea.Game_Centre_Lat;
-  diffY := Abs(yCursorPoint - yCenter);
-  diffYnm := diffY * 60;
-  if yCursorPoint < yCenter then
-    addStringY := 'S'
-  else
-    addStringY := 'N';
-  gridLatt := FormatFloat('0.00', diffYnm);
-  Result := gridLatt + ' nm ' + addStringY;
-end;
-
-function TfrmSummaryGameAreaEditor.GetGridLong(xCursorPoint: Double): string;
-var
-  xCenter, diffX, diffXnm: Double;
-  gridLong, addStringX: string;
-begin
-  // xCenter := ufrmSummaryOverlay.frmSummaryOverlay.GameArea.FGameArea.Game_Centre_Long;
-  diffX := Abs(xCursorPoint - xCenter);
-  diffXnm := diffX * 60;
-  if xCursorPoint < xCenter then
-    addStringX := 'W'
-  else
-    addStringX := 'E';
-  gridLong := FormatFloat('0.00', diffXnm);
-  Result := gridLong + ' nm ' + addStringX;;
-end;
-
-procedure TfrmSummaryGameAreaEditor.ENCMapMouseUp(Sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-begin
+  {$Region ' Set Select '}
   if btnSelect.Down then
   begin
     SelectionArea;
-    ENCmap.Repaint;
+    Map1.Repaint;
   end;
+  {$ENDREGION}
 
   if btnMultiSelect.Down and FIsMouseDown then
   begin
     FIsMouseDown := False;
-//    FSelectionRectEnd := Point(X, Y);
-    FSelectionEndX := X;
-    FSelectionEndY := Y;
+    FSelectionRectEnd := Point(X, Y);
     SelectionArea;
-    ENCmap.Repaint;
+    Map1.Repaint;
   end;
+  {$ENDREGION}
+
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down and FIsMouseDown then
+  begin
+    FIsMouseDown := False;
+    FZoomRectEnd:= Point(X, Y);
+    Map1.OnMapViewChanged := Map1MapViewChanged;
+    Map1.Repaint;
+  end;
+  {$ENDREGION}
 end;
 
-procedure TfrmSummaryGameAreaEditor.LoadENC(ENCGeoset: string);
+procedure TfrmSummaryGameAreaEditor.LoadMap(ENCGeoset: string);
 var
   z : OleVariant;
   i : Integer;
   mInfo : CMapXLayerInfo;
 begin
-  if ENCmap = nil then
+  if Map1 = nil then
     Exit;
 
   InitOleVariant(z);
-  ENCmap.Layers.RemoveAll;
-  ENCmap.Geoset := ENCGeoset;
+  Map1.Layers.RemoveAll;
+  Map1.Geoset := ENCGeoset;
 
   if ENCGeoset <> '' then
   begin
-    for i := 1 to ENCmap.Layers.Count do
+    for i := 1 to Map1.Layers.Count do
     begin
-      ENCmap.Layers.Item(i).Selectable := False;
-      ENCmap.Layers.Item(i).Editable := False;
+      Map1.Layers.Item(i).Selectable := False;
+      Map1.Layers.Item(i).Editable := False;
     end;
 
     mInfo := CoLayerInfo.Create;
     mInfo.type_ := miLayerInfoTypeUserDraw;
     mInfo.AddParameter('Name', 'LYR_DRAW');
-    FLyrDraw := ENCmap.Layers.Add(mInfo, 1);
+    FLyrDraw := Map1.Layers.Add(mInfo, 1);
 
-    ENCmap.Layers.AnimationLayer := FLyrDraw;
-    ENCmap.MapUnit := miUnitNauticalMile;
+    Map1.Layers.AnimationLayer := FLyrDraw;
+    Map1.MapUnit := miUnitNauticalMile;
   end;
 
-  ENCmap.BackColor := RGB(192, 224, 255);
+  Map1.BackColor := RGB(192, 224, 255);
 end;
 
 {$ENDREGION}
@@ -1121,9 +1165,7 @@ begin
   if Assigned(FSelectedGameArea) then
   begin
     nameGameArea := FSelectedGameArea.FGameArea.Game_Area_Identifier;
-    pathConFile := vAppDBSetting.MapGSTGame + '\' + nameGameArea;
-
-//    nameGameArea := FSelectedGameArea.FGameArea.Game_Area_Identifier + '\' + FSelectedGameArea.FGameArea.Game_Area_Identifier + '.txt';
+    pathConFile := vAppDBSetting.MapDestPathENC + '\' + nameGameArea;
 
     if FileExists(pathConFile + '\' + nameGameArea  + '.txt') then
       FListFiltered.LoadFromFile(pathConFile + '\' + nameGameArea  + '.txt');

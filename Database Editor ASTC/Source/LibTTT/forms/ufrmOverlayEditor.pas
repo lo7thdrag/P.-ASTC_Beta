@@ -557,8 +557,6 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnDeletePolyClick(Sender: TObject);
-
-    procedure LoadNormalButtonImage;
     procedure btnDelPolyClick(Sender: TObject);
     procedure btnEditPolyClick(Sender: TObject);
     procedure lvPolyVertexSelectItem(Sender: TObject; Item: TListItem;
@@ -776,7 +774,16 @@ end;
 procedure TOverlayEditorForm.FormResize(Sender: TObject);
 begin
   WindowState := wsMaximized;
-  pnlAlignToolBar.Width := round((pnlToolBar.Width - 433) / 2);
+  case FTipeOverlay of
+    osDynamic :
+    begin
+      pnlAlignToolBar.Width := round((pnlToolBar.Width - 179) / 2);
+    end;
+    osStatic :
+    begin
+      pnlAlignToolBar.Width := round((pnlToolBar.Width - 433) / 2);
+    end;
+  end;
 end;
 
 procedure TOverlayEditorForm.FormShow(Sender: TObject);
@@ -788,20 +795,20 @@ begin
   case FTipeOverlay of
     osDynamic :
     begin
+      {$REGION ' Setting toolbar '}
       btnZoom.Visible := False;
       btnMoveMap.Visible := False;
       btnCenterOnGame.Visible := False;
       btnLayerTool.Visible := False;
-
-//      ToolBar1.Visible := False;
+      btnGameArea.Visible := False;
+      btnruler.Visible := False;
+      {$ENDREGION}
 
       LoadMap(vAppDBSetting.MapOverlayDynamic);
 
       setCBScale;
       cbSetScale.ItemIndex := cbSetScale.Items.Count - 1;
       cbSetScaleChange(Sender);
-
-      cbSetScale.Text := cbSetScale.Items.Strings[OverlayEditorForm.cbSetScale.ItemIndex];
 
       centLong := 0;
       centLatt  := 0;
@@ -811,9 +818,14 @@ begin
     end;
     osStatic :
     begin
+      {$REGION ' Setting toolbar '}
       btnZoom.Visible := True;
       btnMoveMap.Visible := True;
       btnCenterOnGame.Visible := True;
+      btnLayerTool.Visible := True;
+      btnGameArea.Visible := True;
+      btnruler.Visible := True;
+      {$ENDREGION}
 
       LoadMap(vAppDBSetting.MapOverlayStatic);
 
@@ -821,7 +833,6 @@ begin
       cbSetScale.ItemIndex := cbSetScale.Items.Count - 1;
       cbSetScaleChange(Sender);
 
-      cbSetScale.Text := cbSetScale.Items.Strings[cbSetScale.ItemIndex];
       centLong := 116.357322793642;
       centLatt := -0.328853651464508;
 
@@ -888,7 +899,6 @@ procedure TOverlayEditorForm.btnHandleShape(Sender: TObject);
 var
   isDynamic: Boolean;
 begin
-  LoadNormalButtonImage;
   btnDelete.Enabled := false;
 
   RefreshMousePointer;
@@ -930,21 +940,12 @@ begin
         grpNone.BringToFront;
 
         FMapCursor := mcEdit;
-      {$REGION ' LAMA '}
-//        btnSelect.Picture.LoadFromFile
-//          ('data\Image DBEditor\Interface\Button\btnCursor_Select.PNG');
-//        lblShape.Caption := '---';
-//        grpNone.BringToFront;
-//
-//        { merubah cursor }
-//        FMapCursor := mcEdit;
-      {$ENDREGION}
 
-      {$REGION ' Button Handle '}
+        {$REGION ' Button Handle '}
         btnOutline.Visible := false;
         btnFill.Visible := false;
         pnlPenEditing.Visible := false;
-      {$ENDREGION}
+        {$ENDREGION}
       end;
     ovText:
       LoadPanelText;
@@ -2036,13 +2037,6 @@ begin
   Map1.BackColor := RGB(192, 224, 255);
 end;
 
-procedure TOverlayEditorForm.LoadNormalButtonImage;
-begin
-  btnZoom.ImageIndex := 2;
-//  btnPan.ImageIndex := 3;
-//  btnout.ImageIndex := 7;
-end;
-
 procedure TOverlayEditorForm.Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch; hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
 var
   I : Integer;
@@ -2059,17 +2053,6 @@ begin
   begin
     Handle := hOutputDC;
     Brush.Style := bsClear;
-
-    if FIsMouseDown and btnZoom.Down then
-    begin
-      Pen.Color := clBlack;
-      Pen.Width := 1;
-      Pen.Style := psDash;
-      Brush.Style := bsClear;
-      Font.Name := 'Courier';
-      Font.Size := 12;
-      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
-    end;
   end;
 
   case FSelectedOverlay.FData.Tipe of
@@ -2085,6 +2068,22 @@ begin
     DrawOverlay.FSelectedDraw.isSelected := True;
     DrawOverlay.FSelectedDraw.Draw(FCanvas, Map1);
   end;
+
+  {$REGION ' Menggambar Zoom '}
+  if FIsMouseDown and btnZoom.Down then
+  begin
+    with FCanvas do
+    begin
+      Pen.Color := clBlack;
+      Pen.Width := 1;
+      Pen.Style := psDash;
+      Brush.Style := bsClear;
+      Font.Name := 'Courier';
+      Font.Size := 12;
+      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
+    end;
+  end;
+  {$ENDREGION}
 
   {$REGION ' Menggambar Ruler '}
   if frmRuler.isshow then
@@ -2386,7 +2385,6 @@ begin
 //  btnSelect.Picture.LoadFromFile
 //    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
 //  pnlStatic.Visible := false;
-//  btnZoom.ImageIndex := 5;
   {$ENDREGION}
 end;
 
@@ -2407,7 +2405,6 @@ begin
 //  btnSelect.Picture.LoadFromFile
 //    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
 //  pnlStatic.Visible := false;
-//  btnPan.ImageIndex := 6;
 end;
 
 procedure TOverlayEditorForm.btnPasteArcClick(Sender: TObject);
@@ -2461,19 +2458,16 @@ begin
     with frmRuler do
     begin
       IDForm := 1;
-      btnruler.ImageIndex := 14;
       Show;
-
     end;
   end
   else
   begin
-
     frmRuler.Hide;
-
   end;
 end;
-      procedure TOverlayEditorForm.OnAddRuller(Long, Lat: double);
+
+procedure TOverlayEditorForm.OnAddRuller(Long, Lat: double);
 begin
 
   if DrawFlagPoint.FList.Count = 0 then
@@ -2512,14 +2506,6 @@ begin
 
   Map1.CurrentTool := miPanTool;
   Map1.MousePointer := miPanCursor;
-
-//  Map1.CenterX := centLong;
-//  Map1.CenterY := centLatt;
-//
-//  LoadNormalButtonImage;
-//  pnlStatic.Visible := false;
-//
-//  RefreshMousePointer;
 end;
 
 {$ENDREGION}
@@ -2533,7 +2519,8 @@ begin
   inherited;
 
   rTemp := Round(StrToInt(cbSetScale.Text)/8);
-  { Menggambar ring range }
+
+  {$REGION ' Menggambar ring range '}
   for i := 1 to 4 do
   begin
     dx := Map1.CenterX + (i * rTemp) / 60;
@@ -2568,8 +2555,9 @@ begin
       TextOut(cx, cy + r, IntToStr(i*rTemp) + ' nm');
     end;
   end;
+  {$ENDREGION}
 
-  { Menggambar cross center }
+  {$REGION ' Menggambar cross center '}
   FConverter.ConvertToScreen(Map1.CenterX, Map1.CenterY, fx, fy);
   with FCanvas do
   begin
@@ -2579,6 +2567,7 @@ begin
     MoveTo(fx, Point.Top);
     LineTo(fx, Point.Bottom);
   end;
+  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.OnKeyPress(Sender: TObject; var Key: Char);
@@ -3181,21 +3170,6 @@ begin
   UpAllToolbarButton;
   btnCenterOnGame.Down := True;
   Map1.Layers.LayersDlg(vHelpFile, vHelpID);
-// if btnZoom.Down then
-// btnZoom.Down := False;
-//  btnout.Down := not btnout.Down;
-//  btnPan.Down := false;
-
-//  FMapCursor := mcSelect;
-//  LoadNormalButtonImage;
-//
-//  Map1.CurrentTool := miZoomoutTool;
-//  Map1.MousePointer := miZoomoutCursor;
-
-//  btnSelect.Picture.LoadFromFile
-//    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
-//  pnlStatic.Visible := false;
-//  btnout.ImageIndex := 8;
 end;
 
 procedure TOverlayEditorForm.btnCloseClick(Sender: TObject);

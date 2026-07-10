@@ -235,7 +235,7 @@ begin
   for j := 0 to FAllTowedJammerDecoyOnBoardList.Count - 1 do
   begin
     towedjammerdecoyonboard := FAllTowedJammerDecoyOnBoardList.Items[j];
-    lbAllTowedJammerDecoyOnBoard.Items.AddObject(towedjammerdecoy.FData.Instance_Identifier, towedjammerdecoy)
+    lbAllTowedJammerDecoyOnBoard.Items.AddObject(towedjammerdecoyonboard.FData.Instance_Identifier, towedjammerdecoy)
   end;
   {$ENDREGION}
 end;

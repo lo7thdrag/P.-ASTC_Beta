@@ -1385,7 +1385,7 @@ begin
     frmChaffAssets.Free;
   end;
 
-//  btnCancel.Enabled := not AfterClose;
+  btnCancel.Enabled := not AfterClose;
   btnApply.Enabled := AfterClose;
 
 end;

@@ -46,7 +46,6 @@ type
     imgBackground: TImage;
 
     procedure FormShow(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
 
     //Global
@@ -62,6 +61,7 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure btnOKClick(Sender: TObject);
     procedure edtForwardChange(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -91,12 +91,6 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TfrmChaffLauncher.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  FLauncherForward.Free;
-  Action := cafree;
-end;
-
 procedure TfrmChaffLauncher.FormCreate(Sender: TObject);
 begin
   FLauncherForward := TBlindZoneView.Create(Self);
@@ -112,6 +106,11 @@ begin
     OnZoneChange := RotWheelDegreChange;
     AddZone;
   end;
+end;
+
+procedure TfrmChaffLauncher.FormDestroy(Sender: TObject);
+begin
+  FLauncherForward.Free;
 end;
 
 procedure TfrmChaffLauncher.FormShow(Sender: TObject);

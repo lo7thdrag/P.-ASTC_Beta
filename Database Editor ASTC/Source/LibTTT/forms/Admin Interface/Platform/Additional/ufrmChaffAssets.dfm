@@ -16,8 +16,8 @@ object frmChaffAssets: TfrmChaffAssets
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
-  OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44854,10 +44854,6 @@ object frmChaffAssets: TfrmChaffAssets
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 288
-    ExplicitTop = -136
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl3Button: TPanel
       Left = 0
       Top = 262
@@ -44867,8 +44863,6 @@ object frmChaffAssets: TfrmChaffAssets
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 0
-      ExplicitTop = 435
-      ExplicitWidth = 434
       object btnApply: TButton
         Left = 285
         Top = 5
@@ -44932,7 +44926,6 @@ object frmChaffAssets: TfrmChaffAssets
       TabWidth = 100
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 205
         object lbl2: TLabel
           Left = 16
           Top = 119
@@ -44995,7 +44988,6 @@ object frmChaffAssets: TfrmChaffAssets
       object ts1: TTabSheet
         Caption = 'Launchers '
         ImageIndex = 1
-        ExplicitHeight = 180
         object grp1: TGroupBox
           Left = 3
           Top = 13
@@ -45108,8 +45100,6 @@ object frmChaffAssets: TfrmChaffAssets
       object ts2: TTabSheet
         Caption = 'Seduction'
         ImageIndex = 2
-        ExplicitWidth = 450
-        ExplicitHeight = 189
         object lbl9: TLabel
           Left = 13
           Top = 53

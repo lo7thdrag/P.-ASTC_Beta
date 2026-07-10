@@ -47,8 +47,6 @@ type
     trckbrProbabilitySuccess: TTrackBar;
     edtProbabilitySuccess: TEdit;
     edtTimeWeaponImpact: TMaskEdit;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -69,6 +67,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -96,15 +95,14 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TfrmChaffAssets.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  FreeItemsAndFreeList(FChaffLauncherList);
-  Action := cafree;
-end;
-
 procedure TfrmChaffAssets.FormCreate(Sender: TObject);
 begin
   FChaffLauncherList := TList.Create;
+end;
+
+procedure TfrmChaffAssets.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FChaffLauncherList);
 end;
 
 procedure TfrmChaffAssets.FormShow(Sender: TObject);

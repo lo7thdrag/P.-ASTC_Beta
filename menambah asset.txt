@@ -3,12 +3,7 @@ Penting
 2. Pengecekan posisi tombol Search, Add, Copy, Edit, Usage dan Delete yang tidak sama  
 2. Mengecek memoryleak disetiap form
 3. Showmassage dicek, masih ada yang Bahasa inggris 
-
-4. ubah desain formPick di game area
  
-
-
-
 
 {Scenario}
 24. Ketika Klik Add di ufrmAvailableScenario muncul Error Accsess violation.

@@ -166,7 +166,7 @@ begin
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Logistic data ?', mtConfirmation,
+  warning := MessageDlg('Apakah anda yakin ingin menghapus Data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then

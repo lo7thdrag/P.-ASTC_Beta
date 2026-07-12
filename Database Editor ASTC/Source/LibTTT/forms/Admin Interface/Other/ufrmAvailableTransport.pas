@@ -112,7 +112,7 @@ var
 begin
   if lstTransport.ItemIndex = -1 then
   begin
-    ShowMessage('Select Transport Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Logistic ... !');
     Exit;
   end;
 

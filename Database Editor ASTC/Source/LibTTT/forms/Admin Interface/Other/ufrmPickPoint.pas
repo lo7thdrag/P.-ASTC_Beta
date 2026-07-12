@@ -16,6 +16,9 @@ type
     ImgBackgroundForm: TImage;
     btnsave: TButton;
     btncancel: TButton;
+    Image1: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
     procedure btncancelClick(Sender: TObject);
     procedure btnsaveClick(Sender: TObject);
   private

@@ -5,7 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ComCtrls, uDBAsset_Logistics, uDBAssetObject,
-  Vcl.Imaging.pngimage, Vcl.ExtCtrls;
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+
+  uSimContainers;
 
 type
   TfrmAvailableLogistic = class(TForm)
@@ -22,8 +24,6 @@ type
     edtSearch: TEdit;
     pnlTableList: TPanel;
     lbLogistic: TListBox;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -38,6 +38,7 @@ type
     procedure edtloglistKeyPress(Sender: TObject; var Key: Char);
     procedure edtSearchChange(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -59,14 +60,14 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableLogistic.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Action := cafree;
-end;
-
 procedure TfrmAvailableLogistic.FormCreate(Sender: TObject);
 begin
   FLogisticList := TList.Create;
+end;
+
+procedure TfrmAvailableLogistic.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FLogisticList);
 end;
 
 procedure TfrmAvailableLogistic.FormShow(Sender: TObject);

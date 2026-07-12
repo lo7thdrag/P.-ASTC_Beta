@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls, uDBGame_Defaults;
+  Vcl.ExtCtrls, uDBGame_Defaults, uSimContainers;
 
 type
   TfrmAvailableGameDefault = class(TForm)
@@ -28,6 +28,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure edtgameareaDefKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -54,6 +55,11 @@ uses
 procedure TfrmAvailableGameDefault.FormCreate(Sender: TObject);
 begin
   FGameDefaultList := TList.Create;
+end;
+
+procedure TfrmAvailableGameDefault.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FGameDefaultList);
 end;
 
 procedure TfrmAvailableGameDefault.FormShow(Sender: TObject);

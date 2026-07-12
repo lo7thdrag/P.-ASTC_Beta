@@ -21,8 +21,6 @@ type
     edtSearch: TEdit;
     pnlTableList: TPanel;
     lstGameArea: TListBox;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 
@@ -36,6 +34,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure edtgameareaKeyPress(Sender: TObject; var Key: Char);
     procedure edtSearchChange(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -67,14 +66,14 @@ begin
   UpdateGameAreaList;
 end;
 
-procedure TfrmAvailableGameArea.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  FreeItemsAndFreeList(FGameAreaList);
-end;
-
 procedure TfrmAvailableGameArea.FormCreate(Sender: TObject);
 begin
   FGameAreaList := TList.Create;
+end;
+
+procedure TfrmAvailableGameArea.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FGameAreaList);
 end;
 
 {$ENDREGION}

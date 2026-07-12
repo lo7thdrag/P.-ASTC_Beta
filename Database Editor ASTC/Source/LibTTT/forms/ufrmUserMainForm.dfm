@@ -51633,16 +51633,17 @@ object frmUserMainForm: TfrmUserMainForm
     object pnlHome: TPanel
       Left = 375
       Top = 107
-      Width = 892
+      Width = 925
       Height = 825
       Align = alClient
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
+      ExplicitWidth = 892
       object s: TImage
         Left = 0
         Top = 0
-        Width = 892
+        Width = 925
         Height = 825
         Align = alClient
         AutoSize = True
@@ -146583,8 +146584,8 @@ object frmUserMainForm: TfrmUserMainForm
             C0329405010000000049454E44AE426082}
           Stretch = True
           OnClick = MainMenuClick
-          OnMouseEnter = SubMenuMouseEnter
-          OnMouseLeave = SuMenuMouseLeave
+          OnMouseEnter = IconMouseEnter
+          OnMouseLeave = IconMouseLeave
           ExplicitWidth = 284
           ExplicitHeight = 33
         end
@@ -147526,8 +147527,8 @@ object frmUserMainForm: TfrmUserMainForm
             999CAF0000000049454E44AE426082}
           Stretch = True
           OnClick = MainMenuClick
-          OnMouseEnter = SubMenuMouseEnter
-          OnMouseLeave = SuMenuMouseLeave
+          OnMouseEnter = IconMouseEnter
+          OnMouseLeave = IconMouseLeave
           ExplicitLeft = 2
           ExplicitTop = 1
           ExplicitWidth = 284
@@ -148902,8 +148903,8 @@ object frmUserMainForm: TfrmUserMainForm
             58DDFF05DDBA52C04735AF120000000049454E44AE426082}
           Stretch = True
           OnClick = MainMenuClick
-          OnMouseEnter = SubMenuMouseEnter
-          OnMouseLeave = SuMenuMouseLeave
+          OnMouseEnter = IconMouseEnter
+          OnMouseLeave = IconMouseLeave
           ExplicitLeft = 2
           ExplicitTop = -1
           ExplicitWidth = 345
@@ -150113,8 +150114,8 @@ object frmUserMainForm: TfrmUserMainForm
             4E44AE426082}
           Stretch = True
           OnClick = MainMenuClick
-          OnMouseEnter = SubMenuMouseEnter
-          OnMouseLeave = SuMenuMouseLeave
+          OnMouseEnter = IconMouseEnter
+          OnMouseLeave = IconMouseLeave
           ExplicitLeft = 2
           ExplicitTop = -1
           ExplicitWidth = 345
@@ -151420,8 +151421,8 @@ object frmUserMainForm: TfrmUserMainForm
             0115B90000000049454E44AE426082}
           Stretch = True
           OnClick = MainMenuClick
-          OnMouseEnter = SubMenuMouseEnter
-          OnMouseLeave = SuMenuMouseLeave
+          OnMouseEnter = IconMouseEnter
+          OnMouseLeave = IconMouseLeave
           ExplicitLeft = 2
           ExplicitTop = 3
           ExplicitWidth = 284
@@ -153860,39 +153861,6 @@ object frmUserMainForm: TfrmUserMainForm
       ParentBackground = False
       TabOrder = 6
     end
-    object pnlVariasi: TPanel
-      Left = 1267
-      Top = 107
-      Width = 33
-      Height = 825
-      Align = alRight
-      BevelOuter = bvNone
-      Color = 2499101
-      TabOrder = 7
-      Visible = False
-      object pnlSparatorRight: TPanel
-        Left = 28
-        Top = 0
-        Width = 5
-        Height = 825
-        Align = alRight
-        BevelOuter = bvNone
-        Color = clBlack
-        ParentBackground = False
-        TabOrder = 0
-      end
-      object pnlSparatorCenterRight: TPanel
-        Left = 0
-        Top = 0
-        Width = 7
-        Height = 825
-        Align = alLeft
-        BevelOuter = bvNone
-        Color = clBlack
-        ParentBackground = False
-        TabOrder = 1
-      end
-    end
     object pnlSparatorCenterLeft: TPanel
       Left = 368
       Top = 107
@@ -153902,7 +153870,7 @@ object frmUserMainForm: TfrmUserMainForm
       BevelOuter = bvNone
       Color = clBlack
       ParentBackground = False
-      TabOrder = 8
+      TabOrder = 7
     end
   end
   object Timer1: TTimer

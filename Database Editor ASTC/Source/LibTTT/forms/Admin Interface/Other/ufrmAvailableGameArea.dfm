@@ -14,8 +14,8 @@ object frmAvailableGameArea: TfrmAvailableGameArea
   Font.Style = []
   OldCreateOrder = False
   Visible = True
-  OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 16

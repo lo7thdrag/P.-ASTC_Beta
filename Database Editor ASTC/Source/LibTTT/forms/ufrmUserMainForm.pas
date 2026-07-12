@@ -116,9 +116,6 @@ type
     pnlSparatorFooter: TPanel;
     pnlSparatorHeader: TPanel;
     pnlSparatorLeft: TPanel;
-    pnlVariasi: TPanel;
-    pnlSparatorRight: TPanel;
-    pnlSparatorCenterRight: TPanel;
     pnlSparatorCenterLeft: TPanel;
     imgBackground: TImage;
     img5: TImage;
@@ -161,7 +158,7 @@ type
 
   public
 
-    procedure LoadImageVariasi(i : byte);
+//    procedure LoadImageVariasi(i : byte);
     procedure FormFactory(aFormType: E_FormType; aDocked: Boolean = False);
   end;
 
@@ -256,7 +253,7 @@ begin
   else
     Exit;
 
-  LoadImageVariasi(1);
+//  LoadImageVariasi(1);
   FormFactory(E_FormType(pnlActive),True);
 
   CollapseMenuClick(Sender);
@@ -282,7 +279,7 @@ begin
   else
     Exit;
 
-  LoadImageVariasi(1);
+//  LoadImageVariasi(1);
   FormFactory(E_FormType(subMenuTemp),True);
 end;
 
@@ -304,11 +301,11 @@ end;
 
 {$REGION ' Navbar Section '}
 
-procedure TfrmUserMainForm.LoadImageVariasi(i: byte);
-begin
-//  pnlVariasi.Visible := i = 0;
-  pnlVariasi.Visible := False;
-end;
+//procedure TfrmUserMainForm.LoadImageVariasi(i: byte);
+//begin
+////  pnlVariasi.Visible := i = 0;
+////  pnlVariasi.Visible := False;
+//end;
 
 procedure TfrmUserMainForm.DockForm(aForm: TForm);
 begin

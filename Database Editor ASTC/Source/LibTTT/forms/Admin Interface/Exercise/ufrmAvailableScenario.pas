@@ -131,10 +131,21 @@ begin
   try
     with frmSummaryScenario do
     begin
-      SelectedScenario := TScenario_Definition.Create;
-      SelectedAssetDeployment := FSelectedAssetDeployment;
+      SelectedScenario            := TScenario_Definition.Create;
+      SelectedResourceAllocation  := TResource_Allocation.Create;
+      SelectedEnvironment         := TGame_Environment_Definition.Create;
+      SelectedGameArea            := TGame_Area_Definition.Create;
+      SelectedAssetDeployment     := TAsset_Deployment.Create;
+
       ShowModal;
-//      FUpdateList := AfterClose;
+
+      {Proses Free di letakkan di destroy formnya, untuk kebutuhan edit juga}
+
+      SelectedScenario.Free;
+      SelectedResourceAllocation.Free;
+      SelectedEnvironment.Free;
+      SelectedGameArea.Free;
+      SelectedAssetDeployment.Free;
     end;
   finally
     frmSummaryScenario.Free;
@@ -174,8 +185,11 @@ begin
     begin
       SelectedScenario := FSelectedScenario;
       SelectedAssetDeployment := FSelectedAssetDeployment;
-      ShowModal;;
-//      FUpdateList := AfterClose;
+      ShowModal;
+
+      SelectedResourceAllocation.Free;
+      SelectedEnvironment.Free;
+      SelectedGameArea.Free;
     end;
   finally
     frmSummaryScenario.Free;
@@ -195,8 +209,7 @@ begin
     Exit;
   end;
 
-  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
-    mbOKCancel, 0);
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation, mbOKCancel, 0);
 
   if warning = mrOK then
   begin

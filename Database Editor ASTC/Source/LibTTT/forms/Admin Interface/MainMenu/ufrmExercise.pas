@@ -122,7 +122,7 @@ begin
   else
     Exit;
 
-  frmUserMainForm.LoadImageVariasi(0);
+//  frmUserMainForm.LoadImageVariasi(0);
   frmUserMainForm.FormFactory(E_FormType(subMenuTemp),True);
 end;
 

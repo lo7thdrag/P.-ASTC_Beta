@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, uGameData_TTT, uDrawOverlay, uSimObjects, MapXLib_TLB;
+  Dialogs, StdCtrls, Buttons, uGameData_TTT, uDrawOverlay, uSimObjects, MapXLib_TLB,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls;
 
 type
   TfrmRuler = class(TForm)
@@ -25,6 +26,13 @@ type
     lbl6: TLabel;
     lblDirection: TLabel;
     lblCounterDirection: TLabel;
+    imgBackground: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    lbl7: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
 
     procedure btnHandlePosition(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -38,8 +46,8 @@ type
     procedure edtRulerStartPosLongKeyPress(Sender: TObject; var Key: Char);
     procedure edtRulerEndPosLatKeyPress(Sender: TObject; var Key: Char);
     procedure edtRulerEndPosLongKeyPress(Sender: TObject; var Key: Char);
-    procedure grpLineClick(Sender: TObject);
     procedure FormHide(Sender: TObject);
+    procedure lblCounterDirectionClick(Sender: TObject);
 
 
   private
@@ -247,7 +255,7 @@ var
 begin
   deg := CalcBearing(FStartX,FStartY,FEndX,FEndY);
   cdeg := CalcBearing(FEndX,FEndY,FStartX,FStartY);
-  lblDirection.Caption := 'Bearing : ' + formatfloat('0.00',deg) + ' °';
+  lblDirection.Caption := 'Bearing    ' + formatfloat('0.00',deg) + ' °';
   lblCounterDirection.Caption := '             ' + FormatFloat('0.00',cdeg)
      + ' °';
 end;
@@ -265,27 +273,27 @@ begin
   case cbbFormat.ItemIndex of
     0:
     begin
-      lblDistance.Caption := 'Range : ' + formatfloat('0.00',nmi)  ;
+      lblDistance.Caption := 'Range      ' + formatfloat('0.00',nmi)  ;
     end;
     1:
     begin
-      lblDistance.Caption := 'Range : ' + FormatFloat('0.00',mi) ;
+      lblDistance.Caption := 'Range      ' + FormatFloat('0.00',mi) ;
     end;
     2:
     begin
-      lblDistance.Caption := 'Range : ' + formatfloat('0.00',km);
+      lblDistance.Caption := 'Range      ' + formatfloat('0.00',km);
     end;
     3:
     begin
-      lblDistance.Caption := 'Range : ' + formatfloat('0.00',yd) ;
+      lblDistance.Caption := 'Range      ' + formatfloat('0.00',yd) ;
     end;
     4:
     begin
-      lblDistance.Caption := 'Range : ' + formatfloat('0.00',m) ;
+      lblDistance.Caption := 'Range      ' + formatfloat('0.00',m) ;
     end;
     5:
     begin
-      lblDistance.Caption := 'Range : ' + formatfloat('0.00',ft);
+      lblDistance.Caption := 'Range      ' + formatfloat('0.00',ft);
     end;
   end;
 
@@ -370,15 +378,15 @@ begin
   edtRulerStartPosLong.Text := formatDMS_long(FStartX);
   edtRulerEndPosLat.Text := formatDMS_latt(FEndY);
   edtRulerEndPosLong.Text := formatDMS_long(FEndX);
-  lblDistance.Caption := 'Range :';
-  lblDirection.Caption := 'Bearing :';
+  lblDistance.Caption := 'Range';
+  lblDirection.Caption := 'Bearing';
   lblCounterDirection.Caption := '';
   isshow:=True;
 //  simMgrClient.DrawRuler.IsVisible := True;
 end;
 
 
-procedure TfrmRuler.grpLineClick(Sender: TObject);
+procedure TfrmRuler.lblCounterDirectionClick(Sender: TObject);
 begin
 
 end;

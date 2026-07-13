@@ -11,7 +11,7 @@ uses
 
   uSimObjects, uSimVisuals, uObjectVisuals, u2DMover,
   uBaseCoordSystem, uSteppers, uSimContainers,
-  uWaypoint, uDBAsset_Scripted, Dialogs, uVectorVisual;
+  uWaypoint, uDBAsset_Scripted, Dialogs, uVectorVisual, uDBNote_Storage;
 
   const
     fromRuntime = 1;
@@ -196,6 +196,7 @@ type
     function getIdCubicle: integer;
 
   public
+    FNote      : TNote_Storage ;
     FPlatform : TRecPlatform_Instance;
     FData     : TRecCubicle_Group;
     FCubicle  : TRecCubicle_Group_Assignment;

@@ -11,18 +11,21 @@ type
   E_GroupMemberFormCaller = (gmfcMember, gmfcComm);
 
   TfrmGroupMemberSelection = class(TForm)
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnAdd: TButton;
+    btnRemove: TButton;
+    btnClose: TButton;
     lbAllMemberDef: TListBox;
     lbAllMemberOnScenario: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    lbl1: TLabel;
+    edtSearch: TEdit;
+    btnEdit: TButton;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +36,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FCaller : E_GroupMemberFormCaller;
@@ -62,14 +67,20 @@ implementation
 {$R *.dfm}
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmGroupMemberSelection.FormCreate(Sender: TObject);
 begin
-  FAllMemberDeffList := TList.Create;
-  FAllMemberOnScenarioList := TList.Create;
+  FAllMemberDeffList        := TList.Create;
+  FAllMemberOnScenarioList  := TList.Create;
+end;
+
+procedure TfrmGroupMemberSelection.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllMemberDeffList);
+  FreeItemsAndFreeList(FAllMemberOnScenarioList);
 end;
 
 procedure TfrmGroupMemberSelection.FormShow(Sender: TObject);
@@ -156,6 +167,15 @@ begin
   end;
 end;
 
+procedure TfrmGroupMemberSelection.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateGroupMemberList;
+  end;
+end;
+
 procedure TfrmGroupMemberSelection.lbAllMemberDefClick(Sender: TObject);
 begin
   if lbAllMemberDef.ItemIndex = -1 then
@@ -180,6 +200,7 @@ begin
   lbAllMemberDef.Items.Clear;
   lbAllMemberOnScenario.Items.Clear;
 
+  dmTTT.GetFilterGroupMemberSelectionDef(FAllMemberDeffList, edtSearch.Text);
   dmTTT.GetCubicleGroupAssignmentResidu(FSelectedResourceAlloc.FData.Resource_Alloc_Index,
     FSelectedCubicleGroup.FData.Force_Designation,FSelectedCubicleGroup.FData.Deployment_Index, FAllMemberDeffList);
 

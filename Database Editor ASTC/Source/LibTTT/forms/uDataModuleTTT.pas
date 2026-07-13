@@ -73,6 +73,7 @@ type
     function InsertCubicleGroupAssignment(var aRec: TRecCubicle_Group_Assignment): Boolean;
     function UpdateCubicleGroupAssignment(var aRec: TRecCubicle_Group_Assignment): Boolean;
     function DeleteCubicleGroupAssignment(const aDeleteType: Byte;const aIndex: Integer): Boolean; overload;
+    function GetFilterGroupMemberSelectionDef(var aList: TList; aFilter: String): Integer;
 
     //==Cubicle Group Channel Assignment
     function GetCubicleGroupChannelAssignmentResidu(const aResourceAllocID,aGroupIndex: Integer; var aList: TList): Integer;
@@ -24297,6 +24298,78 @@ begin
     end;
   end;
 end;
+
+function TdmTTT.GetFilterGroupMemberSelectionDef(var aList: TList; aFilter: String): Integer;
+var
+  i : Integer;
+  rec : TCubicle_Group_Assignment;
+begin
+//  Result := -1;
+//
+//  if not ZConn.Connected then
+//    Exit;
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT *');
+//    SQL.Add('FROM Cubicle_Group_Assignment a LEFT JOIN Note_Storage b');
+//    SQL.Add('ON a.Group_Index = b.Group_Index');
+//    SQL.Add('WHERE Group_Identifier like '  + quotedStr('%' + aFilter + '%'));
+//    SQL.Add('ORDER BY Group_Identifier');
+//    Open;
+//
+//    Result := RecordCount;
+//
+//    {$REGION ' Membersihkan List '}
+//    if Assigned(aList) then
+//    begin
+//      for i := 0 to aList.Count - 1 do
+//      begin
+//        rec := aList.Items[i];
+//        rec.Free;
+//      end;
+//
+//      aList.Clear;
+//    end
+//    else
+//      aList := TList.Create;
+//    {$ENDREGION}
+//
+//    if not IsEmpty then
+//    begin
+//      First;
+//
+//      while not ZQ.Eof do
+//      begin
+//        rec := TCubicle_Group_Assignment.Create;
+//
+//        with rec.FData do
+//        begin
+//          Group_Index := FieldByName('Group_Index').AsInteger;
+//          Group_Identifier := FieldByName('Group_Identifier').AsString;
+//          Deployment_Index := FieldByName('Deployment_Index').AsInteger;
+//          Force_Designation := FieldByName('Force_Designation').AsSingle;
+//          Tracks_Block := FieldByName('Tracks_Blok').AsSingle;
+//          Track_Block_Start := FieldByName('Track_Blok_Start').AsSingle;
+//          Track_Block_End := FieldByName('Track_Blok_End').AsSingle;
+//          Zulu_Zulu := FieldByName('Zulu_Zulu').AsInteger;
+//        end;
+//
+//        with rec.FNote do
+//        begin
+//          Note_Index := FieldByName('Note_Index').AsInteger;
+//          Note_Type := FieldByName('Note_Type').AsInteger;
+//          Notes := FieldByName('Notes').AsString;
+//        end;
+//
+//        aList.Add(rec);
+//        Next;
+//      end;
+//    end;
+//  end;
+
+ end;
 
 function TdmTTT.GetGameDefaultDef(const aClassName: string): Integer;
 begin

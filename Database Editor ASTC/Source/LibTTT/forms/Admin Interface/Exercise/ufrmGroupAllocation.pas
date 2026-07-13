@@ -9,14 +9,7 @@ uses
 
 type
   TfrmGroupAllocation = class(TForm)
-    btnApply: TButton;
-    btnCancel: TButton;
-    btnOK: TButton;
-    ImgBackgroundForm: TImage;
-    ImgHeader: TImage;
-    Label1: TLabel;
     edtForce: TEdit;
-    edtName: TEdit;
     grbExternalComm: TGroupBox;
     btnAddExternalComm: TButton;
     btnRemoveExternalComm: TButton;
@@ -35,7 +28,19 @@ type
     edtStart: TEdit;
     edtEnd: TEdit;
     lblForce: TLabel;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    pnlTop: TPanel;
     lblName: TLabel;
+    edtName: TEdit;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnOK: TButton;
+    btnCancel: TButton;
+    pnlMain: TPanel;
+    Label1: TLabel;
+    lblMembers: TLabel;
+    Label2: TLabel;
 
     procedure edtChange(Sender: TObject);
 

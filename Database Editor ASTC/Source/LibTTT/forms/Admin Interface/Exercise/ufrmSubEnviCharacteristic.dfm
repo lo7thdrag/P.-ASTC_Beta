@@ -4,8 +4,8 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = '   Global Environment Characteristics'
-  ClientHeight = 622
-  ClientWidth = 591
+  ClientHeight = 615
+  ClientWidth = 585
   Color = 1119507
   TransparentColor = True
   TransparentColorValue = 1119507
@@ -24,8 +24,8 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 591
-    Height = 622
+    Width = 585
+    Height = 615
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44849,28 +44849,24 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 591
-    Height = 622
+    Width = 585
+    Height = 615
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 296
-    ExplicitTop = 24
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitWidth = 591
+    ExplicitHeight = 622
     object pnl1Title: TPanel
       Left = 0
       Top = 0
-      Width = 591
+      Width = 585
       Height = 65
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 4
       Color = 5980694
       TabOrder = 0
-      ExplicitLeft = 57
-      ExplicitTop = 98
-      ExplicitWidth = 485
+      ExplicitWidth = 591
       object lblClass: TLabel
         Left = 10
         Top = 10
@@ -44888,7 +44884,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
         Tag = 4
         Left = 10
         Top = 30
-        Width = 571
+        Width = 565
         Height = 24
         AutoSize = False
         Font.Charset = DEFAULT_CHARSET
@@ -44904,22 +44900,20 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     object pnl2ControlPage: TPanel
       Left = 0
       Top = 65
-      Width = 591
-      Height = 514
+      Width = 585
+      Height = 507
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 5980694
       TabOrder = 1
-      ExplicitLeft = 10
-      ExplicitTop = 79
-      ExplicitWidth = 502
-      ExplicitHeight = 490
+      ExplicitWidth = 591
+      ExplicitHeight = 514
       object PageControl1: TPageControl
         Left = 10
         Top = 10
-        Width = 571
-        Height = 494
+        Width = 565
+        Height = 487
         ActivePage = tsSurfaceAndSubsurface
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -44931,20 +44925,20 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
         TabHeight = 30
         TabOrder = 0
         TabWidth = 140
-        ExplicitWidth = 482
-        ExplicitHeight = 470
+        ExplicitWidth = 571
+        ExplicitHeight = 494
         object tsAboveWater: TTabSheet
           Caption = 'Above Water'
-          ExplicitWidth = 474
-          ExplicitHeight = 430
+          ExplicitWidth = 563
+          ExplicitHeight = 454
           object grpVisibilityFactors: TGroupBox
             Left = 18
-            Top = 132
-            Width = 439
+            Top = 131
+            Width = 537
             Height = 156
             Caption = 'Visibility factors   '
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -45185,12 +45179,12 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
           end
           object grpAttenuationFactors: TGroupBox
             Left = 18
-            Top = 308
-            Width = 439
+            Top = 307
+            Width = 537
             Height = 89
             Caption = 'Attenuation factors   '
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -45441,7 +45435,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
           object grpWind: TGroupBox
             Left = 18
             Top = 6
-            Width = 439
+            Width = 537
             Height = 105
             Caption = 'Wind   '
             Font.Charset = DEFAULT_CHARSET
@@ -45527,8 +45521,9 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
         object tsSurfaceAndSubsurface: TTabSheet
           Caption = 'Surface and Subsurface'
           ImageIndex = 1
-          ExplicitWidth = 474
-          ExplicitHeight = 430
+          ExplicitLeft = 0
+          ExplicitWidth = 563
+          ExplicitHeight = 454
           object grbSoundVelocity: TGroupBox
             Left = 22
             Top = 202
@@ -46011,7 +46006,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
           end
           object lbl1BottomLossCoeff: TStaticText
             Left = 157
-            Top = 433
+            Top = 429
             Width = 11
             Height = 18
             Caption = '1'
@@ -46025,7 +46020,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
           end
           object lbl9BottomLossCoeff: TStaticText
             Left = 446
-            Top = 433
+            Top = 429
             Width = 11
             Height = 18
             Caption = '9'
@@ -46209,8 +46204,8 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
           end
           object grbOceanCurrent: TGroupBox
             Left = 18
-            Top = 14
-            Width = 439
+            Top = 6
+            Width = 537
             Height = 105
             Caption = 'Ocean Current'
             Font.Charset = DEFAULT_CHARSET
@@ -46221,7 +46216,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
             ParentFont = False
             TabOrder = 0
             object lblSpeed: TStaticText
-              Left = 112
+              Left = 123
               Top = 30
               Width = 47
               Height = 18
@@ -46229,7 +46224,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               TabOrder = 0
             end
             object lblDirection: TStaticText
-              Left = 112
+              Left = 123
               Top = 57
               Width = 60
               Height = 18
@@ -46238,7 +46233,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
             end
             object edtSpeed: TEdit
               Tag = 2
-              Left = 186
+              Left = 197
               Top = 28
               Width = 55
               Height = 22
@@ -46253,7 +46248,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               OnKeyPress = DataChangeKeyPress
             end
             object edtDirection: TEdit
-              Left = 186
+              Left = 197
               Top = 55
               Width = 55
               Height = 22
@@ -46268,7 +46263,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               OnKeyPress = DirectionChangeKeyPress
             end
             object lblKnots: TStaticText
-              Left = 247
+              Left = 258
               Top = 30
               Width = 34
               Height = 18
@@ -46276,7 +46271,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               TabOrder = 4
             end
             object lblDeg: TStaticText
-              Left = 247
+              Left = 258
               Top = 57
               Width = 25
               Height = 18
@@ -46293,8 +46288,8 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
           end
           object GroupBox1: TGroupBox
             Left = 18
-            Top = 134
-            Width = 440
+            Top = 131
+            Width = 537
             Height = 103
             Caption = 'Sea State  '
             Font.Charset = DEFAULT_CHARSET
@@ -46305,7 +46300,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
             ParentFont = False
             TabOrder = 26
             object trckbrSeaState: TTrackBar
-              Left = 13
+              Left = 17
               Top = 33
               Width = 330
               Height = 45
@@ -46315,7 +46310,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               OnChange = trckbrSeaStateChange
             end
             object edtSeaState: TEdit
-              Left = 349
+              Left = 374
               Top = 33
               Width = 73
               Height = 22
@@ -46330,7 +46325,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               OnKeyPress = edtSeaStateKeyPress
             end
             object lblHeavySeaState: TStaticText
-              Left = 306
+              Left = 310
               Top = 66
               Width = 37
               Height = 18
@@ -46344,7 +46339,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               TabOrder = 2
             end
             object lblStillSeaState: TStaticText
-              Left = 13
+              Left = 17
               Top = 66
               Width = 22
               Height = 18
@@ -46360,8 +46355,8 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
           end
           object grbAtmospheric: TGroupBox
             Left = 18
-            Top = 252
-            Width = 440
+            Top = 254
+            Width = 537
             Height = 158
             Caption = 'Atmospheric Sub/Super Refreaction Modifier   '
             Font.Charset = DEFAULT_CHARSET
@@ -46372,7 +46367,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
             ParentFont = False
             TabOrder = 27
             object trckbrAtmospheric: TTrackBar
-              Left = 22
+              Left = 17
               Top = 29
               Width = 321
               Height = 45
@@ -46385,7 +46380,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               OnChange = trckbrAtmosphericChange
             end
             object edtAtmospheric: TEdit
-              Left = 349
+              Left = 374
               Top = 30
               Width = 73
               Height = 22
@@ -46400,7 +46395,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               OnKeyPress = edtAtmosphericKeyPress
             end
             object lbl1Atmospheric: TStaticText
-              Left = 31
+              Left = 17
               Top = 58
               Width = 23
               Height = 18
@@ -46408,7 +46403,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               TabOrder = 1
             end
             object lbl100Atmospheric: TStaticText
-              Left = 299
+              Left = 294
               Top = 56
               Width = 44
               Height = 18
@@ -46416,7 +46411,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
               TabOrder = 3
             end
             object grbLegendTrackAtmospheric: TGroupBox
-              Left = 15
+              Left = 17
               Top = 84
               Width = 407
               Height = 59
@@ -46471,8 +46466,8 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
           Caption = 'Convergence Zones'
           ImageIndex = 2
           TabVisible = False
-          ExplicitWidth = 474
-          ExplicitHeight = 430
+          ExplicitWidth = 563
+          ExplicitHeight = 454
           object grbCoverageZones: TGroupBox
             Left = 21
             Top = 34
@@ -46676,8 +46671,8 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
           Caption = 'Boundaries'
           ImageIndex = 3
           TabVisible = False
-          ExplicitWidth = 474
-          ExplicitHeight = 430
+          ExplicitWidth = 563
+          ExplicitHeight = 454
           object grbTopLeft: TGroupBox
             Left = 15
             Top = 21
@@ -46877,17 +46872,17 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     end
     object pnl3Button: TPanel
       Left = 0
-      Top = 579
-      Width = 591
+      Top = 572
+      Width = 585
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitTop = 435
-      ExplicitWidth = 434
+      ExplicitTop = 579
+      ExplicitWidth = 591
       object btnApply: TButton
-        Left = 419
+        Left = 412
         Top = 2
         Width = 80
         Height = 30
@@ -46902,7 +46897,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
         OnClick = btnApplyClick
       end
       object btnOK: TButton
-        Left = 335
+        Left = 329
         Top = 2
         Width = 80
         Height = 30
@@ -46917,7 +46912,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
         OnClick = btnOKClick
       end
       object btnCancel: TButton
-        Left = 502
+        Left = 495
         Top = 2
         Width = 80
         Height = 30

@@ -44891,7 +44891,6 @@ object frmWaypointEditor: TfrmWaypointEditor
         ParentCtl3D = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 308
         object pnlListWP: TPanel
           Left = 0
           Top = 0
@@ -44903,10 +44902,6 @@ object frmWaypointEditor: TfrmWaypointEditor
           Color = 2499101
           ParentBackground = False
           TabOrder = 0
-          ExplicitLeft = 10
-          ExplicitTop = 6
-          ExplicitWidth = 295
-          ExplicitHeight = 285
           object lvWaypoint: TListView
             Left = 10
             Top = 10
@@ -44950,7 +44945,6 @@ object frmWaypointEditor: TfrmWaypointEditor
             TabOrder = 0
             ViewStyle = vsReport
             OnClick = lvWaypointClick
-            ExplicitWidth = 330
           end
           object pnl1: TPanel
             Left = 10
@@ -44961,9 +44955,6 @@ object frmWaypointEditor: TfrmWaypointEditor
             BevelOuter = bvNone
             Color = 2499101
             TabOrder = 1
-            ExplicitLeft = -2
-            ExplicitTop = 408
-            ExplicitWidth = 288
             object btnAdd: TSpeedButton
               Tag = 1
               Left = 271
@@ -45054,9 +45045,6 @@ object frmWaypointEditor: TfrmWaypointEditor
           Color = 2499101
           ParentBackground = False
           TabOrder = 1
-          ExplicitLeft = 10
-          ExplicitTop = 296
-          ExplicitWidth = 295
           object Label3: TLabel
             Left = 10
             Top = 10
@@ -45246,8 +45234,6 @@ object frmWaypointEditor: TfrmWaypointEditor
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 2
-          ExplicitTop = 154
-          ExplicitWidth = 308
         end
         object pnlTermination: TPanel
           Left = 0
@@ -45259,9 +45245,6 @@ object frmWaypointEditor: TfrmWaypointEditor
           Color = 2499101
           ParentBackground = False
           TabOrder = 3
-          ExplicitLeft = 10
-          ExplicitTop = 493
-          ExplicitWidth = 294
           object lbl7: TLabel
             Left = 13
             Top = 9
@@ -45373,8 +45356,6 @@ object frmWaypointEditor: TfrmWaypointEditor
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 4
-          ExplicitTop = 778
-          ExplicitWidth = 308
         end
       end
     end
@@ -45387,9 +45368,6 @@ object frmWaypointEditor: TfrmWaypointEditor
       BevelOuter = bvNone
       Color = 3683636
       TabOrder = 1
-      ExplicitLeft = 320
-      ExplicitWidth = 1270
-      ExplicitHeight = 828
       object Map1: TMap
         Left = 0
         Top = 45
@@ -45419,7 +45397,7 @@ object frmWaypointEditor: TfrmWaypointEditor
           0B918FCE119DE300AA004BB851010000009001DC7C010005417269616C000352
           E30B918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D
           626F6C730000000000000001000100FFFFFF000200FFFFFF0000000000000100
-          000001000118010000E01A452801000000E0884B031C00000000000000000000
+          000001000118010000C0849B0F01000000E0885A031C00000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0002000000000000000000000000000000000000000000000000000000000000
@@ -45428,15 +45406,15 @@ object frmWaypointEditor: TfrmWaypointEditor
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           00008076C000000000008056C000000000008076400000000000805640010000
-          0018010000E01A452801000000880300C01C0000000000000000000000000000
+          0018010000C0849B0F01000000880300C01C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000001800100850906
-          5018394B03A504065001E99700DB51BB7778F0F6501103065000000000000000
+          0000000000000000000000000000000000000000000000000001EE0100850906
+          5018395A03A504065001E99700DB512E7778F0F6501103065000000000000000
           0000000088B3400000000000408F400001000001}
       end
       object pnlToolBar: TPanel
@@ -45449,9 +45427,6 @@ object frmWaypointEditor: TfrmWaypointEditor
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitLeft = 1
-        ExplicitTop = 1
-        ExplicitWidth = 1268
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
@@ -45476,7 +45451,6 @@ object frmWaypointEditor: TfrmWaypointEditor
           Images = ilToolbar
           ParentColor = False
           TabOrder = 1
-          ExplicitWidth = 1243
           object btnIncrease: TToolButton
             Left = 0
             Top = 0
@@ -45487,16 +45461,16 @@ object frmWaypointEditor: TfrmWaypointEditor
             ShowHint = True
             OnClick = btnIncreaseClick
           end
-          object cbSetScale: TComboBox
+          object cbbScale: TComboBox
             Left = 42
-            Top = 8
+            Top = 0
             Width = 95
             Height = 21
             Hint = 'Map Scales'
             ParentShowHint = False
             ShowHint = True
             TabOrder = 0
-            OnChange = cbSetScaleChange
+            OnChange = cbbScaleChange
             Items.Strings = (
               '0.125'
               '0.25'
@@ -45553,25 +45527,31 @@ object frmWaypointEditor: TfrmWaypointEditor
             ShowHint = True
             OnClick = btnPanClick
           end
-          object btnCenterGame: TToolButton
+          object btnCenterOnGame: TToolButton
             Left = 305
             Top = 0
             Hint = 'Center On Game Center'
-            Caption = 'btnCenterGame'
             ImageIndex = 5
             ParentShowHint = False
             ShowHint = True
-            OnClick = btnCenterGameClick
+            OnClick = btnCenterOnGameClick
+          end
+          object btnLayerTool: TToolButton
+            Left = 347
+            Top = 0
+            Caption = 'btnLayerTool'
+            ImageIndex = 6
+            OnClick = btnLayerToolClick
           end
           object btngamearea1: TToolButton
-            Left = 347
+            Left = 389
             Top = 0
             Caption = 'btngamearea1'
             ImageIndex = 7
             OnClick = btngamearea1Click
           end
           object btnruler: TToolButton
-            Left = 389
+            Left = 431
             Top = 0
             Caption = 'btnruler'
             ImageIndex = 8
@@ -45590,9 +45570,6 @@ object frmWaypointEditor: TfrmWaypointEditor
         Color = 2499101
         ParentBackground = False
         TabOrder = 2
-        ExplicitLeft = 1
-        ExplicitTop = 782
-        ExplicitWidth = 1268
         DesignSize = (
           1181
           45)
@@ -45768,7 +45745,6 @@ object frmWaypointEditor: TfrmWaypointEditor
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 3
-        ExplicitWidth = 1262
       end
       object pnl3SparatorHor2: TPanel
         Left = 0
@@ -45779,7 +45755,6 @@ object frmWaypointEditor: TfrmWaypointEditor
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 4
-        ExplicitWidth = 1262
       end
     end
     object pnl4Bottom: TPanel
@@ -45878,9 +45853,6 @@ object frmWaypointEditor: TfrmWaypointEditor
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 5
-      ExplicitLeft = 308
-      ExplicitTop = 24
-      ExplicitHeight = 828
     end
     object pnlVertical3: TPanel
       Left = 1590

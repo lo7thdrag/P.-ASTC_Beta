@@ -4,8 +4,8 @@ object fMainGServer: TfMainGServer
   BorderStyle = bsSingle
   BorderWidth = 6
   Caption = 'Game Server'
-  ClientHeight = 742
-  ClientWidth = 1364
+  ClientHeight = 463
+  ClientWidth = 1320
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,7 +22,7 @@ object fMainGServer: TfMainGServer
   object Bevel1: TBevel
     Left = 0
     Top = 93
-    Width = 1364
+    Width = 1320
     Height = 12
     Align = alTop
     Shape = bsSpacer
@@ -31,7 +31,7 @@ object fMainGServer: TfMainGServer
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1364
+    Width = 1320
     Height = 93
     Align = alTop
     BevelKind = bkFlat
@@ -40,6 +40,7 @@ object fMainGServer: TfMainGServer
     ShowCaption = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
+    ExplicitWidth = 1364
     object Label1: TLabel
       Left = 6
       Top = 17
@@ -166,13 +167,15 @@ object fMainGServer: TfMainGServer
   object Panel2: TPanel
     Left = 0
     Top = 105
-    Width = 1364
-    Height = 637
+    Width = 1320
+    Height = 358
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel1'
     ShowCaption = False
     TabOrder = 1
+    ExplicitWidth = 1364
+    ExplicitHeight = 637
     object SpeedButton1: TSpeedButton
       Left = 520
       Top = 17
@@ -185,14 +188,14 @@ object fMainGServer: TfMainGServer
     object Splitter1: TSplitter
       Left = 0
       Top = 0
-      Height = 637
+      Height = 358
       ExplicitHeight = 298
     end
     object PageControl1: TPageControl
       Left = 3
       Top = 0
-      Width = 1361
-      Height = 637
+      Width = 1317
+      Height = 358
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -201,8 +204,14 @@ object fMainGServer: TfMainGServer
       Align = alClient
       MultiLine = True
       TabOrder = 0
+      ExplicitWidth = 1361
+      ExplicitHeight = 637
       object TabSheet1: TTabSheet
         Caption = 'EVENT LOG'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Memo1: TMemo
           Left = 0
           Top = 0
@@ -219,6 +228,10 @@ object fMainGServer: TfMainGServer
       object TabSheet2: TTabSheet
         Caption = 'EVENTS LIST'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object mmEvents: TMemo
           Left = 0
           Top = 25
@@ -245,6 +258,10 @@ object fMainGServer: TfMainGServer
       object TabSheet3: TTabSheet
         Caption = 'PLATFORMS'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object mmInit: TMemo
           Left = 0
           Top = 25
@@ -271,6 +288,10 @@ object fMainGServer: TfMainGServer
       object TabSheet4: TTabSheet
         Caption = 'LOGS'
         ImageIndex = 3
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object btn4: TSpeedButton
           Left = 0
           Top = 0
@@ -303,15 +324,18 @@ object fMainGServer: TfMainGServer
       object TabSheet5: TTabSheet
         Caption = 'WATCHER'
         ImageIndex = 4
+        ExplicitWidth = 1353
+        ExplicitHeight = 609
         object Panel3: TPanel
           Left = 0
           Top = 0
-          Width = 1353
+          Width = 1309
           Height = 33
           Align = alTop
           Ctl3D = True
           ParentCtl3D = False
           TabOrder = 0
+          ExplicitWidth = 1353
           object Button3: TButton
             Left = 272
             Top = 5
@@ -334,8 +358,8 @@ object fMainGServer: TfMainGServer
         object lvPlatform: TListView
           Left = 0
           Top = 33
-          Width = 1353
-          Height = 576
+          Width = 1309
+          Height = 297
           Align = alClient
           Columns = <
             item
@@ -397,13 +421,14 @@ object fMainGServer: TfMainGServer
           RowSelect = True
           TabOrder = 1
           ViewStyle = vsReport
-          ExplicitLeft = 2
-          ExplicitTop = 36
+          ExplicitWidth = 1353
+          ExplicitHeight = 576
         end
       end
       object tsDatalink: TTabSheet
         Caption = 'DATALINK'
         ImageIndex = 5
+        ExplicitWidth = 1353
         object lblNCS: TLabel
           Left = 3
           Top = 3
@@ -462,6 +487,10 @@ object fMainGServer: TfMainGServer
       object tsDataBuffer: TTabSheet
         Caption = 'DATA'
         ImageIndex = 6
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object mmo1: TMemo
           Left = 0
           Top = 25
@@ -485,6 +514,10 @@ object fMainGServer: TfMainGServer
       object tsVersion: TTabSheet
         Caption = 'VERSION'
         ImageIndex = 7
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lvVersion: TListView
           Left = 0
           Top = 0

@@ -256,8 +256,7 @@ begin
   deg := CalcBearing(FStartX,FStartY,FEndX,FEndY);
   cdeg := CalcBearing(FEndX,FEndY,FStartX,FStartY);
   lblDirection.Caption := 'Bearing    ' + formatfloat('0.00',deg) + ' °';
-  lblCounterDirection.Caption := '             ' + FormatFloat('0.00',cdeg)
-     + ' °';
+  lblCounterDirection.Caption := '             ' + FormatFloat('0.00',cdeg)+ ' °';
 end;
 
 procedure TfrmRuler.FillDistanceLabel;

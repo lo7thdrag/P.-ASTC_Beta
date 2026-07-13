@@ -141,6 +141,7 @@ begin
     begin
       ResourceAllocation := FResourceAllocation;
       PlatformInstance := FSelectedPlatformInstance;
+      AssetDeployment := FAssetDeployment;
       Force := FSelectedForce;
 
       Vehicle := TVehicle_Definition.Create;
@@ -159,12 +160,18 @@ begin
 end;
 
 procedure TfrmVehicleResourceAllocationPickList.btnRemoveClick(Sender: TObject);
+var
+  depIndex : Integer;
 begin
   if lbAllVehicleOnScenario.ItemIndex = -1 then
     Exit;
 
   {Delete relasi Cubicle group}
+  depIndex := dmTTT.GetGroupIndexByPlatfomInstance(FSelectedPlatformInstance.FData.Platform_Instance_Index);
   dmTTT.DeleteCubicleGroupAssignment(3, FSelectedPlatformInstance.FData.Platform_Instance_Index);
+
+  dmTTT.DeleteCubicleGroupChannelAssignment(2, depIndex);
+  dmTTT.DeleteCubicleGroup(2, depIndex);
 
   {Delete relasi Platform Activation}
   if dmTTT.DeletePlatformActivation(2, FSelectedPlatformInstance.FData.Platform_Instance_Index)then

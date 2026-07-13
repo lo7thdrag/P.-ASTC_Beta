@@ -41,6 +41,7 @@ type
     function CekInput: Boolean;
 
     procedure CreateCubicleGroup;
+    procedure UpdateCubicleGroup;
     procedure UpdatePlatformIstanceData;
 
   public
@@ -113,6 +114,10 @@ begin
     else
     begin
       dmTTT.UpdatePlatformInstance(FData);
+
+      {Update Group}
+      UpdateCubicleGroup;
+
       ShowMessage('Data platform berhasil diperbarui');
     end;
   end;
@@ -283,12 +288,30 @@ begin
       FCubicle.Deployment_Index := AssetDeployment.FData.Deployment_Index;
 
       dmTTT.InsertCubicleGroupAssignment(FCubicle);
-    end
-    else
-    begin
-      dmTTT.UpdateCubicleGroup(FData);
     end;
   end;
+
+  cubGroup.Free;
+end;
+
+procedure TfrmResourceAllocationInputName.UpdateCubicleGroup;
+var
+  cubGroup : TCubicle_Group_Assignment;
+
+begin
+
+  cubGroup := TCubicle_Group_Assignment.Create;
+
+  dmTTT.GetCubicleInScenario(AssetDeployment.FData.Deployment_Index, Force, LastTrackID, cubGroup.FData);
+
+  with cubGroup do
+  begin
+    FData.Group_Identifier := edtTrackId.Text;
+
+    dmTTT.UpdateCubicleGroup(FData);
+  end;
+
+  cubGroup.Free;
 end;
 
 {$ENDREGION}

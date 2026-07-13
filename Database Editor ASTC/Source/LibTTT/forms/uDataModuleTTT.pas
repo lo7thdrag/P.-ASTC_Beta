@@ -87,6 +87,8 @@ type
      //==Cubicle Group
     function GetCubicleGroup(const aDeploymentIndex, aForce: Integer; var aList: TList): Integer; overload;
     function GetCubicleGroup(const aDeployIndex: Integer;const aIdentifier: string): Integer; overload;
+    function GetCubicleInScenario(const aDeployIndex, ForceId: Integer;const aIdentifier: string; var rec: TRecCubicle_Group): boolean;
+    function GetGroupIndexByPlatfomInstance(const aIndex: Integer): Integer;
     function InsertCubicleGroup(var aRec: TRecCubicle_Group): Boolean;
     function UpdateCubicleGroup(var aRec: TRecCubicle_Group): Boolean;
     function DeleteCubicleGroup(const aDeleteType: Byte; const aIndex: Integer): Boolean;
@@ -3710,6 +3712,71 @@ begin
         aList.Add(rec);
         Next;
       end;
+    end;
+  end;
+end;
+
+function TdmTTT.GetCubicleInScenario(const aDeployIndex, ForceId: Integer; const aIdentifier: string; var rec: TRecCubicle_Group): boolean;
+begin
+  Result := False;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Cubicle_Group');
+    SQL.Add('WHERE Deployment_Index = ' + IntToStr(aDeployIndex));
+    SQL.Add('AND Group_Identifier = ' + QuotedStr(aIdentifier));
+    SQL.Add('AND Force_Designation = ' + IntToStr(ForceId));
+
+    SQL.Add('ORDER BY Group_Index');
+    Open;
+
+    Result := RecordCount > 1;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      with rec do
+      begin
+        Group_Index := FieldByName('Group_Index').AsInteger;
+        Deployment_Index := FieldByName('Deployment_Index').AsInteger;
+        Group_Identifier := FieldByName('Group_Identifier').AsString;
+        Force_Designation := FieldByName('Force_Designation').AsInteger;
+        Track_Block_Start := FieldByName('Track_Block_Start').AsInteger;
+        Track_Block_End := FieldByName('Track_Block_End').AsInteger;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.GetGroupIndexByPlatfomInstance(const aIndex: Integer): Integer;
+begin
+  Result := 0;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Cubicle_Group_Assignment');
+    SQL.Add('WHERE Platform_Instance_Index = ' + IntToStr(aIndex));
+    SQL.Add('ORDER BY Group_Index');
+    Open;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      Result := FieldByName('Group_Index').AsInteger;
     end;
   end;
 end;
@@ -32565,6 +32632,8 @@ begin
     end;
   end;
 end;
+
+
 
 // --------------------------------------------------------------------------
 

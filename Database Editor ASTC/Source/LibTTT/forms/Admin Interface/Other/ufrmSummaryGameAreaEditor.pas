@@ -47,7 +47,7 @@ type
     btnMultiSelect: TToolButton;
     btnZoomTool: TToolButton;
     btnPan: TToolButton;
-    btnCenterHook: TToolButton;
+    btnCenterOnGame: TToolButton;
     pnlVertical3: TPanel;
     pnl4Bottom: TPanel;
     btnCancel: TButton;
@@ -88,14 +88,13 @@ type
     procedure btnDecrease1Click(Sender: TObject);
     procedure btnSelectClick(Sender: TObject);
     procedure btnZoom1Click(Sender: TObject);
-
-    procedure btnPan1Click(Sender: TObject);
     procedure cbbScaleChange(Sender: TObject);
     procedure btnMultiSelectClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure lblWidthClick(Sender: TObject);
-    procedure btnCenterHookClick(Sender: TObject);
+    procedure btnCenterOnGameClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure btnPanClick(Sender: TObject);
 
   private
     FSelectedGameArea : TGame_Environment_Definition;
@@ -530,17 +529,16 @@ begin
   Map1.MousePointer := miZoomInCursor;
 end;
 
-procedure TfrmSummaryGameAreaEditor.btnCenterHookClick(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.btnCenterOnGameClick(Sender: TObject);
 begin
   UpAllToolbarButton;
-  btnCenterHook.Down := True;
-//  FMapCursor := mcGameCenter;
+  btnCenterOnGame.Down := True;
 
   Map1.CurrentTool := miArrowTool;
   Map1.MousePointer := miCrossCursor;
 end;
 
-procedure TfrmSummaryGameAreaEditor.btnPan1Click(Sender: TObject);
+procedure TfrmSummaryGameAreaEditor.btnPanClick(Sender: TObject);
 begin
   UpAllToolbarButton;
   btnPan.Down := True;
@@ -746,7 +744,7 @@ begin
   btnMultiSelect.Down := False;
   btnZoomTool.Down := False;
   btnPan.Down := False;
-  btnCenterHook.Down := False;
+  btnCenterOnGame.Down := False;
 
   Map1.CurrentTool  := miArrowTool;
   Map1.MousePointer := miDefaultCursor;
@@ -1034,7 +1032,7 @@ begin
 
   {$Region ' Set Game Center '}
 
-  if btnCenterHook.Down then
+  if btnCenterOnGame.Down then
   begin
     FConverter.ConvertToMap(X, Y, FSelectedGameArea.FGameArea.Game_Centre_Long, FSelectedGameArea.FGameArea.Game_Centre_Lat);
 

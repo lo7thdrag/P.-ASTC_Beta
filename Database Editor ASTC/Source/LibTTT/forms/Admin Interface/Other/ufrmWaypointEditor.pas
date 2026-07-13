@@ -11,7 +11,6 @@ uses
   tttData, uDrawOverlay, uMainStaticShape, uDBEditSetting;
 
 type
-  E_WaypointMapCursor = (mcSelect, mcAdd, mcEdit, mceHook, mcRullerStart, mcRullerEnd);
 
   TfrmWaypointEditor = class(TForm)
     pnlMainBackground: TPanel;
@@ -22,11 +21,11 @@ type
     pnlAlignToolBar: TPanel;
     ToolBar1: TToolBar;
     btnIncrease: TToolButton;
-    cbSetScale: TComboBox;
+    cbbScale: TComboBox;
     btnDecrease: TToolButton;
     btnZoom: TToolButton;
     btnPan: TToolButton;
-    btnCenterGame: TToolButton;
+    btnCenterOnGame: TToolButton;
     pnlCursorPosition: TPanel;
     pnl4Bottom: TPanel;
     Button2: TButton;
@@ -94,12 +93,13 @@ type
     btnAdd: TSpeedButton;
     btnDelete: TSpeedButton;
     btnDeleteAll: TSpeedButton;
+    btnLayerTool: TToolButton;
     procedure btnIncreaseClick(Sender: TObject);
-    procedure cbSetScaleChange(Sender: TObject);
+    procedure cbbScaleChange(Sender: TObject);
     procedure btnDecreaseClick(Sender: TObject);
     procedure btnZoomClick(Sender: TObject);
     procedure btnPanClick(Sender: TObject);
-    procedure btnCenterGameClick(Sender: TObject);
+    procedure btnCenterOnGameClick(Sender: TObject);
     procedure Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch;
       hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
     procedure Map1MapViewChanged(Sender: TObject);
@@ -123,6 +123,7 @@ type
     procedure btnrulerClick(Sender: TObject);
 
     procedure UpdateCursorPositionData(const X, Y: Integer);
+    procedure btnLayerToolClick(Sender: TObject);
 
   private
     xx: Double;
@@ -138,7 +139,7 @@ type
 
     FSelectedWaypoint : TWaypoint_Def;
     FSelectedWaypointData : TWaypoint_Data;
-    FMapCursor : E_WaypointMapCursor;
+    FMapRulerCursor : E_RulerMapCursor;
 
     TerminationIndex : Integer;
 
@@ -149,6 +150,7 @@ type
     procedure getTermination(TerminationIndex : Integer);
     procedure ClearDataForm;
 
+    procedure UpAllToolbarButton;
     procedure UpdateSelectedWaypointData;
 
   public
@@ -162,7 +164,7 @@ type
     procedure GbrFlagPoint(mx, my: Double);
     procedure EditFlagPoint(id: Integer; mx, my: Double);
 
-    property MapCursor: E_WaypointMapCursor read FMapCursor write FMapCursor;
+    property MapRulerCursor: E_RulerMapCursor read FMapRulerCursor write FMapRulerCursor;
     property SelectedWaypoint : TWaypoint_Def read FSelectedWaypoint write FSelectedWaypoint;
   end;
 
@@ -215,10 +217,10 @@ procedure TfrmWaypointEditor.FormShow(Sender: TObject);
 begin
   LoadMap(vAppDBSetting.MapOverlayStatic);
 
-  cbSetScale.ItemIndex := cbSetScale.Items.Count -1;
-  cbSetScaleChange(Sender);
+  cbbScale.ItemIndex := cbbScale.Items.Count -1;
+  cbbScaleChange(Sender);
 
-  cbSetScale.Text := cbSetScale.Items.Strings[cbSetScale.ItemIndex];
+  cbbScale.Text := cbbScale.Items.Strings[cbbScale.ItemIndex];
 
   FCentLong := 116.357322793642;
   FCentLatt := -0.328853651464508;
@@ -260,7 +262,7 @@ begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
 
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end
       else
       begin
@@ -311,7 +313,7 @@ begin
   Map1.CurrentTool := miArrowTool;
   Map1.MousePointer := miCrossCursor;
 
-  FMapCursor := mcEdit;
+  FMapRulerCursor := mcEdit;
 end;
 
 {$ENDREGION}
@@ -364,7 +366,7 @@ begin
   btnSelect.Down := true;
   btnZoom.Down := False;
   btnPan.Down := False;
-  btnCenterGame.Down := False;
+  btnCenterOnGame.Down := False;
 
   RefreshCursor;
   FSelectedWaypointData := TWaypoint_Data(lvWaypoint.Selected.Data);
@@ -377,8 +379,7 @@ begin
 
 end;
 
-procedure TfrmWaypointEditor.Map1DrawUserLayer(ASender: TObject;
-  const Layer: IDispatch; hOutputDC, hAttributeDC: Integer; const RectFull,
+procedure TfrmWaypointEditor.Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch; hOutputDC, hAttributeDC: Integer; const RectFull,
   RectInvalid: IDispatch);
 var
    I : Integer;
@@ -429,50 +430,61 @@ begin
   end;
 
   {$REGION ' Menggambar Ruler '}
-//  if frmRuler.isshow then
-//  begin
-//    DrawFlagPoint.Draw(FCanvas);
-//
-//    if DrawFlagPoint.FList.Count = 2 then
-//    begin
-//      itemStart := DrawFlagPoint.FList[0];
-//      itemEnd := DrawFlagPoint.FList[1];
-//
-//      FConverter.ConvertToScreen(itemStart.Post.X, itemStart.Post.Y, sx, sy);
-//      FConverter.ConvertToScreen(itemEnd.Post.X, itemEnd.Post.Y, ex, ey);
-//
-//      with FCanvas do
-//      begin
-//        Brush.Style := bsClear;
-//        Pen.Color := clYellow  ;
-//        Pen.Width:= 2;
-//        MoveTo(sx, sy);
-//        LineTo(ex, ey);
-//      end;
-//    end;
-//  end;
-//  {$ENDREGION}
+  if frmRuler.isshow then
+  begin
+    DrawFlagPoint.Draw(FCanvas);
+
+    if DrawFlagPoint.FList.Count = 2 then
+    begin
+      itemStart := DrawFlagPoint.FList[0];
+      itemEnd := DrawFlagPoint.FList[1];
+
+      FConverter.ConvertToScreen(itemStart.Post.X, itemStart.Post.Y, sx, sy);
+      FConverter.ConvertToScreen(itemEnd.Post.X, itemEnd.Post.Y, ex, ey);
+
+      with FCanvas do
+      begin
+        Brush.Style := bsClear;
+        Pen.Color := clYellow  ;
+        Pen.Width:= 2;
+        MoveTo(sx, sy);
+        LineTo(ex, ey);
+      end;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmWaypointEditor.Map1MapViewChanged(Sender: TObject);
 var
   tempZoom : Double;
 begin
-  if Map1.CurrentTool = miZoomInTool then
+  if (Map1.CurrentTool = miZoomInTool)  or (Map1.CurrentTool = miZoomOutTool) then
   begin
-    if Map1.Zoom <= 0.125 then
-      tempZoom := 0.125;
-    if (Map1.Zoom > 0.125) AND (Map1.Zoom < 1) then
-      tempZoom := Map1.Zoom;
-    if (Map1.Zoom >= 1) AND (Map1.Zoom <= 2500) then
-      tempZoom := round(Map1.Zoom);
-    if Map1.Zoom > 2500 then
-      tempZoom := 2500;
+     if Map1.Zoom <= 0.125 then tempZoom := 0.125;
+     if (Map1.Zoom > 0.125) AND (Map1.Zoom < 1) then tempZoom := Map1.Zoom;
+     if (Map1.Zoom >= 1) AND (Map1.Zoom <= 3500) then tempZoom := round(Map1.Zoom);
+     if Map1.Zoom > 3500 then tempZoom := 3500;
 
-    Map1.OnMapViewChanged := nil;
-    Map1.ZoomTo(tempZoom, Map1.CenterX, Map1.CenterY);
+     Map1.OnMapViewChanged := nil;
+     Map1.ZoomTo(tempZoom, Map1.CenterX, Map1.CenterY);
 
-    Map1.OnMapViewChanged := Map1MapViewChanged;
+     if (Map1.Zoom > 0.125) AND (Map1.Zoom < 0.25) then
+     begin
+       cbbScale.Text := FormatFloat('0.000', tempZoom);
+     end
+     else if (Map1.Zoom >= 0.25) AND (Map1.Zoom < 0.5) then
+     begin
+       cbbScale.Text := FormatFloat('0.00', tempZoom);
+     end
+     else if (Map1.Zoom >= 0.5) AND (Map1.Zoom < 1) then
+     begin
+       cbbScale.Text := FormatFloat('0.0', tempZoom);
+     end
+     else
+       cbbScale.Text := floattostr(tempZoom);
+
+     Map1.OnMapViewChanged := Map1MapViewChanged;
   end;
 end;
 
@@ -484,25 +496,25 @@ var
 begin
   FConverter.ConvertToMap(x, y, mx, my);
 
-  if FMapCursor = mcEdit then
+  if FMapRulerCursor = mcEdit then
   begin
     OnSelectedWaypoint(mx,my);
     btnSave.Enabled := True;
     map1.Repaint;
   end
-  else if  FMapCursor = mcAdd then
+  else if  FMapRulerCursor = mcAdd then
   begin
     OnAddWaypoint(mx,my);
     btnSave.Enabled := True;
     map1.Repaint;
   end
-  else if  FMapCursor = mcRullerStart then
+  else if  FMapRulerCursor = mcRullerStart then
   begin
     OnAddRuller(mx,my);
     frmRuler.Show;
     map1.Repaint;
   end
-  else if  FMapCursor = mcRullerEnd then
+  else if  FMapRulerCursor = mcRullerEnd then
   begin
     OnAddRuller(mx,my);
     frmRuler.Show;
@@ -543,7 +555,7 @@ begin
   end
   else
   begin
-    if FMapCursor = mcRullerStart then
+    if FMapRulerCursor = mcRullerStart then
     begin
       frmRuler.edtRulerStartPosLat.Text := formatDMS_latt(Lat);
       frmRuler.edtRulerStartPosLong.Text := formatDMS_long(Long);
@@ -611,7 +623,7 @@ begin
   Map1.CurrentTool := miSelectTool;
   Map1.MousePointer := miDefaultCursor;
 
-  FMapCursor := mcSelect;
+  FMapRulerCursor := mcSelect;
 end;
 
 procedure TfrmWaypointEditor.RefreshListWaypoint;
@@ -633,6 +645,19 @@ begin
     end;
   end;
 
+end;
+
+procedure TfrmWaypointEditor.UpAllToolbarButton;
+begin
+  btnSelect.Down := False;
+  btnCenterOnGame.Down := False;
+  btnZoom.Down := False;
+  btnPan.Down := False;
+  btnLayerTool.Down := False;
+  btnRuler.Down := False;
+
+  Map1.CurrentTool  := miArrowTool;
+  Map1.MousePointer := miDefaultCursor;
 end;
 
 procedure TfrmWaypointEditor.UpdateCursorPositionData(const X, Y: Integer);
@@ -728,15 +753,17 @@ end;
 
 procedure TfrmWaypointEditor.btnDecreaseClick(Sender: TObject);
 begin
-  if cbSetScale.ItemIndex = 16 then
+  if cbbScale.ItemIndex = 16 then
     Exit;
 
-  cbSetScale.ItemIndex := cbSetScale.ItemIndex + 1;
-  cbSetScaleChange(cbSetScale);
+  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
+  cbbScaleChange(cbbScale);
 end;
 
 procedure TfrmWaypointEditor.btnGameArea1Click(Sender: TObject);
 begin
+  UpAllToolbarButton;
+
   frmGameAreaPickList := TfrmGameAreaPickList.Create(Self);
   try
     with frmGameAreaPickList do
@@ -753,24 +780,31 @@ end;
 
 procedure TfrmWaypointEditor.btnIncreaseClick(Sender: TObject);
 begin
-  if cbSetScale.ItemIndex = 0 then
+  if cbbScale.ItemIndex = 0 then
     Exit;
 
-  cbSetScale.ItemIndex := cbSetScale.ItemIndex - 1;
-  cbSetScaleChange(cbSetScale);
+  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
+  cbbScaleChange(cbbScale);
+end;
+
+procedure TfrmWaypointEditor.btnLayerToolClick(Sender: TObject);
+var
+  vHelpFile, vHelpID : OleVariant;
+begin
+  UpAllToolbarButton;
+
+  Map1.Layers.LayersDlg(vHelpFile, vHelpID);
 end;
 
 procedure TfrmWaypointEditor.btnPanClick(Sender: TObject);
 begin
-  btnPan.Down := not btnPan.Down;
-  btnZoom.Down := false;
-  btnAdd.Down := False;
-  btnSelect.Down := false;
+  UpAllToolbarButton;
+  btnPan.Down := True;
 
-  FMapCursor := mcSelect;
-
-  Map1.CurrentTool  := miPanTool;
+  Map1.CurrentTool := miPanTool;
   Map1.MousePointer := miPanCursor;
+
+  FMapRulerCursor := mcSelect;
 end;
 
 
@@ -851,18 +885,15 @@ end;
 
 procedure TfrmWaypointEditor.btnSelectClick(Sender: TObject);
 begin
-  btnSelect.Down := not btnSelect.Down;
+  UpAllToolbarButton;
+
+  btnSelect.Down := True;
 
   if btnAdd.Down = true then
     btnAdd.Down := false;
 
-  btnZoom.Down := false;
-  btnPan.Down := false;
-  FMapCursor := mceHook;
-
   Map1.CurrentTool := miSelectTool;
   Map1.MousePointer := miDefaultCursor;
-
 end;
 
 procedure TfrmWaypointEditor.btnUpdateClick(Sender: TObject);
@@ -883,30 +914,28 @@ end;
 
 procedure TfrmWaypointEditor.btnZoomClick(Sender: TObject);
 begin
-  btnZoom.Down := not btnZoom.Down;
-  btnPan.Down := false;
-  btnAdd.Down := False;
-  btnSelect.Down := false;
-
-  FMapCursor := mcSelect;
+  UpAllToolbarButton;
+  btnZoom.Down := True;
 
   Map1.CurrentTool  := miZoomInTool;
   Map1.MousePointer := miZoomInCursor;
+
+  FMapRulerCursor := mcSelect;
 end;
 
-procedure TfrmWaypointEditor.cbSetScaleChange(Sender: TObject);
+procedure TfrmWaypointEditor.cbbScaleChange(Sender: TObject);
 var
   z: Double;
   s: string;
 begin
   Map1.OnMapViewChanged := nil;
 
-  if cbSetScale.ItemIndex < 0 then
+  if cbbScale.ItemIndex < 0 then
     Exit;
 
-  if (cbSetScale.ItemIndex <= 16) then
+  if (cbbScale.ItemIndex <= 16) then
   begin
-    s := cbSetScale.Items[cbSetScale.ItemIndex];
+    s := cbbScale.Items[cbbScale.ItemIndex];
     try
       z := StrToFloat(s);
       Map1.ZoomTo(z, Map1.CenterX, Map1.CenterY);
@@ -915,7 +944,7 @@ begin
     end;
   end
   else
-    cbSetScale.ItemIndex  := cbSetScale.ItemIndex - 1;
+    cbbScale.ItemIndex  := cbbScale.ItemIndex - 1;
 
   Map1.OnMapViewChanged   := Map1MapViewChanged;
 end;
@@ -941,8 +970,10 @@ begin
   pmenuAction.Popup(point.X,point.Y);
 end;
 
-procedure TfrmWaypointEditor.btnCenterGameClick(Sender: TObject);
+procedure TfrmWaypointEditor.btnCenterOnGameClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
+
   Map1.CenterX := FCentLong;
   Map1.CenterY := FCentLatt;
 end;

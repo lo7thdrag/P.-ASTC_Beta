@@ -13,7 +13,6 @@ uses
   newClassASTT, uFormula;
 
 type
-  E_OverlayMapCursor = (mcSelect, mcAdd, mcEdit, mcRulerStart, mcRulerEnd);
   E_ShapeColor = (scOutline, scFill);
 
   TOverlayEditorForm = class(TForm)
@@ -26,7 +25,7 @@ type
     btnIncreaseScale: TToolButton;
     btnCenterOnGame: TToolButton;
     btnZoom: TToolButton;
-    btnMoveMap: TToolButton;
+    btnPan: TToolButton;
     pmOverlayEdit: TPopupMenu;
     mniControl: TMenuItem;
     mnitoFront: TMenuItem;
@@ -534,7 +533,7 @@ type
     procedure btnIncreaseScaleClick(Sender: TObject);
     procedure btnCenterOnGameClick(Sender: TObject);
     procedure btnZoomClick(Sender: TObject);
-    procedure btnMoveMapClick(Sender: TObject);
+    procedure btnPanClick(Sender: TObject);
     procedure colorChooseChange(Sender: TObject);
     procedure AddPolyDClick(Sender: TObject);
     procedure btnDeletePolyDClick(Sender: TObject);
@@ -593,7 +592,7 @@ type
 
     FTipeOverlay: Integer; { tipe overlay utk kebutuhan tampilan }
 
-    FMapCursor: E_OverlayMapCursor;
+    FMapRulerCursor: E_RulerMapCursor;
     FShapeColor: E_ShapeColor;
 
     isAdd : Boolean;
@@ -699,7 +698,7 @@ type
 //    function GetGridLatt(yCursorPoint: Double): string;
 //    function GetGridLong(xCursorPoint: Double): string;
 
-    property MapCursor: E_OverlayMapCursor read FMapCursor write FMapCursor;
+    property MapRulerCursor: E_RulerMapCursor read FMapRulerCursor write FMapRulerCursor;
     property SelectedOverlay: TOverlay_Definition read FSelectedOverlay write FSelectedOverlay;
 
   end;
@@ -789,7 +788,7 @@ begin
     begin
       {$REGION ' Setting toolbar '}
       btnZoom.Visible := False;
-      btnMoveMap.Visible := False;
+      btnPan.Visible := False;
       btnCenterOnGame.Visible := False;
       btnLayerTool.Visible := False;
       btnGameArea.Visible := False;
@@ -812,7 +811,7 @@ begin
     begin
       {$REGION ' Setting toolbar '}
       btnZoom.Visible := True;
-      btnMoveMap.Visible := True;
+      btnPan.Visible := True;
       btnCenterOnGame.Visible := True;
       btnLayerTool.Visible := True;
       btnGameArea.Visible := True;
@@ -931,7 +930,7 @@ begin
         grpNoneD.BringToFront;
         grpNone.BringToFront;
 
-        FMapCursor := mcEdit;
+        FMapRulerCursor := mcEdit;
 
         {$REGION ' Button Handle '}
         btnOutline.Visible := false;
@@ -2221,24 +2220,24 @@ begin
   if Button = mbLeft then
   begin
     { Untuk kebutuhan overlay }
-    if FMapCursor = mcEdit then
+    if FMapRulerCursor = mcEdit then
     begin
       FConverter.ConvertToScreen(mx, my, pos.X, pos.Y);
       SelectShape(pos);
     end
-     else if  FMapCursor = mcRulerStart then
+     else if  FMapRulerCursor = mcRullerStart then
     begin
       OnAddRuller(mx,my);
       frmRuler.Show;
       map1.Repaint;
     end
-    else if  FMapCursor = mcRulerEnd then
+    else if  FMapRulerCursor = mcRullerEnd then
     begin
       OnAddRuller(mx,my);
       frmRuler.Show;
       map1.Repaint;
     end
-    else if FMapCursor = mcAdd then
+    else if FMapRulerCursor = mcAdd then
     begin
       GetPosition;
 
@@ -2358,45 +2357,20 @@ end;
 procedure TOverlayEditorForm.btnCenterOnGameClick(Sender: TObject);
 begin
   UpAllToolbarButton;
-  btnCenterOnGame.Down := True;
 
   Map1.CenterX := centLong;
   Map1.CenterY := centLatt;
-
-  {$REGION ' LAMA '}
-//  btnZoom.Down := not btnZoom.Down;
-//  btnPan.Down := false;
-//
-//
-//  FMapCursor := mcSelect;
-//  LoadNormalButtonImage;
-//
-//  Map1.CurrentTool := miZoomInTool;
-//  Map1.MousePointer := miZoomInCursor;
-//
-//  btnSelect.Picture.LoadFromFile
-//    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
-//  pnlStatic.Visible := false;
-  {$ENDREGION}
 end;
 
 procedure TOverlayEditorForm.btnZoomClick(Sender: TObject);
 begin
-
   UpAllToolbarButton;
   btnZoom.Down := True;
 
   Map1.CurrentTool := miZoomInTool;
   Map1.MousePointer := miZoomInCursor;
 
-//  btnPan.Down := not btnPan.Down;
-//  btnruler.Down := False;
-//  FMapCursor := mcSelect;
-//  LoadNormalButtonImage;
-
-//  btnSelect.Picture.LoadFromFile
-//    ('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
-//  pnlStatic.Visible := false;
+  FMapRulerCursor := mcSelect;
 end;
 
 procedure TOverlayEditorForm.btnPasteArcClick(Sender: TObject);
@@ -2476,7 +2450,7 @@ begin
   end
   else
   begin
-    if FMapCursor = mcRulerStart then
+    if FMapRulerCursor = mcRullerStart then
     begin
       frmRuler.edtRulerStartPosLat.Text := formatDMS_latt(Lat);
       frmRuler.edtRulerStartPosLong.Text := formatDMS_long(Long);
@@ -2491,13 +2465,15 @@ begin
   end;
 
 end;
-procedure TOverlayEditorForm.btnMoveMapClick(Sender: TObject);
+procedure TOverlayEditorForm.btnPanClick(Sender: TObject);
 begin
   UpAllToolbarButton;
-  btnMoveMap.Down := True;
+  btnPan.Down := True;
 
   Map1.CurrentTool := miPanTool;
   Map1.MousePointer := miPanCursor;
+
+  FMapRulerCursor := mcSelect;
 end;
 
 {$ENDREGION}
@@ -3099,7 +3075,7 @@ procedure TOverlayEditorForm.UpAllToolbarButton;
 begin
   btnCenterOnGame.Down := False;
   btnZoom.Down := False;
-  btnMoveMap.Down := False;
+  btnPan.Down := False;
   btnGameArea.Down := False;
   btnLayerTool.Down := False;
 
@@ -3160,7 +3136,7 @@ var
   vHelpFile, vHelpID : OleVariant;
 begin
   UpAllToolbarButton;
-  btnCenterOnGame.Down := True;
+
   Map1.Layers.LayersDlg(vHelpFile, vHelpID);
 end;
 
@@ -3170,7 +3146,7 @@ begin
 //  btnPan.Down := false;
   btnZoom.Down := false;
 
-  FMapCursor := mcSelect;
+  FMapRulerCursor := mcSelect;
 //  btnOk.Enabled := false;
 
   AfterClose := false;
@@ -3318,13 +3294,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end
     else if FTagTombolPosition = 1 then // Button position Line
@@ -3337,13 +3313,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end
     else if FTagTombolPosition = 2 then // Button position Line
@@ -3356,13 +3332,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end
     else if FTagTombolPosition = 3 then // Button position Rectangle
@@ -3375,13 +3351,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end
     else if FTagTombolPosition = 4 then // Button position Rectangle
@@ -3394,13 +3370,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end
     else if FTagTombolPosition = 5 then // Button position Circle
@@ -3413,13 +3389,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end
     else if FTagTombolPosition = 6 then // Button position Ellipse
@@ -3432,13 +3408,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end
     else if FTagTombolPosition = 7 then // Button position Arc
@@ -3451,13 +3427,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end
     else if FTagTombolPosition = 8 then // Button position Sector
@@ -3470,13 +3446,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end
     else if FTagTombolPosition = 9 then // Button position Grid
@@ -3489,13 +3465,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end
     else if FTagTombolPosition = 10 then // Button position Polygon
@@ -3508,13 +3484,13 @@ begin
 
         Map1.CurrentTool := miSelectTool;
         Map1.MousePointer := miDefaultCursor;
-        FMapCursor := mcSelect;
+        FMapRulerCursor := mcSelect;
       end
       else
       begin
         Map1.CurrentTool := miArrowTool;
         Map1.MousePointer := miCrossCursor;
-        FMapCursor := mcAdd;
+        FMapRulerCursor := mcAdd;
       end;
     end;
   end;

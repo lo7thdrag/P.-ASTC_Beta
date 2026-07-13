@@ -3,13 +3,11 @@ unit ufrmPlatformDeploytment;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Buttons, ImgList, OleCtrls, MapXLib_TLB,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, Buttons, ImgList, OleCtrls, MapXLib_TLB,
   ComCtrls, ToolWin, Vcl.Imaging.pngimage, System.ImageList,
-  uDBAsset_Deploy, uDBAssetObject, uDBAsset_GameEnvironment, uCoordConvertor,
-  uObjectVisuals, uDBAsset_Base, newClassASTT, tttData, uDBEditSetting,
-  uBaseCoordSystem, uSimContainers, uSimDBEditor, uVectorVisual,
-  uDBAsset_FontTaktis;
+
+  uDBAsset_Deploy, uDBAssetObject, uDBAsset_GameEnvironment, uCoordConvertor, uObjectVisuals, uDBAsset_Base, newClassASTT, tttData, uDBEditSetting,
+  uBaseCoordSystem, uSimContainers, uSimDBEditor, uVectorVisual, uDBAsset_FontTaktis, ufrmRuler, uDrawOverlay, uMainStaticShape;
 
 type
   E_MapCursor = (mceHook, mceMove, mceApproximatePosition, mceTargetingPlatform, mceTargetingPosition, mceScreenCapture);
@@ -36,7 +34,7 @@ type
   {$ENDREGION}
 
   TfrmPlatformDeploytment = class(TForm)
-    pnlMap: TPanel;
+    pnl3Map: TPanel;
     Map1: TMap;
     pnlMainBackground: TPanel;
     ilToolbar: TImageList;
@@ -115,62 +113,39 @@ type
     pnlToolBar: TPanel;
     ToolBar1: TToolBar;
     btnIncreaseScale: TToolButton;
-    ComboBox1: TComboBox;
+    cbbScale: TComboBox;
     btnDecreaseScale: TToolButton;
     btnRightSeparator: TToolButton;
-    btnHook: TToolButton;
-    btnZoomTool: TToolButton;
-    btnMoveTool: TToolButton;
-    btnCenterHook: TToolButton;
-    btn_Ruler: TToolButton;
+    btnSelect: TToolButton;
+    btnZoom: TToolButton;
+    btnPan: TToolButton;
+    btnCenterOnGame: TToolButton;
+    btnRuler: TToolButton;
     btnLayerTool: TToolButton;
     pnlAlignToolBar: TPanel;
     pnl3SparatorHor1: TPanel;
     pnlCursorPosition: TPanel;
-    grpCursorPosition: TGroupBox;
-    Label59: TLabel;
-    Label60: TLabel;
-    Label61: TLabel;
-    Label62: TLabel;
-    lBearingFCenter: TLabel;
-    lDistanceFCenter: TLabel;
-    lPosLat: TLabel;
-    lGridLat: TLabel;
-    Label63: TLabel;
-    Label64: TLabel;
-    lPosLong: TLabel;
-    lGridLong: TLabel;
-    lbcenterx: TLabel;
-    lbcentery: TLabel;
-    GroupBox1: TGroupBox;
-    Label65: TLabel;
-    Label67: TLabel;
-    Label68: TLabel;
-    lbHookedName: TLabel;
-    lbHookedPosLat: TLabel;
-    lbHookedGridLat: TLabel;
-    lbHookedPosLong: TLabel;
-    lbHookedGridLong: TLabel;
-    Label77: TLabel;
-    Label78: TLabel;
     pnl4Bottom: TPanel;
     btnScreenCapture: TButton;
     btnClose: TButton;
     btnOk: TButton;
     pnlVertical3: TPanel;
-    Panel3: TPanel;
-    btnView: TImage;
-    btnDecrease: TImage;
-    btnCenterOnGameCenter: TImage;
-    Image7: TImage;
-    cbbScale: TComboBox;
-    btnZoom: TImage;
-    btnWaypoint: TImage;
-    btnIncrease: TImage;
-    btnOverlay: TImage;
-    btnPan: TImage;
-    btnSelect: TImage;
-    ImgFinish: TImage;
+    pnlPlatformEditor: TPanel;
+    pnl2SparatorHor1: TPanel;
+    pnl1HeaderPlatform: TPanel;
+    lblBearingFCenter: TLabel;
+    lblDistanceFCenter: TLabel;
+    lblGridLat: TLabel;
+    lblGridLong: TLabel;
+    lblPosLat: TLabel;
+    lblPosLong: TLabel;
+    lblmn1: TLabel;
+    lblmn2: TLabel;
+    lblmn3: TLabel;
+    lblmn4: TLabel;
+    lblmn5: TLabel;
+    lblmnlbl47: TLabel;
+    pnl3SparatorHor2: TPanel;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -190,7 +165,7 @@ type
     procedure spbtnPredefinedPattern_PatternOnTargetGuidanceClick( Sender: TObject);
     procedure spbtnPredefinedPattern_PatternOnPointGuidanceClick( Sender: TObject);
 
-    procedure Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch; hOutputDC, hAttributeDC: Cardinal; const RectFull, RectInvalid: IDispatch);
+    procedure Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch; hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
     procedure Map1MouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     procedure Map1MouseUp(Sender: TObject; Button: TMouseButton;Shift: TShiftState; X, Y: Integer);
@@ -201,27 +176,28 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnScreenCaptureClick(Sender: TObject);
-    procedure btn_RulerClick(Sender: TObject);
+    procedure btnRulerClick(Sender: TObject);
     procedure btnHookClick(Sender: TObject);
     procedure btnPreviousClick(Sender: TObject);
     procedure btnNextClick(Sender: TObject);
     procedure btnDecreaseScaleClick(Sender: TObject);
     procedure cbbScaleChange(Sender: TObject);
     procedure btnIncreaseScaleClick(Sender: TObject);
-    procedure btnMoveToolClick(Sender: TObject);
-    procedure btnZoomToolClick(Sender: TObject);
+    procedure btnZoomClick(Sender: TObject);
     procedure btnCenterHookClick(Sender: TObject);
     procedure lvPlatformClick(Sender: TObject);
     procedure ImgFinishClick(Sender: TObject);
     procedure lvBaseClick(Sender: TObject);
     procedure lbSetDefaultClick(Sender: TObject);
-    procedure btnPanClick(Sender: TObject);
     procedure btnSelectClick(Sender: TObject);
-    procedure btnCenterOnGameCenterClick(Sender: TObject);
+    procedure btnCenterOnGameClick(Sender: TObject);
     procedure btnUpdateClick(Sender: TObject);
     procedure btnBaseUpdateClick(Sender: TObject);
     procedure btnViewClick(Sender: TObject);
     procedure btnEmbarkPlatformClick(Sender: TObject);
+    procedure btnLayerToolClick(Sender: TObject);
+    procedure btnPanClick(Sender: TObject);
+    procedure FormResize(Sender: TObject);
 
 
   private
@@ -229,6 +205,7 @@ type
     isBasePinPoint : boolean;
 
     FMapCursor : E_MapCursor;
+    FMapRulerCursor : E_RulerMapCursor;
 
     FSelectedAssetDeployment : TAsset_Deployment;
     FSelectedResourceAlloc : TResource_Allocation;
@@ -255,21 +232,23 @@ type
     FConverter : TCoordConverter;
     FLyrDraw : CMapXLayer;
     FMouseDown : Boolean;
-//    FRuler : TRuler;
+
     FPointX, FPointY : Integer;
     FS_PointXObj, FS_PointYObj, FE_PointXObj, FE_PointYObj : Integer;
     FModeTag : Byte;
 
+    DrawFlagPoint: TDrawFlagPoint;
+
     procedure DeployPlatformInstance;
     procedure DeployBase;
 
+    procedure UpAllToolbarButton;
     procedure UpdateCursorPositionData(const X, Y: Integer);
     procedure UpdatePlatformActivationList;
     procedure UpdateHookedPlatformData;
     procedure UpdateSelectedPlatformData;
     procedure UpdateSelectedBaseData;
     procedure UpdateSelectedPlatformLateralData;
-    procedure DrawRuler;
 
     function FindNearestPlatform(const X, Y: Integer): TPlatform_Instance;
     function FindNearestBase(const X, Y: Integer): TResource_Base_Mapping;
@@ -285,9 +264,14 @@ type
     procedure LoadAllBase;
     procedure LoadAllOverlay;
     procedure LoadAllWaypoint;
-    procedure LoadNormalButtonImage;
 
   public
+    procedure OnAddRuller(Long,Lat : double);
+    procedure GbrFlagPoint(mx, my: Double);
+    procedure EditFlagPoint(id: Integer; mx, my: Double);
+
+    property MapRulerCursor: E_RulerMapCursor read FMapRulerCursor write FMapRulerCursor;
+    property MapCursor: E_MapCursor read FMapCursor write FMapCursor;
     property SelectedAssetDeployment : TAsset_Deployment read FSelectedAssetDeployment write FSelectedAssetDeployment;
     property SelectedResourceAlloc : TResource_Allocation read FSelectedResourceAlloc write FSelectedResourceAlloc;
     property SelectedEnviArea : TGame_Environment_Definition read FSelectedEnviArea write FSelectedEnviArea;
@@ -317,6 +301,9 @@ begin
   FConverter := TCoordConverter.Create;
   FBmpSym := TBitmapSymbol.Create;
 
+  DrawFlagPoint := TDrawFlagPoint.Create;
+  DrawFlagPoint.Converter := FConverter;
+
   FDrawBase := TDrawBase.Create;
   FDrawBase.Converter := FConverter;
   FModeTag := 0;//initials value tactical view
@@ -329,10 +316,16 @@ begin
   FreeItemsAndFreeList(FBaseList);
   FreeItemsAndFreeList(FOverlayList);
 
+  DrawFlagPoint.Free;
   FCanvas.Free;
   FConverter.Free;
   FBmpSym.Free;
   FDrawBase.Free
+end;
+
+procedure TfrmPlatformDeploytment.FormResize(Sender: TObject);
+begin
+  pnlAlignToolBar.Width := round((pnlToolBar.Width - 433) / 2);
 end;
 
 procedure TfrmPlatformDeploytment.FormShow(Sender: TObject);
@@ -468,14 +461,11 @@ end;
 
 procedure TfrmPlatformDeploytment.btnSelectClick(Sender: TObject);
 begin
-  LoadNormalButtonImage;
-
-  FMapCursor := mceHook;
+  UpAllToolbarButton;
+  btnSelect.Down := True;
 
   Map1.CurrentTool := miSelectTool;
   Map1.MousePointer := miDefaultCursor;
-
-  btnSelect.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCursor_Select.PNG');
 end;
 
 procedure TfrmPlatformDeploytment.ScreenShot(const DestBitmap : TBitmap);
@@ -515,7 +505,6 @@ begin
   isPlatformPinPoint:= False;
 
   FMapCursor := mceApproximatePosition;
-  LoadNormalButtonImage;
 
   Map1.CurrentTool := miArrowTool;
   Map1.MousePointer := miCrossCursor;
@@ -539,9 +528,9 @@ begin
   {$REGION ' Set Cursor to Pin Point '}
   isPlatformPinPoint:= True;
   isBasePinPoint := False;
+  UpAllToolbarButton;
 
   FMapCursor := mceApproximatePosition;
-  LoadNormalButtonImage;
 
   Map1.MousePointer := miCrossCursor;
   Map1.CurrentTool := miArrowTool;
@@ -554,31 +543,31 @@ procedure TfrmPlatformDeploytment.UpdateHookedPlatformData;
 begin
   if not Assigned(FHookedPlatform) then
   begin
-    lbHookedName.Caption := '-';
-    lbHookedPosLat.Caption := '-';
-    lbHookedPosLong.Caption := '-';
-    lbHookedGridLat.Caption := '-';
-    lbHookedGridLong.Caption := '-';
+//    lbHookedName.Caption := '-';
+//    lbHookedPosLat.Caption := '-';
+//    lbHookedPosLong.Caption := '-';
+//    lbHookedGridLat.Caption := '-';
+//    lbHookedGridLong.Caption := '-';
 
     Exit;
   end;
 
   with FHookedPlatform.FActivation do
   begin
-    lbHookedName.Caption := FHookedPlatform.FData.Instance_Name;
-
-    lbHookedPosLat.Caption := formatDMS_latt(Init_Position_Latitude);
-    lbHookedPosLong.Caption := formatDMS_long(Init_Position_Longitude);
-
-    if Init_Position_Latitude < FSelectedEnviArea.FGameArea.Game_Centre_Lat then
-      lbHookedGridLat.Caption := FormatFloat('0.00', Init_Position_Cartesian_Y) + ' nm S'
-    else
-      lbHookedGridLat.Caption := FormatFloat('0.00', Init_Position_Cartesian_Y) + ' nm N';
-
-    if Init_Position_Longitude < FSelectedEnviArea.FGameArea.Game_Centre_Long then
-      lbHookedGridLong.Caption := FormatFloat('0.00', Init_Position_Cartesian_X) + ' nm W'
-    else
-      lbHookedGridLong.Caption := FormatFloat('0.00', Init_Position_Cartesian_X) + ' nm E';
+//    lbHookedName.Caption := FHookedPlatform.FData.Instance_Name;
+//
+//    lbHookedPosLat.Caption := formatDMS_latt(Init_Position_Latitude);
+//    lbHookedPosLong.Caption := formatDMS_long(Init_Position_Longitude);
+//
+//    if Init_Position_Latitude < FSelectedEnviArea.FGameArea.Game_Centre_Lat then
+//      lbHookedGridLat.Caption := FormatFloat('0.00', Init_Position_Cartesian_Y) + ' nm S'
+//    else
+//      lbHookedGridLat.Caption := FormatFloat('0.00', Init_Position_Cartesian_Y) + ' nm N';
+//
+//    if Init_Position_Longitude < FSelectedEnviArea.FGameArea.Game_Centre_Long then
+//      lbHookedGridLong.Caption := FormatFloat('0.00', Init_Position_Cartesian_X) + ' nm W'
+//    else
+//      lbHookedGridLong.Caption := FormatFloat('0.00', Init_Position_Cartesian_X) + ' nm E';
 
     FSelectedPlatform := FHookedPlatform;
     UpdateSelectedPlatformData;
@@ -1099,6 +1088,15 @@ begin
   cbbScaleChange(cbbScale);
 end;
 
+procedure TfrmPlatformDeploytment.btnLayerToolClick(Sender: TObject);
+var
+  vHelpFile, vHelpID : OleVariant;
+begin
+  UpAllToolbarButton;
+
+  Map1.Layers.LayersDlg(vHelpFile, vHelpID);
+end;
+
 procedure TfrmPlatformDeploytment.btnCenterHookClick(Sender: TObject);
 var
   zoom : Double;
@@ -1109,27 +1107,41 @@ begin
     Map1.ZoomTo(zoom, Game_Centre_Long, Game_Centre_Lat);
 end;
 
-procedure TfrmPlatformDeploytment.btnCenterOnGameCenterClick(Sender: TObject);
+procedure TfrmPlatformDeploytment.btnCenterOnGameClick(Sender: TObject);
 begin
-  with FSelectedEnviArea.FGameArea do
-  begin
-    Map1.CenterX := Game_Centre_Long;
-    Map1.CenterY := Game_Centre_Lat;
-  end;
+  UpAllToolbarButton;
+
+  Map1.CenterX := FSelectedEnviArea.FGameArea.Game_Centre_Long;
+  Map1.CenterY := FSelectedEnviArea.FGameArea.Game_Centre_Lat;
 end;
 
-procedure TfrmPlatformDeploytment.btnZoomToolClick(Sender: TObject);
+procedure TfrmPlatformDeploytment.btnZoomClick(Sender: TObject);
 begin
-  LoadNormalButtonImage;
+  UpAllToolbarButton;
+  btnZoom.Down := True;
+
   Map1.CurrentTool := miZoomInTool;
   Map1.MousePointer := miZoomInCursor;
 
-  btnZoom.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnZoomIn_Select.PNG');
+  FMapRulerCursor := mcSelect;
 end;
 
-procedure TfrmPlatformDeploytment.btn_RulerClick(Sender: TObject);
+procedure TfrmPlatformDeploytment.btnRulerClick(Sender: TObject);
 begin
-//  Ruler.Show;
+  btnruler.Down := not btnruler.Down;
+
+  if btnruler.Down then
+  begin
+    with frmRuler do
+    begin
+      IDForm := 2;
+      Show;
+    end;
+  end
+  else
+  begin
+    frmRuler.Hide;
+  end;
 end;
 
 procedure TfrmPlatformDeploytment.btnUpdateClick(Sender: TObject);
@@ -1150,35 +1162,28 @@ end;
 
 procedure TfrmPlatformDeploytment.btnViewClick(Sender: TObject);
 begin
-  if btnView.Hint = 'View Platform Mode' then
-  begin
-    btnView.Hint := 'View Tactical Mode';
-    FModeTag := 2;//platom view
-  end
-  else if btnView.Hint = 'View Tactical Mode' then
-  begin
-    btnView.Hint := 'View Platform Mode';
-    FModeTag := 0;//tactical view
-  end;
-  Map1.Repaint;
+//  if btnView.Hint = 'View Platform Mode' then
+//  begin
+//    btnView.Hint := 'View Tactical Mode';
+//    FModeTag := 2;//platom view
+//  end
+//  else if btnView.Hint = 'View Tactical Mode' then
+//  begin
+//    btnView.Hint := 'View Platform Mode';
+//    FModeTag := 0;//tactical view
+//  end;
+//  Map1.Repaint;
 end;
 
 procedure TfrmPlatformDeploytment.btnPanClick(Sender: TObject);
 begin
-  LoadNormalButtonImage;
-  FMapCursor := mceMove;
+  UpAllToolbarButton;
+  btnPan.Down := True;
+
   Map1.CurrentTool := miPanTool;
   Map1.MousePointer := miPanCursor;
 
-  btnPan.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnMove_Select.PNG');
-end;
-
-procedure TfrmPlatformDeploytment.btnMoveToolClick(Sender: TObject);
-begin
-  FMapCursor := mceMove;
-
-  Map1.CurrentTool := miArrowTool;
-  Map1.MousePointer := miCenterCursor;
+  FMapRulerCursor := mcSelect;
 end;
 
 procedure TfrmPlatformDeploytment.btnPreviousClick(Sender: TObject);
@@ -1265,13 +1270,16 @@ end;
 
 {$REGION ' Map Handle '}
 
-procedure TfrmPlatformDeploytment.Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch; hOutputDC, hAttributeDC: Cardinal; const RectFull, RectInvalid: IDispatch);
+procedure TfrmPlatformDeploytment.Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch; hOutputDC, hAttributeDC: Integer; const RectFull, RectInvalid: IDispatch);
 var
   i, j, ix, iy : integer;
   platInst : TPlatform_Instance;
   baseInst : TResource_Base_Mapping;
   color : TColor;
   fontTaktis : TFontTaktis;
+
+  sx, sy, ex, ey: Integer;
+  itemStart, itemEnd  : TFlagPoint;
 begin
   if not Assigned(FCanvas) then
     Exit;
@@ -1384,17 +1392,30 @@ begin
     FCanvas.Brush.Style := bsClear;
     FDrawBase.Draw(FCanvas);
 
-    { Start_Ruler }
+    {$REGION ' Menggambar Ruler '}
+    if frmRuler.isshow then
+    begin
+      DrawFlagPoint.Draw(FCanvas);
 
-    DrawRuler;
+      if DrawFlagPoint.FList.Count = 2 then
+      begin
+        itemStart := DrawFlagPoint.FList[0];
+        itemEnd := DrawFlagPoint.FList[1];
 
-//    if Ruler.FChangeDraw then
-//    begin
-//      DrawRuler;
-//      Map1.Repaint;
-//    end;
+        FConverter.ConvertToScreen(itemStart.Post.X, itemStart.Post.Y, sx, sy);
+        FConverter.ConvertToScreen(itemEnd.Post.X, itemEnd.Post.Y, ex, ey);
 
-    { End_Ruler }
+        with FCanvas do
+        begin
+          Brush.Style := bsClear;
+          Pen.Color := clYellow ;
+                  Pen.Width:= 2;
+          MoveTo(sx, sy);
+          LineTo(ex, ey);
+        end;
+      end;
+    end;
+    {$ENDREGION}
   end;
 end;
 
@@ -1404,31 +1425,28 @@ var
 begin
   if (Map1.CurrentTool = miZoomInTool)  or (Map1.CurrentTool = miZoomOutTool) then
   begin
-     if Map1.Zoom <= 0.125 then
-      tempZoom := 0.125;
-     if (Map1.Zoom > 0.125) AND (Map1.Zoom < 1) then
-      tempZoom := Map1.Zoom;
-     if (Map1.Zoom >= 1) AND (Map1.Zoom <= 2500) then
-      tempZoom := round(Map1.Zoom);
-     if Map1.Zoom > 2500 then tempZoom := 2500;
+     if Map1.Zoom <= 0.125 then tempZoom := 0.125;
+     if (Map1.Zoom > 0.125) AND (Map1.Zoom < 1) then tempZoom := Map1.Zoom;
+     if (Map1.Zoom >= 1) AND (Map1.Zoom <= 3500) then tempZoom := round(Map1.Zoom);
+     if Map1.Zoom > 3500 then tempZoom := 3500;
 
      Map1.OnMapViewChanged := nil;
      Map1.ZoomTo(tempZoom, Map1.CenterX, Map1.CenterY);
 
-//     if (Map1.Zoom > 0.125) AND (Map1.Zoom < 0.25) then
-//     begin
-//       cbbScale.Text := FormatFloat('0.000', tempZoom);
-//     end
-//     else if (Map1.Zoom >= 0.25) AND (Map1.Zoom < 0.5) then
-//     begin
-//       cbbScale.Text := FormatFloat('0.00', tempZoom);
-//     end
-//     else if (Map1.Zoom >= 0.5) AND (Map1.Zoom < 1) then
-//     begin
-//       cbbScale.Text := FormatFloat('0.0', tempZoom);
-//     end
-//     else
-//       cbbScale.Text := floattostr(tempZoom);
+     if (Map1.Zoom > 0.125) AND (Map1.Zoom < 0.25) then
+     begin
+       cbbScale.Text := FormatFloat('0.000', tempZoom);
+     end
+     else if (Map1.Zoom >= 0.25) AND (Map1.Zoom < 0.5) then
+     begin
+       cbbScale.Text := FormatFloat('0.00', tempZoom);
+     end
+     else if (Map1.Zoom >= 0.5) AND (Map1.Zoom < 1) then
+     begin
+       cbbScale.Text := FormatFloat('0.0', tempZoom);
+     end
+     else
+       cbbScale.Text := floattostr(tempZoom);
 
      Map1.OnMapViewChanged := Map1MapViewChanged;
   end;
@@ -1438,34 +1456,24 @@ procedure TfrmPlatformDeploytment.Map1MouseDown(Sender: TObject; Button: TMouseB
 var
   dx, dy, zoom : Double;
   platInst : TPlatform_Instance;
+
 begin
   FMouseDown := Button = mbLeft;
   FConverter.ConvertToMap(X, Y, dx, dy);
 
   {$REGION ' Ruler Section '}
-  { Start_Ruler }
-//  if Ruler.Visible and FMouseDown then
-//  begin
-//    if Ruler.FBtnActive = 1 then
-//    begin
-//      FS_PointXObj := X;
-//      FS_PointYObj := Y;
-//      Ruler.S_ValueOfLong := dx;
-//      Ruler.S_ValueOfLat := dy;
-//    end
-//    else
-//    begin
-//      FE_PointXObj := X;
-//      FE_PointYObj := Y;
-//      Ruler.E_ValueOfLong := dx;
-//      Ruler.E_ValueOfLat := dy;
-//    end;
-//
-//    Ruler.Fill_LongLat;
-//    Ruler.Show;
-//  end;
-
-  { End_Ruler }
+  if  FMapRulerCursor = mcRullerStart then
+  begin
+    OnAddRuller(dx,dy);
+    frmRuler.Show;
+    map1.Repaint;
+  end
+  else if  FMapRulerCursor = mcRullerEnd then
+  begin
+    OnAddRuller(dx,dy);
+    frmRuler.Show;
+    map1.Repaint;
+  end;
   {$ENDREGION}
 
   {$REGION ' Klik Kanan '}
@@ -1637,6 +1645,37 @@ begin
 
 end;
 
+procedure TfrmPlatformDeploytment.OnAddRuller(Long, Lat: double);
+begin
+  if DrawFlagPoint.FList.Count = 0 then
+  begin
+    GbrFlagPoint(Lat, Long);
+    GbrFlagPoint(Lat, Long);
+
+    frmRuler.edtRulerStartPosLat.Text := formatDMS_latt(Lat);
+    frmRuler.edtRulerStartPosLong.Text := formatDMS_long(Long);
+    EditFlagPoint(0, Long, Lat)    ;
+    frmRuler.edtRulerEndPosLat.Text := formatDMS_latt(Lat);
+    frmRuler.edtRulerEndPosLong.Text := formatDMS_long(Long);
+    EditFlagPoint(1, Long, Lat)
+  end
+  else
+  begin
+    if FMapRulerCursor = mcRullerStart then
+    begin
+      frmRuler.edtRulerStartPosLat.Text := formatDMS_latt(Lat);
+      frmRuler.edtRulerStartPosLong.Text := formatDMS_long(Long);
+      EditFlagPoint(0, Long, Lat)
+    end
+    else
+    begin
+      frmRuler.edtRulerEndPosLat.Text := formatDMS_latt(Lat);
+      frmRuler.edtRulerEndPosLong.Text := formatDMS_long(Long);
+      EditFlagPoint(1, Long, Lat)
+    end;
+  end;
+end;
+
 procedure TfrmPlatformDeploytment.Map1DblClick(Sender: TObject);
 begin
   if Assigned(FHookedPlatform) then
@@ -1646,35 +1685,50 @@ begin
   end;
 end;
 
+procedure TfrmPlatformDeploytment.UpAllToolbarButton;
+begin
+  btnSelect.Down := False;
+  btnCenterOnGame.Down := False;
+  btnZoom.Down := False;
+  btnPan.Down := False;
+  btnLayerTool.Down := False;
+  btnRuler.Down := False;
+
+  Map1.CurrentTool  := miArrowTool;
+  Map1.MousePointer := miDefaultCursor;
+end;
+
 procedure TfrmPlatformDeploytment.UpdateCursorPositionData(const X, Y: Integer);
 var
   dx, dy, diffX, diffY : Double;
 begin
   FConverter.ConvertToMap(X, Y, dx, dy);
 
-  lBearingFCenter.Caption := FormatFloat('0.00',
-    CalcBearing(FSelectedEnviArea.FGameArea.Game_Centre_Long,
-    FSelectedEnviArea.FGameArea.Game_Centre_Lat, dx, dy));
+  FConverter.ConvertToMap(X, Y, dx, dy);
 
-  lDistanceFCenter.Caption := FormatFloat('0.00',
-    CalcRange(FSelectedEnviArea.FGameArea.Game_Centre_Long,
-    FSelectedEnviArea.FGameArea.Game_Centre_Lat, dx, dy));
+  {Bearing From Center}
+  lblBearingFCenter.Caption := FormatFloat('0.00', CalcBearing(Map1.CenterX, Map1.CenterY, dx, dy));
 
-  lPosLat.Caption := formatDMS_latt(dy);
-  lPosLong.Caption := formatDMS_long(dx);
+  {Distance From Center}
+  lblDistanceFCenter.Caption := FormatFloat('0.00', CalcRange(Map1.CenterX, Map1.CenterY, dx, dy));
 
-  diffX := Abs(dx - FSelectedEnviArea.FGameArea.Game_Centre_Long) * 60;
-  diffY := Abs(dy - FSelectedEnviArea.FGameArea.Game_Centre_Lat) * 60;
+  {Corsor in Position}
+  lblPosLat.Caption := formatDM_latitude(dy);
+  lblPosLong.Caption := formatDM_longitude(dx);
 
-  if dy < FSelectedEnviArea.FGameArea.Game_Centre_Lat then
-    lGridLat.Caption := FormatFloat('0.00', diffY) + ' nm S'
+  {Cursor in Grid}
+  diffX := Abs(dx - Map1.CenterX) * 60;
+  diffY := Abs(dy - Map1.CenterY) * 60;
+
+  if dy < Map1.CenterX then
+    lblGridLat.Caption := FormatFloat('0.00', diffY) + ' nm S'
   else
-    lGridLat.Caption := FormatFloat('0.00', diffY) + ' nm N';
+    lblGridLat.Caption := FormatFloat('0.00', diffY) + ' nm N';
 
-  if dx < FSelectedEnviArea.FGameArea.Game_Centre_Long then
-    lGridLong.Caption := FormatFloat('0.00', diffX) + ' nm W'
+  if dx < Map1.CenterY then
+    lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm W'
   else
-    lGridLong.Caption := FormatFloat('0.00', diffX) + ' nm E';
+    lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm E';
 end;
 
 procedure TfrmPlatformDeploytment.LoadENC(aGeoset: string);
@@ -1741,13 +1795,6 @@ begin
   end;
 
   Map1.BackColor := clSkyBlue;
-end;
-
-procedure TfrmPlatformDeploytment.LoadNormalButtonImage;
-begin
-  btnSelect.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnCursor_Normal.PNG');
-  btnZoom.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnZoomIn_Normal.PNG');
-  btnPan.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnMove_Normal.PNG');
 end;
 
 {$ENDREGION}
@@ -2011,6 +2058,16 @@ begin
   end;
 end;
 
+procedure TfrmPlatformDeploytment.GbrFlagPoint(mx, my: Double);
+var
+  ObjectFlagPoint: TFlagPoint;
+begin
+  ObjectFlagPoint := TFlagPoint.Create(FConverter);
+  ObjectFlagPoint.Post.X := mx;
+  ObjectFlagPoint.Post.Y := my;
+  DrawFlagPoint.FList.Add(ObjectFlagPoint);
+end;
+
 function TfrmPlatformDeploytment.GetColor(const aForce: Integer): TColor;
 begin
   case aForce of
@@ -2059,6 +2116,26 @@ begin
 
     UpdateSelectedPlatformData;
     Map1.Repaint;
+  end;
+end;
+
+procedure TfrmPlatformDeploytment.EditFlagPoint(id: Integer; mx, my: Double);
+var
+  ObjectFlagPoint: TFlagPoint;
+begin
+  ObjectFlagPoint := TFlagPoint.Create(FConverter);
+  ObjectFlagPoint.Post.X := mx;
+  ObjectFlagPoint.Post.Y := my;
+
+  if id = 1 then
+  begin
+    DrawFlagPoint.FList.Delete(0);
+    DrawFlagPoint.FList.Insert(0, ObjectFlagPoint);
+  end
+  else
+  begin
+    DrawFlagPoint.FList.Delete(1);
+    DrawFlagPoint.FList.Insert(1, ObjectFlagPoint);
   end;
 end;
 
@@ -2149,35 +2226,6 @@ begin
     cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
 
   Map1.OnMapViewChanged := Map1MapViewChanged;
-end;
-
-procedure TfrmPlatformDeploytment.DrawRuler;
-begin
-//  with FCanvas do
-//  begin
-//    if Ruler.FObjRulerVisible then
-//    begin
-//      if Ruler.FDrawStart then
-//        Ellipse(FS_PointXObj-5, FS_PointYObj-5, FS_PointXObj+5, FS_PointYObj+5);
-//
-//      if Ruler.FDrawEnd then
-//      begin
-//        if Ruler.pgc_Ruler.ActivePageIndex = 0 then
-//        begin
-//          Ellipse(FE_PointXObj-5, FE_PointYObj-5, FE_PointXObj+5, FE_PointYObj+5);
-//          MoveTo(FS_PointXObj, FS_PointYObj);
-//          LineTo(FE_PointXObj, FE_PointYObj);
-//        end;
-//        if Ruler.pgc_Ruler.ActivePageIndex = 1 then
-//        begin
-//          Ellipse(Ruler.FObj_PointX-5, Ruler.FObj_PointY-5,Ruler.FObj_PointX+5,
-//            Ruler.FObj_PointY+5);
-//          MoveTo(FS_PointXObj, FS_PointYObj);
-//          LineTo(Ruler.FObj_PointX, Ruler.FObj_PointY);
-//        end;
-//      end;
-//    end;
-//  end;
 end;
 
 procedure TfrmPlatformDeploytment.spbtnAngularOffset_PatternOnSelfGuidanceClick(Sender: TObject);

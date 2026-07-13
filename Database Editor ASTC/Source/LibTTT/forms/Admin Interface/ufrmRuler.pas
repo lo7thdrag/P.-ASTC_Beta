@@ -68,11 +68,7 @@ type
     procedure FillEditText;
     procedure FillDistanceLabel;
     procedure FillDirectionLabel;
-//    procedure SetSRTrackPlatform;
-//    procedure SetERTrackPlatform;
 
-//    property PositionX : Double read FPosX write FPosX;
-//    property PositionY : Double read FPosY write FPosY;
     property StartPosX : Double read FStartX write FStartX;
     property StartPosY : Double read FStartY write FStartY;
     property EndPosX : Double read FEndX write FEndX;
@@ -88,8 +84,8 @@ var
 implementation
 
 {$R *.dfm}
-uses tttData, uBaseCoordSystem, uSimMgr_Client, ufrmOverlayEditor,
-  ufrmWaypointEditor;
+uses
+  tttData, uBaseCoordSystem, uSimMgr_Client, ufrmOverlayEditor, ufrmWaypointEditor, ufrmPlatformDeploytment;
 
 
 
@@ -106,13 +102,19 @@ begin
           begin
             frmWaypointEditor.Map1.CurrentTool := miArrowTool;
             frmWaypointEditor.Map1.MousePointer := miCrossCursor;
-            frmWaypointEditor.MapCursor := mcRullerStart;
+            frmWaypointEditor.MapRulerCursor := mcRullerStart;
           end;
           1:
           begin
-               OverlayEditorForm.Map1.CurrentTool := miArrowTool;
-           OverlayEditorForm.Map1.MousePointer := miCrossCursor;
-            OverlayEditorForm.MapCursor := mcRulerStart;
+            OverlayEditorForm.Map1.CurrentTool := miArrowTool;
+            OverlayEditorForm.Map1.MousePointer := miCrossCursor;
+            OverlayEditorForm.MapRulerCursor := mcRullerStart;
+          end;
+          2:
+          begin
+            frmPlatformDeploytment.Map1.CurrentTool := miArrowTool;
+            frmPlatformDeploytment.Map1.MousePointer := miCrossCursor;
+            frmPlatformDeploytment.MapRulerCursor := mcRullerStart;
           end;
 
         end;
@@ -129,13 +131,19 @@ begin
           begin
             frmWaypointEditor.Map1.CurrentTool := miArrowTool;
             frmWaypointEditor.Map1.MousePointer := miCrossCursor;
-            frmWaypointEditor.MapCursor := mcRullerEnd;
+            frmWaypointEditor.MapRulerCursor := mcRullerEnd;
           end;
           1:
           begin
             OverlayEditorForm.Map1.CurrentTool := miArrowTool;
             OverlayEditorForm.Map1.MousePointer := miCrossCursor;
-            OverlayEditorForm.MapCursor := mcRulerEnd;
+            OverlayEditorForm.MapRulerCursor := mcRullerEnd;
+          end;
+          2:
+          begin
+            frmPlatformDeploytment.Map1.CurrentTool := miArrowTool;
+            frmPlatformDeploytment.Map1.MousePointer := miCrossCursor;
+            frmPlatformDeploytment.MapRulerCursor := mcRullerEnd;
           end;
         end;
 

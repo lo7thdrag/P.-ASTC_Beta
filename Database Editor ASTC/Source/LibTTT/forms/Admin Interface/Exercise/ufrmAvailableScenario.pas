@@ -884,8 +884,7 @@ begin
   end;
 end;
 
-procedure TfrmAvailableScenario.edtSearchKeyPress(Sender: TObject;
-  var Key: Char);
+procedure TfrmAvailableScenario.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
 if Key = #13 then
   begin

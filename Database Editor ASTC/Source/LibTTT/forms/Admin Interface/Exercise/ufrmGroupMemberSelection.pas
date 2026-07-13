@@ -38,6 +38,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure btnCloseClick(Sender: TObject);
 
   private
     FCaller : E_GroupMemberFormCaller;
@@ -140,6 +141,11 @@ begin
 end;
 
 procedure TfrmGroupMemberSelection.btnCancelClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmGroupMemberSelection.btnCloseClick(Sender: TObject);
 begin
   Close;
 end;

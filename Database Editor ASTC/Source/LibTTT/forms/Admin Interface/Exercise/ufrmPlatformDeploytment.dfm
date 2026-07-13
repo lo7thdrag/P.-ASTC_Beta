@@ -45364,17 +45364,25 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
               Height = 407
               ActivePage = tsPlatforms
               Align = alClient
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Berlin Sans FB'
+              Font.Style = []
               MultiLine = True
-              TabHeight = 30
+              ParentFont = False
+              TabHeight = 20
               TabOrder = 0
-              TabWidth = 100
+              TabWidth = 80
               object tsPlatforms: TTabSheet
                 Caption = 'Platforms'
+                ExplicitTop = 36
+                ExplicitHeight = 367
                 object lvPlatform: TListView
                   Left = 0
                   Top = 0
                   Width = 273
-                  Height = 367
+                  Height = 377
                   Align = alClient
                   Columns = <
                     item
@@ -45405,17 +45413,20 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   TabOrder = 0
                   ViewStyle = vsReport
                   OnClick = lvPlatformClick
+                  ExplicitHeight = 367
                 end
               end
               object tsBases: TTabSheet
                 Caption = 'Bases'
                 ImageIndex = 1
                 TabVisible = False
+                ExplicitTop = 36
+                ExplicitHeight = 367
                 object lvBase: TListView
                   Left = 0
                   Top = 0
                   Width = 273
-                  Height = 367
+                  Height = 377
                   Align = alClient
                   Columns = <
                     item
@@ -45442,17 +45453,19 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   TabOrder = 0
                   ViewStyle = vsReport
                   OnClick = lvBaseClick
+                  ExplicitHeight = 367
                 end
               end
               object tsOverlays: TTabSheet
                 Caption = 'Overlays'
                 ImageIndex = 2
-                TabVisible = False
+                ExplicitTop = 36
+                ExplicitHeight = 367
                 object lvOverlay: TListView
                   Left = 0
                   Top = 0
                   Width = 273
-                  Height = 338
+                  Height = 348
                   Align = alClient
                   Columns = <
                     item
@@ -45483,15 +45496,17 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   ParentFont = False
                   TabOrder = 0
                   ViewStyle = vsReport
+                  ExplicitHeight = 338
                 end
                 object Panel1: TPanel
                   Left = 0
-                  Top = 338
+                  Top = 348
                   Width = 273
                   Height = 29
                   Align = alBottom
                   BevelOuter = bvNone
                   TabOrder = 1
+                  ExplicitTop = 338
                   object Label27: TLabel
                     Left = 11
                     Top = 10

@@ -44853,9 +44853,6 @@ object frmGroupMemberSelection: TfrmGroupMemberSelection
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 40
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object lbl1: TLabel
       Left = 12
       Top = 544
@@ -44980,6 +44977,7 @@ object frmGroupMemberSelection: TfrmGroupMemberSelection
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 5
+      OnClick = btnCloseClick
     end
     object lbAllMemberDef: TListBox
       Left = 12

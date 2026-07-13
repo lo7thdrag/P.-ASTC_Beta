@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, uDBAssetObject, uDBAsset_Deploy, Vcl.Imaging.pngimage,
   Vcl.ExtCtrls,
 
-  uDBAsset_GameEnvironment, uSimContainers;
+  uDBAsset_GameEnvironment, tttData, uSimContainers;
 
 type
   TUpdatePlatformID = class
@@ -105,13 +105,23 @@ end;
 procedure TfrmAvailableScenario.FormCreate(Sender: TObject);
 begin
   FScenarioList := TList.Create;
+  FIdTranslateList := TList.Create;
+
   FSelectedAssetDeployment := TAsset_Deployment.Create;
+  FSelectedResourceAllocation := TResource_Allocation.Create;
+  FSelectedEnvironment := TGame_Environment_Definition.Create;
+  FSelectedGameArea := TGame_Area_Definition.Create;
 end;
 
 procedure TfrmAvailableScenario.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FScenarioList);
+  FreeItemsAndFreeList(FIdTranslateList);
+
   FreeAndNil(FSelectedAssetDeployment);
+  FreeAndNil(FSelectedResourceAllocation);
+  FreeAndNil(FSelectedEnvironment);
+  FreeAndNil(FSelectedGameArea);
 
   EnableComposited(pnlMainTable);
 end;
@@ -139,8 +149,6 @@ begin
 
       ShowModal;
 
-      {Proses Free di letakkan di destroy formnya, untuk kebutuhan edit juga}
-
       SelectedScenario.Free;
       SelectedResourceAllocation.Free;
       SelectedEnvironment.Free;
@@ -151,8 +159,7 @@ begin
     frmSummaryScenario.Free;
   end;
 
-  if FUpdateList then
-    UpdateScenarioList;
+  UpdateScenarioList;
 end;
 
 procedure TfrmAvailableScenario.btnCopyClick(Sender: TObject);
@@ -183,20 +190,18 @@ begin
   try
     with frmSummaryScenario do
     begin
-      SelectedScenario := FSelectedScenario;
-      SelectedAssetDeployment := FSelectedAssetDeployment;
+      SelectedScenario            := FSelectedScenario;
+      SelectedResourceAllocation  := FSelectedResourceAllocation;
+      SelectedEnvironment         := FSelectedEnvironment;
+      SelectedGameArea            := FSelectedGameArea;
+      SelectedAssetDeployment     := FSelectedAssetDeployment;
       ShowModal;
-
-      SelectedResourceAllocation.Free;
-      SelectedEnvironment.Free;
-      SelectedGameArea.Free;
     end;
   finally
     frmSummaryScenario.Free;
   end;
 
-  if FUpdateList then
-    UpdateScenarioList;
+  UpdateScenarioList;
 end;
 
 procedure TfrmAvailableScenario.btnDeleteClick(Sender: TObject);
@@ -264,7 +269,16 @@ begin
   FSelectedScenario := TScenario_Definition(lstScenarioList.Items.Objects[lstScenarioList.ItemIndex]);
 
   with FSelectedScenario.FData do
+  begin
     dmTTT.GetAssetDeployment(Scenario_Index, FSelectedAssetDeployment);
+    dmTTT.GetResourceAllocationDef(Resource_Alloc_Index, FSelectedResourceAllocation);
+  end;
+
+  with FSelectedResourceAllocation.FData do
+    dmTTT.GetEnvironmentDef(Game_Enviro_Index, FSelectedEnvironment);
+
+  with FSelectedEnvironment.FData do
+    dmTTT.GetGameAreaDef(Game_Area_Index, FSelectedGameArea);
 end;
 
 function TfrmAvailableScenario.TranslatePlatformID(aOldPlatformIndex: Integer): Integer;
@@ -293,9 +307,10 @@ var
   cubicleTemp : TCubicle_Group_Assignment;
 
 begin
+
+  {$REGION ' Force Red '}
   tempList := TList.Create;
-
-  dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, 1, tempList);
+  dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, ord(fgRed), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
     cubicleTemp := tempList.Items[i];
@@ -308,9 +323,12 @@ begin
       dmTTT.InsertCubicleGroup(FData);
     end;
   end;
-  tempList.Clear;
+  FreeItemsAndFreeList(tempList);
+  {$ENDREGION}
 
-  dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, 3, tempList);
+  {$REGION ' Force Yellow '}
+  tempList := TList.Create;
+  dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, ord(fgYellow), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
     cubicleTemp := tempList.Items[i];
@@ -323,8 +341,63 @@ begin
       dmTTT.InsertCubicleGroup(FData);
     end;
   end;
+  FreeItemsAndFreeList(tempList);
+  {$ENDREGION}
 
-  tempList.Free;
+  {$REGION ' Force Blue '}
+  tempList := TList.Create;
+  dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, ord(fgBlue), tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    cubicleTemp := tempList.Items[i];
+
+    with cubicleTemp do
+    begin
+      parentIndex := FData.Group_Index;
+      FData.Deployment_Index := aNewDeploymentIndex;
+
+      dmTTT.InsertCubicleGroup(FData);
+    end;
+  end;
+  FreeItemsAndFreeList(tempList);
+  {$ENDREGION}
+
+  {$REGION ' Force Green '}
+  tempList := TList.Create;
+  dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, ord(fgGreen), tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    cubicleTemp := tempList.Items[i];
+
+    with cubicleTemp do
+    begin
+      parentIndex := FData.Group_Index;
+      FData.Deployment_Index := aNewDeploymentIndex;
+
+      dmTTT.InsertCubicleGroup(FData);
+    end;
+  end;
+  FreeItemsAndFreeList(tempList);
+  {$ENDREGION}
+
+  {$REGION ' No Force '}
+  tempList := TList.Create;
+  dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, ord(fgNoForce), tempList);
+  for i := 0 to tempList.Count - 1 do
+  begin
+    cubicleTemp := tempList.Items[i];
+
+    with cubicleTemp do
+    begin
+      parentIndex := FData.Group_Index;
+      FData.Deployment_Index := aNewDeploymentIndex;
+
+      dmTTT.InsertCubicleGroup(FData);
+    end;
+  end;
+  FreeItemsAndFreeList(tempList);
+  {$ENDREGION}
+
 end;
 
 procedure TfrmAvailableScenario.CopyCubicleGroupPlatformAndCommunication(const aCubGroupIndex, aNewCubGroupIndex, aNewDeploymentIndex: Integer);
@@ -389,10 +462,9 @@ var
   overlayTemp : TResource_Overlay_Mapping;
 
 begin
+  {$REGION ' Force Red '}
   tempList := TList.Create;
-
-  {$REGION ' Force  '}
-  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  1, tempList);
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex, ord(fgRed), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
     overlayTemp := tempList.Items[i];
@@ -403,11 +475,12 @@ begin
       dmTTT.InsertResourceOverlayMapping(FData);
     end;
   end;
-  tempList.Clear;
+  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
-  {$REGION ' Force  '}
-  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  2, tempList);
+  {$REGION ' Force Yellow '}
+  tempList := TList.Create;
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex, ord(fgYellow), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
     overlayTemp := tempList.Items[j];
@@ -418,10 +491,12 @@ begin
       dmTTT.InsertResourceOverlayMapping(FData);
     end;
   end;
+  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
-  {$REGION ' Force  '}
-  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  3, tempList);
+  {$REGION ' Force Blue '}
+  tempList := TList.Create;
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex, ord(fgBlue), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
     overlayTemp := tempList.Items[i];
@@ -432,11 +507,12 @@ begin
       dmTTT.InsertResourceOverlayMapping(FData);
     end;
   end;
-  tempList.Clear;
+  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
-  {$REGION ' Force  '}
-  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  4, tempList);
+  {$REGION ' Force Green '}
+  tempList := TList.Create;
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex, ord(fgGreen), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
     overlayTemp := tempList.Items[j];
@@ -447,10 +523,12 @@ begin
       dmTTT.InsertResourceOverlayMapping(FData);
     end;
   end;
+  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
-  {$REGION ' Force  '}
-  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  5, tempList);
+  {$REGION ' No Force '}
+  tempList := TList.Create;
+  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex, ord(fgNoForce), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
     overlayTemp := tempList.Items[i];
@@ -461,24 +539,8 @@ begin
       dmTTT.InsertResourceOverlayMapping(FData);
     end;
   end;
-  tempList.Clear;
+  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
-
-  {$REGION ' Force  '}
-  dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex,  6, tempList);
-  for j := 0 to tempList.Count - 1 do
-  begin
-    overlayTemp := tempList.Items[j];
-
-    with overlayTemp do
-    begin
-      FData.Resource_Alloc_Index := aNewResourceAllocationIndex;
-      dmTTT.InsertResourceOverlayMapping(FData);
-    end;
-  end;
-  {$ENDREGION}
-
-  tempList.Free;
 end;
 
 procedure TfrmAvailableScenario.CopyPlatform(const aNewResourceAllocationIndex, aNewDeploymentIndex: Integer);
@@ -490,11 +552,11 @@ var
   oldPlatformID : Integer;
 
 begin
-  tempList := TList.Create;
   FIdTranslateList.Clear;
 
-  {$REGION ' Force  '}
-  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, 1, tempList);
+  {$REGION ' Force Red '}
+  tempList := TList.Create;
+  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgRed), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
     platformTemp := tempList.Items[j];
@@ -524,11 +586,12 @@ begin
       end;
     end;
   end;
-  tempList.Clear;
+  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
-  {$REGION ' Force  '}
-  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, 2, tempList);
+  {$REGION ' Force Yellow '}
+  tempList := TList.Create;
+  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgYellow), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
     platformTemp := tempList.Items[j];
@@ -558,11 +621,12 @@ begin
       end;
     end;
   end;
-  tempList.Clear;
+  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
-  {$REGION ' Force  '}
-  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, 3, tempList);
+  {$REGION ' Force Blue '}
+  tempList := TList.Create;
+  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgBlue), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
     platformTemp := tempList.Items[i];
@@ -592,11 +656,12 @@ begin
       end;
     end;
   end;
-  tempList.Clear;
+  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
-  {$REGION ' Force  '}
-  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, 4, tempList);
+  {$REGION ' Force Green '}
+  tempList := TList.Create;
+  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgGreen), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
     platformTemp := tempList.Items[j];
@@ -626,11 +691,12 @@ begin
       end;
     end;
   end;
-  tempList.Clear;
+  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
-  {$REGION ' Force  '}
-  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, 5, tempList);
+  {$REGION ' No Force '}
+  tempList := TList.Create;
+  dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgNoForce), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
     platformTemp := tempList.Items[j];
@@ -660,24 +726,8 @@ begin
       end;
     end;
   end;
-  tempList.Clear;
+  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
-
-  {$REGION ' Force  '}
-  dmTTT.GetPlatformActivation(aNewDeploymentIndex, tempList);
-  for i := 0 to tempList.Count - 1 do
-  begin
-    platformTemp := tempList.Items[i];
-
-    with platformTemp do
-    begin
-      FActivation.Host_ID := TranslatePlatformID(FActivation.Host_ID);
-      dmTTT.UpdatePlatformActivation(FActivation);
-    end;
-  end;
-  {$ENDREGION}
-
-  tempList.Free;
 end;
 
 procedure TfrmAvailableScenario.CopyPlatformActivation(const aNewDeploymentIndex: Integer);

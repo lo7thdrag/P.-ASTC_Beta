@@ -27576,7 +27576,7 @@ object frmSummaryScenario: TfrmSummaryScenario
         Left = 951
         Top = 182
         Width = 122
-        Height = 35
+        Height = 31
         Date = 42159.000000000000000000
         Time = 0.391244918981101400
         Font.Charset = ANSI_CHARSET
@@ -27592,7 +27592,7 @@ object frmSummaryScenario: TfrmSummaryScenario
         Left = 951
         Top = 324
         Width = 122
-        Height = 35
+        Height = 31
         Date = 42159.000000000000000000
         Time = 0.391238425923802400
         Font.Charset = ANSI_CHARSET
@@ -27608,7 +27608,7 @@ object frmSummaryScenario: TfrmSummaryScenario
         Left = 1092
         Top = 182
         Width = 127
-        Height = 35
+        Height = 31
         Date = 42159.000000000000000000
         Time = 0.391244918981101400
         Font.Charset = ANSI_CHARSET
@@ -27625,7 +27625,7 @@ object frmSummaryScenario: TfrmSummaryScenario
         Left = 1092
         Top = 324
         Width = 127
-        Height = 35
+        Height = 31
         Date = 42159.000000000000000000
         Time = 0.391238425923802400
         Font.Charset = ANSI_CHARSET

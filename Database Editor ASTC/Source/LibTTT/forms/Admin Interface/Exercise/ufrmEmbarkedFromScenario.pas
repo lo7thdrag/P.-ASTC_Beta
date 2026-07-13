@@ -9,18 +9,21 @@ uses
 
 type
   TfrmEmbarkedFromScenario = class(TForm)
-    lbAllVehicleOnBoard: TListBox;
+    pnlMainBackground: TPanel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    imgBackground: TImage;
+    btnAdd: TButton;
+    btnRemove: TButton;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    btnEdit: TButton;
     lbAllVehicleDef: TListBox;
-    btnAdd: TImage;
-    btnClose: TImage;
-    btnRemove: TImage;
-    ImgBackgroundAvailable: TImage;
-    ImgBackgroundForm: TImage;
-    ImgBackgroundOnBoard: TImage;
-    ImgHeaderAvailable: TImage;
-    ImgHeaderOnBoard: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
+    lbAllVehicleOnBoard: TListBox;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -29,10 +32,12 @@ type
     procedure lbAllVehicleDefClick(Sender: TObject);
     procedure lbAlVehicleOnBoardClick(Sender: TObject);
 
-    procedure btnAddClick(Sender: TObject);
-    procedure btnRemoveClick(Sender: TObject);
+    procedure imgAdClick(Sender: TObject);
+    procedure imgRemoClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
                                        procedure btnEditClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FPlatformInstance : TPlatform_Instance;
@@ -119,7 +124,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmEmbarkedFromScenario.btnAddClick(Sender: TObject);
+procedure TfrmEmbarkedFromScenario.imgAdClick(Sender: TObject);
 var
   isHullShowTemp : Boolean;
 
@@ -231,7 +236,7 @@ begin
   end;
 
 
-procedure TfrmEmbarkedFromScenario.btnRemoveClick(Sender: TObject);
+procedure TfrmEmbarkedFromScenario.imgRemoClick(Sender: TObject);
 begin
   if lbAllVehicleOnBoard.ItemIndex = -1 then
     Exit;
@@ -355,6 +360,20 @@ begin
   Result  := True;
 end;
 
+procedure TfrmEmbarkedFromScenario.edtSearchChange(Sender: TObject);
+begin
+  UpdateVehicleList ;
+end;
+
+procedure TfrmEmbarkedFromScenario.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateVehicleList;
+  end;
+end;
+
 procedure TfrmEmbarkedFromScenario.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -443,6 +462,7 @@ begin
   FCurrentWeightHull := 0;
   FCurrentWeightPersonel := 0;
 
+  dmTTT.GetFilterMineDef(FAllVehicleDefList, edtSearch.Text);
   dmTTT.GetPlatformInstance(FResourceAlloc.FData.Resource_Alloc_Index,-1, -1, FAllVehicleDefList);
 
   for i := 0 to FAllVehicleDefList.Count - 1 do

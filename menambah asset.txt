@@ -3,13 +3,6 @@ Penting
 2. Pengecekan posisi tombol Search, Add, Copy, Edit, Usage dan Delete yang tidak sama  
 2. Mengecek memoryleak disetiap form
 3. Showmassage dicek, masih ada yang Bahasa inggris 
- 
-
-{Scenario}
-24. Ketika Klik Add di ufrmAvailableScenario muncul Error Accsess violation.
-53. form AvailablelisOfScenario > klik btnCopy > terjadi error/bug.
-26. ufrmSummaryScenario bagian advance setting dan next error Accsess violation.
-
 
 
 4. summary waypoint perlu didesain ulang.(sudah)

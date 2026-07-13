@@ -456,8 +456,9 @@ var
   overlayTemp : TResource_Overlay_Mapping;
 
 begin
-  {$REGION ' Force Red '}
   tempList := TList.Create;
+
+  {$REGION ' Force Red '}
   dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex, ord(fgRed), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
@@ -469,11 +470,9 @@ begin
       dmTTT.InsertResourceOverlayMapping(FData);
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Yellow '}
-  tempList := TList.Create;
   dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex, ord(fgYellow), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
@@ -485,11 +484,9 @@ begin
       dmTTT.InsertResourceOverlayMapping(FData);
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Blue '}
-  tempList := TList.Create;
   dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex, ord(fgBlue), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
@@ -501,11 +498,9 @@ begin
       dmTTT.InsertResourceOverlayMapping(FData);
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Green '}
-  tempList := TList.Create;
   dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex, ord(fgGreen), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
@@ -517,11 +512,9 @@ begin
       dmTTT.InsertResourceOverlayMapping(FData);
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' No Force '}
-  tempList := TList.Create;
   dmTTT.GetResourceOverlayMapping(FOldResourceAllocationIndex, ord(fgNoForce), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
@@ -533,8 +526,9 @@ begin
       dmTTT.InsertResourceOverlayMapping(FData);
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
+
+  FreeItemsAndFreeList(tempList);
 end;
 
 procedure TfrmAvailableScenario.CopyPlatform(const aNewResourceAllocationIndex, aNewDeploymentIndex: Integer);
@@ -546,10 +540,10 @@ var
   oldPlatformID : Integer;
 
 begin
+  tempList := TList.Create;
   FIdTranslateList.Clear;
 
   {$REGION ' Force Red '}
-  tempList := TList.Create;
   dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgRed), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
@@ -580,11 +574,9 @@ begin
       end;
     end;
   end;
-//  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Yellow '}
-//  tempList := TList.Create;
   dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgYellow), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
@@ -615,11 +607,9 @@ begin
       end;
     end;
   end;
-//  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Blue '}
-//  tempList := TList.Create;
   dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgBlue), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
@@ -650,11 +640,9 @@ begin
       end;
     end;
   end;
-//  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Green '}
-//  tempList := TList.Create;
   dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgGreen), tempList);
   for j := 0 to tempList.Count - 1 do
   begin

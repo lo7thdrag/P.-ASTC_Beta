@@ -110,7 +110,7 @@ end;
 procedure TfrmPlatforms.UpdateCountPlatform;
 begin
   {$REGION ' Vehicle '}
-//  lblVehicleCount.Caption := IntToStr(dmTTT.GetAllVehicleCount) + ' Data';
+  lblVehicleCount.Caption := IntToStr(dmTTT.GetAllVehicleCount) + ' Data';
   {$ENDREGION}
 end;
 

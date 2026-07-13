@@ -153,35 +153,35 @@ end;
 procedure TfrmCountermeasure.UpdateCountContermeasures;
 begin
   {$REGION ' Acoustic Decoy '}
-//  lblAccousticDecoyCount.Caption := IntToStr(dmTTT.GetAllAcousticDecoyCount) + ' Data';
+  lblAccousticDecoyCount.Caption := IntToStr(dmTTT.GetAllAcousticDecoyCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Air Bubble '}
-//  lblAirBubbleCount.Caption := IntToStr(dmTTT.GetAllAirBubbleCount) + ' Data';
+  lblAirBubbleCount.Caption := IntToStr(dmTTT.GetAllAirBubbleCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Chaff '}
-//  lblChaffCount.Caption := IntToStr(dmTTT.GetAllChaffCount) + ' Data';
+  lblChaffCount.Caption := IntToStr(dmTTT.GetAllChaffCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Infrared Decoy '}
-//  lblInfraredDecoyCount.Caption := IntToStr(dmTTT.GetAllInfraredDecoyCount) + ' Data';
+  lblInfraredDecoyCount.Caption := IntToStr(dmTTT.GetAllInfraredDecoyCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Towed Jammer '}
-//  lblTowedJammerCount.Caption := IntToStr(dmTTT.GetAllTowedJammerCount) + ' Data';
+  lblTowedJammerCount.Caption := IntToStr(dmTTT.GetAllTowedJammerCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Radar Jammer '}
-//  lblRadarJammerCount.Caption := IntToStr(dmTTT.GetAllRadarJammerCount) + ' Data';
+  lblRadarJammerCount.Caption := IntToStr(dmTTT.GetAllRadarJammerCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Self Defensive '}
-//  lblSelfDefensiveCount.Caption := IntToStr(dmTTT.GetAllSelfDefensiveCount) + ' Data';
+  lblSelfDefensiveCount.Caption := IntToStr(dmTTT.GetAllSelfDefensiveCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Floating Decoy '}
-//  lblFloatingDecoyCount.Caption := IntToStr(dmTTT.GetAllFloatingDecoyCount) + ' Data';
+  lblFloatingDecoyCount.Caption := IntToStr(dmTTT.GetAllFloatingDecoyCount) + ' Data';
   {$ENDREGION}
 end;
 

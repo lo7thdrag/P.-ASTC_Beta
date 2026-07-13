@@ -140,27 +140,27 @@ end;
 procedure TfrmSensors.UpdateCountSensor;
 begin
   {$REGION ' Radar '}
-//  lblRadarCount.Caption := IntToStr(dmTTT.GetAllRadarCount) + ' Data';
+  lblRadarCount.Caption := IntToStr(dmTTT.GetAllRadarCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Sonar '}
-//  lblSonarCount.Caption := IntToStr(dmTTT.GetAllSonarCount) + ' Data';
+  lblSonarCount.Caption := IntToStr(dmTTT.GetAllSonarCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' EOD '}
-//  lblEODCount.Caption := IntToStr(dmTTT.GetAllEODCount) + ' Data';
+  lblEODCount.Caption := IntToStr(dmTTT.GetAllEODCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' MAD '}
-//  lblMADCount.Caption := IntToStr(dmTTT.GetAllMADCount) + ' Data';
+  lblMADCount.Caption := IntToStr(dmTTT.GetAllMADCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Sonobuoy '}
-//  lblSonobuoyCount.Caption := IntToStr(dmTTT.GetAllRSonobuoyCount) + ' Data';
+  lblSonobuoyCount.Caption := IntToStr(dmTTT.GetAllRSonobuoyCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' ESM '}
-//  lblESMCount.Caption := IntToStr(dmTTT.GetAllESMCount) + ' Data';
+  lblESMCount.Caption := IntToStr(dmTTT.GetAllESMCount) + ' Data';
   {$ENDREGION}
 end;
 

@@ -44852,7 +44852,7 @@ object frmOther: TfrmOther
     object imgGameDefault: TImage
       Tag = 32
       Left = -21
-      Top = 417
+      Top = 457
       Width = 336
       Height = 453
       Cursor = crHandPoint
@@ -48639,7 +48639,7 @@ object frmOther: TfrmOther
     object imgGraphicalOverlay: TImage
       Tag = 27
       Left = 750
-      Top = -4
+      Top = 5
       Width = 397
       Height = 416
       Cursor = crHandPoint
@@ -53310,7 +53310,7 @@ object frmOther: TfrmOther
     object imgMotion: TImage
       Tag = 30
       Left = 1252
-      Top = 422
+      Top = 462
       Width = 313
       Height = 453
       Cursor = crHandPoint
@@ -57250,7 +57250,7 @@ object frmOther: TfrmOther
     object imgRuntimePlatfromLibrary: TImage
       Tag = 26
       Left = -19
-      Top = -21
+      Top = -12
       Width = 442
       Height = 433
       Cursor = crHandPoint
@@ -61928,7 +61928,7 @@ object frmOther: TfrmOther
     object imgSNR: TImage
       Tag = 31
       Left = 1111
-      Top = 3
+      Top = 12
       Width = 431
       Height = 412
       Cursor = crHandPoint
@@ -65257,7 +65257,7 @@ object frmOther: TfrmOther
     end
     object lblGameDefaultCount: TLabel
       Left = 43
-      Top = 439
+      Top = 479
       Width = 209
       Height = 41
       Alignment = taRightJustify
@@ -65273,7 +65273,7 @@ object frmOther: TfrmOther
     end
     object lblGraphicalOverlayCount: TLabel
       Left = 803
-      Top = 11
+      Top = 20
       Width = 209
       Height = 41
       AutoSize = False
@@ -65288,7 +65288,7 @@ object frmOther: TfrmOther
     end
     object lblMotionCount: TLabel
       Left = 1306
-      Top = 453
+      Top = 493
       Width = 209
       Height = 41
       Alignment = taRightJustify
@@ -65304,7 +65304,7 @@ object frmOther: TfrmOther
     end
     object lblRPLCount: TLabel
       Left = 59
-      Top = 11
+      Top = 20
       Width = 209
       Height = 41
       AutoSize = False
@@ -65319,7 +65319,7 @@ object frmOther: TfrmOther
     end
     object lblSNRvsPODCount: TLabel
       Left = 1309
-      Top = 11
+      Top = 20
       Width = 209
       Height = 41
       Alignment = taRightJustify
@@ -65336,7 +65336,7 @@ object frmOther: TfrmOther
     object imgWaypoint: TImage
       Tag = 28
       Left = 277
-      Top = 400
+      Top = 440
       Width = 340
       Height = 453
       Cursor = crHandPoint
@@ -69345,7 +69345,7 @@ object frmOther: TfrmOther
     object imgGameArea: TImage
       Tag = 29
       Left = 614
-      Top = 400
+      Top = 440
       Width = 335
       Height = 453
       Cursor = crHandPoint
@@ -72320,7 +72320,7 @@ object frmOther: TfrmOther
     object imgLogistic: TImage
       Tag = 34
       Left = 914
-      Top = 422
+      Top = 462
       Width = 330
       Height = 453
       Cursor = crHandPoint
@@ -76285,7 +76285,7 @@ object frmOther: TfrmOther
     object imgTransport: TImage
       Tag = 33
       Left = 409
-      Top = 2
+      Top = 11
       Width = 337
       Height = 410
       Cursor = crHandPoint
@@ -79176,7 +79176,7 @@ object frmOther: TfrmOther
     end
     object lblLogisticCount: TLabel
       Left = 976
-      Top = 445
+      Top = 485
       Width = 209
       Height = 38
       AutoSize = False
@@ -79190,10 +79190,11 @@ object frmOther: TfrmOther
       Transparent = True
     end
     object lblGameAreaCount: TLabel
-      Left = 758
-      Top = 431
+      Left = 678
+      Top = 473
       Width = 209
       Height = 41
+      Alignment = taRightJustify
       AutoSize = False
       Caption = '0 Data'
       Font.Charset = ANSI_CHARSET
@@ -79206,7 +79207,7 @@ object frmOther: TfrmOther
     end
     object lblWaypointCount: TLabel
       Left = 344
-      Top = 433
+      Top = 473
       Width = 209
       Height = 41
       AutoSize = False
@@ -79221,7 +79222,7 @@ object frmOther: TfrmOther
     end
     object lblTransportCount: TLabel
       Left = 453
-      Top = 11
+      Top = 20
       Width = 209
       Height = 41
       AutoSize = False

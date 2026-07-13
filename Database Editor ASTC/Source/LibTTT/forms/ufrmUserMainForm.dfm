@@ -51639,7 +51639,6 @@ object frmUserMainForm: TfrmUserMainForm
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitWidth = 892
       object s: TImage
         Left = 0
         Top = 0

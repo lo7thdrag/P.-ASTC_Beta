@@ -606,7 +606,7 @@ begin
     {$REGION ' Exercise Sub Menu '}
     ftfrmAvailableScenario :
     begin
-      if not Assigned(frmAvailableScenario) then
+      if not Assigned(frmAvailableScenario) then   //35
           frmAvailableScenario := TfrmAvailableScenario.Create(self);
 
       aForm := frmAvailableScenario;

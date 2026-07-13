@@ -135,23 +135,23 @@ end;
 procedure TfrmWeapons.UpdateCountWeapon;
 begin
   {$REGION ' Gun '}
-//  lblGunCount.Caption := IntToStr(dmTTT.GetAllGunCount) + ' Data';
+  lblGunCount.Caption := IntToStr(dmTTT.GetAllGunCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Missile '}
-//  lblMissileCount.Caption := IntToStr(dmTTT.GetAllMissileCount) + ' Data';
+  lblMissileCount.Caption := IntToStr(dmTTT.GetAllMissileCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Mine '}
-//  lblMineCount.Caption := IntToStr(dmTTT.GetAllMineCount) + ' Data';
+  lblMineCount.Caption := IntToStr(dmTTT.GetAllMineCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Bomb '}
-//  lblBombCount.Caption := IntToStr(dmTTT.GetAllBombCount) + ' Data';
+  lblBombCount.Caption := IntToStr(dmTTT.GetAllBombCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Torpedo '}
-//  lblTorpedoCount.Caption := IntToStr(dmTTT.GetAllTorpedoCount) + ' Data';
+  lblTorpedoCount.Caption := IntToStr(dmTTT.GetAllTorpedoCount) + ' Data';
   {$ENDREGION}
 end;
 

@@ -32,7 +32,6 @@ type
 
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
-
     procedure SubMenuClick(Sender: TObject);
 
     procedure FormShow(Sender: TObject);
@@ -55,8 +54,8 @@ var
 implementation
 
 uses
-  ufrmUserMainForm, {ufrmAvailableRPL, ufrmAvailableGrapicalOverlay, ufrmAvailableStudentRoles, ufrmAvailableGameDefaults,
-  ufrmAvailableSNRvsPODCurve, ufrmAvailableRadarActivationIntervals,} uDataModuleTTT, tttData;
+  ufrmUserMainForm, tttData, uDataModuleTTT;{ufrmAvailableRPL, ufrmAvailableGrapicalOverlay, ufrmAvailableStudentRoles, ufrmAvailableGameDefaults,
+  ufrmAvailableSNRvsPODCurve, ufrmAvailableRadarActivationIntervals,}
 
 {$R *.dfm}
 
@@ -157,24 +156,40 @@ end;
 
 procedure TfrmOther.UpdateCountOther;
 begin
-  {$REGION ' Game Default '}
-//  lblGameDefaultCount.Caption := IntToStr(dmTTT.GetAllGameDefaultsCount) + ' Data';
+  {$REGION ' RPL '}
+  lblRPLCount.Caption := IntToStr(dmTTT.GetAlllRPLCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Transport '}
+  lblTransportCount.Caption := IntToStr(dmTTT.GetAlllTransportCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Graphical Overlay '}
-//  lblGraphicalOverlayCount.Caption := IntToStr(dmTTT.GetAllGraphicalOverlayCount) + ' Data';
-  {$ENDREGION}
-
-  {$REGION ' RPL '}
-//  lblRPLCount.Caption := IntToStr(dmTTT.GetAllRPLCount) + ' Data';
-  {$ENDREGION}
-
-  {$REGION ' Motion '}
-//  lblMotionCount.Caption := IntToStr(dmTTT.GetAllMotionCount) + ' Data';
+  lblGraphicalOverlayCount.Caption := IntToStr(dmTTT.GetAlllGraphicalOverlayCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' SNR vs POD Curve '}
-//  lblSNRvsPODCount.Caption := IntToStr(dmTTT.GetAllSNRvsPODCount) + ' Data';
+  lblSNRvsPODCount.Caption := IntToStr(dmTTT.GetAllSNRvsPODCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Game Default '}
+  lblGameDefaultCount.Caption := IntToStr(dmTTT.GetAlllGameDefaultDef) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Waypoint '}
+  lblWaypointCount.Caption := IntToStr(dmTTT.GetAllWaypointCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Game Area '}
+  lblGameAreaCount.Caption := IntToStr(dmTTT.GetAllGameAreaCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Logistic '}
+  lblLogisticCount.Caption := IntToStr(dmTTT.GetAllSNRvsPODCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Motion '}
+  lblMotionCount.Caption := IntToStr(dmTTT.GetAllMotionCount) + ' Data';
   {$ENDREGION}
 end;
 

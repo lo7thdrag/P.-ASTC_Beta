@@ -11,13 +11,7 @@ type
   TfrmExercise = class(TForm)
     imgBackground: TImage;
     pnlMainBackground: TPanel;
-    imgEnvironment: TImage;
-    imgGameArea: TImage;
-    imgResourceAllocation: TImage;
     imgScenario: TImage;
-    lblEnvironmentCount: TLabel;
-    lblGameAreaCount: TLabel;
-    lblResourceCount: TLabel;
     lblScenarioCount: TLabel;
 
     procedure IconMouseEnter(Sender: TObject);
@@ -75,19 +69,19 @@ end;
 
 procedure TfrmExercise.IconLoad;
 begin
-  if iconName = 'imgEnvironment' then
-  begin
-    imgEnvironment.Picture.LoadFromFile(filePath + 'imgEnvironment' + imgChoice);
-  end
-  else if iconName = 'imgGameArea' then
-  begin
-    imgGameArea.Picture.LoadFromFile(filePath + 'imgGameArea' + imgChoice);
-  end
-  else if iconName = 'imgResourceAllocation' then
-  begin
-    imgResourceAllocation.Picture.LoadFromFile(filePath + 'imgResourceAllocation' + imgChoice);
-  end
-  else if iconName = 'imgScenario' then
+//  if iconName = 'imgEnvironment' then
+//  begin
+//    imgEnvironment.Picture.LoadFromFile(filePath + 'imgEnvironment' + imgChoice);
+//  end
+//  else if iconName = 'imgGameArea' then
+//  begin
+//    imgGameArea.Picture.LoadFromFile(filePath + 'imgGameArea' + imgChoice);
+//  end
+//  else if iconName = 'imgResourceAllocation' then
+//  begin
+//    imgResourceAllocation.Picture.LoadFromFile(filePath + 'imgResourceAllocation' + imgChoice);
+//  end
+  if iconName = 'imgScenario' then
   begin
     imgScenario.Picture.LoadFromFile(filePath + 'imgScenario' + imgChoice);
   end
@@ -129,7 +123,7 @@ end;
 procedure TfrmExercise.UpdateCountExercise;
 begin
   {$REGION ' Scenario '}
-//  lblScenarioCount.Caption := IntToStr(dmTTT.GetAllScenarioCount) + ' Data';
+  lblScenarioCount.Caption := IntToStr(dmTTT.GetAllScenarioCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' Game Area '}

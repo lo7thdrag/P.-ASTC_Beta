@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
   Vcl.ExtCtrls,
-  uDBAssetObject, uDBAsset_Vehicle, uDBAsset_Deploy;
+  uDBAssetObject, uDBAsset_Vehicle, uDBAsset_Deploy, uSimContainers;
 type
   TfrmVehicleResourceAllocationPickList = class(TForm)
     pnlMainBackground: TPanel;
@@ -37,8 +37,11 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure edtCheatKeyPress(Sender: TObject; var Key: Char);
     procedure edtCheatChange(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
+    FCubicleGroupList : TList;
+
     FSelectedForce : Integer;
 
     FAllVehicleDefList : TList;
@@ -49,10 +52,13 @@ type
     FResourceAllocation : TResource_Allocation;
     FAssetDeployment : TAsset_Deployment;
 
-    procedure UpdateVehicleList;
-
   public
     isNoCancel : Boolean;
+    FLastTrackBlockStart : Integer;
+    FLastTrackBlockEnd : Integer;
+
+    procedure UpdateVehicleList;
+
     property ResourceAllocation : TResource_Allocation read FResourceAllocation write FResourceAllocation;
     property AssetDeployment : TAsset_Deployment read FAssetDeployment write FAssetDeployment;
     property SelectedForce : Integer read FSelectedForce write FSelectedForce;
@@ -75,6 +81,15 @@ procedure TfrmVehicleResourceAllocationPickList.FormCreate(Sender: TObject);
 begin
   FAllVehicleDefList := TList.Create;
   FAllVehicleOnRAList := TList.Create;
+
+  FCubicleGroupList := TList.Create;
+end;
+
+procedure TfrmVehicleResourceAllocationPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllVehicleDefList);
+  FreeItemsAndFreeList(FAllVehicleOnRAList);
+  FreeItemsAndFreeList(FCubicleGroupList);
 end;
 
 procedure TfrmVehicleResourceAllocationPickList.FormShow(Sender: TObject);
@@ -97,6 +112,7 @@ begin
     with frmResourceAllocationInputName do
     begin
       ResourceAllocation := FResourceAllocation;
+      AssetDeployment := FAssetDeployment;
       Vehicle := FSelectedVehicle;
       Force := FSelectedForce;
 
@@ -178,18 +194,6 @@ begin
   begin
     UpdateVehicleList;
   end;
-//  if Key = #13 then
-//  begin
-//    lbAllVehicleDef.Items.Clear;
-//
-//    dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtCheat.text);
-//
-//    for i := 0 to FAllVehicleDefList.Count - 1 do
-//    begin
-//      vehicle := FAllVehicleDefList.Items[i];
-//      lbAllVehicleDef.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
-//    end;
-//  end;
 end;
 
 procedure TfrmVehicleResourceAllocationPickList.btnCloseClick(Sender: TObject);
@@ -219,6 +223,8 @@ var
   Vehicle : TVehicle_Definition;
   platInst : TPlatform_Instance;
   found : Boolean;
+
+  cubGroup : TCubicle_Group_Assignment;
 begin
   lbAllVehicleDef.Items.Clear;
   lbAllVehicleOnScenario.Items.Clear;
@@ -240,6 +246,31 @@ begin
 
     lbAllVehicleOnScenario.Items.AddObject(platInst.FData.Instance_Name, platInst)
   end;
+
+  {$REGION ' Update Group '}
+  dmTTT.GetCubicleGroup(FAssetDeployment.FData.Deployment_Index, FSelectedForce, FCubicleGroupList);
+
+  FLastTrackBlockEnd := 0;
+  for i := 0 to FCubicleGroupList.Count - 1 do
+  begin
+    cubGroup := FCubicleGroupList.Items[i];
+
+    {Digunakan mendapatkan track block terakhir dalam sebuah scenario }
+    if FLastTrackBlockEnd < cubGroup.FData.Track_Block_End then
+      FLastTrackBlockEnd := cubGroup.FData.Track_Block_End;
+  end;
+
+  if FLastTrackBlockEnd = 0 then
+  begin
+    FLastTrackBlockStart := 1000;
+    FLastTrackBlockEnd := 1999
+  end
+  else
+  begin
+    FLastTrackBlockStart := FLastTrackBlockEnd + 1;
+    FLastTrackBlockEnd := FLastTrackBlockStart + 999;
+  end;
+  {$ENDREGION}
 end;
 
 {$ENDREGION}

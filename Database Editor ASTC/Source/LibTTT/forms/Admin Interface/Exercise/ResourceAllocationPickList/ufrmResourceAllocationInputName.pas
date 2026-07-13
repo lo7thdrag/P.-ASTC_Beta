@@ -5,7 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, uDBAssetObject, newClassASTT, uDBAsset_Vehicle,
-  uDBAsset_Weapon, ExtCtrls, Vcl.Imaging.pngimage;
+  uDBAsset_Weapon, ExtCtrls, Vcl.Imaging.pngimage,
+
+  uDBAsset_Deploy;
 
 type
   E_InputNameCaller = (incVehicle, incEmbark);
@@ -28,6 +30,8 @@ type
 
   private
     FResourceAllocation : TResource_Allocation;
+    FAssetDeployment : TAsset_Deployment;
+
     FVehicle : TVehicle_Definition;
     FPlatformInstance : TPlatform_Instance;
     FForce : Integer;
@@ -35,6 +39,8 @@ type
     FSelectedPIIdent : TPlatform_Instance_Identifier;
 
     function CekInput: Boolean;
+
+    procedure CreateCubicleGroup;
     procedure UpdatePlatformIstanceData;
 
   public
@@ -42,6 +48,8 @@ type
     LastName, LastTrackID : string;
 
     property ResourceAllocation : TResource_Allocation read FResourceAllocation write FResourceAllocation;
+    property AssetDeployment : TAsset_Deployment read FAssetDeployment write FAssetDeployment;
+
     property Vehicle : TVehicle_Definition read FVehicle write FVehicle;
     property PlatformInstance : TPlatform_Instance read FPlatformInstance write FPlatformInstance;
     property Force : Integer read FForce write FForce;
@@ -54,7 +62,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT ;
+  uDataModuleTTT, ufrmVehicleResourceAllocationPickList ;
 
 {$R *.dfm}
 
@@ -74,6 +82,7 @@ procedure TfrmResourceAllocationInputName.btnOkClick(Sender: TObject);
 var
   i : Integer;
   platInst : TPlatform_Instance;
+
 begin
   if not CekInput then
   begin
@@ -93,13 +102,24 @@ begin
       FData.vbs_class_name := FSelectedPIIdent.FData.vbs_class_name;
 
     if FData.Platform_Instance_Index = 0 then
-      dmTTT.InsertPlatformInstance(FData)
+    begin
+      dmTTT.InsertPlatformInstance(FData);
+
+      {Create Group}
+      CreateCubicleGroup;
+
+      ShowMessage('Platform berhasil ditambahkan');
+    end
     else
+    begin
       dmTTT.UpdatePlatformInstance(FData);
+      ShowMessage('Data platform berhasil diperbarui');
+    end;
   end;
 
   isUpdate := True;
-  Close;
+  frmVehicleResourceAllocationPickList.UpdateVehicleList;
+//  Close;
 end;
 
 procedure TfrmResourceAllocationInputName.btnCancelClick(Sender: TObject);
@@ -173,13 +193,13 @@ begin
 
   if cbbName.ItemIndex = -1 then
   begin
-    ShowMessage('Please select platform');
+    ShowMessage('Silahkan pilih Platform');
     Exit;
   end;
 
   if edtTrackId.Text = '' then
   begin
-    ShowMessage('Please input Track ID');
+    ShowMessage('Track ID belum di masukkan');
     Exit;
   end;
 
@@ -197,7 +217,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please input Track ID');
+      ShowMessage('Track ID belum di masukkan');
       Exit;
     end;
   end;
@@ -208,12 +228,12 @@ begin
     {Jika inputan baru}
     if FPlatformInstance.FData.Vehicle_Index = 0  then
     begin
-      ShowMessage('Name already use, try another name');
+      ShowMessage('Platform sudah ada dalam scenario');
       Exit;
     end
     else if LastName <> cbbName.Text then
     begin
-      ShowMessage('Name already use, try another name');
+      ShowMessage('Platform sudah ada dalam scenario');
       Exit;
     end;
   end;
@@ -224,17 +244,51 @@ begin
     {Jika inputan baru}
     if FPlatformInstance.FData.Vehicle_Index = 0  then
     begin
-      ShowMessage('Track Id already use, try another Track Id');
+      ShowMessage('Track Id sudah digunakan');
       Exit;
     end
     else if LastTrackID <> edtTrackId.Text then
     begin
-      ShowMessage('Track Id already use, try another Track Id');
+      ShowMessage('Track Id sudah digunakan');
       Exit;
     end;
   end;
 
   Result := True
+end;
+
+procedure TfrmResourceAllocationInputName.CreateCubicleGroup;
+var
+  cubGroup : TCubicle_Group_Assignment;
+
+begin
+  cubGroup := TCubicle_Group_Assignment.Create;
+
+  with cubGroup do
+  begin
+    FData.Group_Identifier := edtTrackId.Text;
+    FData.Deployment_Index := AssetDeployment.FData.Deployment_Index;
+    FData.Force_Designation := Force;
+    FData.Track_Block_Start := frmVehicleResourceAllocationPickList.FLastTrackBlockStart;
+    FData.Track_Block_End := frmVehicleResourceAllocationPickList.FLastTrackBlockEnd;
+
+    if FData.Group_Index = 0 then
+    begin
+      dmTTT.InsertCubicleGroup(FData);
+
+      {}
+      FCubicle.Platform_Instance_Index := FPlatformInstance.FData.Platform_Instance_Index;
+      FCubicle.Group_Index := FData.Group_Index;
+      FCubicle.Command_Priority := 0;
+      FCubicle.Deployment_Index := AssetDeployment.FData.Deployment_Index;
+
+      dmTTT.InsertCubicleGroupAssignment(FCubicle);
+    end
+    else
+    begin
+      dmTTT.UpdateCubicleGroup(FData);
+    end;
+  end;
 end;
 
 {$ENDREGION}

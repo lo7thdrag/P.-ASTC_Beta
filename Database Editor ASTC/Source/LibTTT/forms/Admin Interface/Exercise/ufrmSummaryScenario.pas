@@ -3,10 +3,10 @@ unit ufrmSummaryScenario;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, DateUtils,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, DateUtils, Vcl.Imaging.jpeg,
   Dialogs, StdCtrls, Buttons, ComCtrls, ExtCtrls, Vcl.Imaging.pngimage, VrControls, VrWheel,
-  uDBAssetObject, uDBEditSetting, uDBAsset_GameEnvironment, uDBAsset_Deploy,
-  Vcl.Imaging.jpeg;
+
+  uDBAssetObject, uDBEditSetting, uDBAsset_GameEnvironment, uDBAsset_Deploy, tttData;
 
 type
   TfrmSummaryScenario = class(TForm)
@@ -618,35 +618,35 @@ procedure TfrmSummaryScenario.ForceChoseClick(Sender: TObject);
 begin
   if rbRed.Checked then        //ok
   begin
-    FSelectedForce := 1;
+    FSelectedForce := Ord(fgRed);
 
     btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Red.PNG');
     btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Red.PNG');
   end
   else if rbYellow.Checked then
   begin
-    FSelectedForce := 2;    //ok
+    FSelectedForce := Ord(fgYellow);    //ok
 
     btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Yellow.PNG');
     btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Yellow.PNG');
   end
   else if rbBlue.Checked then    //ok
   begin
-    FSelectedForce := 3;
+    FSelectedForce := Ord(fgBlue);
 
     btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Blue.PNG');
     btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Blue.PNG');
   end
   else if rbGreen.Checked then    //ok
   begin
-    FSelectedForce := 4;
+    FSelectedForce := Ord(fgGreen);
 
     btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_Green.PNG');
     btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_Green.PNG');
   end
   else if rbNoForce.Checked then    //ok
   begin
-    FSelectedForce := 5;
+    FSelectedForce := Ord(fgNoForce);
 
     btnVehicle.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnVehicle_NoForce.PNG');
     btnOverlay.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnOverlay_NoForce.PNG');
@@ -753,6 +753,8 @@ begin
     begin
       SaveScenario;
 
+      rbBlue.Checked := True;
+
       Img1Scenario.Picture.LoadFromFile(filePath + 'ImgStep_Select.PNG');
       ImgDash1.Picture.LoadFromFile(filePath + 'ImgDash_Select.PNG');
       Img2Environment.Picture.LoadFromFile(filePath + 'ImgStep_Select.PNG');
@@ -766,6 +768,8 @@ begin
     end;
     3:
     begin
+      rbBlueGroup.Checked := True;
+
       Img1Scenario.Picture.LoadFromFile(filePath + 'ImgStep_Select.PNG');
       ImgDash1.Picture.LoadFromFile(filePath + 'ImgDash_Select.PNG');
       Img2Environment.Picture.LoadFromFile(filePath + 'ImgStep_Select.PNG');

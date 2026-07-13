@@ -122,7 +122,7 @@ procedure TfrmGroupSelect.btnEditClick(Sender: TObject);
 begin
   if lstGroup.ItemIndex = -1 then
   begin
-    ShowMessage('Select List... !');
+    ShowMessage('Silahkan pilih salah satu list');
     Exit;
   end;
 
@@ -150,11 +150,11 @@ var
 begin
   if lstGroup.ItemIndex = -1 then
   begin
-    ShowMessage('Select Cubicle Group !');
+    ShowMessage('Silahkan pilih Cubicle Group !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Cubicle Group?', mtConfirmation,
+  warning := MessageDlg('Apakah anda yakin untuk menghapus Cubicle Group?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then

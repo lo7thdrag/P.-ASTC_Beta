@@ -45290,10 +45290,6 @@ object frmGroupSelect: TfrmGroupSelect
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitLeft = 1
-        ExplicitTop = 46
-        ExplicitWidth = 295
-        ExplicitHeight = 499
       end
     end
   end

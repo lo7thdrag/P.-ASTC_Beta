@@ -308,8 +308,9 @@ var
 
 begin
 
-  {$REGION ' Force Red '}
   tempList := TList.Create;
+
+  {$REGION ' Force Red '}
   dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, ord(fgRed), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
@@ -323,11 +324,9 @@ begin
       dmTTT.InsertCubicleGroup(FData);
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Yellow '}
-  tempList := TList.Create;
   dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, ord(fgYellow), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
@@ -341,11 +340,9 @@ begin
       dmTTT.InsertCubicleGroup(FData);
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Blue '}
-  tempList := TList.Create;
   dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, ord(fgBlue), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
@@ -359,11 +356,9 @@ begin
       dmTTT.InsertCubicleGroup(FData);
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Green '}
-  tempList := TList.Create;
   dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, ord(fgGreen), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
@@ -377,11 +372,9 @@ begin
       dmTTT.InsertCubicleGroup(FData);
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' No Force '}
-  tempList := TList.Create;
   dmTTT.GetCubicleGroup(FOldAssetDeploymentndex, ord(fgNoForce), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
@@ -395,8 +388,9 @@ begin
       dmTTT.InsertCubicleGroup(FData);
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
+
+  FreeItemsAndFreeList(tempList);
 
 end;
 
@@ -586,11 +580,11 @@ begin
       end;
     end;
   end;
-  FreeItemsAndFreeList(tempList);
+//  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Yellow '}
-  tempList := TList.Create;
+//  tempList := TList.Create;
   dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgYellow), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
@@ -621,11 +615,11 @@ begin
       end;
     end;
   end;
-  FreeItemsAndFreeList(tempList);
+//  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Blue '}
-  tempList := TList.Create;
+//  tempList := TList.Create;
   dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgBlue), tempList);
   for i := 0 to tempList.Count - 1 do
   begin
@@ -656,11 +650,11 @@ begin
       end;
     end;
   end;
-  FreeItemsAndFreeList(tempList);
+//  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' Force Green '}
-  tempList := TList.Create;
+//  tempList := TList.Create;
   dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgGreen), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
@@ -691,11 +685,9 @@ begin
       end;
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
 
   {$REGION ' No Force '}
-  tempList := TList.Create;
   dmTTT.GetPlatformInstance(FOldResourceAllocationIndex, 1, ord(fgNoForce), tempList);
   for j := 0 to tempList.Count - 1 do
   begin
@@ -726,8 +718,9 @@ begin
       end;
     end;
   end;
-  FreeItemsAndFreeList(tempList);
   {$ENDREGION}
+
+  FreeItemsAndFreeList(tempList);
 end;
 
 procedure TfrmAvailableScenario.CopyPlatformActivation(const aNewDeploymentIndex: Integer);

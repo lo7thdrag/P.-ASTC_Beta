@@ -204,7 +204,8 @@ type
     FChannel  : TRecCubicle_Group_Channel_Assgnmnt;
 
     constructor Create;
-    destructor Cubicle_Group_AssignmenDestroy; // override;
+    destructor Destroy; override;
+//    destructor Cubicle_Group_AssignmenDestroy; override;
 
     property IdCubicle: integer read getIdCubicle;
 
@@ -505,7 +506,13 @@ begin
   Cubicle_Group := TCubicle_Group.Create;
 end;
 
-destructor TCubicle_Group_Assignment.Cubicle_Group_AssignmenDestroy;
+//destructor TCubicle_Group_Assignment.Cubicle_Group_AssignmenDestroy;
+//begin
+//  Cubicle_Group.Free;
+//  inherited;
+//end;
+
+destructor TCubicle_Group_Assignment.Destroy;
 begin
   Cubicle_Group.Free;
   inherited;

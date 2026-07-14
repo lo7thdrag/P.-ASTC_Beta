@@ -135,7 +135,10 @@ end;
 procedure TfrmVehicleResourceAllocationPickList.btnEditClick(Sender: TObject);
 begin
   if lbAllVehicleOnScenario.ItemIndex = -1 then
+  begin
+    ShowMessage('Silahkan pilih salah satu data Kapal ... !');
     Exit;
+  end;
 
   frmResourceAllocationInputName := TfrmResourceAllocationInputName.Create(Self);
   try

@@ -44901,7 +44901,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000957696E6764696E6773
           0000000000000001000100FFFFFF000200FFFFFF000000000000010000000000
-          0118010000D825893601000000FC9A2C771C0000000000000000000000000000
+          01180100004817F911010000005F0EC7771C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -44910,15 +44910,15 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000008076
           C000000000008056C00000000000807640000000000080564001000000180100
-          00D825893601000000880300C01C000000000000000000000000000000000000
+          004817F911010000004CE897001C000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000002000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
-          00000000000000000000000000000000000000000038E997003D8D02751F0000
-          0000000000208D02758863F828EE3C505E78E997000000000000000000000000
+          000000000000000000000000000000000000000000E4140650495D400074007A
+          007200650073002E0064006C006C002C002D0035000000000000000000000000
           88B3400000000000408F400000000000}
       end
       object pnlToolBar: TPanel
@@ -44957,7 +44957,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           end
           object cbbScale: TComboBox
             Left = 39
-            Top = 8
+            Top = 0
             Width = 72
             Height = 22
             Hint = 'Map Scales'
@@ -45426,6 +45426,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                 Caption = 'Bases'
                 ImageIndex = 1
                 TabVisible = False
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 0
+                ExplicitHeight = 0
                 object lvBase: TListView
                   Left = 0
                   Top = 0
@@ -45462,6 +45466,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
               object tsOverlays: TTabSheet
                 Caption = 'Overlays'
                 ImageIndex = 2
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 0
+                ExplicitHeight = 0
                 object lvOverlay: TListView
                   Left = 0
                   Top = 0
@@ -45924,6 +45932,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
               object TabSheet2: TTabSheet
                 Caption = 'Logistic'
                 ImageIndex = 1
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 0
+                ExplicitHeight = 0
                 object Label15: TLabel
                   Left = 99
                   Top = 52
@@ -46199,6 +46211,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
               object TabSheet3: TTabSheet
                 Caption = 'Transport'
                 ImageIndex = 2
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 0
+                ExplicitHeight = 0
                 object lvTransport: TListView
                   Left = 0
                   Top = 0

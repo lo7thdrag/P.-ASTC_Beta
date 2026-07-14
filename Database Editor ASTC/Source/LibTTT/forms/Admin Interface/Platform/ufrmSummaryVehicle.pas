@@ -333,8 +333,6 @@ type
     imgBackground: TImage;
     pnlMainBackground: TPanel;
     Label1: TLabel;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -404,6 +402,7 @@ type
     procedure cbbTypeChange(Sender: TObject);
     procedure cbbFontTypeChange(Sender: TObject);
     procedure chkSonobuoyCapableClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -464,18 +463,14 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TfrmSummaryVehicle.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  FreeItemsAndFreeList(FPlatInstList);
-//  FreeItemsAndFreeList(iList);
-//  FreeItemsAndFreeList(PIList);
-//  FreeItemsAndFreeList(embarkedList);
-  Action := cafree;
-end;
-
 procedure TfrmSummaryVehicle.FormCreate(Sender: TObject);
 begin
   FPlatInstList := TList.Create;
+end;
+
+procedure TfrmSummaryVehicle.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FPlatInstList);
 end;
 
 procedure TfrmSummaryVehicle.FormShow(Sender: TObject);
@@ -1838,6 +1833,8 @@ procedure TfrmSummaryVehicle.UpdateMotionData;
 var
   motion : TMotion_Characteristics;
 begin
+  motion := TMotion_Characteristics.Create;
+
   with FSelectedVehicle.FData do
     dmTTT.GetMotionCharacteristicDef(Motion_Characteristics, motion);
 
@@ -1869,6 +1866,8 @@ procedure TfrmSummaryVehicle.UpdateLogisticData;
 var
   logistic : TLogistics;
 begin
+  logistic := TLogistics.Create;
+
   with FSelectedVehicle.FData do
     dmTTT.GetLogisticDef(Logistics_Index, logistic);
 
@@ -1876,12 +1875,16 @@ begin
     edtDefaultLogistics.Text := logistic.FData.Logistic_Identifier
   else
     edtDefaultLogistics.Text := '(None)';
+
+  logistic.Free;
 end;
 
 procedure TfrmSummaryVehicle.UpdateTransportData;
 var
   transport : TTransport;
 begin
+  transport := TTransport.Create;
+
   with FSelectedVehicle.FData do
     dmTTT.GetTransportDef(Platform_Capability_Index, transport);
 
@@ -1889,6 +1892,8 @@ begin
     edtDefaultCarryingCap.Text := transport.FData.Transport_Identifier
   else
     edtDefaultCarryingCap.Text := '(None)';
+
+  transport.Free;
 end;
 
 procedure TfrmSummaryVehicle.UpdateCbbCategoryItems(const aDomain, IdCategory: Byte);

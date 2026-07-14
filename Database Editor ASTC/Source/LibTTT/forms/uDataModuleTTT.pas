@@ -7409,7 +7409,6 @@ begin
 
         aList.Add(rec);
         Next;
-        rec.Free;
       end;
     end;
   end;
@@ -22278,7 +22277,6 @@ end;
 function TdmTTT.GetMotionCharacteristicDef(const aClassID: Integer; var aMotion: TMotion_Characteristics): Boolean;
 begin
   Result := False;
-  aMotion := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -22296,7 +22294,8 @@ begin
 
     if not IsEmpty then
     begin
-      aMotion := TMotion_Characteristics.Create;
+      if not Assigned(aMotion) then
+        aMotion := TMotion_Characteristics.Create;
 
       with aMotion.FData do
       begin

@@ -1912,7 +1912,7 @@ begin
     if platInst.FData.Platform_Type = 1 then
     begin
       dmTTT.GetVehicleDef(platInst.FData.Vehicle_Index, platInst.Vehicle);
-      dmTTT.GetMotion_Characteristics(platInst.Vehicle.FData.Motion_Characteristics, platInst.Motion);
+      dmTTT.GetMotionCharacteristicDef(platInst.Vehicle.FData.Motion_Characteristics, platInst.Motion);
       dmTTT.GetLogisticDef(platInst.Vehicle.FData.Logistics_Index, platInst.Logistic);
       dmTTT.GetTransportDef(platInst.Vehicle.FData.Platform_Capability_Index, platInst.Transport);
       dmTTT.GetPlatformActivation(FSelectedAssetDeployment.FData.Deployment_Index, platInst.FData.Platform_Instance_Index, platInst.FActivation);
@@ -2446,6 +2446,7 @@ begin
 end;
 
 {$ENDREGION}
+
 {$REGION 'TSymbolsProp tidak jadi dipakai'}
 { TSymbolsProp }
 

@@ -261,7 +261,7 @@ type
     procedure ScreenShot(const DestBitmap : TBitmap);
 
     procedure LoadMap(aGeoset: string);
-    procedure LoadENC(aGeoset: string);
+//    procedure LoadENC(aGeoset: string);
     function GetSymbol(const aType, aDomain: Integer): string;
     function GetColor(const aForce: Integer): TColor;
 
@@ -340,7 +340,7 @@ begin
   {$Region ' Load Map Area '}
   with FSelectedEnviArea.FGameArea do
   begin
-    LoadENC(vAppDBSetting.MapGSTGame + '\' + Game_Area_Identifier + '\' + Game_Area_Identifier + '.gst');
+    LoadMap(vAppDBSetting.MapGSTGame + '\' + Game_Area_Identifier + '\' + Game_Area_Identifier + '.gst');
 
     Map1.CenterX := Game_Centre_Long;
     Map1.CenterY := Game_Centre_Lat;
@@ -459,9 +459,9 @@ procedure TfrmPlatformDeploytment.btnScreenCaptureClick(Sender: TObject);
 var
   b : TBitmap;
 begin
-  b := TBitmap.Create;
-  ScreenShot(b);
-  fScrCapture.Image1.Picture.Assign(b);
+//  b := TBitmap.Create;
+//  ScreenShot(b);
+//  fScrCapture.Image1.Picture.Assign(b);
 end;
 
 procedure TfrmPlatformDeploytment.btnSelectClick(Sender: TObject);
@@ -1046,6 +1046,7 @@ begin
         j := j+1;
       end;
     end;
+    FreeItemsAndFreeList(tempList);
 
     {$ENDREGION}
 
@@ -1803,39 +1804,6 @@ begin
     lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm W'
   else
     lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm E';
-end;
-
-procedure TfrmPlatformDeploytment.LoadENC(aGeoset: string);
-var
-  z : OleVariant;
-  i : Integer;
-  mInfo : CMapXLayerInfo;
-begin
-  if Map1 = nil then
-    Exit;
-
-  InitOleVariant(z);
-  Map1.Layers.RemoveAll;
-  Map1.Geoset := aGeoset;
-
-  if aGeoset <> '' then
-  begin
-    for i := 1 to Map1.Layers.Count do
-    begin
-      Map1.Layers.Item(i).Selectable := False;
-      Map1.Layers.Item(i).Editable := False;
-    end;
-
-    mInfo := CoLayerInfo.Create;
-    mInfo.type_ := miLayerInfoTypeUserDraw;
-    mInfo.AddParameter('Name', 'LYR_DRAW');
-    FLyrDraw := Map1.Layers.Add(mInfo, 1);
-
-    Map1.Layers.AnimationLayer := FLyrDraw;
-    Map1.MapUnit := miUnitNauticalMile;
-  end;
-
-  Map1.BackColor := RGB(192, 224, 255);
 end;
 
 procedure TfrmPlatformDeploytment.LoadMap(aGeoset: String);

@@ -17,6 +17,7 @@ object frmGroupSelect: TfrmGroupSelect
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44853,10 +44854,6 @@ object frmGroupSelect: TfrmGroupSelect
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 144
-    ExplicitTop = 24
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl3Button: TPanel
       Left = 0
       Top = 628
@@ -44904,7 +44901,6 @@ object frmGroupSelect: TfrmGroupSelect
       ParentShowHint = False
       ShowHint = False
       TabOrder = 1
-      ExplicitTop = 4
       object lblForce: TLabel
         Left = 10
         Top = 10
@@ -45267,10 +45263,6 @@ object frmGroupSelect: TfrmGroupSelect
       BevelOuter = bvNone
       BorderWidth = 12
       TabOrder = 2
-      ExplicitLeft = 312
-      ExplicitTop = 240
-      ExplicitWidth = 185
-      ExplicitHeight = 41
       object lstGroup: TListBox
         Left = 12
         Top = 12

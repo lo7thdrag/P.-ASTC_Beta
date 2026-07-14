@@ -4,8 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, uDBAssetObject, ufrmGroupMemberSelection, uDBAsset_Deploy,
-  Vcl.Imaging.pngimage, Vcl.ExtCtrls;
+  Dialogs, StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+
+  uDBAssetObject, ufrmGroupMemberSelection, uDBAsset_Deploy, uSimContainers;
 
 type
   TfrmGroupSelect = class(TForm)
@@ -31,6 +32,7 @@ type
     procedure btnRemoveClick(Sender: TObject);
 
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -70,6 +72,11 @@ uses
 procedure TfrmGroupSelect.FormCreate(Sender: TObject);
 begin
   FCubicleGroupList := TList.Create;
+end;
+
+procedure TfrmGroupSelect.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FCubicleGroupList);
 end;
 
 procedure TfrmGroupSelect.FormShow(Sender: TObject);

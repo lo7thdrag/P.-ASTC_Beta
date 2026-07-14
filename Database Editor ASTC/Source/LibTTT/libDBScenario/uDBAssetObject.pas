@@ -333,7 +333,7 @@ type
     Logistic  : TLogistics;
     Transport : TTransport;
 
-    VectorSymbol     : TVectorSymbol;
+    VectorSymbol : TVectorSymbol;
 
     ISOnGroup: boolean;
     ClientRole: integer;
@@ -541,6 +541,9 @@ begin
   Satellite := TSatellite_Definition.Create;
   Sonobuoy := TSonobuoy_On_Board.Create;
   Hybrid := THybrid_Definition.Create;
+  Motion := TMotion_Characteristics.Create;
+  Logistic  := TLogistics.Create;
+  Transport := TTransport.Create;
 
   FMissileViews := TDrawContainers.Create;
   FTorpedoViews := TDrawContainers.Create;
@@ -580,7 +583,6 @@ destructor TPlatform_Instance.Destroy;
 begin
   FMover.Free;
   FHisCounter.Free;
-  Hybrid.Free;
 
   FVHistory.Free;
   FTacticalSymbol.Free;
@@ -589,12 +591,16 @@ begin
   FTorpedoViews.Free;
   FDetectedObject.Free;
 
-  if Assigned(Vehicle) then
-    FreeAndNil(Vehicle);
-  if Assigned(Satellite) then
-    FreeAndNil(Satellite);
-  if Assigned(Sonobuoy) then
-    FreeAndNil(Sonobuoy);
+  Vehicle.Free;
+  Satellite.Free;
+  Sonobuoy.Free;
+  Hybrid.Free;
+  Motion.Free;
+  Logistic.Free;
+  Transport.Free;
+
+  if Assigned(VectorSymbol) then
+    VectorSymbol.Free;
 
   inherited;
 end;

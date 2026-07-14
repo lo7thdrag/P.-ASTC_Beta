@@ -17,6 +17,7 @@ object frmWaypointResourceAllocationPickList: TfrmWaypointResourceAllocationPick
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44852,10 +44853,6 @@ object frmWaypointResourceAllocationPickList: TfrmWaypointResourceAllocationPick
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 360
-    ExplicitTop = 136
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object lbl1: TLabel
       Left = 12
       Top = 544

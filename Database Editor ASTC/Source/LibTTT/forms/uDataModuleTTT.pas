@@ -6904,9 +6904,6 @@ begin
 end;
 
 function TdmTTT.GetVehicleDef(const aVehicleID: Integer; var aResult: TVehicle_Definition): boolean;
-var
-   i : Integer;
-  rec : TVehicle_Definition;
 begin
   Result := False;
 
@@ -6928,7 +6925,9 @@ begin
     if not IsEmpty then
     begin
       First;
-      aResult := TVehicle_Definition.Create;
+
+      if not Assigned(aResult) then
+        aResult := TVehicle_Definition.Create;
 
       with aResult.FData do
       begin
@@ -22777,7 +22776,6 @@ end;
 function TdmTTT.GetLogisticDef(const aClassID: Integer; var aLogistic: TLogistics): Boolean;
 begin
   Result := False;
-  aLogistic := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -22795,7 +22793,8 @@ begin
 
     if not IsEmpty then
     begin
-      aLogistic := TLogistics.Create;
+      if not Assigned(aLogistic) then
+        aLogistic := TLogistics.Create;
 
       with aLogistic.FData do
       begin
@@ -23129,7 +23128,6 @@ end;
 function TdmTTT.GetTransportDef(const aClassID: Integer; var aTransport: TTransport): Boolean;
 begin
   result := False;
-  aTransport := nil;
 
   if not ZConn.Connected then
     exit;
@@ -23147,7 +23145,8 @@ begin
 
     if not IsEmpty then
     begin
-      aTransport := TTransport.Create;
+      if not Assigned(aTransport) then
+        aTransport := TTransport.Create;
 
       with aTransport.FData do
       begin
@@ -62516,8 +62515,7 @@ end;
 
 //-------------------------------------------------------------------
 
-function TdmTTT.GetMotion_Characteristics(const id: Integer;
-  var rec: TMotion_Characteristics): boolean;
+function TdmTTT.GetMotion_Characteristics(const id: Integer; var rec: TMotion_Characteristics): boolean;
 begin
   result := false;
   if not ZConn.Connected then
@@ -62533,11 +62531,14 @@ begin
     Open;
 
     result := RecordCount > 0;
+
     if not IsEmpty then
     begin
       First;
+
       if not Assigned(rec) then
         rec := TMotion_Characteristics.Create;
+
       with rec.FData do
       begin
         Motion_Index := FieldByName('Motion_Index').AsInteger;
@@ -62573,10 +62574,8 @@ begin
         Fuel_Unit_Type := FieldByName('Fuel_Unit_Type').AsInteger;
         Max_Fuel_Capacity := FieldByName('Max_Fuel_Capacity').AsSingle;
         Min_Speed_Fuel_Consume := FieldByName('Min_Speed_Fuel_Consume').AsFloat;
-        Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume')
-          .AsFloat;
-        High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume')
-          .AsFloat;
+        Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume').AsFloat;
+        High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume').AsFloat;
         Max_Speed_Fuel_Consume := FieldByName('Max_Speed_Fuel_Consume').AsFloat;
       end;
     end;

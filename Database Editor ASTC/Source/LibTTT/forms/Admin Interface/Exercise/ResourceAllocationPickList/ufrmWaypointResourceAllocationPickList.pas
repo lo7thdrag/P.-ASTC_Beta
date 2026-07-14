@@ -4,7 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, uDBAssetObject, Vcl.Imaging.pngimage;
+  Dialogs, StdCtrls, ExtCtrls, Vcl.Imaging.pngimage,
+
+  uDBAssetObject, uSimContainers;
 
 type
   TfrmWaypointResourceAllocationPickList = class(TForm)
@@ -34,6 +36,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure edtSearchChange(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
@@ -69,6 +72,12 @@ procedure TfrmWaypointResourceAllocationPickList.FormCreate(Sender: TObject);
 begin
   FAllWaypointDefList := TList.Create;
   FAllWaypointOnScenarioList := TList.Create;
+end;
+
+procedure TfrmWaypointResourceAllocationPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllWaypointDefList);
+  FreeItemsAndFreeList(FAllWaypointOnScenarioList);
 end;
 
 procedure TfrmWaypointResourceAllocationPickList.FormShow(Sender: TObject);

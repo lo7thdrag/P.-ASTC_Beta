@@ -4,8 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, {uDBAsset_Geo}newClassASTT, uDBAsset_GameEnvironment, uDBAssetObject,
-  Vcl.Imaging.pngimage;
+  Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage,
+
+  {uDBAsset_Geo}newClassASTT, uDBAsset_GameEnvironment, uDBAssetObject, uSimContainers;
 
 type
   TfrmOverlayResourceAllocationPickList = class(TForm)
@@ -35,6 +36,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure edtCheatChange(Sender: TObject);
     procedure edtCheatKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedForce : Integer;
@@ -72,6 +74,12 @@ procedure TfrmOverlayResourceAllocationPickList.FormCreate(Sender: TObject);
 begin
   FAllOverlayDefList := TList.Create;
   FAllOverlayOnScenarioList := TList.Create;
+end;
+
+procedure TfrmOverlayResourceAllocationPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllOverlayDefList);
+  FreeItemsAndFreeList(FAllOverlayOnScenarioList);
 end;
 
 procedure TfrmOverlayResourceAllocationPickList.FormShow(Sender: TObject);

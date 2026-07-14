@@ -694,6 +694,8 @@ begin
       SelectedPIIdent := TPlatform_Instance_Identifier.Create;
       SelectedVehicle := FSelectedVehicle;
       ShowModal;
+
+      SelectedPIIdent.Free;
     end;
 
     btnApply.Enabled := frmPlatformInstanceInput.AfterClose;
@@ -748,12 +750,13 @@ begin
       warning := MessageDlg('Platform ini terhubung ke scenario, silahkan cek keterkaitannya di Menu Vehicle.' + Char(13) +
       'Apakah anda yakin ingin menghapus data ini ?', mtConfirmation, mbOKCancel, 0);
 
-      FreeItemsAndFreeList(tempList);
       if warning = mrOK then
         dmTTT.DeletePlatformInstance(Instance_Ident_Index)
       else
         Exit;
     end;
+
+    FreeItemsAndFreeList(tempList);
 
     dmTTT.DeletePlatformInstanceIdentifier(2, Instance_Ident_Index);
   end;

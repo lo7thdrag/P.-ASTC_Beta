@@ -151,6 +151,8 @@ begin
 
       ShowModal;
 
+      Vehicle.Free;
+
       if isUpdate then
         UpdateVehicleList;
 
@@ -238,7 +240,6 @@ begin
   lbAllVehicleDef.Items.Clear;
   lbAllVehicleOnScenario.Items.Clear;
 
-//  dmTTT.GetAllVehicleDef(FAllVehicleDefList);
   dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtCheat.Text);
   dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 1, FSelectedForce, FAllVehicleOnRAList);
 

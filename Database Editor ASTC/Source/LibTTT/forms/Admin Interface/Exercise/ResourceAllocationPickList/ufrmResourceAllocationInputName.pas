@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, uDBAssetObject, newClassASTT, uDBAsset_Vehicle,
   uDBAsset_Weapon, ExtCtrls, Vcl.Imaging.pngimage,
 
-  uDBAsset_Deploy;
+  uDBAsset_Deploy, uSimContainers;
 
 type
   E_InputNameCaller = (incVehicle, incEmbark);
@@ -188,7 +188,7 @@ begin
 
   cbbNameChange(nil);
 
-  piIdentList.Free;
+  FreeItemsAndFreeList(piIdentList);
 end;
 
 function TfrmResourceAllocationInputName.CekInput: Boolean;

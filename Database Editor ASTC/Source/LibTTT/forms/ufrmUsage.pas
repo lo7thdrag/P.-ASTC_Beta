@@ -4,7 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAssetObject, Vcl.Imaging.pngimage;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, Vcl.Imaging.pngimage,
+
+  uSimContainers, uDBAssetObject;
 
 type
   TfrmUsage = class(TForm)
@@ -22,6 +24,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
     procedure btnPrintClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
 
@@ -210,6 +213,14 @@ begin
   uList2 := TList.Create;
   uList3 := TList.Create;
   uList4 := TList.Create;
+end;
+
+procedure TfrmUsage.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(uList1);
+  FreeItemsAndFreeList(uList2);
+  FreeItemsAndFreeList(uList3);
+  FreeItemsAndFreeList(uList4);
 end;
 
 procedure TfrmUsage.FormShow(Sender: TObject);

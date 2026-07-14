@@ -333,7 +333,7 @@ type
     Logistic  : TLogistics;
     Transport : TTransport;
 
-    FVectorSymbol     : TVectorSymbol;
+    VectorSymbol     : TVectorSymbol;
 
     ISOnGroup: boolean;
     ClientRole: integer;

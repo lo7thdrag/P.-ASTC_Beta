@@ -268,8 +268,8 @@ begin
 
         Instance_Ident_Index := dmTTT.getInstance_Ident_Index(Vehicle_Index, Instance_Name);
 
-        if Assigned(rec.FVectorSymbol) then
-            rec.FVectorSymbol.Free;
+        if Assigned(rec.VectorSymbol) then
+            rec.VectorSymbol.Free;
 
         if dmTTT.GetVehicle_Definition(Vehicle_Index, rec.Vehicle) then
         begin
@@ -277,21 +277,21 @@ begin
             vhdAir :
               begin
                 case rec.Vehicle.FData.Platform_Type of
-                  vhtRotaryRec, vhtRotaryAttack, vhtRotaryASW, vhtRotarySurv : rec.FVectorSymbol := THelicopterVectorSymbol.Create;
-                  vhtFixedRec  : rec.FVectorSymbol := TAirPlaneVectorSymbol.Create;
+                  vhtRotaryRec, vhtRotaryAttack, vhtRotaryASW, vhtRotarySurv : rec.VectorSymbol := THelicopterVectorSymbol.Create;
+                  vhtFixedRec  : rec.VectorSymbol := TAirPlaneVectorSymbol.Create;
                 else
-                  rec.FVectorSymbol := TAirPlaneVectorSymbol.Create;
+                  rec.VectorSymbol := TAirPlaneVectorSymbol.Create;
                 end;
               end;
-            vhdSurface : rec.FVectorSymbol := TShipVectorSymbol.Create;
-            vhdSubsurface : rec.FVectorSymbol := TShipVectorSymbol.Create;   //sementara ikut yang surface dulu
-            vhdLand : rec.FVectorSymbol := TTankVectorSymbol.Create;
-            vhdAmphibious : rec.FVectorSymbol := TTankVectorSymbol.Create;
+            vhdSurface : rec.VectorSymbol := TShipVectorSymbol.Create;
+            vhdSubsurface : rec.VectorSymbol := TShipVectorSymbol.Create;   //sementara ikut yang surface dulu
+            vhdLand : rec.VectorSymbol := TTankVectorSymbol.Create;
+            vhdAmphibious : rec.VectorSymbol := TTankVectorSymbol.Create;
 //            vhdWreck :;
 //            vhdGeneral :;
 //            vhdGrpPersonel :;
           else
-            rec.FVectorSymbol := TVectorSymbol.Create;
+            rec.VectorSymbol := TVectorSymbol.Create;
           end;
         end;
 

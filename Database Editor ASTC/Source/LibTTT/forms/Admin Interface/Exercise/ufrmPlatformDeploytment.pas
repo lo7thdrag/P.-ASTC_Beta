@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, Buttons, ImgList, OleCtrls, MapXLib_TLB,
-  ComCtrls, ToolWin, Vcl.Imaging.pngimage, System.ImageList,
+  ComCtrls, ToolWin, Vcl.Imaging.pngimage, System.ImageList, System.Math,
 
   uDBAsset_Deploy, uDBAssetObject, uDBAsset_GameEnvironment, uCoordConvertor, uObjectVisuals, uDBAsset_Base, newClassASTT, tttData, uDBEditSetting,
   uBaseCoordSystem, uSimContainers, uSimDBEditor, uVectorVisual, uDBAsset_FontTaktis, ufrmRuler, uDrawOverlay, uMainStaticShape;
@@ -146,6 +146,8 @@ type
     lblmn5: TLabel;
     lblmnlbl47: TLabel;
     pnl3SparatorHor2: TPanel;
+    btnTacticalSymbol: TToolButton;
+    btnDimensionSymbol: TToolButton;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -198,6 +200,9 @@ type
     procedure btnLayerToolClick(Sender: TObject);
     procedure btnPanClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure pnlMainBackgroundClick(Sender: TObject);
+    procedure btnTacticalSymbolClick(Sender: TObject);
+    procedure btnDimensionSymbolClick(Sender: TObject);
 
 
   private
@@ -468,6 +473,14 @@ begin
   Map1.MousePointer := miDefaultCursor;
 end;
 
+procedure TfrmPlatformDeploytment.btnTacticalSymbolClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+
+  FModeTag := 1;
+  Map1.Repaint;
+end;
+
 procedure TfrmPlatformDeploytment.ScreenShot(const DestBitmap : TBitmap);
 var
   DC : HDC;
@@ -593,24 +606,24 @@ begin
           vhdAir :
           begin
             case platInst.Vehicle.FData.Platform_Type of
-              vhtRotaryRec, vhtRotaryASW, vhtRotarySurv, vhtRotaryAttack : platInst.FVectorSymbol := THelicopterVectorSymbol.Create;
-              vhtFixed, vhtFixedEW, vhtFixedRec, vhtFixedSurv : platInst.FVectorSymbol := TAirPlaneVectorSymbol.Create;
+              vhtRotaryRec, vhtRotaryASW, vhtRotarySurv, vhtRotaryAttack : platInst.VectorSymbol := THelicopterVectorSymbol.Create;
+              vhtFixed, vhtFixedEW, vhtFixedRec, vhtFixedSurv : platInst.VectorSymbol := TAirPlaneVectorSymbol.Create;
             else
-              platInst.FVectorSymbol := TAirPlaneVectorSymbol.Create;
+              platInst.VectorSymbol := TAirPlaneVectorSymbol.Create;
             end;
           end;
           vhdLand,
           vhdAmphibious :
           begin
-            platInst.FVectorSymbol := TTankVectorSymbol.Create;
+            platInst.VectorSymbol := TTankVectorSymbol.Create;
           end;
           vhdSurface,
           vhdSubsurface :
           begin
-            platInst.FVectorSymbol := TShipVectorSymbol.Create;
+            platInst.VectorSymbol := TShipVectorSymbol.Create;
           end;
         else
-          platInst.FVectorSymbol := TVectorSymbol.Create;
+          platInst.VectorSymbol := TVectorSymbol.Create;
         end;
       end;
     end;
@@ -1052,6 +1065,14 @@ begin
   cbbScaleChange(cbbScale);
 end;
 
+procedure TfrmPlatformDeploytment.btnDimensionSymbolClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+
+  FModeTag := 2;
+  Map1.Repaint;
+end;
+
 procedure TfrmPlatformDeploytment.btnEmbarkPlatformClick(Sender: TObject);
 begin
   if FSelectedPlatform = nil then
@@ -1278,6 +1299,16 @@ var
   color : TColor;
   fontTaktis : TFontTaktis;
 
+  qx, qy : Integer;
+  lf : TLogFont;
+  tf : TFont;
+  sz: TSize;
+  q : TPoint;
+
+  sinX, cosX : extended;
+  FRotation : integer;
+  FHeading   : double;
+
   sx, sy, ex, ey: Integer;
   itemStart, itemEnd  : TFlagPoint;
 begin
@@ -1306,18 +1337,7 @@ begin
         case FModeTag of
           0: //tactical static view
           begin
-            {$region 'symbol yang lama'}
-            {FBmpSym.Center.X := ix;
-            FBmpSym.Center.Y := iy;
-
-            if Assigned(FHookedPlatform) and (platInst.FData.Platform_Instance_Index = FHookedPlatform.FData.Platform_Instance_Index) then
-              color := RGB(255, 191, 128)
-            else
-              color := GetColor(FData.Force_Designation);
-
-            FBmpSym.LoadBitmap(ExtractFilePath(ParamStr(0)) + 'data\Bitmap\' + GetSymbol(FData.Platform_Type, Vehicle.FData.Platform_Domain), color);
-            FBmpSym.Draw(FCanvas);}
-            {$endregion}
+            {$region ' Tactical Static View '}
 
             if Assigned(FHookedPlatform) and (platInst.FData.Platform_Instance_Index = FHookedPlatform.FData.Platform_Instance_Index) then
               Font.Color := RGB(255, 191, 128)
@@ -1330,43 +1350,72 @@ begin
             Font.Style := [fsBold];
             SetBkMode(FCanvas.Handle, TRANSPARENT);
             FCanvas.TextOut(ix - 13, iy - 20, char(fontTaktis.FData.FONT_INDEX));
+
+            {$endregion}
           end;
           1: //tactical dynamic view
           begin
+            {$region ' Tactical Dynamic View '}
 
+            dmTTT.getFontById(platInst.Vehicle.FData.font_id, fontTaktis);
+            Font.Name  :=  fontTaktis.FData.FONT_NAME;
+            Font.Size  :=  24;
+            Font.Color :=  GetColor(FData.Force_Designation);
+            Font.Style := [fsBold];
+
+            FRotation := Round( 10.0 * (90.0 - FActivation.Init_Course ));
+            FHeading := DegToRad(90.0 - FActivation.Init_Course);
+
+            tf := TFont.Create;
+            tf.Assign(Font);
+            GetObject(tf.Handle, sizeof(lf), @lf);
+
+            lf.lfEscapement  :=  FRotation;
+            lf.lfOrientation :=  FRotation;
+
+            tf.Handle := CreateFontIndirect(lf);
+            Font.Assign(tf);
+            tf.Free;
+
+            SetTextAlign(handle, TA_CENTER or VTA_CENTER);
+            sz := TextExtent(char(fontTaktis.FData.FONT_INDEX));
+
+            SetBkMode(Handle, TRANSPARENT);
+            SinCos(FHeading , sinX, cosX );
+
+            qx := ix - Floor( 0.5 * sz.cy * sinX);
+            qy := iy - Floor( 0.5 * sz.cy * cosX);
+
+
+            TextOut(qx, qy, char(fontTaktis.FData.FONT_INDEX));
+            Font.Style := [fsBold];
+
+            Brush.Style := bsClear;
+
+            {$endregion}
           end;
           2: //platform view
           begin
+            {$region ' Dimension View '}
+
             FConverter.FMap := Map1;
 
-
             if Assigned(FHookedPlatform) and (platInst.FData.Platform_Instance_Index = FHookedPlatform.FData.Platform_Instance_Index) then
-              platInst.FVectorSymbol.Color := RGB(255, 191, 128)
+              platInst.VectorSymbol.Color := RGB(255, 191, 128)
             else
-              platInst.FVectorSymbol.Color := GetColor(FData.Force_Designation);
+              platInst.VectorSymbol.Color := GetColor(FData.Force_Designation);
 
-            platInst.FVectorSymbol.Course := FActivation.Init_Course;
-            platInst.FVectorSymbol.DimWidth := Vehicle.FData.Width;
-            platInst.FVectorSymbol.DimLength := Vehicle.FData.Length;
+            platInst.VectorSymbol.Course := FActivation.Init_Course;
+            platInst.VectorSymbol.DimWidth := Vehicle.FData.Width;
+            platInst.VectorSymbol.DimLength := Vehicle.FData.Length;
 
-            platInst.FVectorSymbol.Center.X := ix;
-            platInst.FVectorSymbol.Center.Y := iy;
+            platInst.VectorSymbol.Center.X := ix;
+            platInst.VectorSymbol.Center.Y := iy;
 
-            platInst.FVectorSymbol.ConvertCoord(FConverter);
-            platInst.FVectorSymbol.Draw(FCanvas);
+            platInst.VectorSymbol.ConvertCoord(FConverter);
+            platInst.VectorSymbol.Draw(FCanvas);
 
-            {$REGION 'TSymbolsProp tidak jadi dipakai'}
-//            TSymbolsProp(platInst).Fplatform.FVectorSymbol.Course := FActivation.Init_Course;
-//            TSymbolsProp(platInst).Fplatform.FVectorSymbol.DimWidth := Vehicle.FData.Width;
-//            TSymbolsProp(platInst).Fplatform.FVectorSymbol.DimLength := Vehicle.FData.Length;
-//
-//            TSymbolsProp(platInst).Fplatform.FVectorSymbol.Center.X := ix;
-//            TSymbolsProp(platInst).Fplatform.FVectorSymbol.Center.Y := iy;
-//
-//            TSymbolsProp(platInst).Fplatform.FVectorSymbol.ConvertCoord(FConverter);
-//            TSymbolsProp(platInst).Fplatform.FVectorSymbol.Draw(FCanvas);
-            {$ENDREGION}
-
+            {$endregion}
           end;
         end;
 
@@ -1376,8 +1425,33 @@ begin
       Font.Size := 8;
       Pen.Style := psDot;
       Pen.Width := 1;
+
+      FRotation := Round( 10.0 * (90.0 - 90 ));
+      FHeading := DegToRad(90.0 - 90);
+
+      tf := TFont.Create;
+      tf.Assign(Font);
+      GetObject(tf.Handle, sizeof(lf), @lf);
+
+      lf.lfEscapement  :=  FRotation;
+      lf.lfOrientation :=  FRotation;
+
+      tf.Handle := CreateFontIndirect(lf);
+      Font.Assign(tf);
+      tf.Free;
+
+      SetTextAlign(handle, TA_CENTER or VTA_CENTER);
+      sz := TextExtent(char(fontTaktis.FData.FONT_INDEX));
+
+      SinCos(FHeading , sinX, cosX );
+
+      qx := ix - Floor( 0.5 * sz.cy * sinX);
+      qy := iy - Floor( 0.5 * sz.cy * cosX);
+
+
       SetBkMode(FCanvas.Handle, TRANSPARENT);
       FCanvas.TextOut(ix + 10, iy + 10, platInst.FData.Track_ID);
+
       fontTaktis.Free;
     end;
 
@@ -2396,6 +2470,11 @@ begin
 
     UpdateSelectedPlatformData;
   end;
+end;
+
+procedure TfrmPlatformDeploytment.pnlMainBackgroundClick(Sender: TObject);
+begin
+
 end;
 
 {$ENDREGION}

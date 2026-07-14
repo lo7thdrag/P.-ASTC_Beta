@@ -44855,6 +44855,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
+    OnClick = pnlMainBackgroundClick
     object pnl3Map: TPanel
       Left = 321
       Top = 25
@@ -44900,7 +44901,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000957696E6764696E6773
           0000000000000001000100FFFFFF000200FFFFFF000000000000010000000000
-          0118010000C0849B0F01000000FC9A2C771C0000000000000000000000000000
+          0118010000D825893601000000FC9A2C771C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -44909,7 +44910,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000008076
           C000000000008056C00000000000807640000000000080564001000000180100
-          00C0849B0F01000000880300C01C000000000000000000000000000000000000
+          00D825893601000000880300C01C000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000002000000000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -44917,7 +44918,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           00000000000000000000000000000000000000000038E997003D8D02751F0000
-          0000000000208D027528685A2BA53DDA9A78E997000000000000000000000000
+          0000000000208D02758863F828EE3C505E78E997000000000000000000000000
           88B3400000000000408F400000000000}
       end
       object pnlToolBar: TPanel
@@ -44930,9 +44931,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitLeft = 1
-        ExplicitTop = 1
-        ExplicitWidth = 1273
         object ToolBar1: TToolBar
           Left = 14
           Top = 0
@@ -44946,7 +44944,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           Images = ilToolbar
           ParentColor = False
           TabOrder = 0
-          ExplicitWidth = 1259
           object btnIncreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -45062,9 +45059,26 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           object btnRuler: TToolButton
             Left = 353
             Top = 0
+            Hint = 'Ruler'
             Caption = 'btnRuler'
             ImageIndex = 9
             OnClick = btnRulerClick
+          end
+          object btnTacticalSymbol: TToolButton
+            Left = 392
+            Top = 0
+            Hint = 'Tactical Symbol'
+            Caption = 'btnTacticalSymbol'
+            ImageIndex = 11
+            OnClick = btnTacticalSymbolClick
+          end
+          object btnDimensionSymbol: TToolButton
+            Left = 431
+            Top = 0
+            Hint = 'Dimension Symbol'
+            Caption = 'btnDimensionSymbol'
+            ImageIndex = 12
+            OnClick = btnDimensionSymbolClick
           end
         end
         object pnlAlignToolBar: TPanel
@@ -45088,9 +45102,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 2
-        ExplicitLeft = 1
-        ExplicitTop = 38
-        ExplicitWidth = 1273
       end
       object pnlCursorPosition: TPanel
         Left = 0
@@ -45278,8 +45289,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 4
-        ExplicitTop = 778
-        ExplicitWidth = 1181
       end
     end
     object pnl1Header: TPanel
@@ -45376,8 +45385,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
               TabWidth = 80
               object tsPlatforms: TTabSheet
                 Caption = 'Platforms'
-                ExplicitTop = 36
-                ExplicitHeight = 367
                 object lvPlatform: TListView
                   Left = 0
                   Top = 0
@@ -45413,15 +45420,12 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   TabOrder = 0
                   ViewStyle = vsReport
                   OnClick = lvPlatformClick
-                  ExplicitHeight = 367
                 end
               end
               object tsBases: TTabSheet
                 Caption = 'Bases'
                 ImageIndex = 1
                 TabVisible = False
-                ExplicitTop = 36
-                ExplicitHeight = 367
                 object lvBase: TListView
                   Left = 0
                   Top = 0
@@ -45453,14 +45457,11 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   TabOrder = 0
                   ViewStyle = vsReport
                   OnClick = lvBaseClick
-                  ExplicitHeight = 367
                 end
               end
               object tsOverlays: TTabSheet
                 Caption = 'Overlays'
                 ImageIndex = 2
-                ExplicitTop = 36
-                ExplicitHeight = 367
                 object lvOverlay: TListView
                   Left = 0
                   Top = 0
@@ -45496,7 +45497,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   ParentFont = False
                   TabOrder = 0
                   ViewStyle = vsReport
-                  ExplicitHeight = 338
                 end
                 object Panel1: TPanel
                   Left = 0
@@ -45506,7 +45506,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Align = alBottom
                   BevelOuter = bvNone
                   TabOrder = 1
-                  ExplicitTop = 338
                   object Label27: TLabel
                     Left = 11
                     Top = 10

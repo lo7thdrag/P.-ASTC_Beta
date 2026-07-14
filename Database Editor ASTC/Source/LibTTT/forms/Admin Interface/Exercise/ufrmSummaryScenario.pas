@@ -74,8 +74,6 @@ type
     Label14: TLabel;
     btnFinish: TImage;
     btnGroup: TImage;
-    rbBluePlatform: TRadioButton;
-    rbRedPlatform: TRadioButton;
     Image5: TImage;
     btnVehicle: TImage;
     btnOverlay: TImage;
@@ -673,31 +671,31 @@ procedure TfrmSummaryScenario.ForceChosePlatformClick(Sender: TObject);
 begin
   if rbRedGroup.Checked then        //ok
   begin
-    FSelectedForce := 1;
+    FSelectedForce2 := 1;
 
     btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Red.PNG');
   end
   else if rbYellowGroup.Checked then
   begin
-    FSelectedForce := 2;    //ok
+    FSelectedForce2 := 2;    //ok
 
     btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Yellow.PNG');
   end
   else if rbBlueGroup.Checked then    //ok
   begin
-    FSelectedForce := 3;
+    FSelectedForce2 := 3;
 
     btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Blue.PNG');
   end
   else if rbGreenGroup.Checked then    //ok
   begin
-    FSelectedForce := 4;
+    FSelectedForce2 := 4;
 
     btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_Green.PNG');
   end
   else if rbNoForceGroup.Checked then    //ok
   begin
-    FSelectedForce := 5;
+    FSelectedForce2 := 5;
 
     btnGroup.Picture.LoadFromFile('data\Image DBEditor\Interface\Button\btnGroup_NoForce.PNG');
   end

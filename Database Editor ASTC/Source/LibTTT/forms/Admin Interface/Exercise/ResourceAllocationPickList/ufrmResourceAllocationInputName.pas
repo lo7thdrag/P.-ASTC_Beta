@@ -124,7 +124,8 @@ begin
 
   isUpdate := True;
   frmVehicleResourceAllocationPickList.UpdateVehicleList;
-//  Close;
+  Close;
+
 end;
 
 procedure TfrmResourceAllocationInputName.btnCancelClick(Sender: TObject);

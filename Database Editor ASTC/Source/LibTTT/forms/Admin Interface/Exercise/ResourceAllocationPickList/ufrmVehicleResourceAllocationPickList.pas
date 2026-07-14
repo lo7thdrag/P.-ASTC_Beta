@@ -120,6 +120,8 @@ begin
 
       ShowModal;
 
+      PlatformInstance.Free;
+
       if isUpdate then
         UpdateVehicleList;
 

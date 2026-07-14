@@ -1,10 +1,9 @@
 Penting
-1. Mengecek fungsi Search, Add, Copy, Edit, Usage dan Delete di setiap form 
-2. Pengecekan posisi tombol Search, Add, Copy, Edit, Usage dan Delete yang tidak sama  
+1. Mengecek fungsi Search, Add, Copy, Edit, Usage dan Delete di setiap form   
 2. Mengecek memoryleak disetiap form
 3. Showmassage dicek, masih ada yang Bahasa inggris 
 
-
+2. Pengecekan posisi tombol Search, Add, Copy, Edit, Usage dan Delete yang tidak sama.(sudah)
 4. summary waypoint perlu didesain ulang.(sudah)
 5. Form platform, vehicle, dibagian Add frmPlatformInstanceInput deesain perlu diubah.(sudah)
 6. Form MAD Mount setelah klik ok, form tidak menutup.(Sudah)
@@ -20,14 +19,11 @@ Penting
 18. Di form ufrmSummaryWaypoint Edit waypoint muncul error Acsses violation. (sudah)
 28. form AvailableGun bagian edit dan Usage belum ada ShowMessage.
 
-
-
 Form yang perlu didesain ulang
 - form overlay editor
 - form waypoint editor
 - form game area editor
 - form deployment
-
 
 - Melanjutkan Desain interface Role Navigasi (Tactical dan Tote)
 - Melanjutkan Desain interface Role Plotter (Tactical)

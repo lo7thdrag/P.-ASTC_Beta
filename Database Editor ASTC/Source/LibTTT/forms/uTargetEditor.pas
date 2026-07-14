@@ -468,7 +468,7 @@ begin
         cbbType.Items.Add(TPlatform_Instance_Identifier(aListIdentIndex.Items[i]).FData.Instance_Identifier)
       end;
 
-      aIdentifier := dmTTT.GetIdentifierById(Instance_Ident_Index);
+//      aIdentifier := dmTTT.GetIdentifierById(Instance_Ident_Index);
       for I := 0 to cbbType.Items.Count - 1 do
       begin
         if aIdentifier = cbbType.Items[i] then

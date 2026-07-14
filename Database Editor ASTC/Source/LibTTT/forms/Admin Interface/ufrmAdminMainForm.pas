@@ -1436,7 +1436,7 @@ begin
       aPlatformInst := TPlatform_Instance(fInputName.PlatformVecList.Items[i]);
       aPlatformInst.FData.Resource_Alloc_Index := ra.FData.Resource_Alloc_Index;
 //      dmTTT.insertPlatformInstance(aPlatformInst,1);
-      dmTTT.getMaxIDPlatformInstance(idPlatInst);
+//      dmTTT.getMaxIDPlatformInstance(idPlatInst);
       aPlatformInst.FData.Platform_Instance_Index := idPlatInst;
       SIMMgr.Platform_Insts.Add(aPlatformInst);
     end;
@@ -1829,7 +1829,7 @@ begin
       if isNew then
       begin
 //        dmTTT.insertPlatformInstance(aPlatformInst,1);
-        dmTTT.getMaxIDPlatformInstance(idPlatInst);
+//        dmTTT.getMaxIDPlatformInstance(idPlatInst);
 //        for j := 0 to frmGroupMemberSelection.CubGroupAssignmentList.Count - 1 do
 //        begin
 //          aCubicle_Group_AssignmentTmp := TCubicle_Group_Assignment(frmGroupMemberSelection.CubGroupAssignmentList.Items[j]);
@@ -1883,7 +1883,7 @@ begin
         if not(dmTTT.CekPlatformAlreadyExist(aPlatformInst)) then
         begin
 //          dmTTT.insertPlatformInstance(aPlatformInst,1);
-          dmTTT.getMaxIDPlatformInstance(idPlatInst);
+//          dmTTT.getMaxIDPlatformInstance(idPlatInst);
 //          for j := 0 to frmGroupMemberSelection.CubGroupAssignmentList.Count - 1 do
 //          begin
 //            aCubicle_Group_AssignmentTmp := TCubicle_Group_Assignment(frmGroupMemberSelection.CubGroupAssignmentList.Items[j]);
@@ -1995,7 +1995,7 @@ begin
       if rec_tgtlib.FData.Platform_Instance_Index = 0 then  //berarti baru
       begin
 //        dmTTT.insertPlatformInstance(rec_tgtlib,1);
-        dmTTT.getMaxIDPlatformInstance(idPlatInst);
+//        dmTTT.getMaxIDPlatformInstance(idPlatInst);
 
 //        rec_tgtlib.FActivation.Deployment_Index := fPlatformDeploytment.Deployment.FData.Deployment_Index;
         rec_tgtlib.FActivation.Platform_Instance_Index := idPlatInst;

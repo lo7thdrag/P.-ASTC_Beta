@@ -383,7 +383,7 @@ end;
 
 procedure getAllVehicles(var sclist:Tlist;id:integer;var rec:TVehicle_Definition);
 begin
-  dmTTT.GetAllVehicle_Def(sclist,id,rec);
+//  dmTTT.GetAllVehicle_Def(sclist,id,rec);
 end;
 
 procedure getAllMissile(const id:integer;var mList:TList;var rec: TMissile_On_Board);

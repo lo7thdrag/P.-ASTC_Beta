@@ -137,7 +137,7 @@ begin
         rec_RA := TResource_Allocation.Create;
         rec_RA := TResource_Allocation(PI_List[I]);
         rec_RA.FData.Game_Enviro_Index := 1;
-        dmTTT.updateResource(rec_RA,IntToStr(rec_RA.FData.Resource_Alloc_Index));
+//        dmTTT.updateResource(rec_RA,IntToStr(rec_RA.FData.Resource_Alloc_Index));
       end;
       PI_List.Clear;
       dmTTT.GetGlobalConverge_ByEnvi(StrToInt(env_index),PI_List);

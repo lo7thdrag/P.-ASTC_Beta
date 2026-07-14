@@ -120,7 +120,7 @@ begin
     ExCom.Resource_Alloc_Index :=  StrToInt(frmAvailableResourceAllocation.RA_id)
   else
   begin
-    dmTTT.GetMaxResource_Allocation(id);
+//    dmTTT.GetMaxResource_Allocation(id);
     ExCom.Resource_Alloc_Index := id;
   end;
   ExCom.Channel_Number := StrToInt(Number);

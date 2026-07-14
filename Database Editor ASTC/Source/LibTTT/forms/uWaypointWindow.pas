@@ -130,34 +130,34 @@ begin
   wp := TWaypoint_Def(lvWaypoint.Selected.Data);
 
   gList := TList.Create;
-  if dmTTT.GetWaypointBySce(wp.FData.Waypoint_Index,gList) then
-  begin
-    MessageDlg('cannot remove the connected Runtime Platform data which still connected to Scenario',
-                 mtWarning,[mbOK], 0);
-    if lvWaypoint.Selected <> nil then
-    begin
-      with frmUsage do
-      begin
-        UId := wp.FData.Waypoint_Index;
-        name_usage  := wp.FData.Waypoint_Name;
-        UIndex  := 41;
-        usage_title := 'Scenario:';
-        ShowModal;
-      end;
-    end;
-  end
-  else
-  begin
-    warning := MessageDlg('Are you sure you want to delete this item?',mtConfirmation,mbOKCancel,0);
-    if warning = mrOK then
-    begin
-      dmTTT.DeleteWaypointByID(wp.FData.Waypoint_Index);
-      getWaypoint;
-      frmAdminMainForm.showWaypoint := True;
-      chkShow.Checked := false;
-      chkShowAll.Checked := false;
-    end;
-  end;
+//  if dmTTT.GetWaypointBySce(wp.FData.Waypoint_Index,gList) then
+//  begin
+//    MessageDlg('cannot remove the connected Runtime Platform data which still connected to Scenario',
+//                 mtWarning,[mbOK], 0);
+//    if lvWaypoint.Selected <> nil then
+//    begin
+//      with frmUsage do
+//      begin
+//        UId := wp.FData.Waypoint_Index;
+//        name_usage  := wp.FData.Waypoint_Name;
+//        UIndex  := 41;
+//        usage_title := 'Scenario:';
+//        ShowModal;
+//      end;
+//    end;
+//  end
+//  else
+//  begin
+//    warning := MessageDlg('Are you sure you want to delete this item?',mtConfirmation,mbOKCancel,0);
+//    if warning = mrOK then
+//    begin
+////      dmTTT.DeleteWaypointByID(wp.FData.Waypoint_Index);
+//      getWaypoint;
+//      frmAdminMainForm.showWaypoint := True;
+//      chkShow.Checked := false;
+//      chkShowAll.Checked := false;
+//    end;
+//  end;
 
 end;
 
@@ -274,7 +274,7 @@ begin
   WaypointList.Clear;
 
   //get all waypoint name
-  dmTTT.getAllWaypoint(WaypointList);
+//  dmTTT.getAllWaypoint(WaypointList);
 
   lvWaypoint.Clear;
   for I := 0 to WaypointList.Count - 1 do

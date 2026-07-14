@@ -146,7 +146,7 @@ begin
     begin
       EnableButton;
       getData;
-      dmTTT.insertResource(ra);
+//      dmTTT.insertResource(ra);
       ra_id := ra.FData.Resource_Alloc_Index;
       isNew := False;
     end
@@ -155,7 +155,7 @@ begin
       getData;
 //      getAllPlatform;
 //      getAllResource;   //masih belum fixed
-      dmTTT.updateResource(ra,IntToStr(ra.FData.Resource_Alloc_Index));
+//      dmTTT.updateResource(ra,IntToStr(ra.FData.Resource_Alloc_Index));
     end;
 
 //    if frmSummaryScenario.fromScenario then
@@ -987,7 +987,7 @@ end;
 
 procedure TfrmSummaryResourceAllocation.getRA;
 begin
-  dmTTT.GetResourceAlloc(ra_id, ra);
+//  dmTTT.GetResourceAlloc(ra_id, ra);
 end;
 
 procedure TfrmSummaryResourceAllocation.getEnvironment;

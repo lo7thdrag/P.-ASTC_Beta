@@ -92,11 +92,11 @@ begin
     Exit;
   end;
 
-  if CekInvalidType(dmTTT.getInstance_Ident_Index(dmTTT.GetIDVecTarget(cbbClass.Text), cbbType.Text)) then
-  begin
-    ShowMessage('type is already existed...');
-    Exit;
-  end;
+//  if CekInvalidType(dmTTT.getInstance_Ident_Index(dmTTT.GetIDVecTarget(cbbClass.Text), cbbType.Text)) then
+//  begin
+//    ShowMessage('type is already existed...');
+//    Exit;
+//  end;
 
 
   //=========================
@@ -105,7 +105,7 @@ begin
   begin
     Resource_Alloc_Index := 0;
     Platform_Instance_Index := 0;
-    Vehicle_Index         := dmTTT.GetIDVecTarget(cbbClass.Text);
+//    Vehicle_Index         := dmTTT.GetIDVecTarget(cbbClass.Text);
     Instance_Name         := cbbType.Text;
     Platform_Type         := 1;       //type of vehicle
     Track_ID              := edtTrackID.Text;
@@ -180,15 +180,15 @@ begin
     Exit;
   end;
 
-  if CekInvalidUpdateType(lvTargetList.Selected.Index, dmTTT.getInstance_Ident_Index(dmTTT.GetIDVecTarget(cbbClass.Text), cbbType.Text)) then
-  begin
-    ShowMessage('type is already existed...');
-    Exit;
-  end;
+//  if CekInvalidUpdateType(lvTargetList.Selected.Index, dmTTT.getInstance_Ident_Index(dmTTT.GetIDVecTarget(cbbClass.Text), cbbType.Text)) then
+//  begin
+//    ShowMessage('type is already existed...');
+//    Exit;
+//  end;
 
   with TargetPlatform.FData do   //yang diupdate hanya sebagian data saja, yang lain tetap
   begin
-    Vehicle_Index         := dmTTT.GetIDVecTarget(cbbClass.Text);
+//    Vehicle_Index         := dmTTT.GetIDVecTarget(cbbClass.Text);
     Instance_Name         := cbbType.Text;
     Track_ID              := edtTrackID.Text;
 
@@ -219,7 +219,7 @@ var
 begin
   vId := dmTTT.getVecIndexFromIdent(cbbClass.Text);
   aListIdentIndex := TList.Create;
-  dmTTT.GetTargetIdentifierFromClass(vId, aListIdentIndex);
+//  dmTTT.GetTargetIdentifierFromClass(vId, aListIdentIndex);
   cbbType.Items.Clear;
   for I := 0 to aListIdentIndex.Count - 1 do
   begin
@@ -379,7 +379,7 @@ var
 begin
   if aListOfTarget.Count = 0 then
   begin
-    dmTTT.GetTargetListFromVec_Def(aListOfTarget);
+//    dmTTT.GetTargetListFromVec_Def(aListOfTarget);
   end;
 
   cbbClass.Items.Clear;
@@ -391,8 +391,8 @@ begin
 
   if aListIdentIndex.Count = 0 then
   begin
-    if aListOfTarget.Count > 0 then
-      dmTTT.GetTargetIdentifierFromClass(TVehicle_Definition(aListOfTarget.Items[0]).FData.Vehicle_Index, aListIdentIndex);  //ambil list yang pertama saja
+//    if aListOfTarget.Count > 0 then
+//      dmTTT.GetTargetIdentifierFromClass(TVehicle_Definition(aListOfTarget.Items[0]).FData.Vehicle_Index, aListIdentIndex);  //ambil list yang pertama saja
   end;
 
   cbbType.Items.Clear;
@@ -461,7 +461,7 @@ begin
       end;
 
       aListIdentIndex := TList.Create;
-      dmTTT.GetTargetIdentifierFromClass(Vehicle_Index, aListIdentIndex);
+//      dmTTT.GetTargetIdentifierFromClass(Vehicle_Index, aListIdentIndex);
       cbbType.Items.Clear;
       for I := 0 to aListIdentIndex.Count - 1 do
       begin

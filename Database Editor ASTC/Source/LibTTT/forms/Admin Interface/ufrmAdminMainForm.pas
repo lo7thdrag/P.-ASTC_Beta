@@ -1323,11 +1323,11 @@ var
 begin
   recPI := TList.Create;
 
-  dmTTT.GetPlatformIdentIndex(recPI);
+//  dmTTT.GetPlatformIdentIndex(recPI);
   for I := 0 to recPI.Count - 1 do
   begin
     aPI := TPlatform_Instance(recPI.Items[i]);
-    InstanceIdent := dmTTT.GetIdentIndex(aPI);
+//    InstanceIdent := dmTTT.GetIdentIndex(aPI);
     dmTTT.UpdateIdentIndex(aPI, InstanceIdent);
   end;
 
@@ -1425,7 +1425,7 @@ begin
     Game_Start_Time        := StrToDateTime(edtStartTime.Text);
   end;
 
-  dmTTT.insertResource(ra);
+//  dmTTT.insertResource(ra);
 
   SIMMgr.Platform_Insts.Clear;
   //input platform
@@ -1444,7 +1444,7 @@ begin
 //    fInputName.PlatformVecList.Clear;
   end;
 
-  dmTTT.GetMaxResource_Allocation(IDRA);
+//  dmTTT.GetMaxResource_Allocation(IDRA);
 //  frmSummaryScenario.Scenario.FData.Resource_Alloc_Index := IDRA;
 //==============================================================================
 
@@ -1612,11 +1612,11 @@ begin
 
     if isNew then
     begin
-      if dmTTT.CekScenarioNameAlreadyExist(edtScenarioName.Text) then
-      begin
-        MessageDlg('The name of Scenario is already exist, Please choose another name.',mtError,mbOKCancel,0);
-        Exit;
-      end;
+//      if dmTTT.CekScenarioNameAlreadyExist(edtScenarioName.Text) then
+//      begin
+//        MessageDlg('The name of Scenario is already exist, Please choose another name.',mtError,mbOKCancel,0);
+//        Exit;
+//      end;
     end;
 
   {environment}
@@ -1756,10 +1756,10 @@ begin
 
     aResourceAllocation := TResource_Allocation(ResourceAllocationList.Items[0]);
     aResourceAllocation.FData.Game_Enviro_Index := aGameEnviroDef.FData.Game_Enviro_Index;
-    if isNew then
-      dmTTT.insertResource(aResourceAllocation)
-    else
-      dmTTT.updateResource(aResourceAllocation, IntToStr(aResourceAllocation.FData.Resource_Alloc_Index));
+//    if isNew then
+//      dmTTT.insertResource(aResourceAllocation);
+//    else
+//      dmTTT.updateResource(aResourceAllocation, IntToStr(aResourceAllocation.FData.Resource_Alloc_Index));
 
   //========= OVERLAY ================
     dmTTT.deleteAll_Resource_Overlay_Mapping(IntToStr(aResourceAllocation.FData.Resource_Alloc_Index));
@@ -1808,7 +1808,7 @@ begin
     end;
 
   //======Waypoint===============================
-    dmTTT.DeleteAllResource_Waypoint_Mapping(IntToStr(aResourceAllocation.FData.Resource_Alloc_Index));
+//    dmTTT.DeleteAllResource_Waypoint_Mapping(IntToStr(aResourceAllocation.FData.Resource_Alloc_Index));
     rec_wplib := TWaypoint_Def.Create;
 
 //    for I := 0 to frmWaypointResourceAllocationPickList.RAWaypointList.Count - 1 do
@@ -1952,7 +1952,7 @@ begin
     aScenarioDefinition.FData.Resource_Alloc_Index := aResourceAllocation.FData.Resource_Alloc_Index;
     aScenarioDefinition.FData.Scenario_Code := 0; //sce DBEditor di set 0, sce Voip di set 1
     if isNew then
-      insertScenario(aScenarioDefinition)
+//      insertScenario(aScenarioDefinition)
     else
       updateScenario(aScenarioDefinition,IntToStr(aScenarioDefinition.FData.Scenario_Index));
 
@@ -2174,8 +2174,8 @@ begin
             dmTTT.deleteFormation_Def(IntToStr(TFormation(mList[I]).FFormation_Def.Formation_Index));
           end;
           dmTTT.deletePlatformActivationByDeploy(IntToStr(DeleteID_DeployIndex));
-          dmTTT.DeleteAsset_Deployment_Definition(IntToStr(DeleteID_DeployIndex));
-          dmTTT.DeleteScenario_Definition(IntToStr(DeleteID_DeployIndex));
+//          dmTTT.DeleteAsset_Deployment_Definition(IntToStr(DeleteID_DeployIndex));
+//          dmTTT.DeleteScenario_Definition(IntToStr(DeleteID_DeployIndex));
         end;
 
         //================Delete Resource Allocation=====================
@@ -2200,8 +2200,8 @@ begin
           dmTTT.deleteAll_Resource_Overlay_Mapping(IntToStr(DeleteID_RAIndex));
           dmTTT.DeleteAllResource_Interval_List_Mapping(IntToStr(DeleteID_RAIndex));
           dmTTT.DeleteAllExternal_Communication_Channel(IntToStr(DeleteID_RAIndex));
-          dmTTT.updateScenario_ByRA('1',IntToStr(DeleteID_RAIndex));
-          dmTTT.DeleteResource_Allocation(IntToStr(DeleteID_RAIndex));
+//          dmTTT.updateScenario_ByRA('1',IntToStr(DeleteID_RAIndex));
+//          dmTTT.DeleteResource_Allocation(IntToStr(DeleteID_RAIndex));
           dmTTT.DeleteAllResource_Embark_Library_Mapping(IntToStr(DeleteID_RAIndex));
         end;
 
@@ -2215,7 +2215,7 @@ begin
             rec_RA := TResource_Allocation.Create;
             rec_RA := TResource_Allocation(PE_List[I]);
             rec_RA.FData.Game_Enviro_Index := 1;
-            dmTTT.updateResource(rec_RA,IntToStr(rec_RA.FData.Resource_Alloc_Index));
+//            dmTTT.updateResource(rec_RA,IntToStr(rec_RA.FData.Resource_Alloc_Index));
           end;
           PE_List.Clear;
           dmTTT.deleteGame_Environment_Def(DeleteID_envIndex);
@@ -3696,7 +3696,7 @@ begin
       wp_def := TWaypoint_Def(frmWaypointWindow.WaypointList.Items[i]);
       if wp_def.isShow then
       begin
-        dmTTT.getWaypointDataByID(wp_def.FData.Waypoint_Index, wp_DataList);
+//        dmTTT.getWaypointDataByID(wp_def.FData.Waypoint_Index, wp_DataList);
         if wp_DataList.Count > 0 then
         begin
           for J := 0 to wp_DataList.Count - 2 do
@@ -4913,7 +4913,7 @@ begin
   end;
   if isNew then
   begin
-    dmTTT.GetMaxResource_Allocation(IDRA); // gak jadi dipakai ^_^
+//    dmTTT.GetMaxResource_Allocation(IDRA); // gak jadi dipakai ^_^
 //    frmSummaryScenario.Scenario.FData.Resource_Alloc_Index := RA_index;//IDRA;
   end;
 //==============================================================================

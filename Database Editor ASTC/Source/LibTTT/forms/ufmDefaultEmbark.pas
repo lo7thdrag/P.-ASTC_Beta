@@ -179,7 +179,7 @@ begin
   end;
   allPlatformList.Clear;
   allPersonelList.Clear;
-  dmTTT.GetCarriable_Vehicle(0,allPlatformList);
+//  dmTTT.GetCarriable_Vehicle(0,allPlatformList);
   dmTTT.GetAll_Brigade(allPersonelList);
   RefreshList;
 end;

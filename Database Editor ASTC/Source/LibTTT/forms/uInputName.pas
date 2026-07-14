@@ -254,7 +254,7 @@ begin
           Resource_Alloc_Index  := frmSummaryResourceAllocation.ra_id
         else
         begin
-          dmTTT.GetMaxResource_Allocation(id);
+//          dmTTT.GetMaxResource_Allocation(id);
           Resource_Alloc_Index  := id;
         end;
 
@@ -437,7 +437,7 @@ begin
           Resource_Alloc_Index  := frmSummaryResourceAllocation.ra_id
         else
         begin
-          dmTTT.GetMaxResource_Allocation(id);
+//          dmTTT.GetMaxResource_Allocation(id);
           Resource_Alloc_Index  := id;
         end;
 //        Torpedo_Index         := StrToInt(frmTorpedoOnBoardPickList.torpedo_id);
@@ -463,7 +463,7 @@ begin
           Resource_Alloc_Index  := frmSummaryResourceAllocation.ra_id
         else
         begin
-          dmTTT.GetMaxResource_Allocation(id);
+//          dmTTT.GetMaxResource_Allocation(id);
           Resource_Alloc_Index  := id;
         end;
         Sonobuoy_Index        := StrToInt(fSonobuoySelect.sonobuoy_id);
@@ -489,7 +489,7 @@ begin
           Resource_Alloc_Index  := frmSummaryResourceAllocation.ra_id
         else
         begin
-          dmTTT.GetMaxResource_Allocation(id);
+//          dmTTT.GetMaxResource_Allocation(id);
           Resource_Alloc_Index  := id;
         end;
 //        Mine_Index            := StrToInt(frmMineOnBoardPickList.mine_id);
@@ -515,7 +515,7 @@ begin
           Resource_Alloc_Index  := frmSummaryResourceAllocation.ra_id
         else
         begin
-          dmTTT.GetMaxResource_Allocation(id);
+//          dmTTT.GetMaxResource_Allocation(id);
           Resource_Alloc_Index  := id;
         end;
         Satellite_Index       := StrToInt(fSatellite.sat_id);

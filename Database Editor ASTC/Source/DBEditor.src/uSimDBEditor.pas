@@ -62,7 +62,7 @@ interface
  procedure updateScenario(rec: TScenario_Definition; id: string);
 
  //resource allocation
- procedure insertResource(rec: TResource_Allocation);
+// procedure insertResource(rec: TResource_Allocation);
 
  //insert game_area
  function insertGameAreaDef(rec: TGame_Environment_Definition):Integer;
@@ -108,9 +108,9 @@ interface
  procedure updateSonobuoy_Def(rec: TSonobuoy_On_Board;id:string);
 
  //note
- procedure updateNote(rec: TNote_Storage; index: Integer; id: string);
- procedure insertNote(rec: TNote_Storage; index: Integer; id: string);
- procedure deleteNote(index: Integer; id: string);
+// procedure updateNote(rec: TNote_Storage; index: Integer; id: string);
+// procedure insertNote(rec: TNote_Storage; index: Integer; id: string);
+// procedure deleteNote(index: Integer; id: string);
 
  //role
 // procedure getStudentRole(pList: TList ; var rec:TStudentRole);
@@ -132,20 +132,20 @@ begin
  //dmTTT.GetStudent_Role_List(0,pList,rec);
 end;
 }
-procedure updateNote(rec: TNote_Storage; index: Integer; id: string);
-begin
-  dmTTT.updateNote(rec,index,id);
-end;
+//procedure updateNote(rec: TNote_Storage; index: Integer; id: string);
+//begin
+//  dmTTT.updateNote(rec,index,id);
+//end;
 
-procedure insertNote(rec: TNote_Storage; index: Integer; id: string);
-begin
-  dmTTT.insertNote(rec,index,id);
-end;
+//procedure insertNote(rec: TNote_Storage; index: Integer; id: string);
+//begin
+//  dmTTT.insertNote(rec,index,id);
+//end;
 
-procedure deleteNote(index: Integer; id: string);
-begin
-  dmTTT.deleteNote(index,id);
-end;
+//procedure deleteNote(index: Integer; id: string);
+//begin
+//  dmTTT.deleteNote(index,id);
+//end;
 
 procedure getAllsonobuoy (const id_vec,id:integer;var slist: TList;var rec:TSonobuoy_On_Board);
 begin
@@ -358,7 +358,7 @@ end;
 
 procedure getPLatforms(var sclist:Tlist);
 begin
- dmTTT.getAllScenario_Definition(scList);
+// dmTTT.getAllScenario_Definition(scList);
 end;
 
 procedure getEnvironments(var sclist:Tlist);
@@ -373,7 +373,7 @@ end;
 
 procedure getResourceAllocation(var raList:TList);
 begin
- dmTTT.getAllResource_Allocation(raList);
+// dmTTT.getAllResource_Allocation(raList);
 end;
 
 procedure getGameArea(id:string;gList:TList;var rec:TGame_Environment_Definition );
@@ -505,18 +505,18 @@ end;
 
 procedure updateScenario(rec: TScenario_Definition; id: string);
 begin
-   dmTTT.updateScenario(rec,id);
+//   dmTTT.updateScenario(rec,id);
 end;
 
 procedure insertScenario(rec: TScenario_Definition);
 begin
-  dmTTT.insertScenario(rec);
+//  dmTTT.insertScenario(rec);
 end;
 
-procedure insertResource(rec: TResource_Allocation);
-begin
-  dmTTT.insertResource(rec);
-end;
+//procedure insertResource(rec: TResource_Allocation);
+//begin
+//  dmTTT.insertResource(rec);
+//end;
 
 function insertGameAreaDef(rec: TGame_Environment_Definition):integer;
 begin

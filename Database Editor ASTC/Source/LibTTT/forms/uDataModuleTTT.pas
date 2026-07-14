@@ -92,26 +92,7 @@ type
     function InsertCubicleGroup(var aRec: TRecCubicle_Group): Boolean;
     function UpdateCubicleGroup(var aRec: TRecCubicle_Group): Boolean;
     function DeleteCubicleGroup(const aDeleteType: Byte; const aIndex: Integer): Boolean;
-//
-//
-//    function GetScenario(const id: Integer; var rec: TScenario_Definition): boolean;
-//    function getAllScenario_Definition(var aRec: TList): Integer;
-//    function updateScenario(rec: TScenario_Definition; value: string): Integer;
-//    function updateScenario_ByRA(new,old: string): Integer;
-//    function insertScenario(rec: TScenario_Definition): Integer;
-//    function DeleteScenario_Definition(const id: string): Integer;
-//
-//    function DeleteAsset_Deployment_Definition(const id: string): Integer;
-//    function DeleteScenario(const aScenarioId: Integer): Boolean;
-//
-//    //=Scenario
-//    function GetScenarioDef(var aList: TList): Integer; overload;
-//    function GetScenarioDef(const aIdentifier: string;
-//      var aResult: TScenario_Definition): Boolean; overload;
-//
-//
-//    // Gak dulu
-//    function GetPlatformActivation(const aPlatformIndex: Integer): Integer; overload;
+
     {$ENDREGION}
 
     {$REGION ' Resource Allocation '}
@@ -975,92 +956,22 @@ type
     {$ENDREGION}
 
     {$REGION ' Nanti Dulu '}
-    // --- 1 -- Scenario ----------------------------------------------------------
-    function GetScenario(const id: Integer; var rec: TScenario_Definition)
-      : boolean;
-    function getAllScenario_Definition(var aRec: TList): Integer;
 
-
-    function getAllWaypoint(var aRec: TList): Integer;
-    function DeleteWaypointByID(const id : integer) : Integer;
-    function GetWaypointBySce(const id: Integer; var pList: TList): boolean;
-    function DeleteAllResource_Waypoint_Mapping(const id: string): Integer;
-    function InsertWaypointByResourceAlloc(const id: string;
-      var rec: TWaypoint_Def): Integer;
-    function CekWaypointName(WaypointName : String) : Boolean;
-//    function InsertWaypointDef(WaypointDef : TWaypoint_Def) : integer;
-    procedure InsertWaypointDataPoint(WaypointIndex : Integer; Waypoint : TRecWaypoint_Data);
-    procedure getWaypointDataByID(const id : integer; var wpDataList : TList);
-//    function UpdateWaypointDef(WaypointDef : TWaypoint_Def) : integer;
-    function DeleteWaypointDataByID(const id: Integer): Integer;
-    function GetWaypointByResourceAlloc(const id: Integer;
-      var pList: TList): boolean;
-
-
-    //==================target================
-    function GetTargetListFromVec_Def(var pList : TList):boolean;
-    function GetTargetIdentifierFromClass(const vId : integer; var pList : TList):boolean;
-    function GetIDVecTarget(const Ident : string): Integer;
-    function isTargetFromPlatformInst(const vId : Integer): Boolean;
-
-    //--------------------------------------------
-
-    function updateScenario(rec: TScenario_Definition; value: string): Integer;
-    function updateScenario_ByRA(new,old: string): Integer;
-    function insertScenario(rec: TScenario_Definition): Integer;
-    function DeleteScenario_Definition(const id: string): Integer;
-
-    function DeleteAsset_Deployment_Definition(const id: string): Integer;
-    function CekScenarioNameAlreadyExist(const aName : string):Boolean;
-
-    // --- 2 ---------------------------------------------------------------------
-    function GetResourceAlloc(const id: Integer; var rec: TResource_Allocation)
-      : boolean;
-    function GetResourceAlloc_byGameDef(const id: Integer; var aRec: TList): Integer;
-
-    function GetResource_Overlay_Mapping(const id: Integer; var recList: TList): boolean;
-
-    function getAllResource_Allocation(var aRec: TList): Integer;
-    function GetMaxResource_Allocation(var id: Integer): boolean;
-    function updateResource(rec: TResource_Allocation; id: string): Integer;
-    function insertResource(var rec: TResource_Allocation): Integer;
-    function DeleteResource_Allocation(const id: string): Integer;
-
-    // --- 2.1 -- Resource Alloc --------------------------------------------------
-    function GetPlatformIdentIndex(var aRec : TList) : Boolean;
-    function GetIdentIndex(const aPI : TPlatform_Instance) : integer;
     function UpdateIdentIndex(const aPI : TPlatform_Instance; const id : integer) : Boolean;
-    function getAllPlatFormInstance(const id: Integer;
-      var aRec: TList): Integer;
+    function getAllPlatFormInstance(const id: Integer; var aRec: TList): Integer;
     function getPlatformInstanceByIndex(const id:integer;var rec:TPlatform_Instance):boolean;
-    function getAllPlatFormInstanceForceClassification(const v_id,id: integer;
-      var aRec: TList;force:integer;classification:integer): Integer;
+    function getAllPlatFormInstanceForceClassification(const v_id,id: integer; var aRec: TList;force:integer;classification:integer): Integer;
 
-//    function getPlatFormInstance(const ra_id,force: integer;const instance:string;
-//    var aRec: TList): Integer;
-    function filterPlatFormInstance(const ra_id,force,clas,deployed: integer;
-    var aRec: TList): Integer;
+    function filterPlatFormInstance(const ra_id,force,clas,deployed: integer;var aRec: TList): Integer;
 
-    function getPlatformInstanceByGroup(const group_id:integer;var cList:TList)
-    :integer;
-    function getPlatformInstanceByName(const id,ra_id,force:string;var rec:TPlatform_Instance):boolean;
-    function getPlatformInstanceByMissile(const miss_id:integer;var cList:TList):integer;
-    function getPlatformInstanceByHybrid(const hyb_id:integer;var cList:TList):integer;
+    function GetPlatform_Instance_Identifier(const v_id: integer;const v_ident:string;var vList:TList; var rec: TPlatform_Instance_Identifier): boolean;
 
-    function GetPlatform_Instance_Identifier(const v_id: integer;const v_ident:string;var vList:TList;
-    var rec: TPlatform_Instance_Identifier): boolean;
-    function InsertPlatform_Instance_Identifier(var rec: TPlatform_Instance_Identifier): integer;
-    function DeletePlatform_Instance_Identifier(const id: string): integer;
     function DeletePlatform_Instance_IdentifierByVec(const id: string): integer;
     function UpdatePlatform_Instance_ModelPathByInx(const ins_ident, vbsName, modelPath: string): Integer;
     function UpdatePlatform_Instance_Identifier(const id, aIdent: string): integer;
     function GetIdentifierById(const id : integer): string;
 
     function getMaxIDPlatformInstance(var id: Integer): boolean;
-//    function updatePlatformInstance(const rec:TPlatform_Instance;const id:integer):integer;
-//    function insertPlatformInstance(const rec:TPlatform_Instance;const id:integer):integer;
-
-//    function updatePlatformInstance(var rec: TPlatform_Instance;const pi_id,mis_id,tor_id,mine_id,hybrid_id,satelit_id,son_id:integer):Integer;
     function updatePlatformInst(const index: Integer; rec: TPlatform_Instance;pi_id:string):integer;
 
     function GetPlatform_ActivationByPlatformInstance(const id: integer;var rec: TPlatform_Activation): boolean;
@@ -1211,21 +1122,16 @@ type
 
 // -- weapons --
     // Missile
-    function getAllMissile_OnBoard(const id, index: Integer;
-      var aRec: TList): Integer;
-    function getAllMissile_OnBoard2(const id, index: Integer;
-      var aRec: TList): Integer;
-    function getMissile_OnBoard_Distinct(const id: Integer;
-      var aRec: TList): Integer;
-    function getAllMissile(const id: Integer; var mList: TList;
-      var rec: TMissile_On_Board): Integer;
+    function getAllMissile_OnBoard(const id, index: Integer; var aRec: TList): Integer;
+    function getAllMissile_OnBoard2(const id, index: Integer; var aRec: TList): Integer;
+    function getMissile_OnBoard_Distinct(const id: Integer; var aRec: TList): Integer;
+    function getAllMissile(const id: Integer; var mList: TList; var rec: TMissile_On_Board): Integer;
     function getPIMissile(var mList: TList; ra_id, force: Integer): Integer;
     function getMissile_Def(rec: TMissile_Definition; id: Integer): Integer;
     function updateMissile_Def(rec: TMissile_On_Board; id: string): Integer;
     function insertMissile_Def(rec: TMissile_On_Board): Integer;
     function deleteMissile_Def(id: Integer): Integer;
-    function getMissileByLibrary(const id_Library: Integer;
-      var vList: TList): Integer;
+    function getMissileByLibrary(const id_Library: Integer; var vList: TList): Integer;
 
     //Fitted Weapon
     function GetFitted_Weapon_On_Board(const id: integer;
@@ -1694,8 +1600,7 @@ type
     function deleteGun(id: Integer): Integer;
 
     // Gun POH
-    function getAllGun_POH_vs_Range(const id,tipe: integer;
-      var aRec: TList; var xMin,yMax,yMin: Double): Integer;
+    function getAllGun_POH_vs_Range(const id,tipe: integer; var aRec: TList; var xMin,yMax,yMin: Double): Integer;
     function DeleteGun_POH_vs_Range(const id,tipe: string): integer;
     function insertGun_POH_vs_Range(rec: TGun_Definition): Integer;
 
@@ -1705,8 +1610,7 @@ type
     function GetSea_State_On_Missile(var aRec: TList): boolean;
     function GetSea_State_On_Radar(var aRec: TList): boolean;
 
-    function updateSeaState_On_Radar(rec: TSea_State_On_Radar;
-      id: string): Integer;
+    function updateSeaState_On_Radar(rec: TSea_State_On_Radar; id: string): Integer;
     function insertSeaState_On_Radar(rec: TSea_State_On_Radar): Integer;
 
     function GetSeaStateOnSonar(var sea: TSeaStateSonarArray): boolean;
@@ -1716,42 +1620,29 @@ type
     function insertSeaStateOnSonar(rec: TSea_State_On_Sonar): Integer;
 
     // Game Sea State
-    function getAllGame_Sea_On_Radar(const id: integer;
-      var aRec: TList): Integer;
-    function UpdateGame_Sea_On_Radar(const id,sea: string;
-      var rec: TGame_Sea_On_Radar): integer;
-    function InsertGame_Sea_On_Radar(const id,sea: string;
-      var rec: TGame_Sea_On_Radar): integer;
+    function getAllGame_Sea_On_Radar(const id: integer; var aRec: TList): Integer;
+    function UpdateGame_Sea_On_Radar(const id,sea: string; var rec: TGame_Sea_On_Radar): integer;
+    function InsertGame_Sea_On_Radar(const id,sea: string; var rec: TGame_Sea_On_Radar): integer;
     function DeleteGame_Sea_On_Radar(const id: string): integer;
-    function getAllGame_Sea_On_Missile_Safe_Altitude(const id: integer;
-      var aRec: TList): Integer;
-    function UpdateGame_Sea_On_Missile_Safe_Altitude(const id,sea: string;
-      var rec: TGame_Sea_On_Missile_Safe_Altitude): integer;
-    function InsertGame_Sea_On_Missile_Safe_Altitude(const id,sea: string;
-      var rec: TGame_Sea_On_Missile_Safe_Altitude): integer;
+    function getAllGame_Sea_On_Missile_Safe_Altitude(const id: integer; var aRec: TList): Integer;
+    function UpdateGame_Sea_On_Missile_Safe_Altitude(const id,sea: string; var rec: TGame_Sea_On_Missile_Safe_Altitude): integer;
+    function InsertGame_Sea_On_Missile_Safe_Altitude(const id,sea: string; var rec: TGame_Sea_On_Missile_Safe_Altitude): integer;
     function DeleteGame_Sea_On_Missile_Safe_Altitude(const id: string): integer;
-    function getAllGame_Sea_On_Sonar(const id: integer;
-      var aRec: TList): Integer;
-    function UpdateGame_Sea_On_Sonar(const id,freq: string;
-      var rec: TGame_Sea_On_Sonar): integer;
-    function InsertGame_Sea_On_Sonar(const id,freq: string;
-      var rec: TGame_Sea_On_Sonar): integer;
+    function getAllGame_Sea_On_Sonar(const id: integer; var aRec: TList): Integer;
+    function UpdateGame_Sea_On_Sonar(const id,freq: string; var rec: TGame_Sea_On_Sonar): integer;
+    function InsertGame_Sea_On_Sonar(const id,freq: string; var rec: TGame_Sea_On_Sonar): integer;
     function DeleteGame_Sea_On_Sonar(const id: string): integer;
 
     // Ship
     function GetShipNoiseOnSonar(var ship: TShipNoiseOnSonarArray): boolean;
     function GetShip_Noise_On_Sonar(var aRec: TList): boolean;
-    function updateShipNoiseOnSonar(rec: TShip_Noise_On_Sonar;
-      id: string): Integer;
+    function updateShipNoiseOnSonar(rec: TShip_Noise_On_Sonar; id: string): Integer;
     function insertShipNoiseOnSonar(rec: TShip_Noise_On_Sonar): Integer;
 
     // Game Ship
-    function getAllGame_Ship_On_Sonar(const id: integer;
-      var aRec: TList): Integer;
-    function UpdateGame_Ship_On_Sonar(const id,freq: string;
-      var rec: TGame_Ship_On_Sonar): integer;
-    function InsertGame_Ship_On_Sonar(const id,freq: string;
-      var rec: TGame_Ship_On_Sonar): integer;
+    function getAllGame_Ship_On_Sonar(const id: integer; var aRec: TList): Integer;
+    function UpdateGame_Ship_On_Sonar(const id,freq: string; var rec: TGame_Ship_On_Sonar): integer;
+    function InsertGame_Ship_On_Sonar(const id,freq: string; var rec: TGame_Ship_On_Sonar): integer;
     function DeleteGame_Ship_On_Sonar(const id: string): integer;
 
     // Operating Mode
@@ -1763,27 +1654,22 @@ type
 
     function updateLink_Def(rec: TLink; id: string): Integer;
     function insertLink_Def(rec: TLink): Integer;
-    function updateLink_Part(rec: TLink; link_id: string;
-      deploy_id: string): Integer;
+    function updateLink_Part(rec: TLink; link_id: string; deploy_id: string): Integer;
     function insertLink_Part(rec: TLink): Integer;
     function deleteLink_Part(link_id: string; deploy_id: string): Integer;
     function deleteAllLink_Part(deploy_id: string): Integer;
     function deleteAllLink_Def(deploy_id: string): Integer;
 
     // Formation
-    function GetFormationDefinition(const id: Integer;
-      var aRec: TList): Integer;
+    function GetFormationDefinition(const id: Integer; var aRec: TList): Integer;
     function DeleteFormationDefinition_ByLeader(const id: string): Integer;
-    function GetFormationAssignment(var fAssign: TFormation;
-      var pfList: TList): Integer;
-    function GetFormation_Assignment(const id: Integer;
-      var pfList: TList): Integer;
+    function GetFormationAssignment(var fAssign: TFormation; var pfList: TList): Integer;
+    function GetFormation_Assignment(const id: Integer; var pfList: TList): Integer;
     function GetFormation_ByPlatform(const id: string): Integer;
 
     function updateFormation_Def(rec: TFormation; id: string): Integer;
     function insertFormation_Def(rec: TFormation): Integer;
-    function updateFormation_Assign(rec: TFormation; form_id: string;
-      pi_id: string): Integer;
+    function updateFormation_Assign(rec: TFormation; form_id: string; pi_id: string): Integer;
     function insertFormation_Assign(rec: TFormation): Integer;
     function deleteFormation_Assign(form_id: string; pi_id: string): Integer;
     function deleteAllFormation_Assign(form_id: string): Integer;
@@ -1804,12 +1690,10 @@ type
     function updateGeo_Area_Def(rec: TGeo_Area_Def; id: string): Integer;
     function insertGeo_Area_Def(rec: TGeo_Area_Def): Integer;
 
-    function updateGeo_Area_Point(rec: TGeo_Area_Point; id: string;
-      point: string): Integer;
+    function updateGeo_Area_Point(rec: TGeo_Area_Point; id: string; point: string): Integer;
     function insertGeo_Area_Point(rec: TGeo_Area_Point): Integer;
 
-    function updateResourceGeo_Area_Map(rec: TResource_Geo_Area_Map;
-      geo_id: string): Integer;
+    function updateResourceGeo_Area_Map(rec: TResource_Geo_Area_Map; geo_id: string): Integer;
     function insertResourceGeo_Area_Map(rec: TResource_Geo_Area_Map): Integer;
     function insertResourceOverlay_Map(rec: TResource_Overlay_Mapping): Integer;
 
@@ -1821,8 +1705,7 @@ type
     function updateReference(rec: TRecReference_Point; id: string): Integer;
     function insertReference(var rec: TRecReference_Point): Integer;
     function DeleteReference_Point(const ra_id,force: Integer): integer;
-    function getAllReference_Point(const ra_id,force: integer;
-      var aRec: TList): Integer;
+    function getAllReference_Point(const ra_id,force: integer; var aRec: TList): Integer;
     function DeleteAllReference_Point(const ra_id: string): integer;
 
     // Resource_Pattern_Mapping
@@ -1836,24 +1719,20 @@ type
     function GetResource_Interval_List_Mapping(const id: Integer; var aRec: TList): Integer;
     function DeleteAllResource_Interval_List_Mapping(const ra_id: string): integer;
     function InsertResource_Interval_List_Mapping(rec: TResource_Allocation): Boolean;
-    function UpdateResource_Interval_List_Mapping(const id: integer;
-             rec: TResource_Allocation): integer;
+    function UpdateResource_Interval_List_Mapping(const id: integer; rec: TResource_Allocation): integer;
 
     // External Comm
-    function GetExternal_Communication_Channel(var aRec: TList;
-      const ra_id, com_id: string; var rec: TExternal_Communication_Channel)
-      : Integer;
-    function updateComm(rec: TRecExternal_Communication_Channel;
-      id: string): Integer;
+    function GetExternal_Communication_Channel(var aRec: TList; const ra_id, com_id: string; var rec: TExternal_Communication_Channel) : Integer;
+    function updateComm(rec: TRecExternal_Communication_Channel; id: string): Integer;
     function insertComm(rec: TRecExternal_Communication_Channel): Integer;
     function DeleteExternal_Communication_Channel(const id: string): Integer;
     function DeleteAllExternal_Communication_Channel(const id: string): Integer;
 
     // Note Storage
-    function updateNote(rec: TNote_Storage; index: Integer; id: string): Integer;
-    function insertNote(rec: TNote_Storage; index: Integer; id: string): Integer;
-    function deleteNote(index: Integer; id: string): Integer;
-    function GetNote(const index,id: integer): boolean;
+//    function updateNote(rec: TNote_Storage; index: Integer; id: string): Integer;
+//    function insertNote(rec: TNote_Storage; index: Integer; id: string): Integer;
+//    function deleteNote(index: Integer; id: string): Integer;
+//    function GetNote(const index,id: integer): boolean;
 
     // Blind Zone
     function getBlind(var bList: TList;const index,id,number :integer):integer;
@@ -2072,17 +1951,8 @@ type
     function GetLogisticsByVec(const id: Integer; var pList: TList): boolean;
     function GetCapabilityByVec(const id: Integer; var pList: TList): boolean; //dng
 
-//    function GetFitted_WeaponByVec(const index,id: Integer; var pList: TList): boolean;
-//    function GetFitted_WeaponByRPL(const index,id: Integer; var pList: TList): boolean;
     function GetPoint_EffectByVec(const index,id: Integer; var pList: TList): boolean;
-//    function GetAcoustic_DecoyByVec(const id: Integer; var pList: TList): boolean;
-//    function GetAir_BubbleByVec(const id: Integer; var pList: TList): boolean;
-//    function GetChaffByVec(const id: Integer; var pList: TList): boolean;
-//    function GetFloating_DecoyByVec(const id: Integer; var pList: TList): boolean;
-//    function GetSelf_DefensiveByVec(const id: Integer; var pList: TList): boolean;
-//    function GetTowed_JammerByVec(const id: Integer; var pList: TList): boolean;
-//    function GetRadar_NoiseByVec(const id: Integer; var pList: TList): boolean;
-//    function GetInfrared_DecoyByVec(const id: Integer; var pList: TList): boolean;
+
     function GetPlatform_InstanceBySce(const index,id: Integer;
       var pList: TList; instance_name: String): boolean;
     function GetRuntime_PlatformBySce(const id: Integer; var pList: TList): boolean;
@@ -2098,15 +1968,7 @@ type
     function GetGlobalConverge_ByEnvi(const id: Integer; var pList: TList): boolean;
     function updateGlobalConverge(rec: TGlobal_Convergence_Zone; id: string): Integer;
 
-    // Embark Library
-//    function GetEmbark_Library(const id: Integer; var pList: TList; var rec: TBase): Boolean;
-//    function GetAllEmbark_library(const id: Integer; var pList: TList; var rec: TBase ): Boolean;
-//    function InsertEmbark_LIbrary(var rec: TBase): Integer;
-//    function UpdateEmbark_Library(const id: string; var rec: TBase) : Integer;
-//    function DeleteEmbark_Library(const id: string): Integer;
     function DeleteAllResource_Embark_Library_Mapping(const id: string): Integer;
-
-
 
     function GetResource_Embark_Library(const res_id: Integer;
       var pList: Tlist): Boolean;
@@ -2119,14 +1981,40 @@ type
     function InsertBase_Location(var rec: TBase_Location): Integer;
     function DeleteBase_Location(const id: String): Integer;
     function CekBase_Location(aName: String): Boolean;
-    function GetDomainVehicle(const Air, Amphibi, Land : Integer;
-      var pList: TList): Integer;
+    function GetDomainVehicle(const Air, Amphibi, Land : Integer; var pList: TList): Integer;
     function GetCarriable_Vehicle(const id: Integer; var pList: TList): Boolean; //dng
-    function GetPersonel(const id: Integer; var pList: TList;
-      var rec: Tpersonel): Boolean;
+
+
+
+
+    function GetFontNameTaktis(var pList : tlist):Boolean;
+
+
+    function Get_IdResourceAlloc(const id: Integer; var recList: TList): Boolean;
+    {$ENDREGION}
+
+    {$REGION ' Jangan Dulu '}
+    {Game Report}
+    function GetAllGameReport(plist : TList; rec: TRuntime_Game_Report): integer;
+    function DeleteAll_GameReport( rec: TRuntime_Game_Report): Integer;
+    function DeleteByID_GameReport(const id : String): Boolean;
+
+    {Plotting}
+    function InsertPlotting_Definition(aRec : TrecPlotting_Definition): Integer;
+    function GetAllPlotting_Definition(var pList : TList ): Boolean;
+    function GetPlotting_DefinitionById(const id : Integer; rec: TRuntime_Plotting_Definition) : Integer;
+    function DeletePlotting(const id : String) : Boolean;
+    function CekPlottingInsert(aName : string):Boolean;
+    function UpdatePlotting (aRec : TrecPlotting_Definition; id : string) : Boolean;
+
+    function GetAll_Resource_Plotting_Mapping(const id: Integer; var recList: TList): Boolean;
+    function InsertPlottingMapping(var aRec : TResource_Allocation): Integer;
+    function DeleteAll_Resource_Plotting_mapping(const id : string): Integer;
+
+    {Personel}
+    function GetPersonel(const id: Integer; var pList: TList; var rec: Tpersonel): Boolean;
     function GetAll_Brigade(var pList: TList): Boolean;
-    function InsertPersonel_All(var rec: TPersonel; IdAction,
-      IdPersonel: Integer): Integer;
+    function InsertPersonel_All(var rec: TPersonel; IdAction, IdPersonel: Integer): Integer;
     function DeletePersonel_ByIdBrigade(const id: String): Integer;
     function DeletePersonelBrigade_ByIdBrigade(const id: String): Integer;
     function GetBatalyon(const id: Integer; var pList: TList): Boolean;
@@ -2134,35 +2022,15 @@ type
     function GetPlatoon(const id: Integer; var pList: TList): Boolean;
     function GetGroup(const id: Integer; var pList: TList): Boolean;
     function UpdatePersonel_Brigade(const idx: Integer; var rec : TPersonel): Integer;
-    {Plotting}
-    function InsertPlotting_Definition(aRec : TrecPlotting_Definition): Integer;
-    function GetAllPlotting_Definition(var pList : TList ): Boolean;
-    function GetPlotting_Definition(const id : Integer ; var pList: TList;
-      rec: TRuntime_Plotting_Definition) : Integer;
-    function GetPlotting_DefinitionById(const id : Integer ;
-      rec: TRuntime_Plotting_Definition) : Integer;
-    function GetAllPlotting_DefinitionByID(const id : Integer; var pList: TList; rec: TRuntime_Plotting_Definition) : Integer;
-    function DeletePlotting(const id : String) : Boolean;
-    function CekPlottingInsert(aName : string):Boolean;
-    function UpdatePlotting (aRec : TrecPlotting_Definition; id : string) : Boolean;
-    function GetFontNameTaktis(var pList : tlist):Boolean;
-    function InsertPlottingMapping(var aRec : TResource_Allocation): Integer;
-    function DeleteAll_Resource_Plotting_mapping(const id : string): Integer;
-    function GetAll_Resource_Plotting_Mapping(const id: Integer; var recList: TList): Boolean;
-    function Get_IdResourceAlloc(const id: Integer; var recList: TList): Boolean;
-    {Game Report}
-    function GetAllGameReport(plist : TList; rec: TRuntime_Game_Report): integer;
-    function DeleteAll_GameReport( rec: TRuntime_Game_Report): Integer;
-    function DeleteByID_GameReport(const id : String): Boolean;
+    {$ENDREGION}
 
-
-    function GetPersonel_Mapping(const id: Integer; var pList: TList): Boolean;
-    function GetPersonel_ByRes(const id: Integer; var pList: TList): Boolean;
-    function GetPersonel_Embark_Library(const id: Integer; var pList: Tlist;
-      rec: TPersonel{_Embark_Library}): Boolean;
-    function InsertPersonel_Embark_Library(var rec: TPersonel_Embark_Library)
-      : Integer;
-    function DeletePersonel_Embark_Library(const lib_id: string): Integer;
+    {$REGION ' Gak Dipake '}
+//    function GetScenario(const id: Integer; var rec: TScenario_Definition): boolean;
+//    function GetPersonel_Mapping(const id: Integer; var pList: TList): Boolean;
+//    function GetPersonel_ByRes(const id: Integer; var pList: TList): Boolean;
+//    function GetPersonel_Embark_Library(const id: Integer; var pList: Tlist; rec: TPersonel{_Embark_Library}): Boolean;
+//    function InsertPersonel_Embark_Library(var rec: TPersonel_Embark_Library): Integer;
+//    function DeletePersonel_Embark_Library(const lib_id: string): Integer;
     {$ENDREGION}
 
   end;
@@ -30151,51 +30019,11 @@ end;
 
 {$ENDREGION}
 
+{$REGION ' Jangan Dulu '}
+
+{$ENDREGION}
+
 {$REGION ' Nanti Dulu '}
-
-function TdmTTT.GetKompi(const id: Integer; var pList: TList): Boolean;
-var
-  rec: TPersonel;
-begin
-  result := False;
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT b2.BataLyon_Index, b2.Batalyon_Identifier , ');
-    SQL.Add('c3.Kompi_Index, c3.Kompi_Identifier ');
-    SQL.Add('FROM Personel_Brigade a1 JOIN Personel_Batalyon b2 ON ');
-    SQL.Add('a1.Brigade_Index = b2.Brigade_Index JOIN ');
-    SQL.Add('Personel_Kompi c3 ON b2.Batalyon_Index = c3.Batalyon_Index ');
-    SQL.Add('WHERE b2.BataLyon_Index = ' + IntToStr(id));
-
-    Open;
-    Result := RecordCount > 0;
-    if not Assigned(pList) then
-      pList := TList.Create
-    else
-      pList.Clear;
-
-    if not IsEmpty then
-    begin
-      First;
-      while not ZQ.Eof do
-      begin
-        rec := TPersonel.Create;
-        TBatalyon(rec).Id := FieldByName('Batalyon_Index').AsInteger;
-        TBatalyon(rec).Identifier := FieldByName('Batalyon_Identifier').AsString;
-        TKompi(rec).Id := FieldByName('Kompi_Index').AsInteger;
-        TKompi(rec).Identifier := FieldByName('Kompi_Identifier').AsString;
-
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
 
 function TdmTTT.GetLibrary_MappingByRA(const index,id: Integer; var pList: TList): boolean;
 var
@@ -32120,70 +31948,6 @@ end;
 
 // --------------------------------------------------------------------------
 
-function TdmTTT.GetWaypointBySce(const id: Integer; var pList: TList): boolean;
-var
-  rec: TWaypoint_Def;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Resource_Waypoint_Mapping a LEFT JOIN Waypoint b ');
-    SQL.Add('ON a.Waypoint_Index = b.Waypoint_Index ');
-    SQL.Add('RIGHT JOIN Scenario_Definition c ');
-    SQL.Add('ON a.Resource_Alloc_Index = c.Resource_Alloc_Index ');
-    SQL.Add('WHERE a.Waypoint_Index = ' + IntToStr(id));
-    SQL.Add(' ORDER BY c.Scenario_Identifier ');
-
-    Open;
-
-    result := RecordCount > 0;
-    if not Assigned(pList) then
-    begin
-      pList.Create;
-    end
-    else
-    begin
-      pList.Clear;
-    end;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not ZQ.Eof do
-      begin
-        rec := TWaypoint_Def.Create;
-        with rec.FData do
-        begin
-          Waypoint_Index := FieldByName('Waypoint_Index')
-            .AsInteger;
-          Termination := FieldByName('Termination').AsInteger;
-          Waypoint_Name := FieldByName('Waypoint_Name').AsString;
-          Waypoint_Centre_Lat :=  FieldByName('Waypoint_Centre_Lat').AsFloat;
-          Waypoint_Centre_Long :=  FieldByName('Waypoint_Centre_Long').AsFloat;
-          Dimension := FieldByName('Dimension').AsSingle;
-        end;
-
-        with rec.FScenario do
-        begin
-          Scenario_Index      := FieldByName('Scenario_Index').AsInteger;
-          Scenario_Identifier := FieldByName('Scenario_Identifier').AsString;
-          Resource_Alloc_Index:= FieldByName('Resource_Alloc_Index').AsInteger;
-        end;
-
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
 function TdmTTT.GetRuntime_PlatformBySce(const id: Integer; var pList: TList): boolean;
 var
   rec: TRuntime_Platform_Library;
@@ -32581,53 +32345,6 @@ begin
           Increase_per_CZ := FieldByName('Increase_per_CZ').AsSingle;
           Max_Sonar_Depth := FieldByName('Max_Sonar_Depth').AsSingle;
         end;
-
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetGroup(const id: Integer; var pList: TList): Boolean;
-var
-  rec: TPersonel;
-begin
-  result := False;
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT d4.Pleton_Index, d4.Pleton_Identifier , ');
-    SQL.Add('e5.Regu_Index, e5.Regu_Identifier, e5.Quantity ');
-    SQL.Add('FROM Personel_Brigade a1 JOIN Personel_Batalyon b2 ON ');
-    SQL.Add('a1.brigade_index = b2.brigade_index JOIN personel_kompi c3 ON ');
-    SQL.Add('b2.batalyon_index = c3.batalyon_index JOIN personel_pleton d4 ON ');
-    SQL.Add('c3.kompi_index = d4.kompi_index JOIN Personel_Regu e5 ON ');
-    SQL.Add('d4.Pleton_Index = e5.Pleton_Index ');
-    SQL.Add('WHERE d4.Pleton_Index = ' + IntToStr(id));
-
-    Open;
-    Result := RecordCount > 0;
-    if not Assigned(pList) then
-      pList := TList.Create
-    else
-      pList.Clear;
-
-    if not IsEmpty then
-    begin
-      First;
-      while not ZQ.Eof do
-      begin
-        rec := TPersonel.Create;
-        TPlatoon(rec).Id := FieldByName('Pleton_Index').AsInteger;
-        TPlatoon(rec).Identifier := FieldByName('Pleton_Identifier').AsString;
-        TGroup(rec).Id := FieldByName('Regu_Index').AsInteger;
-        TGroup(rec).Identifier := FieldByName('Regu_Identifier').AsString;
-        TGroup(rec).quantity := FieldByName('Quantity').AsInteger;
 
         pList.Add(rec);
         ZQ.Next;
@@ -33246,319 +32963,37 @@ begin
   ZQ.Connection := ZConn;
 end;
 
-// ------------------------------------------------------------------------------
-function TdmTTT.GetScenario(const id: Integer; var rec: TScenario_Definition)
-  : boolean;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Scenario_Definition');
-    SQL.Add('WHERE (Scenario_Index = ' + IntToStr(id) + ')');
-    Open;
-
-    result := RecordCount > 0;
-    if not IsEmpty then
-    begin
-      First;
-      if not Assigned(rec) then
-        rec := TScenario_Definition.Create;
-      with rec.FData do
-      begin
-        Scenario_Index := FieldByName('Scenario_Index').AsInteger;
-        Scenario_Identifier := FieldByName('Scenario_Identifier').AsString;
-        Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-        Scenario_Code := FieldByName('Scenario_Code').AsInteger;
-      end;
-    end;
-  end;
-end;
-
-/// /====================================================
-function TdmTTT.getAllScenario_Definition(var aRec: TList): Integer;
-var
-  rec: TScenario_Definition;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM  Scenario_Definition ');
-    SQL.Add('WHERE  Scenario_Code = 0 ');
-    SQL.Add('ORDER BY Scenario_Identifier');
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-
-      First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TScenario_Definition.Create;
-        with rec.FData do
-        begin
-          Scenario_Index := FieldByName('Scenario_Index').AsInteger;
-          Scenario_Identifier := FieldByName('Scenario_Identifier').AsString;
-          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-          Scenario_Code := FieldByName('Scenario_Code').AsInteger;
-        end;
-        aRec.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.getAllWaypoint(var aRec: TList): Integer;
-var
-  rec: TWaypoint_Def;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM  Waypoint ');
-    SQL.Add('ORDER BY Waypoint_Name');
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-
-      First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TWaypoint_Def.Create;
-        with rec.FData do
-        begin
-          Waypoint_Index  := FieldByName('Waypoint_Index').AsInteger;
-          Termination     := FieldByName('Termination').AsInteger;
-          Waypoint_Name   := FieldByName('Waypoint_Name').AsString;
-          Waypoint_Centre_Lat :=  FieldByName('Waypoint_Centre_Lat').AsFloat;
-          Waypoint_Centre_Long :=  FieldByName('Waypoint_Centre_Long').AsFloat;
-          Dimension := FieldByName('Dimension').AsSingle;
-        end;
-        aRec.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-procedure TdmTTT.getWaypointDataByID(const id: integer; var wpDataList: TList);
-var
-  wpData: TWaypoint_Data;
-begin
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM  Waypoint_Data ');
-    SQL.Add('WHERE Waypoint_Index = ' + IntToStr(id));
-    Open;
-
-    if not IsEmpty then
-    begin
-
-      First;
-
-      if not Assigned(wpDataList) then
-        wpDataList := TList.Create
-      else
-        wpDataList.Clear;
-
-      while not ZQ.Eof do
-      begin
-        wpData := TWaypoint_Data.Create;
-        with wpData.FData do
-        begin
-          Waypoint_Index  := FieldByName('Waypoint_Index').AsInteger;
-          Scripted_Event_Index     := FieldByName('Scripted_Event_Index').AsInteger;
-          Number_of_Event   := FieldByName('Number_of_Event').AsInteger;
-          Platform_Event_Index   := FieldByName('Platform_Event_Index').AsInteger;
-          Speed   := FieldByName('Speed').AsFloat;
-          Altitude   := FieldByName('Altitude').AsFloat;
-          Vert_Speed   := FieldByName('Vert_Speed').AsInteger;
-          Waypoint_Latitude   := FieldByName('Waypoint_Latitude').AsFloat;
-          Waypoint_Longitude   := FieldByName('Waypoint_Longitude').AsFloat;
-          Cartesian_Waypoint_X   := FieldByName('Cartesian_Waypoint_X').AsFloat;
-          Cartesian_Waypoint_Y   := FieldByName('Cartesian_Waypoint_Y').AsFloat;
-          Time_Waypoint   := FieldByName('Time_Waypoint').AsInteger;
-          Time_2_Waypoint   := FieldByName('Time_2_Waypoint').AsInteger;
-          HF_Datalink_Activate   := FieldByName('HF_Datalink_Activate').AsInteger;
-          UHF_Datalink_Activate   := FieldByName('UHF_Datalink_Activate').AsInteger;
-          Sonobuoy_Resource_Index   := FieldByName('Sonobuoy_Resource_Index').AsInteger;
-          Sonobuoy_Instance_Index   := FieldByName('Sonobuoy_Instance_Index').AsInteger;
-          Deploy_Sonobuoys   := FieldByName('Deploy_Sonobuoys').AsInteger;
-          Sonobuoy_Spacing   := FieldByName('Sonobuoy_Spacing').AsFloat;
-          Num_Sonobuoys_2_Drop   := FieldByName('Num_Sonobuoys_2_Drop').AsInteger;
-          Sonobuoy_Depth   := FieldByName('Sonobuoy_Depth').AsFloat;
-          Jammer_Control   := FieldByName('Jammer_Control').AsInteger;
-          Remove_from_Game   := FieldByName('Remove_from_Game').AsInteger;
-          StartMode   := FieldByName('StartMode').AsInteger;
-          StartAt   := FieldByName('StartAt').AsFloat;
-        end;
-        wpDataList.Add(wpData);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.updateScenario(rec: TScenario_Definition;
-  value: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('UPDATE Scenario_Definition');
-      SQL.Add('SET ');
-      SQL.Add('Scenario_Identifier=''' + Scenario_Identifier + ''',');
-      SQL.Add('Resource_Alloc_Index=' + IntToStr(Resource_Alloc_Index));
-    end;
-
-    SQL.Add('WHERE (Scenario_Index = ' + value + ')');
-    ExecSQL;
-
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.updateScenario_ByRA(new,old: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('UPDATE Scenario_Definition');
-    SQL.Add('SET ');
-    SQL.Add('Resource_Alloc_Index=' + new);
-    SQL.Add('WHERE (Resource_Alloc_Index = ' + old + ')');
-    ExecSQL;
-
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.insertScenario(rec: TScenario_Definition): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO Scenario_Definition');
-      SQL.Add('(Scenario_Identifier,Resource_Alloc_Index,Scenario_Code) ');
-      SQL.Add('VALUES (');
-      SQL.Add('''' + Scenario_Identifier + ''',');
-      SQL.Add(IntToStr(Resource_Alloc_Index) + ',');
-      SQL.Add(IntToStr(Scenario_Code) + ')');
-      ExecSQL;
-
-      SQL.Clear;
-      SQL.Add('SELECT * ');
-      SQL.Add('FROM  Scenario_Definition ');
-      SQL.Add('WHERE  Scenario_Identifier = ' + quotedStr(Scenario_Identifier));
-      Open;
-
-      rec.FData.Scenario_Index := FieldByName('Scenario_Index').AsInteger;
-
-      SQL.Clear;
-      SQL.Add('INSERT INTO Asset_Deployment_Definition');
-      SQL.Add('VALUES (');
-      SQL.Add('''' + '(Scenario ' + IntToStr(Scenario_Index) + ')' + ''',');
-      SQL.Add(IntToStr(Scenario_Index) + ')');
-      ExecSQL;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.DeleteScenario_Definition(const id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Scenario_Definition  ');
-    SQL.Add('WHERE (Scenario_Index = ' + id + ')');
-    ExecSQL;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.DeleteAll_Resource_Plotting_mapping(const id: String): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Resource_Plotting_Mapping  ');
-    SQL.Add('WHERE (Resource_Alloc_Index = ' + id + ')');
-    ExecSQL;
-  end;
-end;
-
-function TdmTTT.DeleteAsset_Deployment_Definition(const id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Asset_Deployment_Definition  ');
-    SQL.Add('WHERE (Deployment_Index = ' + id + ')');
-    ExecSQL;
-  end;
-end;
+//function TdmTTT.GetScenario(const id: Integer; var rec: TScenario_Definition) : boolean;
+//begin
+//  result := false;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT * ');
+//    SQL.Add('FROM Scenario_Definition');
+//    SQL.Add('WHERE (Scenario_Index = ' + IntToStr(id) + ')');
+//    Open;
+//
+//    result := RecordCount > 0;
+//    if not IsEmpty then
+//    begin
+//      First;
+//      if not Assigned(rec) then
+//        rec := TScenario_Definition.Create;
+//      with rec.FData do
+//      begin
+//        Scenario_Index := FieldByName('Scenario_Index').AsInteger;
+//        Scenario_Identifier := FieldByName('Scenario_Identifier').AsString;
+//        Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
+//        Scenario_Code := FieldByName('Scenario_Code').AsInteger;
+//      end;
+//    end;
+//  end;
+//end;
 
 function TdmTTT.DeleteBase_Location(const id: String): Integer;
 begin
@@ -33596,48 +33031,6 @@ begin
     ExecSQL;
   end;
 end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.GetResourceAlloc(const id: Integer;
-  var rec: TResource_Allocation): boolean;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM  Resource_Allocation ');
-    SQL.Add('WHERE (Resource_Alloc_Index = ' + IntToStr(id) + ')');
-    Open;
-
-    result := RecordCount > 0;
-    if not IsEmpty then
-    begin
-
-      First;
-      if not Assigned(rec) then
-        rec := TResource_Allocation.Create;
-
-      with rec.FData do
-      begin
-        Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-        Allocation_Identifier := FieldByName('Allocation_Identifier').AsString;
-        Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
-        Defaults_Index := FieldByName('Defaults_Index').AsInteger;
-        Role_List_Index := FieldByName('Role_List_Index').AsInteger;
-        D_Day := FieldByName('D_Day').AsFloat;
-        Game_Start_Time := FieldByName('Game_Start_Time').AsFloat;
-      end;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.GetResource_Embark_Library(const res_id: Integer; var pList: Tlist): Boolean;
 var
@@ -33753,62 +33146,7 @@ begin
     end;
   end;
 end;
-//--------------------------------------------------------------------------------
-function TdmTTT.GetResource_Overlay_Mapping(const id: Integer; var recList: TList): boolean;
-var
-  rec: TResource_Allocation;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
 
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM  Resource_Overlay_Mapping a JOIN Overlay_Definition b');
-    SQL.Add('on a.Overlay_Index = b.Overlay_Index');
-    SQL.Add('WHERE a.Overlay_Index = ' + IntToStr(id));
-    Open;
-
-    result := RecordCount > 0;
-    if not IsEmpty then
-    begin
-
-      First;
-      if not Assigned(recList) then
-        recList := TList.Create
-      else
-        recList.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TResource_Allocation.Create;
-        with rec.FOverlay do
-        begin
-          Overlay_Index := FieldByName('Overlay_Index').AsInteger;
-          Overlay_Identifier := FieldByName('Overlay_Identifier').AsString;
-          Name := FieldByName('Overlay_Filename').AsString;
-          Tipe := FieldByName('Static_Overlay').AsInteger;
-          Game_Area_Index := FieldByName('Game_Area_Index').AsInteger;
-          domain := FieldByName('Domain').AsInteger;
-        end;
-        with rec.FResource_Overlay do
-        begin
-          Overlay_Instance_Index  := FieldByName('Overlay_Instance_Index').AsInteger;
-          Resource_Alloc_Index    := FieldByName('Resource_Alloc_Index').AsInteger;
-          Overlay_Index           := FieldByName('Overlay_Index').AsInteger;
-          Force_Designation       := FieldByName('Force_Designation').AsInteger;
-        end;
-        recList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-
-end;
-// ------------------------------------------------------------------------------
 
 //function TdmTTT.updatePlatformInstance(var rec: TPlatform_Instance;
 //  const pi_id, mis_id, tor_id, mine_id, hybrid_id, satelit_id, son_id: Integer)
@@ -34598,57 +33936,6 @@ begin
 
 end;
 
-// ------------------------------------------------------------------------------
-
-function TdmTTT.getAllResource_Allocation(var aRec: TList): Integer;
-var
-  rec: TResource_Allocation;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM  Resource_Allocation ');
-    SQL.Add('ORDER BY Allocation_Identifier');
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-
-      First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TResource_Allocation.Create;
-        with rec.FData do
-        begin
-          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-          Allocation_Identifier := FieldByName('Allocation_Identifier')
-            .AsString;
-          Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
-          Defaults_Index := FieldByName('Defaults_Index').AsInteger;
-          Role_List_Index := FieldByName('Role_List_Index').AsInteger;
-          Game_Start_Time := FieldByName('Game_Start_Time').AsFloat;
-        end;
-        if rec.FData.Resource_Alloc_Index <> 1 then
-          aRec.Add(rec);
-
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
 
 function TdmTTT.GetAllRSonobuoyCount: Integer;
 begin
@@ -34669,56 +33956,6 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-
-function TdmTTT.GetResourceAlloc_byGameDef(const id: Integer; var aRec: TList): Integer;
-var
-  rec: TResource_Allocation;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM  Resource_Allocation ');
-    SQL.Add('WHERE  Defaults_Index = '+ IntToStr(id));
-    SQL.Add('ORDER BY Allocation_Identifier');
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-
-      First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TResource_Allocation.Create;
-        with rec.FData do
-        begin
-          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-          Allocation_Identifier := FieldByName('Allocation_Identifier')
-            .AsString;
-          Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
-          Defaults_Index := FieldByName('Defaults_Index').AsInteger;
-          Role_List_Index := FieldByName('Role_List_Index').AsInteger;
-          Game_Start_Time := FieldByName('Game_Start_Time').AsFloat;
-        end;
-        aRec.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
 
 function TdmTTT.getAllRuntimePlatform(allocIndex: Integer;
   var list: TList): Integer;
@@ -34778,31 +34015,6 @@ begin
         if aObject <> nil then
           list.Add(aObject);
       end;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.GetMaxResource_Allocation(var id: Integer): boolean;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT MAX(Resource_Alloc_Index) as last');
-    SQL.Add('FROM Resource_Allocation ');
-    Open;
-
-    result := RecordCount > 0;
-    if not IsEmpty then
-    begin
-      First;
-      id := Fields[0].AsInteger;
     end;
   end;
 end;
@@ -35075,17 +34287,7 @@ begin
   end;
 end;
 
-function TdmTTT.DeleteByID_GameReport(const id: String): Boolean;
-begin
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Game_Report');
-    SQL.Add('WHERE (Id_Game_Report = ' + id + ')');
-    ExecSQL;
-  end;
-end;
+
 
 //-------------------------------------------------------------------
 
@@ -35300,35 +34502,6 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
-
-function TdmTTT.updateResource(rec: TResource_Allocation; id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('UPDATE Resource_Allocation');
-      SQL.Add('SET ');
-      SQL.Add('Allocation_Identifier =''' + Allocation_Identifier + ''',');
-      SQL.Add('Game_Enviro_Index =' + IntToStr(Game_Enviro_Index) + ',');
-      SQL.Add('Defaults_Index =' + IntToStr(Defaults_Index) + ',');
-      SQL.Add('Role_List_Index =' + IntToStr(Role_List_Index) + ',');
-      SQL.Add('D_Day =' + FloatToStr(D_Day) + ',');
-      SQL.Add('Game_Start_Time =' + FloatToStr(Game_Start_Time) + ' ');
-    end;
-
-    SQL.Add('WHERE (Resource_Alloc_Index = ' + id + ')');
-    ExecSQL;
-
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
 function TdmTTT.updateGlobalConverge(rec: TGlobal_Convergence_Zone; id: string): Integer;
 begin
   result := -1;
@@ -35353,62 +34526,6 @@ begin
 
   end;
 end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.insertResource(var rec: TResource_Allocation): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO Resource_Allocation');
-      SQL.Add(
-        '(Allocation_Identifier,Game_Enviro_Index,Defaults_Index,Role_List_Index,D_Day,Game_Start_Time)');
-      SQL.Add(' VALUES (');
-      SQL.Add('''' + Allocation_Identifier + ''',');
-      SQL.Add(IntToStr(Game_Enviro_Index) + ',');
-      SQL.Add(IntToStr(Defaults_Index) + ',');
-      SQL.Add(IntToStr(Role_List_Index) + ',');
-      SQL.Add(FloatToStr(D_Day) + ',');
-      SQL.Add(FloatToStr(Game_Start_Time) + ')');
-      // ShowMessage(SQL.Text);
-      ExecSQL;
-
-      SQL.Clear;
-      SQL.Add('SELECT * FROM Resource_Allocation ');
-      SQL.Add('WHERE Allocation_Identifier = ' + quotedStr
-          (Allocation_Identifier));
-
-      Open;
-
-      with rec.FData do
-      begin
-        Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-      end;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.DeleteResource_Allocation(const id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Resource_Allocation  ');
-    SQL.Add('WHERE (Resource_Alloc_Index = ' + id + ')');
-    ExecSQL;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.GetStudent_Role_Definition(const role_id, id: Integer;
   var pList: TList; var rec: TStudent_Role_Definition): boolean;
@@ -35605,8 +34722,6 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
-
 function TdmTTT.insertStudent_List(rec: TStudent_Role_List): Integer;
 begin
   result := -1;
@@ -35636,47 +34751,6 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
-
-function TdmTTT.GetPlatformIdentIndex(var aRec : TList): Boolean;
-var
-  aPI : TPlatform_Instance;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT Platform_Instance_Index, Vehicle_Index, Instance_Name ');
-    SQL.Add('FROM Platform_Instance ');
-    SQL.Add('WHERE Vehicle_Index is not null and ');
-    SQL.Add('Instance_Ident_Index is null');
-    Open;
-
-    result := RecordCount > 0;
-    if not IsEmpty then
-    begin
-      First;
-      while not ZQ.Eof do
-      begin
-        aPI := TPlatform_Instance.Create;
-        with aPI.FData do
-        begin
-          Platform_Instance_Index := FieldByName('Platform_Instance_Index')
-            .AsInteger;
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          Instance_Name := FieldByName('Instance_Name').AsString;
-        end;
-        aRec.Add(aPI);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
 function TdmTTT.GetIdentifierById(const id: integer): string;
 begin
   result := '';
@@ -35698,55 +34772,6 @@ begin
       Result := Fields[0].AsString;
     end;
   end;
-end;
-
-function TdmTTT.GetIdentIndex(const aPI: TPlatform_Instance): integer;
-begin
-   result := 0;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT Instance_Ident_Index ');
-    SQL.Add('FROM Platform_Instance_Identifier ');
-    SQL.Add('WHERE Vehicle_Index = ' + IntToStr(aPI.FData.Vehicle_Index));
-    SQL.Add('and Instance_Identifier = ' + QuotedStr(aPI.FData.Instance_Name));
-    Open;
-
-    if not IsEmpty then
-    begin
-      First;
-      Result := Fields[0].AsInteger;
-    end;
-  end;
-end;
-
-function TdmTTT.GetIDVecTarget(const Ident: string): Integer;
-begin
-  result := 0;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT Vehicle_Index ');
-    SQL.Add('FROM Vehicle_Definition ');
-    SQL.Add('WHERE Vehicle_Identifier = ' + QuotedStr(Ident));
-    Open;
-
-    if not IsEmpty then
-    begin
-      First;
-      Result := Fields[0].AsInteger;
-    end;
-  end;
-
-
 end;
 
 function TdmTTT.getAllPlatformCapability(mList: TList): Integer;
@@ -35935,8 +34960,6 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
-
 function TdmTTT.getPlatformInstanceByIndex(const id: Integer;
   var rec: TPlatform_Instance): boolean;
 begin
@@ -35970,10 +34993,6 @@ begin
     end;
   end;
 end;
-
-
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.getAllPlatFormInstanceForceClassification(const v_id,
   id: Integer; var aRec: TList; force: Integer;
@@ -36282,238 +35301,6 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
-
-function TdmTTT.getPlatformInstanceByGroup(const group_id: Integer;
-  var cList: TList): Integer;
-var
-
-  rec: TCubicle_Group_Assignment;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * FROM ');
-    SQL.Add('PlatForm_Instance a  JOIN Cubicle_group_Assignment b ');
-    SQL.Add('ON a.Platform_Instance_Index = b.Platform_Instance_Index ');
-    SQL.Add('WHERE (b.Group_Index = ' + IntToStr(group_id) + ')');
-    SQL.Add('ORDER BY a.Instance_Name');
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-
-      First;
-
-      if not Assigned(cList) then
-        cList := TList.Create
-      else
-        cList.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TCubicle_Group_Assignment.Create;
-        with rec.FPlatform do
-        begin
-          Platform_Instance_Index := FieldByName('Platform_Instance_Index')
-            .AsInteger;
-          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-          Platform_Type := FieldByName('Platform_Type').AsInteger; // byte
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          Missile_Index := FieldByName('Missile_Index').AsInteger;
-          Torpedo_Index := FieldByName('Torpedo_Index').AsInteger;
-          Mine_Index := FieldByName('Mine_Index').AsInteger;
-          Hybrid_Index := FieldByName('Hybrid_Index').AsInteger;
-          Satellite_Index := FieldByName('Satellite_Index').AsInteger;
-          Sonobuoy_Index := FieldByName('Sonobuoy_Index').AsInteger;
-          Instance_Name := FieldByName('Instance_Name').AsString;
-          Force_Designation := FieldByName('Force_Designation').AsInteger;
-          Track_ID := FieldByName('Track_ID').AsString;
-          Instance_Ident_Index := FieldByName('Instance_Ident_Index').AsInteger;
-        end;
-
-        cList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.getPlatformInstanceByMissile(const miss_id: Integer;
-  var cList: TList): Integer;
-var
-  i: Integer;
-  rec: TPlatform_Instance;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * FROM PlatForm_Instance ');
-    SQL.Add('WHERE (Missile_Index = ' + IntToStr(miss_id) + ')');
-    SQL.Add('ORDER BY Instance_Name');
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-
-      First;
-
-      if not Assigned(cList) then
-        cList := TList.Create
-      else
-        cList.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TPlatform_Instance.Create;
-        with rec.FData do
-        begin
-          Platform_Instance_Index := FieldByName('Platform_Instance_Index')
-            .AsInteger;
-          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-          Platform_Type := FieldByName('Platform_Type').AsInteger; // byte
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          Missile_Index := FieldByName('Missile_Index').AsInteger;
-          Torpedo_Index := FieldByName('Torpedo_Index').AsInteger;
-          Mine_Index := FieldByName('Mine_Index').AsInteger;
-          Hybrid_Index := FieldByName('Hybrid_Index').AsInteger;
-          Satellite_Index := FieldByName('Satellite_Index').AsInteger;
-          Sonobuoy_Index := FieldByName('Sonobuoy_Index').AsInteger;
-          Instance_Name := FieldByName('Instance_Name').AsString;
-          Force_Designation := FieldByName('Force_Designation').AsInteger;
-          Track_ID := FieldByName('Track_ID').AsString;
-          Instance_Ident_Index := FieldByName('Instance_Ident_Index').AsInteger;
-        end;
-
-        cList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.getPlatformInstanceByHybrid(const hyb_id: Integer;
-  var cList: TList): Integer;
-var
-  i: Integer;
-  rec: TPlatform_Instance;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * FROM PlatForm_Instance ');
-    SQL.Add('WHERE (Hybrid_Index = ' + IntToStr(hyb_id) + ')');
-    SQL.Add('ORDER BY Instance_Name');
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-
-      First;
-
-      if not Assigned(cList) then
-        cList := TList.Create
-      else
-        cList.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TPlatform_Instance.Create;
-        with rec.FData do
-        begin
-          Platform_Instance_Index := FieldByName('Platform_Instance_Index')
-            .AsInteger;
-          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-          Platform_Type := FieldByName('Platform_Type').AsInteger; // byte
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          Missile_Index := FieldByName('Missile_Index').AsInteger;
-          Torpedo_Index := FieldByName('Torpedo_Index').AsInteger;
-          Mine_Index := FieldByName('Mine_Index').AsInteger;
-          Hybrid_Index := FieldByName('Hybrid_Index').AsInteger;
-          Satellite_Index := FieldByName('Satellite_Index').AsInteger;
-          Sonobuoy_Index := FieldByName('Sonobuoy_Index').AsInteger;
-          Instance_Name := FieldByName('Instance_Name').AsString;
-          Force_Designation := FieldByName('Force_Designation').AsInteger;
-          Track_ID := FieldByName('Track_ID').AsString;
-          Instance_Ident_Index := FieldByName('Instance_Ident_Index').AsInteger;
-        end;
-
-        cList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-
-end;
-
-//------------------------------------------------------------------------------
-
-function TdmTTT.getPlatformInstanceByName(const id,ra_id,force: string; var rec: TPlatform_Instance):boolean;
-var ssql : string;
-begin
-  result := false;
-  if not zConn.Connected then Exit;
-
-  with ZQ do begin
-    Close;
-    SQL.Clear;
-    ssql := ssql +
-      'SELECT distinct c.Platform_Instance_Index,c.Instance_Name ';
-    ssql := ssql +
-      'FROM Cubicle_Group a INNER JOIN Cubicle_Group_Assignment b ';
-    ssql := ssql +
-      'ON a.Group_Index = b.Group_Index INNER JOIN Platform_Instance c ';
-    ssql := ssql +
-      'ON b.Platform_Instance_Index = c.Platform_Instance_Index WHERE ';
-
-    ssql := ssql +'c.Instance_Name = ' +  QuotedStr(id) + ' AND ';
-    ssql := ssql + 'c.Resource_Alloc_Index = ' + ra_id + ' AND ';
-    ssql := ssql + 'a.Force_Designation = '+ force;
-    SQL.Add(ssql);
-    Open;
-
-    result := RecordCount > 0;
-    if not IsEmpty then begin
-
-      First;
-      if not Assigned(rec) then
-        rec := TPlatform_Instance.Create;
-
-      with rec.FData do begin
-        Platform_Instance_Index := FieldByName('Platform_Instance_Index').AsInteger;
-        Instance_Name           := FieldByName('Instance_Name').AsString;
-      end;
-
-    end;
-  end;
-end;
-
-//------------------------------------------------------------------------------
-
 function TdmTTT.DeletePlatform_Instance_IdentifierByVec(const id: string): integer;
 begin
   result := -1;
@@ -36542,19 +35329,6 @@ begin
  end;
 end;
 
-function TdmTTT.DeletePlatform_Instance_Identifier(const id: string): integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Platform_Instance_Identifier  ');
-    SQL.Add('WHERE (Instance_Ident_Index = ' + id + ')');
-    ExecSQL;
-  end;
-end;
-
 function TdmTTT.UpdatePlatform_Instance_Identifier(const id, aIdent: string): integer;
 begin
   result := -1;
@@ -36568,40 +35342,6 @@ begin
     ExecSQL;
   end;
 end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.InsertPlatform_Instance_Identifier
-  (var rec: TPlatform_Instance_Identifier): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO Platform_Instance_Identifier  ');
-      SQL.Add('(Vehicle_Index,Instance_Identifier,vbs_class_name,model_path)');
-      SQL.Add('VALUES ( ');
-      SQL.Add(IntToStr(Vehicle_Index) + ',');
-      SQL.Add('''' + Instance_Identifier + ''',');
-      SQL.Add('''' + vbs_class_name + ''',');
-      SQL.Add('''' + model_path + ''')');
-      ExecSQL;
-
-      SQL.Clear;
-      SQL.Add('SELECT * FROM Platform_Instance_Identifier ');
-      SQL.Add('WHERE Vehicle_Index = '+ IntToStr(Vehicle_Index) +' ');
-      SQL.Add('AND Instance_Identifier = ' + QuotedStr(Instance_Identifier));
-      Open;
-
-      Instance_Ident_Index := FieldByName('Instance_Ident_Index').AsInteger;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.GetPlatform_Instance_Identifier(const v_id: Integer;
   const v_ident: string; var vList: TList;
@@ -38457,7 +37197,7 @@ end;
 function TdmTTT.deleteEO_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(12,IntToStr(id));
+//  deleteNote(12,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -39543,7 +38283,7 @@ end;
 function TdmTTT.deleteESM(id: string): Integer;
 begin
   result := -1;
-  deleteNote(10,id);
+//  deleteNote(10,id);
   with ZQ do
   begin
     Close;
@@ -40257,16 +38997,6 @@ begin
   end;
 end;
 
-function TdmTTT.DeleteAll_GameReport(rec: TRuntime_Game_Report): Integer;
-begin
-  with ZQ do begin
-    Close;
-    SQL.Clear;
-    SQL.Add('Delete from Game_Report');
-    ExecSQL;
-  end;
-end;
-
 // ----------------------------------------------------------------------------
 
 function TdmTTT.DeleteAllCountermsAssetFromVehicle(const id: string): Integer;
@@ -40594,8 +39324,6 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
-
 function TdmTTT.insertMAD_Def(rec: TMAD_On_Board): Integer;
 begin
   result := -1;
@@ -40625,12 +39353,10 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
-
 function TdmTTT.deleteMAD_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(11,IntToStr(id));
+//  deleteNote(11,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -40640,8 +39366,6 @@ begin
     ExecSQL;
   end;
 end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.getAllVisual_Sensor_On_Board(const id, index: Integer;
   var aRec: TList): Integer;
@@ -40780,8 +39504,6 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
-
 function TdmTTT.updateVisual(rec: TVisual_Sensor_On_Board; id: string): Integer;
 begin
   result := -1;
@@ -40803,10 +39525,6 @@ begin
 
   end;
 end;
-
-
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.insertVisual(rec: TVisual_Sensor_On_Board): Integer;
 begin
@@ -40841,9 +39559,6 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
-
-/// /====================================================
 function TdmTTT.DeleteVisual_Sensor_On_Board(const id: string): Integer;
 begin
   result := -1;
@@ -40856,8 +39571,6 @@ begin
     ExecSQL;
   end;
 end;
-
-// -------------------------------------------------------------------
 
 function TdmTTT.getAllFCR_On_Board(const id: Integer; var aRec: TList): Integer;
 var
@@ -40967,8 +39680,6 @@ begin
     end;
   end;
 end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.getAllRadar_On_Board(const id, index: Integer;
   var aRec: TList): Integer;
@@ -41315,8 +40026,6 @@ begin
   end;
 end;
 
-// -----------------------------------------------------------------------------
-
 function TdmTTT.updateScriptRadar(rec: TScripted_Radar_Event;
   id: string): Integer;
 begin
@@ -41338,8 +40047,6 @@ begin
 
   end;
 end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.updateRadar_Def(rec: TRadar_On_Board; id: string): Integer;
 begin
@@ -41419,7 +40126,7 @@ end;
 function TdmTTT.DeleteRadar_Definition(const id: string): Integer;
 begin
   result := -1;
-  deleteNote(7,id);
+//  deleteNote(7,id);
   with ZQ do
   begin
     Close;
@@ -41457,147 +40164,32 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-function TdmTTT.InsertPersonel_All(var rec: TPersonel; IdAction,
-  IdPersonel: Integer): Integer;
-begin
-  Result := -1;
-  with ZQ do
-  begin
-//      rec := TPersonel.Create;
-      case IdAction of
-        0:{brigade}
-          begin
-            Close;
-//            rec := TBrigade.Create;
-            SQL.Clear;
-            SQL.Add('INSERT INTO Personel_Brigade');
-//            SQL.Add('(Brigade_Identifier ' + ')');
-            SQL.Add('VALUES (');
-            SQL.Add(QuotedStr(rec.Identifier) + ',');
-            SQL.Add('GETDATE()' + ')');
-            ExecSQL;
 
-            SQL.Clear;
-            SQL.Add('SELECT * FROM Personel_Brigade ');
-            SQL.Add('WHERE Brigade_Identifier = ' + QuotedStr(rec.Identifier));
-            SQL.Add(' ORDER BY Brigade_Index desc');
-            Open;
-//            TGroup(rec).IdBrigade := FieldByName('Brigade_Index').AsInteger;
-            Result := FieldByName('Brigade_Index').AsInteger;
-          end;
-        1:{batalyon}
-          begin
-            Close;
-//            TBatalyon.Create;
-            SQL.Clear;
-            SQL.Add('INSERT INTO Personel_Batalyon ');
-            SQL.Add('(Brigade_Index, Batalyon_Identifier ' + ')');
-            SQL.Add('VALUES (');
-            SQL.Add(IntToStr(IdPersonel) + ',');
-            SQL.Add(QuotedStr(rec.Identifier) + ')');
-            ExecSQL;
-
-            SQL.Clear;
-            SQL.Add('SELECT * FROM Personel_Batalyon ');
-            SQL.Add('WHERE Brigade_Index = ' + IntToStr(IdPersonel));
-            SQL.Add('AND Batalyon_Identifier = ' + QuotedStr(rec.Identifier));
-            SQL.Add(' ORDER BY Batalyon_Index desc');
-            Open;
-//            TGroup(rec).IdBatalyon := FieldByName('Batalyon_Index').AsInteger;
-            Result := FieldByName('Batalyon_Index').AsInteger;
-          end;
-        2:{kompi}
-          begin
-            Close;
-//            TKompi.Create;
-            SQL.Clear;
-            SQL.Add('INSERT INTO Personel_Kompi ');
-            SQL.Add('(Batalyon_Index, Kompi_Identifier, Brigade_Index ' + ')');
-            SQL.Add('VALUES (');
-            SQL.Add(IntToStr(IdPersonel) + ',');
-            SQL.Add(QuotedStr(rec.Identifier) + ',');
-            SQL.Add(IntToStr(TKompi(rec).IdBrigade) + ')');
-            ExecSQL;
-
-            SQL.Clear;
-            SQL.Add('SELECT * FROM Personel_Kompi ');
-            SQL.Add('WHERE Batalyon_Index = ' + IntToStr(IdPersonel));
-            SQL.Add('AND Kompi_Identifier = ' + QuotedStr(rec.Identifier));
-            SQL.Add(' ORDER BY Kompi_Index desc');
-            Open;
-//            TGroup(rec).IdKompi := FieldByName('Kompi_Index').AsInteger;
-            Result := FieldByName('Kompi_Index').AsInteger;
-          end;
-        3:{pleton}
-          begin
-            Close;
-//            TPlatoon.Create;
-            SQL.Clear;
-            SQL.Add('INSERT INTO Personel_Pleton ');
-            SQL.Add('(Kompi_Index, Pleton_Identifier, Brigade_Index ' + ')');
-            SQL.Add('VALUES (');
-            SQL.Add(IntToStr(IdPersonel) + ',');
-            SQL.Add(QuotedStr(rec.Identifier) + ',');
-            SQL.Add(IntToStr(TPlatoon(rec).IdBrigade) + ')');
-            ExecSQL;
-
-            SQL.Clear;
-            SQL.Add('SELECT * FROM Personel_Pleton ');
-            SQL.Add('WHERE Kompi_Index = ' + IntToStr(IdPersonel));
-            SQL.Add('AND Pleton_Identifier = ' + QuotedStr(rec.Identifier));
-            SQL.Add(' ORDER BY Pleton_Index desc');
-            Open;
-//            TGroup(rec).IdPlatoon := FieldByName('Pleton_Index').AsInteger;
-            Result := FieldByName('Pleton_Index').AsInteger;
-          end;
-        4:{regu}
-          begin
-            Close;
-//            TGroup.Create;
-            SQL.Clear;
-            SQL.Add('INSERT INTO Personel_Regu ');
-            SQL.Add('(Brigade_Index, Batalyon_Index, Kompi_Index,Pleton_Index, ');
-            SQL.Add('Regu_Identifier, Quantity ' + ')');
-            SQL.Add('VALUES (');
-            SQL.Add(IntToStr(TGroup(rec).IdBrigade) + ',');
-            SQL.Add(IntToStr(TGroup(rec).IdBatalyon) + ',');
-            SQL.Add(IntToStr(TGroup(rec).IdKompi) + ',');
-            SQL.Add(IntToStr(TGroup(rec).IdPlatoon) + ',');
-            SQL.Add(QuotedStr(rec.Identifier) + ',');
-            SQL.Add(IntToStr(TGroup(rec).quantity) + ')');
-          end;
-      end;
-
-      ExecSQL;
-
-  end;
-end;
-
-function TdmTTT.InsertPersonel_Embark_Library(
-  var rec: TPersonel_Embark_Library): Integer;
-begin
-  Result := -1;
-//  if not ZQ.Connected then
-//    exit;
-
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO Personel_Embark_Library ');
-      SQL.Add('(Embark_Library_Index, Brigade_Index, Brigade_Identifier, ');
-      SQL.Add('Vehicle_Index ' + ')');
-      SQL.Add('VALUES (');
-      SQL.Add(IntToStr(Embark_Library_Index) + ',');
-      SQL.Add(IntToStr(Brigade_Index) + ',');
-      SQL.Add(QuotedStr(Brigade_Identifier) + ',');
-      SQL.Add(IntToStr(Vehicle_Index) + ')');
-    end;
-    ExecSQL;
-  end;
-end;
+//function TdmTTT.InsertPersonel_Embark_Library(
+//  var rec: TPersonel_Embark_Library): Integer;
+//begin
+//  Result := -1;
+////  if not ZQ.Connected then
+////    exit;
+//
+//  with ZQ do
+//  begin
+//    with rec.FData do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('INSERT INTO Personel_Embark_Library ');
+//      SQL.Add('(Embark_Library_Index, Brigade_Index, Brigade_Identifier, ');
+//      SQL.Add('Vehicle_Index ' + ')');
+//      SQL.Add('VALUES (');
+//      SQL.Add(IntToStr(Embark_Library_Index) + ',');
+//      SQL.Add(IntToStr(Brigade_Index) + ',');
+//      SQL.Add(QuotedStr(Brigade_Identifier) + ',');
+//      SQL.Add(IntToStr(Vehicle_Index) + ')');
+//    end;
+//    ExecSQL;
+//  end;
+//end;
 
 // ------------------------------------------------------------------------------
 
@@ -42968,7 +41560,7 @@ end;
 function TdmTTT.deleteSonar_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(9,IntToStr(id));
+//  deleteNote(9,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -44567,7 +43159,7 @@ end;
 function TdmTTT.deleteMissile_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(2,IntToStr(id));
+//  deleteNote(2,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -46100,7 +44692,7 @@ end;
 function TdmTTT.deleteTorpedo_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(4,IntToStr(id));
+//  deleteNote(4,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -46658,7 +45250,7 @@ end;
 function TdmTTT.deleteMine_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(3,IntToStr(id));
+//  deleteNote(3,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -47749,7 +46341,7 @@ end;
 function TdmTTT.deleteAccoustic_Decoy_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(20,IntToStr(id));
+//  deleteNote(20,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -48212,7 +46804,7 @@ end;
 function TdmTTT.deleteAir_Bubble_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(21,IntToStr(id));
+//  deleteNote(21,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -48817,7 +47409,7 @@ end;
 function TdmTTT.deleteChaff_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(19,IntToStr(id));
+//  deleteNote(19,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -49582,7 +48174,7 @@ end;
 function TdmTTT.deleteDefensive_Jammer_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(16,IntToStr(id));
+//  deleteNote(16,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -49971,7 +48563,7 @@ end;
 function TdmTTT.deleteFloating_Decoy_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(18,IntToStr(id));
+//  deleteNote(18,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -50312,7 +48904,7 @@ end;
 function TdmTTT.deleteInfrared_Decoy_Definition(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(23,IntToStr(id));
+//  deleteNote(23,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -50870,7 +49462,7 @@ end;
 function TdmTTT.DeleteRadar_Jammer(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(15,IntToStr(id));
+//  deleteNote(15,IntToStr(id));
   with ZQ do begin
     Close;
     SQL.Clear;
@@ -51862,7 +50454,7 @@ end;
 function TdmTTT.deleteTowed_Jammer_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(17,IntToStr(id));
+//  deleteNote(17,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -53288,29 +51880,8 @@ begin
     end;
   end;
 end;
-function TdmTTT.isTargetFromPlatformInst(
-  const vId: Integer): Boolean;
-begin
-  Result := false;
 
-  if not zConn.Connected then Exit;
 
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT Platform_Domain ');
-    SQL.Add('FROM Vehicle_Definition ' );
-    SQL.Add('WHERE Vehicle_Index = ' +  IntToStr(vId));
-
-    Open;
-
-    Result := FieldByName('Platform_Domain').AsInteger = 8;
-
-  end;
-end;
-
-//============================================================================
 function TdmTTT.getRadar_Vertical_Coverage(const tipe,id: integer; var aRec: TList;
   var xMin, yMax, yMin: Double): Integer;
 
@@ -54216,7 +52787,7 @@ end;
 function TdmTTT.deleteSonobuoy_Def(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(6,IntToStr(id));
+//  deleteNote(6,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -54688,7 +53259,7 @@ end;
 function TdmTTT.deleteBomb(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(14,IntToStr(id));
+//  deleteNote(14,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -55240,7 +53811,7 @@ end;
 function TdmTTT.deleteGun(id: Integer): Integer;
 begin
   result := -1;
-  deleteNote(13,IntToStr(id));
+//  deleteNote(13,IntToStr(id));
   with ZQ do
   begin
     Close;
@@ -55629,39 +54200,6 @@ begin
     end;
   end;
 end;
-
-function TdmTTT.DeleteWaypointByID(const id: integer): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-
-    SQL.Clear;
-    SQL.Add('DELETE FROM Waypoint_Data ');
-    SQL.Add('WHERE Waypoint_Index = ' + IntToStr(id));
-    ExecSQL;
-
-    SQL.Clear;
-    SQL.Add('DELETE FROM Waypoint ');
-    SQL.Add('WHERE Waypoint_Index = ' + IntToStr(id));
-    ExecSQL;
-
-  end;
-end;
-
-function TdmTTT.DeleteWaypointDataByID(const id: integer): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    SQL.Clear;
-    SQL.Add('DELETE FROM Waypoint_Data ');
-    SQL.Add('WHERE Waypoint_Index = ' + IntToStr(id));
-    ExecSQL;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.deleteAllCubicle_Group(deploy_id: string): Integer;
 var Ass_List : TList;
@@ -56828,24 +55366,6 @@ begin
   end;
 end;
 
-function TdmTTT.CekScenarioNameAlreadyExist(const aName: string): Boolean;
-begin
-  Result := False;
-  with ZQ do
-  begin
-
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Scenario_Definition');
-    SQL.Add('WHERE Scenario_Identifier = '+ QuotedStr(aName));
-
-    Open;
-
-    result := RecordCount > 0;
-  end;
-end;
-
 function TdmTTT.CekUserLoginNameAlreadyExist(const aUserName: string): Boolean;
 begin
   Result := False;
@@ -56857,24 +55377,6 @@ begin
     SQL.Add('SELECT * ');
     SQL.Add('FROM User_Login');
     SQL.Add('WHERE USERNAME = '+ QuotedStr(aUserName));
-
-    Open;
-
-    result := RecordCount > 0;
-  end;
-end;
-
-function TdmTTT.CekWaypointName(WaypointName: String): Boolean;
-begin
-  Result := False;
-  with ZQ do
-  begin
-
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Waypoint');
-    SQL.Add('WHERE Waypoint_Name = '+ QuotedStr(WaypointName));
 
     Open;
 
@@ -56940,26 +55442,6 @@ begin
 
     Open;
     result := RecordCount > 0;
-  end;
-end;
-
-function TdmTTT.CekPlottingInsert(aName: string): Boolean;
-begin
-  Result := false;
-
-  if not ZConn.Connected  then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Plotting_Definition');
-    SQL.Add('WHERE Plotting_Name = '+ QuotedStr(aName));
-    Open;
-
-    Result := RecordCount > 0;
   end;
 end;
 
@@ -60625,99 +59107,6 @@ end;
 
 // ------------------------------------------------------------------------------
 
-function TdmTTT.GetAll_Brigade(var pList: TList): Boolean;
-var
-  rec: TPersonel;
-begin
-  result := False;
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT *');
-    SQL.Add('FROM Personel_Brigade');
-
-
-    Open;
-    Result := RecordCount > 0;
-    if not Assigned(pList) then
-    begin
-      pList := TList.Create;
-    end
-    else
-    begin
-      pList.Clear;
-    end;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not ZQ.Eof do
-      begin
-        rec := TPersonel.Create;
-        rec.Id := FieldByName('Brigade_Index').AsInteger;
-        rec.Identifier := FieldByName('Brigade_Identifier').AsString;
-
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetAll_Resource_Plotting_Mapping(const id: Integer;
-  var recList: TList): Boolean;
-var
-  rec: TResource_Allocation;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM  Resource_Plotting_Mapping a JOIN Plotting_Definition b');
-    SQL.Add('on a.Plotting_Index = b.Plotting_Index');
-    SQL.Add('WHERE Resource_Alloc_Index = ' + IntToStr(id));// + ' AND ');
-//    SQL.Add('Force_Designation = '+ IntToStr(force));
-    Open;
-
-    result := RecordCount > 0;
-    if not IsEmpty then
-    begin
-
-      First;
-      if not Assigned(recList) then
-        recList := TList.Create
-      else
-        recList.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TResource_Allocation.Create;
-        with rec.FPlotting do
-        begin
-          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-          Plotting_Index := FieldByName('Plotting_Index').AsInteger;
-          Plotting_Name := FieldByName('Plotting_Name').AsString;
-          Date := FieldByName('Date').AsFloat;
-          Force := FieldByName('Force').AsInteger;
-
-        end;
-        recList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
 function TdmTTT.GetBase_Location(const id: Integer; var pList: TList;
   var rec: TBase_Location): Boolean;
 begin
@@ -60757,50 +59146,6 @@ begin
           Longitude := FieldByName('Longitude').AsFloat;
           Latitude := FieldByName('Latitude').AsFloat;
         end;
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetBatalyon(const id: Integer; var pList: TList): Boolean;
-var
-  rec: TPersonel;
-begin
-  result := False;
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT a1.Brigade_Index, a1.Brigade_Identifier, a1.last_updated,');//dng
-    SQL.Add('b2.BataLyon_Index, b2.Batalyon_Identifier ');
-    SQL.Add('FROM Personel_Brigade a1 JOIN Personel_Batalyon b2 ON ');
-    SQL.Add('a1.Brigade_Index = b2.Brigade_Index ');
-    SQL.Add('WHERE a1.Brigade_Index = ' + IntToStr(id));
-
-    Open;
-    Result := RecordCount > 0;
-    if not Assigned(pList) then
-      pList := TList.Create
-    else
-      pList.Clear;
-
-    if not IsEmpty then
-    begin
-      First;
-      while not ZQ.Eof do
-      begin
-        rec := TPersonel.Create;
-        TBrigade(rec).Id := FieldByName('Brigade_Index').AsInteger;
-        TBrigade(rec).Identifier := FieldByName('Brigade_Identifier').AsString;
-        TBrigade(rec).last_updated := FieldByName('last_updated').AsDateTime; //dng
-        TBatalyon(rec).Id := FieldByName('Batalyon_Index').AsInteger;
-        TBatalyon(rec).Identifier := FieldByName('Batalyon_Identifier').AsString;
-
         pList.Add(rec);
         ZQ.Next;
       end;
@@ -61430,290 +59775,290 @@ begin
 end;
 // ------------------------------------------------------------------------------
 
-function TdmTTT.updateNote(rec: TNote_Storage; index: Integer; id: String): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('UPDATE Note_Storage ');
-      SQL.Add('SET ');
-      SQL.Add('Note_Type = ' + IntToStr(index) + ',');
-      SQL.Add('Notes = ''' + Notes + '''');
-      SQL.Add('WHERE ');
-      case index of
-        1:
-          SQL.Add('Vehicle_Index = ' + id);
-        2:
-          SQL.Add('Missile_Index = ' + id);
-        3:
-          SQL.Add('Mine_Index = ' + id);
-        4:
-          SQL.Add('Torpedo_Index = ' + id);
-        5:
-          SQL.Add('Satellite_Index = ' + id);
-        6:
-          SQL.Add('Sonobuoy_Index = ' + id);
-        7:
-          SQL.Add('Radar_Index = ' + id);
-        8:
-          SQL.Add('FCR_Index = ' + id);
-        9:
-          SQL.Add('Sonar_Index = ' + id);
-        10:
-          SQL.Add('ESM_Index = ' + id);
-        11:
-          SQL.Add('MAD_Index = ' + id);
-        12:
-          SQL.Add('EO_Index = ' + id);
-        13:
-          SQL.Add('Gun_Index = ' + id);
-        14:
-          SQL.Add('Bomb_Index = ' + id);
-        15:
-          SQL.Add('Jammer_Index = ' + id);
-        16:
-          SQL.Add('Defensive_Jammer_Index = ' + id);
-        17:
-          SQL.Add('Towed_Decoy_Index = ' + id);
-        18:
-          SQL.Add('Floating_Decoy_Index = ' + id);
-        19:
-          SQL.Add('Chaff_Index = ' + id);
-        20:
-          SQL.Add('Decoy_Index = ' + id);
-        21:
-          SQL.Add('Air_Bubble_Index = ' + id);
-        22:
-          SQL.Add('Pattern_Index = ' + id);
-        23:
-          SQL.Add('Infrared_decoy_Index = ' + id);
-      end;
-      ExecSQL;
-    end;
-
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.insertNote(rec: TNote_Storage; index: Integer; id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec do
-    begin
-      Close;
-      SQL.Clear;
-      {SQL.Add('SET IDENTITY_INSERT Runtime_DB.[dbo].[Note_Storage] ON;');
-      ExecSQL;
-      SQL.Clear; }
-      SQL.Add('INSERT INTO Note_Storage');
-      SQL.Add('(Note_Type,Notes,');
-      case index of
-        1:
-          SQL.Add('Vehicle_Index)');
-        2:
-          SQL.Add('Missile_Index)');
-        3:
-          SQL.Add('Mine_Index)');
-        4:
-          SQL.Add('Torpedo_Index)');
-        5:
-          SQL.Add('Satellite_Index)');
-        6:
-          SQL.Add('Sonobuoy_Index)');
-        7:
-          SQL.Add('Radar_Index)');
-        8:
-          SQL.Add('FCR_Index )');
-        9:
-          SQL.Add('Sonar_Index )');
-        10:
-          SQL.Add('ESM_Index )');
-        11:
-          SQL.Add('MAD_Index)');
-        12:
-          SQL.Add('EO_Index)');
-        13:
-          SQL.Add('Gun_Index)');
-        14:
-          SQL.Add('Bomb_Index)');
-        15:
-          SQL.Add('Jammer_Index )');
-        16:
-          SQL.Add('Defensive_Jammer_Index )');
-        17:
-          SQL.Add('Towed_Decoy_Index)');
-        18:
-          SQL.Add('Floating_Decoy_Index)');
-        19:
-          SQL.Add('Chaff_Index)');
-        20:
-          SQL.Add('Decoy_Index)');
-        21:
-          SQL.Add('Air_Bubble_Index)');
-        22:
-          SQL.Add('Pattern_Index)');
-        23:
-          SQL.Add('Infrared_decoy_Index)');
-      end;
-      SQL.Add(' VALUES (');
-      SQL.Add(IntToStr(index) + ',');
-      SQL.Add('''' + Notes + ''',');
-      SQL.Add(id + ')');
-      ExecSQL;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.deleteNote(index: Integer; id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Note_Storage ');
-    SQL.Add('WHERE (');
-    case index of
-        1:
-          SQL.Add('Vehicle_Index');
-        2:
-          SQL.Add('Missile_Index');
-        3:
-          SQL.Add('Mine_Index');
-        4:
-          SQL.Add('Torpedo_Index');
-        5:
-          SQL.Add('Satellite_Index');
-        6:
-          SQL.Add('Sonobuoy_Index');
-        7:
-          SQL.Add('Radar_Index');
-        8:
-          SQL.Add('FCR_Index');
-        9:
-          SQL.Add('Sonar_Index');
-        10:
-          SQL.Add('ESM_Index');
-        11:
-          SQL.Add('MAD_Index');
-        12:
-          SQL.Add('EO_Index');
-        13:
-          SQL.Add('Gun_Index');
-        14:
-          SQL.Add('Bomb_Index');
-        15:
-          SQL.Add('Jammer_Index');
-        16:
-          SQL.Add('Defensive_Jammer_Index');
-        17:
-          SQL.Add('Towed_Decoy_Index');
-        18:
-          SQL.Add('Floating_Decoy_Index');
-        19:
-          SQL.Add('Chaff_Index');
-        20:
-          SQL.Add('Decoy_Index');
-        21:
-          SQL.Add('Air_Bubble_Index');
-        22:
-          SQL.Add('Pattern_Index');
-        23:
-          SQL.Add('Infrared_Decoy_Index');
-    end;
-    SQL.Add(' = ' + id + ')');
-    ExecSQL;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.GetNote(const index,id: integer): boolean;
-begin
-  result := false;
-  if not zConn.Connected then Exit;
-
-  with ZQ do begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Note_Storage ' );
-    SQL.Add('WHERE (' );
-
-    case index of
-        1:
-          SQL.Add('Vehicle_Index');
-        2:
-          SQL.Add('Missile_Index');
-        3:
-          SQL.Add('Mine_Index');
-        4:
-          SQL.Add('Torpedo_Index');
-        5:
-          SQL.Add('Satellite_Index');
-        6:
-          SQL.Add('Sonobuoy_Index');
-        7:
-          SQL.Add('Radar_Index');
-        8:
-          SQL.Add('FCR_Index');
-        9:
-          SQL.Add('Sonar_Index');
-        10:
-          SQL.Add('ESM_Index');
-        11:
-          SQL.Add('MAD_Index');
-        12:
-          SQL.Add('EO_Index');
-        13:
-          SQL.Add('Gun_Index');
-        14:
-          SQL.Add('Bomb_Index');
-        15:
-          SQL.Add('Jammer_Index');
-        16:
-          SQL.Add('Defensive_Jammer_Index');
-        17:
-          SQL.Add('Towed_Decoy_Index');
-        18:
-          SQL.Add('Floating_Decoy_Index');
-        19:
-          SQL.Add('Chaff_Index');
-        20:
-          SQL.Add('Decoy_Index');
-        21:
-          SQL.Add('Air_Bubble_Index');
-        22:
-          SQL.Add('Pattern_Index');
-        23:
-          SQL.Add('Infrared_Decoy_Index');
-    end;
-
-    SQL.Add(' = ' +  IntToStr(id) + ')' );
-    Open;
-
-    result := RecordCount > 0;
-//    if not IsEmpty then begin
-//      First;
-//      if not Assigned(rec) then
-//        rec := TNote_Storage.Create;
-//      with rec do begin
-//        Note_Index  := FieldByName('Note_Index').AsInteger;
-//        Note_Type   := FieldByName('Note_Type').AsInteger;
-//        Notes       := FieldByName('Notes').AsString;
+//function TdmTTT.updateNote(rec: TNote_Storage; index: Integer; id: String): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    with rec do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('UPDATE Note_Storage ');
+//      SQL.Add('SET ');
+//      SQL.Add('Note_Type = ' + IntToStr(index) + ',');
+//      SQL.Add('Notes = ''' + Notes + '''');
+//      SQL.Add('WHERE ');
+//      case index of
+//        1:
+//          SQL.Add('Vehicle_Index = ' + id);
+//        2:
+//          SQL.Add('Missile_Index = ' + id);
+//        3:
+//          SQL.Add('Mine_Index = ' + id);
+//        4:
+//          SQL.Add('Torpedo_Index = ' + id);
+//        5:
+//          SQL.Add('Satellite_Index = ' + id);
+//        6:
+//          SQL.Add('Sonobuoy_Index = ' + id);
+//        7:
+//          SQL.Add('Radar_Index = ' + id);
+//        8:
+//          SQL.Add('FCR_Index = ' + id);
+//        9:
+//          SQL.Add('Sonar_Index = ' + id);
+//        10:
+//          SQL.Add('ESM_Index = ' + id);
+//        11:
+//          SQL.Add('MAD_Index = ' + id);
+//        12:
+//          SQL.Add('EO_Index = ' + id);
+//        13:
+//          SQL.Add('Gun_Index = ' + id);
+//        14:
+//          SQL.Add('Bomb_Index = ' + id);
+//        15:
+//          SQL.Add('Jammer_Index = ' + id);
+//        16:
+//          SQL.Add('Defensive_Jammer_Index = ' + id);
+//        17:
+//          SQL.Add('Towed_Decoy_Index = ' + id);
+//        18:
+//          SQL.Add('Floating_Decoy_Index = ' + id);
+//        19:
+//          SQL.Add('Chaff_Index = ' + id);
+//        20:
+//          SQL.Add('Decoy_Index = ' + id);
+//        21:
+//          SQL.Add('Air_Bubble_Index = ' + id);
+//        22:
+//          SQL.Add('Pattern_Index = ' + id);
+//        23:
+//          SQL.Add('Infrared_decoy_Index = ' + id);
 //      end;
+//      ExecSQL;
 //    end;
-  end;
-end;
+//
+//  end;
+//end;
+
+// ------------------------------------------------------------------------------
+
+//function TdmTTT.insertNote(rec: TNote_Storage; index: Integer; id: string): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    with rec do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      {SQL.Add('SET IDENTITY_INSERT Runtime_DB.[dbo].[Note_Storage] ON;');
+//      ExecSQL;
+//      SQL.Clear; }
+//      SQL.Add('INSERT INTO Note_Storage');
+//      SQL.Add('(Note_Type,Notes,');
+//      case index of
+//        1:
+//          SQL.Add('Vehicle_Index)');
+//        2:
+//          SQL.Add('Missile_Index)');
+//        3:
+//          SQL.Add('Mine_Index)');
+//        4:
+//          SQL.Add('Torpedo_Index)');
+//        5:
+//          SQL.Add('Satellite_Index)');
+//        6:
+//          SQL.Add('Sonobuoy_Index)');
+//        7:
+//          SQL.Add('Radar_Index)');
+//        8:
+//          SQL.Add('FCR_Index )');
+//        9:
+//          SQL.Add('Sonar_Index )');
+//        10:
+//          SQL.Add('ESM_Index )');
+//        11:
+//          SQL.Add('MAD_Index)');
+//        12:
+//          SQL.Add('EO_Index)');
+//        13:
+//          SQL.Add('Gun_Index)');
+//        14:
+//          SQL.Add('Bomb_Index)');
+//        15:
+//          SQL.Add('Jammer_Index )');
+//        16:
+//          SQL.Add('Defensive_Jammer_Index )');
+//        17:
+//          SQL.Add('Towed_Decoy_Index)');
+//        18:
+//          SQL.Add('Floating_Decoy_Index)');
+//        19:
+//          SQL.Add('Chaff_Index)');
+//        20:
+//          SQL.Add('Decoy_Index)');
+//        21:
+//          SQL.Add('Air_Bubble_Index)');
+//        22:
+//          SQL.Add('Pattern_Index)');
+//        23:
+//          SQL.Add('Infrared_decoy_Index)');
+//      end;
+//      SQL.Add(' VALUES (');
+//      SQL.Add(IntToStr(index) + ',');
+//      SQL.Add('''' + Notes + ''',');
+//      SQL.Add(id + ')');
+//      ExecSQL;
+//    end;
+//  end;
+//end;
+
+// ------------------------------------------------------------------------------
+
+//function TdmTTT.deleteNote(index: Integer; id: string): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('DELETE FROM Note_Storage ');
+//    SQL.Add('WHERE (');
+//    case index of
+//        1:
+//          SQL.Add('Vehicle_Index');
+//        2:
+//          SQL.Add('Missile_Index');
+//        3:
+//          SQL.Add('Mine_Index');
+//        4:
+//          SQL.Add('Torpedo_Index');
+//        5:
+//          SQL.Add('Satellite_Index');
+//        6:
+//          SQL.Add('Sonobuoy_Index');
+//        7:
+//          SQL.Add('Radar_Index');
+//        8:
+//          SQL.Add('FCR_Index');
+//        9:
+//          SQL.Add('Sonar_Index');
+//        10:
+//          SQL.Add('ESM_Index');
+//        11:
+//          SQL.Add('MAD_Index');
+//        12:
+//          SQL.Add('EO_Index');
+//        13:
+//          SQL.Add('Gun_Index');
+//        14:
+//          SQL.Add('Bomb_Index');
+//        15:
+//          SQL.Add('Jammer_Index');
+//        16:
+//          SQL.Add('Defensive_Jammer_Index');
+//        17:
+//          SQL.Add('Towed_Decoy_Index');
+//        18:
+//          SQL.Add('Floating_Decoy_Index');
+//        19:
+//          SQL.Add('Chaff_Index');
+//        20:
+//          SQL.Add('Decoy_Index');
+//        21:
+//          SQL.Add('Air_Bubble_Index');
+//        22:
+//          SQL.Add('Pattern_Index');
+//        23:
+//          SQL.Add('Infrared_Decoy_Index');
+//    end;
+//    SQL.Add(' = ' + id + ')');
+//    ExecSQL;
+//  end;
+//end;
+
+// ------------------------------------------------------------------------------
+
+//function TdmTTT.GetNote(const index,id: integer): boolean;
+//begin
+//  result := false;
+//  if not zConn.Connected then Exit;
+//
+//  with ZQ do begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT * ');
+//    SQL.Add('FROM Note_Storage ' );
+//    SQL.Add('WHERE (' );
+//
+//    case index of
+//        1:
+//          SQL.Add('Vehicle_Index');
+//        2:
+//          SQL.Add('Missile_Index');
+//        3:
+//          SQL.Add('Mine_Index');
+//        4:
+//          SQL.Add('Torpedo_Index');
+//        5:
+//          SQL.Add('Satellite_Index');
+//        6:
+//          SQL.Add('Sonobuoy_Index');
+//        7:
+//          SQL.Add('Radar_Index');
+//        8:
+//          SQL.Add('FCR_Index');
+//        9:
+//          SQL.Add('Sonar_Index');
+//        10:
+//          SQL.Add('ESM_Index');
+//        11:
+//          SQL.Add('MAD_Index');
+//        12:
+//          SQL.Add('EO_Index');
+//        13:
+//          SQL.Add('Gun_Index');
+//        14:
+//          SQL.Add('Bomb_Index');
+//        15:
+//          SQL.Add('Jammer_Index');
+//        16:
+//          SQL.Add('Defensive_Jammer_Index');
+//        17:
+//          SQL.Add('Towed_Decoy_Index');
+//        18:
+//          SQL.Add('Floating_Decoy_Index');
+//        19:
+//          SQL.Add('Chaff_Index');
+//        20:
+//          SQL.Add('Decoy_Index');
+//        21:
+//          SQL.Add('Air_Bubble_Index');
+//        22:
+//          SQL.Add('Pattern_Index');
+//        23:
+//          SQL.Add('Infrared_Decoy_Index');
+//    end;
+//
+//    SQL.Add(' = ' +  IntToStr(id) + ')' );
+//    Open;
+//
+//    result := RecordCount > 0;
+////    if not IsEmpty then begin
+////      First;
+////      if not Assigned(rec) then
+////        rec := TNote_Storage.Create;
+////      with rec do begin
+////        Note_Index  := FieldByName('Note_Index').AsInteger;
+////        Note_Type   := FieldByName('Note_Type').AsInteger;
+////        Notes       := FieldByName('Notes').AsString;
+////      end;
+////    end;
+//  end;
+//end;
 
 //-------------------------------------------------------------------
 
@@ -62768,54 +61113,6 @@ begin
   end;
 end;
 
-function TdmTTT.GetAllGameReport(plist: TList ; rec: TRuntime_Game_Report): integer;
-begin
-if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * FROM Game_Report a left Join Scenario_Definition b on a.Scenario_Index = b.Scenario_Index');
-    SQL.Add('ORDER BY a.Game_Name');
-    Open;
-
-    result := RecordCount ;
-    if not Assigned(plist) then
-    begin
-      pList.Create;
-    end
-    else
-    begin
-      pList.Clear;
-    end;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not ZQ.Eof do
-      begin
-        Rec := TRuntime_Game_Report.Create;
-        with Rec.fdata do
-        begin
-          Id_Game        := FieldByName('Id_Game_Report').AsInteger;
-          Scenario_index := FieldByName('Scenario_Index').AsInteger;
-          Game_Name      := FieldByName('Game_Name').AsString;
-          Start_Time     := FieldByName('TimeStart').AsFloat;
-          End_Time       := FieldByName('TimeEnd').AsFloat;
-          Description    := FieldByName('Description').AsString;
-          Scenario_Name  := FieldByName('Scenario_Identifier').AsString;
-          Subject        := FieldByName('Subject').AsString;
-        end;
-        pList.Add(Rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-//
 //function TdmTTT.getAllDefaultLogistics(mList: TList): Integer;
 //var
 //  rec: TLogistics;
@@ -62916,128 +61213,6 @@ begin
   end;
 end;
 
-function TdmTTT.GetPlatoon(const id: Integer; var pList: TList): Boolean;
-var
-  rec: TPersonel;
-begin
-  result := False;
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT c3.Kompi_Index, c3.Kompi_Identifier, ');
-    SQL.Add('d4.Pleton_Index, d4.Pleton_Identifier ');
-    SQL.Add('FROM Personel_Brigade a1 JOIN Personel_Batalyon b2 ON ');
-    SQL.Add('a1.brigade_index = b2.brigade_index JOIN personel_kompi c3 ON ');
-    SQL.Add('b2.batalyon_index = c3.batalyon_index JOIN personel_pleton d4 ON ');
-    SQL.Add('c3.kompi_index = d4.kompi_index ');
-    SQL.Add('WHERE c3.Kompi_Index = ' + IntToStr(id));
-
-    Open;
-    Result := RecordCount > 0;
-    if not Assigned(pList) then
-      pList := TList.Create
-    else
-      pList.Clear;
-
-    if not IsEmpty then
-    begin
-      First;
-      while not ZQ.Eof do
-      begin
-        rec := TPersonel.Create;
-        TKompi(rec).Id := FieldByName('Kompi_Index').AsInteger;
-        TKompi(rec).Identifier := FieldByName('Kompi_Identifier').AsString;
-        TPlatoon(rec).Id := FieldByName('Pleton_Index').AsInteger;
-        TPlatoon(rec).Identifier := FieldByName('Pleton_Identifier').AsString;
-
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetPlotting_Definition(const id: Integer; var pList: TList;
-  rec: TRuntime_Plotting_Definition): Integer;
-begin
-  Result := -1;
-  if not ZConn.Connected then
-    exit;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT *');
-    SQL.Add('FROm Plotting_Definition');
-    SQL.Add('ORDER BY Plotting_Index');
-    Open;
-
-    Result := RecordCount;
-    if not Assigned(pList) then
-    begin
-      pList.Create;
-    end
-    else
-      pList.Clear;
-
-
-    if not IsEmpty then
-    begin
-      First;
-      while not ZQ.Eof do
-      begin
-        rec := TRuntime_Plotting_Definition.Create;
-        with rec.FData do
-        begin
-          Plotting_Index := FieldByName('Plotting_Index').AsInteger;
-          Plotting_Name := FieldByName('Plotting_Name').AsString;
-          Plotting_Type := FieldByName('Plotting_Type').AsInteger;
-          Plotting_Group := FieldByName('Plotting_Group').AsInteger;
-        end;
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetPlotting_DefinitionByID(const id: Integer;
-  rec: TRuntime_Plotting_Definition): Integer;
-begin
-Result := -1;
-  if not ZConn.Connected then
-    exit;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT *');
-    SQL.Add('FROm Plotting_Definition');
-    SQL.Add('Where (Plotting_Index = ' + IntToStr(id) + ')');
-    Open;
-
-    Result := RecordCount;
-
-    if not IsEmpty then
-    begin
-      First;
-      rec := TRuntime_Plotting_Definition.Create;
-        with rec.FData do
-        begin
-          Plotting_Index := FieldByName('Plotting_Index').AsInteger;
-          Plotting_Name := FieldByName('Plotting_Name').AsString;
-          Plotting_Type := FieldByName('Plotting_Type').AsInteger;
-          Plotting_Group := FieldByName('Plotting_Group').AsInteger;
-        end;
-
-    end;
-  end;
-end;
-//
 //function TdmTTT.GetDefault_Logistics(const id: Integer;
 //  var rec: TLogistics): boolean;
 //begin
@@ -63709,313 +61884,6 @@ begin
   end;
 end;
 
-function TdmTTT.GetTargetIdentifierFromClass(const vId: integer;
-  var pList: TList): boolean;
-var
-  ssql: string;
-  rec: TPlatform_Instance_Identifier;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    ssql := 'SELECT * ';
-    ssql := ssql + 'FROM Platform_Instance_Identifier ';
-    ssql := ssql + 'WHERE Vehicle_Index = ' + IntToStr(vId) ;
-    SQL.Add(ssql);
-    Open;
-
-    if not Assigned(pList) then
-      pList := TList.Create
-    else
-      pList.Clear;
-
-    result := RecordCount > 0;
-    if not IsEmpty then
-    begin
-      First;
-
-      while not ZQ.Eof do
-      begin
-        rec := TPlatform_Instance_Identifier.Create;
-        with rec.FData do
-        begin
-          Instance_Ident_Index := FieldByName('Instance_Ident_Index').AsInteger;
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          Instance_Identifier := FieldByName('Instance_Identifier').AsString;
-          vbs_class_name := FieldByName('vbs_class_name').AsString;
-          model_path := FieldByName('model_path').AsString;
-        end;
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetTargetListFromVec_Def(var pList: TList): boolean;
-var
-  ssql: string;
-  rec : TVehicle_Definition;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    ssql := 'SELECT * ';
-    ssql := ssql + 'FROM Vehicle_Definition ';
-    ssql := ssql + 'WHERE Platform_Domain = 8 ' ;   //target
-    ssql := ssql + 'ORDER BY  Vehicle_Identifier' ;
-    SQL.Add(ssql);
-    Open;
-
-    result := RecordCount > 0;
-    if not IsEmpty then
-    begin
-
-      First;
-
-      if not Assigned(pList) then
-        pList := TList.Create
-      else
-        pList.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TVehicle_Definition.Create;
-        with rec.FData do
-        begin
-
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          Vehicle_Identifier := FieldByName('Vehicle_Identifier').AsString;
-          Platform_Domain := FieldByName('Platform_Domain').AsInteger;
-          Platform_Category := FieldByName('Platform_Category').AsInteger;
-          Platform_Type := FieldByName('Platform_Type').AsInteger;
-          Motion_Characteristics := FieldByName('Motion_Characteristics')
-            .AsInteger;
-          Length := FieldByName('Length').AsSingle;
-          Width := FieldByName('Width').AsSingle;
-          Height := FieldByName('Height').AsSingle;
-          Draft := FieldByName('Draft').AsSingle;
-          Front_Radar_Cross := FieldByName('Front_Radar_Cross').AsSingle;
-          Side_Radar_Cross := FieldByName('Side_Radar_Cross').AsSingle;
-          Front_Acoustic_Cross := FieldByName('Front_Acoustic_Cross').AsSingle;
-          Side_Acoustic_Cross := FieldByName('Side_Acoustic_Cross').AsSingle;
-          Magnetic_Cross := FieldByName('Magnetic_Cross').AsSingle;
-          Front_Visual_EO_Cross := FieldByName('Front_Visual_EO_Cross')
-            .AsSingle;
-          Side_Visual_EO_Cross := FieldByName('Side_Visual_EO_Cross').AsSingle;
-          Front_Infrared_Cross := FieldByName('Front_Infrared_Cross').AsSingle;
-          Side_Infrared_Cross := FieldByName('Side_Infrared_Cross').AsSingle;
-          LSpeed_Acoustic_Intens := FieldByName('LSpeed_Acoustic_Intens')
-            .AsSingle;
-          Below_Cav_Acoustic_Intens := FieldByName('Below_Cav_Acoustic_Intens')
-            .AsSingle;
-          Above_Cav_Acoustic_Intens := FieldByName('Above_Cav_Acoustic_Intens')
-            .AsSingle;
-          HSpeed_Acoustic_Intens := FieldByName('HSpeed_Acoustic_Intens')
-            .AsSingle;
-          Cavitation_Speed_Switch := FieldByName('Cavitation_Speed_Switch')
-            .AsSingle;
-          Time_of_Weapon_Impact := FieldByName('Time_of_Weapon_Impact')
-            .AsInteger;
-          Chaff_Seduction_Capable := FieldByName('Chaff_Seduction_Capable')
-            .AsBoolean;
-          Seduction_Mode_Prob := FieldByName('Seduction_Mode_Prob').AsSingle;
-          Min_Delay_Between_Chaff_Rounds := FieldByName
-            ('Min_Delay_Between_Chaff_Rounds').AsInteger;
-          Max_Chaff_Salvo_Size := FieldByName('Max_Chaff_Salvo_Size').AsInteger;
-          SARH_POH_Modifier := FieldByName('SARH_POH_Modifier').AsSingle;
-          CG_POH_Modifier := FieldByName('CG_POH_Modifier').AsSingle;
-          TARH_POH_Modifier := FieldByName('TARH_POH_Modifier').AsSingle;
-          IR_POH_Modifier := FieldByName('IR_POH_Modifier').AsSingle;
-          AR_POH_Modifier := FieldByName('AR_POH_Modifier').AsSingle;
-          Active_Acoustic_Tor_POH_Mod := FieldByName
-            ('Active_Acoustic_Tor_POH_Mod').AsSingle;
-          Passive_Acoustic_Tor_POH_Mod := FieldByName
-            ('Passive_Acoustic_Tor_POH_Mod').AsSingle;
-          Active_Passive_Tor_POH_Mod := FieldByName
-            ('Active_Passive_Tor_POH_Mod').AsSingle;
-          Wake_Home_POH_Modifier := FieldByName('Wake_Home_POH_Modifier')
-            .AsSingle;
-          Wire_Guide_POH_Modifier := FieldByName('Wire_Guide_POH_Modifier')
-            .AsSingle;
-          Mag_Mine_POH_Modifier := FieldByName('Mag_Mine_POH_Modifier')
-            .AsSingle;
-          Press_Mine_POH_Modifier := FieldByName('Press_Mine_POH_Modifier')
-            .AsSingle;
-          Impact_Mine_POH_Modifier := FieldByName('Impact_Mine_POH_Modifier')
-            .AsSingle;
-          Acoustic_Mine_POH_Modifier := FieldByName
-            ('Acoustic_Mine_POH_Modifier').AsSingle;
-          Sub_Comm_Antenna_Height := FieldByName('Sub_Comm_Antenna_Height')
-            .AsSingle;
-          Rel_Comm_Antenna_Height := FieldByName('Rel_Comm_Antenna_Height')
-            .AsSingle;
-          Max_Comm_Operating_Depth := FieldByName('Max_Comm_Operating_Depth')
-            .AsSingle;
-          HF_Link_Capable := FieldByName('HF_Link_Capable').AsBoolean;
-          UHF_Link_Capable := FieldByName('UHF_Link_Capable').AsBoolean;
-          HF_Voice_Capable := FieldByName('HF_Voice_Capable').AsBoolean;
-          VHF_Voice_Capable := FieldByName('VHF_Voice_Capable').AsBoolean;
-          UHF_Voice_Capable := FieldByName('UHF_Voice_Capable').AsBoolean;
-          SATCOM_Voice_Capable := FieldByName('SATCOM_Voice_Capable').AsBoolean;
-          UWT_Voice_Capable := FieldByName('UWT_Voice_Capable').AsBoolean;
-          HF_MHS_Capable := FieldByName('HF_MHS_Capable').AsBoolean;
-          UHF_MHS_Capable := FieldByName('UHF_MHS_Capable').AsBoolean;
-          SATCOM_MHS_Capable := FieldByName('SATCOM_MHS_Capable').AsBoolean;
-          Damage_Capacity := FieldByName('Damage_Capacity').AsInteger;
-          Plat_Basing_Capability := FieldByName('Plat_Basing_Capability')
-            .AsBoolean;
-          Chaff_Capability := FieldByName('Chaff_Capability').AsBoolean;
-          Readying_Time := FieldByName('Readying_Time').AsInteger;
-          Sonobuoy_Capable := FieldByName('Sonobuoy_Capable').AsBoolean;
-          Nav_Light_Capable := FieldByName('Nav_Light_Capable').AsBoolean;
-          Periscope_Depth := FieldByName('Periscope_Depth').AsSingle;
-          Periscope_Height_Above_Water := FieldByName
-            ('Periscope_Height_Above_Water').AsSingle;
-          Periscope_Front_Radar_Xsection := FieldByName
-            ('Periscope_Front_Radar_Xsection').AsSingle;
-          Periscope_Side_Radar_Xsection := FieldByName
-            ('Periscope_Side_Radar_Xsection').AsSingle;
-          Periscope_Front_Vis_Xsection := FieldByName
-            ('Periscope_Front_Vis_Xsection').AsSingle;
-          Periscope_Side_Vis_Xsection := FieldByName
-            ('Periscope_Side_Vis_Xsection').AsSingle;
-          Periscope_Front_IR_Xsection := FieldByName
-            ('Periscope_Front_IR_Xsection').AsSingle;
-          Periscope_Side_IR_Xsection := FieldByName
-            ('Periscope_Side_IR_Xsection').AsSingle;
-          Engagement_Range := FieldByName('Engagement_Range').AsSingle;
-          Auto_Air_Defense_Capable := FieldByName('Auto_Air_Defense_Capable')
-            .AsBoolean;
-          Alert_State_Time := FieldByName('Alert_State_Time').AsSingle;
-          Detectability_Type := FieldByName('Detectability_Type').AsInteger;
-          Max_Sonobuoys_To_Monitor := FieldByName('Max_Sonobuoys_To_Monitor')
-            .AsInteger;
-          Sonobuoy_Deploy_Max_Altitude := FieldByName
-            ('Sonobuoy_Deploy_Max_Altitude').AsInteger;
-          Sonobuoy_Deploy_Min_Altitude := FieldByName
-            ('Sonobuoy_Deploy_Min_Altitude').AsInteger;
-          Sonobuoy_Deploy_Max_Speed := FieldByName('Sonobuoy_Deploy_Max_Speed')
-            .AsInteger;
-          Air_Drop_Torpedo_Max_Altitude := FieldByName
-            ('Air_Drop_Torpedo_Max_Altitude').AsInteger;
-          Air_Drop_Torpedo_Min_Altitude := FieldByName
-            ('Air_Drop_Torpedo_Min_Altitude').AsInteger;
-          Air_Drop_Torpedo_Max_Speed := FieldByName
-            ('Air_Drop_Torpedo_Max_Speed')
-            .AsInteger;
-          TMA_Rate_Factor := FieldByName('TMA_Rate_Factor').AsSingle;
-          HMS_Noise_Reduction_Factor := FieldByName
-            ('HMS_Noise_Reduction_Factor').AsSingle;
-          TAS_Noise_Reduction_Factor := FieldByName
-            ('TAS_Noise_Reduction_Factor').AsSingle;
-          Infrared_Decoy_Capable := FieldByName('Infrared_Decoy_Capable')
-            .AsBoolean;
-          HF_Mid_Course_Update_Capable := FieldByName
-            ('HF_Mid_Course_Update_Capable').AsBoolean;
-          UHF_Mid_Course_Update_Capable := ZQ.FieldByName
-            ('UHF_Mid_Course_Update_Capable').AsBoolean;
-          DWT := FieldByName('DWT').AsSingle;
-
-//          SATCOM_Mid_Course_Update_Capable := ZQ.FieldByName('SATCOM_Mid_Course_Update_Capable').AsBoolean;
-
-          Font_id := FieldByName
-            ('font_id').AsInteger;
-          Symbol_id := FieldByName
-            ('symbol_id').AsInteger;
-          Quantity_Group_Personal := FieldByName
-            ('Quantity_Group_Personal').AsInteger;
-          Vbs_Class_Name := FieldByName
-            ('vbs_class_name').AsString;
-          Platform_Capability_Index := FieldByName('Platform_Capability_Index').AsInteger;  //dng
-          Logistics_Index := FieldByName('Logistics_Index').AsInteger;
-          Tactical_Symbol_Name := FieldByName
-            ('Tactical_Symbol_Name').AsString;
-          GangwayPosition := FieldByName('GangwayPosition').AsInteger;
-          DWT := FieldByName('DWT').AsSingle;
-          last_updated := FieldByName('last_updated').AsDateTime;
-        end;
-
-        pList.Add(rec);
-        ZQ.Next;
-
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetWaypointByResourceAlloc(const id: Integer;
-  var pList: TList): boolean;
-var
-  ssql: string;
-  rec : TWaypoint_Def;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    ssql := 'SELECT * ';
-    ssql := ssql + 'FROM Waypoint a ';
-    ssql := ssql +
-      'join Resource_Waypoint_Mapping b on a.Waypoint_Index = b.Waypoint_Index ';
-
-//    if id <> 0 then
-      ssql := ssql + 'WHERE (b.Resource_Alloc_Index = ' + IntToStr(id) + ')';
-
-    SQL.Add(ssql);
-    // ShowMessage(SQL.Text);
-    Open;
-
-    result := RecordCount > 0;
-    if not Assigned(pList) then
-    begin
-      pList.Create;
-    end
-    else
-    begin
-      pList.Clear;
-    end;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not ZQ.Eof do
-      begin
-        rec := TWaypoint_Def.Create;
-        with rec.FData do
-        begin
-          Waypoint_Index := FieldByName('Waypoint_Index')
-            .AsInteger;
-          Waypoint_Name := FieldByName('Waypoint_Name').AsString;
-          Termination := FieldByName('Termination').AsInteger;
-          Waypoint_Centre_Lat :=  FieldByName('Waypoint_Centre_Lat').AsFloat;
-          Waypoint_Centre_Long :=  FieldByName('Waypoint_Centre_Long').AsFloat;
-          Dimension := FieldByName('Dimension').AsSingle;
-        end;
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
 function TdmTTT.InsertRuntime_Platform_Library
   (var rec: TRuntime_Platform_Library): Integer;
 begin
@@ -64062,83 +61930,6 @@ begin
     ExecSQL;
   end;
 end;
-
-function TdmTTT.InsertWaypointByResourceAlloc(const id: string;
-  var rec: TWaypoint_Def): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO Resource_Waypoint_Mapping  ');
-      SQL.Add('(Resource_Alloc_Index,Waypoint_Index)  ');
-      SQL.Add('VALUES (');
-      SQL.Add('''' + id + ''', ' + IntToStr(Waypoint_Index) + ')');
-    end;
-    ExecSQL;
-  end;
-end;
-
-procedure TdmTTT.InsertWaypointDataPoint(WaypointIndex: Integer;
-  Waypoint: TRecWaypoint_Data);
-var
-  query : string;
-begin
-  with zq do begin
-
-    query := 'Insert into Waypoint_Data(Waypoint_Index, Scripted_Event_Index, Number_of_Event, '
-             + 'Platform_Event_Index, Speed, Altitude, Vert_Speed, Waypoint_Latitude, Waypoint_Longitude, '
-             + 'Cartesian_Waypoint_X, Cartesian_Waypoint_Y, Time_Waypoint, Time_2_Waypoint, HF_Datalink_Activate, '
-             + 'UHF_Datalink_Activate, Sonobuoy_Resource_Index, Sonobuoy_Instance_Index, Deploy_Sonobuoys, '
-             + 'Sonobuoy_Spacing, Num_Sonobuoys_2_Drop, Sonobuoy_Depth, Jammer_Control, Remove_from_Game, '
-             + 'StartMode, StartAt) values (:Waypoint_Index, :Scripted_Event_Index , :Number_of_Event, :Platform_Event_Index, :Speed, '
-             + ':Altitude, :Vert_Speed, :Waypoint_Latitude, :Waypoint_Longitude, :Cartesian_Waypoint_X, :Cartesian_Waypoint_Y, '
-             + ':Time_Waypoint, :Time_2_Waypoint, :HF_Datalink_Activate, :UHF_Datalink_Activate, '
-             + ':Sonobuoy_Resource_Index, :Sonobuoy_Instance_Index, :Deploy_Sonobuoys, :Sonobuoy_Spacing, '
-             + ':Num_Sonobuoys_2_Drop, :Sonobuoy_Depth, :Jammer_Control, :Remove_from_Game, '
-             + ':StartMode, :StartAt)';
-    ParamCheck := True;
-
-    SQL.Clear;
-    SQL.Add(query);
-    Params.ParamByName('Waypoint_Index').Value := WaypointIndex;
-    Params.ParamByName('Scripted_Event_Index').Value := Waypoint.Scripted_Event_Index;
-    Params.ParamByName('Number_of_Event').Value := Waypoint.Number_of_Event;
-    Params.ParamByName('Platform_Event_Index').Value := Waypoint.Platform_Event_Index;
-    Params.ParamByName('Speed').Value := Waypoint.Speed;
-    Params.ParamByName('Altitude').Value := Waypoint.Altitude;
-    Params.ParamByName('Vert_Speed').Value := Waypoint.Vert_Speed;
-    Params.ParamByName('Waypoint_Latitude').Value := Waypoint.Waypoint_Latitude;
-    Params.ParamByName('Waypoint_Longitude').Value := Waypoint.Waypoint_Longitude;
-    Params.ParamByName('Cartesian_Waypoint_X').Value := Waypoint.Cartesian_Waypoint_X;
-    Params.ParamByName('Cartesian_Waypoint_Y').Value := Waypoint.Cartesian_Waypoint_Y;
-    Params.ParamByName('Time_Waypoint').Value := Waypoint.Time_Waypoint;
-    Params.ParamByName('Time_2_Waypoint').Value := Waypoint.Time_2_Waypoint;
-    Params.ParamByName('HF_Datalink_Activate').Value := Waypoint.HF_Datalink_Activate;
-    Params.ParamByName('UHF_Datalink_Activate').Value := Waypoint.UHF_Datalink_Activate;
-    Params.ParamByName('Sonobuoy_Resource_Index').Value := Waypoint.Sonobuoy_Resource_Index;
-    Params.ParamByName('Sonobuoy_Instance_Index').Value := Waypoint.Sonobuoy_Instance_Index;
-    Params.ParamByName('Deploy_Sonobuoys').Value := Waypoint.Deploy_Sonobuoys;
-    Params.ParamByName('Sonobuoy_Spacing').Value := Waypoint.Sonobuoy_Spacing;
-    Params.ParamByName('Num_Sonobuoys_2_Drop').Value := Waypoint.Num_Sonobuoys_2_Drop;
-    Params.ParamByName('Sonobuoy_Depth').Value := Waypoint.Sonobuoy_Depth;
-    Params.ParamByName('Jammer_Control').Value := Waypoint.Jammer_Control;
-    Params.ParamByName('Remove_from_Game').Value := Waypoint.Remove_from_Game;
-    Params.ParamByName('StartMode').Value := Waypoint.StartMode;
-    Params.ParamByName('StartAt').Value := Waypoint.StartAt;
-
-    try
-      ExecSQL;
-    finally
-    end;
-  end;
-
-end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.UpdateRuntime_Platform_Library(const id: string;
   var rec: TRuntime_Platform_Library): Integer;
@@ -64189,20 +61980,6 @@ begin
   end;
 end;
 
-function TdmTTT.DeleteAllResource_Waypoint_Mapping(const id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Resource_Waypoint_Mapping  ');
-    SQL.Add('WHERE (Resource_Alloc_Index = ' + id + ')');
-    ExecSQL;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.DeleteRuntime_Platform_Library(const id: string)
   : Integer;
@@ -64315,43 +62092,6 @@ begin
 
       // ShowMessage(SQL.Text);
     end;
-    ExecSQL;
-  end;
-end;
-function TdmTTT.InsertPlottingMapping(var aRec: TResource_Allocation): Integer;
-begin
-  Result := -1;
-  with ZQ do
-  begin
-    with aRec do
-    begin
-      SQL.Clear;
-      SQL.Add('INSERT INTO Resource_Plotting_Mapping');
-      SQL.Add('(Resource_Alloc_Index, Plotting_Index, Plotting_Name, Date, Force)');
-      SQL.Add('VALUES(');
-      SQL.Add(IntToStr(FData.Resource_Alloc_Index) + ',');
-      SQL.Add(IntToStr(FPlotting.Plotting_Index) + ',');
-      SQL.Add(QuotedStr(FPlotting.Plotting_Name)+ ',');
-      SQL.Add(FloatToStr(FPlotting.Date) + ',');
-      SQL.Add(IntToStr(FPlotting.Force) + ')');
-      ExecSQL;
-    end;
-
-  end;
-end;
-
-function TdmTTT.InsertPlotting_Definition( aRec: TrecPlotting_Definition): Integer;
-begin
-  Result := -1;
-  with ZQ do
-  begin
-    SQL.Clear;
-    SQL.Add('INSERT INTO Plotting_Definition');
-    SQL.Add('(Plotting_Name, Plotting_Type, Plotting_Group)');
-    SQL.Add('VALUES(');
-    SQL.Add(QuotedStr(aRec.Plotting_Name)+',');
-    SQL.Add(IntToStr(aRec.Plotting_Type)+',') ;
-    SQL.Add(IntToStr(aRec.Plotting_Group)+')');
     ExecSQL;
   end;
 end;
@@ -64558,97 +62298,6 @@ begin
   end;
 end;
 
-function TdmTTT.GetAllPlotting_Definition( var pList: TList): Boolean;
-var
-  rec: TRuntime_Plotting_Definition;
-begin
-Result := false;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * FROM Plotting_Definition');
-    SQL.Add('ORDER BY Plotting_Index');
-    Open;
-
-    result := RecordCount > 0;
-    if not Assigned(plist) then
-    begin
-      pList.Create;
-    end
-    else
-    begin
-      pList.Clear;
-    end;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not ZQ.Eof do
-      begin
-        Rec := TRuntime_Plotting_Definition.Create;
-        with Rec.fdata do
-        begin
-          Plotting_Index := FieldByName('Plotting_Index').AsInteger;
-          Plotting_Name := FieldByName('Plotting_Name').AsString;
-          Plotting_Type := FieldByName('Plotting_Type').AsInteger;
-          Plotting_Group := FieldByName('Plotting_Group').AsInteger;
-        end;
-        pList.Add(Rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetAllPlotting_DefinitionByID(const id: Integer; var pList: TList;
-  rec: TRuntime_Plotting_Definition): Integer;
-begin
-Result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * FROM Plotting_Definition');
-    SQL.Add('Where (Plotting_Index = ' + IntToStr(id) + ')');
-    Open;
-
-    result := RecordCount ;
-    if not Assigned(plist) then
-    begin
-      pList.Create;
-    end
-    else
-    begin
-      pList.Clear;
-    end;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not ZQ.Eof do
-      begin
-        Rec := TRuntime_Plotting_Definition.Create;
-        with Rec.fdata do
-        begin
-          Plotting_Index := FieldByName('Plotting_Index').AsInteger;
-          Plotting_Name := FieldByName('Plotting_Name').AsString;
-          Plotting_Type := FieldByName('Plotting_Type').AsInteger;
-          Plotting_Group := FieldByName('Plotting_Group').AsInteger;
-        end;
-        pList.Add(Rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-/// /===================================================
-
 function TdmTTT.UpdatePlatform_Instance_ModelPathByInx(const ins_ident, vbsName, modelPath: string): Integer;
 begin
   result := -1;
@@ -64691,26 +62340,6 @@ begin
     ExecSQL;
   end;
 end;
-function TdmTTT.UpdatePlotting(aRec: TrecPlotting_Definition;
-  id: string): Boolean;
-begin
-  Result := True;
-  with ZQ do
-  begin
-    with aRec do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('UPDATE Plotting_Definition');
-      SQL.Add('Set');
-      sql.Add('Plotting_Name ='+ QuotedStr(Plotting_Name)+',');
-      SQL.Add('Plotting_Type ='+ IntToStr(Plotting_Type)+ ',');
-      SQL.Add('Plotting_Group='+ IntToStr(Plotting_Group));
-    end;
-    SQL.Add('WHERE (Plotting_Index = ' + id + ')');
-    ExecSQL;
-  end;
-end;
 
 // -------------------------------------------------------------------
 
@@ -64738,18 +62367,6 @@ begin
       end;
       SQL.Add('= ' + IntToStr(id));
     end;
-    ExecSQL;
-  end;
-end;
-function TdmTTT.DeletePlotting(const id: String): Boolean;
-begin
-  Result := True;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Plotting_Definition');
-    SQL.Add('WHERE Plotting_Index =' + id);
     ExecSQL;
   end;
 end;
@@ -64932,202 +62549,134 @@ begin
 end;
 
 //------------------------------------------------------------------------------
-function TdmTTT.GetPersonel(const id: Integer; var pList: TList;
-  var rec: Tpersonel): Boolean;
-begin
-  result := False;
-  if not ZConn.Connected then
-    Exit;
 
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT a1.Brigade_Index, ');
-    SQL.Add('a1.Brigade_Identifier, b2.Batalyon_Index, b2.Batalyon_Identifier, ');
-    SQL.Add('c3.Kompi_Index, c3.Kompi_Identifier, d4.Pleton_Index, ');
-    SQL.Add('d4.Pleton_Identifier, e5.Regu_Index, e5.Regu_Identifier ');
-    SQL.Add('FROM Personel_Brigade a1 JOIN personel_batalyon b2 ON ');
-    SQL.Add('a1.brigade_index = b2.brigade_index JOIN personel_kompi c3 ON ');
-    SQL.Add('b2.batalyon_index = c3.batalyon_index JOIN personel_pleton d4 ON ');
-    SQL.Add('c3.kompi_index = d4.kompi_index JOIN Personel_Regu e5 ON ');
-    SQL.Add('d4.Pleton_Index = e5.Pleton_Index ');
-    SQL.Add('WHERE (a1.Brigade_Index = ' + IntToStr(id) + ')');
-
-    Open;
-    Result := RecordCount > 0;
-    if not Assigned(pList) then
-    begin
-      pList := TList.Create;
-    end
-    else
-    begin
-      pList.Clear;
-    end;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not ZQ.Eof do
-      begin
-        rec := TPersonel.Create;
-        {with rec.FData do
-        begin}
-          TGroup(rec).IdBrigade := FieldByName('Brigade_Index').AsInteger;
-          TBrigade(rec).Identifier := FieldByName('Brigade_Identifier').AsString;
-          TGroup(rec).IdBatalyon := FieldByName('Batalyon_Index').AsInteger;
-          TBatalyon(rec).Identifier := FieldByName('Batalyon_Identifier').AsString;
-          TGroup(rec).IdKompi := FieldByName('Kompi_Index').AsInteger;
-          TKompi(rec).Identifier := FieldByName('Kompi_Identifier').AsString;
-          TGroup(rec).IdPlatoon := FieldByName('Pleton_Index').AsInteger;
-          TPlatoon(rec).Identifier := FieldByName('Pleton_Identifier').AsString;
-          TGroup(rec).Id := FieldByName('Regu_Index').AsInteger;
-          TGroup(rec).Identifier := FieldByName('Regu_Identifier').AsString;
+//function TdmTTT.GetPersonel_ByRes(const id: Integer; var pList: TList): Boolean;
+//var
+//  rec : TPersonel_Embark_Library;
+//begin
+//  Result := False;
+//  if not ZConn.Connected then
+//    Exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT Resource_Alloc_Index, Resource_Embark_Library_Mapping.Embark_Library_Index, Brigade_Index, Brigade_Identifier ');
+//    SQL.Add('FROM Resource_Embark_Library_Mapping LEFT JOIN Personel_Embark_Library ON ');
+//    SQL.Add('Resource_Embark_Library_Mapping.Embark_Library_Index = Personel_Embark_Library.Embark_Library_Index ');
+//    SQL.Add('Where (Resource_Alloc_Index = ' + IntToStr(id) + ')');
+//    Open;
+//
+//    Result := RecordCount > 0;
+//    if not Assigned(pList) then
+//      pList := TList.Create
+//    else
+//      pList.Clear;
+//
+//    if not IsEmpty then
+//    begin
+//      First;
+//      while not ZQ.Eof do
+//      begin
+//        rec := TPersonel_Embark_Library.Create;
+//        with rec.FData do
+//        begin
+//          Embark_Library_Index := FieldByName('Embark_Library_Index').AsInteger;
+//          Brigade_Index := FieldByName('Brigade_Index').AsInteger;
 //          Brigade_Identifier := FieldByName('Brigade_Identifier').AsString;
-//          Batalyon_Index := FieldByName('Batalyon_Index').AsInteger;
-//          Batalyon_Identifier := FieldByName('Batalyon_Identifier').AsString;
-//          Kompi_Index := FieldByName('Kompi_Index').AsInteger;
-//          Kompi_Identifier := FieldByName('Kompi_Identifier').AsString;
-//          Pleton_Index := FieldByName('Pleton_Index').AsInteger;
-//          Pleton_Identifier := FieldByName('Pleton_Identifier').AsString;
-//          Regu_Index := FieldByName('Regu_Index').AsInteger;
-//          Regu_Identifier := FieldByName('Regu_Identifier').AsString;
-        {end; }
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
+//        end;
+//        pList.Add(rec);
+//        ZQ.Next;
+//      end;
+//    end;
+//  end;
+//end;
 
-function TdmTTT.GetPersonel_ByRes(const id: Integer; var pList: TList): Boolean;
-var
-  rec : TPersonel_Embark_Library;
-begin
-  Result := False;
-  if not ZConn.Connected then
-    Exit;
+//function TdmTTT.GetPersonel_Embark_Library(const id: Integer; var pList: Tlist;
+//  rec: TPersonel{_Embark_Library}): Boolean;
+//begin
+//  Result := False;
+//  if not ZConn.Connected then
+//    Exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT * ');
+//    SQL.Add('FROM Personel_Embark_Library ');
+//    SQL.Add('WHERE (Embark_Library_Index = ' + IntToStr(id) + ')');
+//    Open;
+//
+//    Result := RecordCount > 0;
+//    if not Assigned(pList) then
+//      pList := TList.Create
+//    else
+//      pList.Clear;
+//
+//    if not IsEmpty then
+//    begin
+//      First;
+//      while not ZQ.Eof do
+//      begin
+//        rec := TPersonel.Create;//_Embark_Library.Create;
+//        {with rec.FData do
+//        begin }
+//          rec.Id := FieldByName('Brigade_Index').AsInteger;
+//          rec.Identifier := FieldByName('Brigade_Identifier').AsString;
+//          rec.VeId := FieldByName('Vehicle_Index').AsInteger;
+//        {end;}
+//        pList.Add(rec);
+//        ZQ.Next;
+//      end;
+//    end;
+//  end;
+//end;
 
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT Resource_Alloc_Index, Resource_Embark_Library_Mapping.Embark_Library_Index, Brigade_Index, Brigade_Identifier ');
-    SQL.Add('FROM Resource_Embark_Library_Mapping LEFT JOIN Personel_Embark_Library ON ');
-    SQL.Add('Resource_Embark_Library_Mapping.Embark_Library_Index = Personel_Embark_Library.Embark_Library_Index ');
-    SQL.Add('Where (Resource_Alloc_Index = ' + IntToStr(id) + ')');
-    Open;
-
-    Result := RecordCount > 0;
-    if not Assigned(pList) then
-      pList := TList.Create
-    else
-      pList.Clear;
-
-    if not IsEmpty then
-    begin
-      First;
-      while not ZQ.Eof do
-      begin
-        rec := TPersonel_Embark_Library.Create;
-        with rec.FData do
-        begin
-          Embark_Library_Index := FieldByName('Embark_Library_Index').AsInteger;
-          Brigade_Index := FieldByName('Brigade_Index').AsInteger;
-          Brigade_Identifier := FieldByName('Brigade_Identifier').AsString;
-        end;
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetPersonel_Embark_Library(const id: Integer; var pList: Tlist;
-  rec: TPersonel{_Embark_Library}): Boolean;
-begin
-  Result := False;
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Personel_Embark_Library ');
-    SQL.Add('WHERE (Embark_Library_Index = ' + IntToStr(id) + ')');
-    Open;
-
-    Result := RecordCount > 0;
-    if not Assigned(pList) then
-      pList := TList.Create
-    else
-      pList.Clear;
-
-    if not IsEmpty then
-    begin
-      First;
-      while not ZQ.Eof do
-      begin
-        rec := TPersonel.Create;//_Embark_Library.Create;
-        {with rec.FData do
-        begin }
-          rec.Id := FieldByName('Brigade_Index').AsInteger;
-          rec.Identifier := FieldByName('Brigade_Identifier').AsString;
-          rec.VeId := FieldByName('Vehicle_Index').AsInteger;
-        {end;}
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetPersonel_Mapping(const id: Integer;
-  var pList: TList): Boolean;
-var
-  rec: TPersonel_Embark_Library;
-begin
-  Result := False;
-  if not ZConn.Connected then
-    Exit;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Personel_Embark_Library ');
-    if id <> 0 then
-      SQL.Add('WHERE (Embark_Library_Index = ' + IntToStr(id) + ')');
-    Open;
-
-    Result := RecordCount > 0;
-    if not Assigned(pList) then
-      pList := TList.Create
-    else
-      pList.Clear;
-
-    if not IsEmpty then
-    begin
-      First;
-      while not ZQ.Eof do
-      begin
-        rec := TPersonel_Embark_Library.Create;
-        with rec.FData do
-        begin
-          Embark_Library_Index := FieldByName('Embark_Library_Index').AsInteger;
-          Brigade_Index := FieldByName('Brigade_Index').AsInteger;
-          Brigade_Identifier := FieldByName('Brigade_Identifier').AsString;
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-        end;
-        pList.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
+//function TdmTTT.GetPersonel_Mapping(const id: Integer;
+//  var pList: TList): Boolean;
+//var
+//  rec: TPersonel_Embark_Library;
+//begin
+//  Result := False;
+//  if not ZConn.Connected then
+//    Exit;
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT * ');
+//    SQL.Add('FROM Personel_Embark_Library ');
+//    if id <> 0 then
+//      SQL.Add('WHERE (Embark_Library_Index = ' + IntToStr(id) + ')');
+//    Open;
+//
+//    Result := RecordCount > 0;
+//    if not Assigned(pList) then
+//      pList := TList.Create
+//    else
+//      pList.Clear;
+//
+//    if not IsEmpty then
+//    begin
+//      First;
+//      while not ZQ.Eof do
+//      begin
+//        rec := TPersonel_Embark_Library.Create;
+//        with rec.FData do
+//        begin
+//          Embark_Library_Index := FieldByName('Embark_Library_Index').AsInteger;
+//          Brigade_Index := FieldByName('Brigade_Index').AsInteger;
+//          Brigade_Identifier := FieldByName('Brigade_Identifier').AsString;
+//          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
+//        end;
+//        pList.Add(rec);
+//        ZQ.Next;
+//      end;
+//    end;
+//  end;
+//end;
 
 //------------------------------------------------------------------------------
 
@@ -65198,28 +62747,6 @@ begin
     ExecSQL;
   end;
 end;
-//------------------------------------------------------------------------------
-function TdmTTT.UpdatePersonel_Brigade(const idx: Integer;
-  var rec: TPersonel): Integer;
-begin
-Result := -1;
-  with ZQ do
-  begin
-    with rec do
-    begin
-      Close;
-      SQL.Clear;
-        SQL.Add('UPDATE Personel_Brigade ');
-        SQL.Add('SET ');
-        SQL.Add('Brigade_Identifier = ' + QuotedStr(Identifier)+ ',');
-        SQL.Add('last_updated = GETDATE()'); //dng
-        SQl.Add('WHERE (Brigade_Index = ' + IntToStr(idx) + ')');
-    end;
-    ExecSQL;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.InsertOverlay_Definition_List(const id: string;
   var rec: TMainOverlay_Definition): Integer;
@@ -65273,51 +62800,18 @@ begin
   end;
 end;
 
-function TdmTTT.DeletePersonelBrigade_ByIdBrigade(const id: String): Integer;
-begin
-  Result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Personel_Brigade WHERE Brigade_Index = ' + id);
-    ExecSQL;
-  end;
-end;
-
-function TdmTTT.DeletePersonel_ByIdBrigade(const id: String): Integer;
-begin
-  Result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-//    SQl.Add('DELETE FROM Personel_Brigade ');
-//    SQl.Add('WHERE Brigade_Index = ' + id);
-    SQL.Add('DELETE FROM Personel_Batalyon');
-    SQl.Add('WHERE Brigade_Index = ' + id);
-    SQL.Add('DELETE FROM Personel_Kompi');
-    SQl.Add('WHERE Brigade_Index = ' + id);
-    SQL.Add('DELETE FROM Personel_Pleton');
-    SQl.Add('WHERE Brigade_Index = ' + id);
-    SQL.Add('DELETE FROM Personel_Regu');
-    SQl.Add('WHERE Brigade_Index = ' + id);
-    ExecSQL;
-  end;
-end;
-
-function TdmTTT.DeletePersonel_Embark_Library(const lib_id: string): Integer;
-begin
-  Result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Personel_Embark_Library ');
-    SQL.Add('WHERE Embark_Library_Index = ' + lib_id);
-    ExecSQL;
-  end;
-end;
+//function TdmTTT.DeletePersonel_Embark_Library(const lib_id: string): Integer;
+//begin
+//  Result := -1;
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('DELETE FROM Personel_Embark_Library ');
+//    SQL.Add('WHERE Embark_Library_Index = ' + lib_id);
+//    ExecSQL;
+//  end;
+//end;
 
 // ------------------------------------------------------------------------------
 
@@ -65797,7 +63291,782 @@ begin
    end;
 end;
 
+{$ENDREGION}
+
+{$REGION ' Jangan Dulu '}
+
+{$REGION ' Game Report '}
+
+function TdmTTT.GetAllGameReport(plist: TList ; rec: TRuntime_Game_Report): integer;
+begin
+if not ZConn.Connected then
+    exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Game_Report a left Join Scenario_Definition b on a.Scenario_Index = b.Scenario_Index');
+    SQL.Add('ORDER BY a.Game_Name');
+    Open;
+
+    result := RecordCount ;
+    if not Assigned(plist) then
+    begin
+      pList.Create;
+    end
+    else
+    begin
+      pList.Clear;
+    end;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not ZQ.Eof do
+      begin
+        Rec := TRuntime_Game_Report.Create;
+        with Rec.fdata do
+        begin
+          Id_Game        := FieldByName('Id_Game_Report').AsInteger;
+          Scenario_index := FieldByName('Scenario_Index').AsInteger;
+          Game_Name      := FieldByName('Game_Name').AsString;
+          Start_Time     := FieldByName('TimeStart').AsFloat;
+          End_Time       := FieldByName('TimeEnd').AsFloat;
+          Description    := FieldByName('Description').AsString;
+          Scenario_Name  := FieldByName('Scenario_Identifier').AsString;
+          Subject        := FieldByName('Subject').AsString;
+        end;
+        pList.Add(Rec);
+        ZQ.Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.DeleteAll_GameReport(rec: TRuntime_Game_Report): Integer;
+begin
+  with ZQ do begin
+    Close;
+    SQL.Clear;
+    SQL.Add('Delete from Game_Report');
+    ExecSQL;
+  end;
+end;
+
+function TdmTTT.DeleteByID_GameReport(const id: String): Boolean;
+begin
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('DELETE FROM Game_Report');
+    SQL.Add('WHERE (Id_Game_Report = ' + id + ')');
+    ExecSQL;
+  end;
+end;
 
 {$ENDREGION}
 
+{$REGION ' Plotting '}
+
+function TdmTTT.InsertPlotting_Definition( aRec: TrecPlotting_Definition): Integer;
+begin
+  Result := -1;
+  with ZQ do
+  begin
+    SQL.Clear;
+    SQL.Add('INSERT INTO Plotting_Definition');
+    SQL.Add('(Plotting_Name, Plotting_Type, Plotting_Group)');
+    SQL.Add('VALUES(');
+    SQL.Add(QuotedStr(aRec.Plotting_Name)+',');
+    SQL.Add(IntToStr(aRec.Plotting_Type)+',') ;
+    SQL.Add(IntToStr(aRec.Plotting_Group)+')');
+    ExecSQL;
+  end;
+end;
+
+function TdmTTT.GetAllPlotting_Definition( var pList: TList): Boolean;
+var
+  rec: TRuntime_Plotting_Definition;
+begin
+Result := false;
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Plotting_Definition');
+    SQL.Add('ORDER BY Plotting_Index');
+    Open;
+
+    result := RecordCount > 0;
+    if not Assigned(plist) then
+    begin
+      pList.Create;
+    end
+    else
+    begin
+      pList.Clear;
+    end;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not ZQ.Eof do
+      begin
+        Rec := TRuntime_Plotting_Definition.Create;
+        with Rec.fdata do
+        begin
+          Plotting_Index := FieldByName('Plotting_Index').AsInteger;
+          Plotting_Name := FieldByName('Plotting_Name').AsString;
+          Plotting_Type := FieldByName('Plotting_Type').AsInteger;
+          Plotting_Group := FieldByName('Plotting_Group').AsInteger;
+        end;
+        pList.Add(Rec);
+        ZQ.Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.GetPlotting_DefinitionByID(const id: Integer; rec: TRuntime_Plotting_Definition): Integer;
+begin
+Result := -1;
+  if not ZConn.Connected then
+    exit;
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROm Plotting_Definition');
+    SQL.Add('Where (Plotting_Index = ' + IntToStr(id) + ')');
+    Open;
+
+    Result := RecordCount;
+
+    if not IsEmpty then
+    begin
+      First;
+      rec := TRuntime_Plotting_Definition.Create;
+        with rec.FData do
+        begin
+          Plotting_Index := FieldByName('Plotting_Index').AsInteger;
+          Plotting_Name := FieldByName('Plotting_Name').AsString;
+          Plotting_Type := FieldByName('Plotting_Type').AsInteger;
+          Plotting_Group := FieldByName('Plotting_Group').AsInteger;
+        end;
+
+    end;
+  end;
+end;
+
+function TdmTTT.DeletePlotting(const id: String): Boolean;
+begin
+  Result := True;
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('DELETE FROM Plotting_Definition');
+    SQL.Add('WHERE Plotting_Index =' + id);
+    ExecSQL;
+  end;
+end;
+
+function TdmTTT.CekPlottingInsert(aName: string): Boolean;
+begin
+  Result := false;
+
+  if not ZConn.Connected  then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * ');
+    SQL.Add('FROM Plotting_Definition');
+    SQL.Add('WHERE Plotting_Name = '+ QuotedStr(aName));
+    Open;
+
+    Result := RecordCount > 0;
+  end;
+end;
+
+function TdmTTT.UpdatePlotting(aRec: TrecPlotting_Definition; id: string): Boolean;
+begin
+  Result := True;
+  with ZQ do
+  begin
+    with aRec do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Add('UPDATE Plotting_Definition');
+      SQL.Add('Set');
+      sql.Add('Plotting_Name ='+ QuotedStr(Plotting_Name)+',');
+      SQL.Add('Plotting_Type ='+ IntToStr(Plotting_Type)+ ',');
+      SQL.Add('Plotting_Group='+ IntToStr(Plotting_Group));
+    end;
+    SQL.Add('WHERE (Plotting_Index = ' + id + ')');
+    ExecSQL;
+  end;
+end;
+
+function TdmTTT.GetAll_Resource_Plotting_Mapping(const id: Integer; var recList: TList): Boolean;
+var
+  rec: TResource_Allocation;
+begin
+  result := false;
+  if not ZConn.Connected then
+    exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * ');
+    SQL.Add('FROM  Resource_Plotting_Mapping a JOIN Plotting_Definition b');
+    SQL.Add('on a.Plotting_Index = b.Plotting_Index');
+    SQL.Add('WHERE Resource_Alloc_Index = ' + IntToStr(id));// + ' AND ');
+//    SQL.Add('Force_Designation = '+ IntToStr(force));
+    Open;
+
+    result := RecordCount > 0;
+    if not IsEmpty then
+    begin
+
+      First;
+      if not Assigned(recList) then
+        recList := TList.Create
+      else
+        recList.Clear;
+
+      while not ZQ.Eof do
+      begin
+        rec := TResource_Allocation.Create;
+        with rec.FPlotting do
+        begin
+          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
+          Plotting_Index := FieldByName('Plotting_Index').AsInteger;
+          Plotting_Name := FieldByName('Plotting_Name').AsString;
+          Date := FieldByName('Date').AsFloat;
+          Force := FieldByName('Force').AsInteger;
+
+        end;
+        recList.Add(rec);
+        ZQ.Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.InsertPlottingMapping(var aRec: TResource_Allocation): Integer;
+begin
+  Result := -1;
+  with ZQ do
+  begin
+    with aRec do
+    begin
+      SQL.Clear;
+      SQL.Add('INSERT INTO Resource_Plotting_Mapping');
+      SQL.Add('(Resource_Alloc_Index, Plotting_Index, Plotting_Name, Date, Force)');
+      SQL.Add('VALUES(');
+      SQL.Add(IntToStr(FData.Resource_Alloc_Index) + ',');
+      SQL.Add(IntToStr(FPlotting.Plotting_Index) + ',');
+      SQL.Add(QuotedStr(FPlotting.Plotting_Name)+ ',');
+      SQL.Add(FloatToStr(FPlotting.Date) + ',');
+      SQL.Add(IntToStr(FPlotting.Force) + ')');
+      ExecSQL;
+    end;
+
+  end;
+end;
+
+function TdmTTT.DeleteAll_Resource_Plotting_mapping(const id: String): Integer;
+begin
+  result := -1;
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('DELETE FROM Resource_Plotting_Mapping  ');
+    SQL.Add('WHERE (Resource_Alloc_Index = ' + id + ')');
+    ExecSQL;
+  end;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Personel '}
+
+function TdmTTT.GetPersonel(const id: Integer; var pList: TList; var rec: Tpersonel): Boolean;
+begin
+  result := False;
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT a1.Brigade_Index, ');
+    SQL.Add('a1.Brigade_Identifier, b2.Batalyon_Index, b2.Batalyon_Identifier, ');
+    SQL.Add('c3.Kompi_Index, c3.Kompi_Identifier, d4.Pleton_Index, ');
+    SQL.Add('d4.Pleton_Identifier, e5.Regu_Index, e5.Regu_Identifier ');
+    SQL.Add('FROM Personel_Brigade a1 JOIN personel_batalyon b2 ON ');
+    SQL.Add('a1.brigade_index = b2.brigade_index JOIN personel_kompi c3 ON ');
+    SQL.Add('b2.batalyon_index = c3.batalyon_index JOIN personel_pleton d4 ON ');
+    SQL.Add('c3.kompi_index = d4.kompi_index JOIN Personel_Regu e5 ON ');
+    SQL.Add('d4.Pleton_Index = e5.Pleton_Index ');
+    SQL.Add('WHERE (a1.Brigade_Index = ' + IntToStr(id) + ')');
+
+    Open;
+    Result := RecordCount > 0;
+    if not Assigned(pList) then
+    begin
+      pList := TList.Create;
+    end
+    else
+    begin
+      pList.Clear;
+    end;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not ZQ.Eof do
+      begin
+        rec := TPersonel.Create;
+        {with rec.FData do
+        begin}
+          TGroup(rec).IdBrigade := FieldByName('Brigade_Index').AsInteger;
+          TBrigade(rec).Identifier := FieldByName('Brigade_Identifier').AsString;
+          TGroup(rec).IdBatalyon := FieldByName('Batalyon_Index').AsInteger;
+          TBatalyon(rec).Identifier := FieldByName('Batalyon_Identifier').AsString;
+          TGroup(rec).IdKompi := FieldByName('Kompi_Index').AsInteger;
+          TKompi(rec).Identifier := FieldByName('Kompi_Identifier').AsString;
+          TGroup(rec).IdPlatoon := FieldByName('Pleton_Index').AsInteger;
+          TPlatoon(rec).Identifier := FieldByName('Pleton_Identifier').AsString;
+          TGroup(rec).Id := FieldByName('Regu_Index').AsInteger;
+          TGroup(rec).Identifier := FieldByName('Regu_Identifier').AsString;
+//          Brigade_Identifier := FieldByName('Brigade_Identifier').AsString;
+//          Batalyon_Index := FieldByName('Batalyon_Index').AsInteger;
+//          Batalyon_Identifier := FieldByName('Batalyon_Identifier').AsString;
+//          Kompi_Index := FieldByName('Kompi_Index').AsInteger;
+//          Kompi_Identifier := FieldByName('Kompi_Identifier').AsString;
+//          Pleton_Index := FieldByName('Pleton_Index').AsInteger;
+//          Pleton_Identifier := FieldByName('Pleton_Identifier').AsString;
+//          Regu_Index := FieldByName('Regu_Index').AsInteger;
+//          Regu_Identifier := FieldByName('Regu_Identifier').AsString;
+        {end; }
+        pList.Add(rec);
+        ZQ.Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.GetAll_Brigade(var pList: TList): Boolean;
+var
+  rec: TPersonel;
+begin
+  result := False;
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Personel_Brigade');
+
+
+    Open;
+    Result := RecordCount > 0;
+    if not Assigned(pList) then
+    begin
+      pList := TList.Create;
+    end
+    else
+    begin
+      pList.Clear;
+    end;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not ZQ.Eof do
+      begin
+        rec := TPersonel.Create;
+        rec.Id := FieldByName('Brigade_Index').AsInteger;
+        rec.Identifier := FieldByName('Brigade_Identifier').AsString;
+
+        pList.Add(rec);
+        ZQ.Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.InsertPersonel_All(var rec: TPersonel; IdAction, IdPersonel: Integer): Integer;
+begin
+  Result := -1;
+  with ZQ do
+  begin
+//      rec := TPersonel.Create;
+      case IdAction of
+        0:{brigade}
+          begin
+            Close;
+//            rec := TBrigade.Create;
+            SQL.Clear;
+            SQL.Add('INSERT INTO Personel_Brigade');
+//            SQL.Add('(Brigade_Identifier ' + ')');
+            SQL.Add('VALUES (');
+            SQL.Add(QuotedStr(rec.Identifier) + ',');
+            SQL.Add('GETDATE()' + ')');
+            ExecSQL;
+
+            SQL.Clear;
+            SQL.Add('SELECT * FROM Personel_Brigade ');
+            SQL.Add('WHERE Brigade_Identifier = ' + QuotedStr(rec.Identifier));
+            SQL.Add(' ORDER BY Brigade_Index desc');
+            Open;
+//            TGroup(rec).IdBrigade := FieldByName('Brigade_Index').AsInteger;
+            Result := FieldByName('Brigade_Index').AsInteger;
+          end;
+        1:{batalyon}
+          begin
+            Close;
+//            TBatalyon.Create;
+            SQL.Clear;
+            SQL.Add('INSERT INTO Personel_Batalyon ');
+            SQL.Add('(Brigade_Index, Batalyon_Identifier ' + ')');
+            SQL.Add('VALUES (');
+            SQL.Add(IntToStr(IdPersonel) + ',');
+            SQL.Add(QuotedStr(rec.Identifier) + ')');
+            ExecSQL;
+
+            SQL.Clear;
+            SQL.Add('SELECT * FROM Personel_Batalyon ');
+            SQL.Add('WHERE Brigade_Index = ' + IntToStr(IdPersonel));
+            SQL.Add('AND Batalyon_Identifier = ' + QuotedStr(rec.Identifier));
+            SQL.Add(' ORDER BY Batalyon_Index desc');
+            Open;
+//            TGroup(rec).IdBatalyon := FieldByName('Batalyon_Index').AsInteger;
+            Result := FieldByName('Batalyon_Index').AsInteger;
+          end;
+        2:{kompi}
+          begin
+            Close;
+//            TKompi.Create;
+            SQL.Clear;
+            SQL.Add('INSERT INTO Personel_Kompi ');
+            SQL.Add('(Batalyon_Index, Kompi_Identifier, Brigade_Index ' + ')');
+            SQL.Add('VALUES (');
+            SQL.Add(IntToStr(IdPersonel) + ',');
+            SQL.Add(QuotedStr(rec.Identifier) + ',');
+            SQL.Add(IntToStr(TKompi(rec).IdBrigade) + ')');
+            ExecSQL;
+
+            SQL.Clear;
+            SQL.Add('SELECT * FROM Personel_Kompi ');
+            SQL.Add('WHERE Batalyon_Index = ' + IntToStr(IdPersonel));
+            SQL.Add('AND Kompi_Identifier = ' + QuotedStr(rec.Identifier));
+            SQL.Add(' ORDER BY Kompi_Index desc');
+            Open;
+//            TGroup(rec).IdKompi := FieldByName('Kompi_Index').AsInteger;
+            Result := FieldByName('Kompi_Index').AsInteger;
+          end;
+        3:{pleton}
+          begin
+            Close;
+//            TPlatoon.Create;
+            SQL.Clear;
+            SQL.Add('INSERT INTO Personel_Pleton ');
+            SQL.Add('(Kompi_Index, Pleton_Identifier, Brigade_Index ' + ')');
+            SQL.Add('VALUES (');
+            SQL.Add(IntToStr(IdPersonel) + ',');
+            SQL.Add(QuotedStr(rec.Identifier) + ',');
+            SQL.Add(IntToStr(TPlatoon(rec).IdBrigade) + ')');
+            ExecSQL;
+
+            SQL.Clear;
+            SQL.Add('SELECT * FROM Personel_Pleton ');
+            SQL.Add('WHERE Kompi_Index = ' + IntToStr(IdPersonel));
+            SQL.Add('AND Pleton_Identifier = ' + QuotedStr(rec.Identifier));
+            SQL.Add(' ORDER BY Pleton_Index desc');
+            Open;
+//            TGroup(rec).IdPlatoon := FieldByName('Pleton_Index').AsInteger;
+            Result := FieldByName('Pleton_Index').AsInteger;
+          end;
+        4:{regu}
+          begin
+            Close;
+//            TGroup.Create;
+            SQL.Clear;
+            SQL.Add('INSERT INTO Personel_Regu ');
+            SQL.Add('(Brigade_Index, Batalyon_Index, Kompi_Index,Pleton_Index, ');
+            SQL.Add('Regu_Identifier, Quantity ' + ')');
+            SQL.Add('VALUES (');
+            SQL.Add(IntToStr(TGroup(rec).IdBrigade) + ',');
+            SQL.Add(IntToStr(TGroup(rec).IdBatalyon) + ',');
+            SQL.Add(IntToStr(TGroup(rec).IdKompi) + ',');
+            SQL.Add(IntToStr(TGroup(rec).IdPlatoon) + ',');
+            SQL.Add(QuotedStr(rec.Identifier) + ',');
+            SQL.Add(IntToStr(TGroup(rec).quantity) + ')');
+          end;
+      end;
+
+      ExecSQL;
+
+  end;
+end;
+
+function TdmTTT.DeletePersonel_ByIdBrigade(const id: String): Integer;
+begin
+  Result := -1;
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+//    SQl.Add('DELETE FROM Personel_Brigade ');
+//    SQl.Add('WHERE Brigade_Index = ' + id);
+    SQL.Add('DELETE FROM Personel_Batalyon');
+    SQl.Add('WHERE Brigade_Index = ' + id);
+    SQL.Add('DELETE FROM Personel_Kompi');
+    SQl.Add('WHERE Brigade_Index = ' + id);
+    SQL.Add('DELETE FROM Personel_Pleton');
+    SQl.Add('WHERE Brigade_Index = ' + id);
+    SQL.Add('DELETE FROM Personel_Regu');
+    SQl.Add('WHERE Brigade_Index = ' + id);
+    ExecSQL;
+  end;
+end;
+
+function TdmTTT.DeletePersonelBrigade_ByIdBrigade(const id: String): Integer;
+begin
+  Result := -1;
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('DELETE FROM Personel_Brigade WHERE Brigade_Index = ' + id);
+    ExecSQL;
+  end;
+end;
+
+function TdmTTT.GetBatalyon(const id: Integer; var pList: TList): Boolean;
+var
+  rec: TPersonel;
+begin
+  result := False;
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT a1.Brigade_Index, a1.Brigade_Identifier, a1.last_updated,');//dng
+    SQL.Add('b2.BataLyon_Index, b2.Batalyon_Identifier ');
+    SQL.Add('FROM Personel_Brigade a1 JOIN Personel_Batalyon b2 ON ');
+    SQL.Add('a1.Brigade_Index = b2.Brigade_Index ');
+    SQL.Add('WHERE a1.Brigade_Index = ' + IntToStr(id));
+
+    Open;
+    Result := RecordCount > 0;
+    if not Assigned(pList) then
+      pList := TList.Create
+    else
+      pList.Clear;
+
+    if not IsEmpty then
+    begin
+      First;
+      while not ZQ.Eof do
+      begin
+        rec := TPersonel.Create;
+        TBrigade(rec).Id := FieldByName('Brigade_Index').AsInteger;
+        TBrigade(rec).Identifier := FieldByName('Brigade_Identifier').AsString;
+        TBrigade(rec).last_updated := FieldByName('last_updated').AsDateTime; //dng
+        TBatalyon(rec).Id := FieldByName('Batalyon_Index').AsInteger;
+        TBatalyon(rec).Identifier := FieldByName('Batalyon_Identifier').AsString;
+
+        pList.Add(rec);
+        ZQ.Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.GetKompi(const id: Integer; var pList: TList): Boolean;
+var
+  rec: TPersonel;
+begin
+  result := False;
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT b2.BataLyon_Index, b2.Batalyon_Identifier , ');
+    SQL.Add('c3.Kompi_Index, c3.Kompi_Identifier ');
+    SQL.Add('FROM Personel_Brigade a1 JOIN Personel_Batalyon b2 ON ');
+    SQL.Add('a1.Brigade_Index = b2.Brigade_Index JOIN ');
+    SQL.Add('Personel_Kompi c3 ON b2.Batalyon_Index = c3.Batalyon_Index ');
+    SQL.Add('WHERE b2.BataLyon_Index = ' + IntToStr(id));
+
+    Open;
+    Result := RecordCount > 0;
+    if not Assigned(pList) then
+      pList := TList.Create
+    else
+      pList.Clear;
+
+    if not IsEmpty then
+    begin
+      First;
+      while not ZQ.Eof do
+      begin
+        rec := TPersonel.Create;
+        TBatalyon(rec).Id := FieldByName('Batalyon_Index').AsInteger;
+        TBatalyon(rec).Identifier := FieldByName('Batalyon_Identifier').AsString;
+        TKompi(rec).Id := FieldByName('Kompi_Index').AsInteger;
+        TKompi(rec).Identifier := FieldByName('Kompi_Identifier').AsString;
+
+        pList.Add(rec);
+        ZQ.Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.GetPlatoon(const id: Integer; var pList: TList): Boolean;
+var
+  rec: TPersonel;
+begin
+  result := False;
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT c3.Kompi_Index, c3.Kompi_Identifier, ');
+    SQL.Add('d4.Pleton_Index, d4.Pleton_Identifier ');
+    SQL.Add('FROM Personel_Brigade a1 JOIN Personel_Batalyon b2 ON ');
+    SQL.Add('a1.brigade_index = b2.brigade_index JOIN personel_kompi c3 ON ');
+    SQL.Add('b2.batalyon_index = c3.batalyon_index JOIN personel_pleton d4 ON ');
+    SQL.Add('c3.kompi_index = d4.kompi_index ');
+    SQL.Add('WHERE c3.Kompi_Index = ' + IntToStr(id));
+
+    Open;
+    Result := RecordCount > 0;
+    if not Assigned(pList) then
+      pList := TList.Create
+    else
+      pList.Clear;
+
+    if not IsEmpty then
+    begin
+      First;
+      while not ZQ.Eof do
+      begin
+        rec := TPersonel.Create;
+        TKompi(rec).Id := FieldByName('Kompi_Index').AsInteger;
+        TKompi(rec).Identifier := FieldByName('Kompi_Identifier').AsString;
+        TPlatoon(rec).Id := FieldByName('Pleton_Index').AsInteger;
+        TPlatoon(rec).Identifier := FieldByName('Pleton_Identifier').AsString;
+
+        pList.Add(rec);
+        ZQ.Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.GetGroup(const id: Integer; var pList: TList): Boolean;
+var
+  rec: TPersonel;
+begin
+  result := False;
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT d4.Pleton_Index, d4.Pleton_Identifier , ');
+    SQL.Add('e5.Regu_Index, e5.Regu_Identifier, e5.Quantity ');
+    SQL.Add('FROM Personel_Brigade a1 JOIN Personel_Batalyon b2 ON ');
+    SQL.Add('a1.brigade_index = b2.brigade_index JOIN personel_kompi c3 ON ');
+    SQL.Add('b2.batalyon_index = c3.batalyon_index JOIN personel_pleton d4 ON ');
+    SQL.Add('c3.kompi_index = d4.kompi_index JOIN Personel_Regu e5 ON ');
+    SQL.Add('d4.Pleton_Index = e5.Pleton_Index ');
+    SQL.Add('WHERE d4.Pleton_Index = ' + IntToStr(id));
+
+    Open;
+    Result := RecordCount > 0;
+    if not Assigned(pList) then
+      pList := TList.Create
+    else
+      pList.Clear;
+
+    if not IsEmpty then
+    begin
+      First;
+      while not ZQ.Eof do
+      begin
+        rec := TPersonel.Create;
+        TPlatoon(rec).Id := FieldByName('Pleton_Index').AsInteger;
+        TPlatoon(rec).Identifier := FieldByName('Pleton_Identifier').AsString;
+        TGroup(rec).Id := FieldByName('Regu_Index').AsInteger;
+        TGroup(rec).Identifier := FieldByName('Regu_Identifier').AsString;
+        TGroup(rec).quantity := FieldByName('Quantity').AsInteger;
+
+        pList.Add(rec);
+        ZQ.Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.UpdatePersonel_Brigade(const idx: Integer; var rec: TPersonel): Integer;
+begin
+Result := -1;
+  with ZQ do
+  begin
+    with rec do
+    begin
+      Close;
+      SQL.Clear;
+        SQL.Add('UPDATE Personel_Brigade ');
+        SQL.Add('SET ');
+        SQL.Add('Brigade_Identifier = ' + QuotedStr(Identifier)+ ',');
+        SQL.Add('last_updated = GETDATE()'); //dng
+        SQl.Add('WHERE (Brigade_Index = ' + IntToStr(idx) + ')');
+    end;
+    ExecSQL;
+  end;
+end;
+
+{$ENDREGION}
+
+{$ENDREGION}
+
+{$REGION ' Gak dipake '}
+
+{$ENDREGION}
 end.

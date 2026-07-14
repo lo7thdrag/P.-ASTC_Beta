@@ -138,8 +138,8 @@ begin
       dmTTT.deleteAll_Resource_Overlay_Mapping(RA_index);
       dmTTT.DeleteAllResource_Interval_List_Mapping(RA_index);
       dmTTT.DeleteAllExternal_Communication_Channel(RA_index);
-      dmTTT.updateScenario_ByRA('1',RA_index);
-      dmTTT.DeleteResource_Allocation(RA_index);
+//      dmTTT.updateScenario_ByRA('1',RA_index);
+//      dmTTT.DeleteResource_Allocation(RA_index);
       getResource;
     end;
   end;
@@ -191,7 +191,7 @@ procedure TfrmAvailableResourceAllocation.getResource;
 var I: Integer;
 begin
 //get all scenario name
-  dmTTT.getAllResource_Allocation(raList);
+//  dmTTT.getAllResource_Allocation(raList);
 
   lbRAList.Items.Clear;
   lbRAId.Items.Clear;

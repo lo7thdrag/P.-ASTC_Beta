@@ -153,14 +153,14 @@ begin
 
   frmProgress := TfrmProgress.Create(nil);
 
-  if not dmTTT.GetScenario(id, scenario_def ) then
-    Exit;
+//  if not dmTTT.GetScenario(id, scenario_def ) then
+//    Exit;
 
   frmProgress.Caption := 'Loading Scenario ' +
    scenario_def.FData.Scenario_Identifier + '  from database';
 
-  if not dmTTT.GetResourceAlloc(ResourceAllocIndex, Resource_alloc ) then
-    Exit;
+//  if not dmTTT.GetResourceAlloc(ResourceAllocIndex, Resource_alloc ) then
+//    Exit;
 
 
   ra_id := ResourceAllocIndex;

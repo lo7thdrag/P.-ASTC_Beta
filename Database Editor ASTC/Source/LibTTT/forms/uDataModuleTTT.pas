@@ -13002,7 +13002,7 @@ end;
 function TdmTTT.GetHybridDef(const aMissileIndex: Integer; var aResult: THybrid_On_Board): Boolean;
 begin
   Result := False;
-  aResult := nil;
+//  aResult := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -13020,10 +13020,13 @@ begin
 
     Result := RecordCount > 0;
 
-    aResult := THybrid_On_Board.Create;
+//    aResult := THybrid_On_Board.Create;
 
     if not IsEmpty then
     begin
+      if not Assigned(aResult) then
+        aResult := THybrid_On_Board.Create;
+
       with aResult.FData do
       begin
         Hybrid_Index := FieldByName('Hybrid_Index').AsInteger;

@@ -789,8 +789,8 @@ begin
 end;
 
 procedure TfrmSummaryMissile.UpdateMissileData;
-var
-  hybrid : THybrid_On_Board;
+//var
+//  hybrid : THybrid_On_Board;
 
 begin
   with FSelectedMissile do

@@ -6904,6 +6904,9 @@ begin
 end;
 
 function TdmTTT.GetVehicleDef(const aVehicleID: Integer; var aResult: TVehicle_Definition): boolean;
+var
+   i : Integer;
+  rec : TVehicle_Definition;
 begin
   Result := False;
 
@@ -6920,6 +6923,7 @@ begin
     Open;
 
     Result := RecordCount > 0;
+
 
     if not IsEmpty then
     begin
@@ -7406,6 +7410,7 @@ begin
 
         aList.Add(rec);
         Next;
+        rec.Free;
       end;
     end;
   end;

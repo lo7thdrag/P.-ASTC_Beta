@@ -919,7 +919,7 @@ begin
   mX := 0.0;
   mY := 0.0;
   Interval  := 0.2; // nautical miles
-  RangeNum  := 6;
+  RangeNum  := 4;
 
 end;
 
@@ -955,29 +955,68 @@ begin
   cvt.ConvertToScreen(dx, dy, pt.X, pt.Y );
 
   r := Abs(pt.X - Center.X);
-  for i := 0 to FNumOfRanges-1 do begin
+  for i := 1 to FNumOfRanges do begin
 
-    FRects[i].Left   := Center.X - r * (i + 1);
-    FRects[i].Top    := Center.Y - r * (i + 1);
-    FRects[i].Right  := Center.X + r * (i + 1);
-    FRects[i].Bottom := Center.Y + r * (i + 1);
+    FRects[i].Left   := Center.X - r * i;
+    FRects[i].Top    := Center.Y - r * i;
+    FRects[i].Right  := Center.X + r * i;
+    FRects[i].Bottom := Center.Y + r * i;
   end;
 
 end;
 
 procedure TRangeRingsVisual.Draw(aCanvas: TCanvas);
-var i : integer;
+var
+  i : integer;
+  penTemp : TPen;
+  fontTemp : TFont;
 begin
   inherited;
 
   if not (Visible and vFilter.Show(pftNone, 'Range rings', 'Display information')) then
     Exit;
 
-  for i := 0 to FNumOfRanges - 1 do
+  with aCanvas do
+  begin
+    penTemp := TPen.Create;
+    penTemp.Width := Pen.Width;
+
+    fontTemp := TFont.Create;
+    fontTemp.Size := Font.Size;
+
+    Pen.Width := 2;
+    Font.Size := 10;
+  end;
+
+  for i := 1 to FNumOfRanges do
   begin
     aCanvas.Pen.Color := Color;
     aCanvas.Pen.Style := psSolid;
     aCanvas.Arc(FRects[i].Left, FRects[i].Top, FRects[i].Right, FRects[i].Bottom, 0, 0, 0, 0);
+
+    aCanvas.MoveTo(FRects[i].Left+5, FCenter.Y);
+    aCanvas.LineTo(FRects[i].Left-5, FCenter.Y);
+    aCanvas.MoveTo(FCenter.X, FRects[i].Top+5);
+    aCanvas.LineTo(FCenter.X, FRects[i].Top-5);
+
+    aCanvas.MoveTo(FRects[i].Right+5, FCenter.Y);
+    aCanvas.LineTo(FRects[i].Right-5, FCenter.Y);
+    aCanvas.MoveTo(FCenter.X, FRects[i].Bottom+5);
+    aCanvas.LineTo(FCenter.X, FRects[i].Bottom-5);
+
+    aCanvas.TextOut(FRects[i].Left, FCenter.Y, FloatToStr(i*Interval) + ' nm');
+    aCanvas.TextOut(FRects[i].Right, FCenter.Y, FloatToStr(i*Interval) + ' nm');
+    aCanvas.TextOut(FCenter.X, FRects[i].Top, FloatToStr(i*Interval) + ' nm');
+    aCanvas.TextOut(FCenter.X, FRects[i].Bottom, FloatToStr(i*Interval) + ' nm');
+  end;
+
+  with aCanvas do
+  begin
+    Pen.Width := penTemp.Width;
+    penTemp.Free;
+
+    Font.Size := fontTemp.Size;
+    fontTemp.Free;
   end;
 end;
 

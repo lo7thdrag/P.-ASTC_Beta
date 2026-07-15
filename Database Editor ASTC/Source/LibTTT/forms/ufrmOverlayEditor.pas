@@ -2480,13 +2480,13 @@ end;
 
 procedure TOverlayEditorForm.GameCenterDynamic;
 var
-  i, cx, cy, ex, ey, fx, fy, r, rTemp: Integer;
-  dx, dy: Double;
+  i, cx, cy, ex, ey, fx, fy, r: Integer;
+  dx, dy, rTemp: Double;
   Point: TRect;
 begin
   inherited;
 
-  rTemp := Round(StrToInt(cbSetScale.Text)/8);
+  rTemp := StrToFloat(cbSetScale.Text)/8;
 
   {$REGION ' Menggambar ring range '}
   for i := 1 to 4 do
@@ -2517,10 +2517,10 @@ begin
       Font.Color := clGray;
       Font.Size := 8;
 
-      TextOut((cx - r), cy, IntToStr(i*rTemp) + ' nm');
-      TextOut((cx + r), cy, IntToStr(i*rTemp) + ' nm');
-      TextOut(cx, cy - r, IntToStr(i*rTemp) + ' nm');
-      TextOut(cx, cy + r, IntToStr(i*rTemp) + ' nm');
+      TextOut((cx - r), cy, FloatToStr(i*rTemp) + ' nm');
+      TextOut((cx + r), cy, FloatToStr(i*rTemp) + ' nm');
+      TextOut(cx, cy - r, FloatToStr(i*rTemp) + ' nm');
+      TextOut(cx, cy + r, FloatToStr(i*rTemp) + ' nm');
     end;
   end;
   {$ENDREGION}

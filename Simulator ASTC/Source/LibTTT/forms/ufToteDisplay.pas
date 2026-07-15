@@ -14684,13 +14684,13 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabDraft.Color := RGB(44, 127, 161);
+      pnlTabDraft.Color := RGB(29, 81, 103);
       pnlContentDraft.BringToFront;
       pnlTabDraft.Tag := 1;
       pnlTabReceived.Tag := 0;
-      pnlTabReceived.Color := RGB(29, 81, 103);
+      pnlTabReceived.Color := RGB(16, 46, 58);
       pnlTabSent.Tag := 0;
-      pnlTabSent.Color := RGB(29, 81, 103);
+      pnlTabSent.Color := RGB(16, 46, 58);
     end;
   end;
 
@@ -14698,13 +14698,13 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabReceived.Color := RGB(44, 127, 161);
+      pnlTabReceived.Color := RGB(29, 81, 103);
       pnlContentReceived.BringToFront;
       pnlTabReceived.Tag := 1;
       pnlTabDraft.Tag := 0;
-      pnlTabDraft.Color := RGB(29, 81, 103);
+      pnlTabDraft.Color := RGB(16, 46, 58);
       pnlTabSent.Tag := 0;
-      pnlTabSent.Color := RGB(29, 81, 103);
+      pnlTabSent.Color := RGB(16, 46, 58);
     end;
   end;
 
@@ -14712,13 +14712,13 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabSent.Color := RGB(44, 127, 161);
+      pnlTabSent.Color := RGB(29, 81, 103);
       pnlContentSent.BringToFront;
       pnlTabSent.Tag := 1;
       pnlTabDraft.Tag := 0;
-      pnlTabDraft.Color := RGB(29, 81, 103);
+      pnlTabDraft.Color := RGB(16, 46, 58);
       pnlTabReceived.Tag := 0;
-      pnlTabReceived.Color := RGB(29, 81, 103);
+      pnlTabReceived.Color := RGB(16, 46, 58);
     end;
   end;
 end;
@@ -14735,11 +14735,11 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabInjection.Color := RGB(44, 127, 161);
+      pnlTabInjection.Color := RGB(29, 81, 103);
       pnlInjection.BringToFront;
       pnlTabInjection.Tag := 1;
       pnlTabVolume.Tag := 0;
-      pnlTabVolume.Color := RGB(29, 81, 103);
+      pnlTabVolume.Color := RGB(16, 46, 58);
     end;
   end;
 
@@ -14747,11 +14747,11 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabVolume.Color := RGB(44, 127, 161);
+      pnlTabVolume.Color := RGB(29, 81, 103);
       pnlVolume.BringToFront;
       pnlTabVolume.Tag := 1;
       pnlTabInjection.Tag := 0;
-      pnlTabInjection.Color := RGB(29, 81, 103);
+      pnlTabInjection.Color := RGB(16, 46, 58);
     end;
   end;
 end;
@@ -14797,11 +14797,11 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabExternal.Color := RGB(44, 127, 161);
+      pnlTabExternal.Color := RGB(29, 81, 103);
       pnlExternal.BringToFront;
       pnlTabExternal.Tag := 1;
       pnlTabInternal.Tag := 0;
-      pnlTabInternal.Color := RGB(29, 81, 103);
+      pnlTabInternal.Color := RGB(16, 46, 58);
     end;
   end;
 
@@ -14809,11 +14809,11 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabInternal.Color := RGB(44, 127, 161);
+      pnlTabInternal.Color := RGB(29, 81, 103);
       pnlInternal.BringToFront;
       pnlTabInternal.Tag := 1;
       pnlTabExternal.Tag := 0;
-      pnlTabExternal.Color := RGB(29, 81, 103);
+      pnlTabExternal.Color := RGB(16, 46, 58);
     end;
   end;
 end;
@@ -14830,11 +14830,11 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabPlatform.Color := RGB(44, 127, 161);
+      pnlTabPlatform.Color := RGB(29, 81, 103);
       pnlContentPlatform.BringToFront;
       pnlTabPlatform.Tag := 1;
       pnlTabResponsibility.Tag := 0;
-      pnlTabResponsibility.Color := RGB(29, 81, 103);
+      pnlTabResponsibility.Color := RGB(16, 46, 58);
     end;
   end;
 
@@ -14842,11 +14842,11 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabResponsibility.Color := RGB(44, 127, 161);
+      pnlTabResponsibility.Color := RGB(29, 81, 103);
       pnlContentResponsibility.BringToFront;
       pnlTabResponsibility.Tag := 1;
       pnlTabPlatform.Tag := 0;
-      pnlTabPlatform.Color := RGB(29, 81, 103);
+      pnlTabPlatform.Color := RGB(16, 46, 58);
     end;
   end;
 end;
@@ -14863,13 +14863,13 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabAboveWater.Color := RGB(44, 127, 161);
+      pnlTabAboveWater.Color := RGB(29, 81, 103);
       pnlAboveWater.BringToFront;
       pnlTabAboveWater.Tag := 1;
       pnlTabSurfaceAndSub.Tag := 0;
-      pnlTabSurfaceAndSub.Color := RGB(29, 81, 103);
+      pnlTabSurfaceAndSub.Color := RGB(16, 46, 58);
       pnlTabBoundaries.Tag := 0;
-      pnlTabBoundaries.Color := RGB(29, 81, 103);
+      pnlTabBoundaries.Color := RGB(16, 46, 58);
     end;
   end;
 
@@ -14877,13 +14877,13 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabSurfaceAndSub.Color := RGB(44, 127, 161);
+      pnlTabSurfaceAndSub.Color := RGB(29, 81, 103);
       pnlSurfaceAndSub.BringToFront;
       pnlTabSurfaceAndSub.Tag := 1;
       pnlTabAboveWater.Tag := 0;
-      pnlTabAboveWater.Color := RGB(29, 81, 103);
+      pnlTabAboveWater.Color := RGB(16, 46, 58);
       pnlTabBoundaries.Tag := 0;
-      pnlTabBoundaries.Color := RGB(29, 81, 103);
+      pnlTabBoundaries.Color := RGB(16, 46, 58);
     end;
   end;
 
@@ -14891,13 +14891,13 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabBoundaries.Color := RGB(44, 127, 161);
+      pnlTabBoundaries.Color := RGB(29, 81, 103);
       pnlBoundaries.BringToFront;
       pnlTabBoundaries.Tag := 1;
       pnlTabSurfaceAndSub.Tag := 0;
-      pnlTabSurfaceAndSub.Color := RGB(29, 81, 103);
+      pnlTabSurfaceAndSub.Color := RGB(16, 46, 58);
       pnlTabAboveWater.Tag := 0;
-      pnlTabAboveWater.Color := RGB(29, 81, 103);
+      pnlTabAboveWater.Color := RGB(16, 46, 58);
     end;
   end;
 end;

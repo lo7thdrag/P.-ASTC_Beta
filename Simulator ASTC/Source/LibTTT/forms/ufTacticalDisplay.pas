@@ -721,6 +721,7 @@ type
     lbl2: TLabel;
     lbl3: TLabel;
     ImageList4: TImageList;
+    il1: TImageList;
 
 //    ToolBtnComm: TToolButton;
 
@@ -13345,11 +13346,11 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabTrackTable.Color := RGB(44, 127, 161);
+      pnlTabTrackTable.Color := RGB(29, 81, 103);
       pnlTrackTable.BringToFront;
       pnlTabTrackTable.Tag := 1;
       pnlTabTrackControl.Tag := 0;
-      pnlTabTrackControl.Color := RGB(29, 81, 103);
+      pnlTabTrackControl.Color := RGB(16, 46, 58);
     end;
   end;
 
@@ -13357,11 +13358,11 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabTrackControl.Color := RGB(44, 127, 161);
+      pnlTabTrackControl.Color := RGB(29, 81, 103);
       pnlTrackControl.BringToFront;
       pnlTabTrackControl.Tag := 1;
       pnlTabTrackTable.Tag := 0;
-      pnlTabTrackTable.Color := RGB(29, 81, 103);
+      pnlTabTrackTable.Color := RGB(16, 46, 58);
     end;
   end;
 end;
@@ -13378,15 +13379,15 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabHook.Color := RGB(44, 127, 161);
+      pnlTabHook.Color := RGB(29, 81, 103);
       pnlContentHook.BringToFront;
       pnlTabHook.Tag := 1;
       pnlTabDetails.Tag := 0;
       pnlTabDetection.Tag := 0;
       pnlTabIFF.Tag := 0;
-      pnlTabDetails.Color := RGB(29, 81, 103);
-      pnlTabDetection.Color := RGB(29, 81, 103);
-      pnlTabIFF.Color := RGB(29, 81, 103);
+      pnlTabDetails.Color := RGB(16, 46, 58);
+      pnlTabDetection.Color := RGB(16, 46, 58);
+      pnlTabIFF.Color := RGB(16, 46, 58);
     end;
   end
 
@@ -13394,15 +13395,15 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabDetails.Color := RGB(44, 127, 161);
+      pnlTabDetails.Color := RGB(29, 81, 103);
       pnlContentDetails.BringToFront;
       pnlTabDetails.Tag := 1;
       pnlTabHook.Tag := 0;
       pnlTabDetection.Tag := 0;
       pnlTabIFF.Tag := 0;
-      pnlTabHook.Color := RGB(29, 81, 103);
-      pnlTabDetection.Color := RGB(29, 81, 103);
-      pnlTabIFF.Color := RGB(29, 81, 103);
+      pnlTabHook.Color := RGB(16, 46, 58);
+      pnlTabDetection.Color := RGB(16, 46, 58);
+      pnlTabIFF.Color := RGB(16, 46, 58);
     end;
   end
 
@@ -13410,15 +13411,15 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabDetection.Color := RGB(44, 127, 161);
+      pnlTabDetection.Color := RGB(29, 81, 103);
       pnlContentDetection.BringToFront;
       pnlTabDetection.Tag := 1;
       pnlTabHook.Tag := 0;
       pnlTabDetails.Tag := 0;
       pnlTabIFF.Tag := 0;
-      pnlTabHook.Color := RGB(29, 81, 103);
-      pnlTabDetails.Color := RGB(29, 81, 103);
-      pnlTabIFF.Color := RGB(29, 81, 103);
+      pnlTabHook.Color := RGB(16, 46, 58);
+      pnlTabDetails.Color := RGB(16, 46, 58);
+      pnlTabIFF.Color := RGB(16, 46, 58);
     end;
   end
 
@@ -13426,15 +13427,15 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabIFF.Color := RGB(44, 127, 161);
+      pnlTabIFF.Color := RGB(29, 81, 103);
       pnlContentIFF.BringToFront;
       pnlTabIFF.Tag := 1;
       pnlTabDetails.Tag := 0;
       pnlTabHook.Tag := 0;
       pnlTabDetection.Tag := 0;
-      pnlTabDetails.Color := RGB(29, 81, 103);
-      pnlTabDetection.Color := RGB(29, 81, 103);
-      pnlTabHook.Color := RGB(29, 81, 103);
+      pnlTabDetails.Color := RGB(16, 46, 58);
+      pnlTabDetection.Color := RGB(16, 46, 58);
+      pnlTabHook.Color := RGB(16, 46, 58);
     end;
   end;
 end;
@@ -13452,7 +13453,7 @@ begin
   begin
     if ImgTag = 0 then
     begin
-      pnlTabOwnShip.Color := RGB(44, 127, 161);
+      pnlTabOwnShip.Color := RGB(29, 81, 103);
       pnlOwnShip.BringToFront;
       imgOwnShip.Tag := 1;
       imgPlatformGuidance.Tag := 0;
@@ -13461,12 +13462,12 @@ begin
       imgSensor.Tag := 0;
       imgEMCON.Tag := 0;
       imgFireControl.Tag := 0;
-      pnlTabPlatformGuidance.Color := RGB(29, 81, 103);
-      pnlTabCounterMeasure.Color := RGB(29, 81, 103);
-      pnlTabWeapon.Color := RGB(29, 81, 103);
-      pnlTabSensor.Color := RGB(29, 81, 103);
-      pnlTabEMCON.Color := RGB(29, 81, 103);
-      pnlTabFireControl.Color := RGB(29, 81, 103);
+      pnlTabPlatformGuidance.Color := RGB(16, 46, 58);
+      pnlTabCounterMeasure.Color := RGB(16, 46, 58);
+      pnlTabWeapon.Color := RGB(16, 46, 58);
+      pnlTabSensor.Color := RGB(16, 46, 58);
+      pnlTabEMCON.Color := RGB(16, 46, 58);
+      pnlTabFireControl.Color := RGB(16, 46, 58);
     end;
   end
 
@@ -13474,7 +13475,7 @@ begin
   begin
     if ImgTag = 0 then
     begin
-      pnlTabPlatformGuidance.Color := RGB(44, 127, 161);
+      pnlTabPlatformGuidance.Color := RGB(29, 81, 103);
       pnlPlatformGuidance.BringToFront;
       imgPlatformGuidance.Tag := 1;
       imgOwnShip.Tag := 0;
@@ -13483,12 +13484,12 @@ begin
       imgSensor.Tag := 0;
       imgEMCON.Tag := 0;
       imgFireControl.Tag := 0;
-      pnlTabOwnShip.Color := RGB(29, 81, 103);
-      pnlTabCounterMeasure.Color := RGB(29, 81, 103);
-      pnlTabWeapon.Color := RGB(29, 81, 103);
-      pnlTabSensor.Color := RGB(29, 81, 103);
-      pnlTabEMCON.Color := RGB(29, 81, 103);
-      pnlTabFireControl.Color := RGB(29, 81, 103);
+      pnlTabOwnShip.Color := RGB(16, 46, 58);
+      pnlTabCounterMeasure.Color := RGB(16, 46, 58);
+      pnlTabWeapon.Color := RGB(16, 46, 58);
+      pnlTabSensor.Color := RGB(16, 46, 58);
+      pnlTabEMCON.Color := RGB(16, 46, 58);
+      pnlTabFireControl.Color := RGB(16, 46, 58);
     end;
   end
 
@@ -13496,7 +13497,7 @@ begin
   begin
     if ImgTag = 0 then
     begin
-      pnlTabCounterMeasure.Color := RGB(44, 127, 161);
+      pnlTabCounterMeasure.Color := RGB(29, 81, 103);
       pnlCounterMeasure.BringToFront;
       imgCounterMeasure.Tag := 1;
       imgPlatformGuidance.Tag := 0;
@@ -13505,12 +13506,12 @@ begin
       imgSensor.Tag := 0;
       imgEMCON.Tag := 0;
       imgFireControl.Tag := 0;
-      pnlTabOwnShip.Color := RGB(29, 81, 103);
-      pnlTabPlatformGuidance.Color := RGB(29, 81, 103);
-      pnlTabWeapon.Color := RGB(29, 81, 103);
-      pnlTabSensor.Color := RGB(29, 81, 103);
-      pnlTabEMCON.Color := RGB(29, 81, 103);
-      pnlTabFireControl.Color := RGB(29, 81, 103);
+      pnlTabOwnShip.Color := RGB(16, 46, 58);
+      pnlTabPlatformGuidance.Color := RGB(16, 46, 58);
+      pnlTabWeapon.Color := RGB(16, 46, 58);
+      pnlTabSensor.Color := RGB(16, 46, 58);
+      pnlTabEMCON.Color := RGB(16, 46, 58);
+      pnlTabFireControl.Color := RGB(16, 46, 58);
     end;
   end
 
@@ -13518,7 +13519,7 @@ begin
   begin
     if ImgTag = 0 then
     begin
-      pnlTabWeapon.Color := RGB(44, 127, 161);
+      pnlTabWeapon.Color := RGB(29, 81, 103);
       pnlWeapon.BringToFront;
       imgWeapon.Tag := 1;
       imgPlatformGuidance.Tag := 0;
@@ -13527,12 +13528,12 @@ begin
       imgSensor.Tag := 0;
       imgEMCON.Tag := 0;
       imgFireControl.Tag := 0;
-      pnlTabOwnShip.Color := RGB(29, 81, 103);
-      pnlTabCounterMeasure.Color := RGB(29, 81, 103);
-      pnlTabPlatformGuidance.Color := RGB(29, 81, 103);
-      pnlTabSensor.Color := RGB(29, 81, 103);
-      pnlTabEMCON.Color := RGB(29, 81, 103);
-      pnlTabFireControl.Color := RGB(29, 81, 103);
+      pnlTabOwnShip.Color := RGB(16, 46, 58);
+      pnlTabCounterMeasure.Color := RGB(16, 46, 58);
+      pnlTabPlatformGuidance.Color := RGB(16, 46, 58);
+      pnlTabSensor.Color := RGB(16, 46, 58);
+      pnlTabEMCON.Color := RGB(16, 46, 58);
+      pnlTabFireControl.Color := RGB(16, 46, 58);
     end;
   end
 
@@ -13540,7 +13541,7 @@ begin
   begin
     if ImgTag = 0 then
     begin
-      pnlTabSensor.Color := RGB(44, 127, 161);
+      pnlTabSensor.Color := RGB(29, 81, 103);
       pnlSensor.BringToFront;
       imgSensor.Tag := 1;
       imgPlatformGuidance.Tag := 0;
@@ -13549,12 +13550,12 @@ begin
       imgOwnShip.Tag := 0;
       imgEMCON.Tag := 0;
       imgFireControl.Tag := 0;
-      pnlTabOwnShip.Color := RGB(29, 81, 103);
-      pnlTabCounterMeasure.Color := RGB(29, 81, 103);
-      pnlTabWeapon.Color := RGB(29, 81, 103);
-      pnlTabPlatformGuidance.Color := RGB(29, 81, 103);
-      pnlTabEMCON.Color := RGB(29, 81, 103);
-      pnlTabFireControl.Color := RGB(29, 81, 103);
+      pnlTabOwnShip.Color := RGB(16, 46, 58);
+      pnlTabCounterMeasure.Color := RGB(16, 46, 58);
+      pnlTabWeapon.Color := RGB(16, 46, 58);
+      pnlTabPlatformGuidance.Color := RGB(16, 46, 58);
+      pnlTabEMCON.Color := RGB(16, 46, 58);
+      pnlTabFireControl.Color := RGB(16, 46, 58);
     end;
   end
 
@@ -13562,7 +13563,7 @@ begin
   begin
     if ImgTag = 0 then
     begin
-      pnlTabEMCON.Color := RGB(44, 127, 161);
+      pnlTabEMCON.Color := RGB(29, 81, 103);
       pnlEMCON.BringToFront;
       imgEMCON.Tag := 1;
       imgPlatformGuidance.Tag := 0;
@@ -13571,12 +13572,12 @@ begin
       imgSensor.Tag := 0;
       imgOwnShip.Tag := 0;
       imgFireControl.Tag := 0;
-      pnlTabOwnShip.Color := RGB(29, 81, 103);
-      pnlTabCounterMeasure.Color := RGB(29, 81, 103);
-      pnlTabWeapon.Color := RGB(29, 81, 103);
-      pnlTabSensor.Color := RGB(29, 81, 103);
-      pnlTabPlatformGuidance.Color := RGB(29, 81, 103);
-      pnlTabFireControl.Color := RGB(29, 81, 103);
+      pnlTabOwnShip.Color := RGB(16, 46, 58);
+      pnlTabCounterMeasure.Color := RGB(16, 46, 58);
+      pnlTabWeapon.Color := RGB(16, 46, 58);
+      pnlTabSensor.Color := RGB(16, 46, 58);
+      pnlTabPlatformGuidance.Color := RGB(16, 46, 58);
+      pnlTabFireControl.Color := RGB(16, 46, 58);
     end;
   end
 
@@ -13584,7 +13585,7 @@ begin
   begin
     if ImgTag = 0 then
     begin
-      pnlTabFireControl.Color := RGB(44, 127, 161);
+      pnlTabFireControl.Color := RGB(29, 81, 103);
       pnlFireControl.BringToFront;
       imgFireControl.Tag := 1;
       imgPlatformGuidance.Tag := 0;
@@ -13593,12 +13594,12 @@ begin
       imgSensor.Tag := 0;
       imgEMCON.Tag := 0;
       imgOwnShip.Tag := 0;
-      pnlTabOwnShip.Color := RGB(29, 81, 103);
-      pnlTabCounterMeasure.Color := RGB(29, 81, 103);
-      pnlTabWeapon.Color := RGB(29, 81, 103);
-      pnlTabSensor.Color := RGB(29, 81, 103);
-      pnlTabEMCON.Color := RGB(29, 81, 103);
-      pnlTabPlatformGuidance.Color := RGB(29, 81, 103);
+      pnlTabOwnShip.Color := RGB(16, 46, 58);
+      pnlTabCounterMeasure.Color := RGB(16, 46, 58);
+      pnlTabWeapon.Color := RGB(16, 46, 58);
+      pnlTabSensor.Color := RGB(16, 46, 58);
+      pnlTabEMCON.Color := RGB(16, 46, 58);
+      pnlTabPlatformGuidance.Color := RGB(16, 46, 58);
     end;
   end
 end;
@@ -13615,11 +13616,11 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabPlatform.Color := RGB(44, 127, 161);
+      pnlTabPlatform.Color := RGB(29, 81, 103);
       pnlPlatform.BringToFront;
       pnlTabPlatform.Tag := 1;
       pnlTabPosition.Tag := 0;
-      pnlTabPosition.Color := RGB(29, 81, 103);
+      pnlTabPosition.Color := RGB(16, 46, 58);
     end;
   end;
 
@@ -13627,11 +13628,11 @@ begin
   begin
     if PanelTag = 0 then
     begin
-      pnlTabPosition.Color := RGB(44, 127, 161);
+      pnlTabPosition.Color := RGB(29, 81, 103);
       pnlPosition.BringToFront;
       pnlTabPosition.Tag := 1;
       pnlTabPlatform.Tag := 0;
-      pnlTabPlatform.Color := RGB(29, 81, 103);
+      pnlTabPlatform.Color := RGB(16, 46, 58);
     end;
   end;
 end;

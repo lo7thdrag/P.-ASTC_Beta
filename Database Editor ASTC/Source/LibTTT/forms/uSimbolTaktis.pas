@@ -5,7 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Grids, uDBAsset_FontTaktis, StdCtrls, ufrmSummaryVehicle,
-  Vcl.Imaging.pngimage, Vcl.ExtCtrls;
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+
+  uSimContainers;
 
 type
   TfrmSimbolTaktis = class(TForm)
@@ -129,7 +131,7 @@ end;
 
 procedure TfrmSimbolTaktis.FormDestroy(Sender: TObject);
 begin
-  FontTaktisList.Free;
+  FreeItemsAndFreeList(FontTaktisList);
 end;
 
 procedure TfrmSimbolTaktis.FormShow(Sender: TObject);

@@ -101,6 +101,7 @@ begin
       SelectedWaypoint := TWaypoint_Def.Create;
       ShowModal;
       FUpdateList := AfterClose;
+      SelectedWaypoint.Free;
     end;
   finally
     frmSummaryWaypoint.Free;

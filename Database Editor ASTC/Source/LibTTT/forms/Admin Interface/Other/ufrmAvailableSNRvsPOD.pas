@@ -100,6 +100,7 @@ begin
       SelectedSNRvsPOD := TPOD_vs_SNR_Curve_Definition.Create;
       ShowModal;
       FUpdateList := AfterClose;
+      SelectedSNRvsPOD.Free;
     end;
 
   finally

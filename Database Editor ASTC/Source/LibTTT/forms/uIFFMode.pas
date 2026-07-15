@@ -5,7 +5,10 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAssetObject, Grids, newClassASTT,
-  uDBGame_Defaults, Mask, uBaseCoordSystem  ;
+  uDBGame_Defaults, Mask, uBaseCoordSystem,
+
+
+  uSimContainers  ;
 
 type
   TIFFMode = class(TForm)
@@ -278,6 +281,7 @@ type
     procedure btnOkClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FSelectedGameDefault : TGame_Defaults;
 
@@ -665,6 +669,11 @@ end;
 procedure TIFFMode.FormCreate(Sender: TObject);
 begin
   FIFFList := TList.Create;
+end;
+
+procedure TIFFMode.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FIFFList);
 end;
 
 procedure TIFFMode.FormShow(Sender: TObject);

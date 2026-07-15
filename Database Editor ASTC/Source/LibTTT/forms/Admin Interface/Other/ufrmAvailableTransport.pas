@@ -91,6 +91,7 @@ begin
       SelectedTransport := TTransport.Create;
       ShowModal;
       FUpdateList := AfterClose;
+      SelectedTransport.Free;
     end;
   finally
     frmSummaryTransport.Free;

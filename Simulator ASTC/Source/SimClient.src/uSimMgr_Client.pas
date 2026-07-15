@@ -4427,7 +4427,7 @@ begin
   S := UpperCase(Trim(GameEnvironment.FGameArea.Detail_Map));
 
   areaName := GameEnvironment.FGameArea.Game_Area_Identifier;
-  fGeo := vMapSetting.MapDestPathENC + '\' + areaName + '\' + areaName + '.gst';
+  fGeo := vMapSetting.MapDestPathENC + areaName + '\' + areaName + '.gst';
 
   if Assigned(OnLogStr) then
   begin
@@ -10861,7 +10861,7 @@ begin
 //  fGeo := vMapSetting.MapPath + 'Indonesia\Indonesia.gst';
 
   areaName := GameEnvironment.FGameArea.Game_Area_Identifier;
-  fGeo := vMapSetting.MapDestPathENC + '\' + areaName + '\' + areaName + '.gst';
+  fGeo := vMapSetting.MapDestPathENC + areaName + '\' + areaName + '.gst';
 
   if FileExists(fGeo) then
   begin

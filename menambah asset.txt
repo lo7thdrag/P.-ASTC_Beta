@@ -1,7 +1,8 @@
 Penting
 1. Mengecek fungsi Search, Add, Copy, Edit, Usage dan Delete di setiap form   
 2. Mengecek memoryleak disetiap form
-3. Showmassage dicek, masih ada yang Bahasa inggris 
+3. Showmassage dicek, masih ada yang Bahasa inggris
+29. Available pada saat Add belum dicek, object yg dicreate sudah di free apa belum 
 
 2. Pengecekan posisi tombol Search, Add, Copy, Edit, Usage dan Delete yang tidak sama.(sudah)
 4. summary waypoint perlu didesain ulang.(sudah)

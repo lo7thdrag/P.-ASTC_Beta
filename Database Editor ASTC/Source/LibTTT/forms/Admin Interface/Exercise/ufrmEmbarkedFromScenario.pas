@@ -38,6 +38,8 @@ type
                                        procedure btnEditClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure edtSearchChange(Sender: TObject);
+    procedure btnAddClick(Sender: TObject);
+    procedure btnRemoveClick(Sender: TObject);
 
   private
     FPlatformInstance : TPlatform_Instance;
@@ -374,6 +376,11 @@ begin
   end;
 end;
 
+procedure TfrmEmbarkedFromScenario.btnAddClick(Sender: TObject);
+begin
+  imgAdClick(Sender);
+end;
+
 procedure TfrmEmbarkedFromScenario.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -394,6 +401,11 @@ begin
     frmHullView.Free;
   end;
   Exit;
+end;
+
+procedure TfrmEmbarkedFromScenario.btnRemoveClick(Sender: TObject);
+begin
+  imgRemoClick(Sender);
 end;
 
 procedure TfrmEmbarkedFromScenario.lbAllVehicleDefClick(Sender: TObject);

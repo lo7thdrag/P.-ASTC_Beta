@@ -44851,8 +44851,6 @@ object frmEmbarkedFromScenario: TfrmEmbarkedFromScenario
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 733
-    ExplicitHeight = 653
     object lbl1: TLabel
       Left = 12
       Top = 544
@@ -44947,6 +44945,7 @@ object frmEmbarkedFromScenario: TfrmEmbarkedFromScenario
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 3
+      OnClick = btnAddClick
     end
     object btnRemove: TButton
       Left = 337
@@ -44961,6 +44960,7 @@ object frmEmbarkedFromScenario: TfrmEmbarkedFromScenario
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 4
+      OnClick = btnRemoveClick
     end
     object btnClose: TButton
       Left = 663
@@ -45007,6 +45007,7 @@ object frmEmbarkedFromScenario: TfrmEmbarkedFromScenario
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 7
+      OnClick = btnEditClick
     end
     object lbAllVehicleDef: TListBox
       Left = 12

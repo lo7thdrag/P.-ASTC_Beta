@@ -2534,11 +2534,11 @@ begin
   {$ENDREGION}
 
   {$REGION ' Draw Object Platform '}
-  if not vMapSetting.FormPlotter then
-  begin
+//  if not vMapSetting.FormPlotter then
+//  begin
     SimPlatforms.UpdateAndDrawVisuals(aCnv, aRect);
     SimDetectedTrackList.UpdateAndDrawVisuals(aCnv, aRect);
-  end;
+//  end;
 
   simNonRealPlatform.UpdateAndDrawVisuals(aCnv, aRect);
   {$ENDREGION}

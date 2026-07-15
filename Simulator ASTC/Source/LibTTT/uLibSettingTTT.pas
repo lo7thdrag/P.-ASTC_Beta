@@ -77,18 +77,20 @@ type
 
   //------------------------------------------------------------------------------
   TMapSetting = record
-    MapPath,
-    MapGeoset: string;
-    MapDataGeoset: string;
+    MapSourcePathENC  : string;   //D:\TTT\mapsource\coverageArea
+    MapDestPathENC    : string;   //M:\map\mapsea
+    MapPath           : string;
+    MapGeoset         : string;
+    MapDataGeoset     : string;
 
-    MapENCPath: string;
-    MapGSTGame: string;
-    MapDefGame: string;
-    MapKarvak : string;
+    MapENCPath        : string;
+    MapGSTGame        : string;
+    MapDefGame        : string;
+    MapKarvak         : string;
 
-    OverlayPath : string;
-    OverlayDestination : string;
-    PlottingPath : string;
+    OverlayPath       : string;
+    OverlayDestination: string;
+    PlottingPath      : string;
     PlottingDestination : string;
     PatternPath : string;
     Project      : string;
@@ -99,9 +101,6 @@ type
     FormWasdal: Boolean;
     FormViewer: Boolean;
     FormPlotter: Boolean;
-//    GroupController : Boolean;
-//    GroupWasdal : Boolean;
-//    GroupCubicle : Boolean;
     ActiveDoubleBufferd : Boolean;
 
     TerrainID : Byte;
@@ -357,81 +356,62 @@ end;
 //==============================================================================
 
 function LoadFF_MapSetting(const fName: string; var mSet: TMapSetting): boolean;
-var IniF: TIniFile;
-    s: string;
+var
+  IniF: TIniFile;
+  s: string;
 begin
-  IniF := TIniFile.Create(fName);
+  Result := true;
 
   s := ExtractFilePath(ParamStr(0));
-  with mSet do begin
-    MapPath := IncludeTrailingBackslash(
-      IniFReadstring(inif, c_map, 'mappath', 'M:\game_area'));
-//      s + IniFReadstring(inif, c_map, 'mappath', 'mapsea'));
 
-    MapENCPath:= IncludeTrailingBackslash(
-      IniFReadstring(inif, c_map, 'mapencpath', 'M:\mapsea'));
+  IniF := TIniFile.Create(fName);
 
-    MapGSTGame := INIFReadString(IniF, c_map, 'MapGSTGame', '');
+  try
+    with mSet do
+    begin
+      MapPath           := IncludeTrailingBackslash(IniFReadstring(inif, c_map, 'mappath', 'M:\game_area'));
+      MapSourcePathENC  := IncludeTrailingBackslash(IniFReadstring(inif, c_map, 'MapSourcePathENC', 'D:\Map ASTC\MapSource'));
+      MapDestPathENC    := IncludeTrailingBackslash(IniFReadstring(inif, c_map, 'MapDestPathENC', 'D:\Map ASTC\GameArea'));
+      MapENCPath        := IncludeTrailingBackslash(IniFReadstring(inif, c_map, 'mapencpath', 'M:\mapsea'));
+      MapGSTGame        := INIFReadString(IniF, c_map, 'MapGSTGame', '');
+      MapDefGame        := INIFReadString(IniF, c_map, 'MapDefGame', '');
+      MapGeoset         := IniFReadstring(inif, c_map, 'defmap', 'Indonesia.gst');
+      MapDataGeoset     := IniFReadstring(inif, c_map, 'mapdata', 'M:\map\mapdata\mapdata.gst');
+      MapKarvak         := INIFReadString(IniF, c_map, 'MapKarvak', '');
+      MapZoom           := INIFReadInteger(inif, c_map, 'zoom', 5);
 
-    MapDefGame := INIFReadString(IniF, c_map, 'MapDefGame', '');
+      if MapZoom > C_MaxZoomIndex then
+        MapZoom := C_MaxZoomIndex;
+      if MapZoom < C_MinZoomIndex then
+          MapZoom := C_MinZoomIndex;
 
-    MapGeoset     := IniFReadstring(inif, c_map, 'defmap', 'Indonesia.gst');
+      mX := INIFReadFloat(IniF, c_map, 'long', 112.75 );
+      mY := INIFReadFloat(IniF, c_map, 'latt', -7.2 );
 
-    MapDataGeoset  := IniFReadstring(inif, c_map, 'mapdata',
-      'M:\map\mapdata\mapdata.gst');
+      FullScreen    := INIFReadBool(inif, c_map, 'fullscreen', True );
+      FormWasdal    := INIFReadBool(inif, c_map, 'formWasdal', True );
+      FormViewer    := INIFReadBool(inif, c_map, 'formViewer', True );
+      FormPlotter   := INIFReadBool(inif, c_map, 'formPlotter', True );
+      ActiveDoubleBufferd := INIFReadBool(inif, c_map, 'activeDoubleBuffered', True );
 
-    MapKarvak := INIFReadString(IniF, c_map, 'MapKarvak', '');
+      {added by me}
+      OverlayPath   := IncludeTrailingBackslash( IniFReadstring(inif, c_map, 'overlaypath', 'M:\map\map\overlay'));
+      OverlayDestination := IncludeTrailingBackslash(IniFReadstring(inif, c_map, 'overlayDestination', '\\192.168.1.202\Map\Map\overlay'));
 
-//    MapDataGeoset  := IniFReadstring(inif, c_map, 'mapdata',
-//      'M:\maps\mapdata\mapdata.gst');
+      PlottingPath  := IncludeTrailingBackslash(IniFReadstring(inif, c_map, 'plottingpath', 'M:\map\PlottingPath'));
+      PlottingDestination := IncludeTrailingBackslash(INIFReadString(inif, c_map, 'PlottingDestination', '\\192.168.5.1\Map\PlottingPath'));
+      PatternPath   := IncludeTrailingBackslash(IniFReadstring(inif, c_map, 'patternpath', 'M:\map\pattern'));
 
-    MapZoom := INIFReadInteger(inif, c_map, 'zoom', 5);
-    if MapZoom > C_MaxZoomIndex then
-      MapZoom := C_MaxZoomIndex;
-    if MapZoom < C_MinZoomIndex then
-        MapZoom := C_MinZoomIndex;
-
-    mX := INIFReadFloat(IniF, c_map, 'long', 112.75 );
-    mY := INIFReadFloat(IniF, c_map, 'latt', -7.2 );
-
-    FullScreen := INIFReadBool(inif, c_map, 'fullscreen', True );
-
-    FormWasdal := INIFReadBool(inif, c_map, 'formWasdal', True );
-    FormViewer := INIFReadBool(inif, c_map, 'formViewer', True );
-    FormPlotter := INIFReadBool(inif, c_map, 'formPlotter', True );
-
-//    GroupController := INIFReadBool(inif, c_map, 'groupcontroller', True );
-//    GroupWasdal := INIFReadBool(inif, c_map, 'groupwasdal', True );
-//    GroupCubicle := INIFReadBool(inif, c_map, 'groupcubicle', True );
-
-
-    ActiveDoubleBufferd := INIFReadBool(inif, c_map, 'activeDoubleBuffered', True );
-
-    {added by me}
-    OverlayPath := IncludeTrailingBackslash(
-      IniFReadstring(inif, c_map, 'overlaypath', 'M:\map\map\overlay'));
-
-    OverlayDestination := IncludeTrailingBackslash(
-      IniFReadstring(inif, c_map, 'overlayDestination', '\\192.168.1.202\Map\Map\overlay'));
-
-    PlottingPath := IncludeTrailingBackslash(
-      IniFReadstring(inif, c_map, 'plottingpath', 'M:\map\PlottingPath'));
-    PlottingDestination := IncludeTrailingBackslash(
-      INIFReadString(inif, c_map, 'PlottingDestination', '\\192.168.5.1\Map\PlottingPath'));
-    PatternPath := IncludeTrailingBackslash(
-      IniFReadstring(inif, c_map, 'patternpath', 'M:\map\pattern'));
-
-    TerrainID := INIFReadInteger(IniF, c_map, 'TerrainID', 0);
-    TerrainName := INIFReadString(IniF, c_map, 'TerrainName',
-      'Indonesia_Surabaya');
-    MiniMapPath := INIFReadString(IniF, c_map, 'MiniMapPath',
-      'D:\MAP\DEF_MAP_VIEW\Indonesia');
-    Project := INIFReadString(IniF, c_map, 'Project',
-      'NOPR');
-
+      TerrainID     := INIFReadInteger(IniF, c_map, 'TerrainID', 0);
+      TerrainName   := INIFReadString(IniF, c_map, 'TerrainName', 'Indonesia_Surabaya');
+      MiniMapPath   := INIFReadString(IniF, c_map, 'MiniMapPath', 'D:\MAP\DEF_MAP_VIEW\Indonesia');
+      Project       := INIFReadString(IniF, c_map, 'Project', 'NOPR');
+    end;
+  finally
+    IniF.DisposeOf
   end;
 
-  result := true;
+
 end;
 
 function LoadFF_GameSetting(const fName: string; var gdSet: TGameDataSetting): boolean;

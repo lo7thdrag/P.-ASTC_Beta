@@ -334,7 +334,7 @@ var
   gFilename : string;
 begin
   gFilename := lstGSTGame.Items[(Sender as TListBox).ItemIndex];
-  gGSTGame := vMapSetting.MapGSTGame + '\' + gFilename + '\' + gFilename + '.gst';
+  gGSTGame := vMapSetting.MapDestPathENC + '\' + gFilename + '\' + gFilename + '.gst';
 
   if FileExists(gGSTGame) then
     Load_Map(gGSTGame);

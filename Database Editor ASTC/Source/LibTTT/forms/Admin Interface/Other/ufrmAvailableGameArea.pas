@@ -89,6 +89,8 @@ begin
       SelectedGameArea := TGame_Environment_Definition.Create;
       SelectedGameArea.FGameArea.Detail_Map := 'ENC';
       ShowModal;
+
+      SelectedGameArea.Free;
       FUpdateList := AfterClose;
     end;
   finally

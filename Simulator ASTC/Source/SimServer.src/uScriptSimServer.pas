@@ -60,7 +60,7 @@ begin
   else
   begin
     simMgrServer.LoadFromSnapshot := False;
-//    simMgrServer.LoadScenarioId(vGameDataSetting);
+    simMgrServer.LoadScenarioId(vGameDataSetting);
   end;
 
   simMgrServer.SensorSetEnvi;

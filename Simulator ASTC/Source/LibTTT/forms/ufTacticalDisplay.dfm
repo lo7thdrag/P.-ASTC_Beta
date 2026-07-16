@@ -45,135 +45,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     ParentDoubleBuffered = False
     ParentFont = False
     TabOrder = 1
-    object pnlpgcControl: TPanel
-      Left = 0
-      Top = 0
-      Width = 341
-      Height = 130
-      Align = alTop
-      BevelOuter = bvNone
-      ParentBackground = False
-      ParentColor = True
-      TabOrder = 0
-      object pnlTabTrackTable: TPanel
-        Tag = 1
-        Left = 0
-        Top = 2
-        Width = 90
-        Height = 25
-        BevelOuter = bvLowered
-        Caption = 'Track Table'
-        Color = 6770973
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 0
-        OnClick = TTButtonClick
-      end
-      object pnlTabTrackControl: TPanel
-        Left = 90
-        Top = 2
-        Width = 90
-        Height = 25
-        BevelOuter = bvLowered
-        Caption = 'Track Control'
-        Color = 3812880
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 1
-        OnClick = TTButtonClick
-      end
-      object pnlTrackControl: TPanel
-        Left = 0
-        Top = 25
-        Width = 339
-        Height = 180
-        Color = 16775920
-        ParentBackground = False
-        TabOrder = 3
-        object lvTrackControl: TListView
-          Left = 1
-          Top = 0
-          Width = 339
-          Height = 180
-          Color = clWhite
-          Columns = <
-            item
-              Caption = 'Group Name'
-              Width = 125
-            end
-            item
-              Caption = 'Course'
-              Width = 100
-            end
-            item
-              Caption = 'Speed'
-              Width = 100
-            end>
-          ReadOnly = True
-          RowSelect = True
-          PopupMenu = pmTrackControl
-          TabOrder = 0
-          ViewStyle = vsReport
-          OnSelectItem = lvTrackControlSelectItem
-        end
-      end
-      object pnlTrackTable: TPanel
-        Left = 1
-        Top = 25
-        Width = 339
-        Height = 180
-        Color = 16775920
-        ParentBackground = False
-        TabOrder = 2
-        object lvTrackTable: TListView
-          Left = 1
-          Top = 1
-          Width = 337
-          Height = 180
-          BevelOuter = bvNone
-          BorderStyle = bsNone
-          Color = clWhite
-          Columns = <
-            item
-              Caption = 'Domain'
-            end
-            item
-              Caption = 'TrackNumber'
-            end
-            item
-              Caption = 'Identity'
-            end
-            item
-              Caption = 'Course'
-            end
-            item
-              Caption = 'Speed'
-            end
-            item
-              Caption = 'Altitude'
-            end
-            item
-              Caption = 'Depth'
-            end>
-          MultiSelect = True
-          ReadOnly = True
-          RowSelect = True
-          TabOrder = 0
-          ViewStyle = vsReport
-          OnSelectItem = lvTrackTableSelectItem
-        end
-      end
-    end
     object pnlHookContactInfoTraineeDisplay: TPanel
       Left = 0
       Top = 130
@@ -256,6 +127,579 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         TabOrder = 0
         OnClick = THButtonClick
       end
+      object pnlContentHook: TPanel
+        Left = 0
+        Top = 25
+        Width = 339
+        Height = 235
+        Caption = 'pnlContentIFF'
+        Color = 16775920
+        ParentBackground = False
+        TabOrder = 7
+        object pnlHook: TPanel
+          Left = 1
+          Top = 1
+          Width = 337
+          Height = 233
+          Align = alClient
+          Color = 2695445
+          ParentBackground = False
+          TabOrder = 0
+          ExplicitTop = 0
+          object lbClassHook: TLabel
+            Left = 125
+            Top = 49
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Transparent = True
+          end
+          object Label1: TLabel
+            Left = 10
+            Top = 28
+            Width = 33
+            Height = 16
+            Caption = 'Name'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label2: TLabel
+            Left = 10
+            Top = 49
+            Width = 30
+            Height = 16
+            Caption = 'Class'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label3: TLabel
+            Left = 10
+            Top = 112
+            Width = 43
+            Height = 16
+            Caption = 'Bearing'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label4: TLabel
+            Left = 184
+            Top = 112
+            Width = 52
+            Height = 16
+            Caption = 'degree T'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label5: TLabel
+            Left = 10
+            Top = 91
+            Width = 36
+            Height = 16
+            Caption = 'Range'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label6: TLabel
+            Left = 184
+            Top = 91
+            Width = 18
+            Height = 16
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label7: TLabel
+            Left = 140
+            Top = 109
+            Width = 4
+            Height = 16
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label8: TLabel
+            Left = 184
+            Top = 133
+            Width = 52
+            Height = 16
+            Caption = 'degree T'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label9: TLabel
+            Left = 184
+            Top = 154
+            Width = 24
+            Height = 16
+            Caption = 'knot'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lb8: TLabel
+            Left = 10
+            Top = 196
+            Width = 47
+            Height = 16
+            Caption = 'Damage'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbBearingHook: TLabel
+            Left = 125
+            Top = 112
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object lbCourseHook: TLabel
+            Left = 125
+            Top = 133
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbDamage: TLabel
+            Left = 124
+            Top = 196
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbFormation: TLabel
+            Left = 124
+            Top = 207
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Visible = False
+          end
+          object lbGround: TLabel
+            Left = 125
+            Top = 154
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbNameHook: TLabel
+            Left = 125
+            Top = 28
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbPositionHook1: TLabel
+            Left = 125
+            Top = 70
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbPositionHook2: TLabel
+            Left = 231
+            Top = 70
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbRangeHook: TLabel
+            Left = 125
+            Top = 91
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object lbTrackHook: TLabel
+            Left = 125
+            Top = 5
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbAltitude: TLabel
+            Left = 124
+            Top = 175
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object lb4: TLabel
+            Left = 184
+            Top = 175
+            Width = 22
+            Height = 16
+            Caption = 'feet'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object StaticText1: TStaticText
+            Left = 10
+            Top = 5
+            Width = 36
+            Height = 20
+            BevelInner = bvNone
+            BevelOuter = bvNone
+            Caption = 'Track'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            Transparent = False
+          end
+          object StaticText10: TStaticText
+            Left = 9
+            Top = 208
+            Width = 90
+            Height = 20
+            Caption = 'Formation Size'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            Transparent = False
+            Visible = False
+          end
+          object StaticText25: TStaticText
+            Left = 105
+            Top = 5
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            Transparent = False
+          end
+          object StaticText28: TStaticText
+            Left = 105
+            Top = 26
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+            Transparent = False
+          end
+          object StaticText29: TStaticText
+            Left = 105
+            Top = 47
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 4
+          end
+          object StaticText30: TStaticText
+            Left = 105
+            Top = 68
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 5
+            Transparent = False
+          end
+          object StaticText31: TStaticText
+            Left = 105
+            Top = 89
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 6
+            Transparent = False
+          end
+          object StaticText32: TStaticText
+            Left = 105
+            Top = 110
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 7
+            Transparent = False
+          end
+          object StaticText33: TStaticText
+            Left = 105
+            Top = 152
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 8
+            Transparent = False
+          end
+          object StaticText36: TStaticText
+            Left = 105
+            Top = 131
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 9
+            Transparent = False
+          end
+          object StaticText6: TStaticText
+            Left = 10
+            Top = 68
+            Width = 48
+            Height = 20
+            Caption = 'Position'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 10
+            Transparent = False
+          end
+          object StaticText7: TStaticText
+            Left = 10
+            Top = 131
+            Width = 44
+            Height = 20
+            Caption = 'Course'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 11
+            Transparent = False
+          end
+          object StaticText8: TStaticText
+            Left = 10
+            Top = 152
+            Width = 85
+            Height = 20
+            Caption = 'Ground Speed'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 12
+            Transparent = False
+          end
+          object lb3: TStaticText
+            Left = 105
+            Top = 173
+            Width = 9
+            Height = 20
+            Caption = ':'
+            DoubleBuffered = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentDoubleBuffered = False
+            ParentFont = False
+            TabOrder = 13
+            Transparent = False
+          end
+          object lb7: TStaticText
+            Left = 105
+            Top = 194
+            Width = 9
+            Height = 20
+            Caption = ':'
+            DoubleBuffered = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentDoubleBuffered = False
+            ParentFont = False
+            TabOrder = 14
+            Transparent = False
+          end
+          object lb5: TStaticText
+            Left = 10
+            Top = 173
+            Width = 47
+            Height = 20
+            Caption = 'Altitude'
+            DoubleBuffered = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentDoubleBuffered = False
+            ParentFont = False
+            TabOrder = 15
+            Transparent = False
+          end
+        end
+      end
       object pnlContentDetails: TPanel
         Left = 0
         Top = 25
@@ -266,20 +710,30 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         ParentBackground = False
         TabOrder = 6
         object pnlDetails: TPanel
-          Left = 3
-          Top = 3
+          Left = 1
+          Top = 1
           Width = 337
-          Height = 230
+          Height = 233
+          Align = alClient
           BevelOuter = bvNone
+          Color = 2695445
           ParentBackground = False
-          ParentColor = True
           TabOrder = 0
+          ExplicitLeft = 2
+          ExplicitTop = 3
+          ExplicitHeight = 230
           object lbTrackDetails: TLabel
             Left = 145
             Top = 5
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label11: TLabel
             Left = 10
@@ -287,6 +741,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 33
             Height = 16
             Caption = 'Name'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbNameDetails: TLabel
             Left = 145
@@ -294,6 +754,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbClassdetails: TLabel
             Left = 145
@@ -301,6 +767,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label12: TLabel
             Left = 10
@@ -308,6 +780,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 30
             Height = 16
             Caption = 'Class'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label13: TLabel
             Left = 10
@@ -315,6 +793,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 28
             Height = 16
             Caption = 'Type'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label14: TLabel
             Left = 10
@@ -322,6 +806,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 43
             Height = 16
             Caption = 'Domain'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbDomain: TLabel
             Left = 145
@@ -329,12 +819,24 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label15: TLabel
             Left = 50
             Top = 105
             Width = 4
             Height = 16
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbPropulsion: TLabel
             Left = 145
@@ -342,6 +844,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbIdentifier: TLabel
             Left = 145
@@ -349,6 +857,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbDoppler: TLabel
             Left = 145
@@ -356,6 +870,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbSonarClass: TLabel
             Left = 145
@@ -363,6 +883,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbTrackType: TLabel
             Left = 145
@@ -370,6 +896,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbTypeDetails: TLabel
             Left = 145
@@ -377,6 +909,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbMergeStatus: TLabel
             Left = 145
@@ -384,6 +922,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object StaticText2: TStaticText
             Left = 10
@@ -391,6 +935,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 36
             Height = 20
             Caption = 'Track'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 0
             Transparent = False
           end
@@ -400,6 +950,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 55
             Height = 20
             Caption = 'Identifier'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 1
             Transparent = False
           end
@@ -409,6 +965,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 95
             Height = 20
             Caption = 'Propulsion Type'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 2
             Transparent = False
           end
@@ -418,6 +980,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 48
             Height = 20
             Caption = 'Doppler'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 3
             Transparent = False
           end
@@ -427,6 +995,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 72
             Height = 20
             Caption = 'Sonar Class'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 4
             Transparent = False
           end
@@ -436,6 +1010,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 68
             Height = 20
             Caption = 'Track Type'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 5
             Transparent = False
           end
@@ -445,6 +1025,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 80
             Height = 20
             Caption = 'Merge Status'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 6
             Transparent = False
           end
@@ -454,6 +1040,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 7
             Transparent = False
           end
@@ -463,6 +1055,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 8
             Transparent = False
           end
@@ -472,6 +1070,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 9
             Transparent = False
           end
@@ -481,6 +1085,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 10
             Transparent = False
           end
@@ -490,6 +1100,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 11
             Transparent = False
           end
@@ -499,6 +1115,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 12
             Transparent = False
           end
@@ -508,6 +1130,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 13
             Transparent = False
           end
@@ -517,6 +1145,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 14
             Transparent = False
           end
@@ -526,6 +1160,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 15
             Transparent = False
           end
@@ -535,6 +1175,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 16
             Transparent = False
           end
@@ -544,6 +1190,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 17
             Transparent = False
           end
@@ -555,24 +1207,35 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Width = 339
         Height = 235
         Caption = 'pnlContentIFF'
-        Color = 16775920
+        Color = 2695445
         ParentBackground = False
         TabOrder = 5
         object pnlDetection: TPanel
-          Left = 3
-          Top = 3
-          Width = 325
-          Height = 192
+          Left = 1
+          Top = 1
+          Width = 337
+          Height = 233
+          Align = alClient
           BevelOuter = bvNone
           ParentBackground = False
           ParentColor = True
           TabOrder = 0
+          ExplicitLeft = 11
+          ExplicitTop = 11
+          ExplicitWidth = 325
+          ExplicitHeight = 192
           object lbDetectionDetectionType: TLabel
             Left = 155
             Top = 145
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbOwner: TLabel
             Left = 155
@@ -580,6 +1243,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbClassDetection: TLabel
             Left = 155
@@ -587,6 +1256,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbNameDetection: TLabel
             Left = 155
@@ -594,6 +1269,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label16: TLabel
             Left = 10
@@ -601,6 +1282,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 33
             Height = 16
             Caption = 'Name'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbTrackDetection: TLabel
             Left = 155
@@ -608,6 +1295,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label17: TLabel
             Left = 10
@@ -615,6 +1308,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 30
             Height = 16
             Caption = 'Class'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label18: TLabel
             Left = 10
@@ -622,6 +1321,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 106
             Height = 16
             Caption = 'Owner PU Number'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label19: TLabel
             Left = 10
@@ -629,12 +1334,24 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 79
             Height = 16
             Caption = 'First Detected'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label20: TLabel
             Left = 85
             Top = 114
             Width = 4
             Height = 16
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbFirstDetected: TLabel
             Left = 155
@@ -642,6 +1359,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbLastDetected: TLabel
             Left = 155
@@ -649,6 +1372,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object StaticText48: TStaticText
             Left = 135
@@ -656,6 +1385,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 0
             Transparent = False
           end
@@ -665,6 +1400,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 89
             Height = 20
             Caption = 'Detection Type'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 1
             Transparent = False
           end
@@ -674,6 +1415,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 81
             Height = 20
             Caption = 'Last Detected'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 2
             Transparent = False
           end
@@ -683,6 +1430,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 36
             Height = 20
             Caption = 'Track'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 3
             Transparent = False
           end
@@ -692,6 +1445,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 4
             Transparent = False
           end
@@ -701,6 +1460,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 5
             Transparent = False
           end
@@ -710,6 +1475,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 6
             Transparent = False
           end
@@ -719,6 +1490,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 7
             Transparent = False
           end
@@ -728,6 +1505,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 8
             Transparent = False
           end
@@ -737,6 +1520,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 9
             Transparent = False
           end
@@ -752,20 +1541,31 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         ParentBackground = False
         TabOrder = 4
         object pnlIFF: TPanel
-          Left = 3
-          Top = 3
-          Width = 325
-          Height = 192
+          Left = 1
+          Top = 1
+          Width = 337
+          Height = 233
+          Align = alClient
           BevelOuter = bvNone
+          Color = 2695445
           ParentBackground = False
-          ParentColor = True
           TabOrder = 0
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 325
+          ExplicitHeight = 192
           object lbTrackIff: TLabel
             Left = 110
             Top = 5
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label88: TLabel
             Left = 10
@@ -773,6 +1573,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 33
             Height = 16
             Caption = 'Name'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbNameIff: TLabel
             Left = 110
@@ -780,6 +1586,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbClassIff: TLabel
             Left = 110
@@ -787,6 +1599,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label91: TLabel
             Left = 10
@@ -794,6 +1612,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 30
             Height = 16
             Caption = 'Class'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label92: TLabel
             Left = 10
@@ -801,6 +1625,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 42
             Height = 16
             Caption = 'Mode 1'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label93: TLabel
             Left = 10
@@ -808,6 +1638,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 42
             Height = 16
             Caption = 'Mode 2'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbMode2Iff: TLabel
             Left = 110
@@ -815,12 +1651,24 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label95: TLabel
             Left = 95
             Top = 106
             Width = 4
             Height = 16
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbMode1Iff: TLabel
             Left = 110
@@ -828,6 +1676,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbMode3CIff: TLabel
             Left = 110
@@ -835,6 +1689,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbMode3Iff: TLabel
             Left = 110
@@ -842,6 +1702,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbMode4Iff: TLabel
             Left = 110
@@ -849,6 +1715,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 15
             Height = 16
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object StaticText17: TStaticText
             Left = 10
@@ -856,6 +1728,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 36
             Height = 20
             Caption = 'Track'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 0
             Transparent = False
           end
@@ -865,6 +1743,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 46
             Height = 20
             Caption = 'Mode 3'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 1
             Transparent = False
           end
@@ -874,6 +1758,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 54
             Height = 20
             Caption = 'Mode 3C'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 2
             Transparent = False
           end
@@ -883,6 +1773,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 46
             Height = 20
             Caption = 'Mode 4'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 3
             Transparent = False
           end
@@ -892,6 +1788,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 4
             Transparent = False
           end
@@ -901,6 +1803,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 5
             Transparent = False
           end
@@ -910,6 +1818,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 6
             Transparent = False
           end
@@ -919,6 +1833,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 7
             Transparent = False
           end
@@ -928,6 +1848,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 8
             Transparent = False
           end
@@ -937,6 +1863,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 9
             Transparent = False
           end
@@ -946,6 +1878,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 10
             Transparent = False
           end
@@ -955,345 +1893,13 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Width = 9
             Height = 20
             Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 11
-            Transparent = False
-          end
-        end
-      end
-      object pnlContentHook: TPanel
-        Left = 0
-        Top = 25
-        Width = 339
-        Height = 235
-        Caption = 'pnlContentIFF'
-        Color = 16775920
-        ParentBackground = False
-        TabOrder = 7
-        object pnlHook: TPanel
-          Left = 3
-          Top = 3
-          Width = 329
-          Height = 250
-          BevelOuter = bvNone
-          Color = 16775920
-          ParentBackground = False
-          TabOrder = 0
-          object lbClassHook: TLabel
-            Left = 125
-            Top = 49
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Transparent = True
-          end
-          object Label1: TLabel
-            Left = 10
-            Top = 28
-            Width = 33
-            Height = 16
-            Caption = 'Name'
-          end
-          object Label2: TLabel
-            Left = 10
-            Top = 49
-            Width = 30
-            Height = 16
-            Caption = 'Class'
-          end
-          object Label3: TLabel
-            Left = 10
-            Top = 112
-            Width = 43
-            Height = 16
-            Caption = 'Bearing'
-          end
-          object Label4: TLabel
-            Left = 184
-            Top = 112
-            Width = 52
-            Height = 16
-            Caption = 'degree T'
-          end
-          object Label5: TLabel
-            Left = 10
-            Top = 91
-            Width = 36
-            Height = 16
-            Caption = 'Range'
-          end
-          object Label6: TLabel
-            Left = 184
-            Top = 91
-            Width = 18
-            Height = 16
-            Caption = 'nm'
-          end
-          object Label7: TLabel
-            Left = 140
-            Top = 109
-            Width = 4
-            Height = 16
-          end
-          object Label8: TLabel
-            Left = 184
-            Top = 133
-            Width = 52
-            Height = 16
-            Caption = 'degree T'
-          end
-          object Label9: TLabel
-            Left = 184
-            Top = 154
-            Width = 24
-            Height = 16
-            Caption = 'knot'
-          end
-          object lb8: TLabel
-            Left = 10
-            Top = 196
-            Width = 47
-            Height = 16
-            Caption = 'Damage'
-          end
-          object lbBearingHook: TLabel
-            Left = 125
-            Top = 112
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Transparent = False
-          end
-          object lbCourseHook: TLabel
-            Left = 125
-            Top = 133
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbDamage: TLabel
-            Left = 124
-            Top = 196
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbFormation: TLabel
-            Left = 124
-            Top = 207
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Visible = False
-          end
-          object lbGround: TLabel
-            Left = 125
-            Top = 154
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbNameHook: TLabel
-            Left = 125
-            Top = 28
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbPositionHook1: TLabel
-            Left = 125
-            Top = 70
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbPositionHook2: TLabel
-            Left = 231
-            Top = 70
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbRangeHook: TLabel
-            Left = 125
-            Top = 91
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Transparent = False
-          end
-          object lbTrackHook: TLabel
-            Left = 125
-            Top = 5
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbAltitude: TLabel
-            Left = 124
-            Top = 175
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Transparent = False
-          end
-          object lb4: TLabel
-            Left = 184
-            Top = 175
-            Width = 22
-            Height = 16
-            Caption = 'feet'
-            Transparent = False
-          end
-          object StaticText1: TStaticText
-            Left = 10
-            Top = 5
-            Width = 36
-            Height = 20
-            BevelInner = bvNone
-            BevelOuter = bvNone
-            Caption = 'Track'
-            TabOrder = 0
-            Transparent = False
-          end
-          object StaticText10: TStaticText
-            Left = 9
-            Top = 208
-            Width = 90
-            Height = 20
-            Caption = 'Formation Size'
-            TabOrder = 1
-            Transparent = False
-            Visible = False
-          end
-          object StaticText25: TStaticText
-            Left = 105
-            Top = 5
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 2
-            Transparent = False
-          end
-          object StaticText28: TStaticText
-            Left = 105
-            Top = 26
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 3
-            Transparent = False
-          end
-          object StaticText29: TStaticText
-            Left = 105
-            Top = 47
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 4
-          end
-          object StaticText30: TStaticText
-            Left = 105
-            Top = 68
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 5
-            Transparent = False
-          end
-          object StaticText31: TStaticText
-            Left = 105
-            Top = 89
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 6
-            Transparent = False
-          end
-          object StaticText32: TStaticText
-            Left = 105
-            Top = 110
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 7
-            Transparent = False
-          end
-          object StaticText33: TStaticText
-            Left = 105
-            Top = 152
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 8
-            Transparent = False
-          end
-          object StaticText36: TStaticText
-            Left = 105
-            Top = 131
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 9
-            Transparent = False
-          end
-          object StaticText6: TStaticText
-            Left = 10
-            Top = 68
-            Width = 48
-            Height = 20
-            Caption = 'Position'
-            TabOrder = 10
-            Transparent = False
-          end
-          object StaticText7: TStaticText
-            Left = 10
-            Top = 131
-            Width = 44
-            Height = 20
-            Caption = 'Course'
-            TabOrder = 11
-            Transparent = False
-          end
-          object StaticText8: TStaticText
-            Left = 10
-            Top = 152
-            Width = 85
-            Height = 20
-            Caption = 'Ground Speed'
-            TabOrder = 12
-            Transparent = False
-          end
-          object lb3: TStaticText
-            Left = 105
-            Top = 173
-            Width = 9
-            Height = 20
-            Caption = ':'
-            DoubleBuffered = False
-            ParentDoubleBuffered = False
-            TabOrder = 13
-            Transparent = False
-          end
-          object lb7: TStaticText
-            Left = 105
-            Top = 194
-            Width = 9
-            Height = 20
-            Caption = ':'
-            DoubleBuffered = False
-            ParentDoubleBuffered = False
-            TabOrder = 14
-            Transparent = False
-          end
-          object lb5: TStaticText
-            Left = 10
-            Top = 173
-            Width = 47
-            Height = 20
-            Caption = 'Altitude'
-            DoubleBuffered = False
-            ParentDoubleBuffered = False
-            TabOrder = 15
             Transparent = False
           end
         end
@@ -1488,16 +2094,18 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           OnClick = TDCPButtonClick
         end
       end
-      object pnlTabCounterMeasure: TPanel
-        Left = 180
+      object pnlTabOwnShip: TPanel
+        Tag = 1
+        Left = 0
         Top = 2
         Width = 45
         Height = 25
         BevelOuter = bvLowered
-        Color = 3812880
+        Color = 6770973
         ParentBackground = False
-        TabOrder = 4
-        object imgCounterMeasure: TImage
+        TabOrder = 0
+        object imgOwnShip: TImage
+          Tag = 1
           Left = 0
           Top = 0
           Width = 45
@@ -1505,282 +2113,37 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000002D0000
             001A08060000002365D58F000000097048597300000B1300000B1301009A9C18
-            000000017352474200AECE1CE90000000467414D410000B18F0BFC6105000001
-            454944415478DAED97810D82301045DB0D1CA16EC006E204BA8138816EA04EE0
-            08E0048EA04EE008BA49FDA7A7962A49C11E6AF4924BC9FD847BF91C2D68F585
-            A1DF0DF0870E0D6B6D07CB406BBDAAA3737D4A1A32811ECCF212341AA7587264
-            869EBB501DF504CB1A696E20D2D0ECD21C39416ED1AF1FAA4323D08D0B2C0ECD
-            2E917B099732F7D107E867E71F40A4A0D190667086EC386572F4FAE85376B74A
-            A7FAFA298804749543B1420ADAA88BCB3E7881DCF275DA40978376E03386375C
-            F267B6528736546D8E87074E40393B57A0DF3844E75DE5A0CA33DF0EB403478E
-            CE915DF43C86E8A82DD5E550790F3443182C23F45C84E8ECF65EB5B94FC7086F
-            7CBE03DA81A7EF0E7A398D7FAA7E2C74D3A87BB8C881783B502C68CB975964DE
-            82A1454E445BF7E652F7FD0D6875FF8E8815A924742F326C19E4C99FCFCBD09F
-            147FE8B6E2043EB1AA1B0C33D7450000000049454E44AE426082}
+            000000017352474200AECE1CE90000000467414D410000B18F0BFC6105000000
+            F84944415478DAEDD4CD0DC220140770D8A037AF7513B879D409D4098C135827
+            314E623D78770093EA06DD80FE6949244652404921E125E4A57CB43FDA472949
+            30E8D4808C8E39323A69B410A2E96F4EE93C5A34900552A1755D54E6682DF0AD
+            692EC69E53A14F481BC3700D18D7E61E902A6DBCC4F82B281A0F655FBA258419
+            96DCD1F6DAF55A6D50F6CB2FB0D2BFC4DFD10097488DEB460DC180BDFA2C7445
+            CB5ADCA195C45C0E6351AB76F6A96767B48667E47DD85CA302F6E8B9D6113D1C
+            B63E6638FD0B42963E0F7CA0966F433D7F48E836045AFCF276C625D4DA92D119
+            9DD189A17DFFCBB6686E3D352824D4FEA6066474CC9124BA03E78B4E1BB585F9
+            0C0000000049454E44AE426082}
           OnClick = TDCPButtonClick
         end
       end
-      object pnlCounterMeasure: TPanel
+      object pnlPlatformGuidance: TPanel
         Left = 0
         Top = 26
         Width = 339
         Height = 2000
         Color = 4012086
         ParentBackground = False
-        TabOrder = 13
-        inline fmCounterMeasure1: TfmCounterMeasure
+        TabOrder = 10
+        inline fmPlatformGuidance1: TfmPlatformGuidance
           Left = 1
           Top = 1
           Width = 337
           Height = 1998
           Align = alClient
-          Color = 4012086
-          ParentBackground = False
-          ParentColor = False
-          TabOrder = 0
-          ExplicitLeft = 1
-          ExplicitTop = 1
-          ExplicitWidth = 337
-          ExplicitHeight = 1998
-          inherited PanelALL: TPanel
-            Width = 337
-            Height = 1884
-            ExplicitWidth = 337
-            ExplicitHeight = 1884
-            inherited PanelCounterMeasure: TPanel
-              Width = 337
-              Height = 1884
-              ExplicitWidth = 337
-              ExplicitHeight = 1884
-              inherited grbAcousticDecoy: TGroupBox
-                Width = 337
-                Height = 1884
-                ExplicitWidth = 337
-                ExplicitHeight = 1884
-                inherited ScrollBox1: TScrollBox
-                  Width = 333
-                  Height = 1864
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1864
-                  inherited btnComboAcousticDecoyMode: TSpeedButton
-                    Width = 26
-                    Height = 23
-                    ExplicitWidth = 26
-                    ExplicitHeight = 23
-                  end
-                  inherited btnComboAcousticDecoyFilter: TSpeedButton
-                    Width = 26
-                    Height = 23
-                    ExplicitWidth = 26
-                    ExplicitHeight = 23
-                  end
-                end
-              end
-              inherited grbAirborneChaff: TGroupBox
-                Width = 337
-                Height = 1884
-                ExplicitWidth = 337
-                ExplicitHeight = 1884
-                inherited btnAirboneChaffType: TSpeedButton
-                  Width = 28
-                  Height = 23
-                  ExplicitWidth = 28
-                  ExplicitHeight = 23
-                end
-                inherited btnChaffAirboneDeploy: TButton
-                  Width = 89
-                  Height = 24
-                  OnClick = fmCounterMeasure1btnChaffAirboneDeployClick
-                  ExplicitWidth = 89
-                  ExplicitHeight = 24
-                end
-              end
-              inherited grbFloatingDecoy: TGroupBox
-                Width = 337
-                Height = 1884
-                ExplicitWidth = 337
-                ExplicitHeight = 1884
-                inherited btnFloatingDecoyDeploy: TButton
-                  Height = 24
-                  OnClick = fmCounterMeasure1btnFloatingDecoyDeployClick
-                  ExplicitHeight = 24
-                end
-              end
-              inherited grbOnBoardSelfDefenseJammer: TGroupBox
-                Width = 337
-                Height = 1884
-                ExplicitWidth = 337
-                ExplicitHeight = 1884
-                inherited ScrollBox5: TScrollBox
-                  Width = 333
-                  Height = 1864
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1864
-                end
-              end
-              inherited grbRadarNoiseJammer: TGroupBox
-                Width = 337
-                Height = 1884
-                ExplicitWidth = 337
-                ExplicitHeight = 1884
-                inherited ScrollBox3: TScrollBox
-                  Width = 333
-                  Height = 1864
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1864
-                  inherited btnComboRadarJammingControlMode: TSpeedButton
-                    Width = 27
-                    Height = 23
-                    ExplicitWidth = 27
-                    ExplicitHeight = 23
-                  end
-                  inherited sbRadarJammingControlActivationOn: TSpeedButton [5]
-                    OnClick = fmCounterMeasure1sbRadarJammingControlActivationOnClick
-                  end
-                  inherited sbRadarJammingControlActivationOff: TSpeedButton [6]
-                    OnClick = fmCounterMeasure1sbRadarJammingControlActivationOffClick
-                  end
-                  inherited PanelRadarJammingMode: TPanel
-                    inherited gbRadarJammingSelectedTrackMode: TGroupBox
-                      inherited btnRadarJammingModeSelectedTrackTrack: TSpeedButton
-                        OnClick = fmCounterMeasure1btnRadarJammingModeSelectedTrackTrackClick
-                      end
-                    end
-                  end
-                end
-              end
-              inherited grbSurfaceChaffDeployment: TGroupBox
-                Width = 337
-                Height = 1884
-                ExplicitWidth = 337
-                ExplicitHeight = 1884
-                inherited ScrollBox2: TScrollBox
-                  Width = 333
-                  Height = 1864
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1864
-                  inherited Bevel3: TBevel
-                    Top = 4
-                    ExplicitTop = 4
-                  end
-                  inherited Label12: TLabel
-                    Top = 43
-                    ExplicitTop = 43
-                  end
-                  inherited btnSurfaceChaffLauncher: TSpeedButton
-                    OnClick = fmCounterMeasure1btnSurfaceChaffLauncherClick
-                  end
-                  inherited btnSurfaceChaffType: TSpeedButton
-                    OnClick = fmCounterMeasure1btnSurfaceChaffTypeClick
-                  end
-                  inherited btnSurfaceChaffCopy: TSpeedButton
-                    OnClick = fmCounterMeasure1btnSurfaceChaffCopyClick
-                  end
-                  inherited btnSurfaceChaffLaunch: TSpeedButton
-                    OnClick = fmCounterMeasure1btnSurfaceChaffLaunchClick
-                  end
-                  inherited btnSurfaceChaffAbort: TSpeedButton
-                    OnClick = fmCounterMeasure1btnSurfaceChaffAbortClick
-                  end
-                  inherited edtSurfaceChaffBloomRange: TEdit
-                    OnKeyPress = fmCounterMeasure1edtSurfaceChaffBloomRangeKeyPress
-                  end
-                  inherited edtSurfaceChaffBloomAltitude: TEdit
-                    OnKeyPress = fmCounterMeasure1edtSurfaceChaffBloomAltitudeKeyPress
-                  end
-                  inherited edtSurfaceChaffSalvoSize: TEdit
-                    OnKeyPress = fmCounterMeasure1edtSurfaceChaffSalvoSizeKeyPress
-                  end
-                  inherited edtSurfaceChaffDelay: TEdit
-                    OnKeyPress = fmCounterMeasure1edtSurfaceChaffDelayKeyPress
-                  end
-                  inherited ckSurfaceChaffEnabled: TCheckBox
-                    OnClick = fmCounterMeasure1ckSurfaceChaffEnabledClick
-                  end
-                  inherited ckSurfaceChaffSeductionEnabled: TCheckBox
-                    OnClick = fmCounterMeasure1ckSurfaceChaffSeductionEnabledClick
-                  end
-                end
-              end
-              inherited grbTowedJammerDecoy: TGroupBox
-                Width = 337
-                Height = 1884
-                ExplicitWidth = 337
-                ExplicitHeight = 1884
-                inherited ScrollBox4: TScrollBox
-                  Width = 333
-                  Height = 1864
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1864
-                  inherited sbTowedJammerDecoyActionDeploy: TSpeedButton
-                    Left = 20
-                    ExplicitLeft = 20
-                  end
-                  inherited sbTowedJammerDecoyActionStow: TSpeedButton
-                    Left = 20
-                    ExplicitLeft = 20
-                  end
-                end
-              end
-              inherited grpAirBubble: TGroupBox
-                Width = 337
-                Height = 1884
-                ExplicitWidth = 337
-                ExplicitHeight = 1884
-                inherited btnType: TSpeedButton
-                  Left = 278
-                  Width = 29
-                  Height = 23
-                  ExplicitLeft = 278
-                  ExplicitWidth = 29
-                  ExplicitHeight = 23
-                end
-                inherited btnAirBubbleDeploy: TButton
-                  Width = 89
-                  Height = 24
-                  OnClick = fmCounterMeasure1btnAirBubbleDeployClick
-                  ExplicitWidth = 89
-                  ExplicitHeight = 24
-                end
-              end
-            end
-          end
-          inherited PanelCounterMeasureSpace: TPanel
-            Width = 337
-            ExplicitWidth = 337
-          end
-          inherited PanelCounterMeasureChoice: TPanel
-            Width = 337
-            ExplicitWidth = 337
-            inherited lvECM: TListView
-              Width = 333
-              ExplicitWidth = 333
-            end
-          end
-          inherited pmNoiseJammerMode: TPopupMenu
-            Left = 274
-            Top = 158
-          end
-        end
-      end
-      object pnlEMCON: TPanel
-        Left = 0
-        Top = 26
-        Width = 339
-        Height = 2000
-        Color = 4012086
-        ParentBackground = False
-        TabOrder = 12
-        inline fmEMCON1: TfmEMCON
-          Left = 1
-          Top = 1
-          Width = 337
-          Height = 1998
-          Align = alClient
-          Color = 15131105
+          Color = clMedGray
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -11
+          Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentBackground = False
@@ -1791,48 +2154,1121 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           ExplicitTop = 1
           ExplicitWidth = 337
           ExplicitHeight = 1998
-          inherited PanelEmconChoices: TPanel
+          inherited PanelPlatformGuidance: TPanel [0]
             Width = 337
+            Height = 1957
+            Color = 2695445
             ExplicitWidth = 337
-            inherited LvEmcon: TListView
+            ExplicitHeight = 1957
+            inherited grbOutrun: TGroupBox [0]
               Width = 335
+              Height = 1955
               ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label310: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label321: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label322: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblOutrunActualGroundSpeed: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited sbTrackToOutrun: TSpeedButton
+                OnClick = fmPlatformGuidance1sbTrackToOutrunClick
+              end
+              inherited Label23: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblOutrunAltitudeDepth: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label29: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText150: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText153: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText21: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
             end
-          end
-          inherited PaneALL: TPanel
-            Width = 337
-            Height = 1901
-            ExplicitWidth = 337
-            ExplicitHeight = 1901
-            inherited PanelEmcon: TPanel
-              Width = 337
-              Height = 1901
-              ExplicitWidth = 337
-              ExplicitHeight = 1901
-              inherited ScrollBox2: TScrollBox
-                Width = 335
-                Height = 1899
-                ExplicitWidth = 335
-                ExplicitHeight = 1899
-                inherited Label562: TLabel
-                  Width = 54
-                  Height = 13
-                  ExplicitWidth = 54
-                  ExplicitHeight = 13
+            inherited grbReturnToBase: TGroupBox [1]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label327: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblReturnToBaseDestinationBase: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label329: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label334: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label382: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label397: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblReturnToBaseActualGroundSpeed: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label406: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label419: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label437: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label451: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblReturnToBaseActualAltitude: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText158: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText159: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText160: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText161: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText162: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited pnlCoverAltitudeReturnToBase: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+            end
+            inherited grbShadow: TGroupBox [2]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label173: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label180: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label196: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label290: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label298: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label299: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblShadowActualGroundSpeed: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label301: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText128: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText143: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText144: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText145: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited panShadowDepth: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited panShadowAltitude: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+            end
+            inherited grbSinuation: TGroupBox [3]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label206: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label227: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label241: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label255: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label256: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label260: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label270: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label287: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblSinuationActualGroundSpeed: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label293: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label297: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText138: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText139: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText140: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText141: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText142: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+            end
+            inherited grbZigZag: TGroupBox [4]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label145: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label146: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label147: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label148: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label149: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label197: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label198: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label199: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblZigZagActualGroundSpeed: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label207: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label209: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText106: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText108: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText109: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText110: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText137: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+            end
+            inherited grpCircle: TGroupBox [5]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited ScrollBox1: TScrollBox
+                Width = 333
+                Height = 1937
+                ExplicitWidth = 333
+                ExplicitHeight = 1937
+                inherited Label3: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
                 end
-                inherited cbxEmcon: TComboBox
-                  Height = 21
-                  ExplicitHeight = 21
+                inherited Label4: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
                 end
-                inherited pnlGroupAirbone: TPanel
-                  inherited Label87: TLabel
-                    Width = 101
-                    Height = 13
-                    ExplicitWidth = 101
-                    ExplicitHeight = 13
+                inherited Label5: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label6: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label7: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label8: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label9: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblCircleActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lb1: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited btnCircleMode: TSpeedButton
+                  Top = 14
+                  OnClick = fmPlatformGuidance1btnCircleModeClick
+                  ExplicitTop = 14
+                end
+                inherited StaticText1: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText2: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText4: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited edtCircleRadius: TEdit
+                  Top = 145
+                  ExplicitTop = 145
+                end
+                inherited StaticText5: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText6: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlTrack: TPanel [22]
+                  Font.Color = clWhite
+                  ParentFont = False
+                  inherited sbCircleOnTrackTrack: TSpeedButton
+                    OnClick = fmPlatformGuidance1sbCircleOnTrackTrackClick
+                  end
+                end
+                inherited pnlPosition: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                  inherited sbCircleOnPositionPosition: TSpeedButton
+                    Height = 27
+                    OnClick = fmPlatformGuidance1sbCircleOnPositionPositionClick
+                    ExplicitHeight = 27
+                  end
+                end
+                inherited StaticText7: TStaticText [24]
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+            end
+            inherited grpPersonelGuidance: TGroupBox [6]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited whHeadingPersonel: TVrWheel
+                OnChange = fmPlatformGuidance1whHeadingPersonelChange
+              end
+              inherited lbl6: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lbl9: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lbl11: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited sbPersonalGuidanceMode: TSpeedButton
+                OnClick = fmPlatformGuidance1sbPersonalGuidanceModeClick
+              end
+              inherited lbl7: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited edtPersonelGuidanceOrderedHeading: TEdit
+                OnKeyPress = fmPlatformGuidance1edtPersonelGuidanceOrderedHeadingKeyPress
+              end
+            end
+            inherited grpStation: TGroupBox [7]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label154: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited sbOnTrackAnchorMode: TSpeedButton
+                OnClick = fmPlatformGuidance1sbOnTrackAnchorModeClick
+              end
+              inherited StaticText113: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText114: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited pnlStationPosition: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+                inherited btnStationAnchorPosition: TSpeedButton
+                  OnClick = fmPlatformGuidance1btnStationAnchorPositionClick
+                end
+              end
+              inherited pnlStationTrack: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+                inherited sbOnTrackAnchorTrack: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbOnTrackAnchorTrackClick
+                end
+              end
+              inherited pnlStationDepth: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited pnlStationAltitude: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+            end
+            inherited grbFormation: TGroupBox [8]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label323: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label324: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblLeaderFormation: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblNameFormation: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label373: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label374: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label381: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblRangeFormation: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblBearingFormation: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label399: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText154: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText155: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText156: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText157: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited pnlDepth: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited pnlAltitude: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+            end
+            inherited grbStraightLine: TGroupBox
+              Width = 335
+              Height = 1955
+              Color = 2695445
+              ParentColor = False
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited ScrollBox5: TScrollBox
+                Width = 333
+                Height = 1937
+                Color = 2695445
+                ParentColor = False
+                ExplicitWidth = 333
+                ExplicitHeight = 1937
+                inherited whHeading: TVrWheel
+                  OnChange = fmPlatformGuidance1whHeadingChange
+                end
+                inherited lblStraightLineActualHeading: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label128: TLabel
+                  Top = 152
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitTop = 152
+                end
+                inherited lblStraightLineActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label126: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label125: TLabel
+                  Top = 193
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitTop = 193
+                end
+                inherited Label124: TLabel
+                  Top = 172
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitTop = 172
+                end
+                inherited Label123: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label122: TLabel
+                  Top = 108
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitTop = 108
+                end
+                inherited Label121: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblStraightLineActuaCourse: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label119: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited edtStraightLineOrderedGroundSpeed: TEdit
+                  OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedGroundSpeedKeyPress
+                end
+                inherited edtStraightLineOrderedHeading: TEdit
+                  OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedHeadingKeyPress
+                end
+                inherited StaticText82: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText81: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited panDepth: TPanel
+                  inherited lbl4: TLabel
+                    Top = 26
+                    ExplicitTop = 26
+                  end
+                end
+                inherited panAltitude: TPanel
+                  Left = 1
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 1
+                  inherited Label57: TLabel
+                    Left = 16
+                    ExplicitLeft = 16
+                  end
+                  inherited StaticText105: TStaticText
+                    Left = 16
+                    ExplicitLeft = 16
+                  end
+                  inherited edOrderAltitude: TEdit
+                    OnKeyPress = fmPlatformGuidance1edOrderAltitudeKeyPress
                   end
                 end
               end
+            end
+            inherited grbEngagement: TGroupBox [10]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label300: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label305: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label306: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label307: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label308: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label309: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblEngageActualGroundSpeed: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label314: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited sbEngageTrackToEngage: TSpeedButton
+                OnClick = fmPlatformGuidance1sbEngageTrackToEngageClick
+              end
+              inherited StaticText146: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText147: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText148: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText149: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited pnlDepthEngagement: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+                inherited Edit2: TEdit
+                  Height = 21
+                  ExplicitHeight = 21
+                end
+              end
+              inherited pnlAltitudeEngagement: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+                inherited edtAltitudeEngagement: TEdit
+                  Height = 21
+                  ExplicitHeight = 21
+                end
+              end
+            end
+            inherited grbEvasion: TGroupBox [11]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label318: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label319: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label320: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblEvasionActualGroundSpeed: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited sbTrackToEvade: TSpeedButton
+                OnClick = fmPlatformGuidance1sbTrackToEvadeClick
+              end
+              inherited Label10: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblEvasionActualAltitudeDepth: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label16: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText151: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText152: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText20: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+            end
+            inherited grbHelm: TGroupBox [12]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label120: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblHelmActualTurnRate: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label127: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label129: TLabel
+                Width = 46
+                Caption = 'degrees'
+                Font.Color = clWhite
+                ParentFont = False
+                ExplicitWidth = 46
+              end
+              inherited Label131: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label132: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label133: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label134: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblHelmActualGroundSpeed: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label135: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lbActualHelmAngle: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblHelmActualHeading: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label137: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblHelmActualCourse: TLabel
+                Font.Color = clWhite
+              end
+              inherited Label139: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblHelmActualDepth: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label24: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label25: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText88: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText89: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText90: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText91: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText92: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText93: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText94: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText95: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText96: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText97: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText98: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Panel2: TPanel [32]
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Panel1: TPanel [33]
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited edtHelmOrderedGroundSpeed: TEdit [34]
+              end
+            end
+            inherited gbWaypoint: TGroupBox [13]
+              Width = 335
+              Height = 1955
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited Label97: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lbName: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblLongitude: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label103: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lbGroundSpeed: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label104: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lbEta: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label105: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label106: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label107: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lbDistance: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label177: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label179: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label184: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblLatitude: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lbActualGroundWaypoint: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText24: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText26: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText27: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited btnWaypoint: TButton
+                Left = 197
+                Top = 217
+                OnClick = fmPlatformGuidance1btnWaypointClick
+                ExplicitLeft = 197
+                ExplicitTop = 217
+              end
+              inherited StaticText67: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText71: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText76: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText77: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText78: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText79: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText80: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+            end
+          end
+          inherited PanelGuidanceControlChoices: TPanel [1]
+            Width = 337
+            Color = 2695445
+            ExplicitWidth = 337
+            inherited SpeedButton2: TSpeedButton
+              OnClick = fmPlatformGuidance1SpeedButton2Click
+            end
+          end
+          inherited pmGuidance: TPopupMenu
+            inherited mnStraightLine1: TMenuItem
+              OnClick = fmPlatformGuidance1mnStraightLine1Click
+            end
+            inherited mnHelm1: TMenuItem
+              Visible = False
+            end
+            inherited mnCircle: TMenuItem
+              Visible = False
+            end
+            inherited mnStation: TMenuItem
+              Visible = False
+            end
+            inherited mnZigzag1: TMenuItem
+              Visible = False
+              inherited Short1: TMenuItem
+                OnClick = fmPlatformGuidance1Short1Click
+              end
+              inherited Long1: TMenuItem
+                OnClick = fmPlatformGuidance1Long1Click
+              end
+              inherited VeryLong1: TMenuItem
+                OnClick = fmPlatformGuidance1VeryLong1Click
+              end
+            end
+            inherited mnSinuation1: TMenuItem
+              Visible = False
+            end
+            inherited mnFormation2: TMenuItem
+              Visible = False
+            end
+            inherited mnEvasion1: TMenuItem
+              Visible = False
+            end
+            inherited mnOutrun1: TMenuItem
+              Visible = False
+              OnClick = fmPlatformGuidance1mnOutrun1Click
+            end
+            inherited mnEngagement1: TMenuItem
+              Visible = False
+            end
+            inherited mnShadow1: TMenuItem
+              Visible = False
+            end
+            inherited mnReturntoBase1: TMenuItem
+              Visible = False
+            end
+            inherited mnPersonelGudance1: TMenuItem
+              OnClick = fmPlatformGuidance1PersonelGudance1Click
             end
           end
         end
@@ -1842,7 +3278,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 26
         Width = 339
         Height = 2000
-        Color = 4012086
+        Color = 2695445
         ParentBackground = False
         TabOrder = 9
         inline fmSensor1: TfmSensor
@@ -1860,6 +3296,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Top = 111
             Width = 337
             Height = 0
+            Color = 2695445
             ExplicitTop = 111
             ExplicitWidth = 337
             ExplicitHeight = 0
@@ -1867,6 +3304,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           inherited PanelSensorChoices: TPanel
             Width = 337
             Height = 111
+            Color = 2695445
             ExplicitWidth = 337
             ExplicitHeight = 111
             inherited lstSensor: TListView
@@ -1881,6 +3319,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Top = 111
             Width = 337
             Height = 1887
+            Color = 2695445
             ExplicitTop = 111
             ExplicitWidth = 337
             ExplicitHeight = 1887
@@ -1955,30 +3394,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbIFFTransponderControl: TGroupBox
+              inherited grbSearchRadarControl: TGroupBox [2]
                 Width = 331
                 Height = 1881
-                ExplicitWidth = 331
-                ExplicitHeight = 1881
-                inherited ScrollBox6: TScrollBox
-                  Width = 327
-                  Height = 1861
-                  ExplicitWidth = 327
-                  ExplicitHeight = 1861
-                  inherited sbIFFTransponderControlModeOff: TSpeedButton
-                    OnClick = fmSensor1sbIFFTransponderControlModeOffClick
-                  end
-                  inherited sbIFFTransponderControlModeOn: TSpeedButton
-                    OnClick = fmSensor1sbIFFTransponderControlModeOnClick
-                  end
-                  inherited edtIFFTransponderControlMode1: TEdit
-                    Text = '0000'
-                  end
-                end
-              end
-              inherited grbSearchRadarControl: TGroupBox
-                Width = 331
-                Height = 1881
+                Color = 2695445
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 331
                 ExplicitHeight = 1881
                 inherited ScrollBox1: TScrollBox
@@ -1986,9 +3407,35 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   Height = 1861
                   ExplicitWidth = 327
                   ExplicitHeight = 1861
+                  inherited Label189: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label193: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
                   inherited Label194: TLabel
                     Top = 14
+                    Font.Color = clWhite
+                    ParentFont = False
                     ExplicitTop = 14
+                  end
+                  inherited Label261: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label262: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label263: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label264: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
                   end
                   inherited btnControlComboInterval: TSpeedButton
                     Width = 24
@@ -2024,6 +3471,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Top = 32
                     Width = 88
                     Height = 67
+                    Color = 2695445
+                    Font.Color = clWhite
+                    ParentBackground = False
+                    ParentFont = False
                     ExplicitTop = 32
                     ExplicitWidth = 88
                     ExplicitHeight = 67
@@ -2048,6 +3499,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                   inherited pnlControlModeRadar2: TPanel [19]
                     Height = 68
+                    Color = 2695445
+                    Font.Color = clWhite
+                    ParentBackground = False
+                    ParentFont = False
                     ExplicitHeight = 68
                     inherited sbControlModeSearch: TSpeedButton
                       OnClick = OnRadarBtnClick
@@ -2061,6 +3516,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                   inherited pnlScanSector: TPanel [20]
                     Height = 65
+                    Color = 2695445
+                    Font.Color = clWhite
+                    ParentBackground = False
+                    ParentFont = False
                     ExplicitHeight = 65
                     inherited Label201: TLabel
                       Top = 14
@@ -2109,9 +3568,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbSonobuoyControl: TGroupBox
+              inherited grbSonobuoyControl: TGroupBox [3]
                 Width = 331
                 Height = 1881
+                Color = 2695445
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 331
                 ExplicitHeight = 1881
                 inherited ScrollBox7: TScrollBox
@@ -2119,6 +3581,66 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   Height = 1861
                   ExplicitWidth = 327
                   ExplicitHeight = 1861
+                  inherited Label17: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label18: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label19: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label20: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label21: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label22: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label23: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label24: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label25: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label26: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label27: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lblSonobuoyMonitorCurrently: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lblSonobuoyMonitorPlatform: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lblStatusSonobuoy: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbStatusQuantity: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
                   inherited btnSonobuoyControlDeploy: TButton
                     Width = 84
                     OnClick = OnSoonobuoyBtnClick
@@ -2130,11 +3652,26 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbVisualDetectorSensor: TGroupBox
+              inherited grbVisualDetectorSensor: TGroupBox [4]
                 Width = 331
                 Height = 1881
+                Color = 2695445
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 331
                 ExplicitHeight = 1881
+                inherited Label257: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label258: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label259: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
                 inherited sbVisualDetectorDisplayRangeShow: TSpeedButton
                   OnClick = OnVisualShowClick
                 end
@@ -2148,7 +3685,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   OnClick = OnVisualShowClick
                 end
               end
-              inherited grbAnomalyDetectorSensor: TGroupBox
+              inherited grbAnomalyDetectorSensor: TGroupBox [5]
                 Width = 331
                 Height = 1881
                 ExplicitWidth = 331
@@ -2164,9 +3701,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitWidth = 85
                 end
               end
-              inherited grbSonarControl: TGroupBox
+              inherited grbSonarControl: TGroupBox [6]
                 Width = 331
                 Height = 1881
+                Color = 2695445
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 331
                 ExplicitHeight = 1881
                 inherited ScrollBox2: TScrollBox
@@ -2179,6 +3719,26 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Top = 219
                     ExplicitLeft = 51
                     ExplicitTop = 219
+                  end
+                  inherited Label213: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label214: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label237: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label238: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label239: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
                   end
                   inherited sbDisplayBlindHide: TSpeedButton
                     OnClick = OnSonarBtnClick
@@ -2199,6 +3759,8 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     OnClick = OnSonarBtnClick
                   end
                   inherited lblRangeTIOW: TLabel [13]
+                    Font.Color = clWhite
+                    ParentFont = False
                   end
                   inherited btnRange1: TSpeedButton [14]
                   end
@@ -2211,6 +3773,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                   inherited pnlDeployment: TPanel
                     Top = 91
+                    Color = 2695445
+                    Font.Color = clWhite
+                    ParentBackground = False
+                    ParentFont = False
                     ExplicitTop = 91
                     inherited Label221: TLabel
                       Left = 133
@@ -2229,18 +3795,39 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbIFFInterrogatorControl: TGroupBox
+              inherited grbIFFInterrogatorControl: TGroupBox [7]
                 Width = 331
                 Height = 1881
+                Color = 2695445
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 331
                 ExplicitHeight = 1881
                 inherited ScrollBox5: TScrollBox
                   Width = 327
                   Height = 1861
+                  Color = 2695445
+                  ParentColor = False
                   ExplicitWidth = 327
                   ExplicitHeight = 1861
                   inherited btnIFFInterrogatorTrackSearch: TSpeedButton
                     OnClick = fmSensor1btnIFFInterrogatorTrackSearchClick
+                  end
+                  inherited Label10: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label11: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label12: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label13: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
                   end
                   inherited sbIFFInterrogatorControlModeOff: TSpeedButton
                     OnClick = fmSensor1sbIFFInterrogatorControlModeOffClick
@@ -2251,6 +3838,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   inherited btnManual: TSpeedButton
                     Top = 62
                     ExplicitTop = 62
+                  end
+                  inherited lblInterrogation: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
                   end
                   inherited cbbtnIFFInterrogatorMode1: TCheckBox
                     OnClick = fmSensor1cbbtnIFFInterrogatorMode1Click
@@ -2278,6 +3869,42 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
+              inherited grbIFFTransponderControl: TGroupBox [8]
+                Width = 331
+                Height = 1881
+                Color = 2695445
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 331
+                ExplicitHeight = 1881
+                inherited ScrollBox6: TScrollBox
+                  Width = 327
+                  Height = 1861
+                  ExplicitWidth = 327
+                  ExplicitHeight = 1861
+                  inherited Label14: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label15: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label16: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited sbIFFTransponderControlModeOff: TSpeedButton
+                    OnClick = fmSensor1sbIFFTransponderControlModeOffClick
+                  end
+                  inherited sbIFFTransponderControlModeOn: TSpeedButton
+                    OnClick = fmSensor1sbIFFTransponderControlModeOnClick
+                  end
+                  inherited edtIFFTransponderControlMode1: TEdit
+                    Text = '0000'
+                  end
+                end
+              end
             end
           end
           inherited pmModeSonobuoy: TPopupMenu
@@ -2286,18 +3913,16 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           end
         end
       end
-      object pnlTabOwnShip: TPanel
-        Tag = 1
-        Left = 0
+      object pnlTabCounterMeasure: TPanel
+        Left = 180
         Top = 2
         Width = 45
         Height = 25
         BevelOuter = bvLowered
-        Color = 6770973
+        Color = 3812880
         ParentBackground = False
-        TabOrder = 0
-        object imgOwnShip: TImage
-          Tag = 1
+        TabOrder = 4
+        object imgCounterMeasure: TImage
           Left = 0
           Top = 0
           Width = 45
@@ -2305,16 +3930,18 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000002D0000
             001A08060000002365D58F000000097048597300000B1300000B1301009A9C18
-            000000017352474200AECE1CE90000000467414D410000B18F0BFC6105000000
-            F84944415478DAEDD4CD0DC220140770D8A037AF7513B879D409D4098C135827
-            314E623D78770093EA06DD80FE6949244652404921E125E4A57CB43FDA472949
-            30E8D4808C8E39323A69B410A2E96F4EE93C5A34900552A1755D54E6682DF0AD
-            692EC69E53A14F481BC3700D18D7E61E902A6DBCC4F82B281A0F655FBA258419
-            96DCD1F6DAF55A6D50F6CB2FB0D2BFC4DFD10097488DEB460DC180BDFA2C7445
-            CB5ADCA195C45C0E6351AB76F6A96767B48667E47DD85CA302F6E8B9D6113D1C
-            B63E6638FD0B42963E0F7CA0966F433D7F48E836045AFCF276C625D4DA92D119
-            9DD189A17DFFCBB6686E3D352824D4FEA6066474CC9124BA03E78B4E1BB585F9
-            0C0000000049454E44AE426082}
+            000000017352474200AECE1CE90000000467414D410000B18F0BFC6105000001
+            454944415478DAED97810D82301045DB0D1CA16EC006E204BA8138816EA04EE0
+            08E0048EA04EE008BA49FDA7A7962A49C11E6AF4924BC9FD847BF91C2D68F585
+            A1DF0DF0870E0D6B6D07CB406BBDAAA3737D4A1A32811ECCF212341AA7587264
+            869EBB501DF504CB1A696E20D2D0ECD21C39416ED1AF1FAA4323D08D0B2C0ECD
+            2E917B099732F7D107E867E71F40A4A0D190667086EC386572F4FAE85376B74A
+            A7FAFA298804749543B1420ADAA88BCB3E7881DCF275DA40978376E03386375C
+            F267B6528736546D8E87074E40393B57A0DF3844E75DE5A0CA33DF0EB403478E
+            CE915DF43C86E8A82DD5E550790F3443182C23F45C84E8ECF65EB5B94FC7086F
+            7CBE03DA81A7EF0E7A398D7FAA7E2C74D3A87BB8C881783B502C68CB975964DE
+            82A1454E445BF7E652F7FD0D6875FF8E8815A924742F326C19E4C99FCFCBD09F
+            147FE8B6E2043EB1AA1B0C33D7450000000049454E44AE426082}
           OnClick = TDCPButtonClick
         end
       end
@@ -2323,7 +3950,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 26
         Width = 339
         Height = 2000
-        Color = 4012086
+        Color = 2695445
         ParentBackground = False
         TabOrder = 11
         inline fmFireControl1: TfmFireControl
@@ -2346,25 +3973,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           ExplicitTop = 1
           ExplicitWidth = 337
           ExplicitHeight = 1998
-          inherited PanelFCChoices: TPanel
-            Width = 337
-            Height = 82
-            ExplicitWidth = 337
-            ExplicitHeight = 82
-            inherited lstAssetsChoices: TListView
-              Width = 333
-              Height = 87
-              ExplicitWidth = 333
-              ExplicitHeight = 87
-            end
-          end
-          inherited PaneFCSpace: TPanel
+          inherited PaneFCSpace: TPanel [0]
             Top = 82
             Width = 337
+            Color = 2695445
             ExplicitTop = 82
             ExplicitWidth = 337
           end
-          inherited PanelALL: TPanel
+          inherited PanelALL: TPanel [1]
             Top = 94
             Width = 337
             Height = 1904
@@ -2389,12 +4005,47 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 inherited grbFireControl: TGroupBox
                   Width = 337
                   Height = 1904
+                  Color = 2695445
+                  ParentBackground = False
+                  ParentColor = False
                   ExplicitWidth = 337
                   ExplicitHeight = 1904
                   inherited btnSearchFireControlAssetsTarget: TSpeedButton
                     Tag = 4
                     Spacing = 0
                     OnClick = fmFireControl1btnSearchFireControlAssetsTargetClick
+                  end
+                  inherited Label265: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label266: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label267: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label268: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label514: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label515: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label527: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbControlChannel: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
                   end
                   inherited sbFireControlAssetsBlindZonesHide: TSpeedButton
                     OnClick = btnFireControlOnClick
@@ -2442,26 +4093,38 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
             end
           end
+          inherited PanelFCChoices: TPanel [2]
+            Width = 337
+            Height = 82
+            ExplicitWidth = 337
+            ExplicitHeight = 82
+            inherited lstAssetsChoices: TListView
+              Width = 333
+              Height = 87
+              ExplicitWidth = 333
+              ExplicitHeight = 87
+            end
+          end
         end
       end
-      object pnlPlatformGuidance: TPanel
+      object pnlEMCON: TPanel
         Left = 0
         Top = 26
         Width = 339
         Height = 2000
         Color = 4012086
         ParentBackground = False
-        TabOrder = 10
-        inline fmPlatformGuidance1: TfmPlatformGuidance
+        TabOrder = 12
+        inline fmEMCON1: TfmEMCON
           Left = 1
           Top = 1
           Width = 337
           Height = 1998
           Align = alClient
-          Color = clMedGray
+          Color = 15131105
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -13
+          Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentBackground = False
@@ -2472,285 +4135,761 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           ExplicitTop = 1
           ExplicitWidth = 337
           ExplicitHeight = 1998
-          inherited PanelGuidanceControlChoices: TPanel
+          inherited PaneALL: TPanel [0]
             Width = 337
+            Height = 1901
             ExplicitWidth = 337
-            inherited SpeedButton2: TSpeedButton
-              OnClick = fmPlatformGuidance1SpeedButton2Click
-            end
-          end
-          inherited PanelPlatformGuidance: TPanel
-            Width = 337
-            Height = 1957
-            ExplicitWidth = 337
-            ExplicitHeight = 1957
-            inherited gbWaypoint: TGroupBox
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-              inherited btnWaypoint: TButton
-                Left = 197
-                Top = 217
-                OnClick = fmPlatformGuidance1btnWaypointClick
-                ExplicitLeft = 197
-                ExplicitTop = 217
-              end
-            end
-            inherited grbEngagement: TGroupBox
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-              inherited sbEngageTrackToEngage: TSpeedButton
-                OnClick = fmPlatformGuidance1sbEngageTrackToEngageClick
-              end
-              inherited pnlDepthEngagement: TPanel
-                inherited Edit2: TEdit
+            ExplicitHeight = 1901
+            inherited PanelEmcon: TPanel
+              Width = 337
+              Height = 1901
+              ExplicitWidth = 337
+              ExplicitHeight = 1901
+              inherited ScrollBox2: TScrollBox
+                Width = 335
+                Height = 1899
+                Color = 2695445
+                ParentColor = False
+                ExplicitWidth = 335
+                ExplicitHeight = 1899
+                inherited Label562: TLabel
+                  Width = 54
+                  Height = 13
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                  ExplicitWidth = 54
+                  ExplicitHeight = 13
+                end
+                inherited cbEmconAcousticDecoys: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconActiveSonar: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconFireControl: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconHFComm: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconHFDatalink: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconIFF: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconJammingSystems: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconLasers: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconSearchRadar: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconUWT: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconVHFUHFComm: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbEmconVHFUHFDatalink: TCheckBox
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
+                end
+                inherited cbxEmcon: TComboBox
                   Height = 21
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentFont = False
                   ExplicitHeight = 21
                 end
-              end
-              inherited pnlAltitudeEngagement: TPanel
-                inherited edtAltitudeEngagement: TEdit
-                  Height = 21
-                  ExplicitHeight = 21
-                end
-              end
-            end
-            inherited grbEvasion: TGroupBox
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-              inherited sbTrackToEvade: TSpeedButton
-                OnClick = fmPlatformGuidance1sbTrackToEvadeClick
-              end
-            end
-            inherited grbHelm: TGroupBox [3]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-              inherited Label129: TLabel
-                Width = 46
-                Caption = 'degrees'
-                ExplicitWidth = 46
-              end
-              inherited Panel2: TPanel [32]
-              end
-              inherited Panel1: TPanel [33]
-              end
-              inherited edtHelmOrderedGroundSpeed: TEdit [34]
-              end
-            end
-            inherited grbOutrun: TGroupBox [4]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-              inherited sbTrackToOutrun: TSpeedButton
-                OnClick = fmPlatformGuidance1sbTrackToOutrunClick
-              end
-            end
-            inherited grbReturnToBase: TGroupBox [5]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-            end
-            inherited grbShadow: TGroupBox [6]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-            end
-            inherited grbSinuation: TGroupBox [7]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-            end
-            inherited grbZigZag: TGroupBox [8]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-            end
-            inherited grpCircle: TGroupBox [9]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-              inherited ScrollBox1: TScrollBox
-                Width = 333
-                Height = 1937
-                ExplicitWidth = 333
-                ExplicitHeight = 1937
-                inherited btnCircleMode: TSpeedButton
-                  Top = 14
-                  OnClick = fmPlatformGuidance1btnCircleModeClick
-                  ExplicitTop = 14
-                end
-                inherited edtCircleRadius: TEdit
-                  Top = 145
-                  ExplicitTop = 145
-                end
-                inherited pnlTrack: TPanel [22]
-                  inherited sbCircleOnTrackTrack: TSpeedButton
-                    OnClick = fmPlatformGuidance1sbCircleOnTrackTrackClick
-                  end
-                end
-                inherited pnlPosition: TPanel
-                  inherited sbCircleOnPositionPosition: TSpeedButton
-                    Height = 27
-                    OnClick = fmPlatformGuidance1sbCircleOnPositionPositionClick
-                    ExplicitHeight = 27
-                  end
-                end
-                inherited StaticText7: TStaticText [24]
-                end
-              end
-            end
-            inherited grpPersonelGuidance: TGroupBox [10]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-              inherited whHeadingPersonel: TVrWheel
-                OnChange = fmPlatformGuidance1whHeadingPersonelChange
-              end
-              inherited sbPersonalGuidanceMode: TSpeedButton
-                OnClick = fmPlatformGuidance1sbPersonalGuidanceModeClick
-              end
-              inherited edtPersonelGuidanceOrderedHeading: TEdit
-                OnKeyPress = fmPlatformGuidance1edtPersonelGuidanceOrderedHeadingKeyPress
-              end
-            end
-            inherited grpStation: TGroupBox [11]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-              inherited sbOnTrackAnchorMode: TSpeedButton
-                OnClick = fmPlatformGuidance1sbOnTrackAnchorModeClick
-              end
-              inherited pnlStationPosition: TPanel
-                inherited btnStationAnchorPosition: TSpeedButton
-                  OnClick = fmPlatformGuidance1btnStationAnchorPositionClick
-                end
-              end
-              inherited pnlStationTrack: TPanel
-                inherited sbOnTrackAnchorTrack: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbOnTrackAnchorTrackClick
-                end
-              end
-            end
-            inherited grbFormation: TGroupBox [12]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-            end
-            inherited grbStraightLine: TGroupBox [13]
-              Width = 335
-              Height = 1955
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-              inherited ScrollBox5: TScrollBox
-                Width = 333
-                Height = 1937
-                ExplicitWidth = 333
-                ExplicitHeight = 1937
-                inherited whHeading: TVrWheel
-                  OnChange = fmPlatformGuidance1whHeadingChange
-                end
-                inherited Label128: TLabel
-                  Top = 152
-                  ExplicitTop = 152
-                end
-                inherited Label125: TLabel
-                  Top = 193
-                  ExplicitTop = 193
-                end
-                inherited Label124: TLabel
-                  Top = 172
-                  ExplicitTop = 172
-                end
-                inherited Label122: TLabel
-                  Top = 108
-                  ExplicitTop = 108
-                end
-                inherited edtStraightLineOrderedGroundSpeed: TEdit
-                  OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedGroundSpeedKeyPress
-                end
-                inherited edtStraightLineOrderedHeading: TEdit
-                  OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedHeadingKeyPress
-                end
-                inherited panDepth: TPanel
-                  inherited lbl4: TLabel
-                    Top = 26
-                    ExplicitTop = 26
-                  end
-                end
-                inherited panAltitude: TPanel
-                  inherited edOrderAltitude: TEdit
-                    OnKeyPress = fmPlatformGuidance1edOrderAltitudeKeyPress
+                inherited pnlGroupAirbone: TPanel
+                  Color = 2695445
+                  Font.Color = clWhite
+                  Font.Height = -11
+                  ParentBackground = False
+                  ParentFont = False
+                  inherited Label87: TLabel
+                    Width = 101
+                    Height = 13
+                    ExplicitWidth = 101
+                    ExplicitHeight = 13
                   end
                 end
               end
             end
           end
-          inherited pmGuidance: TPopupMenu
-            inherited mnStraightLine1: TMenuItem
-              OnClick = fmPlatformGuidance1mnStraightLine1Click
+          inherited PanelEmconChoices: TPanel [1]
+            Width = 337
+            ExplicitWidth = 337
+            inherited LvEmcon: TListView
+              Width = 335
+              ExplicitWidth = 335
             end
-            inherited mnHelm1: TMenuItem
-              Visible = False
-            end
-            inherited mnCircle: TMenuItem
-              Visible = False
-            end
-            inherited mnStation: TMenuItem
-              Visible = False
-            end
-            inherited mnZigzag1: TMenuItem
-              Visible = False
-              inherited Short1: TMenuItem
-                OnClick = fmPlatformGuidance1Short1Click
+          end
+        end
+      end
+      object pnlCounterMeasure: TPanel
+        Left = 0
+        Top = 26
+        Width = 339
+        Height = 2000
+        Color = 4012086
+        ParentBackground = False
+        TabOrder = 13
+        inline fmCounterMeasure1: TfmCounterMeasure
+          Left = 1
+          Top = 1
+          Width = 337
+          Height = 1998
+          Align = alClient
+          Color = 4012086
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 1
+          ExplicitWidth = 337
+          ExplicitHeight = 1998
+          inherited PanelALL: TPanel
+            Width = 337
+            Height = 1884
+            Color = 2695445
+            ExplicitWidth = 337
+            ExplicitHeight = 1884
+            inherited PanelCounterMeasure: TPanel
+              Width = 337
+              Height = 1884
+              Color = 2695445
+              ParentColor = False
+              ExplicitWidth = 337
+              ExplicitHeight = 1884
+              inherited grbAcousticDecoy: TGroupBox
+                Width = 337
+                Height = 1884
+                ExplicitWidth = 337
+                ExplicitHeight = 1884
+                inherited ScrollBox1: TScrollBox
+                  Width = 333
+                  Height = 1864
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1864
+                  inherited Label1: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label2: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label3: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label4: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label5: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label6: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label7: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label8: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label9: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited btnComboAcousticDecoyMode: TSpeedButton
+                    Width = 26
+                    Height = 23
+                    ExplicitWidth = 26
+                    ExplicitHeight = 23
+                  end
+                  inherited btnComboAcousticDecoyFilter: TSpeedButton
+                    Width = 26
+                    Height = 23
+                    ExplicitWidth = 26
+                    ExplicitHeight = 23
+                  end
+                end
               end
-              inherited Long1: TMenuItem
-                OnClick = fmPlatformGuidance1Long1Click
+              inherited grbAirborneChaff: TGroupBox
+                Width = 337
+                Height = 1884
+                ExplicitWidth = 337
+                ExplicitHeight = 1884
+                inherited Label510: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label511: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label516: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbChaffAirboneQuantity: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited btnAirboneChaffType: TSpeedButton
+                  Width = 28
+                  Height = 23
+                  ExplicitWidth = 28
+                  ExplicitHeight = 23
+                end
+                inherited btnChaffAirboneDeploy: TButton
+                  Width = 89
+                  Height = 24
+                  OnClick = fmCounterMeasure1btnChaffAirboneDeployClick
+                  ExplicitWidth = 89
+                  ExplicitHeight = 24
+                end
               end
-              inherited VeryLong1: TMenuItem
-                OnClick = fmPlatformGuidance1VeryLong1Click
+              inherited grbFloatingDecoy: TGroupBox
+                Width = 337
+                Height = 1884
+                ExplicitWidth = 337
+                ExplicitHeight = 1884
+                inherited Label502: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label550: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbFloatingDecoyQuantity: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited btnFloatingDecoyDeploy: TButton
+                  Height = 24
+                  OnClick = fmCounterMeasure1btnFloatingDecoyDeployClick
+                  ExplicitHeight = 24
+                end
+              end
+              inherited grbOnBoardSelfDefenseJammer: TGroupBox
+                Width = 337
+                Height = 1884
+                ExplicitWidth = 337
+                ExplicitHeight = 1884
+                inherited ScrollBox5: TScrollBox
+                  Width = 333
+                  Height = 1864
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1864
+                  inherited Label542: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label543: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label544: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited grbManualSpot: TGroupBox
+                    inherited Label547: TLabel
+                      Font.Color = clWhite
+                      ParentFont = False
+                    end
+                    inherited Label546: TLabel
+                      Font.Color = clWhite
+                      ParentFont = False
+                    end
+                    inherited Label549: TLabel
+                      Font.Color = clWhite
+                      ParentFont = False
+                    end
+                  end
+                end
+              end
+              inherited grpAirBubble: TGroupBox [4]
+                Width = 337
+                Height = 1884
+                Color = 2695445
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1884
+                inherited lblDeploy: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblQuant: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblType: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblBubblelQuantity: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited btnType: TSpeedButton
+                  Left = 278
+                  Width = 29
+                  Height = 23
+                  ExplicitLeft = 278
+                  ExplicitWidth = 29
+                  ExplicitHeight = 23
+                end
+                inherited btnAirBubbleDeploy: TButton
+                  Width = 89
+                  Height = 24
+                  OnClick = fmCounterMeasure1btnAirBubbleDeployClick
+                  ExplicitWidth = 89
+                  ExplicitHeight = 24
+                end
+              end
+              inherited grbRadarNoiseJammer: TGroupBox [5]
+                Width = 337
+                Height = 1884
+                Color = 2695445
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1884
+                inherited ScrollBox3: TScrollBox
+                  Width = 333
+                  Height = 1864
+                  Color = 2695445
+                  ParentColor = False
+                  ExplicitLeft = 3
+                  ExplicitTop = 19
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1864
+                  inherited btnComboRadarJammingControlMode: TSpeedButton
+                    Width = 27
+                    Height = 23
+                    ExplicitWidth = 27
+                    ExplicitHeight = 23
+                  end
+                  inherited Label532: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label557: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label558: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited sbRadarJammingControlActivationOn: TSpeedButton [5]
+                    OnClick = fmCounterMeasure1sbRadarJammingControlActivationOnClick
+                  end
+                  inherited sbRadarJammingControlActivationOff: TSpeedButton [6]
+                    OnClick = fmCounterMeasure1sbRadarJammingControlActivationOffClick
+                  end
+                  inherited PanelRadarJammingMode: TPanel
+                    Color = 2695445
+                    ParentBackground = False
+                    inherited gbRadarJammingSpotNumberMode: TGroupBox [0]
+                      inherited Label519: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label521: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label522: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label523: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label524: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label525: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label517: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label25: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label26: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label27: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label28: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                    end
+                    inherited gbRadarJammingSelectedTrackMode: TGroupBox
+                      inherited Label518: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label528: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label530: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label535: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label539: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label540: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label541: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited btnRadarJammingModeSelectedTrackTrack: TSpeedButton
+                        OnClick = fmCounterMeasure1btnRadarJammingModeSelectedTrackTrackClick
+                      end
+                      inherited Label32: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label33: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label34: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label35: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                    end
+                    inherited gbRadarJammingBarrageMode: TGroupBox [2]
+                      inherited Label531: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label533: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label534: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label536: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label537: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label538: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label29: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label30: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                      inherited Label31: TLabel
+                        Font.Color = clWhite
+                        ParentFont = False
+                      end
+                    end
+                  end
+                end
+              end
+              inherited grbSurfaceChaffDeployment: TGroupBox [6]
+                Width = 337
+                Height = 1884
+                Color = 2695445
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1884
+                inherited ScrollBox2: TScrollBox
+                  Width = 333
+                  Height = 1864
+                  Color = 2695445
+                  ParentColor = False
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1864
+                  inherited Bevel3: TBevel
+                    Top = 4
+                    ExplicitTop = 4
+                  end
+                  inherited Label10: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label11: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label12: TLabel
+                    Top = 43
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitTop = 43
+                  end
+                  inherited Label13: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label14: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label15: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label16: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label17: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label18: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lblSurfaceChaffQuantity: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited btnSurfaceChaffLauncher: TSpeedButton
+                    OnClick = fmCounterMeasure1btnSurfaceChaffLauncherClick
+                  end
+                  inherited btnSurfaceChaffType: TSpeedButton
+                    OnClick = fmCounterMeasure1btnSurfaceChaffTypeClick
+                  end
+                  inherited btnSurfaceChaffCopy: TSpeedButton
+                    OnClick = fmCounterMeasure1btnSurfaceChaffCopyClick
+                  end
+                  inherited btnSurfaceChaffLaunch: TSpeedButton
+                    OnClick = fmCounterMeasure1btnSurfaceChaffLaunchClick
+                  end
+                  inherited btnSurfaceChaffAbort: TSpeedButton
+                    OnClick = fmCounterMeasure1btnSurfaceChaffAbortClick
+                  end
+                  inherited Label19: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label20: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label21: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label22: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label23: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited edtSurfaceChaffBloomRange: TEdit
+                    OnKeyPress = fmCounterMeasure1edtSurfaceChaffBloomRangeKeyPress
+                  end
+                  inherited edtSurfaceChaffBloomAltitude: TEdit
+                    OnKeyPress = fmCounterMeasure1edtSurfaceChaffBloomAltitudeKeyPress
+                  end
+                  inherited edtSurfaceChaffSalvoSize: TEdit
+                    OnKeyPress = fmCounterMeasure1edtSurfaceChaffSalvoSizeKeyPress
+                  end
+                  inherited edtSurfaceChaffDelay: TEdit
+                    OnKeyPress = fmCounterMeasure1edtSurfaceChaffDelayKeyPress
+                  end
+                  inherited ckSurfaceChaffEnabled: TCheckBox
+                    OnClick = fmCounterMeasure1ckSurfaceChaffEnabledClick
+                  end
+                  inherited ckSurfaceChaffSeductionEnabled: TCheckBox
+                    Font.Color = clBlack
+                    ParentFont = False
+                    OnClick = fmCounterMeasure1ckSurfaceChaffSeductionEnabledClick
+                  end
+                end
+              end
+              inherited grbTowedJammerDecoy: TGroupBox [7]
+                Width = 337
+                Height = 1884
+                Color = 2695445
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1884
+                inherited ScrollBox4: TScrollBox
+                  Width = 333
+                  Height = 1864
+                  Color = 2695445
+                  ParentColor = False
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1864
+                  inherited Label501: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label503: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label504: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label505: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label506: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label507: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label508: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label509: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label512: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label559: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label560: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label561: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label563: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label564: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lblTowedJammerDecoyActual: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lblTowedJammerDecoyQuantity: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited sbTowedJammerDecoyActionDeploy: TSpeedButton
+                    Left = 20
+                    ExplicitLeft = 20
+                  end
+                  inherited sbTowedJammerDecoyActionStow: TSpeedButton
+                    Left = 20
+                    ExplicitLeft = 20
+                  end
+                end
               end
             end
-            inherited mnSinuation1: TMenuItem
-              Visible = False
+          end
+          inherited PanelCounterMeasureSpace: TPanel
+            Width = 337
+            Color = 2695445
+            ExplicitWidth = 337
+          end
+          inherited PanelCounterMeasureChoice: TPanel
+            Width = 337
+            ExplicitWidth = 337
+            inherited lvECM: TListView
+              Width = 333
+              ExplicitWidth = 333
             end
-            inherited mnFormation2: TMenuItem
-              Visible = False
-            end
-            inherited mnEvasion1: TMenuItem
-              Visible = False
-            end
-            inherited mnOutrun1: TMenuItem
-              Visible = False
-              OnClick = fmPlatformGuidance1mnOutrun1Click
-            end
-            inherited mnEngagement1: TMenuItem
-              Visible = False
-            end
-            inherited mnShadow1: TMenuItem
-              Visible = False
-            end
-            inherited mnReturntoBase1: TMenuItem
-              Visible = False
-            end
-            inherited mnPersonelGudance1: TMenuItem
-              OnClick = fmPlatformGuidance1PersonelGudance1Click
-            end
+          end
+          inherited pmNoiseJammerMode: TPopupMenu
+            Left = 274
+            Top = 158
           end
         end
       end
@@ -2776,6 +4915,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           Width = 337
           Height = 1998
           Align = alClient
+          Color = 2695445
+          ParentBackground = False
+          ParentColor = False
           TabOrder = 0
           ExplicitLeft = 1
           ExplicitTop = 1
@@ -2783,6 +4925,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           ExplicitHeight = 1998
           inherited PanelWeaponChoices: TPanel
             Width = 337
+            Font.Color = clBlack
+            Font.Height = -13
+            ParentFont = False
             ExplicitWidth = 337
             inherited btnWeapon: TSpeedButton
               OnClick = fmWeapon1btnWeaponClick
@@ -2798,530 +4943,33 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               Height = 1973
               ExplicitWidth = 337
               ExplicitHeight = 1973
-              inherited grbHybridMissile: TGroupBox [0]
+              inherited grbGunEngagementAutomaticManualMode: TGroupBox [0]
                 Width = 337
                 Height = 1973
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited scrlbx1: TScrollBox
-                  Width = 333
-                  Height = 1953
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1953
-                  inherited btnAddHybridMissileTargetAimpoint: TSpeedButton
-                    OnClick = fmWeapon1btnAddHybridMissileTargetAimpointClick
-                  end
-                  inherited btnHybridMissileLaunch: TButton
-                    Left = 235
-                    Top = 382
-                    ExplicitLeft = 235
-                    ExplicitTop = 382
-                  end
-                end
-              end
-              inherited grbTacticalAcousticTorpedos: TGroupBox [1]
-                Width = 337
-                Height = 1973
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited Bevel92: TBevel
-                  Top = 212
-                  ExplicitTop = 212
-                end
-                inherited btnTacticalAcousticTorpedosLaunch: TButton
-                  OnClick = fmWeapon1btnAcousticTorpedoLaunchClick
-                end
-                inherited editTacticalAcousticTorpedosSalvo: TEdit
-                  Left = 128
-                  ExplicitLeft = 128
-                end
-              end
-              inherited grbTacticalMissiles: TGroupBox [2]
-                Width = 337
-                Height = 1973
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited ScrollBox7: TScrollBox
-                  Width = 333
-                  Height = 1953
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1953
-                  inherited btnTacticalMissileTargetAimpoint: TSpeedButton
-                    Height = 23
-                    ExplicitHeight = 23
-                  end
-                  inherited btnTacticalMissileTargetTrack: TSpeedButton
-                    OnClick = fmWeapon1btnTacticalMissileTargetTrackClick
-                  end
-                  inherited Label302: TLabel
-                    Left = 24
-                    ExplicitLeft = 24
-                  end
-                  inherited Label496: TLabel
-                    Left = 24
-                    ExplicitLeft = 24
-                  end
-                  inherited Label497: TLabel
-                    Left = 23
-                    ExplicitLeft = 23
-                  end
-                end
-              end
-              inherited grbSurfaceToSurfaceMissile: TGroupBox [3]
-                Width = 337
-                Height = 1973
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited ScrollBox6: TScrollBox
-                  Width = 333
-                  Height = 1953
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1953
-                  inherited btnSurfaceToSurfaceMissileFiring: TSpeedButton
-                    Left = 184
-                    Height = 21
-                    Visible = True
-                    ExplicitLeft = 184
-                    ExplicitHeight = 21
-                  end
-                  inherited btnSurfaceToSurfaceMissileEngagement: TSpeedButton
-                    Left = 184
-                    Height = 21
-                    ExplicitLeft = 184
-                    ExplicitHeight = 21
-                  end
-                  inherited Label77: TLabel
-                    Visible = True
-                  end
-                  inherited Label78: TLabel [11]
-                    Top = 322
-                    ExplicitTop = 322
-                  end
-                  inherited Bevel77: TBevel [12]
-                    Top = 329
-                    ExplicitTop = 329
-                  end
-                  inherited Label414: TLabel [13]
-                  end
-                  inherited Label415: TLabel [14]
-                    Visible = True
-                  end
-                  inherited Label416: TLabel [15]
-                  end
-                  inherited btnSurfaceToSurfaceMissileTargetTrack: TSpeedButton [16]
-                    Left = 164
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitLeft = 164
-                  end
-                  inherited sbSurfaceToSurfaceMissileDisplayRangeShow: TSpeedButton [17]
-                    Top = 347
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitTop = 347
-                  end
-                  inherited sbSurfaceToSurfaceMissileDisplayRangeHide: TSpeedButton [18]
-                    Top = 372
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitTop = 372
-                  end
-                  inherited lblDestruckRange: TLabel [19]
-                    Left = 20
-                    Top = 238
-                    ExplicitLeft = 20
-                    ExplicitTop = 238
-                  end
-                  inherited lblCrossOverRange: TLabel [20]
-                    Left = 20
-                    Top = 213
-                    ExplicitLeft = 20
-                    ExplicitTop = 213
-                  end
-                  inherited lblNmCrossOverRange: TLabel [21]
-                    Left = 174
-                    Top = 215
-                    ExplicitLeft = 174
-                    ExplicitTop = 215
-                  end
-                  inherited lblNmDestruckRange: TLabel [22]
-                    Left = 174
-                    Top = 240
-                    ExplicitLeft = 174
-                    ExplicitTop = 240
-                  end
-                  inherited Bevel74: TBevel [23]
-                  end
-                  inherited editSurfaceToSurfaceMissileFiring: TEdit
-                    Left = 124
-                    Visible = True
-                    ExplicitLeft = 124
-                  end
-                  inherited editSurfaceToSurfaceMissileEngangement: TEdit
-                    Left = 124
-                    ExplicitLeft = 124
-                  end
-                  inherited editSurfaceToSurfaceMissileTargetTrack: TEdit
-                    Left = 107
-                    ExplicitLeft = 107
-                  end
-                  inherited btnSurfaceToSurfacePlan: TButton
-                    Top = 407
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitTop = 407
-                  end
-                  inherited btnSurfaceToSurfaceLaunch: TButton
-                    Top = 407
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitTop = 407
-                  end
-                  inherited btnSurfaceToSurfaceCancel: TButton
-                    Top = 407
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitTop = 407
-                  end
-                  inherited btnSurfaceToSurfaceMissileLauncherMore: TButton [31]
-                    Top = 235
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileLauncherMoreClick
-                    ExplicitTop = 235
-                  end
-                  inherited pnlLaunch1: TPanel [32]
-                    OnClick = fmWeapon1pnlLaunch1Click
-                  end
-                  inherited pnlLaunch2: TPanel [33]
-                    OnClick = fmWeapon1pnlLaunch2Click
-                    inherited vbl2: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                    end
-                  end
-                  inherited pnlLaunch3: TPanel [34]
-                    OnClick = fmWeapon1pnlLaunch3Click
-                  end
-                  inherited pnlLaunch4: TPanel [35]
-                    OnClick = nil
-                    inherited vbl4: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                      ExplicitWidth = 21
-                    end
-                  end
-                  inherited pnlLaunch5: TPanel [36]
-                    OnClick = nil
-                    inherited vbl5: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                      ExplicitWidth = 21
-                    end
-                  end
-                  inherited pnlLaunch6: TPanel [37]
-                    OnClick = fmWeapon1pnlLaunch6Click
-                    inherited vbl6: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                      ExplicitWidth = 21
-                    end
-                  end
-                  inherited pnlLaunch7: TPanel [38]
-                    OnClick = fmWeapon1pnlLaunch7Click
-                    inherited vbl7: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                      ExplicitWidth = 21
-                    end
-                  end
-                  inherited pnlLaunch8: TPanel [39]
-                    OnClick = fmWeapon1pnlLaunch8Click
-                    inherited vbl8: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                      ExplicitWidth = 21
-                    end
-                  end
-                  inherited edtDestructRange: TEdit [40]
-                    Left = 124
-                    Top = 238
-                    Width = 45
-                    ExplicitLeft = 124
-                    ExplicitTop = 238
-                    ExplicitWidth = 45
-                  end
-                  inherited edtCrossOverRange: TEdit [41]
-                    Left = 124
-                    Top = 213
-                    Width = 45
-                    ExplicitLeft = 124
-                    ExplicitTop = 213
-                    ExplicitWidth = 45
-                  end
-                  inherited panSurfaceToSurfaceWp: TPanel [42]
-                    Left = 16
-                    Top = 261
-                    ExplicitLeft = 16
-                    ExplicitTop = 261
-                    inherited Bevel16: TBevel
-                      Left = 75
-                      ExplicitLeft = 75
-                    end
-                    inherited btnSurfaceToSurfaceMissileWaypointsEdit: TButton
-                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    end
-                    inherited btnSurfaceToSurfaceMissileWaypointsAdd: TButton
-                      Left = 60
-                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                      ExplicitLeft = 60
-                    end
-                    inherited btnSurfaceToSurfaceMissileWaypointsDelete: TButton
-                      Left = 116
-                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                      ExplicitLeft = 116
-                    end
-                    inherited btnSurfaceToSurfaceMissileWaypointsApply: TButton
-                      Left = 172
-                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                      ExplicitLeft = 172
-                    end
-                    inherited btnSurfaceToSurfaceMissileWaypointsCancel: TButton
-                      Left = 228
-                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                      ExplicitLeft = 228
-                    end
-                  end
-                  inherited btnSurfaceToSurfaceMissileTargetTrackDetails: TButton [43]
-                    Visible = True
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackDetailsClick
-                  end
-                end
-              end
-              inherited grbSurfaceToAirMissile: TGroupBox [4]
-                Width = 337
-                Height = 1973
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited ScrollBox1: TScrollBox
-                  Width = 333
-                  Height = 1953
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1953
-                  inherited Bevel2: TBevel
-                    Height = 3
-                    ExplicitHeight = 3
-                  end
-                  inherited Label10: TLabel
-                    Visible = False
-                  end
-                  inherited Label11: TLabel
-                    Visible = False
-                  end
-                  inherited Label12: TLabel
-                    Visible = False
-                  end
-                  inherited Label13: TLabel
-                    Visible = False
-                  end
-                  inherited lbSurfaceToAirStatus: TLabel
-                    Visible = False
-                  end
-                  inherited lbSurfaceToAirTimeToWait: TLabel
-                    Visible = False
-                  end
-                  inherited lbSurfaceToAirTimeToIntercept: TLabel
-                    Visible = False
-                  end
-                  inherited Label20: TLabel
-                    Visible = False
-                  end
-                  inherited Label22: TLabel
-                    Visible = False
-                  end
-                  inherited btnSurfaceToAirTargetTrack: TSpeedButton
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                  end
-                  inherited sbSurfaceToAirDisplayRangeShow: TSpeedButton
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                  end
-                  inherited sbSurfaceToAirDisplayRangeHide: TSpeedButton
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                  end
-                  inherited sbSurfaceToAirDisplayBlindShow: TSpeedButton
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                  end
-                  inherited sbSurfaceToAirDisplayBlindHide: TSpeedButton
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                  end
-                  inherited Label110: TLabel
-                    Visible = False
-                  end
-                  inherited Label111: TLabel
-                    Visible = False
-                  end
-                  inherited Label112: TLabel
-                    Visible = False
-                  end
-                  inherited Label113: TLabel
-                    Visible = False
-                  end
-                  inherited ediSurfaceToAirSalvo: TEdit
-                    Left = 155
-                    Width = 67
-                    ExplicitLeft = 155
-                    ExplicitWidth = 67
-                  end
-                  inherited btSurfaceToAirPlan: TButton
-                    Left = 7
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                    ExplicitLeft = 7
-                  end
-                  inherited btSurfaceToAirLaunch: TButton
-                    Left = 238
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                    ExplicitLeft = 238
-                  end
-                  inherited btSurfaceToAirCancel: TButton
-                    Left = 97
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                    ExplicitLeft = 97
-                  end
-                end
-              end
-              inherited grbGunEngagementAutomaticManualMode: TGroupBox [5]
-                Width = 337
-                Height = 1973
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 337
                 ExplicitHeight = 1973
               end
-              inherited grbAirDroppedVECTAC: TGroupBox [6]
+              inherited grbGunEngagementCIWS: TGroupBox [1]
                 Width = 337
                 Height = 1973
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited ScrollBox13: TScrollBox
-                  Width = 333
-                  Height = 1953
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1953
-                  inherited Label398: TLabel
-                    Top = 351
-                    ExplicitTop = 351
-                  end
-                  inherited lbVectacWeaponExpiry: TLabel
-                    Top = 351
-                    ExplicitTop = 351
-                  end
-                  inherited btnVectacWeaponCarrierDrop: TButton
-                    Left = 253
-                    ExplicitLeft = 253
-                  end
-                  inherited btnVectacWeaponCarrierGround: TButton
-                    Left = 253
-                    ExplicitLeft = 253
-                  end
-                  inherited editVectacTargetTrack: TEdit
-                    Enabled = True
-                    ReadOnly = True
-                  end
-                  inherited editVectacWeaponCarrierDrop: TEdit
-                    Enabled = True
-                    ReadOnly = True
-                  end
-                  inherited editVectacWeaponCarrierGround: TEdit
-                    Enabled = True
-                    ReadOnly = True
-                  end
-                  inherited editVectacWeaponCarrierName: TEdit
-                    Enabled = True
-                    ReadOnly = True
-                  end
-                  inherited editVectacWeaponName: TEdit
-                    Top = 321
-                    Enabled = True
-                    ReadOnly = True
-                    Text = ''
-                    ExplicitTop = 321
-                  end
-                end
-              end
-              inherited grbGunEngagementCIWS: TGroupBox [7]
-                Width = 337
-                Height = 1973
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 337
                 ExplicitHeight = 1973
               end
-              inherited grbAcousticTorpedo: TGroupBox [8]
+              inherited grbActivePasiveTorpedo: TGroupBox [2]
                 Width = 337
                 Height = 1973
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited ScrollBox2: TScrollBox
-                  Width = 333
-                  Height = 1953
-                  VertScrollBar.Position = 0
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1953
-                  inherited lbl10: TLabel
-                    Left = 115
-                    ExplicitLeft = 115
-                  end
-                  inherited btnAccousticDisplayRangeHide: TSpeedButton
-                    Transparent = False
-                  end
-                  inherited EdtSeekerRangeAT: TEdit
-                    Width = 60
-                    ExplicitWidth = 60
-                  end
-                  inherited EdtSearchRadiusAT: TEdit
-                    Width = 60
-                    ExplicitWidth = 60
-                  end
-                  inherited EdtSearchDepthAT: TEdit
-                    Width = 60
-                    ExplicitWidth = 60
-                  end
-                  inherited EdtSafetyCeilingAT: TEdit
-                    Width = 60
-                    ExplicitWidth = 60
-                  end
-                  inherited EdtRunOutAT: TEdit
-                    Width = 60
-                    ExplicitWidth = 60
-                  end
-                  inherited EdtGyroAngleAT: TEdit
-                    Width = 60
-                    ExplicitWidth = 60
-                  end
-                  inherited EdtFiringModeAT: TEdit
-                    Width = 60
-                    ExplicitWidth = 60
-                  end
-                  inherited btnTube4AT: TButton
-                    Top = 88
-                    ExplicitTop = 88
-                  end
-                  inherited btnTube3AT: TButton
-                    Top = 88
-                    ExplicitTop = 88
-                  end
-                  inherited btnTube2AT: TButton
-                    Top = 88
-                    ExplicitTop = 88
-                  end
-                  inherited btnTube1AT: TButton
-                    Top = 88
-                    ExplicitTop = 88
-                  end
-                  inherited btntControlGyroAdvised: TButton
-                    OnClick = fmWeapon1btntControlGyroAdvisedClick
-                  end
-                  inherited btnLaunchAT: TButton
-                    OnClick = fmWeapon1btnAcousticTorpedoLaunchClick
-                  end
-                end
-              end
-              inherited grbActivePasiveTorpedo: TGroupBox [9]
-                Width = 337
-                Height = 1973
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 337
                 ExplicitHeight = 1973
                 inherited ScrollBox3: TScrollBox
                   Width = 333
                   Height = 1953
+                  ParentColor = False
                   ExplicitWidth = 333
                   ExplicitHeight = 1953
                   inherited btnAPGBilndHide: TSpeedButton
@@ -3402,9 +5050,11 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbAirDroppedTorpedo: TGroupBox [10]
+              inherited grbAirDroppedTorpedo: TGroupBox [3]
                 Width = 337
                 Height = 1973
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 337
                 ExplicitHeight = 1973
                 inherited ScrollBox8: TScrollBox
@@ -3435,13 +5085,129 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Top = 40
                     ExplicitTop = 40
                   end
+                  inherited lbl38: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl39: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl40: TLabel
+                    ParentFont = False
+                  end
                   inherited lbl41: TLabel
                     Left = 20
+                    ParentFont = False
                     ExplicitLeft = 20
+                  end
+                  inherited lbl42: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl43: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl44: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl45: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl46: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl47: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl48: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl49: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl50: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl51: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl52: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl53: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl54: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl55: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl56: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl57: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl58: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl59: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl60: TLabel
+                    ParentFont = False
                   end
                   inherited lbl61: TLabel
                     Left = 180
+                    ParentFont = False
                     ExplicitLeft = 180
+                  end
+                  inherited lbl85: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblADQuantity: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblADTargetCourse: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblADTargetDepth: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblADTargetForce: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblADTargetSpeed: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblAirDroppedStatus: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label49: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label50: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label51: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label52: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label56: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label57: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label58: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label62: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label65: TLabel
+                    ParentFont = False
                   end
                   inherited btnADDefaultSafetyCeiling: TButton
                     OnClick = fmWeapon1btnADDefaultSearchDepthClick
@@ -3478,21 +5244,242 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbBombDepthCharge: TGroupBox [11]
+              inherited grbAirDroppedVECTAC: TGroupBox [4]
                 Width = 337
                 Height = 1973
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1973
+                inherited ScrollBox13: TScrollBox
+                  Width = 333
+                  Height = 1953
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1953
+                  inherited Label367: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label368: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label369: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label371: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label375: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label376: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label377: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label378: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label379: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label380: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label383: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label384: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label385: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label386: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label387: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label388: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label389: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label390: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label391: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label392: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label393: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label394: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label395: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label396: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label398: TLabel
+                    Top = 351
+                    ParentFont = False
+                    ExplicitTop = 351
+                  end
+                  inherited lbVectacTargetCourse: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbVectacTargetDepth: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbVectacTargetDoppler: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbVectacTargetGround: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbVectacTargetIdentity: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbVectacTargetPropulsion: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbVectacWeaponCarrierAdviced: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbVectacWeaponCarrierTime: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbVectacWeaponExpiry: TLabel
+                    Top = 351
+                    ParentFont = False
+                    ExplicitTop = 351
+                  end
+                  inherited Label66: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label68: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label80: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label81: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label82: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label83: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label98: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label99: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label100: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label101: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label102: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label103: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label104: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label105: TLabel
+                    ParentFont = False
+                  end
+                  inherited btnVectacWeaponCarrierDrop: TButton
+                    Left = 253
+                    ExplicitLeft = 253
+                  end
+                  inherited btnVectacWeaponCarrierGround: TButton
+                    Left = 253
+                    ExplicitLeft = 253
+                  end
+                  inherited editVectacTargetTrack: TEdit
+                    Enabled = True
+                    ReadOnly = True
+                  end
+                  inherited editVectacWeaponCarrierDrop: TEdit
+                    Enabled = True
+                    ReadOnly = True
+                  end
+                  inherited editVectacWeaponCarrierGround: TEdit
+                    Enabled = True
+                    ReadOnly = True
+                  end
+                  inherited editVectacWeaponCarrierName: TEdit
+                    Enabled = True
+                    ReadOnly = True
+                  end
+                  inherited editVectacWeaponName: TEdit
+                    Top = 321
+                    Enabled = True
+                    ReadOnly = True
+                    Text = ''
+                    ExplicitTop = 321
+                  end
+                end
+              end
+              inherited grbBombDepthCharge: TGroupBox [5]
+                Width = 337
+                Height = 1973
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 337
                 ExplicitHeight = 1973
                 inherited btnBombTarget: TSpeedButton
                   OnClick = fmWeapon1btnBombTargetClick
                 end
+                inherited lbl76: TLabel
+                  ParentFont = False
+                end
                 inherited lbl77: TLabel
                   Top = 92
+                  ParentFont = False
                   ExplicitTop = 92
+                end
+                inherited lbl78: TLabel
+                  ParentFont = False
+                end
+                inherited lbl79: TLabel
+                  ParentFont = False
                 end
                 inherited lbl80: TLabel
                   Left = 43
+                  ParentFont = False
                   ExplicitLeft = 43
+                end
+                inherited lbl81: TLabel
+                  ParentFont = False
+                end
+                inherited lbl82: TLabel
+                  ParentFont = False
+                end
+                inherited lbl83: TLabel
+                  ParentFont = False
+                end
+                inherited lblBombQuantity: TLabel
+                  ParentFont = False
+                end
+                inherited lblBombStatus: TLabel
+                  ParentFont = False
                 end
                 inherited btnBombDisplayRangeHide: TSpeedButton
                   Left = 24
@@ -3502,12 +5489,24 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 inherited btnBombDisplayRangeShow: TSpeedButton
                   OnClick = fmWeapon1btnBombDisplayRangeShowClick
                 end
+                inherited lbl86: TLabel
+                  ParentFont = False
+                end
                 inherited btnPosition: TSpeedButton
                   Left = 286
                   Height = 29
                   OnClick = fmWeapon1btnPositionClick
                   ExplicitLeft = 286
                   ExplicitHeight = 29
+                end
+                inherited lbl103: TLabel
+                  ParentFont = False
+                end
+                inherited Label70: TLabel
+                  ParentFont = False
+                end
+                inherited Label71: TLabel
+                  ParentFont = False
                 end
                 inherited btnBombDrop: TButton
                   OnClick = fmWeapon1btnBombTargetClick
@@ -3542,9 +5541,194 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitTop = 117
                 end
               end
-              inherited grbStraightRunningTorpedos: TGroupBox [12]
+              inherited grbGunEngagementChaffMode: TGroupBox [6]
                 Width = 337
                 Height = 1973
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1973
+                inherited ScrollBox9: TScrollBox
+                  Width = 333
+                  Height = 1953
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1953
+                  inherited Label348: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label364: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label365: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label366: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label466: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label467: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbChaffControlQuantity: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label469: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label470: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label471: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label472: TLabel
+                    Top = 259
+                    ParentFont = False
+                    ExplicitTop = 259
+                  end
+                end
+              end
+              inherited grbHybridMissile: TGroupBox [7]
+                Width = 337
+                Height = 1973
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1973
+                inherited scrlbx1: TScrollBox
+                  Width = 333
+                  Height = 1953
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1953
+                  inherited lbl87: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl88: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl89: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl90: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl91: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl92: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl93: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl94: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl95: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl96: TLabel
+                    ParentFont = False
+                  end
+                  inherited btnAddHybridMissileTargetAimpoint: TSpeedButton
+                    OnClick = fmWeapon1btnAddHybridMissileTargetAimpointClick
+                  end
+                  inherited lbl97: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblHybridMissileStatus: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl98: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblHybridMissileQuantity: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl99: TLabel
+                    ParentFont = False
+                  end
+                  inherited btnHybridMissileLaunch: TButton
+                    Left = 235
+                    Top = 382
+                    ExplicitLeft = 235
+                    ExplicitTop = 382
+                  end
+                end
+              end
+              inherited grbMines: TGroupBox [8]
+                Width = 337
+                Height = 1973
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1973
+                inherited Label272: TLabel
+                  Left = 8
+                  ParentFont = False
+                  ExplicitLeft = 8
+                end
+                inherited lblStatusMines: TLabel
+                  ParentFont = False
+                end
+                inherited Label288: TLabel
+                  ParentFont = False
+                end
+                inherited lbMinesQuantity: TLabel
+                  ParentFont = False
+                end
+                inherited Label291: TLabel
+                  Left = 8
+                  ParentFont = False
+                  ExplicitLeft = 8
+                end
+                inherited Label292: TLabel
+                  ParentFont = False
+                end
+                inherited lbl84: TLabel
+                  Left = 180
+                  Top = 175
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 180
+                  ExplicitTop = 175
+                end
+                inherited lbl104: TLabel
+                  ParentFont = False
+                end
+                inherited lbl101: TLabel
+                  Left = 180
+                  Top = 105
+                  ParentFont = False
+                  Visible = True
+                  ExplicitLeft = 180
+                  ExplicitTop = 105
+                end
+                inherited lbl100: TLabel
+                  ParentFont = False
+                end
+                inherited EdtMinesDepth: TEdit
+                  Width = 52
+                  OnKeyPress = fmWeapon1EdtMinesDepthKeyPress
+                  ExplicitWidth = 52
+                end
+                inherited btnMinesDeploy: TButton
+                  OnClick = fmWeapon1btnMinesDeployClick
+                end
+                inherited edtCount: TEdit
+                  OnKeyPress = nil
+                end
+                inherited edtRange: TEdit
+                  OnKeyPress = fmWeapon1edtRangeKeyPress
+                end
+              end
+              inherited grbStraightRunningTorpedos: TGroupBox [9]
+                Width = 337
+                Height = 1973
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 337
                 ExplicitHeight = 1973
                 inherited ScrollBox4: TScrollBox
@@ -3567,14 +5751,597 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   inherited btnSRTargetTrack: TSpeedButton
                     OnClick = fmWeapon1btnSRTargetTrackClick
                   end
+                  inherited lbl62: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl63: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl64: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl65: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl66: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl67: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl68: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl69: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl70: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl71: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl72: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl73: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl74: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbl75: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblSRQuantity: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblSRStatus: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblSRTargetCourse: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblSRTargetDepth: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblSRTargetSpeed: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblSRTargetIdentity: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label21: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label24: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label36: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label38: TLabel
+                    ParentFont = False
+                  end
                   inherited btnSRLaunch: TButton
                     OnClick = fmWeapon1btnSRTargetTrackClick
                   end
                 end
               end
-              inherited grbWakeHomingTorpedos: TGroupBox [13]
+              inherited grbSurfaceToAirMissile: TGroupBox
                 Width = 337
                 Height = 1973
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1973
+                inherited ScrollBox1: TScrollBox
+                  Width = 333
+                  Height = 1953
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1953
+                  inherited Label1: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblSurfaceToAirStatus: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label2: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToAirStatusQuantity: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label3: TLabel
+                    ParentFont = False
+                  end
+                  inherited Bevel2: TBevel
+                    Height = 3
+                    ExplicitHeight = 3
+                  end
+                  inherited Label4: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label5: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label6: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label7: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label8: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label9: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label10: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label11: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label12: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label13: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label14: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label15: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label16: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToAirCourse: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToAirGround: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToAirAltitude: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToAirStatus: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited lbSurfaceToAirTimeToWait: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited lbSurfaceToAirTimeToIntercept: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label17: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label18: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label19: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label20: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label22: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited btnSurfaceToAirTargetTrack: TSpeedButton
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                  end
+                  inherited sbSurfaceToAirDisplayRangeShow: TSpeedButton
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                  end
+                  inherited sbSurfaceToAirDisplayRangeHide: TSpeedButton
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                  end
+                  inherited sbSurfaceToAirDisplayBlindShow: TSpeedButton
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                  end
+                  inherited sbSurfaceToAirDisplayBlindHide: TSpeedButton
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                  end
+                  inherited Label106: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label107: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label108: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label109: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label110: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label111: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label112: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label113: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited ediSurfaceToAirSalvo: TEdit
+                    Left = 155
+                    Width = 67
+                    ExplicitLeft = 155
+                    ExplicitWidth = 67
+                  end
+                  inherited btSurfaceToAirPlan: TButton
+                    Left = 7
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                    ExplicitLeft = 7
+                  end
+                  inherited btSurfaceToAirLaunch: TButton
+                    Left = 238
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                    ExplicitLeft = 238
+                  end
+                  inherited btSurfaceToAirCancel: TButton
+                    Left = 97
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                    ExplicitLeft = 97
+                  end
+                end
+              end
+              inherited grbSurfaceToSurfaceMissile: TGroupBox [11]
+                Width = 337
+                Height = 1973
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1973
+                inherited ScrollBox6: TScrollBox
+                  Width = 333
+                  Height = 1953
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1953
+                  inherited btnSurfaceToSurfaceMissileFiring: TSpeedButton
+                    Left = 184
+                    Height = 21
+                    Visible = True
+                    ExplicitLeft = 184
+                    ExplicitHeight = 21
+                  end
+                  inherited btnSurfaceToSurfaceMissileEngagement: TSpeedButton
+                    Left = 184
+                    Height = 21
+                    ExplicitLeft = 184
+                    ExplicitHeight = 21
+                  end
+                  inherited Label67: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblSurfaceToSurfaceMissileStatus: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label69: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToSurfaceMissileQuantity: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label75: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label76: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label77: TLabel
+                    ParentFont = False
+                    Visible = True
+                  end
+                  inherited Label78: TLabel [11]
+                    Top = 322
+                    ParentFont = False
+                    ExplicitTop = 322
+                  end
+                  inherited Bevel77: TBevel [12]
+                    Top = 329
+                    ExplicitTop = 329
+                  end
+                  inherited Label414: TLabel [13]
+                    ParentFont = False
+                  end
+                  inherited Label415: TLabel [14]
+                    ParentFont = False
+                    Visible = True
+                  end
+                  inherited Label416: TLabel [15]
+                    ParentFont = False
+                  end
+                  inherited btnSurfaceToSurfaceMissileTargetTrack: TSpeedButton [16]
+                    Left = 164
+                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                    ExplicitLeft = 164
+                  end
+                  inherited sbSurfaceToSurfaceMissileDisplayRangeShow: TSpeedButton [17]
+                    Top = 347
+                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                    ExplicitTop = 347
+                  end
+                  inherited sbSurfaceToSurfaceMissileDisplayRangeHide: TSpeedButton [18]
+                    Top = 372
+                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                    ExplicitTop = 372
+                  end
+                  inherited lblDestruckRange: TLabel [19]
+                    Left = 20
+                    Top = 238
+                    ParentFont = False
+                    ExplicitLeft = 20
+                    ExplicitTop = 238
+                  end
+                  inherited lblCrossOverRange: TLabel [20]
+                    Left = 20
+                    Top = 213
+                    ParentFont = False
+                    ExplicitLeft = 20
+                    ExplicitTop = 213
+                  end
+                  inherited lblNmCrossOverRange: TLabel [21]
+                    Left = 174
+                    Top = 215
+                    ParentFont = False
+                    ExplicitLeft = 174
+                    ExplicitTop = 215
+                  end
+                  inherited lblNmDestruckRange: TLabel [22]
+                    Left = 174
+                    Top = 240
+                    ParentFont = False
+                    ExplicitLeft = 174
+                    ExplicitTop = 240
+                  end
+                  inherited Bevel74: TBevel [23]
+                  end
+                  inherited editSurfaceToSurfaceMissileFiring: TEdit
+                    Left = 124
+                    Visible = True
+                    ExplicitLeft = 124
+                  end
+                  inherited editSurfaceToSurfaceMissileEngangement: TEdit
+                    Left = 124
+                    ExplicitLeft = 124
+                  end
+                  inherited editSurfaceToSurfaceMissileTargetTrack: TEdit
+                    Left = 107
+                    ExplicitLeft = 107
+                  end
+                  inherited btnSurfaceToSurfacePlan: TButton
+                    Top = 407
+                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                    ExplicitTop = 407
+                  end
+                  inherited btnSurfaceToSurfaceLaunch: TButton
+                    Top = 407
+                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                    ExplicitTop = 407
+                  end
+                  inherited btnSurfaceToSurfaceCancel: TButton
+                    Top = 407
+                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                    ExplicitTop = 407
+                  end
+                  inherited btnSurfaceToSurfaceMissileLauncherMore: TButton [31]
+                    Top = 235
+                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileLauncherMoreClick
+                    ExplicitTop = 235
+                  end
+                  inherited pnlLaunch1: TPanel [32]
+                    Color = 2695445
+                    ParentBackground = False
+                    ParentFont = False
+                    OnClick = fmWeapon1pnlLaunch1Click
+                  end
+                  inherited pnlLaunch2: TPanel [33]
+                    Color = 2695445
+                    ParentBackground = False
+                    ParentFont = False
+                    OnClick = fmWeapon1pnlLaunch2Click
+                    inherited vbl2: TVrBlinkLed
+                      ExplicitLeft = 1
+                      ExplicitTop = 1
+                    end
+                  end
+                  inherited pnlLaunch3: TPanel [34]
+                    Color = 2695445
+                    ParentBackground = False
+                    ParentFont = False
+                    OnClick = fmWeapon1pnlLaunch3Click
+                  end
+                  inherited pnlLaunch4: TPanel [35]
+                    Color = 2695445
+                    ParentBackground = False
+                    ParentFont = False
+                    OnClick = nil
+                    inherited vbl4: TVrBlinkLed
+                      ExplicitLeft = 1
+                      ExplicitTop = 1
+                      ExplicitWidth = 21
+                    end
+                  end
+                  inherited pnlLaunch5: TPanel [36]
+                    Color = 2695445
+                    ParentBackground = False
+                    ParentFont = False
+                    OnClick = nil
+                    inherited vbl5: TVrBlinkLed
+                      ExplicitLeft = 1
+                      ExplicitTop = 1
+                      ExplicitWidth = 21
+                    end
+                  end
+                  inherited pnlLaunch6: TPanel [37]
+                    Color = 2695445
+                    ParentBackground = False
+                    ParentFont = False
+                    OnClick = fmWeapon1pnlLaunch6Click
+                    inherited vbl6: TVrBlinkLed
+                      ExplicitLeft = 1
+                      ExplicitTop = 1
+                      ExplicitWidth = 21
+                    end
+                  end
+                  inherited pnlLaunch7: TPanel [38]
+                    Color = 2695445
+                    ParentBackground = False
+                    ParentFont = False
+                    OnClick = fmWeapon1pnlLaunch7Click
+                    inherited vbl7: TVrBlinkLed
+                      ExplicitLeft = 1
+                      ExplicitTop = 1
+                      ExplicitWidth = 21
+                    end
+                  end
+                  inherited pnlLaunch8: TPanel [39]
+                    Color = 2695445
+                    ParentBackground = False
+                    ParentFont = False
+                    OnClick = fmWeapon1pnlLaunch8Click
+                    inherited vbl8: TVrBlinkLed
+                      ExplicitLeft = 1
+                      ExplicitTop = 1
+                      ExplicitWidth = 21
+                    end
+                  end
+                  inherited edtDestructRange: TEdit [40]
+                    Left = 124
+                    Top = 238
+                    Width = 45
+                    ExplicitLeft = 124
+                    ExplicitTop = 238
+                    ExplicitWidth = 45
+                  end
+                  inherited edtCrossOverRange: TEdit [41]
+                    Left = 124
+                    Top = 213
+                    Width = 45
+                    ExplicitLeft = 124
+                    ExplicitTop = 213
+                    ExplicitWidth = 45
+                  end
+                  inherited panSurfaceToSurfaceWp: TPanel [42]
+                    Left = 16
+                    Top = 261
+                    Color = 2695445
+                    ParentBackground = False
+                    ParentFont = False
+                    ExplicitLeft = 16
+                    ExplicitTop = 261
+                    inherited Bevel16: TBevel
+                      Left = 75
+                      ExplicitLeft = 75
+                    end
+                    inherited btnSurfaceToSurfaceMissileWaypointsEdit: TButton
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                    end
+                    inherited btnSurfaceToSurfaceMissileWaypointsAdd: TButton
+                      Left = 60
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      ExplicitLeft = 60
+                    end
+                    inherited btnSurfaceToSurfaceMissileWaypointsDelete: TButton
+                      Left = 116
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      ExplicitLeft = 116
+                    end
+                    inherited btnSurfaceToSurfaceMissileWaypointsApply: TButton
+                      Left = 172
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      ExplicitLeft = 172
+                    end
+                    inherited btnSurfaceToSurfaceMissileWaypointsCancel: TButton
+                      Left = 228
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      ExplicitLeft = 228
+                    end
+                  end
+                  inherited btnSurfaceToSurfaceMissileTargetTrackDetails: TButton [43]
+                    Visible = True
+                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackDetailsClick
+                  end
+                end
+              end
+              inherited grbTacticalAcousticTorpedos: TGroupBox [12]
+                Width = 337
+                Height = 1973
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1973
+                inherited Bevel92: TBevel
+                  Top = 212
+                  ExplicitTop = 212
+                end
+                inherited btnTacticalAcousticTorpedosLaunch: TButton
+                  OnClick = fmWeapon1btnAcousticTorpedoLaunchClick
+                end
+                inherited editTacticalAcousticTorpedosSalvo: TEdit
+                  Left = 128
+                  ExplicitLeft = 128
+                end
+              end
+              inherited grbTacticalMissiles: TGroupBox [13]
+                Width = 337
+                Height = 1973
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1973
+                inherited ScrollBox7: TScrollBox
+                  Width = 333
+                  Height = 1953
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1953
+                  inherited btnTacticalMissileTargetAimpoint: TSpeedButton
+                    Height = 23
+                    ExplicitHeight = 23
+                  end
+                  inherited btnTacticalMissileTargetTrack: TSpeedButton
+                    OnClick = fmWeapon1btnTacticalMissileTargetTrackClick
+                  end
+                  inherited Label302: TLabel
+                    Left = 24
+                    ExplicitLeft = 24
+                  end
+                  inherited Label496: TLabel
+                    Left = 24
+                    ExplicitLeft = 24
+                  end
+                  inherited Label497: TLabel
+                    Left = 23
+                    ExplicitLeft = 23
+                  end
+                end
+              end
+              inherited grbWakeHomingTorpedos: TGroupBox [14]
+                Width = 337
+                Height = 1973
+                ParentBackground = False
+                ParentColor = False
                 ExplicitWidth = 337
                 ExplicitHeight = 1973
                 inherited ScrollBox5: TScrollBox
@@ -3615,72 +6382,17 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbGunEngagementChaffMode: TGroupBox [14]
+              inherited grbWireGuidedTorpedo: TGroupBox [15]
                 Width = 337
                 Height = 1973
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited ScrollBox9: TScrollBox
-                  Width = 333
-                  Height = 1953
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1953
-                  inherited Label472: TLabel
-                    Top = 259
-                    ExplicitTop = 259
-                  end
-                end
-              end
-              inherited grbMines: TGroupBox [15]
-                Width = 337
-                Height = 1973
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited Label272: TLabel
-                  Left = 8
-                  ExplicitLeft = 8
-                end
-                inherited Label291: TLabel
-                  Left = 8
-                  ExplicitLeft = 8
-                end
-                inherited lbl84: TLabel
-                  Left = 180
-                  Top = 175
-                  Visible = False
-                  ExplicitLeft = 180
-                  ExplicitTop = 175
-                end
-                inherited lbl101: TLabel
-                  Left = 180
-                  Top = 105
-                  Visible = True
-                  ExplicitLeft = 180
-                  ExplicitTop = 105
-                end
-                inherited EdtMinesDepth: TEdit
-                  Width = 52
-                  OnKeyPress = fmWeapon1EdtMinesDepthKeyPress
-                  ExplicitWidth = 52
-                end
-                inherited btnMinesDeploy: TButton
-                  OnClick = fmWeapon1btnMinesDeployClick
-                end
-                inherited edtCount: TEdit
-                  OnKeyPress = nil
-                end
-                inherited edtRange: TEdit
-                  OnKeyPress = fmWeapon1edtRangeKeyPress
-                end
-              end
-              inherited grbWireGuidedTorpedo: TGroupBox [16]
-                Width = 337
-                Height = 1973
+                ParentColor = False
                 ExplicitWidth = 337
                 ExplicitHeight = 1973
                 inherited ScrollBox10: TScrollBox
                   Width = 333
                   Height = 1953
+                  ParentBackground = True
+                  ParentColor = False
                   ExplicitWidth = 333
                   ExplicitHeight = 1953
                   inherited Bevel20: TBevel
@@ -3691,6 +6403,66 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Top = 82
                     OnClick = fmWeapon1btnWGTargetTrackClick
                     ExplicitTop = 82
+                  end
+                  inherited Label84: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label85: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label86: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label87: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label88: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label89: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label90: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label91: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label92: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label93: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label94: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label95: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label96: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label97: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblWGQuantity: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblWGStatus: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblWGTargetCourse: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblWGTargetDepth: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblWGTargetSpeed: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblWGTargetIdentity: TLabel
+                    ParentFont = False
                   end
                   inherited btnWGRangeHide: TSpeedButton
                     Width = 77
@@ -3720,6 +6492,18 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     ExplicitWidth = 77
                     ExplicitHeight = 23
                   end
+                  inherited Label39: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label40: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label41: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label42: TLabel
+                    ParentFont = False
+                  end
                   inherited btnWGLaunch: TButton
                     OnClick = fmWeapon1btnWGTargetTrackClick
                   end
@@ -3729,6 +6513,164 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Text = '---'
                     ExplicitTop = 83
                     ExplicitWidth = 60
+                  end
+                end
+              end
+              inherited grbAcousticTorpedo: TGroupBox [16]
+                Width = 337
+                Height = 1973
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1973
+                inherited ScrollBox2: TScrollBox
+                  Width = 333
+                  Height = 1953
+                  VertScrollBar.Position = 0
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1953
+                  inherited lblAcousticTorpedoStatus: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lblAcousticTorpedoQuantity: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl4: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl37: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl36: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl35: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl34: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl33: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl32: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl31: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl30: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl29: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl28: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl27: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl26: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl25: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl24: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl23: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl2: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl16: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl11: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lbl10: TLabel
+                    Left = 115
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 115
+                  end
+                  inherited btnAccousticDisplayRangeHide: TSpeedButton
+                    Transparent = False
+                  end
+                  inherited EdtSeekerRangeAT: TEdit
+                    Width = 60
+                    ExplicitWidth = 60
+                  end
+                  inherited EdtSearchRadiusAT: TEdit
+                    Width = 60
+                    ExplicitWidth = 60
+                  end
+                  inherited EdtSearchDepthAT: TEdit
+                    Width = 60
+                    ExplicitWidth = 60
+                  end
+                  inherited EdtSafetyCeilingAT: TEdit
+                    Width = 60
+                    ExplicitWidth = 60
+                  end
+                  inherited EdtRunOutAT: TEdit
+                    Width = 60
+                    ExplicitWidth = 60
+                  end
+                  inherited EdtGyroAngleAT: TEdit
+                    Width = 60
+                    ExplicitWidth = 60
+                  end
+                  inherited EdtFiringModeAT: TEdit
+                    Width = 60
+                    ExplicitWidth = 60
+                  end
+                  inherited btnTube4AT: TButton
+                    Top = 88
+                    ExplicitTop = 88
+                  end
+                  inherited btnTube3AT: TButton
+                    Top = 88
+                    ExplicitTop = 88
+                  end
+                  inherited btnTube2AT: TButton
+                    Top = 88
+                    ExplicitTop = 88
+                  end
+                  inherited btnTube1AT: TButton
+                    Top = 88
+                    ExplicitTop = 88
+                  end
+                  inherited btntControlGyroAdvised: TButton
+                    OnClick = fmWeapon1btntControlGyroAdvisedClick
+                  end
+                  inherited btnLaunchAT: TButton
+                    OnClick = fmWeapon1btnAcousticTorpedoLaunchClick
                   end
                 end
               end
@@ -3819,131 +6761,179 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           inherited ScrollBox4: TScrollBox
             Width = 337
             Height = 1998
+            Color = 2695445
+            ParentColor = False
             ExplicitWidth = 337
             ExplicitHeight = 1998
             inherited lbOwnShipPosition1: TLabel
               Left = 172
               Top = 59
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 59
             end
             inherited Label22: TLabel
               Top = 101
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 101
             end
             inherited lbOrderHeading: TLabel
               Left = 172
               Top = 101
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 101
             end
             inherited lbActualHeading: TLabel
               Left = 172
               Top = 122
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 122
             end
             inherited Label23: TLabel
               Top = 122
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 122
             end
             inherited lbActualCourse: TLabel
               Left = 172
               Top = 143
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 143
             end
             inherited Label25: TLabel
               Top = 143
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 143
             end
             inherited Label26: TLabel
               Left = 218
               Top = 143
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 143
             end
             inherited Label27: TLabel
               Left = 17
               Top = 162
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 17
               ExplicitTop = 162
             end
             inherited lbOwnShipOrderGround: TLabel
               Left = 172
               Top = 164
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 164
             end
             inherited Label28: TLabel
               Top = 164
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 164
             end
             inherited lbOrderedAltitude: TLabel
               Left = 172
               Top = 206
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 206
             end
             inherited lbOwnShipActualground: TLabel
               Left = 172
               Top = 185
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 185
             end
             inherited Label29: TLabel
               Top = 248
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 248
             end
             inherited lbGuidance: TLabel
               Left = 172
               Top = 248
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 248
             end
             inherited lbFuel: TLabel
               Left = 172
               Top = 269
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 269
             end
             inherited Label46: TLabel
               Top = 269
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 269
             end
             inherited lbOwnShipPosition2: TLabel
               Left = 172
               Top = 80
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 80
             end
             inherited Label30: TLabel
               Left = 218
               Top = 101
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 101
             end
             inherited Label31: TLabel
               Left = 218
               Top = 122
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 122
             end
             inherited Label32: TLabel
               Left = 218
               Top = 164
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 164
             end
             inherited Label33: TLabel
               Left = 218
               Top = 185
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 185
             end
             inherited lbActualAltitude: TLabel
               Left = 172
               Top = 227
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 227
             end
@@ -3952,6 +6942,8 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               Top = 206
               Width = 22
               Caption = 'feet'
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 206
               ExplicitWidth = 22
@@ -3961,6 +6953,8 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               Top = 227
               Width = 22
               Caption = 'feet'
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 227
               ExplicitWidth = 22
@@ -3968,24 +6962,36 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited lbName: TLabel
               Left = 172
               Top = 17
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 17
             end
             inherited lbClass: TLabel
               Left = 172
               Top = 38
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 38
             end
             inherited lbl47: TLabel
               Top = 290
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 290
             end
             inherited lblStatus: TLabel
               Left = 172
               Top = 290
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 290
+            end
+            inherited lblColision: TLabel
+              Font.Color = clWhite
+              ParentFont = False
             end
             inherited StaticText22: TStaticText [30]
               Top = 204
@@ -3993,10 +6999,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited StaticText21: TStaticText
               Top = 183
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 183
             end
             inherited StaticText16: TStaticText [32]
               Top = 57
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 57
             end
             inherited StaticText23: TStaticText
@@ -4073,21 +7083,29 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited lb1: TStaticText
               Top = 15
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 15
             end
             inherited lb2: TStaticText
               Left = 157
               Top = 15
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 157
               ExplicitTop = 15
             end
             inherited lb4: TStaticText
               Top = 36
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 36
             end
             inherited lb5: TStaticText
               Left = 157
               Top = 36
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitLeft = 157
               ExplicitTop = 36
             end
@@ -4114,6 +7132,8 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited pnlInfoDepth: TPanel
               Top = 204
+              Font.Color = clWhite
+              ParentFont = False
               ExplicitTop = 204
               inherited StaticText1: TStaticText
                 Top = 21
@@ -4128,8 +7148,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           Width = 130
           Height = 40
           BevelOuter = bvNone
+          Color = 2695445
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
           ParentBackground = False
-          ParentColor = True
+          ParentFont = False
           TabOrder = 1
           Visible = False
           object StaticText23: TStaticText
@@ -4174,6 +7200,135 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
       end
     end
+    object pnlpgcControl: TPanel
+      Left = 0
+      Top = 0
+      Width = 341
+      Height = 130
+      Align = alTop
+      BevelOuter = bvNone
+      ParentBackground = False
+      ParentColor = True
+      TabOrder = 0
+      object pnlTabTrackTable: TPanel
+        Tag = 1
+        Left = 0
+        Top = 2
+        Width = 90
+        Height = 25
+        BevelOuter = bvLowered
+        Caption = 'Track Table'
+        Color = 6770973
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 0
+        OnClick = TTButtonClick
+      end
+      object pnlTabTrackControl: TPanel
+        Left = 90
+        Top = 2
+        Width = 90
+        Height = 25
+        BevelOuter = bvLowered
+        Caption = 'Track Control'
+        Color = 3812880
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 1
+        OnClick = TTButtonClick
+      end
+      object pnlTrackControl: TPanel
+        Left = 0
+        Top = 25
+        Width = 339
+        Height = 180
+        Color = 16775920
+        ParentBackground = False
+        TabOrder = 3
+        object lvTrackControl: TListView
+          Left = 1
+          Top = 0
+          Width = 339
+          Height = 180
+          Color = clWhite
+          Columns = <
+            item
+              Caption = 'Group Name'
+              Width = 125
+            end
+            item
+              Caption = 'Course'
+              Width = 100
+            end
+            item
+              Caption = 'Speed'
+              Width = 100
+            end>
+          ReadOnly = True
+          RowSelect = True
+          PopupMenu = pmTrackControl
+          TabOrder = 0
+          ViewStyle = vsReport
+          OnSelectItem = lvTrackControlSelectItem
+        end
+      end
+      object pnlTrackTable: TPanel
+        Left = 1
+        Top = 25
+        Width = 339
+        Height = 180
+        Color = 16775920
+        ParentBackground = False
+        TabOrder = 2
+        object lvTrackTable: TListView
+          Left = 1
+          Top = 1
+          Width = 337
+          Height = 180
+          BevelOuter = bvNone
+          BorderStyle = bsNone
+          Color = clWhite
+          Columns = <
+            item
+              Caption = 'Domain'
+            end
+            item
+              Caption = 'TrackNumber'
+            end
+            item
+              Caption = 'Identity'
+            end
+            item
+              Caption = 'Course'
+            end
+            item
+              Caption = 'Speed'
+            end
+            item
+              Caption = 'Altitude'
+            end
+            item
+              Caption = 'Depth'
+            end>
+          MultiSelect = True
+          ReadOnly = True
+          RowSelect = True
+          TabOrder = 0
+          ViewStyle = vsReport
+          OnSelectItem = lvTrackTableSelectItem
+        end
+      end
+    end
   end
   object pnlTop: TPanel
     Left = 0
@@ -4199,7 +7354,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       GradientEndColor = clBtnFace
       GradientStartColor = clBtnFace
       HotTrackColor = clNavy
-      Images = ImageList4
+      Images = il1
       ParentColor = False
       TabOrder = 0
       DesignSize = (
@@ -4218,7 +7373,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 0
         Hint = 'Freeze'
         Caption = 'btnGameFreeze'
-        ImageIndex = 19
+        ImageIndex = 29
         OnClick = btnGameFreezeClick
       end
       object btnStartGame: TToolButton
@@ -4226,7 +7381,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 0
         Hint = 'Standard Speed'
         Caption = 'btnStartGame'
-        ImageIndex = 20
+        ImageIndex = 30
         OnClick = btnStartGameClick
       end
       object btnDoubleSpeed: TToolButton
@@ -4234,7 +7389,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 0
         Hint = 'Double Current Speed'
         Caption = 'btnDoubleSpeed'
-        ImageIndex = 21
+        ImageIndex = 31
         OnClick = btnDoubleSpeedClick
       end
       object btnSnapshot: TToolButton
@@ -4242,7 +7397,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 0
         Hint = 'Snapshot'
         Caption = 'btnSnapshot'
-        ImageIndex = 24
+        ImageIndex = 34
         OnClick = btnSnapshotClick
       end
       object btnSeparator8: TToolButton
@@ -4257,7 +7412,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Left = 158
         Top = 0
         Hint = 'Decrease Scale'
-        ImageIndex = 83
+        ImageIndex = 1
         OnClick = tbtnScaleDecreaseClick
       end
       object cbSetScale: TComboBox
@@ -4470,7 +7625,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 0
         Hint = 'Add To Track Table'
         Caption = 'btnAddToTrackTable'
-        ImageIndex = 11
+        ImageIndex = 12
         Visible = False
         OnClick = btnAddToTrackTableClick
       end
@@ -4479,7 +7634,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 0
         Hint = 'Remove From Track Table'
         Caption = 'btnRemoveFromTrackTable'
-        ImageIndex = 12
+        ImageIndex = 13
         Visible = False
         OnClick = btnRemoveFromTrackTableClick
       end
@@ -4531,7 +7686,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'History'
         Caption = 'btnTrackHistory'
-        ImageIndex = 15
+        ImageIndex = 20
         Style = tbsCheck
         OnClick = btnTrackHistoryClick
       end
@@ -4540,7 +7695,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'Remove Platform / Track'
         Caption = 'btnRemovePlatformOrTrack'
-        ImageIndex = 26
+        ImageIndex = 21
         OnClick = btnRemovePlatformOrTrackClick
       end
       object btnEdit: TToolButton
@@ -4607,7 +7762,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'Runtime Platform'
         Caption = 'btnAddPlatform'
-        ImageIndex = 25
+        ImageIndex = 35
         OnClick = btnAddPlatformClick
       end
       object btnSeparator9: TToolButton
@@ -4623,7 +7778,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'Monitor Student'
         Caption = 'btnMonitorStudent'
-        ImageIndex = 22
+        ImageIndex = 32
         OnClick = btnMonitorStudentClick
       end
       object btnTimeOfRaid: TToolButton
@@ -4640,7 +7795,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'Filter Cursor'
         Caption = 'btnFilterCursor'
-        ImageIndex = 27
+        ImageIndex = 25
         OnClick = btnFilterCursorClick
       end
       object btnAnchorCursor: TToolButton
@@ -4648,7 +7803,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'Anchor Cursor'
         Caption = 'btnAnchorCursor'
-        ImageIndex = 28
+        ImageIndex = 26
         OnClick = btnAnchorCursorClick
       end
       object btnRuller: TToolButton
@@ -4664,7 +7819,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'Options'
         Caption = 'btnOptions'
-        ImageIndex = 29
+        ImageIndex = 27
         Style = tbsCheck
         OnClick = btnOptionsClick
       end
@@ -4726,7 +7881,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Hint = 'Add Data Link'
         Caption = 'btn6'
         Enabled = False
-        ImageIndex = 32
+        ImageIndex = 18
         Visible = False
       end
       object btn7: TToolButton
@@ -4735,7 +7890,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Hint = 'Remove Data Link'
         Caption = 'btn7'
         Enabled = False
-        ImageIndex = 31
+        ImageIndex = 19
         Visible = False
       end
       object btnTransferSonobuoy: TToolButton
@@ -4744,7 +7899,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Hint = 'Transfer Sonobuoy'
         Caption = 'btnTransferSonobuoy'
         Enabled = False
-        ImageIndex = 18
+        ImageIndex = 22
         Visible = False
       end
       object btnRemoveSonobuoy: TToolButton
@@ -4753,7 +7908,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Hint = 'Remove Sonobuoy'
         Caption = 'btnRemoveSonobuoy'
         Enabled = False
-        ImageIndex = 17
+        ImageIndex = 23
         Visible = False
       end
       object btnAnnotate: TToolButton
@@ -4762,7 +7917,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Hint = 'Annotate'
         Caption = 'btnAnnotate'
         Enabled = False
-        ImageIndex = 23
+        ImageIndex = 33
         Visible = False
       end
       object btnContents: TToolButton
@@ -4770,7 +7925,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'Contents'
         Caption = 'btnContents'
-        ImageIndex = 30
+        ImageIndex = 28
         Visible = False
       end
       object btnMerge: TToolButton
@@ -4778,7 +7933,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'Merge'
         Caption = 'btnMerge'
-        ImageIndex = 34
+        ImageIndex = 16
         Visible = False
         OnClick = btnMergeClick
       end
@@ -4787,7 +7942,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'Split'
         Caption = 'btnSplit'
-        ImageIndex = 33
+        ImageIndex = 17
         Visible = False
         OnClick = btnSplitClick
       end
@@ -4796,7 +7951,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Top = 42
         Hint = 'Help'
         Caption = 'btnhelp'
-        ImageIndex = 35
+        ImageIndex = 14
         Visible = False
       end
       object btnSeparator1: TToolButton
@@ -27127,16 +30282,16 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     Left = 760
     Top = 256
     Bitmap = {
-      494C01015500580004001C001C00FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01015600580004001C001C00FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000700000006802000001002000000000000036
       04000000000000000000000000000000000025211CFF25211CFF2E2B26FF3E3C
       38FF4A4A46FF4A4A46FF43423EFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF25211CFF43433EFF4A4A46FF4A4A46FF3E3C38FF2E2B26FF25211CFF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27147,10 +30302,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       87FFBDBDB8FFBCBCB7FFBBBBB6FFA3A39CFFA2A29BFFA2A29BFFA2A29BFFA2A2
       9BFFA2A29BFFA2A29BFFA2A29BFFA2A29BFFA2A29BFFA2A29BFFA2A29BFFA2A2
       9BFFA2A29BFFA5A59EFFABABA5FFA8A8A1FF878780FF6F6F69FF696964FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27161,10 +30316,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       BDFFA1A09CFF82817BFF797873FF797872FF797872FF797872FF797872FF7978
       72FF797872FF797872FF797872FF797872FF797872FF797872FF797872FF7978
       72FF797872FF797872FF7B7A76FF8F8F88FF9D9D96FF989890FF888881FF3B38
-      33FF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      33FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27175,10 +30330,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       B3FF12100DFF14120FFF151310FF151310FF151310FF151310FF151310FF1513
       10FF151310FF151310FF151310FF151310FF151310FF151310FF151310FF1513
       10FF151310FF161310FF161310FF181512FF7D7D76FF75756EFF9F9F97FF6F6D
-      67FF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      67FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27189,10 +30344,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       0FFF221E1AFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF342C1DFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF24201CFF2E2B26FF4C4B46FF6F6F69FFA5A4
-      9DFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      9DFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5D4723FFBE932BFFB88E28FFB78D28FFBE93
+      2BFF654D24FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27203,10 +30358,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       12FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF25211CFF5B4921FFB1892AFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF46433FFF41403CFF676761FFB0B0
-      AAFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      AAFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5D4723FFB68C27FFAA8222FFA98122FFB58B
+      27FF654D24FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27217,10 +30372,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF25211CFFB88F2AFFBE932BFF2F281DFF25211CFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4642FF42403CFF7B7B74FFA0A0
-      9BFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      9BFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5D4723FFAD8524FFA0791EFFA0791EFFAC84
+      23FF654D24FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27231,10 +30386,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2E28
       1DFF9C7825FF946F19FF906B17FFA67E21FF816425FF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5D4723FFA98122FF9B751CFF9B741CFFA881
+      21FF654D24FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27245,10 +30400,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF27221CFF8E6E
       25FFA1791EFF826011FF7D5D0FFF926E18FFA78021FF6D5623FF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5D4723FFA98122FF9B751CFF9B741CFFA881
+      21FF654D24FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27259,10 +30414,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF7E6325FFA880
       21FF926D18FF76570CFF73540BFF856212FF97721AFFAC8524FF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5D4723FFA98122FF9B751CFF9B741CFFA881
+      21FF654D24FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27273,10 +30428,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF514120FFB38A26FF9E77
       1DFF8B6715FF73540BFF71530AFF7E5D10FF8F6B17FFA37B1FFFAD8729FF362D
       1EFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5D4723FFA98122FF9B751CFF9B741CFFA881
+      21FF654D24FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27287,10 +30442,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF40351FFFB58C2AFFBA8F29FFA57D
       20FF926E18FF78590DFF76560CFF856212FF96711AFFAA8222FFBE932BFFA07C
       28FF2B251DFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5D4723FFA98122FF9B751CFF9B741CFFA881
+      21FF654D24FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27301,10 +30456,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF39301EFF43381FFF43381FFF4236
       1EFF54431DFF815F10FF7D5C0FFF8F6B17FF44381DFF43371FFF43381FFF4338
       1FFF30291DFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5D4723FFA88021FF9A741BFF9A741BFFA67E
+      21FF654D24FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27315,10 +30470,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF483B1FFF8D6916FF886514FFA27A1FFF2E281DFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5D4723FFA47C20FF97711AFF96711AFFA27B
+      1FFF644C24FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27329,24 +30484,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF493C20FF916C17FF8C6815FFA78021FF2E281DFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF9F9F98FF6F6E68FF1916
-      13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF493C20FF936E18FF8E6A16FFAB8323FF2E281DFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF5A4522FF9D761DFF926D18FF916D18FF9C76
+      1CFF614A22FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27357,24 +30498,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF493C20FF936E18FF8E6A16FFAB8323FF2E281DFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF9F9F98FF6F6E68FF1916
-      13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF493C20FF936E18FF8E6A16FFAB8323FF2E281DFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF574221FF956F19FF8A6715FF8A6715FF946F
+      19FF5D4720FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27385,10 +30512,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF493C20FF936E18FF8E6A16FFAB8323FF2E281DFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF735925FF886827FF816224FF80601DFF8B6715FF826011FF826011FF8A67
+      14FF82621DFF886827FF886827FF715725FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27399,10 +30526,38 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF493C20FF936E18FF8E6A16FFAB8323FF2E281DFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF4B3922FFB68D2AFFA98222FF946F19FF836111FF7A5A0EFF7A5A0EFF8360
+      11FF936E18FFBE932BFFB68D2AFF493722FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000025211CFF9F9F98FF6F6E68FF1916
+      13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
+      1CFF493C20FF936E18FF8E6A16FFAB8323FF2E281DFF25211CFF25211CFF2521
+      1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FFAE8624FF97711AFF866312FF7B5B0EFF7B5B0EFF8663
+      12FF97721AFF735825FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000025211CFF9F9F98FF6F6E68FF1916
+      13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
+      1CFF493C20FF936E18FF8E6A16FFAB8323FF2E281DFF25211CFF25211CFF2521
+      1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF898982FF2521
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF8F6D27FFA47C20FF926D18FF876413FF886513FF926D
+      18FFA57D20FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27413,10 +30568,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF493C20FF936E18FF8E6A16FFAB8323FF2E281DFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF878780FF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF3A2C20FFA07A26FFA57D20FF9A741BFF9A741BFFA57D
+      20FF9D7826FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27427,10 +30582,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF493C20FFA27A1FFF9D761DFFB78D28FF2E281DFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF4A4743FF42403CFF51514CFF7473
-      6CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      6CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF453421FFB18829FFB28926FFB28926FFB089
+      29FF443421FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27441,10 +30596,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       13FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF493C20FFB18825FFAC8423FFBE932BFF2E281DFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF504C48FF43413DFF4A4A46FF9F9F
-      98FF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      98FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF564223FFBB912BFFBB912BFF5440
+      23FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27455,10 +30610,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       16FF27231EFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF493C20FFBE932BFFBE932BFFBE932BFF2E281DFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF34312CFF625F5CFF454440FF4A4A46FFAAAA
-      A3FF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      A3FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF6D5425FF6A5124FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27469,10 +30624,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       5AFF4A4743FF5B5854FF5D5A56FF5E5B57FF5E5B57FF5E5B57FF5E5B57FF5E5B
       57FF5E5B57FF5E5B57FF5E5B57FF5E5B57FF5E5B57FF5E5B57FF5E5B57FF5E5B
       57FF5E5B57FF5F5C58FF63605DFF706D6AFF484743FF4A4A46FF989890FF8988
-      82FF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      82FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27483,10 +30638,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       55FF44443FFF44433EFF454440FF454440FF454440FF454440FF454440FF4544
       40FF454440FF454440FF454440FF454440FF454440FF454440FF454440FF4544
       40FF454440FF464440FF464440FF464541FF4A4A46FF71716BFFBBBBB5FF4A47
-      42FF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      42FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27497,10 +30652,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       98FF595954FF51514DFF666660FF81817AFF82827AFF82827AFF82827AFF8282
       7AFF82827AFF82827AFF82827AFF82827AFF82827AFF82827AFF82827AFF8282
       7AFF808078FF4A4A46FF4A4A46FF4A4A46FF9B9B93FFBEBEB9FFC3C3BEFF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -27511,10 +30666,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       73FFB5B5B0FFBDBDB8FFA6A5A0FF25211CFF25211CFF25211CFF25211CFF2521
       1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
       1CFF25211CFF8A8982FFB1B1ABFFB9B9B3FF8D8B87FF4C4944FF25211CFF2521
-      1CFF000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      1CFF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF352820FF352820FF352820FF3528
+      20FF352820FF352820FF352820FF352820FF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -36073,402 +39228,3930 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     Left = 880
     Top = 256
     Bitmap = {
-      494C01010200580004001C001C00FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
-      0000000000003600000028000000700000001C00000001002000000000000031
-      00000000000000000000000000000000000025211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
+      494C010125003C0004001C001C00FFFFFFFF2100FFFFFFFFFFFFFFFF424D3600
+      00000000000036000000280000007000000018010000010020000000000000EA
+      010000000000000000000000000000000000392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
+      000000000000000000000000000000000000392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF37331AFF27231CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF5C5A14FF322E1AFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFADAE0AFFFCFF00FFFCFF00FF7877
-      11FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF474517FFEFF201FFC0C107FF28241CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF8B8A0EFFFCFF00FFFCFF00FFFCFF00FFF7FA
-      00FF5C5A14FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
+      000000000000000000000000000000000000392D0FFF403211FF463713FFB8B1
+      9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF796941FF5D4919FF5D4919FF5D49
+      19FF635022FFD7D2C6FFF7F6F4FF857450FF5D4919FF5D4919FF5D4919FF5D49
+      19FFE2DFD7FFFFFFFFFFFFFFFFFFFFFFFFFF4C3C15FF463713FF403211FF392D
+      0FFF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF3733
-      1AFFDEE003FFFCFF00FFFCFF00FFA4A40BFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF6A6813FFFBFE00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFEEF001FF434018FF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003B2E10FF423412FF493914FFB9B2
+      A0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7D6B42FF614C1AFF614C1AFF6753
+      23FFD8D3C7FFCCC5B5FF988A69FFF4F2EFFF887751FF614C1AFF614C1AFF614C
+      1AFFE3DFD7FFFFFFFFFFFFFFFFFFFFFFFFFF4F3E15FF493914FF423412FF3B2E
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF25211CFF25211CFF2A261BFFCACC
-      06FFFCFF00FFFCFF00FFFCFF00FFFCFF00FF807E10FF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF535116FFF4F600FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFDEE003FF36321AFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF25211CFF25211CFF2D291BFF423E
-      18FF423E18FF84830FFF423E18FF423E18FF3F3C18FF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF3C3919FFE5E702FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFC5C607FF2A261BFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
+      0000000000000000000000000000000000003C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFF695524FFD9D4
+      C7FFCDC6B5FF675220FF634E1BFF968864FFF4F3EFFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF26221CFF27231CFF25211CFF2521
-      1CFF25211CFF716F12FF25211CFF25211CFF25211CFF25211CFF28241CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2D2A
-      1BFFD6D804FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFABAC0AFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF654F1CFFD9D4C7FFCDC6
+      B5FF695321FF654F1CFF654F1CFF654F1CFF978865FF8B7952FF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF2D291BFFB6B609FF322E1AFF25211CFF2521
-      1CFF25211CFF716F12FF25211CFF25211CFF25211CFF25211CFF636114FF8C8B
-      0EFF26221CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF5E5C
-      14FF98980DFF98980DFF98980DFF98980DFFF6F900FFFCFF00FFFCFF00FFE5E7
-      02FF98980DFF98980DFF98980DFF98980DFF434018FF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF3B3819FFD1D305FFFCFF00FF322E1AFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF646213FFFCFF
-      00FFAFAF09FF2B271BFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFCEC6B5FF6A54
+      21FF66501CFF796638FF88764EFF66501CFF66501CFFF5F3F0FF786437FF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF4D4B17FFE5E702FFFCFF00FFFCFF00FF5A5815FF504D16FF4D4B
-      17FF25211CFF25211CFF25211CFF2D291BFF504D16FF504D16FF83820FFFFCFF
-      00FFFCFF00FFCACB06FF36321AFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF6A5421FF6650
+      1CFF66501CFFAFA387FFE4E0D7FF66501CFF66501CFF7E6B3FFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF504D16FFE5E702FFFCFF00FFFCFF00FF5A5815FF504D16FF4D4B
-      17FF25211CFF25211CFF25211CFF2D291BFF504D16FF504D16FF83820FFFFCFF
-      00FFFCFF00FFCACC06FF373419FFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF3B3819FFD1D305FFFCFF00FF322E1AFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF646213FFFCFF
-      00FFAFAF09FF2B271BFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFAFA387FFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF2E2B1BFFB8B908FF322E1AFF25211CFF2521
-      1CFF25211CFF716F12FF25211CFF25211CFF25211CFF25211CFF636114FF8F8E
-      0EFF26221CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FFBBB3
+      A0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF826F44FF66501CFF66501CFF6650
+      1CFF66501CFFAFA387FFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFFE4E0D7FFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF27231CFF27231CFF25211CFF2521
-      1CFF25211CFF716F12FF25211CFF25211CFF25211CFF25211CFF28241CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF25211CFF25211CFF2D291BFF423E
-      18FF423E18FF84830FFF423E18FF423E18FF3F3C18FF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FFBBB3
+      A0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF826F44FF66501CFF66501CFF6650
+      1CFF66501CFFAFA387FFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFFE4E0D7FFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF25211CFF25211CFF2A261BFFCECF
-      05FFFCFF00FFFCFF00FFFCFF00FFFCFF00FF84830FFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFAFA387FFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF3733
-      1AFFDFE103FFFCFF00FFFCFF00FFA4A40BFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF4B4817FFEFF201FFC5C607FF28241CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFAFA387FFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF605E14FF322E1AFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFEFF201FFFCFF00FFFCFF00FFCACB
-      06FF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF837046FF6650
+      1CFF66501CFFAFA387FFE4E0D7FF66501CFF66501CFFB9AF97FF725E2EFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFFACAD0AFFB5B509FFB5B509FF9393
-      0DFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFF2F1ECFF8370
+      46FF66501CFF796638FF88764EFF66501CFF6A5421FFD9D3C6FF6C5725FF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF3E3B19FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF
-      00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFFCFF00FFE3E502FF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFA29574FFF2F1
+      ECFF837046FF66501CFF66501CFF6A5421FFCFC8B7FF6C5725FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000000025211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF25211CFF2521
-      1CFF25211CFF25211CFF25211CFF25211CFF0000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FFBBB3
+      A0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF826F44FF66501CFF66501CFF6650
+      1CFFA29574FFF2F1ECFFD5CFC1FFD8D3C5FF6C5725FF66501CFF66501CFF6650
+      1CFFE4E0D7FFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      000000000000000000000000000000000000424D3E000000000000003E000000
-      28000000700000001C0000000100010000000000C00100000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003E3110FF463713FF4D3D15FFBBB3
+      A0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF826F44FF66501CFF66501CFF6650
+      1CFF66501CFFA29574FFD8D2C5FF6C5725FF66501CFF66501CFF66501CFF6650
+      1CFFE4E0D7FFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003D3010FF453613FF4C3C15FF5F4C
+      21FF675428FF6B5729FF6C592AFF6E5B2AFF67511FFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF66501DFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF6C5927FF6C592AFF6B5729FF675428FF524116FF4C3C15FF453613FF3D30
+      10FF000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003B2E10FF423412FF493914FF5442
+      17FF5F4D22FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF715E31FF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF6E5B2DFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF5D4A1EFF4F3E15FF493914FF423412FF3B2E
+      10FF000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000392D0FFF403211FF463713FFA79F
+      8AFFFFFFFFFFF5F4F1FFCBC5B6FFB5AB96FFDCD7CDFFFBFAF9FFFFFFFFFFFAF9
+      F8FFE2DED6FFBCB4A0FFB6AD98FFDED9CFFFF8F7F5FFFFFFFFFFF9F9F7FFE0DC
+      D3FFBBB39FFFC5BEAEFFEDEBE6FFFFFFFFFF4C3C15FF463713FF403211FF392D
+      0FFF000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000392D0FFF3D3010FF433512FF695B
+      3AFFACA38FFFD8D4CAFFFEFEFEFFFFFFFFFFEFEEE9FFC6C0B0FFACA38CFFBFB8
+      A6FFE5E2DBFFFFFFFFFFFFFFFFFFEEECE7FFC5BEAEFFACA28BFFC3BDACFFECE9
+      E4FFFFFFFFFFFFFFFFFFE2DFD8FFADA591FF493913FF433512FF3D3010FF392D
+      0FFF000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF524118FFE3DFD8FFF4F3F0FFF4F3F0FFF4F3
+      F0FFDCD7CDFF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5E4A1AFFE2DED6FFF4F3F0FFF4F3F0FFF4F3F0FFEAE8
+      E3FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF76653CFF908260FF9F9375FFA99E85FFA5997EFF998D
+      6DFF867652FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF3B2E10FF423412FF493914FF8A7D
+      5FFFC8C1B2FFC9C2B3FFCAC3B3FFCAC3B3FFCBC4B3FFCBC4B3FFA69A7CFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF877650FFCBC4B3FFCBC4B3FFCBC4
+      B3FFCAC3B3FFCAC3B3FFC9C2B3FFB1A893FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FFB0A792FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFF806E45FF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF897953FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBBB3
+      A0FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF635127FF948666FF9F9375FFA09475FFA19475FFA19475FFA19475FFA194
+      75FFA19475FFA19475FFA19475FFA19475FFA19475FFA19475FFA19475FFA194
+      75FFA09475FF9F9375FF978B6CFF645329FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF8A7954FFC2BAA6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFDED9CFFFA99D82FF6E5B2DFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3C2F10FF443612FF4B3B14FFA69D
+      85FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC8C1AFFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF9B8D6BFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFE0DDD4FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF716038FFFEFEFEFFFFFFFFFFFFFF
+      FFFFFFFFFFFFB9B099FF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFFC7C0ADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7969
+      43FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF6B5B
+      34FFF0EEE9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFF0EEEAFF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF816F47FFDDD8
+      CDFFFFFFFFFFF5F3F0FFA19575FF85734BFF756336FF6D5A2AFF705C2EFF7A68
+      3DFF92835FFFDEDACFFFFEFEFEFFF8F7F4FFB3A890FF655120FF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3D3010FF453613FF4C3C15FF9D92
+      77FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC9C1AFFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF9C8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFD7D2C6FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FFD7D1C5FFFFFFFFFFFFFF
+      FFFFFFFFFFFFF0EEE9FF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF6E5929FFFAF9F7FFFFFFFFFFFFFFFFFFFFFFFFFFDED9CFFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FFB8B0
+      9DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FFA09475FFFBFAF9FFEEEC
+      E6FFA49777FF695422FF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF7D6A3FFFC7BEACFFFEFEFEFFDFDBD1FF715E32FF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3E3110FF463713FF4D3D15FF8A7B
+      5BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC9C2AFFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF9D8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFC6BEADFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF998C6AFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFA59878FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9E9172FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFC5BE
+      AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE1DD
+      D3FFA99C7DFF8C7A53FF8C7A53FFA99C7DFFE0DCD1FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF988B6CFFFEFEFEFFCEC7B7FF6F5B
+      2BFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF8F7E59FFF5F3F0FFE6E3DBFF6552
+      25FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF6C5B
+      32FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC9C2AFFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF9D8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFA79C82FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF675222FFF5F3F0FFFFFF
+      FFFFFFFFFFFFFFFFFFFFEBE8E1FFEBE8E1FFEBE8E1FFEBE8E1FFEBE8E1FFEBE8
+      E1FFEBE8E1FFF7F6F3FFFFFFFFFFFFFFFFFFFFFFFFFFF6F5F2FF685424FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFC5BE
+      AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAA9D80FF6E59
+      27FFA69979FFC8C0ADFFC8C0ADFFA79B7CFF6E5928FFFDFDFCFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF635226FFF5F4F1FFD7D2C5FF65501EFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF887750FFFEFEFEFFB3AA
+      93FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FFE9E6E0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC9C2AFFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF9D8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF796941FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFFBDB49FFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBFB7A2FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFC5BE
+      AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF806D41FFECE9
+      E3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEDEAE4FFAA9E81FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF998D6FFFFFFFFFFF84724BFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFFCCC5B5FFF2F0
+      ECFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFBFBFAFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC9C2AFFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF9D8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFF9E9172FF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFFE0DB
+      D1FFFFFFFFFFFFFFFFFFFDFDFCFFEBE8E1FFEBE8E1FFEBE8E1FFEBE8E1FFEBE8
+      E1FFEDEBE4FFFFFFFFFFFFFFFFFFFFFFFFFFDFDACFFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFC5BE
+      AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB3A88EFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9E906EFFB3A88EFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FFA49A81FFFFFFFFFF736135FF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFFBDB49FFFFAF9
+      F8FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FFBCB39EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC9C2AFFF8673
+      4AFFEBE8E1FFEBE8E1FFEBE8E1FFB4AA90FF9D8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFEDEAE4FF644F1EFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFFA497
+      78FFFFFFFFFFFFFFFFFFFEFEFDFF786437FF66501CFF66501CFF66501CFF6650
+      1CFF978864FFFFFFFFFFFFFFFFFFFFFFFFFFA19373FF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFC5BE
+      AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF978864FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBDB39DFF988A66FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF72613AFFFEFEFDFFBCB39EFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF725F30FFF6F5F2FFCBC5
+      B5FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF77653AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC9C2AFFF8B79
+      51FFFFFFFFFFFFFFFFFFFFFFFFFFC0B7A2FF9D8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFAFA489FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF6E59
+      29FFF9F8F6FFFFFFFFFFFFFFFFFFAFA488FF66501CFF66501CFF66501CFF6650
+      1CFFD0C9B9FFFFFFFFFFFFFFFFFFF6F5F2FF6C5726FF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFC5BE
+      AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9B8C69FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBAB098FF9B8D6AFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFBBB29EFFFEFEFEFFA39677FF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF715D2EFFE1DDD3FFF9F8F6FF7665
+      3CFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFFECE9E3FFFFFFFFFFFFFFFFFFFFFFFFFFC9C2AFFF8B79
+      51FFFFFFFFFFFFFFFFFFFFFFFFFFC0B7A2FF9D8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFF84734AFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFFC6BEABFFFFFFFFFFFFFFFFFFE6E2DAFF66501CFF66501CFF66501CFF735F
+      2FFFFCFCFBFFFFFFFFFFFFFFFFFFC0B7A1FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFC5BE
+      AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBBB19AFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF94845EFFBAB098FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF614D1EFFCFC9B9FFFFFFFFFFCCC5
+      B4FF796638FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF67511EFF9A8C68FFF0EEE9FFFAF9F7FF90815CFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFFD1CBBCFFFFFFFFFFFFFFFFFFFFFFFFFFC9C2AFFF8B79
+      51FFFFFFFFFFFFFFFFFFFFFFFFFFC0B7A2FF9D8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFEFEFEFF6A5626FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF8B7951FFFFFFFFFFFFFFFFFFFFFFFFFF857349FF66501CFF66501CFFA99D
+      7EFFFFFFFFFFFFFFFFFFFFFFFFFF826F45FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFC5BE
+      AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF1EFEBFFDAD5C8FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6D5826FFF0EEE9FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF634E1DFFADA287FFF8F7
+      F4FFFDFCFBFFCEC6B5FF756233FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF6A5421FFB2A78DFFE8E4DCFFFFFFFFFFDDD9CDFF816E45FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFFBAB09AFFFFFFFFFFFFFFFFFFFFFFFFFFC9C2AFFF8B79
+      51FFFFFFFFFFFFFFFFFFFFFFFFFFC0B7A2FF9D8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFEDEAE4FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF67511DFFE8E4DCFFFFFFFFFFFFFFFFFFBDB49EFF66501CFF66501CFFE2DE
+      D4FFFFFFFFFFFFFFFFFFDED9CDFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFC5BE
+      AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF715D2DFFD5CF
+      C1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD6D1C3FFC2B9A4FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7460
+      32FFBAB098FFF2F0ECFFFFFFFFFFF4F2EEFFE4E0D7FFDBD6CAFFE0DCD1FFEAE6
+      DFFFFCFCFBFFFEFEFEFFDBD5C9FF9A8B67FF66501DFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFFAB9F83FFFFFFFFFFFFFFFFFFFFFFFFFFC9C2AFFF8B79
+      51FFFFFFFFFFFFFFFFFFFFFFFFFFC0B7A2FF9D8E6CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFDFDACFFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFADA185FFFFFFFFFFFFFFFFFFF2F0ECFF685320FF826F45FFFFFF
+      FFFFFFFFFFFFFFFFFFFFA19372FF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFC5BE
+      AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC6BEABFF705B
+      2AFF8A784FFFAC9F83FFACA084FF8A7850FF705B2AFFFFFFFFFFFFFFFFFFFFFF
+      FFFFA99C7EFF837148FF968866FFFEFEFDFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF68521FFFA89B7DFFBDB49EFFDAD5C8FFFFFFFFFFF5F3F0FFC8C0
+      ADFFB6AB92FF735E2FFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF715E2FFF8F7E58FF907E58FF907E58FF816E43FF705B
+      2AFF907E58FF907E58FF907E58FF7E6B3FFF746031FF907E58FF907E58FF907E
+      58FF806D43FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFFFFFFFFFFFFFFFFFFFFFFFFFCEC6B5FFF1EFEBFFFFFF
+      FFFFFFFFFFFFC0B7A1FF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFA196
+      7BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFBFB6A0FF988A67FFB1A68DFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF8B7951FFFFFFFFFFDBD6CAFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF6D5928FFC6BEABFFEAE7E0FF6A5421FF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF958661FFEBE8E1FFEBE8E1FFEBE8
+      E1FF6D5828FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFFFFFFFFFFFFFF
+      FFFFFFFFFFFF826F45FF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5C4A
+      1DFFC2BBA9FFFCFCFBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFEFEFDFFC4BDABFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF8B7951FFFFFFFFFFDBD6CAFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFFB8AF97FFFFFFFFFFFFFFFFFFAB9F83FF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF8B7A53FFFFFFFFFFFFFFFFFFFBFB
+      FAFF67521FFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFFEEECE6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF645020FF6C592AFF6E5B2AFF6F5B2BFF6F5B2BFFE3DFD5FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6F5B2BFF6F5B2BFF6F5B
+      2BFF6E5B2AFF6C592AFF675324FF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFF6B5625FFACA084FFC1B8A3FFFFFFFFFFECE9E3FFADA2
+      86FF90805AFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFFD8D3C6FFFFFFFFFFFFFFFFFFC8C0AEFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF65501EFFFFFFFFFFFFFFFFFFB1A7
+      8DFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFFB3A990FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFFB3A990FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFFABA084FFFFFFFFFFFFFFFFFFFFFFFFFFEFEC
+      E7FF736133FF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF817048FF8C7B57FF8C7B57FF7C6B41FF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF86744EFF7C6B41FF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF756237FFFEFEFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFF5F4F1FF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFFC8C1AFFFFFFFFFFFFBFBFAFF8472
+      4BFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FFD4CFC2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFBBB39FFF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF635022FFDFDBD1FF9B8E6FFF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF6E5E36FF867755FF867755FF867755FF8677
+      55FF67562CFF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF614F23FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF78673FFFACA289FF604D1DFF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF715E31FFC3BB
+      A7FFF8F7F5FFE1DDD3FFD6D0C3FF6B5728FF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF655120FF6B5829FF685424FF614C1AFF614C1AFF614C1AFF644F
+      1EFF6B5829FF685425FF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FFB3AA95FF68562AFF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFFBAB19BFF695526FF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF6C5827FFF6F5F2FFBEB5
+      A0FF736133FF65501EFFC0B7A2FFE5E1D9FF766437FF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFFA49778FFFFFFFFFFC8C1AFFF634E1BFF634E1BFF634E1BFF9283
+      5EFFFFFFFFFFD1CBBCFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF6B5728FF6D5929FF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FFD9D4C9FFE6E3DBFF746236FF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFFE4E0D7FFE1DDD3FF725F
+      30FF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF685320FFA6997BFFEFEDE8FF766336FF654F
+      1CFF654F1CFF654F1CFF654F1CFFAFA388FFF0EEE9FF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFFA59879FFFFFFFFFFC9C1AFFF654F1CFF654F1CFF654F1CFF9383
+      5EFFFFFFFFFFD2CCBDFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF806E43FFF3F1EDFFA6997AFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FFD9D4C9FFFFFFFFFFF0EEE9FF816F
+      44FF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFFE4E0D7FFFFFFFFFFEBE8
+      E1FF7C693EFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF624D1BFF988A67FFE7E4DCFFC4BBA7FF796638FF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF9E906EFF978864FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFF8D7C55FF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFF5F4
+      F1FF8E7C56FF66501CFF66501CFF66501CFF66501CFFE4E0D7FFFFFFFFFFFFFF
+      FFFFF2F1ECFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF665326FFDDD8CDFFC6BEABFF79663AFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFF5F3F0FFAB9F82FF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFFFFFFFFFCBC4
+      B2FF786437FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFBFAF9FF9A8B67FF66501CFF66501CFF66501CFFE4E0D7FFFFFFFFFFFFFF
+      FFFFFFFFFFFF93835DFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF8E7C56FFB1A68BFF68521FFF66501CFF66501CFF826F44FFEEEBE5FFC0B7
+      A1FF67511FFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFAF9F7FFB3A88EFF6B5624FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFEFEFDFF66501CFF66501CFF66501CFFE4E0D7FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFCFCFBFFA09371FF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFF634E1BFF654F1CFF66501CFF87744BFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFD9D4C7FF705B2AFF66501CFF66501CFF735E
+      2FFFF2F1ECFFAB9F83FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD9D3C6FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFC6BEABFF695320FFE4E0D7FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBEB49EFF644F1DFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFF634E1BFF826F46FFD1CABBFFFEFEFEFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE5E1D8FF66501CFF66501CFF6650
+      1CFFB6AB93FFDCD8CCFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC0B7A1FF725E2EFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3CDBEFFEAE6DFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFCCC5B4FF655120FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFCCC5B4FFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7E6C40FF66501CFF6650
+      1CFF9E916FFFE4E0D7FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5F4F1FFA699
+      7AFF675220FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD6D0C3FF604C
+      1DFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF4F3EFFF89774FFF6650
+      1CFF9C8E6CFFE4E0D7FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEAE6
+      DFFF88764FFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFCFBFFF8F7F4FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBFAF9FF968865FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF665426FFF0EEEAFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9F8F6FF9586
+      61FF9C8E6CFFE4E0D7FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8F7F4FFAFA488FF6A54
+      21FF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFF8F7F5FF94855FFFE4E0D7FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5F4F1FF8B7A54FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF78663BFFECEAE3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFD
+      FCFFD2CCBDFFE4E0D7FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFF756132FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFF4F2EEFF88764DFF66501CFFE4E0D7FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFF0EDE8FF826F45FF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF756336FFE8E4DCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFE7E3DBFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDBD0FF88764EFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFF7D6B3FFF66501CFF66501CFFE4E0D7FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFE7E4DCFF786537FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF705C2BFFDED9CEFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFF8F7F4FF897956FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFFFFFFFFFFBFB
+      FAFFBAB199FF6F5A29FF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFD8D3C5FF6E5A28FF66501CFF66501CFF66501CFFE4E0D7FFFFFFFFFFFFFF
+      FFFFFFFFFFFF6C5725FF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF6E5928FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFEFEFDFFC3BBA8FF705D30FF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFA69979FFFFFFFFFFC9C2AFFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFD2CCBDFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF816E44FFFFFFFFFFFFFFFFFFD4CEBFFF7C69
+      3DFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD9D4C9FFFFFFFFFFFFFFFFFFCBC3
+      B2FF6A5522FF66501CFF66501CFF66501CFF66501CFFE4E0D7FFFFFFFFFFFFFF
+      FFFFC4BBA7FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF654F1CFFD2CCBDFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD9D3
+      C6FF837147FF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFFA59879FFFFFFFFFFC9C1AFFF654F1CFF654F1CFF654F1CFF9383
+      5EFFFFFFFFFFD2CCBDFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF806E43FFFFFFFFFFE9E6DFFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FFD9D4C9FFFFFFFFFFBBB29CFF6550
+      1DFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFFE4E0D7FFFFFFFFFFB3A9
+      8FFF654F1CFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFF675220FFCAC3
+      B2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE9E6DFFF958763FF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFFA09372FFF5F3F0FFC2B9A5FF634E1BFF634E1BFF634E1BFF8F7E
+      59FFF5F3F0FFCAC3B2FF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF78663BFFAA9E82FF675220FF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FFD8D3C8FFA99E85FF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFFE2DED4FFA39778FF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF634E
+      1DFFC2BAA6FFFFFFFFFFFFFFFFFFFFFFFFFFF5F4F1FF65501FFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF796A46FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF817048FF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5E4A1AFFB8B09AFFFEFEFDFFC1B9A7FF6B592DFF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF6E5E36FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF6A5930FFD5D0C5FFFFFFFFFFF6F5F2FFD3CDC0FFD7D2C6FFFAF9
+      F8FFFEFEFEFFC5BEACFF655225FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF3B2E10FF423412FF493914FF5442
+      17FF6F5E38FFEEECE8FFF6F4F2FFA39679FF65501FFF614C1AFF614C1AFF6A56
+      27FFB1A78EFFFBFAF9FFE1DDD4FF6D592BFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF655226FF9B8F70FFB4AA
+      93FFA39779FF6C592AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF6C592AFF9283
+      60FFA89C80FFEDEBE5FFCAC3B2FFA09373FF84724BFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF604E23FFA99E85FF8F815FFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF6D592BFF9C8F6EFF968866FF614C1BFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3C2F10FF443612FF4B3B14FF5B49
+      1DFFE2DED6FFF2F0ECFF7B6A40FF624D1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF8E7E58FFFBFBFAFFD0CABAFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF8C7D5CFFF0EEEAFFCBC4B4FFACA1
+      86FFC6BEABFFEFEDE8FF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF7D6B40FFFDFCFBFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFABA084FF675220FF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FFB9B19DFFFFFFFFFFFDFDFCFF8A79
+      54FF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFFF3F2EEFFFFFFFFFFCDC6B5FF634E1CFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3D3010FF453613FF4C3C15FF9F94
+      79FFFFFFFFFF928361FF624D1BFF644F1BFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFFACA084FFFFFFFFFF8E7D57FF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF8B7C5BFF84734DFF624D1BFF644F
+      1BFF654F1CFF978864FF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFFA39576FFFBFAF9FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE2DED4FF7864
+      37FF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF9B8E70FFFFFFFFFFFFFFFFFFEEEC
+      E6FF715D2EFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFFFFFFFFFFD0C9BAFF695321FF827046FFA99D81FF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3E3110FF463713FF4D3D15FFDFDB
+      D2FFDFDBD1FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF6A5522FFF4F3EFFFC5BDA9FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF776335FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFFA59879FFFEFEFEFFFFFFFFFFC7BFACFFA99D
+      7EFFADA185FFFFFFFFFFEDEBE4FF9F916FFFB4A98FFFFEFEFEFFFFFFFFFFEDEB
+      E4FF735F30FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FFA89C80FFFFFFFFFFFFFF
+      FFFFD8D2C5FF6A5421FF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFFFFFFFFFA99C7DFF837046FFF2F1ECFFD3CDBFFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFFEFE
+      FDFFAEA38BFF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFFCCC4B3FFE9E6DEFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF7E6B3FFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF85744CFFFDFDFCFFF9F8F6FFACA084FF66501CFF6650
+      1CFF826F44FFFFFFFFFFE4E0D7FF66501CFF66501CFF7E6B3FFFD5CFC0FFFFFF
+      FFFFD9D3C6FF644F1DFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFFAEA388FFFFFF
+      FFFFFFFFFFFFCCC4B3FF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFFFFFFFFFFFFFFFFFFCFCFBFFFFFFFFFFAFA58AFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFFFFF
+      FFFF9A8D6EFF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFFBAB199FFF8F7F4FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFC9C1AEFF8A7850FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF624D1CFFE1DDD3FFF8F7F5FF86734AFF66501CFF66501CFF6650
+      1CFF826F44FFFFFFFFFFE4E0D7FF66501CFF66501CFF66501CFF67511DFFC0B7
+      A1FFFFFFFFFF9B8D6BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFFB8AD
+      96FFFFFFFFFFFFFFFFFF67511EFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFFB9AE96FFFFFFFFFFFFFFFFFFFFFFFFFFD1CBBCFF685423FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFEEEC
+      E7FFC9C3B3FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFFE5E1D8FFD9D4C7FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF6E5928FFF2F1ECFF87744BFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FFD1CBBCFFF5F4F1FF79663AFF66501CFF66501CFF66501CFF6650
+      1CFF826F44FFFFFFFFFFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFFB5AA91FFFFFFFFFF8A7954FF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF67511DFFC8C0ADFFFFFFFFFFC5BDA9FF68521FFF66501CFFB2A78DFFFFFF
+      FFFFFEFEFEFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFBBB3
+      A0FFFBFBFAFF736034FF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF8B7951FFFFFFFFFFA69979FF86734AFF907E58FF907E
+      58FF8F7E58FF8D7D58FF8C7B57FF897956FF685934FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF94845EFFF2F0ECFF847147FF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF614E1FFFE6E2DAFFA89C80FF6B5625FF66501CFF66501CFF66501CFF6650
+      1CFF826F44FFFFFFFFFFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF816E44FFC8C1AFFFB3A991FF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF68521FFFFFFFFFFFFFFFFFFFCAC2B0FFB0A489FFFFFFFFFFFEFE
+      FEFFA49776FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF6E5D
+      35FFF9F8F6FFD5D0C2FF675220FF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF6F5A29FFE7E4DCFFEEECE6FF6B5624FFDBD6CAFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA49B85FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF978864FFF0EDE8FF826F45FF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF826F44FFFFFFFFFFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFD5CFC0FFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFFA89B
+      7DFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF9B8E6FFFFEFEFEFFD4CEC0FF735F30FF66501CFF66501CFF66501CFF6650
+      1CFF7C693DFFE2DED4FFFBFBFAFF8D7C55FF66501CFF8E7C56FF9A8B67FF9A8B
+      67FF998A67FF988A67FF968866FF948665FF6E5F3BFF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF998A66FFF1EFEAFF816D42FF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF826F44FFFFFFFFFFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF6C5725FFE9E6DEFFFFFFFFFFFFFFFFFFE6E2DAFF6B55
+      23FF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF9E9172FFFAF9F7FFF7F6F3FFC2B9A5FF9B8D6AFF9D8F6DFFC9C1
+      AEFFFBFBFAFFF4F2EEFF93835EFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF9B8C69FFF0EDE8FF7E6B
+      3FFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF826F44FFFFFFFFFFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFA49776FFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFD4CE
+      BFFF6A5522FF66501CFF66501CFF67511DFF978864FF65511FFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF7B693EFFC5BCA9FFF7F6F3FFFFFFFFFFFFFFFFFFF2F1
+      ECFFBCB39CFF816D42FFAEA286FFAEA286FF8D7B54FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF9E906EFFEEEB
+      E5FF7C693DFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF826F44FFFFFFFFFFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFFEFEFEFFFFFFFFFFB9AE96FFE4E0D6FFFFFFFFFFFFFF
+      FFFFD3CDBDFF66501CFF66501CFFC3BAA5FFFFFFFFFFD9D4C8FF6A5627FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF685320FFD0C9B9FFE7E3DBFF6751
+      1EFF68521FFFD4CEBFFFFFFFFFFFFFFFFFFFB7AD95FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFFA193
+      72FFEEEBE5FF6D5827FF66501CFF705B2AFF6A5524FF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF826F44FFFFFFFFFFE4E0D7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF6D5929FFC4BC
+      A8FFF0EDE8FFE2DED4FFFFFFFFFFB5AA91FF66501CFF735E2FFFE5E1D8FFFFFF
+      FFFFFFFFFFFF68521FFF7E6B3FFFFFFFFFFFFFFFFFFFFFFFFFFFDDD8CDFF614D
+      1EFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFFC9C2AFFFE4E0D7FF9485
+      5FFFFEFEFEFFFEFEFEFFFEFEFDFFFFFFFFFFB7AD95FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF796638FFE1DDD3FF735F2FFF66501CFF654F1CFF91825DFFF5F3F0FF6A58
+      2CFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFFB3A8
+      8EFFFFFFFFFFE1DCD2FFF0EDE8FFF9F8F6FF816D42FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF6A5627FFFEFEFEFFEEEC
+      E6FF978864FFE9E6DEFFB2A68CFF66501CFF66501CFF66501CFF66501CFF7561
+      32FFE8E5DDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDFCFF8B7B
+      59FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFFC9C2AFFFF1EFEAFFF5F4
+      F1FFFFFFFFFFB8AE96FFF6F5F2FFFFFFFFFFB7AD95FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF756233FF66501CFF66501CFF654F1CFF634E1BFFD0CABBFF8E80
+      5DFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF685320FFF8F7
+      F5FFC9C1AEFF66501CFF735E2FFFF5F4F1FFC2B9A4FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF644F1EFFEAE7E0FF7B68
+      3CFF6C5725FFE1DDD3FFACA084FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF766234FFFFFFFFFFFFFFFFFFFFFFFFFFE0DBD1FFC7C0ADFF948662FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFFC9C1AFFFFFFFFFFFFFFF
+      FFFFD7D1C4FF67511FFFF6F5F2FFFFFFFFFFB7AD95FF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFFDEDAD0FF8373
+      4FFF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF654F1CFF766235FFFFFF
+      FFFFA09372FF654F1CFF654F1CFFDED9CEFFD7D1C4FF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF644F1EFF6A56
+      24FFD6D0C3FFFFFFFFFF725E2FFF654F1CFF654F1CFF654F1CFF654F1CFF705B
+      2CFFADA286FFFFFFFFFFFFFFFFFFFFFFFFFFB7AD95FF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFFC8C1AFFFFFFFFFFFEEEC
+      E6FF705C2EFF634E1BFFF6F5F2FFFFFFFFFFB6AC94FF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF7B6940FFF1EFEAFF5E4A
+      1DFF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFF65511FFFF6F5
+      F3FFD0CABAFF644F1DFF766337FFF8F7F4FFBFB7A2FF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF8270
+      48FFCDC6B5FFBCB29CFF634E1BFF634E1BFF65501EFFA99D81FFDEDACFFFFBFB
+      FAFFFFFFFFFFFFFFFFFFFFFFFFFFDDD8CDFF766438FF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFFC1B8A5FFF3F1EDFF8473
+      4CFF614C1AFF614C1AFFF6F5F2FFFFFFFFFFB5AB94FF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF8E805DFFA09477FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFFA99D
+      82FFFFFFFFFFEBE8E1FFF6F5F2FFF5F3F0FF726033FF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF7C6B41FFACA1
+      87FFD5D0C2FFCAC3B2FF948662FF624D1BFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FFE1DED5FFEAE7E0FFA89D83FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF928564FFCCC6B6FFBFB7A3FF726037FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF887955FFADA3
+      8AFFC0B9A6FFCDC7B8FFCDC7B8FFC5BEACFFB2A891FF6A582CFF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF9F9479FFF6F5F2FFFFFFFFFFE2DED6FFCBC5B5FFEAE7E0FFFFFF
+      FFFFEDEBE6FF8D7E5BFF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FFA1967BFFF7F6F4FFFFFF
+      FFFFE1DED5FFCBC5B5FFEAE8E1FFFFFFFFFFECEAE4FF8A7B58FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF644F1EFFA89D81FFB1A78EFF8B7A
+      55FF746236FF685424FF695526FF705D30FF86744EFFCEC8B8FFD0C9BAFF8978
+      52FF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF8E805DFFE2DE
+      D5FFBEB6A1FF675222FF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF6F5D32FF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FFB3AA95FFFFFFFFFFD1CBBDFF79673EFF614C1AFF614C1AFF614C1AFF8877
+      51FFE1DDD4FFFDFDFCFF9C8F6EFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FFB7AE9BFFFFFFFFFFCFC9BBFF7866
+      3CFF614C1AFF614C1AFF614C1AFF8A7954FFE1DDD3FFFDFDFCFF9C8F6EFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF705D2FFFD6D0C2FFA69A7BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF736133FFC1B9
+      A4FFC5BEABFF685425FF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF705E33FFF8F7F5FFFFFF
+      FFFFFFFFFFFFCCC5B4FF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF7A683EFFACA186FF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF9287
+      69FFFFFFFFFFB8AF9AFF624D1BFF624D1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF685423FFD1CBBCFFFBFBFAFF827148FF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF968B6EFFFFFFFFFFB7AF99FF624D1BFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF685423FFD7D1C4FFFBFBFAFF8270
+      47FF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF6B5728FFD7D2C4FF837147FF654F1CFF705B2CFF9788
+      65FFB4A990FFC2BAA5FFCCC5B4FFC2B9A5FFB3A98FFF725D2FFF654F1CFF654F
+      1CFF90815AFFD7D2C5FF695627FF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF9D9071FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF6C5726FFE4E1D8FF8B7A55FF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FFECEA
+      E5FFDBD7CDFF614C1CFF624D1BFF644F1BFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF6F5A2AFFF2F0ECFFD6D0C3FF654F1CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FFF1F0ECFFDAD5CAFF624D1DFF624D1BFF644F
+      1BFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF6F5A2AFFF3F1EDFFD6D0
+      C3FF654F1CFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFFCAC3B2FF897750FF66501CFF8F7E57FFD2CCBDFFA89B
+      7DFF8C7A53FF796638FFFFFFFFFF8D7C55FF8D7C55FFEEEBE5FFCFC8B8FF8D7C
+      55FF654F1CFF8B7A54FFCEC8B8FF5E4A1BFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF988A69FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFF67511DFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF68521FFFD1CABAFFF1EFEBFF65501EFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFFFFF
+      FFFF8C7D5BFF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFFAEA286FFFFFFFFFF7B683BFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FFFFFFFFFF8A7A57FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFFB1A68BFFFEFE
+      FDFF756132FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF90815DFFB8AE97FF725D2FFFCFC8B7FFBCB39CFF66501CFF6650
+      1CFF66501CFF66501CFFFFFFFFFF786437FF66501CFFD3CDBEFF786537FFC0B7
+      A1FFCCC5B4FF705D2FFFAEA389FF9D9173FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF6D5A2CFFF6F5F3FFFFFF
+      FFFFFFFFFFFFFFFFFFFF978864FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFFC0B7A2FFFFFFFFFFB9AF98FF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFFAF9
+      F8FF604D1DFF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF816E43FFFFFFFFFF9E906EFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FFF7F6F3FF604C1DFF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF847147FFFFFF
+      FFFF988A66FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FFD6D0C3FF8A7953FFECEAE4FFE0DCD1FF6D5826FF66501CFF6650
+      1CFF66501CFF66501CFFFFFFFFFF786437FF66501CFF88764DFF66501CFF6650
+      1CFF87754DFFDBD6CAFF816F47FFDCD8CEFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFFA5997AFFFFFF
+      FFFFFFFFFFFFFFFFFFFFE9E6DEFF6A5522FF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFB3A88EFFFFFFFFFFFDFCFBFF776437FF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFECE9
+      E4FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF705C2BFFFFFFFFFFADA286FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FFE5E2DBFF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF725E2EFFFFFF
+      FFFFA79B7CFF66501CFF66501CFF66501CFFBCB39DFFA69A7BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FFADA38AFFF5F4F1FF7B6A3FFF654F1CFF6A5421FFD3CDBEFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFFCDC6B5FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF7B6A40FFE6E3DCFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7B68
+      3CFFF8F7F4FFFFFFFFFFFFFFFFFFFBFBFAFF826F44FF66501CFF66501CFF6650
+      1CFFB9AE96FFFFFFFFFFF7F5F3FF735F2FFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFFFFF
+      FFFF76653DFF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF9A8B67FFFFFFFFFF89774FFF66501CFF66501CFF6650
+      1CFF654F1CFF92835EFFF6F5F2FF7D6D47FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FFFFFFFFFF736238FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF9D8F6DFFFFFF
+      FFFF89774FFF66501CFF66501CFF66501CFFF6F5F2FFD1CBBCFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FFD5CFC3FFB4AA92FF634E1BFF654F1CFF66501CFF6A5421FF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF88764DFFC5BDA9FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFFB1A891FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF9F916FFFFFFFFFFFFFFFFFFFFFFFFFFFE5E2D9FF6B5624FF6A5421FFC6BD
+      AAFFFFFFFFFFFFFFFFFFA99D7EFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFFBFB
+      FAFFBBB39FFF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFFD9D4C7FFEEEBE5FF68521FFFB8AE96FFB8AE96FFB8AE
+      96FFB8AD96FFCCC5B4FFFFFFFFFFF2F0ECFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FFFEFEFDFFB8B09AFF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF67511DFFDBD5C9FFECE9
+      E3FF67511EFF907E58FF907E58FF907E58FFF8F7F5FFDED9CEFF8C7B57FF8979
+      56FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FFF0EFEAFF725F32FF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFFD3CDBDFF786537FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF6C592EFF58461DFF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFC3BBA6FFFFFFFFFFFFFFFFFFFFFFFFFFC6BDAAFFD9D4C7FFFFFF
+      FFFFFFFFFFFFD8D2C5FF67511EFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFBBB3
+      A0FFFDFDFCFF8B7B56FF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFA79A7BFFFFFFFFFFA69979FF66501CFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FFC0B8A7FFFCFCFBFF887751FF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFA99C7DFFFFFFFFFFA396
+      76FF66501CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5F4D
+      21FFDED9CFFF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF92825CFFBBB19AFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF63532DFF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF6A5421FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFF756233FF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF614F
+      23FFE4E0D8FFF8F7F5FF998B68FF654F1CFF66501CFF66501CFF66501CFF6751
+      1EFFAEA286FFFDFDFCFFD1CABAFF67511DFF66501CFFA49776FFA49776FFA497
+      76FFA39676FFBDB49FFFFFFFFFFFF2F0ECFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF625025FFE6E3DCFFF8F7F4FF978966FF654F
+      1CFF66501CFF66501CFF66501CFF68521FFFB0A489FFFEFEFEFFD1CABAFF6751
+      1DFF66501CFF9A8B67FF9A8B67FF9A8B67FFF9F8F6FFE1DCD2FF968866FF9486
+      65FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF6A59
+      2FFFEAE8E1FFC0B8A4FFC1B9A4FFBCB39DFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF67511DFFE2DED4FFB0A489FFA49776FFA49776FFA49776FFA497
+      76FFA39676FFA29576FFA19475FF9E9275FF675732FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFE1DDD3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFF9F8F6FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF6B592DFFDBD7CBFFFFFFFFFFDED9CEFFAC9F83FF8E7D56FFB2A68CFFE8E5
+      DDFFFFFFFFFFCBC3B1FF6B5523FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF92835EFFF6F5F2FF81704AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF6C5A2FFFDDD9CEFFFFFFFFFFDDD9
+      CDFFAB9F82FF8E7C56FFB2A68CFFE9E6DEFFFFFFFFFFCAC2B0FF6B5624FF6650
+      1CFF66501CFF66501CFF66501CFF66501CFFF6F5F2FFD1CBBCFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF6755
+      2BFFE8E5DEFFB6AC95FFB7AD95FFB3A88EFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF9B8C69FFE6E2DAFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF675732FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFDCD7CCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFA69979FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF634E1DFFA29576FFE4E0D7FFFFFFFFFFFFFFFFFFFDFDFCFFDBD5
+      C9FF968762FF968762FFAEA286FFAEA286FF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF8E7E58FF8B7A55FF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF634F1EFFA49778FFE5E1
+      D8FFFFFFFFFFFFFFFFFFFDFDFCFFDBD5C9FF968762FF988965FFAEA286FFAEA2
+      86FF66501CFF66501CFF66501CFF66501CFFF6F5F2FFD1CBBCFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5A47
+      19FFD8D3C7FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFAEA286FFB2A68CFFC9C1AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF665630FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF6D5827FFB7AC94FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFEAE7E0FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF826F45FFFFFFFFFF9F916FFF6650
+      1CFF8D7C55FFFDFDFCFFFFFFFFFFFFFFFFFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF644F1CFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF8B7951FFFFFFFFFF978864FF66501CFF908059FFFDFDFCFFFFFFFFFFFFFF
+      FFFF66501CFF66501CFF66501CFF66501CFFC6BEABFFADA287FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF8C7D5BFFB9B09AFF634E1BFF654F1CFF66501CFF776436FF66501CFF6650
+      1CFF66501CFF66501CFF6A5421FFD4CEBFFF94855FFFFFFFFFFFFFFFFFFFFFFF
+      FFFFB7AD95FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF887751FFEFEDE8FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEDEBE4FF857349FF9D8F6DFFF6F5
+      F2FFFFFFFFFFE9E6DEFF786437FF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF786437FFFFFFFFFFA09371FFDDD8
+      CCFFFFFFFFFFFDFDFCFFFFFFFFFFFFFFFFFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF826F44FFFFFFFFFF988965FFE0DCD1FFFFFFFFFFFDFDFCFFFFFFFFFFFFFF
+      FFFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FFD3CDBFFF85734BFF654F1CFF776436FFEAE7E0FF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF6F5A29FFD9D4C7FFEAE6DFFFFFFFFFFFFFFF
+      FFFFB7AD95FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF867652FFFCFCFBFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFD8D2C5FF735E2FFF66501CFF66501CFF7865
+      37FFCFC8B8FFFFFFFFFFEDEBE4FF826F44FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF786437FFFFFFFFFFEBE8E2FFFFFF
+      FFFFF2F0ECFFBFB6A0FFFFFFFFFFFFFFFFFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF826F44FFFFFFFFFFE7E4DCFFFFFFFFFFF0EEE9FFBDB49EFFFFFFFFFFFFFF
+      FFFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF6F5D30FFD8D3C7FF8C7B54FFEAE7E0FFBCB29CFF654F1CFF654F
+      1CFF654F1CFF654F1CFFADA286FF6D5928FF725D2FFF8E7C56FFF2F1ECFFFFFF
+      FFFFB7AD94FF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FFC2BAA9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFAFA489FF675220FF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFFDDD9CDFFFFFFFFFFF7F6F3FF92835DFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF776437FFFFFFFFFFFFFFFFFFFDFD
+      FCFF8C7B55FFAEA287FFFFFFFFFFFFFFFFFF654F1CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF816E44FFFFFFFFFFFFFFFFFFFCFCFBFF8B7952FFAEA287FFFFFFFFFFFFFF
+      FFFF654F1CFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF726033FFE8E5DEFFD0CABAFF644F1CFF634E1BFF634E
+      1BFF634E1BFF634E1BFFFFFFFFFF756336FF634E1BFFDCD8CCFF92835FFFF9F8
+      F6FFB6AC94FF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF8E805FFFFDFDFCFFFFFFFFFFFFFF
+      FFFFFFFFFFFFDCD7CBFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF8A7953FFC8C0AEFFF6F5F3FFB2A88FFF604C1DFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF756336FFFFFFFFFFFFFFFFFFABA0
+      84FF634E1BFFADA287FFFFFFFFFFFFFFFFFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF7E6D43FFFFFFFFFFFFFFFFFFA89C80FF634E1BFFADA287FFFFFFFFFFFFFF
+      FFFF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF6A5628FFC5BDABFFC9C2B0FF614C1AFF614C
+      1AFF614C1AFF614C1AFFFFFFFFFF736135FF614C1AFF84724BFFD7D2C5FFDBD7
+      CBFFA09374FF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF83734FFFC0B8A6FFC5BE
+      ACFF9C8F6EFF624D1CFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF634F1EFF867651FF81714CFF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF726033FFF5F3F0FFC9C2B0FF624D
+      1BFF614C1AFFACA186FFFFFFFFFFFFFFFFFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF7B6940FFF5F3F0FFC7BFAEFF614C1AFF614C1AFFACA186FFFFFFFFFFFFFF
+      FFFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF78673FFFD7D2C6FFB4AB
+      94FF938664FF83724DFFFFFFFFFF928463FF968969FFD4CFC2FFC4BCABFF7969
+      41FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FFA09476FFEAE7E0FFEAE7E0FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FFA09476FFEAE7E0FFEAE7
+      E0FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF5E4C1FFF8374
+      52FFA1967BFFB3AA95FFBBB3A0FFB1A892FFA09579FF5E4C1FFF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF403211FF463713FF5444
+      1BFF5E4D23FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF3B2E10FF423412FF493914FF958A
+      6EFFDDD9D0FF665326FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFFC0B8A4FFC0B8A4FFC0B8A4FFC0B7A4FFBFB7A4FFBEB6A3FFBDB5
+      A3FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3C2F10FF443612FF4B3B14FF5745
+      18FFB7AF9AFFDEDAD1FF6A5627FF624D1BFF634E1BFF634E1BFF695524FF9283
+      5EFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFFA29576FFA29576FFA29576FFA19576FFA4987BFFF4F3F0FFFFFF
+      FFFF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF6E5A2BFF6A5625FF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3D3010FF453613FF4C3C15FF5845
+      18FF5D491AFFBAB09BFFDFDBD1FF6D5928FF654F1CFF654F1CFF776437FFEDEA
+      E4FF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF685320FFD1CBBCFFCBC4B4FFF7F6
+      F3FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF654F1CFF654F1CFF654F
+      1CFF735F30FFE6E3DBFFF6F5F2FF9C8E6CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF938460FF84734DFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF766235FF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF624D1BFFBBB29BFFE0DBD1FF6F5A29FF66501CFF786437FFEDEB
+      E4FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF6A5421FFD2CCBDFFCCC5B4FF634F1EFFF6F4
+      F2FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF7460
+      30FFE7E3DBFFFFFFFFFFFFFFFFFFB7AD95FF66501CFF66501CFF66501CFF6650
+      1CFF9D8E6DFFFDFDFCFFFFFFFFFF948665FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFFBCB39CFFFEFEFDFFCBC4B2FF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF786437FF9E9170FF675222FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFFBCB29CFFDFDBD0FF6F5A29FF786437FFEDEB
+      E4FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF6A5421FFD2CCBDFFCDC5B5FF65511FFF614C1AFFF6F4
+      F2FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF746030FFE7E3
+      DBFFFFFFFFFFFEFEFDFFFFFFFFFFB7AD95FF66501CFF66501CFF66501CFF9A8C
+      68FFFDFDFCFFFFFFFFFFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFFBCB39CFFFFFFFFFFFFFFFFFFEDEBE4FF6650
+      1CFF66501CFF66501CFF66501CFF776335FFEBE8E1FFFFFFFFFFCEC7B7FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFFBCB39CFFDFDBD0FF786437FFEDEB
+      E4FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFFB7AC94FFA193
+      72FF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFD2CCBDFF847147FF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF6A5421FFD2CCBDFFCDC6B5FF675220FF634E1BFF614C1AFFF6F4
+      F2FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFE7E3DBFFFFFF
+      FFFFE4E0D6FFBBB19AFFFFFFFFFFB7AD95FF66501CFF66501CFF998A66FFFDFC
+      FBFFFFFFFFFFF2F1ECFFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFBCB39CFFFFFFFFFFFEFEFEFFFFFFFFFFEDEBE4FF6650
+      1CFF66501CFF66501CFF766234FFEAE6DFFFFFFFFFFFFFFFFFFFD1CBBCFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFEAE6DFFFEDEB
+      E4FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF7D6A
+      3EFFEEEBE5FF9F9271FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF988965FFF0EEE9FF847147FF66501CFF6650
+      1CFF6A5421FFCDC6B5FF685320FF66501CFF654F1CFF634E1BFF614C1AFFEBE9
+      E3FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF746030FFE7E3DBFFE4E0D6FF735E
+      2FFF66501CFFAFA387FFFFFFFFFFB7AD95FF66501CFFFBFBFAFFFFFFFFFFB7AD
+      95FF654F1CFFBFB7A2FFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF67511DFFBCB39CFFFBFBFAFF93835EFF786437FFFFFFFFFFEDEBE4FF6650
+      1CFF66501CFFE7E3DBFFFFFFFFFFE2DED4FF948560FFFFFFFFFFD1CBBCFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FFBBB29CFFE0DCD2FFE0DCD2FFE1DCD2FFE1DCD2FFFDFDFCFFEDEB
+      E4FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF7C693EFFEDEBE5FF9E9171FF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF988965FFF0EEE9FF847147FF6A54
+      21FFD2CCBDFF685320FF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FFAA9F84FFEAE8E1FFEBE8E1FFF5F3F0FFFFFFFFFF735E2FFF6650
+      1CFF66501CFFAFA387FFFFFFFFFFB7AD95FF92825CFFFFFFFFFFBBB19AFF6650
+      1CFF654F1CFFBFB7A2FFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF6650
+      1DFFBCB39CFFFFFFFFFF93835EFF66501CFF786437FFFFFFFFFFEDEBE4FF6650
+      1CFF735E2FFFFFFFFFFFE4E0D6FF725E2EFF8A7851FFFFFFFFFFD1CBBCFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF77653AFF837148FF857249FF857349FF857349FF857349FF826F
+      44FF7B693CFF857349FF857349FF857349FF857349FF857349FF857349FF8573
+      49FF857249FF9A8C6AFFF8F7F4FF9B8F70FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF7D6D47FF817048FF837148FF8572
+      49FF857349FF857349FF857349FF857349FF857349FFB6AC93FFF4F2EEFF9586
+      61FFC2B9A4FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FFB5AB94FFFFFFFFFFFFFFFFFFFFFFFFFFDFDBD0FF66501CFF6650
+      1CFF66501CFFAFA387FFFFFFFFFFDBD6CAFFFAF9F7FFBDB39DFF66501CFF6650
+      1CFF654F1CFFBFB7A2FFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF76653CFFEAE7E1FFEAE8E1FFEEEB
+      E5FFFFFFFFFFFBFBFAFF66501CFF66501CFF786437FFFFFFFFFFEDEBE4FF715D
+      2DFFE3DFD5FFE5E2D9FF735E2FFF66501CFF8A7851FFFFFFFFFFD1CBBCFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFFBDB39DFFE1DCD2FFE1DCD2FFE1DCD2FFE1DCD2FFE1DCD2FFE1DCD2FFE1DC
+      D2FFE0DCD2FFE0DCD2FFFBFAF9FFE5E2DAFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFDFDBD1FFE0DBD1FFE0DCD2FFE0DC
+      D2FFE1DCD2FFE1DCD2FFE1DCD2FFE1DCD2FFE1DCD2FFE4E0D7FFFFFFFFFFC4BB
+      A7FF6C5725FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF6C592AFF786539FF79663AFF796638FF67511DFF66501CFF6650
+      1CFF66501CFFAFA387FFFFFFFFFFFFFFFFFFFFFFFFFF67511DFF66501CFF6650
+      1CFF654F1CFFBFB7A2FFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF796941FFFFFFFFFFFFFFFFFFFFFF
+      FFFFF7F6F3FF93835EFF66501CFF66501CFF786437FFFFFFFFFFF2F1ECFFE1DD
+      D3FFFFFFFFFF735F2FFF66501CFF66501CFF8A7851FFFFFFFFFFD1CBBCFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF9F9273FFC1B9A4FFC2B9A5FFC2B9A5FFC2B9A5FFC2B9A5FFB2A7
+      8DFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFFABA084FFE8E4DDFF6E5C31FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF6A5421FFD0C9B9FFCEC7B6FF8673
+      4AFFE9E6DEFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFAFA387FFFFFFFFFFFFFFFFFFC2B9A5FF66501CFF66501CFF6650
+      1CFF654F1CFFBFB7A2FFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF614D1EFF766438FF786539FF7966
+      3AFF6D5826FF66501CFF66501CFF66501CFF786437FFFFFFFFFFFFFFFFFFFFFF
+      FFFFE8E5DDFF66501CFF66501CFF66501CFF8A7851FFFFFFFFFFD1CBBCFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF8B7A55FFA29576FFA39676FFA49776FFA49776FFFBFBFAFFE4E0
+      D7FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFFACA085FFE8E5DDFF725F32FF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF6A5421FFD0C9B9FFCEC7B6FF6A5421FF6650
+      1CFFAA9D80FF776436FF66501CFF66501CFF654F1CFF634E1BFF614C1AFF7B6B
+      44FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF796638FFBDB39DFFBFB59FFF67511DFF66501CFF66501CFF6650
+      1CFF654F1CFFBFB7A2FFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF786437FFFFFFFFFFFFFFFFFFEAE6
+      DFFF776335FF66501CFF66501CFF66501CFF8A7851FFFFFFFFFFD1CBBCFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF725E2EFFCEC6B5FFE4E0
+      D7FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFFADA2
+      86FFE8E5DDFF736133FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF6A5421FFD0C9B9FFCEC7B6FF6A5421FF66501CFF6650
+      1CFF66501CFFEAE6DFFF776436FF66501CFF654F1CFF634E1BFF614C1AFFF6F4
+      F2FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFFA79B7CFFE1DCD2FF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFFB3A990FFEAE7E1FF8F815FFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF6A5421FFA6997AFFD4CEBFFF7764
+      36FF66501CFF66501CFF66501CFF66501CFF8A7851FFFFFFFFFFD1CBBCFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF725D2FFFE3DFD5FFB6AB92FF826F44FFE4E0
+      D7FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF94845EFF7662
+      34FF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFA19372FF6A5421FF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFFAA9D80FFEAE7E0FF766336FF634E1BFF614C1AFFF6F4
+      F2FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFFA69A7BFFE0DCD2FFF1EFEAFFFFFFFFFFE1DCD2FF998A
+      66FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF705C2EFFE3DFD5FFB5AA91FF66501CFF826F44FFE4E0
+      D7FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFFAA9D80FFEAE7E0FF756235FF614C1AFFF6F4
+      F2FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFFB6AC94FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA699
+      79FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF77653AFFE0DCD2FFE0DC
+      D2FFE1DCD2FFE1DCD2FFC4BBA7FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF6D5A2DFFE2DED5FFB4AA91FF654F1CFF654F1CFF816E44FFE4E0
+      D7FF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFFA99D80FFEAE7E0FF725F34FFF5F4
+      F2FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF6D592BFF796639FFC1B8A3FFFFFFFFFF79663AFF6D59
+      28FF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF7C6B42FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFDBD6CAFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3C2F10FF443612FF4B3B14FF5644
+      17FF68562CFFE2DED5FFB3A890FF624D1BFF634E1BFF634E1BFF7E6D43FFE4E0
+      D7FF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFFA79B7EFFE9E6E0FFFAF9
+      F8FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFFB6AC94FFFFFFFFFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF624E1FFF766438FF7765
+      39FF786539FF786539FF736032FF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3B2E10FF423412FF493914FF6251
+      2AFFE0DDD5FFB0A690FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFFD5D0C2FFD5D0C2FFD5D0C2FFD5CFC2FFD4CFC2FFF6F5F2FFFFFF
+      FFFF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF6C592AFF766438FF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF392D0FFF403211FF463713FF8477
+      59FFABA38DFF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF897956FF897956FF897956FF887956FF877856FF857655FF8375
+      55FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5E4A1AFFBBB29EFF8A7B58FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF897A5AFFF5F4F1FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE8E5DFFF766640FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF3B2E10FF423412FF493914FF5442
+      17FF584518FF6C5A2FFFBBB39EFFCAC3B3FFCBC4B3FFCBC4B3FFCBC4B3FFCBC4
+      B3FFCBC4B3FFCBC4B3FFCBC4B3FFCBC4B3FFCBC4B3FFBDB49EFF705D30FF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF6A572BFF816F
+      48FF817048FF817048FF817048FF817048FF817048FF817048FF817048FF8170
+      48FF817048FF6D592BFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF624D
+      1BFFC2BAA6FFFFFFFFFFF9F8F6FF8D7D59FF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF67562DFFF7F6F4FFFEFEFEFFD0CA
+      BBFFC0B8A4FFC0B8A4FFC0B8A4FFC0B8A4FFC0B8A4FFC0B8A4FFC0B8A4FFC0B8
+      A4FFC0B8A4FFC0B8A4FFC0B8A4FFDDD9CEFFFFFFFFFFE5E2DAFF5D491BFF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FFE2DFD6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE3DFD6FF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FFA69B80FFFDFDFCFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFDFDFCFFA99E81FF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFF644F1CFFC3BB
+      A7FFFFFFFFFFFFFFFFFFFFFFFFFFF9F8F6FF8F7E59FF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF998C6EFFFFFFFFFFC4BCA9FF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF644F1DFFE4E0D8FFFFFFFFFF7A6941FF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3D3010FF453613FF4C3C15FF5845
+      18FF6B592FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7460
+      32FF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF624E21FFFCFBFBFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFCFCFBFF6B5625FF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF654F1CFFC4BBA7FFFFFF
+      FFFFFFFFFFFFECEAE4FFFDFDFCFFFFFFFFFFF9F8F6FF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FFA09477FFFFFFFFFFACA187FF644F
+      1BFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFFD2CCBCFFFFFFFFFF867550FF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7864
+      37FF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF786437FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF67511DFFFFFFFFFFFFFF
+      FFFFE7E4DCFF756132FF9A8B67FFFDFDFCFFFFFFFFFF91815AFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFF66501CFFAFA387FFCCC5B4FFCCC5B4FFCCC5B4FFCCC5B4FFCCC5B4FFCCC5
+      B4FFCCC5B4FFCCC5B4FFA39575FF66501CFFD2CCBDFFFFFFFFFF877650FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7864
+      37FF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF786437FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF67511DFFC4BBA7FFFFFFFFFFE7E4
+      DCFF756132FF66501CFF66501CFF9A8B67FFFDFDFCFFF9F8F6FF91815AFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFF66501CFF998A66FFAEA286FFAEA286FFAEA286FFAEA286FFAEA286FFAEA2
+      86FFAEA286FFAEA286FF91815AFF66501CFFD2CCBDFFFFFFFFFF877650FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7864
+      37FF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF786437FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF66501DFFC4BBA7FFFFFFFFFFE7E4DCFF7561
+      32FF66501CFF66501CFF66501CFF66501CFF9A8B67FFFFFFFFFFF9F8F6FF9181
+      5AFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFF66501CFF8B7951FF9A8B67FF9A8B67FF9A8B67FF9A8B67FF9A8B67FF9A8B
+      67FF9A8B67FF9A8B67FF857248FF66501CFFD2CCBDFFFFFFFFFF877650FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7864
+      37FF654F1CFF634E1BFFBEB6A1FF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF816D42FFAEA287FF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF624D1BFFC3BBA7FFFFFFFFFFFFFFFFFFE7E4DCFF66501CFF6650
+      1CFF8B7951FFFFFFFFFFE4E0D7FF66501CFF66501CFF9A8B67FFFDFDFCFFFFFF
+      FFFFFAF9F7FF8F7E59FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFFD2CCBDFFFFFFFFFF877650FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7864
+      37FF654F1CFFA5997AFFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF816D42FFFEFEFEFF9B8E6CFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5E4A1AFFC2BAA6FFFFFFFFFFFFFFFFFFE7E4DCFF756132FF66501CFF6650
+      1CFF88764EFFF5F3F0FFDCD7CBFF66501CFF66501CFF66501CFF9A8B67FFFDFD
+      FCFFFFFFFFFFFAF9F7FF8D7D59FF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFFD2CCBDFFFFFFFFFF877650FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7864
+      37FF958661FFFDFDFCFFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF816D42FFFFFFFFFFFBFBFAFF84734CFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5A47
+      19FFC0B9A6FFFFFFFFFFFFFFFFFFE7E4DCFF756132FF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF9A8B
+      67FFFDFDFCFFFFFFFFFFF9F9F7FF8A7B58FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFF66501CFFC4BBA7FFEBE8E1FFEBE8E1FFEBE8E1FFEBE8E1FFEBE8E1FFEBE8
+      E1FF8E7C56FF66501CFF66501CFF66501CFFA79A7CFFC1B9A4FF77653AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7965
+      37FFE3DFD6FFFFFFFFFFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF816D42FFFFFFFFFFFFFFFFFFF2F0ECFF7160
+      36FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFBFB8
+      A6FFFFFFFFFFFFFFFFFFE7E3DBFF746032FF66501CFF66501CFF66501CFF6650
+      1CFF746030FFB8AE96FF998A66FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF998A67FFFDFDFCFFFFFFFFFFF9F9F7FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFF66501CFF847147FF907E58FF907E58FF907E58FF907E58FF907E58FF907E
+      58FF725E2EFFA49777FF746030FF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7864
+      37FF7B683CFFF2F1ECFFFFFFFFFF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF816D42FFFFFFFFFFFFFFFFFFDDD9CEFF6350
+      22FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFFFFF
+      FFFFFFFFFFFFE6E3DBFF725F31FF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF786537FFFFFFFFFFD0C9B9FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF988A67FFFDFDFCFFFFFFFFFF544219FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFF66501CFFA09371FFB8AE96FFB8AE96FFAA9D80FF66501CFF66501CFF735E
+      2FFF93835EFFFFFFFFFFFDFDFCFFD3CDBDFF978864FF644F1DFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7864
+      37FF654F1CFF85744CFFF9F8F6FF978A6AFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF816D42FFFFFFFFFFE9E6DFFF6E5B2DFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFA99F
+      87FFE6E3DBFF705D30FF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF68521FFFF6F5F2FFF3F1EDFF6C5725FF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF968866FFE3E0D7FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFF66501CFFA79B7CFFC2B9A5FFC2B9A5FFB2A78DFF66501CFF66501CFFD9D4
+      C7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE7E3DBFF887751FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0EEE9FFFFFF
+      FFFFFFFFFFFFEDEAE4FFB6AC93FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7864
+      37FF654F1CFF634E1BFF998B6AFF968969FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFF816D42FFF5F3F0FF79673BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF655224FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFB4A98FFFFFFFFFFFD2CBBCFF6A5421FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF604C1DFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF7A673AFFD1CABBFFFAFA
+      F8FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFDFFC7C0
+      AFFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF705E34FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC9C1AEFF9586
+      61FF94845EFFC8C0ADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7864
+      37FF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF705E34FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFBFB59FFF857349FF857349FF857349FF857349FF857349FFBFB5
+      9FFFFFFFFFFFFFFFFFFFFFFFFFFF786437FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF68521FFFC6BEABFFFFFFFFFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFFC3BAA5FFE3DFD5FFAA9D80FF87754CFF695320FFB2A78DFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF604C1DFFEDEBE5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9080
+      59FF8F7E57FFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEEEBE5FF6853
+      20FF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF69562AFFFEFEFEFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFEFEFEFF725E2EFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF67511DFFD6D1C3FF8E7D56FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA09577FFFFFFFFFFADA287FF654F
+      1CFFA19473FFECE9E3FFFFFFFFFFFFFFFFFFFBFBFAFFECE9E3FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFF534117FF4D3D15FF463713FF3E3110FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF6D5A2DFF958764FF988A67FFCFC8B8FFFFFFFFFFFFFFFFFFFBFA
+      F9FFFBFAF9FFFFFFFFFFFFFFFFFFFFFFFFFFCFC8B8FF978865FF725E2FFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FFAA9F85FFE5E2DAFFEAE8
+      E1FFF5F4F1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFF5F4F1FFE6E3DBFFADA186FF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF654F1CFFB7AD95FF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF9F9170FFB2A68DFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FFA09477FFFFFFFFFFACA187FF644F
+      1BFF654F1CFF66501DFFADA186FFD2CCBDFFF5F4F1FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFF524116FF4C3C15FF453613FF3D3010FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFFB6AC94FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB6AC94FF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFFB6AC94FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFB6AC94FF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFFFFFFFFFF7D6C
+      41FF634E1BFF634E1BFF634E1BFF634E1BFFAFA489FFAB9F83FF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF9F9377FFFFFFFFFFAEA389FF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF644F1DFF827047FFA89C80FFD5CF
+      C2FFFDFDFCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8F7F4FFEAE8E1FFE2DE
+      D6FF514016FF4B3B14FF443612FF3C2F10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF725F32FF817048FF817048FF8170
+      48FF817048FF817048FF817048FF817048FF725F32FF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF9F9273FFD5D0C2FFD5D0C2FFD5D0C2FFD5D0C2FFD5D0C2FFD5D0C2FFD5D0
+      C2FF9F9273FF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFFFFFFFFFFD8D2
+      C6FF685425FF614C1AFF614C1AFF7E6D44FFF3F2EEFF79673DFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF8B7D5DFFFFFFFFFFDFDBD1FF6B58
+      2AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF705D2FFFD9D4C8FFD6D0C3FFB3A991FF817048FF5F4B1BFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FFD3CDC0FFFFFF
+      FFFFF0EEE9FFCBC5B5FFD3CDC0FFFCFCFBFFFDFDFCFF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF58461BFFE0DCD4FFFFFFFFFFFDFD
+      FCFFF4F3F0FFF4F3F0FFF4F3F0FFF4F3F0FFF4F3F0FFF4F3F0FFDAD5CAFF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF5B481BFF9B90
+      73FFD2CCC0FFE6E4DDFFE2DFD6FFC2BBAAFF7B6C48FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF62512AFFC0BAA9FFF3F1
+      EEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE2DFD6FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF594619FF624F23FF5C4819FF5D4919FF5D4919FF685629FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF705E34FF6A582CFF5D49
+      19FF5C4819FF5B4719FF5C491DFF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF685528FFC8C1B1FFFFFFFFFFF6F4F2FFDAD6CBFFD4CF
+      C2FFE6E3DBFFF1EFEBFFA09577FF5E4A1AFF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF3B2E10FF423412FF493914FF5442
+      17FF584518FF908362FFDEDAD0FF695627FF614C1AFF614C1AFF998C6AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFFBEB6A1FFA39678FF614C
+      1AFF604B1AFF715F35FFE7E5DEFF72623CFF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFFE1DDD3FFF4F2EFFF9B8E6DFF634E1DFF614C1AFF614C
+      1AFF614C1AFFC3BBA7FFFEFEFEFFC3BBA7FF614C1BFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFFBAB19BFFDCD7CCFF6C5828FF634E1BFF9B8D6BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFFBFB7A2FFA49778FF634E
+      1BFF766337FFEBE8E1FFA4997CFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFFF8F7F4FF806E44FF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF9A8C6AFFFEFEFDFFABA085FF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF634E1CFFBEB59FFFDCD7CBFF6C5727FF9C8E6CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFFC0B7A2FFA59879FF7966
+      3AFFECEAE3FFA49879FF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF7B683DFFAA9E82FF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFFBAB099FFF9F8F6FF6E5B2DFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF66501DFFC2B9A4FFDBD5C9FF9D8E6CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFBCB39CFFEEEB
+      E5FFA39676FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFFC9C1AEFF6B5523FF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF725E2EFFFAF9F7FFA99D81FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF756338FF837148FF857249FF86734AFFDBD6CAFF9D8E6CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFFFFFFFFFC8C0
+      ADFF8F7E58FF8D7D58FF8C7B57FF6F5D32FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF7D6B3FFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFF4F3EFFF8673
+      4AFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF7D6B3FFFFDFDFCFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFFD4CEC0FFCFC8B9FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FFB3A991FFE0DCD2FFE0DCD2FFE1DCD2FFE1DCD2FF92825CFF6650
+      1CFF66501CFF6F5A29FF7B693CFF6B5624FF66501CFFA99C7DFFD6D1C3FFD6D1
+      C3FFD6D0C3FFD6D0C2FFD5D0C2FF8F815EFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF7B683BFFF6F5F2FF826F45FF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF93835EFFFEFEFEFF8D7C
+      55FF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFFC8C0ADFFEEECE6FF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFFBEB59FFFE0DCD2FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF6B5523FFDBD6
+      CAFF86734AFF87744BFFA39575FF7D6A3EFF9E906EFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7764
+      37FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD2CCBDFF6650
+      1CFF66501CFFDCD7CBFFFFFFFFFFC1B8A3FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFFB0A58AFFFFFFFFFF66501CFF6650
+      1CFF66501CFFC0B7A2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFFC7BF
+      ADFFEFEDE7FF786437FFFFFFFFFF766234FF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFFB0A58BFFEFEDE8FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFA39676FFA598
+      78FFA39575FFA89B7DFF826F44FFBCB39CFF8A7850FF837046FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7764
+      37FFFFFFFFFFFFFFFFFFEAE6DFFFE1DCD2FFE1DCD2FFE1DCD2FFBDB39DFF6650
+      1CFF66501CFF7B693CFFFDFCFBFFFBFBFAFF705B2CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFFE2DED4FFFFFFFFFF66501CFF6650
+      1CFF66501CFF857248FF9A8B67FF9A8B67FF9A8B67FFFFFFFFFFFFFFFFFFFFFF
+      FFFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF786539FFFDFC
+      FBFFA79B7CFFBAB098FFFFFFFFFF786437FF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFFACA085FFF6F5F2FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFC5BDA9FF7764
+      36FFC0B7A2FF66501CFF66501CFF68521FFFBFB6A0FFA49777FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7764
+      37FFFFFFFFFFFFFFFFFFD8D2C5FF68521FFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFFD8D2C5FFFFFFFFFF92825DFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFFFAF9F7FFFAFAF8FF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF7B683BFFFFFFFFFFFFFFFFFFFFFF
+      FFFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF9F9271FFFFFF
+      FFFF847147FFF9F8F6FFFFFFFFFF786437FF67511DFF6A5522FF66501CFF6D58
+      27FF91815AFF8B7A52FFEBE8E1FF9E906EFFA59879FFFDFCFBFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFC0B7A1FF806D
+      41FFC1B8A3FF66501CFF66501CFF6F5A29FFBBB19AFFA09371FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7764
+      37FFFFFFFFFFF5F4F1FFFFFFFFFFC3BAA5FF67511DFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFFCCC4B3FFFFFFFFFF9A8B68FF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFFF5F4F1FFFDFCFBFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF735E2FFFEAE6DFFFCEC6B5FFF6F5F2FFFFFF
+      FFFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF79673BFFF7F6
+      F3FFFFFFFFFFEFEDE7FFFFFFFFFF715C2CFFD6D0C2FFF8F7F4FF7E6B3FFFC5BD
+      A9FFFFFFFFFFB7AC94FFFFFFFFFFD2CBBCFFA09271FFFFFFFFFF624D1CFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF94845EFFB7AC
+      94FF8B7951FFBFB59FFFA59878FFC4BBA7FF7A6739FF766234FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7764
+      37FFFFFFFFFFEDEBE4FFFBFAF9FFFFFFFFFFC0B7A2FF68521FFF66501CFF6650
+      1CFF66501CFF6A5421FFEEECE6FFFFFFFFFF85734AFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFFD3CDBEFFFFFFFFFF66501CFF6650
+      1CFF66501CFF66501CFF776335FFE5E2D9FFFFFFFFFF6E5A28FFF6F5F2FFFFFF
+      FFFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7864
+      37FF9B8C69FF735E2FFFFFFFFFFF705B2AFFFEFEFEFFFFFFFFFF9D8E6CFFD8D2
+      C5FFFFFFFFFFB0A489FFFFFFFFFFD6D1C3FF9C8E6CFFFFFFFFFF6A5627FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFFCAC2
+      B0FFAFA387FF6D5827FF7C693DFF715C2CFFC7BFACFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7764
+      37FFFFFFFFFFEDEBE4FF92825CFFF9F8F6FFFFFFFFFFD6D1C3FF7C693DFF6650
+      1CFF66501CFFC8C0ADFFFFFFFFFFE5E1D8FF66501DFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF94855FFFFFFFFFFFADA286FF7A67
+      3AFF776335FFA69979FFF4F2EEFFFFFFFFFFE7E4DCFF66501CFFF6F5F2FFFFFF
+      FFFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFFFFFFFFF705C2BFFFFFFFFFFFFFFFFFF9A8C68FFDBD6
+      CAFFFFFFFFFFAFA387FFFFFFFFFFDBD6CAFF93835EFFFFFFFFFF705D2FFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF756338FF837148FF857249FF857349FF857349FF715C2CFF6852
+      1FFFAA9D80FFD8D3C5FFD7D1C4FFD5CFC1FF968762FF7E6B3FFF907E58FF907E
+      58FF8F7E58FF8D7D58FF8C7B57FF6F5D32FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7764
+      37FFFFFFFFFFEDEBE4FF66501CFF8A7850FFF2F0ECFFFFFFFFFFFEFEFDFFE1DC
+      D2FFDCD7CBFFFFFFFFFFF8F7F5FF86734AFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFFBAB199FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFD5CFC1FF715D2DFF66501CFFF6F5F2FFFFFF
+      FFFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFF8F7F4FF786537FFFFFFFFFFFFFFFFFF94845EFFDBD6
+      CAFFFFFFFFFFAEA286FFFFFFFFFFE3DFD5FF8F7E58FFFFFFFFFF736135FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF847147FFF0EEE9FF9D8E6CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFE9E6DEFFE1DC
+      D2FF6E5929FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6D5826FF8977
+      4FFF8E7C56FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFE6E2DAFF8C7A53FFFFFFFFFFFFFFFFFF91815AFFE4E0
+      D7FFFFFFFFFFA69979FFFFFFFFFFFFFFFFFFF6F5F2FFEFEDE8FF655120FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF847148FFF1EFEAFF988965FF9D8E6CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFA69979FFBCB3
+      9CFFDFDACFFF6C5828FF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFDED9CDFF94855FFFFFFFFFFFFFFFFFFF8B7951FFE4E0
+      D7FFFFFFFFFFA49776FFFFFFFFFF94855FFFB2A78EFF786539FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF83724AFFF2F0EBFF958661FF654F1CFF9C8E6CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFFC0B7A2FFA59879FF6650
+      1DFFBDB49DFFDCD7CBFF685426FF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFFD7D2C5FFA09271FFFFFFFFFFFFFFFFFF8A7851FFE6E2
+      DAFFFFFFFFFF9C8E6CFFFFFFFFFF695422FF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF83724DFFF1F0EBFF90815DFF634E1BFF634E1BFF9B8D6BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFFBFB7A2FFA49778FF634E
+      1BFF634E1CFFBFB6A2FFD9D4C8FF624F23FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFFFEFEFDFFF6F5F3FFF4F3EFFFFFFFFFFF85734BFFEDEA
+      E4FFFFFFFFFFBAB19AFFFDFDFCFF66511FFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF7A6A43FF8B7B59FF604B1AFF614C1AFF614C1AFF8B7A55FF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFFA69A7CFF91835FFF614C
+      1AFF604B1AFF5F4B1BFFA99E85FF625126FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF9E9172FFAFA48BFF8B7B56FFFFFFFFFF8A7954FFF2F0
+      ECFFD0CABBFFFFFFFFFFB8AF98FF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF614D1EFFE6E3DBFFFFFFFFFFFBFB
+      FAFF7D6D47FF6F5D32FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF655328FF968A6CFF7566
+      40FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF62512BFF776847FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF6B59
+      2DFFE4E0D8FFFFFFFFFFFFFFFFFFF6F4F2FF81714BFF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FFA5997EFFD1CBBDFFEFEDE8FFFFFFFFFFFFFFFFFFEFED
+      E8FFD1CBBDFF6A582CFF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF3B2E10FF423412FF493914FF5442
+      17FF584518FF6B582EFF84744FFF604B1AFF614C1AFF614C1AFF83724AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF998C6AFF897852FF614C
+      1AFF604B1AFF5E4A1AFF82724EFF5C491DFF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF6B592FFF857450FF604B
+      1AFF614C1AFF614C1AFF83724AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF998C6AFF897852FF614C1AFF604B1AFF5E4A1AFF847451FF5C49
+      1DFF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF6F5B2EFFE5E1
+      D9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6F5F2FF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF675323FFB5AB94FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFF9F8F6FFB6AC95FF685424FF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF84744FFFF2F0ECFF887750FF634E1BFF634E1BFF9B8D6BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFFBFB7A2FFA49778FF634E
+      1BFF624D1BFF988A69FFF0EEEAFF726139FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF83734EFFF3F1EDFF8877
+      51FF634E1BFF634E1BFF9B8D6BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFFBFB7A2FFA49778FF634E1BFF624D1BFF998C6AFFEFEDE9FF715F
+      38FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFFE5E1D9FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF86754DFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF7866
+      3BFFE7E3DBFFFFFFFFFFD1CBBBFF998C69FF756336FF644F1CFF685422FF7865
+      39FF998C69FFFEFEFEFFFFFFFFFFE7E3DBFF78663BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF8D7C58FFF1EFEAFF88764FFF654F1CFF9C8E6CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFFC0B7A2FFA59879FF654F
+      1CFF9D8F6DFFEFEDE8FF7B6940FF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF8B7B56FFF1EF
+      EBFF897750FF654F1CFF9C8E6CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFFC0B7A2FFA59879FF654F1CFF9E916FFFEEECE7FF79683FFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF725D2FFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6F5F2FF88764FFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF78663BFFF1EF
+      EBFFFFFFFFFFE8E4DCFF654F1CFF654F1CFF6C5726FF806D43FF806D43FF6C57
+      26FF654F1CFF86734BFFE8E4DCFFFFFFFFFFF1EFEBFF78663BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF91815BFFF1EFEBFF87754CFF9D8E6CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFA69979FFA093
+      71FFEEECE6FF7C6A3FFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF8F7E
+      59FFF1EFEAFF88764EFF9D8E6CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFC0B7A2FFA69979FFA19473FFEEEBE5FF7B693EFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF857248FF9A8B67FF9A8B
+      67FFB2A68CFFFFFFFFFFFFFFFFFFC9C2AFFF9A8B67FF9A8B67FF91815AFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF675222FFE5E2DAFFFFFF
+      FFFFD9D4C7FF705B2AFF8D7C55FFD6D1C3FFFDFCFBFFFFFFFFFFFFFFFFFFFDFC
+      FBFFD6D1C3FF66501CFF705B2AFFD9D3C6FFFFFFFFFFE6E3DBFF675222FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF93835DFFF2F1ECFF9D8E6CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFDAD5C8FFEEEB
+      E5FF7C6A3FFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF92825CFFF2F1ECFF9D8E6CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFC0B7A2FFDBD5C9FFEEEBE5FF7B683DFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF725E2FFF746030FF66501CFF66501CFF6650
+      1CFF8B7951FFFFFFFFFFFFFFFFFFAFA387FF66501CFF66501CFF66501CFF6650
+      1CFF826F46FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FFAEA48AFFFFFFFFFFE6E2
+      DAFF6C5725FF68521FFFFFFFFFFFFFFFFFFFF5F4F1FFDBD6CAFFDBD6CAFFF5F3
+      F0FFFFFFFFFFBDB49EFF68521FFF6C5725FFE6E3DBFFFFFFFFFFAFA48BFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF9F9273FFC1B9A4FFC2B9A5FFC2B9A5FFE5E1D8FF9D8E6CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFFFFFFFFFD6D1
+      C3FFC2B9A5FFC1B9A4FFC0B8A4FF867652FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF9F9273FFC1B9A4FFC2B9
+      A5FFC2B9A5FFE4E0D7FF9D8E6CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFC0B7A2FFFFFFFFFFD6D0C2FFC2B9A5FFC1B9A4FFC0B8A4FF8676
+      52FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF705D2FFFE5E1D9FF826F44FF66501CFF66501CFF6650
+      1CFF8B7951FFFFFFFFFFFFFFFFFFAFA387FF66501CFF66501CFF66501CFF6650
+      1CFFEDEAE4FF86754DFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF6A572BFFF6F5F2FFFEFEFEFF8674
+      4CFF66501CFFBDB49EFFF4F3EFFF9F916FFF695320FF715C2CFF715C2CFF6953
+      20FF9F916FFFFFFFFFFFBDB49EFF66501CFF86744CFFFEFEFEFFF6F5F2FF6A57
+      2BFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF9383
+      5DFFF2F0ECFFC0B7A2FFA79A7BFFC3BAA5FFF2F1ECFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFFFFFFFFFA699
+      79FF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF6B592DFFE5E1D9FFFFFFFFFFFFFFFFFF826F44FF66501CFF66501CFF6650
+      1CFF8B7951FFFFFFFFFFFFFFFFFFAFA387FF66501CFF66501CFF66501CFF6650
+      1CFFF6F5F2FFFFFFFFFFF6F5F2FF81714BFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD0CABDFFFFFFFFFFA09373FF654F
+      1CFFD3CDBEFFFFFFFFFF8C7A53FFFDFCFBFFFDFDFCFFD4CEBFFFD7D1C4FFFDFD
+      FCFFFDFCFBFFA09371FFFFFFFFFFD6D0C2FF654F1CFFA09372FFFFFFFFFFD0CA
+      BDFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF725E2EFFF2F1
+      ECFF89774FFF806D41FFAA9E81FF7E6B3FFF8D7C55FF6F5A29FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFFFFFFFFFA699
+      79FF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF6756
+      2CFFE4E0D8FFFFFFFFFFFFFFFFFFFFFFFFFF8A7850FF705C2BFF705C2BFF705C
+      2BFF93835DFFFFFFFFFFFFFFFFFFB4A98FFF705C2BFF705C2BFF705C2BFF705C
+      2BFFF7F5F3FFFFFFFFFFFFFFFFFFF6F4F2FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFEDEBE6FFFFFFFFFF776538FF6954
+      22FFFBFAF9FFF6F5F2FFE1DDD3FFFDFDFCFF907E58FF66501CFF66501CFF907E
+      58FFFDFDFCFF695320FFF6F5F2FFFCFCFBFF695422FF7A683DFFFFFFFFFFEEEC
+      E7FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFA49776FFC8C0
+      ADFF7B683BFFFAF9F7FFFFFFFFFFF9F8F6FF786537FF9D8F6DFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF9D8E6CFFC2B9A5FFC2B9A5FFE6E2DAFFFFFFFFFFDBD6
+      CAFFC2B9A5FF8D7B54FF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFE3E0
+      D8FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF796B4BFF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFFCFBFBFFFFFFFFFF66511FFF7A67
+      3BFFFFFFFFFFDBD6CAFFFFFFFFFFD5CFC1FF66501CFF66501CFF66501CFF6650
+      1CFFD5CFC1FF6F5A29FFDBD5C9FFFFFFFFFF7A673BFF6A5625FFFFFFFFFFFCFC
+      FBFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFB3A88EFFB3A8
+      8EFF9A8C68FFFFFFFFFFFFFFFFFFFFFFFFFF978863FFADA286FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFC0B7A2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFA69979FF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FFFAF9
+      F8FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA49B85FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFFCFBFBFFFFFFFFFF66511FFF7D6A
+      3FFFFFFFFFFFDBD6CAFFFFFFFFFFD5CFC1FF66501CFF66501CFF66501CFF6650
+      1CFFD6D0C2FF6F5A29FFDBD6CAFFFFFFFFFF7E6B40FF66511FFFFFFFFFFFFCFB
+      FBFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF9D8F6DFFD3CD
+      BDFF735F2FFFEEECE6FFFFFFFFFFEDEBE4FF715C2CFF968762FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF8B7951FFA49776FFA49776FFD9D4C7FFFFFFFFFFC9C2
+      AFFFA49776FF806D41FF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF8879
+      58FFFAF9F8FFFFFFFFFFFFFFFFFFFFFFFFFFCDC6B5FFC2B9A5FFC2B9A5FFC2B9
+      A5FFD1CABAFFFFFFFFFFFFFFFFFFDFDACFFFC2B9A5FFC2B9A5FFC2B9A5FFC2B9
+      A5FFFBFBFAFFFFFFFFFFFFFFFFFFFFFFFFFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFEDEAE5FFFFFFFFFF78663AFF6A54
+      23FFFBFAF9FFF7F5F3FFDFDBD0FFFEFEFDFF94845EFF66501CFF66501CFF9484
+      5EFFFEFEFDFF6A5522FFF7F5F3FFFBFBFAFF6A5524FF78663AFFFFFFFFFFEDEA
+      E5FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF6B5523FFEBE8
+      E2FFA29574FF6E5A28FF8C7A53FF6D5826FFA49777FF6A5421FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFFFFFFFFFA699
+      79FF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF8B7B59FFFAF9F8FFFFFFFFFFFFFFFFFF826F44FF66501CFF66501CFF6650
+      1CFF8B7951FFFFFFFFFFFFFFFFFFAFA387FF66501CFF66501CFF66501CFF6650
+      1CFFF6F5F2FFFFFFFFFFFFFFFFFFAEA38BFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFD0CABCFFFFFFFFFFA19474FF654F
+      1CFFD1CABBFFFFFFFFFF8B7A52FFFBFBFAFFFEFEFDFFD7D1C4FFDBD5C9FFFEFE
+      FDFFFBFBFAFFA29574FFFFFFFFFFD4CEBFFF654F1CFFA19474FFFFFFFFFFD0CA
+      BCFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF7E6C
+      40FFE8E4DCFFDED9CDFFC3BAA5FFE0DCD1FFE5E1D8FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFFFFFFFFFA699
+      79FF66501CFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF8E7E59FFFAF9F8FFFFFFFFFF826F44FF66501CFF66501CFF6650
+      1CFF8B7951FFFFFFFFFFFFFFFFFFAFA387FF66501CFF66501CFF66501CFF6650
+      1CFFF6F5F2FFFFFFFFFFB0A58CFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FFA29679FFFFFFFFFFD6D0C2FF654F
+      1CFF8A7850FFFFFFFFFF816D42FF8B7951FFDFDACFFFFEFEFEFFFEFEFEFFDED9
+      CEFF8B7951FFF6F5F2FFFFFFFFFF8A7850FF654F1CFFD6D0C2FFFFFFFFFFA296
+      79FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF8B7A55FFA29576FFA39676FFA49776FFDED9CEFF9D8E6CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFFFFFFFFFC9C2
+      AFFFA39676FFA29576FFA19475FF78673FFF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF8B7A55FFA29576FFA396
+      76FFA49776FFDFDBD0FF9D8E6CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFC0B7A2FFFFFFFFFFCAC2B0FFA39676FFA29576FFA19475FF7867
+      3FFF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF91815BFF7D6A3EFF66501CFF66501CFF6650
+      1CFF8B7951FFFFFFFFFFFFFFFFFFAFA387FF66501CFF66501CFF66501CFF6650
+      1CFFA99D80FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FFACA186FFFFFFFFFFE8E4
+      DCFF6F5A29FF68521FFFFFFFFFFFFFFFFFFFF8F7F4FFDFDACFFFDED9CEFFF8F7
+      F4FFFFFFFFFFB9AF97FF68521FFF6F5A29FFE8E4DCFFFFFFFFFFACA187FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFFADA185FFE9E6DEFF9D8E6CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFFC0B7A2FFCAC2B0FFF3F1
+      EDFF8B7952FF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFFAEA286FFE8E5DDFF9D8E6CFF66501CFF66501CFF66501CFF66501CFF6650
+      1CFF66501CFFC0B7A2FFC9C2AFFFF3F1EDFF8B7A53FF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF6650
+      1CFF8B7951FFFFFFFFFFFFFFFFFFAFA387FF66501CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF665221FFDEDACFFFFFFF
+      FFFFDBD5C9FF715D2DFF88764EFFD1CABAFFFAF9F7FFFFFFFFFFFFFFFFFFFAF9
+      F7FFD1CABAFF66501CFF715C2CFFDBD5C9FFFFFFFFFFDEDACFFF665221FF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFFAFA489FFE8E4DCFF756133FF9C8E6CFF654F
+      1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFFC0B7A2FFA59879FF8E7C
+      56FFF1EFEBFF877650FF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFFAFA4
+      89FFE7E4DCFF746032FF9C8E6CFF654F1CFF654F1CFF654F1CFF654F1CFF654F
+      1CFF654F1CFFC0B7A2FFA59879FF8C7A54FFF2F1ECFF887750FF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF837047FFEBE8E1FFEBE8
+      E1FFEFEDE8FFFFFFFFFFFFFFFFFFF4F3EFFFEBE8E1FFEBE8E1FF9F9170FF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF736034FFEEEC
+      E6FFFFFFFFFFEAE7E0FF654F1CFF654F1CFF695321FF766336FF766336FF6953
+      21FF654F1CFF8D7C56FFEAE7E0FFFFFFFFFFEEECE6FF736034FF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFFB0A68DFFE6E3DBFF725F30FF634E1BFF9B8D6BFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFFBFB7A2FFA49778FF634E
+      1BFF8D7D58FFF0EEEAFF82724CFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFFB1A78EFFE5E2
+      DAFF715E2FFF634E1BFF9B8D6BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFFBFB7A2FFA49778FF634E1BFF8D7C58FFF0EEEAFF83724DFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFFFAF9F8FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB1A68CFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF7663
+      37FFE4E0D7FFFFFFFFFFD8D3C6FFA39677FF7D6B40FF6B5727FF6B5727FF7D6B
+      40FFA39677FFFFFFFFFFFFFFFFFFE4E1D8FF766337FF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF998C6DFFE3E0D8FF6E5A2EFF614C1AFF614C1AFF998C6AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFFBEB6A1FFA39678FF614C
+      1AFF604B1AFF8C7D5AFFF2F0ECFF6A5930FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF998C6DFFE2DFD6FF6D5A
+      2DFF614C1AFF614C1AFF998C6AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFFBEB6A1FFA39678FF614C1AFF604B1AFF8C7C59FFF1EFEBFF6B5A
+      32FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF8E7E59FFFAF9
+      F8FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF665221FFB2A88FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFF8F7F4FFB2A88FFF665221FF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF392D0FFF403211FF463713FF5140
+      16FF554317FF5E4C20FF67552AFF5C4819FF5D4919FF5D4919FF746339FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF84744FFF78673FFF5D49
+      19FF5C4819FF5B4719FF706039FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF5D4B1FFF67552AFF5C48
+      19FF5D4919FF5D4919FF746339FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF84744FFF78673FFF5D4919FF5C4819FF5B4719FF6F5F38FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF8B7B
+      59FFFAF9F8FFFFFFFFFFFFFFFFFFFFFFFFFFAEA38BFF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FFA09577FFCEC8BAFFEBE8E2FFFAF9F8FFF7F6F3FFE5E2
+      DAFFCEC8BAFF685528FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF897A59FFFAF9F8FFFFFFFFFFACA28BFF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF52462CFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE8E7E3FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF3A2E0FFF554A2DFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE9E7E3FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF3A2E0FFF3F3211FF4939
+      13FF4C3C15FF4F3E15FF514016FF524116FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF524116FF514016FF4F3E15FF4C3C15FF443612FF3F3211FF3A2E0FFF392D
+      0FFF392D0FFF3A2E0FFF3F3211FF493913FF4C3C15FF4F3E15FF514016FF5241
+      16FF534117FF534117FF534117FF534117FF534117FF534117FF534117FF5341
+      17FF534117FF534117FF534117FF534117FF524116FF514016FF4F3E15FF4C3C
+      15FF443612FF3F3211FF3A2E0FFF392D0FFF392D0FFF403211FF5C4E2FFFFFFF
+      FFFFFFFFFFFFB9B19EFF9D9175FF9E9275FF9E9275FF9E9275FF9E9275FF9E92
+      75FF9E9275FF9E9275FFA19578FF9E9275FF9E9275FF9E9275FF9E9275FF9E92
+      75FF9E9275FF9D9175FF9B9074FFCFCABEFFFFFFFFFFE9E8E3FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF6A582CFFBAB19CFF5E4A
+      1BFF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF8D7E
+      5CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF978A6AFF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF3B2E10FF423412FF5E5030FFFFFF
+      FFFFFFFFFFFF8D7E5CFF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF8B7A55FFE0DCD2FF6A5627FF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FFB1A893FFFFFFFFFFEAE8E3FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF65501FFFD7D2C5FFFFFFFFFFB5AB
+      94FF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF9081
+      5DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF998C6AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF6E5B2DFF7E6D44FF665221FF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3C2F10FF443612FF605230FFFFFF
+      FFFFFFFFFFFF8E805DFF614C1AFF624D1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF7C6A3FFFF6F5F2FFFFFFFFFFD3CDBFFF65501EFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFFB2A993FFFFFFFFFFEAE8E3FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFFC6BEABFFFFFFFFFFFFFFFFFFFFFF
+      FFFFA09373FF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFF634E1BFF9283
+      5EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9B8D6BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF6A5626FFFEFEFEFFFFFFFFFFF7F6F3FFA49879FF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3D3010FF453613FF615330FFFFFF
+      FFFFFFFFFFFF8F815DFF624D1BFF644F1BFF654F1CFF654F1CFF654F1CFF725D
+      2FFFE9E6DFFFFFFFFFFFFFFFFFFFFFFFFFFFC0B7A2FF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFFB3A993FFFFFFFFFFEAE8E4FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFF654F1CFFAEA287FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFBFBFAFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF654F1CFF654F1CFF9383
+      5EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9C8E6CFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF654F1CFF6C57
+      27FFDAD5C9FFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFF90815CFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF634E1BFF654F1CFF66501CFF66501CFF6A5421FFDCD7
+      CBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF988965FFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFF7B693CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9D8E6CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF6D5827FFDBD5
+      C9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD0C9BAFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF634E1BFF654F1CFF66501CFF66501CFF6B5624FF7A67
+      3AFF7A673AFFAA9D80FFFFFFFFFF7A673AFF7A673AFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFF9F8F6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFEAE6DFFF725E2EFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9D8E6CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFFC5BCA8FFE5E2D9FFF1EFEBFFE5E2D9FFE7E3DBFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDBD6CAFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF634E1BFF654F1CFF66501CFF67511DFF66501CFF6650
+      1CFF66501CFF9D8E6CFFFFFFFFFF66501CFF66501CFF66501CFF68521FFF6650
+      1CFF654F1CFF634E1BFF614C1AFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF776335FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFD8D2C5FF6A5421FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9D8E6CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF6B5624FFC8C0ADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB8AF98FF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF634E1BFF756133FFE1DCD2FFFFFFFFFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF94845EFFFFFF
+      FFFFC8C0ADFF675321FF614C1AFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF907E58FFB8AE96FFB8AE96FFB8AE96FFFBFAF9FFFFFFFFFFFFFFFFFFFFFF
+      FFFFEEECE6FFB8AE96FFB8AE96FFB8AE96FF7B683CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9D8E6CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFFB5AB
+      92FFFFFFFFFFEEECE6FF66501CFF66501CFF66501CFF66501CFF66501CFF7A67
+      3AFFECE9E3FFFFFFFFFFFFFFFFFFECE9E3FF786437FF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF816F46FFEEECE6FFFFFFFFFFFFFFFFFF857349FF8471
+      47FF66501CFF66501CFF66501CFF66501CFF6B5624FF857349FFA99D7EFFFFFF
+      FFFFFFFFFFFFDBD6CAFF6D5A2CFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDBD6CAFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9D8E6CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF6D5929FFF9F8
+      F6FFFEFEFEFF8A784FFF66501CFFA59878FFEBE8E1FFA59878FF66501CFF6650
+      1CFF86734AFFFFFFFFFFECE9E3FF786537FF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF978866FFF1EFEBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6F5
+      F2FF66501CFF66501CFF66501CFF66501CFF826F44FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFD5D0C2FFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDBD6CAFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9D8E6CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF9A8C6AFFFFFF
+      FFFFD9D3C6FF66501CFF66501CFFAFA387FFFFFFFFFFAFA387FF66501CFF6650
+      1CFF66501CFFFFFFFFFFA49776FF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF837148FFEEECE6FFFFFFFFFFFFFFFFFF857349FF8471
+      47FF66501CFF66501CFF66501CFF66501CFF6B5624FF857349FFA99D7EFFFFFF
+      FFFFFFFFFFFFDBD6CAFF6F5B2EFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDBD6CAFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9D8E6CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFFB3A990FFFFFF
+      FFFFB4AA90FF66501CFFEBE8E1FFF4F3EFFFFFFFFFFFF4F3EFFFEBE8E1FFA598
+      78FF66501CFFFFFFFFFFB9AE96FF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF634E1BFF756133FFE1DCD2FFFFFFFFFF66501CFF6650
+      1CFF66501CFF66501CFF66501CFF66501CFF66501CFF66501CFF94845EFFFFFF
+      FFFFC8C0ADFF675321FF614C1AFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDBD6CAFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFF66501CFF9484
+      5EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9D8E6CFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFFB3A990FFFFFF
+      FFFFB2A68CFF66501CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFA3
+      87FF66501CFFFFFFFFFFBDB49EFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF634E1BFF654F1CFF6D5826FFCFC8B7FF66501CFF6650
+      1CFF66501CFF9D8E6CFFFFFFFFFF66501CFF66501CFF66501CFF93835EFFB2A6
+      8CFF66501DFF634E1BFF614C1AFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDBD6CAFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFFADA185FFC2B9A5FFC2B9A5FFD4CE
+      BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD8D2C5FFC2B9A5FFC2B9A5FFAA9D
+      80FF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFFA39677FFFFFF
+      FFFFCBC3B1FF66501CFF705C2BFFB4A98FFFFFFFFFFFB4A98FFF705C2BFF6B55
+      23FF66501CFFFFFFFFFFAA9E81FF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF634E1BFF654F1CFF66501CFF67511EFF66501CFF6650
+      1CFF66501CFF9D8E6CFFFFFFFFFF66501CFF66501CFF66501CFF685320FF6650
+      1CFF654F1CFF634E1BFF614C1AFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDBD6CAFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF7E6C40FFF6F5F2FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6F5F2FF7C69
+      3DFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF79673BFFFEFE
+      FEFFF8F7F5FF756132FF66501CFFAFA387FFFFFFFFFFAFA387FF66501CFF6650
+      1CFF725E2EFFFFFFFFFF7E6B3FFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF634E1BFF654F1CFF66501CFF66501CFF6A5421FFDED9
+      CEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDBD6CAFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFACA084FF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF7662
+      35FFF1EFEAFFFFFFFFFF8A7850FF66501CFF66501CFF66501CFF88764DFFDCD7
+      CCFFFFFFFFFF7B683BFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF625430FFFFFF
+      FFFFFFFFFFFF90815DFF634E1BFF654F1CFF66501CFF66501CFF66501CFF735E
+      2FFFEAE7E0FFFFFFFFFFFFFFFFFFFFFFFFFFC0B7A2FF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFFB3AA93FFFFFFFFFFEAE8E4FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF66501CFF66501CFF66501CFF66501CFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDBD6CAFF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3E3110FF463713FF4D3D15FF5946
+      18FF5D4919FF614C1AFF634E1BFF654F1CFF66501CFF66501CFFCCC4B3FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF66501CFF66501CFF6650
+      1CFF654F1CFF634E1BFF614C1AFF5D4919FF534117FF4D3D15FF463713FF3E31
+      10FF3E3110FF463713FF4D3D15FF594618FF5D4919FF614C1AFF634E1BFF654F
+      1CFF826F44FFECE9E3FFFFFFFFFFF2F0ECFFE1DCD2FFF1EFEAFFFFFFFFFFFFFF
+      FFFFEEECE6FF66501CFF66501CFF66501CFF654F1CFF634E1BFF614C1AFF5D49
+      19FF534117FF4D3D15FF463713FF3E3110FF3D3010FF453613FF615330FFFFFF
+      FFFFFFFFFFFF8F815DFF624D1BFF644F1BFF654F1CFF654F1CFF654F1CFF654F
+      1CFF816E44FFF6F5F2FFFFFFFFFFD7D2C5FF67511FFF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFFB3A993FFFFFFFFFFEAE8E4FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF654F1CFF654F1CFF654F1CFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDBD6CAFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3D3010FF453613FF4C3C15FF5845
+      18FF5C4819FF604B1AFF624D1BFF644F1BFF654F1CFF654F1CFF6B5625FFE2DE
+      D4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE0DBD1FF654F1CFF654F1CFF654F
+      1CFF644F1BFF624D1BFF604B1AFF5C4819FF524116FF4C3C15FF453613FF3D30
+      10FF3D3010FF453613FF4C3C15FF584518FF5C4819FF604B1AFF624D1BFF644F
+      1BFF654F1CFF6F5A2AFFEEEBE5FFFFFFFFFFFFFFFFFFFFFFFFFFEFECE7FFB7AD
+      95FF6F5A2AFF654F1CFF654F1CFF654F1CFF644F1BFF624D1BFF604B1AFF5C48
+      19FF524116FF4C3C15FF453613FF3D3010FF3C2F10FF443612FF605230FFFFFF
+      FFFFFFFFFFFF8E805DFF614C1AFF624D1BFF634E1BFF634E1BFF634E1BFF634E
+      1BFF634E1BFF8F7E59FFE2DFD5FF6C5828FF634E1BFF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFFB2A993FFFFFFFFFFEAE8E3FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDBD6CAFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3C2F10FF443612FF4B3B14FF5644
+      17FF5B4719FF5E4A1AFF614C1AFF624D1BFF634E1BFF634E1BFF634E1BFF7563
+      36FFF2F1ECFFFFFFFFFFFFFFFFFFF1EFEBFF746134FF634E1BFF634E1BFF634E
+      1BFF624D1BFF614C1AFF5E4A1AFF5B4719FF514016FF4B3B14FF443612FF3C2F
+      10FF3C2F10FF443612FF4B3B14FF564417FF5B4719FF5E4A1AFF614C1AFF624D
+      1BFF634E1BFF634E1BFF644F1CFF746134FF837148FF756235FF644F1CFF634E
+      1BFF634E1BFF634E1BFF634E1BFF634E1BFF624D1BFF614C1AFF5E4A1AFF5B47
+      19FF514016FF4B3B14FF443612FF3C2F10FF3B2E10FF423412FF5E5030FFFFFF
+      FFFFFFFFFFFFBAB29EFF9F9375FFA09475FFA19475FFA19475FFA19475FFA194
+      75FFA19475FFA19475FFA4987AFFA19475FFA19475FFA19475FFA19475FFA194
+      75FFA09475FF9F9375FF9E9275FFD0CBBEFFFFFFFFFFEAE8E3FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFFF6F5F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFDAD5C9FF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF3B2E10FF423412FF493914FF5442
+      17FF584518FF5C4819FF5E4A1AFF604B1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF887751FFFBFBFAFFFBFBFAFF86744EFF614C1AFF614C1AFF614C1AFF614C
+      1AFF604B1AFF5E4A1AFF5C4819FF584518FF4F3E15FF493914FF423412FF3B2E
+      10FF3B2E10FF423412FF493914FF544217FF584518FF5C4819FF5E4A1AFF604B
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C1AFF614C
+      1AFF614C1AFF614C1AFF614C1AFF614C1AFF604B1AFF5E4A1AFF5C4819FF5845
+      18FF4F3E15FF493914FF423412FF3B2E10FF392D0FFF403211FF5C4E2FFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE9E8E3FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FFF6F4F2FFFFFFFFFFFFFFFFFFFFFF
+      FFFFD9D4C9FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF403211FF463713FF5140
+      16FF554317FF584518FF5B4719FF5C4819FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FFA09577FF9D9072FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5C4819FF5B4719FF584518FF554317FF4C3C15FF463713FF403211FF392D
+      0FFF392D0FFF403211FF463713FF514016FF554317FF584518FF5B4719FF5C48
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D4919FF5D49
+      19FF5D4919FF5D4919FF5D4919FF5D4919FF5C4819FF5B4719FF584518FF5543
+      17FF4C3C15FF463713FF403211FF392D0FFF392D0FFF3D3010FF594D2EFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE9E7E3FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FFC2BAA9FFC8C2B2FFC8C2B2FFC8C2
+      B2FFAEA58EFF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF3D3010FF433512FF4D3D
+      15FF514016FF544217FF564417FF584518FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF584518FF564417FF544217FF514016FF493913FF433512FF3D3010FF392D
+      0FFF392D0FFF3D3010FF433512FF4D3D15FF514016FF544217FF564417FF5845
+      18FF594618FF594618FF594618FF594618FF594618FF594618FF594618FF5946
+      18FF594618FF594618FF594618FF594618FF584518FF564417FF544217FF5140
+      16FF493913FF433512FF3D3010FF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF4335
+      12FF463713FF493914FF4B3B14FF4C3C15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4C3C15FF4B3B14FF493914FF463713FF3F3211FF3B2E10FF392D0FFF392D
+      0FFF392D0FFF392D0FFF3B2E10FF433512FF463713FF493914FF4B3B14FF4C3C
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4D3D
+      15FF4D3D15FF4D3D15FF4D3D15FF4D3D15FF4C3C15FF4B3B14FF493914FF4637
+      13FF3F3211FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3D30
+      10FF403211FF423412FF443612FF453613FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF453613FF443612FF423412FF403211FF3A2E0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF3D3010FF403211FF423412FF443612FF4536
+      13FF463713FF463713FF463713FF463713FF463713FF463713FF463713FF4637
+      13FF463713FF463713FF463713FF463713FF453613FF443612FF423412FF4032
+      11FF3A2E0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3D3010FF3C2F10FF3B2E10FF392D0FFF392D0FFF392D0FFF392D0FFF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF392D0FFF3B2E10FF3C2F10FF3D30
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E3110FF3E31
+      10FF3E3110FF3E3110FF3E3110FF3E3110FF3D3010FF3C2F10FF3B2E10FF392D
+      0FFF392D0FFF392D0FFF392D0FFF392D0FFF424D3E000000000000003E000000
+      2800000070000000180100000100010000000000801100000000000000000000
       000000000000000000000000FFFFFF0000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -36484,6 +43167,131 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      000000000000}
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000}
   end
 end

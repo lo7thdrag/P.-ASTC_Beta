@@ -75,32 +75,32 @@ interface
  procedure deleteSatellite_Def(id : Integer);
 
  //motion
- procedure getMotion_Characteristics(const id: integer;var rec: TMotion_Characteristics);
- procedure getAllMotion_Characteristics(mList : TList);
- procedure getAllMotion_CharacteristicsUsedByVec(mList : TList);
- procedure insertMotion(rec: TMotion_Characteristics);
- procedure updateMotion(rec: TMotion_Characteristics; index: string);
- procedure deleteMotion(id : Integer);
- function CekMotionNameAlreadyExist(MotionName : String): Boolean;
+// procedure getMotion_Characteristics(const id: integer;var rec: TMotion_Characteristics);
+// procedure getAllMotion_Characteristics(mList : TList);
+// procedure getAllMotion_CharacteristicsUsedByVec(mList : TList);
+// procedure insertMotion(rec: TMotion_Characteristics);
+// procedure updateMotion(rec: TMotion_Characteristics; index: string);
+// procedure deleteMotion(id : Integer);
+// function CekMotionNameAlreadyExist(MotionName : String): Boolean;
 
  //radar
- procedure getAllRadar_On_Board(const id: integer; var aRec: TList);
- procedure updateRadar_Def(rec: TRadar_On_Board; id:string);
- procedure insertRadar_Def(rec: TRadar_On_Board);
- procedure updateRadar_Interval_Def(rec: TRadar_Interval_Definition;id:string);
- procedure insertRadar_Interval_Def(rec: TRadar_Interval_Definition);
- procedure getAllRadar_Definition(var rec: TList);
- function CekRadarNameAlreadyExist(RadarName : String): Boolean;
+// procedure getAllRadar_On_Board(const id: integer; var aRec: TList);
+// procedure updateRadar_Def(rec: TRadar_On_Board; id:string);
+// procedure insertRadar_Def(rec: TRadar_On_Board);
+// procedure updateRadar_Interval_Def(rec: TRadar_Interval_Definition;id:string);
+// procedure insertRadar_Interval_Def(rec: TRadar_Interval_Definition);
+// procedure getAllRadar_Definition(var rec: TList);
+// function CekRadarNameAlreadyExist(RadarName : String): Boolean;
 
  //sonar
  procedure getSonarCategory(var cList: TList);
  procedure getAllSonar(const id:integer;var aRec:TList;var rec: TSonar_On_Board);
 
  //ESM
- procedure getAllESM_Definition(var rec: TList);
- procedure insertESM_Def(rec: TESM_On_Board);
- procedure updateESM_Def(rec: TESM_On_Board;id:string);
- procedure deleteESM(id: string);
+// procedure getAllESM_Definition(var rec: TList);
+// procedure insertESM_Def(rec: TESM_On_Board);
+// procedure updateESM_Def(rec: TESM_On_Board;id:string);
+// procedure deleteESM(id: string);
 
  //sonobuoy
  procedure getAllSonobuoy (const id_vec,id:integer;var slist: TList;var rec:TSonobuoy_On_Board);
@@ -162,30 +162,30 @@ begin
  dmTTT.updateSonobuoy_Def(rec,id);
 end;
 
-procedure getAllESM_Definition(var rec: TList);
-begin
- dmTTT.getESM_Def(rec);
-end;
+//procedure getAllESM_Definition(var rec: TList);
+//begin
+//// dmTTT.getESM_Def(rec);
+//end;
 
-procedure insertESM_Def(rec: TESM_On_Board);
-begin
- dmTTT.insertESM_Def(rec);
-end;
+//procedure insertESM_Def(rec: TESM_On_Board);
+//begin
+// dmTTT.insertESM_Def(rec);
+//end;
 
-procedure updateESM_Def(rec: TESM_On_Board;id:string);
-begin
-  dmTTT.updateESM_Def(rec,id);
-end;
+//procedure updateESM_Def(rec: TESM_On_Board;id:string);
+//begin
+//  dmTTT.updateESM_Def(rec,id);
+//end;
 
-procedure deleteESM(id: string);
-begin
-  dmTTT.deleteESM(id);
-end;
+//procedure deleteESM(id: string);
+//begin
+//  dmTTT.deleteESM(id);
+//end;
 
-procedure getAllRadar_Definition(var rec: Tlist);
-begin
- dmTTT.GetRadar_Definition(rec);
-end;
+//procedure getAllRadar_Definition(var rec: Tlist);
+//begin
+// dmTTT.GetRadar_Definition(rec);
+//end;
 
 procedure storePlatformInstance(var pf: TRecPlatform_Activation);
 begin
@@ -553,60 +553,60 @@ begin
 //  dmTTT.deleteSatellite_Def(id);
 end;
 
-procedure getMotion_Characteristics(const id: integer;var rec: TMotion_Characteristics);
-begin
-  dmTTT.GetMotion_Characteristics(id, rec);
-end;
+//procedure getMotion_Characteristics(const id: integer;var rec: TMotion_Characteristics);
+//begin
+//  dmTTT.GetMotion_Characteristics(id, rec);
+//end;
 
-procedure getAllMotion_Characteristics(mList : TList);
-begin
-  dmTTT.getAllMotion_Characteristics(mList);
-end;
+//procedure getAllMotion_Characteristics(mList : TList);
+//begin
+//  dmTTT.getAllMotion_Characteristics(mList);
+//end;
 
-procedure getAllMotion_CharacteristicsUsedByVec(mList : TList);
-begin
-  dmTTT.getAllMotion_CharacteristicsUsedByVec(mList);
-end;
+//procedure getAllMotion_CharacteristicsUsedByVec(mList : TList);
+//begin
+//  dmTTT.getAllMotion_CharacteristicsUsedByVec(mList);
+//end;
 
-procedure insertMotion(rec: TMotion_Characteristics);
-begin
-  dmTTT.insertMotion(rec);
-end;
+//procedure insertMotion(rec: TMotion_Characteristics);
+//begin
+//  dmTTT.insertMotion(rec);
+//end;
 
-procedure updateMotion(rec: TMotion_Characteristics; index: string);
-begin
-  dmTTT.updateMotion(rec, index);
-end;
+//procedure updateMotion(rec: TMotion_Characteristics; index: string);
+//begin
+//  dmTTT.updateMotion(rec, index);
+//end;
 
-function CekRadarNameAlreadyExist(RadarName : String): Boolean;
-begin
-  result := dmTTT.CekMotionNameAlreadyExist(RadarName);
-end;
+//function CekRadarNameAlreadyExist(RadarName : String): Boolean;
+//begin
+////  result := dmTTT.CekMotionNameAlreadyExist(RadarName);
+//end;
 
-function CekMotionNameAlreadyExist(MotionName : String): Boolean;
-begin
-  result := dmTTT.CekMotionNameAlreadyExist(MotionName);
-end;
+//function CekMotionNameAlreadyExist(MotionName : String): Boolean;
+//begin
+////  result := dmTTT.CekMotionNameAlreadyExist(MotionName);
+//end;
 
-procedure deleteMotion(id : Integer);
-begin
-  dmTTT.deleteMotion(id);
-end;
+//procedure deleteMotion(id : Integer);
+//begin
+//  dmTTT.deleteMotion(id);
+//end;
 
 procedure getAllRadar_On_Board(const id: integer; var aRec: TList);
 begin
   dmTTT.getAllRadar_On_Board(id,0, aRec);
 end;
 
-procedure updateRadar_Def(rec: TRadar_On_Board; id:string);
-begin
-  dmTTT.updateRadar_Def(rec, id);
-end;
+//procedure updateRadar_Def(rec: TRadar_On_Board; id:string);
+//begin
+//  dmTTT.updateRadar_Def(rec, id);
+//end;
 
-procedure insertRadar_Def(rec: TRadar_On_Board);
-begin
-  dmTTT.insertRadar_Def(rec);
-end;
+//procedure insertRadar_Def(rec: TRadar_On_Board);
+//begin
+//  dmTTT.insertRadar_Def(rec);
+//end;
 
 procedure updateRadar_Interval_Def(rec: TRadar_Interval_Definition;id:string);
 begin

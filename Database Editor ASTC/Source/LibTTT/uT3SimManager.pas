@@ -501,12 +501,12 @@ begin
     vIndex := hostPlatform.FData.Hosted_Vehicle_Index;
 
     dmTTT.GetVehicle_Definition(vIndex, Vehicle);
-    dmTTT.GetMotion_Characteristics(Vehicle.FData.Motion_Characteristics, Motion);
+    dmTTT.GetMotionCharacteristicDef(Vehicle.FData.Motion_Characteristics, Motion);
 
     //sensor
-    dmTTT.getAllEO_On_Board(vIndex,0,             Vehicle.EOSensors);
-    dmTTT.getAllESM_On_Board(vIndex,0,            Vehicle.ESMSensors);
-    dmTTT.getAllIFF_Sensor_On_Board(vIndex,0,     Vehicle.IFFSensors);
+//    dmTTT.getAllEO_On_Board(vIndex,0,             Vehicle.EOSensors);
+//    dmTTT.getAllESM_On_Board(vIndex,0,            Vehicle.ESMSensors);
+//    dmTTT.getAllIFF_Sensor_On_Board(vIndex,0,     Vehicle.IFFSensors);
     dmTTT.getAllMAD_Sensor_On_Board(vIndex,0,     Vehicle.MADSensors);
     dmTTT.getAllVisual_Sensor_On_Board(vIndex,0,  Vehicle.Visualsensors);
     dmTTT.getAllFCR_On_Board(vIndex,              Vehicle.FCRSensors);

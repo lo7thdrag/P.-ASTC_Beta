@@ -621,7 +621,7 @@ begin
         Byte(Cover1) : FRadar_Coverage.Coverage_Diagram := 1;
         Byte(Cover2) : FRadar_Coverage.Coverage_Diagram := 2;
       end;
-      dmTTT.insertRadar_Vertical_Coverage(RPoint);
+//      dmTTT.insertRadar_Vertical_Coverage(RPoint);
     end;
   end;
 end;

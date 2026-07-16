@@ -125,10 +125,10 @@ procedure TfEmbarkedSelect.getSensor;
 begin
   case cbbFilterSensorType.ItemIndex of
 //    0: dmTTT.getEO_Def(0,sList,frmSummaryEOD.EOObject);
-    1: dmTTT.getESM_Def(sList);
-    2: dmTTT.getAllIFF_Sensor_On_Board(0,1,sList);  //
+//    1: dmTTT.getESM_Def(sList);
+//    2: dmTTT.getAllIFF_Sensor_On_Board(0,1,sList);  //
 //    3: dmTTT.getMAD_Def(0,sList,frmSummaryMAD.MADObject);
-    4: dmTTT.GetRadar_Definition(sList);
+//    4: dmTTT.GetRadar_Definition(sList);
 //    5: dmTTT.getSonar_Def(0,sList,frmSummarySonar.sonarObject);
 //    6: dmTTT.getAllSonobuoy(0,0,slist,frmSonobuoyMount.sono);
     7: dmTTT.getAllVisual_Sensor_On_Board(0,1,sList); //
@@ -595,9 +595,9 @@ begin
 
   vList.Clear;
  // dmTTT.GetVehicleBy(domain,tipe,embarked,vList);
-  dmTTT.getFilterVehicle(edtSearch.Text, StrToInt(negara),StrToInt(domain),StrToInt(tipe),
-  StrToInt(weapon),StrToInt(fWeaponDoubleList.idWeapon),StrToInt(sensor),
-  StrToInt(fSensor.idSensor),StrToInt(embarked),vList);
+//  dmTTT.getFilterVehicle(edtSearch.Text, StrToInt(negara),StrToInt(domain),StrToInt(tipe),
+//  StrToInt(weapon),StrToInt(fWeaponDoubleList.idWeapon),StrToInt(sensor),
+//  StrToInt(fSensor.idSensor),StrToInt(embarked),vList);
   refresh;
 end;
 

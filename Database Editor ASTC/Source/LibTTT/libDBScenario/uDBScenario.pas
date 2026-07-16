@@ -183,7 +183,7 @@ begin
       dmTTT.GetVehicle_Definition(pi.FData.Vehicle_Index, Pi.Vehicle);
 
 //      dmTTT.GetSatellite_Definition(pi.Satellite.FData.Satellite_Index, Pi.Satellite);
-      dmTTT.GetMotion_Characteristics(pi.Vehicle.FData.Motion_Characteristics, Pi.Motion);
+      dmTTT.GetMotionCharacteristicDef(pi.Vehicle.FData.Motion_Characteristics, Pi.Motion);
       //Missile_Index
       //Torpedo_Index
       //Mine_Index
@@ -195,9 +195,9 @@ begin
       with pi.Vehicle do begin
         vIndex := Pi.FData.Vehicle_Index;
         //sensor
-        dmTTT.getAllEO_On_Board(vIndex,0,             pi.Vehicle.EOSensors);
-        dmTTT.getAllESM_On_Board(vIndex,0,            pi.Vehicle.ESMSensors);
-        dmTTT.getAllIFF_Sensor_On_Board(vIndex,0,     pi.Vehicle.IFFSensors);
+//        dmTTT.getAllEO_On_Board(vIndex,0,             pi.Vehicle.EOSensors);
+//        dmTTT.getAllESM_On_Board(vIndex,0,            pi.Vehicle.ESMSensors);
+//        dmTTT.getAllIFF_Sensor_On_Board(vIndex,0,     pi.Vehicle.IFFSensors);
         dmTTT.getAllMAD_Sensor_On_Board(vIndex,0,     pi.Vehicle.MADSensors);
         dmTTT.getAllVisual_Sensor_On_Board(vIndex,0,  pi.Vehicle.Visualsensors);
         dmTTT.getAllFCR_On_Board(vIndex,              pi.Vehicle.FCRSensors);

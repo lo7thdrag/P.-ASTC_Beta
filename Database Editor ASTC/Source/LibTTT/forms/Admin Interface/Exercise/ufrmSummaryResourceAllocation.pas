@@ -366,15 +366,15 @@ begin
           end
           else if id_MineInstance = 0 then
           begin
-            if not (dmTTT.getWeapon_On_Board(1,v_id,TMine_On_Board(MINEList[K]).FData.Instance_Identifier)) then
-            begin
-              //insert
-              Minerec := TFitted_Weapon_On_Board.Create;
-              Minerec.FData := TMine_On_Board(MINEList[K]).FData;
-              //~~dmTTT.InsertFitted_Weapon_On_Board(3,Minerec);
-
-              isSaved := True;
-            end;
+//            if not (dmTTT.getWeapon_On_Board(1,v_id,TMine_On_Board(MINEList[K]).FData.Instance_Identifier)) then
+//            begin
+//              //insert
+//              Minerec := TFitted_Weapon_On_Board.Create;
+//              Minerec.FData := TMine_On_Board(MINEList[K]).FData;
+//              //~~dmTTT.InsertFitted_Weapon_On_Board(3,Minerec);
+//
+//              isSaved := True;
+//            end;
           end;
         end;
         if not isSaved then
@@ -461,33 +461,33 @@ begin
           end
           else if id_MisInstance = 0 then
           begin
-            if not (dmTTT.getWeapon_On_Board(1,v_id,TMissile_On_Board(MISSLList[K]).FData.Instance_Identifier)) then
-            begin
-              //insert
-              MisRec := TFitted_Weapon_On_Board.Create;
-              MisRec.FData := TMissile_On_Board(MISSLList[K]).FData;
-              if dmTTT.GetHybrid_ByMissile(TMissile_On_Board(MISSLList[K]).FDef.Missile_Index,Hybrid_miss) then
-              begin
-                //using hybrid ID
-                MisRec.FData.Hybrid_Index := Hybrid_miss.FData.Hybrid_Index;
-                //~~dmTTT.InsertFitted_Weapon_On_Board(4,MisRec);
-              end
-              else
-              begin
-                //~~dmTTT.InsertFitted_Weapon_On_Board(1,MisRec);
-              end;
-
-              //~~dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(MisRec.FData.Fitted_Weap_Index),'');
-              for L := 0 to TMissile_On_Board(MISSLList[K]).FLaunchs.Count - 1 do
-              begin
-                LaunchRec := TFitted_Weap_Launcher_On_Board.Create;
-                LaunchRec := TMissile_On_Board(MISSLList[K]).FLaunchs[L];
-                LaunchRec.FData.Fitted_Weap_Index := MisRec.FData.Fitted_Weap_Index;
-                //~~dmTTT.InsertFitted_Weap_Launcher_On_Board(LaunchRec.FData);
-              end;
-
-              isSaved := True;
-            end;
+//            if not (dmTTT.getWeapon_On_Board(1,v_id,TMissile_On_Board(MISSLList[K]).FData.Instance_Identifier)) then
+//            begin
+//              //insert
+//              MisRec := TFitted_Weapon_On_Board.Create;
+//              MisRec.FData := TMissile_On_Board(MISSLList[K]).FData;
+//              if dmTTT.GetHybrid_ByMissile(TMissile_On_Board(MISSLList[K]).FDef.Missile_Index,Hybrid_miss) then
+//              begin
+//                //using hybrid ID
+//                MisRec.FData.Hybrid_Index := Hybrid_miss.FData.Hybrid_Index;
+//                //~~dmTTT.InsertFitted_Weapon_On_Board(4,MisRec);
+//              end
+//              else
+//              begin
+//                //~~dmTTT.InsertFitted_Weapon_On_Board(1,MisRec);
+//              end;
+//
+//              //~~dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(MisRec.FData.Fitted_Weap_Index),'');
+//              for L := 0 to TMissile_On_Board(MISSLList[K]).FLaunchs.Count - 1 do
+//              begin
+//                LaunchRec := TFitted_Weap_Launcher_On_Board.Create;
+//                LaunchRec := TMissile_On_Board(MISSLList[K]).FLaunchs[L];
+//                LaunchRec.FData.Fitted_Weap_Index := MisRec.FData.Fitted_Weap_Index;
+//                //~~dmTTT.InsertFitted_Weap_Launcher_On_Board(LaunchRec.FData);
+//              end;
+//
+//              isSaved := True;
+//            end;
           end;
         end;
         if not isSaved then
@@ -663,15 +663,15 @@ begin
           end
           else if id_PreFined = 0 then
           begin
-            if not (dmTTT.getWeapon_On_Board(1,v_id,TMine_On_Board(PREList[K]).FData.Instance_Identifier)) then
-            begin
-              //insert
-              PreFinrec := TPredefined_Pattern.Create;
-              PreFinrec.FData := TPredefined_Pattern(PREList[K]).FData;
-              dmTTT.insertPredifened_Pattern(PreFinrec);
-
-              isSaved := True;
-            end;
+//            if not (dmTTT.getWeapon_On_Board(1,v_id,TMine_On_Board(PREList[K]).FData.Instance_Identifier)) then
+//            begin
+//              //insert
+//              PreFinrec := TPredefined_Pattern.Create;
+//              PreFinrec.FData := TPredefined_Pattern(PREList[K]).FData;
+//              dmTTT.insertPredifened_Pattern(PreFinrec);
+//
+//              isSaved := True;
+//            end;
           end;
         end;
         if not isSaved then
@@ -1338,15 +1338,15 @@ begin
           end
           else if id_SonoInstance = 0 then
           begin
-            if not (dmTTT.getSensor_On_Board(8,v_id,TSonobuoy_On_Board(SONOList[K]).FData.Instance_Identifier)) then
-            begin
-              //insert
-              Sonorec := TSonobuoy_On_Board.Create;
-              Sonorec := TSonobuoy_On_Board(SONOList[K]);
-              dmTTT.InsertSonobuoy_On_Board(Sonorec);
-
-              isSaved := True;
-            end;
+//            if not (dmTTT.getSensor_On_Board(8,v_id,TSonobuoy_On_Board(SONOList[K]).FData.Instance_Identifier)) then
+//            begin
+//              //insert
+//              Sonorec := TSonobuoy_On_Board.Create;
+//              Sonorec := TSonobuoy_On_Board(SONOList[K]);
+//              dmTTT.InsertSonobuoy_On_Board(Sonorec);
+//
+//              isSaved := True;
+//            end;
           end;
         end;
         if not isSaved then
@@ -1421,31 +1421,31 @@ begin
           end
           else if id_TorpInstance = 0 then
           begin
-            if not (dmTTT.getWeapon_On_Board(1,v_id,TTorpedo_On_Board(TORPList[K]).FData.Instance_Identifier)) then
-            begin
-              //insert
-              TorRec := TFitted_Weapon_On_Board.Create;
-              TorRec.FData := TTorpedo_On_Board(TORPList[K]).FData;
-              //~~dmTTT.InsertFitted_Weapon_On_Board(2,TorRec);
-
-              //~~dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(TorRec.FData.Fitted_Weap_Index),'');
-              for L := 0 to TTorpedo_On_Board(TORPList[K]).FLaunchs.Count - 1 do
-              begin
-                LaunchRec := TFitted_Weap_Launcher_On_Board.Create;
-                LaunchRec := TTorpedo_On_Board(TORPList[K]).FLaunchs[L];
-                LaunchRec.FData.Fitted_Weap_Index := TorRec.FData.Fitted_Weap_Index;
-                //~~dmTTT.InsertFitted_Weap_Launcher_On_Board(LaunchRec.FData);
-              end;
-
-              isSaved := True;
-            end;
+//            if not (dmTTT.getWeapon_On_Board(1,v_id,TTorpedo_On_Board(TORPList[K]).FData.Instance_Identifier)) then
+//            begin
+//              //insert
+//              TorRec := TFitted_Weapon_On_Board.Create;
+//              TorRec.FData := TTorpedo_On_Board(TORPList[K]).FData;
+//              //~~dmTTT.InsertFitted_Weapon_On_Board(2,TorRec);
+//
+//              //~~dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(TorRec.FData.Fitted_Weap_Index),'');
+//              for L := 0 to TTorpedo_On_Board(TORPList[K]).FLaunchs.Count - 1 do
+//              begin
+//                LaunchRec := TFitted_Weap_Launcher_On_Board.Create;
+//                LaunchRec := TTorpedo_On_Board(TORPList[K]).FLaunchs[L];
+//                LaunchRec.FData.Fitted_Weap_Index := TorRec.FData.Fitted_Weap_Index;
+//                //~~dmTTT.InsertFitted_Weap_Launcher_On_Board(LaunchRec.FData);
+//              end;
+//
+//              isSaved := True;
+//            end;
           end;
         end;
         if not isSaved then
         begin
           //delete
           dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(TTorpedo_On_Board(MList[I]).FData.Fitted_Weap_Index),'');
-          dmTTT.deleteBlind(6,IntToStr(TTorpedo_On_Board(MList[I]).FData.Fitted_Weap_Index));
+//          dmTTT.DeleteBlindZone(6,IntToStr(TTorpedo_On_Board(MList[I]).FData.Fitted_Weap_Index));
           dmTTT.DeleteFitted_Weapon_On_Board(IntToStr(TTorpedo_On_Board(MList[I]).FData.Fitted_Weap_Index));
         end;
       end;

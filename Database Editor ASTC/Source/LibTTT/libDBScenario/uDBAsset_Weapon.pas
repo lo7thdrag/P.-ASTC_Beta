@@ -401,7 +401,7 @@ begin
   FTacticalSymbol.Visible := true;
 
   rec := nil;
-  dmTTT.GetMotion_Characteristics(FDef.Motion_Index,rec);
+  dmTTT.GetMotionCharacteristicDef(FDef.Motion_Index,rec);
 
   if assigned(rec) then begin
 

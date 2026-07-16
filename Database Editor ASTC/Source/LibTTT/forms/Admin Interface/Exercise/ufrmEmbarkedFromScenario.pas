@@ -484,7 +484,7 @@ begin
     if tempPI.FData.Platform_Type = 1 then
     begin
       dmTTT.GetVehicleDef(tempPI.FData.Vehicle_Index, tempPI.Vehicle);
-      dmTTT.GetMotion_Characteristics(tempPI.Vehicle.FData.Motion_Characteristics, tempPI.Motion);
+      dmTTT.GetMotionCharacteristicDef(tempPI.Vehicle.FData.Motion_Characteristics, tempPI.Motion);
       dmTTT.GetLogisticDef(tempPI.Vehicle.FData.Logistics_Index, tempPI.Logistic);
       dmTTT.GetTransportDef(tempPI.Vehicle.FData.Platform_Capability_Index, tempPI.Transport);
       dmTTT.GetPlatformActivation(FAssetDeployment.FData.Deployment_Index, tempPI.FData.Platform_Instance_Index, tempPI.FActivation);

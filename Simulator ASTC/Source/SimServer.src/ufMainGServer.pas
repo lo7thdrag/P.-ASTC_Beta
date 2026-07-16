@@ -5,29 +5,13 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, OleCtrls, MapXLib_TLB, ExtCtrls, ComCtrls, uT3Unit,
-  U_Helper, uLibSettingTTT, uMapLayerDB, uT3Missile;
+  U_Helper, uLibSettingTTT, uMapLayerDB, uT3Missile, Vcl.Imaging.pngimage;
 
 type
 
   TfMainGServer = class(TForm)
-    Panel1: TPanel;
     Timer1: TTimer;
-    Bevel1: TBevel;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    lblGameState: TLabel;
-    lblGameSpeed: TLabel;
-    lblGameTime: TLabel;
-    lblScenario: TLabel;
-    spbStart: TSpeedButton;
     Panel2: TPanel;
-    SpeedButton1: TSpeedButton;
-    Splitter1: TSplitter;
-    Label5: TLabel;
-    lblSession: TLabel;
-    lblFrameReplay: TLabel;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
     Memo1: TMemo;
@@ -40,7 +24,7 @@ type
     TabSheet4: TTabSheet;
     mmEvent: TMemo;
     TabSheet5: TTabSheet;
-    Panel3: TPanel;
+    pnlHeaderWatcher: TPanel;
     Button3: TButton;
     Button4: TButton;
     Timer2: TTimer;
@@ -54,17 +38,47 @@ type
     mmoDL1: TMemo;
     tsDataBuffer: TTabSheet;
     mmo1: TMemo;
-    btn1: TBitBtn;
     btn2: TButton;
-    btn3: TSpeedButton;
     lvPlatform: TListView;
     btn4: TSpeedButton;
-    btnFlush: TSpeedButton;
     tsVersion: TTabSheet;
     lvVersion: TListView;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    lbl4: TLabel;
+    lbl1: TLabel;
+    lblScenarioID: TLabel;
+    lbl2: TLabel;
+    lblScenarioName: TLabel;
+    lbl3: TLabel;
+    lblSession: TLabel;
+    lbl5: TLabel;
+    lbl6: TLabel;
+    lblGameState: TLabel;
+    lbl7: TLabel;
+    lblGameSpeed: TLabel;
+    lbl8: TLabel;
+    lblGameTime: TLabel;
+    lblFrameReplay: TLabel;
+    btnStart: TSpeedButton;
+    btnPercepatan: TBitBtn;
+    btnFlush: TSpeedButton;
+    btn3: TSpeedButton;
+    imgWatcher: TImage;
+    imgEventLog: TImage;
+    imgEventList: TImage;
+    imgPlatform: TImage;
+    imgLog: TImage;
+    imgDataLink: TImage;
+    imgData: TImage;
+    imgVersion: TImage;
+    imgClose: TImage;
+    imgMinimize: TImage;
+    pnlWatcher: TPanel;
+    pnl1: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
-    procedure spbStartClick(Sender: TObject);
+    procedure btnStartClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -72,9 +86,8 @@ type
     procedure ComboBox1DropDown(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
     procedure Timer2Timer(Sender: TObject);
-    procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure btn1Click(Sender: TObject);
+
+    procedure btnPercepatanClick(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
     procedure btn4Click(Sender: TObject);
@@ -82,6 +95,11 @@ type
     procedure btnFlushClick(Sender: TObject);
     procedure lvVersionDrawItem(Sender: TCustomListView; Item: TListItem;
       Rect: TRect; State: TOwnerDrawState);
+    procedure imgBackgroundMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure imgWatcherClick(Sender: TObject);
+    procedure imgCloseClick(Sender: TObject);
+    procedure imgMinimizeClick(Sender: TObject);
   private
     { Private declarations }
     FLastS : string;
@@ -90,6 +108,8 @@ type
     FLog : Boolean;
     FLogEvent : Boolean;
     FLogFile: TLogFile;
+
+    procedure updateTabSheet;
     procedure AppMessage(var Msg: TMsg; var Handled: Boolean);
   public
     { Public declarations }
@@ -128,6 +148,19 @@ uses
   uSimMgr_server, uNetHandle_Server, uGameData_TTT,
   uTCPDatatype, uT3DataLink, uBaseCoordSystem, uT3Vehicle, tttData;
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 procedure TfMainGServer.AppMessage(var Msg: TMsg; var Handled: Boolean);
 begin
   if Msg.Message = MyMsg then begin
@@ -138,7 +171,7 @@ begin
 
 end;
 
-procedure TfMainGServer.btn1Click(Sender: TObject);
+procedure TfMainGServer.btnPercepatanClick(Sender: TObject);
 var r: TRecCmd_GameCtrl;
 begin
     case Byte(simMgrServer.GameState) of
@@ -185,8 +218,6 @@ begin
   simMgrServer.ClearBuffer;
 end;
 
-
-
 procedure TfMainGServer.Button1Click(Sender: TObject);
 begin
   UpdateListObject;
@@ -217,11 +248,11 @@ begin
       li.SubItems.Add(pi.InstanceName);
       li.SubItems.Add(formatDMS_long(Pi.getPositionX));
       li.SubItems.Add(formatDMS_latt(Pi.getPositionY));
-      li.SubItems.Add(FormatSpeed(pi.GroundSpeed));
-      li.SubItems.Add(FormatFloat('0.00', TT3Vehicle(pi).OrderedSpeed));
-      li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).Course));
-      li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).OrderedHeading));
-      li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).VehicleDefinition.FData.Draft * C_Feet_To_Meter));
+      li.SubItems.Add(FormatSpeed(pi.GroundSpeed) + ' Knots');
+      li.SubItems.Add(FormatFloat('0.00', TT3Vehicle(pi).OrderedSpeed) + ' Knots');
+      li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).Course) + ' Deg');
+      li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).OrderedHeading) + ' Deg');
+      li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).VehicleDefinition.FData.Draft * C_Feet_To_Meter) + ' Mtr');
       r.IsOnLand := DepthLayerDB.GetMapLand(pi.getPositionX, pi.getPositionY, d1, d2);
 
       if r.IsOnLand then
@@ -361,11 +392,47 @@ begin
    btn4.Down := False;
    fMainGServer.Caption := 'Game Server';
    Timer2.Enabled := False;
+
+   EnableComposited(pnlMainBackground);
 end;
 
 procedure TfMainGServer.FormDestroy(Sender: TObject);
 begin
-  if Assigned(FLogFile) then FLogFile.Free;
+  if Assigned(FLogFile) then
+    FLogFile.Free;
+end;
+
+procedure TfMainGServer.imgBackgroundMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  case Button of
+  mbLeft: begin
+      if (ssShift in Shift) then begin
+        btnStart.Visible := not btnStart.Visible ;
+        btnPercepatan.Visible     := not btnPercepatan.Visible;
+        btn3.Visible     := not btn3.Visible;
+        btnFlush.Visible := not btnFlush.Visible;
+      end;
+    end;
+  end;
+end;
+
+procedure TfMainGServer.imgCloseClick(Sender: TObject);
+begin
+  Close
+end;
+
+procedure TfMainGServer.imgMinimizeClick(Sender: TObject);
+begin
+  Self.WindowState := wsMinimized;
+end;
+
+procedure TfMainGServer.imgWatcherClick(Sender: TObject);
+begin
+  updateTabSheet;
+
+  TImage(sender).Height := 73;
+  TImage(sender).top := 165;
+  TImage(sender).Picture.LoadFromFile('data\\Image Simulator\GameServer\' +TImage(sender).Name + '_Select.png');
 end;
 
 procedure TfMainGServer.LogStr(const strHeader, strBody: string);
@@ -400,8 +467,7 @@ begin
   end;
 end;
 
-procedure TfMainGServer.lvVersionDrawItem(Sender: TCustomListView;
-  Item: TListItem; Rect: TRect; State: TOwnerDrawState);
+procedure TfMainGServer.lvVersionDrawItem(Sender: TCustomListView; Item: TListItem; Rect: TRect; State: TOwnerDrawState);
 var
   i: Integer;
   x1, x2: integer;
@@ -443,21 +509,6 @@ begin
       DT_SINGLELINE or DT_ALIGN[lvVersion.Columns[i].Alignment] or
         DT_VCENTER or DT_END_ELLIPSIS);
     x1 := x2;
-  end;
-end;
-
-procedure TfMainGServer.Panel1MouseDown(Sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-begin
-  case Button of
-    mbLeft: begin
-        if (ssShift in Shift) then begin
-          spbStart.Visible := not spbStart.Visible ;
-          btn1.Visible     := not btn1.Visible;
-          btn3.Visible     := not btn3.Visible;
-          btnFlush.Visible := not btnFlush.Visible;
-        end;
-      end;
   end;
 end;
 
@@ -522,7 +573,7 @@ begin
   if s = 'ENDREPLAY' then lblFrameReplay.Visible := False;
 end;
 
-procedure TfMainGServer.spbStartClick(Sender: TObject);
+procedure TfMainGServer.btnStartClick(Sender: TObject);
 var r: TRecCmd_GameCtrl;
 begin
   if (sender as TSpeedButton).Down then begin
@@ -618,11 +669,11 @@ begin
           v := TT3Vehicle(li.Data);
           li.SubItems[1] := formatDMS_long(v.getPositionX);
           li.SubItems[2] := formatDMS_latt(v.getPositionY);
-          li.SubItems[3] := FormatSpeed(v.GroundSpeed);
-          li.SubItems[4] := FormatFloat('0.00', v.OrderedSpeed);
-          li.SubItems[5] := FormatSpeed(v.Course);
-          li.SubItems[6] := FormatSpeed(v.OrderedHeading);
-          li.SubItems[7] := FormatSpeed(TT3Vehicle(pi).VehicleDefinition.FData.Draft * C_Feet_To_Meter);
+          li.SubItems[3] := FormatSpeed(v.GroundSpeed) + ' Knots';
+          li.SubItems[4] := FormatFloat('0.00', v.OrderedSpeed) + ' Knots';
+          li.SubItems[5] := FormatSpeed(v.Course) + ' Deg';
+          li.SubItems[6] := FormatSpeed(v.OrderedHeading) + ' Deg';
+          li.SubItems[7] := FormatSpeed(TT3Vehicle(pi).VehicleDefinition.FData.Draft * C_Feet_To_Meter) + ' Mtr';
 
           //if v.PlatformDomain <> vhdSubsurface then
             r.IsOnLand := DepthLayerDB.GetMapLand(pi.getPositionX, pi.getPositionY, d1, d2);
@@ -689,11 +740,11 @@ begin
           li.SubItems.Add(pi.InstanceName);
           li.SubItems.Add(formatDMS_long(Pi.getPositionX));
           li.SubItems.Add(formatDMS_latt(Pi.getPositionY));
-          li.SubItems.Add(FormatSpeed(pi.GroundSpeed));
-          li.SubItems.Add(FormatFloat('0.00', TT3Vehicle(pi).OrderedSpeed));
-          li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).Course));
-          li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).OrderedHeading));
-          li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).VehicleDefinition.FData.Draft * C_Feet_To_Meter));
+          li.SubItems.Add(FormatSpeed(pi.GroundSpeed) + ' Knots');
+          li.SubItems.Add(FormatFloat('0.00', TT3Vehicle(pi).OrderedSpeed) + ' Knots');
+          li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).Course) + ' Deg');
+          li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).OrderedHeading) + ' Deg');
+          li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).VehicleDefinition.FData.Draft * C_Feet_To_Meter) + ' Mtr');
           //DepthLayerDB.GetMapDepth(pi.getPositionX, pi.getPositionY, d1, d2);
 
           r.PlatformID := pi.InstanceIndex;
@@ -802,14 +853,47 @@ begin
 
 end;
 
+procedure TfMainGServer.updateTabSheet;
+begin
+  imgWatcher.Height := 33;
+  imgWatcher.Top := 169;
+  imgWatcher.Picture.LoadFromFile('data\\Image Simulator\GameServer\imgWatcher.png');
+
+  imgEventLog.Height := 33;
+  imgEventLog.Top := 169;
+  imgEventLog.Picture.LoadFromFile('data\\Image Simulator\GameServer\imgEventLog.png');
+
+  imgEventList.Height := 33;
+  imgEventList.Top := 169;
+  imgEventList.Picture.LoadFromFile('data\\Image Simulator\GameServer\imgEventList.png');
+
+  imgPlatform.Height := 33;
+  imgPlatform.Top := 169;
+  imgPlatform.Picture.LoadFromFile('data\\Image Simulator\GameServer\imgPlatform.png');
+
+  imgLog.Height := 33;
+  imgLog.Top := 169;
+  imgLog.Picture.LoadFromFile('data\\Image Simulator\GameServer\imgLog.png');
+
+  imgDataLink.Height := 33;
+  imgDataLink.Top := 169;
+  imgDataLink.Picture.LoadFromFile('data\\Image Simulator\GameServer\imgDataLink.png');
+
+  imgData.Height := 33;
+  imgData.Top := 169;
+  imgData.Picture.LoadFromFile('data\\Image Simulator\GameServer\imgData.png');
+
+  imgVersion.Height := 33;
+  imgVersion.Top := 169;
+  imgVersion.Picture.LoadFromFile('data\\Image Simulator\GameServer\imgVersion.png');
+end;
+
 procedure TfMainGServer.UpdateViewSetting;
 begin
-  lblScenario.Caption :=
-  IntToStr(simMgrServer.Scenario.ScenarioDefinition.FData.Scenario_Index )
-  + ' : ' +simMgrServer.Scenario.ScenarioName;
+  lblScenarioId.Caption := IntToStr(simMgrServer.Scenario.ScenarioDefinition.FData.Scenario_Index );
+  lblScenarioName.Caption := simMgrServer.Scenario.ScenarioName;
 
-  lblSession.Caption :=
-  IntToStr(simMgrServer.SessionID );
+  lblSession.Caption := IntToStr(simMgrServer.SessionID );
 end;
 
 end.

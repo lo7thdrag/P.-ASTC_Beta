@@ -77,7 +77,6 @@ type
     pnlWatcher: TPanel;
     pnl1: TPanel;
     pnlEventLog: TPanel;
-    pnl2: TPanel;
     pnlEventList: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);

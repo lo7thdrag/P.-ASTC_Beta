@@ -28,10 +28,7 @@ object fMainGServer: TfMainGServer
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 672
-    ExplicitTop = 24
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitLeft = -8
     object imgBackground: TImage
       Left = 0
       Top = 0
@@ -16222,10 +16219,10 @@ object fMainGServer: TfMainGServer
       OnClick = btnPercepatanClick
     end
     object Panel2: TPanel
-      Left = 880
-      Top = 74
-      Width = 121
-      Height = 68
+      Left = 528
+      Top = 62
+      Width = 574
+      Height = 136
       BevelOuter = bvNone
       BorderWidth = 5
       Caption = 'Panel1'
@@ -16241,7 +16238,7 @@ object fMainGServer: TfMainGServer
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        ActivePage = TabSheet5
+        ActivePage = tsDatalink
         MultiLine = True
         TabHeight = 30
         TabOrder = 0
@@ -16249,23 +16246,9 @@ object fMainGServer: TfMainGServer
         object TabSheet5: TTabSheet
           Caption = 'WATCHER'
           ImageIndex = 4
-          ExplicitWidth = 1211
-          ExplicitHeight = 660
         end
         object TabSheet1: TTabSheet
           Caption = 'EVENT LOG'
-          object Memo1: TMemo
-            Left = 0
-            Top = 0
-            Width = 919
-            Height = 260
-            Align = alClient
-            BevelKind = bkFlat
-            BorderStyle = bsNone
-            ScrollBars = ssBoth
-            TabOrder = 0
-            WordWrap = False
-          end
         end
         object TabSheet2: TTabSheet
           Caption = 'EVENTS LIST'
@@ -16354,6 +16337,8 @@ object fMainGServer: TfMainGServer
         object tsDatalink: TTabSheet
           Caption = 'DATALINK'
           ImageIndex = 5
+          ExplicitLeft = -44
+          ExplicitTop = 29
           object lblNCS: TLabel
             Left = 3
             Top = 3
@@ -16462,19 +16447,42 @@ object fMainGServer: TfMainGServer
             TabOrder = 0
             ViewStyle = vsReport
             OnDrawItem = lvVersionDrawItem
-            ExplicitWidth = 1309
-            ExplicitHeight = 442
           end
         end
       end
-      object pnl2: TPanel
-        Left = -1048
-        Top = -381
-        Width = 1169
-        Height = 449
-        BevelOuter = bvNone
-        BorderWidth = 8
-        TabOrder = 1
+    end
+    object pnlEventList: TPanel
+      Left = 31
+      Top = 216
+      Width = 1169
+      Height = 449
+      BevelOuter = bvNone
+      BorderWidth = 8
+      TabOrder = 4
+    end
+    object pnlEventLog: TPanel
+      Left = 31
+      Top = 216
+      Width = 1169
+      Height = 449
+      BevelOuter = bvNone
+      BorderWidth = 8
+      TabOrder = 3
+      object Memo1: TMemo
+        Left = 8
+        Top = 8
+        Width = 1153
+        Height = 433
+        Align = alClient
+        BevelKind = bkFlat
+        BorderStyle = bsNone
+        ScrollBars = ssBoth
+        TabOrder = 0
+        WordWrap = False
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 919
+        ExplicitHeight = 260
       end
     end
     object pnlWatcher: TPanel
@@ -16496,9 +16504,6 @@ object fMainGServer: TfMainGServer
         Ctl3D = True
         ParentCtl3D = False
         TabOrder = 0
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 919
         object Button3: TButton
           Left = 1015
           Top = 4
@@ -16529,10 +16534,6 @@ object fMainGServer: TfMainGServer
         Ctl3D = True
         ParentCtl3D = False
         TabOrder = 1
-        ExplicitLeft = 0
-        ExplicitTop = 8
-        ExplicitWidth = 1169
-        ExplicitHeight = 33
         object lvPlatform: TListView
           Left = 0
           Top = 0
@@ -16541,8 +16542,7 @@ object fMainGServer: TfMainGServer
           Align = alClient
           BevelInner = bvNone
           BevelOuter = bvNone
-          BorderStyle = bsNone
-          Color = clSkyBlue
+          Color = 4924424
           Columns = <
             item
               Caption = 'ID'
@@ -16623,24 +16623,6 @@ object fMainGServer: TfMainGServer
           ViewStyle = vsReport
         end
       end
-    end
-    object pnlEventLog: TPanel
-      Left = 31
-      Top = 216
-      Width = 1169
-      Height = 449
-      BevelOuter = bvNone
-      BorderWidth = 8
-      TabOrder = 3
-    end
-    object pnlEventList: TPanel
-      Left = 31
-      Top = 216
-      Width = 1169
-      Height = 449
-      BevelOuter = bvNone
-      BorderWidth = 8
-      TabOrder = 4
     end
   end
   object Timer1: TTimer

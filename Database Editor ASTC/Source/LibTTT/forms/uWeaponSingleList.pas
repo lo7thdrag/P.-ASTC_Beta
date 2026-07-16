@@ -413,7 +413,7 @@ begin
               edtLowerLimitReceivedFreqTARH.Text       := FloatToStr(TMissile_On_Board(mList[i]).FDef.Lower_Received_Freq);
               edtUpperLimitReceivedFreqTARH.Text       := FloatToStr(TMissile_On_Board(mList[i]).FDef.Upper_Received_Freq);
 //              EditProbability.Text                     := FormatFloat('0',TMissile_On_Board(mList[i]).FDef.Prob_of_Hit * 100);
-              uSimDBEditor.getMotion_Characteristics(TMissile_On_Board(mlist[i]).FDef.Motion_Index,fMotionDouble.motion);
+//              uSimDBEditor.getMotion_Characteristics(TMissile_On_Board(mlist[i]).FDef.Motion_Index,fMotionDouble.motion);
               edtMotionCharacteristic.Text             := fMotionDouble.motion.FData.Motion_Identifier;
 //              id_motion := TMissile_On_Board(mlist[i]).FDef.Motion_Index;
               edtAmplitudeTerminalGuidance.Text        := FloatToStr(TMissile_On_Board(mList[i]).FDef.Terminal_Sinuation_Amplitude);

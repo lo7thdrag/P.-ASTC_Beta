@@ -149,10 +149,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
       object Platforms: TTabSheet
         Caption = 'Platforms'
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object grbForcePlatforms: TGroupBox
           Left = 11
           Top = 8

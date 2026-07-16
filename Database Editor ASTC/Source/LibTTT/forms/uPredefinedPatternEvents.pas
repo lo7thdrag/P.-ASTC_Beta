@@ -124,7 +124,7 @@ begin
   if isRadar then
   begin
      getDataRadar;
-     dmTTT.insertPatern_Radar_Event(pRadarEvent);
+//     dmTTT.insertPatern_Radar_Event(pRadarEvent);
   end;
 end;
 
@@ -296,7 +296,7 @@ end;
 procedure TEditEvents.getIFFs;
 var I : Integer;
 begin
-  dmTTT.getAllIFF_Sensor_On_Board(frmSummaryPredefinedPattern.pattern.FData.Vehicle_Index,0,iffList);
+//  dmTTT.getAllIFF_Sensor_On_Board(frmSummaryPredefinedPattern.pattern.FData.Vehicle_Index,0,iffList);
   if iffList.count = temp then
   else
   begin

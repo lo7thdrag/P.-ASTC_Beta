@@ -266,7 +266,7 @@ begin
         Force_Designation     := frmSummaryResourceAllocation.force;
 //        Instance_Ident_Index  := StrToInt(cbbInstanceIdentIndex.Text);
 
-        Instance_Ident_Index := dmTTT.getInstance_Ident_Index(Vehicle_Index, Instance_Name);
+//        Instance_Ident_Index := dmTTT.getInstance_Ident_Index(Vehicle_Index, Instance_Name);
 
         if Assigned(rec.VectorSymbol) then
             rec.VectorSymbol.Free;
@@ -296,7 +296,7 @@ begin
         end;
 
         {Prince}
-        if dmTTT.GetMotion_Characteristics(rec.Vehicle.FData.Motion_Characteristics, rec.Motion) then
+        if dmTTT.GetMotionCharacteristicDef(rec.Vehicle.FData.Motion_Characteristics, rec.Motion) then
         begin
           rec.FActivation.Init_Fuel := rec.Motion.FData.Max_Fuel_Capacity;
         end;

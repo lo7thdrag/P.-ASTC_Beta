@@ -111,7 +111,7 @@ begin
     Track_ID              := edtTrackID.Text;
     Force_Designation     := 1;       //red
 
-    Instance_Ident_Index := dmTTT.getInstance_Ident_Index(Vehicle_Index, cbbType.Text);
+//    Instance_Ident_Index := dmTTT.getInstance_Ident_Index(Vehicle_Index, cbbType.Text);
   end;
 
   with TargetPlatform.FActivation do
@@ -192,7 +192,7 @@ begin
     Instance_Name         := cbbType.Text;
     Track_ID              := edtTrackID.Text;
 
-    Instance_Ident_Index := dmTTT.getInstance_Ident_Index(Vehicle_Index, cbbType.Text);
+//    Instance_Ident_Index := dmTTT.getInstance_Ident_Index(Vehicle_Index, cbbType.Text);
 
   end;
 
@@ -217,7 +217,7 @@ var
   i : Integer;
   strPath : string;
 begin
-  vId := dmTTT.getVecIndexFromIdent(cbbClass.Text);
+//  vId := dmTTT.getVecIndexFromIdent(cbbClass.Text);
   aListIdentIndex := TList.Create;
 //  dmTTT.GetTargetIdentifierFromClass(vId, aListIdentIndex);
   cbbType.Items.Clear;

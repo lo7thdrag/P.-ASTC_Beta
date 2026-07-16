@@ -1803,7 +1803,7 @@ begin
     begin
       rec_rplib := TRuntime_Platform_Library.Create;
       DummyList := TList.Create;
-      dmTTT.GetRuntime_Platform_Library(1,DummyList,rec_rplib);
+//      dmTTT.GetRuntime_Platform_Library(1,DummyList,rec_rplib);
       dmTTT.InsertRuntime_Platform_LibraryByResourceAlloc(IntToStr(aResourceAllocation.FData.Resource_Alloc_Index),rec_rplib);
     end;
 
@@ -3338,7 +3338,7 @@ begin
 
 
   VecID := dmTTT.GetDomainFromVehicleID(aPI.FData.Vehicle_Index);
-  dmTTT.GetMotion_Characteristics(aPI.Vehicle.FData.Motion_Characteristics, aPI.Motion);
+  dmTTT.GetMotionCharacteristicDef(aPI.Vehicle.FData.Motion_Characteristics, aPI.Motion);
 
   if (VecID = 0) then
   begin

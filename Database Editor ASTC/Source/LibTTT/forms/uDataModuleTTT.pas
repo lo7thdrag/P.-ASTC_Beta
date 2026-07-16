@@ -635,6 +635,7 @@ type
     function GetAllRuntimePlatformLibraryDef(var aList: TList): Integer;
     function GetFilterRuntimePlatformLibraryDef(var aList: TList; aFilter: String): Integer;
     function GetRuntimePlatformLibraryDef(const aClassName: string): Integer; overload;
+    function GetNameRuntime_Platform_LibraryByID(const id: Integer): string;
 
     function InsertRuntimePlatformLibraryDef(var aRec: TRecRuntime_Platform_Library): Boolean;
     function UpdateRuntimePlatformLibraryDef(var aRec: TRecRuntime_Platform_Library): Boolean;
@@ -978,35 +979,16 @@ type
     function deleteVehicle(const id: Integer): Integer;
     function GetVehicleIdentifierByID(const id: Integer): string;
     function insertPredifened_Pattern(rec: TPredefined_Pattern): Integer;
-    function getSensor_On_Board(const index, id: Integer; sens_name: string): Boolean;
-    function getWeapon_On_Board(const index, id: Integer; weap_name: string): Boolean;
-    function getCountermeasure_On_Board(const index, id: Integer; count_name: string): Boolean;
 
-    function getInstance_Ident_Index(const VIndex : Integer; const Inst_Identifier : string): Integer;
-    function getVecIndexFromIdent(const aIdent : string): integer;
-
-    // -- sensor --
-    // EC
-    function getAllEO_On_Board(const id, index: Integer;var aRec: TList): Integer;
-    function updateEO(rec: TEOD_On_Board; id: string): Integer;
-    function insertEO(rec: TEOD_On_Board): Integer;
-    function getEO_Def(const id: Integer; var aRec: TList; var rec: TEOD_On_Board): Integer;
-    function getFilterVehicle(const aSrch: string; const negara, domain,tipe,weapon,wpn_id,sensor, sensor_id,emb_id: Integer;var vList: TList):integer;
     function getFilterSimbol(const aSrch :string; const FontType : Byte; var FontTaktisList: TList):integer;
 
-    // ESM
-    function getAllESM_On_Board(const id, index: Integer;var aRec: TList): Integer;
-    function updateESM(rec: TESM_On_Board; id: string): Integer;
-    function insertESM(rec: TESM_On_Board): Integer;
-    function deleteESM(id: string): Integer;
-    function getESM_Def(var aRec: TList): boolean;
-    function updateESM_Def(rec: TESM_On_Board; id: string): Integer;
-    function insertESM_Def(rec: TESM_On_Board): Integer;
+
+//    function insertESM_Def(rec: TESM_On_Board): Integer;
 
     // IFF
-    function getAllIFF_Sensor_On_Board(const id, index: Integer;var aRec: TList): Integer;
-    function updateIFF(rec: TIFF_Sensor_On_Board; id: string): Integer;
-    function insertIFF(rec: TIFF_Sensor_On_Board): Integer;
+//    function getAllIFF_Sensor_On_Board(const id, index: Integer;var aRec: TList): Integer;
+//    function updateIFF(rec: TIFF_Sensor_On_Board; id: string): Integer;
+//    function insertIFF(rec: TIFF_Sensor_On_Board): Integer;
 
     // MAD
     function getAllMAD_Sensor_On_Board(const id, index: Integer; var aRec: TList): Integer;
@@ -1024,7 +1006,7 @@ type
 
     // Radar
     function getAllRadar_On_Board(const id, index: Integer; var aRec: TList): Integer;
-    function GetRadar_Definition(var aRec: TList): boolean;
+//    function GetRadar_Definition(var aRec: TList): boolean;
     function insertRadar_Def(rec: TRadar_On_Board): Integer;
     function updateRadar_Def(rec: TRadar_On_Board; id: string): Integer;
     function insertPatern_Radar_Event(var rec: TPattern_Radar_Event): integer;
@@ -1203,18 +1185,11 @@ type
     // Sea State
     function GetSeaStateOnMissile(var sea: TSingleArray): boolean;
     function GetSeaStateOnRadar(var sea: TSingleArray): boolean;
-
     function GetSeaStateOnSonar(var sea: TSeaStateSonarArray): boolean;
-
-    // Game Sea State
-    // Ship
-    // Game Ship
-    // Operating Mode
 
     // Link
     function GetLinkDefinition(const id: Integer; var aRec: TList): Integer;
     function GetLinkParticipant(lPart: TLink; pfList: TList): Integer;
-
     function deleteAllLink_Part(deploy_id: string): Integer;
     function deleteAllLink_Def(deploy_id: string): Integer;
 
@@ -1235,7 +1210,6 @@ type
     function deleteFormation_AssignByPI_Index(PI_id: string): Integer;
     function CekMemberAlreadyExist(rec : TFormation):Boolean;
     function CekFormationAlreadyExist(rec : TFormation):Boolean;
-
 
     // Geo Area
     function GetGeoAreaDefinition(const id: Integer; var aRec: TList): Integer;
@@ -1271,44 +1245,20 @@ type
     function DeleteExternal_Communication_Channel(const id: string): Integer;
     function DeleteAllExternal_Communication_Channel(const id: string): Integer;
 
-    // Note Storage
-
-    // Blind Zone
-    function getBlind(var bList: TList;const index,id,number :integer):integer;
-    function updateBlind(var rec: TBlind_Zone;const blind_id: string): Integer;
-    function insertBlind(var rec: TBlind_Zone;const index,id: Integer): Integer;
-    function deleteBlind(index: integer; const id: string): Integer;
-
     // Helicopter
     function updateHelicopter(rec: THelicopter_Land_Launch_Limits;index: string): Integer;
     function insertHelicopter(rec: THelicopter_Land_Launch_Limits): Integer;
     function GetHelicopter(const id: Integer;var aRec: TList): Integer;
 
-
-    // Motion
-    function GetMotion_Characteristics(const id: Integer;
-      var rec: TMotion_Characteristics): boolean;
-    function getAllMotion_Characteristics(mList: TList): Integer;
-    function getAllMotion_CharacteristicsUsedByVec(mList: TList): Integer;
-    function updateMotion(rec: TMotion_Characteristics; index: string): Integer;
-    function insertMotion(rec: TMotion_Characteristics): Integer;
-    function deleteMotion(id: Integer): Integer;
-    function CekMotionNameAlreadyExist(aName : String): Boolean;
-
-    //PlatformCapability  dng
-    function getPlatform_Capability(const id: Integer;var rec: TTransport): Boolean;
-
     //fontTaktis
     function getAllFontTaktis(mList: TList; aFontType : Byte): Integer;
     function getFontByID(const id: Integer; var FontTaktis: TFontTaktis): Integer;
-
 
     //PlatformLogistics
     function GetPlatform_Logistics(const id: Integer;var rec: TLogistics): boolean;
     function insertPlatformLogistics(rec: TLogistics): Integer;
     function UpdatePlatformLogistics(rec: TLogistics): Integer;
     function deletePlatformLogistics(id: Integer): Integer;
-
 
     //UserLogin
     function GetAllUserLogin(mList: TList): Integer;
@@ -1323,16 +1273,13 @@ type
     function InsertSubArea_Enviro_Definition(var rec: TSubArea_Enviro_Definition): Integer;
     function UpdateSubArea_Enviro_Definition(const id: string;var rec: TSubArea_Enviro_Definition): Integer;
     function InsertGlobal_Convergence_Zone(var rec: TGlobal_Convergence_Zone): Integer;
-    /// <param>
-    /// id_enviro = id subarea
-    /// id_gameArea = id game area
-    /// </param>
+
     function DeleteSubArea_Enviro_Definition(const id_enviro: Integer;const id_gameArea: Integer): Integer;
     function DeleteAllSubArea_Enviro_Definition(const id: Integer): Integer;
 
     // Runtime Platform Library
     function GetRuntime_Platform_Library(const id: Integer; var pList: TList;var rec: TRuntime_Platform_Library): boolean;
-    function GetNameRuntime_Platform_LibraryByID(const id: Integer): string;
+
 
     function InsertRuntime_Platform_Library(var rec: TRuntime_Platform_Library): Integer;
     function InsertRuntime_Platform_LibraryByResourceAlloc(const id: string;var rec: TRuntime_Platform_Library): Integer;
@@ -30471,51 +30418,6 @@ begin
   end;
 end;
 
-function TdmTTT.getPlatform_Capability(const id: Integer;
-  var rec: TTransport): Boolean;
-begin
- result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Platform_Capability ');
-    SQL.Add('WHERE (Platform_Capability_Index = ' + IntToStr(id) + ')');
-    Open;
-
-    result := RecordCount > 0;
-    if not IsEmpty then
-    begin
-      First;
-      if not Assigned(rec) then
-        rec := TTransport.Create;
-      with rec.FData do
-      begin
-        Transport_Index       := FieldByName('Platform_Capability_Index').AsInteger;
-        Transport_Identifier           := FieldByName('Capability_Identifier').AsString;
-        Carriable                       := FieldByName('Carriable').AsBoolean;
-        Hangar_Unit_Carried             := FieldByName('Hangar_Unit_Carried').AsBoolean;
-        Deck_Unit_Carried               := FieldByName('Deck_Unit_Carried').AsBoolean;
-        Personnel_Unit_Carried          := FieldByName('Personnel_Unit_Carried').AsBoolean;
-        FixedWing_Carried               := FieldByName('FixedWing_Carried').AsBoolean;
-        Rotary_Carried                  := FieldByName('Rotary_Carried').AsBoolean;
-        Amphibious_Carried              := FieldByName('Amphibious_Carried').AsBoolean;
-        Land_Carried                    := FieldByName('Land_Carried').AsBoolean;
-        Max_Hangar_Capacity             := FieldByName('Max_Hangar_Capacity').AsInteger;
-        Max_Hangar_Weight               := FieldByName('Max_Hangar_Weight').AsFloat ;
-        Max_Deck_Weight                 := FieldByName('Max_Deck_Weight').AsFloat;
-        Deck_Width                      := FieldByName('Deck_Width').AsFloat;
-        Deck_Length                     := FieldByName('Deck_Length').AsFloat;
-        Max_Personnel_Capacity          := FieldByName('Max_Personnel_Capacity').AsInteger;
-      end;
-    end;
-  end;
-end;
-
 function TdmTTT.GetPlatform_Embark_Library(const id: Integer; var pList: TList; rec: TVehicle_On_Base): integer;
 
 begin
@@ -30907,26 +30809,26 @@ begin
   end;
 end;
 
-function TdmTTT.getInstance_Ident_Index(const VIndex: Integer;
-  const Inst_Identifier: string): Integer;
-begin
-  result := 0;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT Instance_Ident_Index');
-    SQL.Add('FROM Platform_Instance_Identifier ');
-    SQL.Add('WHERE Vehicle_Index =' + IntToStr(VIndex)+' AND ');
-    SQL.Add('Instance_Identifier ='+ quotedStr(Inst_Identifier));
-    Open;
-
-    result := FieldByName('Instance_Ident_Index').AsInteger;
-  end;
-end;
+//function TdmTTT.getInstance_Ident_Index(const VIndex: Integer;
+//  const Inst_Identifier: string): Integer;
+//begin
+//  result := 0;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT Instance_Ident_Index');
+//    SQL.Add('FROM Platform_Instance_Identifier ');
+//    SQL.Add('WHERE Vehicle_Index =' + IntToStr(VIndex)+' AND ');
+//    SQL.Add('Instance_Identifier ='+ quotedStr(Inst_Identifier));
+//    Open;
+//
+//    result := FieldByName('Instance_Ident_Index').AsInteger;
+//  end;
+//end;
 
 function TdmTTT.getMine_def(rec: TMine_Definition; id: Integer): Integer;
 var
@@ -32322,282 +32224,6 @@ begin
   end;
 end;
 
-function TdmTTT.getAllEO_On_Board(const id, index: Integer;
-  var aRec: TList): Integer;
-var
-  i,b_num: Integer;
-  rec: TEOD_On_Board;
-  EO_Blind: TBlind_Zone;
-  ssql: string;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    ssql := 'SELECT * ';
-    ssql := ssql + 'FROM  EO_On_Board a JOIN EO_Detection_Definition b ';
-    ssql := ssql + 'ON a.EO_Index = b.EO_Index LEFT JOIN Note_Storage c ';
-    ssql := ssql + 'ON c.EO_Index = b.EO_Index LEFT JOIN Vehicle_Definition d ';
-    ssql := ssql + 'ON a.Vehicle_Index = d.Vehicle_Index ';
-
-    if index = 1 then
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 '
-    else if index = 0 then
-    begin
-      // if id tidak null
-      if id <> 0 then
-        ssql := ssql + 'WHERE (a.Vehicle_index = ' + IntToStr(id) + ')';
-    end
-    else
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.EO_Index =' + IntToStr
-        (index);
-
-    SQL.Add(ssql);
-    SQL.Add('ORDER BY b.Class_Identifier');
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-
-      First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TEOD_On_Board.Create;
-        with rec.FData do
-        begin
-          EO_Instance_Index := FieldByName('EO_Instance_Index').AsInteger;
-          Instance_Identifier := FieldByName('Instance_Identifier').AsString;
-          Instance_Type := FieldByName('Instance_Type').AsInteger;
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          EO_Index := FieldByName('EO_Index').AsInteger;
-          Antenna_Height := FieldByName('Antenna_Height').AsSingle;
-        end;
-
-        with rec.FEO_Def do
-        begin
-          EO_Index := FieldByName('EO_Index').AsInteger;
-          Class_Identifier := FieldByName('Class_Identifier').AsString;
-         { Sensor_Type := FieldByName('Sensor_Type').AsInteger;
-          Detection_Range := FieldByName('Detection_Range').AsSingle;
-          Known_Cross_Section := FieldByName('Known_Cross_Section').AsSingle;
-          Max_Range := FieldByName('Max_Range').AsSingle;
-          Scan_Rate := FieldByName('Scan_Rate').AsSingle;
-          Num_FC_Channels := FieldByName('Num_FC_Channels').AsInteger;  }
-        end;
-        {
-        with rec.FNote do
-        begin
-          Note_Index := FieldByName('Note_Index').AsInteger;
-          Note_Type := FieldByName('Note_Type').AsInteger;
-          Notes := FieldByName('Notes').AsString;
-        end;
-
-        with rec.FVehicle.FData do
-        begin
-          Vehicle_Identifier := FieldByName('Vehicle_Identifier').AsString;
-        end;  }
-        aRec.Add(rec);
-        ZQ.Next;
-      end;
-
-      for i := 0 to aRec.Count - 1 do
-      begin
-        rec := aRec.Items[i];
-        Close;
-        SQL.Clear;
-        SQL.Add('SELECT * ');
-        SQL.Add('FROM EO_On_Board a JOIN Blind_ZOne_Definition b ');
-        SQL.Add('ON a.EO_Instance_Index = b.EO_Instance_Index ');
-        SQL.Add('WHERE (a.EO_Instance_Index = ' + IntToStr
-            (rec.FData.EO_Instance_Index) + ')');
-        Open;
-
-        ZQ.First;
-
-        while not ZQ.Eof do
-        begin
-          EO_Blind := TBlind_Zone.Create;
-
-          with rec.FBlind_Zone.FData do
-          begin
-            Blind_Zone_Index := FieldByName('Blind_Zone_Index').AsInteger;
-            Blind_Zone_Type := FieldByName('Blind_Zone_Type').AsInteger;
-            BlindZone_Number := FieldByName('BlindZone_Number').AsInteger;
-            EO_Instance_Index := FieldByName('EO_Instance_Index').AsInteger;
-            Start_Angle := FieldByName('Start_Angle').AsSingle;
-            End_Angle := FieldByName('End_Angle').AsSingle;
-          end;
-
-          rec.FBlind.Add(EO_Blind);
-
-          //added by bebe
-          b_num := FieldByName('BlindZone_Number').AsInteger;
-          if b_num = 1 then
-          begin
-            with rec.FBZone_1 do
-            begin
-              Blind_Zone_Index := FieldByName('Blind_Zone_Index').AsInteger;
-              Blind_Zone_Type := FieldByName('Blind_Zone_Type').AsInteger;
-              BlindZone_Number := FieldByName('BlindZone_Number').AsInteger;
-              EO_Instance_Index := FieldByName('EO_Instance_Index').AsInteger;
-              Start_Angle := FieldByName('Start_Angle').AsSingle;
-              End_Angle := FieldByName('End_Angle').AsSingle;
-            end;
-          end
-          else if b_num = 2 then
-          begin
-            with rec.FBZone_2 do
-            begin
-              Blind_Zone_Index := FieldByName('Blind_Zone_Index').AsInteger;
-              Blind_Zone_Type := FieldByName('Blind_Zone_Type').AsInteger;
-              BlindZone_Number := FieldByName('BlindZone_Number').AsInteger;
-              EO_Instance_Index := FieldByName('EO_Instance_Index').AsInteger;
-              Start_Angle := FieldByName('Start_Angle').AsSingle;
-              End_Angle := FieldByName('End_Angle').AsSingle;
-            end;
-          end;
-
-          ZQ.Next;
-
-        end;
-      end;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.updateEO(rec: TEOD_On_Board; id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('UPDATE EO_On_Board ');
-      SQL.Add('SET ');
-      SQL.Add('Instance_Identifier=''' + Instance_Identifier + ''',');
-      SQL.Add('Instance_Type  =' + IntToStr(Instance_Type) + ',');
-      SQL.Add('EO_Index =' + IntToStr(EO_Index) + ',');
-      SQL.Add('Antenna_Height =' + FloatToStr(Antenna_Height));
-    end;
-
-    SQL.Add(' WHERE (EO_Instance_Index = ' + id + ')');
-    ExecSQL;
-
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.insertEO(rec: TEOD_On_Board): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO EO_On_Board ');
-      SQL.Add(
-        '(Instance_Identifier,Instance_Type,Vehicle_Index,EO_Index,Antenna_Height)');
-      SQL.Add(' VALUES (');
-      SQL.Add('''' + Instance_Identifier + ''',');
-      SQL.Add(IntToStr(Instance_Type) + ',');
-      SQL.Add(IntToStr(Vehicle_Index) + ',');
-      SQL.Add(IntToStr(EO_Index) + ',');
-      SQL.Add(FloatToStr(Antenna_Height) + ')');
-      ExecSQL;
-
-      SQL.Clear;
-      SQL.Add('SELECT * FROM EO_On_Board ');
-      SQL.Add('WHERE Instance_Identifier = ' + QuotedStr(Instance_Identifier) + ' ');
-      SQL.Add('AND EO_Index = ' + IntToStr(EO_Index)+ ' ');
-      SQL.Add('AND Vehicle_Index = ' + IntToStr(Vehicle_Index));
-      Open;
-
-      EO_Instance_Index := FieldByName('EO_Instance_Index').AsInteger;
-    end;
-  end;
-end;
-
-function TdmTTT.getEO_Def(const id: Integer; var aRec: TList;
-  var rec: TEOD_On_Board): Integer;
-var
-  ssql: string;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    ssql := 'SELECT * ';
-    ssql := ssql + 'FROM EO_Detection_Definition ';
-    ssql := ssql + 'a LEFT JOIN Note_Storage b ON a.EO_Index = b.EO_Index ';
-    if id <> 0 then
-      ssql := ssql + 'WHERE a.EO_Index = ' + IntToStr(id);
-
-    ssql := ssql + 'ORDER BY Class_Identifier ';
-    SQL.Add(ssql);
-    Open;
-
-    result := RecordCount;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TEOD_On_Board.Create;
-
-        with rec.FEO_Def do
-        begin
-          EO_Index := FieldByName('EO_Index').AsInteger;
-          Class_Identifier := FieldByName('Class_Identifier').AsString;
-          Sensor_Type := FieldByName('Sensor_Type').AsInteger;
-          Detection_Range := FieldByName('Detection_Range').AsSingle;
-          Known_Cross_Section := FieldByName('Known_Cross_Section').AsSingle;
-          Max_Range := FieldByName('Max_Range').AsSingle;
-          Scan_Rate := FieldByName('Scan_Rate').AsSingle;
-          Num_FC_Channels := FieldByName('Num_FC_Channels').AsInteger;
-        end;
-
-        with rec.FNote do
-        begin
-          Note_Index := FieldByName('Note_Index').AsInteger;
-          Note_Type := FieldByName('Note_Type').AsInteger;
-          Notes := FieldByName('Notes').AsString;
-        end;
-        aRec.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-end;
-
 function TdmTTT.getFilterSimbol(const aSrch: string; const FontType: Byte; var FontTaktisList: TList): integer;
 var select,from,where,group : string;
 rec: TFontTaktis;
@@ -32652,1408 +32278,435 @@ begin
     end;
   end;
 
-function TdmTTT.getFilterVehicle(const aSrch: string; const negara, domain,tipe,weapon,wpn_id,sensor,sensor_id,emb_id: Integer;
-var vList: TList):integer;
-var select,from,where,group : string;
-rec : TVehicle_Definition;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
+//function TdmTTT.deleteESM(id: string): Integer;
+//begin
+//  result := -1;
+////  deleteNote(10,id);
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('DELETE FROM ESM_Definition ');
+//    SQL.Add('WHERE ESM_Index = ' + id);
+//    ExecSQL;
+//  end;
+//
+//end;
 
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    select := 'SELECT distinct a.* FROM Vehicle_Definition a ';
-
-    if domain <> -1 then
-    begin
-      where := 'WHERE a.Platform_Domain = '+ IntToStr(domain);
-    end;
-
-    if negara <> -1 then
-    begin
-      if length(where) > 0 then
-         where := where + 'AND a.Vehicle_Identifier like '  + quotedStr('%indonesia%')
-      else
-         where := 'WHERE a.Vehicle_Identifier like '  + quotedStr('%indonesia%');
-    end;
-
-    if aSrch <> '' then
-    begin
-      from := ',Platform_Instance_Identifier h ';
-      if length(where) > 0 then
-         where := where + ' AND a.Vehicle_Index = h.Vehicle_Index '
-      else
-         where := ' WHERE a.Vehicle_Index = h.Vehicle_Index ';
-
-         where := where +' AND (a.Vehicle_Identifier like '+ quotedStr('%' + aSrch + '%') + 'OR h.Instance_Identifier like ' + quotedStr('%' + aSrch + '%') + ')';
-    end;
-
-    if tipe <> -1 then
-    begin
-      if length(where) > 0 then
-         where := where + ' AND a.Platform_Type = '+ IntToStr(tipe)
-      else
-         where := 'WHERE a.Platform_Type = '+ IntToStr(tipe);
-    end;
-
-    if sensor > -1 then
-    begin
-      if sensor_id <> -1 then
-      begin
-        case sensor of
-          0:
-          begin
-            from  := from + ',EO_On_Board d,EO_Detection_Definition e ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.EO_Index = e.EO_Index ';
-            where := where +' AND d.EO_Index = '+ IntToStr(sensor_id);
-          end;
-          1:
-          begin
-            from  := from + ',ESM_On_Board d,ESM_Definition e ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.ESM_Index = e.ESM_Index ';
-            where := where +' AND d.ESM_Index = '+ IntToStr(sensor_id);
-          end;
-          2:
-          begin
-            from  := from + ',IFF_Sensor_On_Board d ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-//            where := where +' AND d.IFF_Instance_Index = '+ IntToStr(sensor_id);
-          end;
-          3:
-          begin
-            from  := from + ',MAD_Sensor_On_Board d,MAD_Definition e ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.MAD_Index = e.MAD_Index ';
-            where := where +' AND d.MAD_Index = '+ IntToStr(sensor_id);
-          end;
-          4:
-          begin
-            from  := from + ',Radar_On_Board d,Radar_Definition e ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.Radar_Index = e.Radar_Index ';
-            where := where +' AND d.Radar_Index = '+ IntToStr(sensor_id);
-          end;
-          5:
-          begin
-            from  := from + ',Sonar_On_Board d,Sonar_Definition e ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.Sonar_Index = e.Sonar_Index ';
-            where := where +' AND d.Sonar_Index = '+ IntToStr(sensor_id);
-          end;
-          6:
-          begin
-            from  := from + ',Sonobuoy_On_Board d,Sonobuoy_Definition e ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.Sonobuoy_Index = e.Sonobuoy_Index ';
-            where := where +' AND d.Sonobuoy_Index = '+ IntToStr(sensor_id);
-          end;
-          7:
-          begin
-            from  := from + ',Visual_Sensor_On_Board d ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-//            where := where +' AND d.Visual_Instance_Index = '+ IntToStr(sensor_id);
-          end;
-        end;
-      end
-      else
-      begin
-        case sensor of
-          0:
-          begin
-            from  := from + ',(select e.Vehicle_Index,count(*) as quantity from ';
-            from  := from + 'EO_On_Board e group by e.Vehicle_Index) d ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.quantity > 0 ';
-          end;
-          1:
-          begin
-            from  := from + ',(select e.Vehicle_Index,count(*) as quantity from ';
-            from  := from + 'ESM_On_Board e group by e.Vehicle_Index) d ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.quantity > 0 ';
-          end;
-          2:
-          begin
-            from  := from + ',IFF_Sensor_On_Board d ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-//            where := where +' AND d.IFF_Instance_Index = '+ IntToStr(sensor_id);
-          end;
-          3:
-          begin
-            from  := from + ',(select e.Vehicle_Index,count(*) as quantity from ';
-            from  := from + 'MAD_Sensor_On_Board e group by e.Vehicle_Index) d ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.quantity > 0 ';
-          end;
-          4:
-          begin
-            from  := from + ',(select e.Vehicle_Index,count(*) as quantity from ';
-            from  := from + 'Radar_On_Board e group by e.Vehicle_Index) d ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.quantity > 0 ';
-          end;
-          5:
-          begin
-            from  := from + ',(select e.Vehicle_Index,count(*) as quantity from ';
-            from  := from + 'Sonar_On_Board e group by e.Vehicle_Index) d ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.quantity > 0 ';
-          end;
-          6:
-          begin
-            from  := from + ',(select e.Vehicle_Index,count(*) as quantity from ';
-            from  := from + 'Sonobuoy_On_Board e group by e.Vehicle_Index) d ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-            where := where +' AND d.quantity > 0 ';
-          end;
-          7:
-          begin
-            from  := from + ',Visual_Sensor_On_Board d ';
-            if length(where) > 0 then
-              where := where + ' AND a.Vehicle_Index = d.Vehicle_Index '
-            else
-              where := ' WHERE a.Vehicle_Index = d.Vehicle_Index ';
-
-//            where := where +' AND d.Visual_Instance_Index = '+ IntToStr(sensor_id);
-          end;
-        end;
-      end;
-    end;
-    if weapon <> -1 then
-    begin
-      if wpn_id <> -1 then
-      begin
-        if length(from) > 0 then
-        begin
-          case weapon of
-            0:
-            begin
-              from  := from + ',                Fitted_Weapon_On_Board b,Mine_Definition c ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + 'AND b.Mine_Index = c.Mine_Index ';
-              where := where + 'AND b.Mine_Index = '+ IntToStr(wpn_id);
-            end;
-            1:
-            begin
-              from  := from + ',Fitted_Weapon_On_Board b,Missile_Definition c ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + 'AND b.Missile_Index = c.Missile_Index ';
-              where := where + 'AND b.Missile_Index = '+ IntToStr(wpn_id);
-            end;
-            2:
-            begin
-              from  := from + ',Fitted_Weapon_On_Board b,Torpedo_Definition c ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + 'AND b.Torpedo_Index = c.Torpedo_Index ';
-              where := where + 'AND b.Torpedo_Index = '+ IntToStr(wpn_id);
-            end;
-          end;
-        end
-        else
-        begin
-          case weapon of
-            0:
-            begin
-              from  := from + ',Fitted_Weapon_On_Board b,Mine_Definition c ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + 'AND b.Mine_Index = c.Mine_Index ';
-              where := where + 'AND b.Mine_Index = '+ IntToStr(wpn_id);
-            end;
-            1:
-            begin
-              from  := from + ',Fitted_Weapon_On_Board b,Missile_Definition c ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + 'AND b.Missile_Index = c.Missile_Index ';
-              where := where + 'AND b.Missile_Index = '+ IntToStr(wpn_id);
-            end;
-            2:
-            begin
-              from  := from + ',Fitted_Weapon_On_Board b,Torpedo_Definition c ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + 'AND b.Torpedo_Index = c.Torpedo_Index ';
-              where := where + 'AND b.Torpedo_Index = '+ IntToStr(wpn_id);
-            end;
-          end;
-        end;
-      end
-      else
-      begin
-        if length(from) > 0 then
-        begin
-          case weapon of
-            0:
-            begin
-              from  := from + ',(select c.Vehicle_Index,count(*) as quantity from ';
-              from  := from + 'Fitted_Weapon_On_Board c where c.Mine_Index is not null group by c.Vehicle_Index) b ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + ' AND b.quantity > 0 ';
-            end;
-            1:
-            begin
-              from  := from + ',(select c.Vehicle_Index,count(*) as quantity from ';
-              from  := from + 'Fitted_Weapon_On_Board c where c.Missile_Index is not null group by c.Vehicle_Index) b ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + ' AND b.quantity > 0 ';
-            end;
-            2:
-            begin
-              from  := from + ',(select c.Vehicle_Index,count(*) as quantity from ';
-              from  := from + 'Fitted_Weapon_On_Board c where c.Torpedo_Index is not null group by c.Vehicle_Index) b ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + ' AND b.quantity > 0 ';
-            end;
-          end;
-        end
-        else
-        begin
-          case weapon of
-            0:
-            begin
-              from  := from + ',(select c.Vehicle_Index,count(*) as quantity from ';
-              from  := from + 'Fitted_Weapon_On_Board c where c.Mine_Index is not null group by c.Vehicle_Index) b ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + ' AND b.quantity > 0 ';
-            end;
-            1:
-            begin
-              from  := from + ',(select c.Vehicle_Index,count(*) as quantity from ';
-              from  := from + 'Fitted_Weapon_On_Board c where c.Missile_Index is not null group by c.Vehicle_Index) b ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + ' AND b.quantity > 0 ';
-            end;
-            2:
-            begin
-              from  := from + ',(select c.Vehicle_Index,count(*) as quantity from ';
-              from  := from + 'Fitted_Weapon_On_Board c where c.Torpedo_Index is not null group by c.Vehicle_Index) b ';
-              if length(where) > 0 then
-                where := where + ' AND a.Vehicle_Index = b.Vehicle_Index '
-              else
-                where := ' WHERE a.Vehicle_Index = b.Vehicle_Index ';
-
-              where := where + ' AND b.quantity > 0 ';
-            end;
-          end;
-        end;
-      end;
-    end;
-
-    if emb_id > 0 then
-    begin
-      if length(from) > 0 then
-      begin
-        from  := from + ',Hosted_Platform f ';
-        if length(where) > 0 then
-          where := where + ' AND a.Vehicle_Index = f.Vehicle_Index '
-        else
-          where := ' WHERE a.Vehicle_Index = f.Vehicle_Index ';
-
-//        where := where + 'AND f.Vehicle_Index = c.Vehicle_Index ';
-        where := where + 'AND f.Hosted_Vehicle_Index = '+ IntToStr(emb_id);
-      end
-      else
-      begin
-        from  := from + ',Hosted_Platform f ';
-        if length(where) > 0 then
-          where := where + ' AND a.Vehicle_Index = f.Vehicle_Index '
-        else
-          where := ' WHERE a.Vehicle_Index = f.Vehicle_Index ';
-
-//        where := where + 'AND b.Mine_Index = c.Mine_Index ';
-        where := where + 'AND f.Hosted_Vehicle_Index = '+ IntToStr(emb_id);
-      end;
-    end
-    else if emb_id = 0 then
-    begin
-      if length(from) > 0 then
-      begin
-        from  := from + ',(select g.Vehicle_Index,count(*) as quantity from ';
-        from  := from + 'Hosted_Platform g group by g.Vehicle_Index) f ';
-        if length(where) > 0 then
-          where := where + ' AND a.Vehicle_Index = f.Vehicle_Index '
-        else
-          where := ' WHERE a.Vehicle_Index = f.Vehicle_Index ';
-
-        where := where + ' AND f.quantity > 0 ';
-      end
-      else
-      begin
-        from  := from + ',(select g.Vehicle_Index,count(*) as quantity from ';
-        from  := from + 'Hosted_Platform g group by g.Vehicle_Index) f ';
-        if length(where) > 0 then
-          where := where + ' AND a.Vehicle_Index = f.Vehicle_Index '
-        else
-          where := ' WHERE a.Vehicle_Index = f.Vehicle_Index ';
-
-        where := where + ' AND f.quantity > 0 ';
-      end;
-    end;
-
-    if length(where) > 0 then
-      where := where +' AND a.Platform_Domain <> 8' // buat filter supaya tipe target gak muncul
-    else
-      where :=' WHERE a.Platform_Domain <> 8';
-
-    select := select + from + where + group;
-    select := select + ' ORDER BY Vehicle_Identifier ASC';
-//    ShowMessage(select);
-    SQL.Add(select);
-    Open;
-
-
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-      First;
-
-      if not Assigned(vList) then
-        vList := TList.Create
-      else
-        vList.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TVehicle_Definition.Create;
-        with rec.FData do
-        begin
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          Vehicle_Identifier := FieldByName('Vehicle_Identifier').AsString;
-          Platform_Domain := FieldByName('Platform_Domain').AsInteger;
-          Platform_Category := FieldByName('Platform_Category').AsInteger;
-          Platform_Type := FieldByName('Platform_Type').AsInteger;
-          Motion_Characteristics := FieldByName('Motion_Characteristics')
-            .AsInteger;
-          Length := FieldByName('Length').AsSingle;
-          Width := FieldByName('Width').AsSingle;
-          Height := FieldByName('Height').AsSingle;
-          Draft := FieldByName('Draft').AsSingle;
-          Front_Radar_Cross := FieldByName('Front_Radar_Cross').AsSingle;
-          Side_Radar_Cross := FieldByName('Side_Radar_Cross').AsSingle;
-          Front_Acoustic_Cross := FieldByName('Front_Acoustic_Cross').AsSingle;
-          Side_Acoustic_Cross := FieldByName('Side_Acoustic_Cross').AsSingle;
-          Magnetic_Cross := FieldByName('Magnetic_Cross').AsSingle;
-          Front_Visual_EO_Cross := FieldByName('Front_Visual_EO_Cross')
-            .AsSingle;
-          Side_Visual_EO_Cross := FieldByName('Side_Visual_EO_Cross').AsSingle;
-          Front_Infrared_Cross := FieldByName('Front_Infrared_Cross').AsSingle;
-          Side_Infrared_Cross := FieldByName('Side_Infrared_Cross').AsSingle;
-          LSpeed_Acoustic_Intens := FieldByName('LSpeed_Acoustic_Intens')
-            .AsSingle;
-          Below_Cav_Acoustic_Intens := FieldByName('Below_Cav_Acoustic_Intens')
-            .AsSingle;
-          Above_Cav_Acoustic_Intens := FieldByName('Above_Cav_Acoustic_Intens')
-            .AsSingle;
-          HSpeed_Acoustic_Intens := FieldByName('HSpeed_Acoustic_Intens')
-            .AsSingle;
-          Cavitation_Speed_Switch := FieldByName('Cavitation_Speed_Switch')
-            .AsSingle;
-          Time_of_Weapon_Impact := FieldByName('Time_of_Weapon_Impact')
-            .AsInteger;
-          Chaff_Seduction_Capable := FieldByName('Chaff_Seduction_Capable')
-            .AsBoolean;
-          Seduction_Mode_Prob := FieldByName('Seduction_Mode_Prob').AsSingle;
-          Min_Delay_Between_Chaff_Rounds := FieldByName
-            ('Min_Delay_Between_Chaff_Rounds').AsInteger;
-          Max_Chaff_Salvo_Size := FieldByName('Max_Chaff_Salvo_Size').AsInteger;
-          SARH_POH_Modifier := FieldByName('SARH_POH_Modifier').AsSingle;
-          CG_POH_Modifier := FieldByName('CG_POH_Modifier').AsSingle;
-          TARH_POH_Modifier := FieldByName('TARH_POH_Modifier').AsSingle;
-          IR_POH_Modifier := FieldByName('IR_POH_Modifier').AsSingle;
-          AR_POH_Modifier := FieldByName('AR_POH_Modifier').AsSingle;
-          Active_Acoustic_Tor_POH_Mod := FieldByName
-            ('Active_Acoustic_Tor_POH_Mod').AsSingle;
-          Passive_Acoustic_Tor_POH_Mod := FieldByName
-            ('Passive_Acoustic_Tor_POH_Mod').AsSingle;
-          Active_Passive_Tor_POH_Mod := FieldByName
-            ('Active_Passive_Tor_POH_Mod').AsSingle;
-          Wake_Home_POH_Modifier := FieldByName('Wake_Home_POH_Modifier')
-            .AsSingle;
-          Wire_Guide_POH_Modifier := FieldByName('Wire_Guide_POH_Modifier')
-            .AsSingle;
-          Mag_Mine_POH_Modifier := FieldByName('Mag_Mine_POH_Modifier')
-            .AsSingle;
-          Press_Mine_POH_Modifier := FieldByName('Press_Mine_POH_Modifier')
-            .AsSingle;
-          Impact_Mine_POH_Modifier := FieldByName('Impact_Mine_POH_Modifier')
-            .AsSingle;
-          Acoustic_Mine_POH_Modifier := FieldByName
-            ('Acoustic_Mine_POH_Modifier').AsSingle;
-          Sub_Comm_Antenna_Height := FieldByName('Sub_Comm_Antenna_Height')
-            .AsSingle;
-          Rel_Comm_Antenna_Height := FieldByName('Rel_Comm_Antenna_Height')
-            .AsSingle;
-          Max_Comm_Operating_Depth := FieldByName('Max_Comm_Operating_Depth')
-            .AsSingle;
-          HF_Link_Capable := FieldByName('HF_Link_Capable').AsBoolean;
-          UHF_Link_Capable := FieldByName('UHF_Link_Capable').AsBoolean;
-          HF_Voice_Capable := FieldByName('HF_Voice_Capable').AsBoolean;
-          VHF_Voice_Capable := FieldByName('VHF_Voice_Capable').AsBoolean;
-          UHF_Voice_Capable := FieldByName('UHF_Voice_Capable').AsBoolean;
-          SATCOM_Voice_Capable := FieldByName('SATCOM_Voice_Capable').AsBoolean;
-          UWT_Voice_Capable := FieldByName('UWT_Voice_Capable').AsBoolean;
-          HF_MHS_Capable := FieldByName('HF_MHS_Capable').AsBoolean;
-          UHF_MHS_Capable := FieldByName('UHF_MHS_Capable').AsBoolean;
-          SATCOM_MHS_Capable := FieldByName('SATCOM_MHS_Capable').AsBoolean;
-          Damage_Capacity := FieldByName('Damage_Capacity').AsInteger;
-          Plat_Basing_Capability := FieldByName('Plat_Basing_Capability')
-            .AsBoolean;
-          Chaff_Capability := FieldByName('Chaff_Capability').AsBoolean;
-          Readying_Time := FieldByName('Readying_Time').AsInteger;
-          Sonobuoy_Capable := FieldByName('Sonobuoy_Capable').AsBoolean;
-          Nav_Light_Capable := FieldByName('Nav_Light_Capable').AsBoolean;
-          Periscope_Depth := FieldByName('Periscope_Depth').AsSingle;
-          Periscope_Height_Above_Water := FieldByName
-            ('Periscope_Height_Above_Water').AsSingle;
-          Periscope_Front_Radar_Xsection := FieldByName
-            ('Periscope_Front_Radar_Xsection').AsSingle;
-          Periscope_Side_Radar_Xsection := FieldByName
-            ('Periscope_Side_Radar_Xsection').AsSingle;
-          Periscope_Front_Vis_Xsection := FieldByName
-            ('Periscope_Front_Vis_Xsection').AsSingle;
-          Periscope_Side_Vis_Xsection := FieldByName
-            ('Periscope_Side_Vis_Xsection').AsSingle;
-          Periscope_Front_IR_Xsection := FieldByName
-            ('Periscope_Front_IR_Xsection').AsSingle;
-          Periscope_Side_IR_Xsection := FieldByName
-            ('Periscope_Side_IR_Xsection').AsSingle;
-          Engagement_Range := FieldByName('Engagement_Range').AsSingle;
-          Auto_Air_Defense_Capable := FieldByName('Auto_Air_Defense_Capable')
-            .AsBoolean;
-          Alert_State_Time := FieldByName('Alert_State_Time').AsSingle;
-          Detectability_Type := FieldByName('Detectability_Type').AsInteger;
-          Max_Sonobuoys_To_Monitor := FieldByName('Max_Sonobuoys_To_Monitor')
-            .AsInteger;
-          Sonobuoy_Deploy_Max_Altitude := FieldByName
-            ('Sonobuoy_Deploy_Max_Altitude').AsInteger;
-          Sonobuoy_Deploy_Min_Altitude := FieldByName
-            ('Sonobuoy_Deploy_Min_Altitude').AsInteger;
-          Sonobuoy_Deploy_Max_Speed := FieldByName('Sonobuoy_Deploy_Max_Speed')
-            .AsInteger;
-          Air_Drop_Torpedo_Max_Altitude := FieldByName
-            ('Air_Drop_Torpedo_Max_Altitude').AsInteger;
-          Air_Drop_Torpedo_Min_Altitude := FieldByName
-            ('Air_Drop_Torpedo_Min_Altitude').AsInteger;
-          Air_Drop_Torpedo_Max_Speed := FieldByName
-            ('Air_Drop_Torpedo_Max_Speed')
-            .AsInteger;
-          TMA_Rate_Factor := FieldByName('TMA_Rate_Factor').AsSingle;
-          HMS_Noise_Reduction_Factor := FieldByName
-            ('HMS_Noise_Reduction_Factor').AsSingle;
-          TAS_Noise_Reduction_Factor := FieldByName
-            ('TAS_Noise_Reduction_Factor').AsSingle;
-          Infrared_Decoy_Capable := FieldByName('Infrared_Decoy_Capable')
-            .AsBoolean;
-          HF_Mid_Course_Update_Capable := FieldByName
-            ('HF_Mid_Course_Update_Capable').AsBoolean;
-          UHF_Mid_Course_Update_Capable := FieldByName
-            ('UHF_Mid_Course_Update_Capable').AsBoolean;
-//          SATCOM_Mid_Course_Update_Capable := FieldByName
-//            ('SATCOM_Mid_Course_Update_Capable').AsBoolean;
-          Font_id := FieldByName('Font_id').AsInteger;
-          Symbol_id := FieldByName('Symbol_id').AsInteger;
-          Quantity_Group_Personal := FieldByName('Quantity_Group_Personal').AsInteger;
-          Vbs_Class_Name := FieldByName('Vbs_Class_Name').AsString;
-          Logistics_Index := FieldByName('Logistics_Index').AsInteger;
-          Tactical_Symbol_Name := FieldByName('Tactical_Symbol_Name').AsString;
-          GangwayPosition := FieldByName('GangwayPosition').AsInteger;
-          DWT := FieldByName('DWT').AsSingle;
-          last_updated := FieldByName('last_updated').AsDateTime;
-        end;
-//        case sensor of
-//          0 :
-//          begin
-//            with rec.FEO.FEO_Def do
-//            begin
-//              EO_Index             := FieldByName('EO_Index').AsInteger;
-//            end;
-//          end;
-//          1:
-//          begin
-//            with rec.FESM.FESM_Def do
-//            begin
-//              ESM_Index            := FieldByName('ESM_Index').AsInteger;
-//            end;
-//          end;
-//          2:
-//          begin
-//            with rec.FIFF.FData do
-//            begin
-//              IFF_Instance_Index    := FieldByName('IFF_Instance_Index').AsInteger;
-//            end;
-//          end;
-//          3:
-//          begin
-//            with rec.FMAD.FMAD_Def do
-//            begin
-//              MAD_Index   := FieldByName('MAD_Index').AsInteger;
-//            end;
-//          end;
-//          4:
-//          begin
-//            with rec.FRadar.FDef do
-//            begin
-//              Radar_Index          := FieldByName('Radar_Index').AsInteger;
-//            end;
-//          end;
-//          5:
-//          begin
-//            with rec.FSonar.FDef do
-//            begin
-//              Sonar_Index          := FieldByName('Sonar_Index').AsInteger;
-//            end;
-//          end;
-//          6:
-//          begin
-//            with rec.FSonobuoy.FDef do
-//            begin
-//              Sonobuoy_Index      := FieldByName('Sonobuoy_Index').AsInteger;
-//            end;
-//          end;
-//          7:
-//          begin
-//            with rec.FVisual.FData do
-//            begin
-//              Visual_Instance_Index := FieldByName('Visual_Instance_Index').AsInteger;
-//            end;
-//          end;
-//        end;
-
-//        with rec.FMissile.FData do
+//function TdmTTT.getESM_Def(var aRec: TList): boolean;
+//var
+//  rec: TESM_On_Board;
+//begin
+//  result := false;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT * ');
+//    SQL.Add('FROM ESM_Definition a LEFT JOIN Note_Storage b ');
+//    SQL.Add('ON a.ESM_Index = b.ESM_Index ORDER BY Class_Identifier ');
+//
+//    Open;
+//
+//    result := RecordCount > 0;
+//
+//    if not IsEmpty then
+//    begin
+//      First;
+//
+//      if not Assigned(aRec) then
+//        aRec := TList.Create
+//      else
+//        aRec.Clear;
+//
+//      while not ZQ.Eof do
+//      begin
+//        rec := TESM_On_Board.Create;
+//        with rec.FESM_Def do
 //        begin
-//          Mine_Index      := FieldByName('Mine_Index').AsInteger;
-//          Missile_Index   := FieldByName('Missile_Index').AsInteger;
-//          Torpedo_Index   := FieldByName('Torpedo_Index').AsInteger;
+//          ESM_Index := FieldByName('ESM_Index').AsInteger;
+//          Class_Identifier := FieldByName('Class_Identifier').AsString;
+//          Low_Detect_Frequency1 := FieldByName('Low_Detect_Frequency1').AsFloat;
+//          High_Detect_Frequency1 := FieldByName('High_Detect_Frequency1')
+//            .AsFloat;
+//          Low_Detect_Frequency2 := FieldByName('Low_Detect_Frequency2').AsFloat;
+//          High_Detect_Frequency2 := FieldByName('High_Detect_Frequency2')
+//            .AsFloat;
+//          ESM_Classification := FieldByName('ESM_Classification').AsInteger;
+//          Emitter_Detect_Range_Factor := FieldByName
+//            ('Emitter_Detect_Range_Factor').AsSingle;
+//          Comm_Intercept_Capable := FieldByName('Comm_Intercept_Capable')
+//            .AsInteger;
+//          Frequency_Identify_Range := FieldByName('Frequency_Identify_Range')
+//            .AsFloat;
+//          PRF_Identify_Range := FieldByName('PRF_Identify_Range').AsSingle;
+//          Pulsewidth_Identify_Range := FieldByName('Pulsewidth_Identify_Range')
+//            .AsSingle;
+//          Scan_Period_Identify_Range := FieldByName
+//            ('Scan_Period_Identify_Range').AsSingle;
+//          Sector_Blank_Detection_Factor := FieldByName
+//            ('Sector_Blank_Detection_Factor').AsSingle;
+//          Identification_Period := FieldByName('Identification_Period')
+//            .AsSingle;
+//          Classification_Period := FieldByName('Classification_Period')
+//            .AsSingle;
+//          Minimum_Bearing_Error_Variance := FieldByName
+//            ('Minimum_Bearing_Error_Variance').AsSingle;
+//          Initial_Bearing_Error_Variance := FieldByName
+//            ('Initial_Bearing_Error_Variance').AsSingle;
 //        end;
+//
+//        with rec.FNote do
+//        begin
+//          Note_Index := FieldByName('Note_Index').AsInteger;
+//          Note_Type := FieldByName('Note_Type').AsInteger;
+//          Notes := FieldByName('Notes').AsString;
+//        end;
+//
+//        aRec.Add(rec);
+//        ZQ.Next;
+//      end;
+//    end;
+//  end;
+//
+//end;
 
-        vList.Add(rec);
-        ZQ.Next;
-
-      end;
-    end;
-
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.getAllESM_On_Board(const id, index: Integer;
-  var aRec: TList): Integer;
-var
-  i: Integer;
-  rec: TESM_On_Board;
-  ESM_Blind: TBlind_Zone;
-  ssql: string;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    ssql := 'SELECT * ';
-    ssql := ssql + 'FROM  ESM_On_Board a JOIN  ESM_Definition b ';
-    ssql := ssql + '   ON a.ESM_Index = b.ESM_Index LEFT JOIN Note_Storage c';
-    ssql := ssql +
-      '   ON c.ESM_Index = b.ESM_Index LEFT JOIN Vehicle_Definition d ';
-    ssql := ssql + 'ON a.Vehicle_Index = d.Vehicle_Index ';
-
-    if index = 1 then
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 '
-    else if index = 0 then
-    begin
-      // jika id tidak 0
-      if id <> 0 then
-        ssql := ssql + 'WHERE (a.Vehicle_index = ' + IntToStr(id) + ')';
-    end
-    else
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.ESM_Index =' + IntToStr
-        (index);
-
-    SQL.Add(ssql);
-    SQL.Add('ORDER BY a.Instance_Identifier');
-
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-      First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TESM_On_Board.Create;
-        with rec.FData do
-        begin
-          ESM_Instance_Index := FieldByName('ESM_Instance_Index').AsInteger;
-          Instance_Identifier := FieldByName('Instance_Identifier').AsString;
-          Instance_Type := FieldByName('Instance_Type').AsInteger;
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          ESM_Index := FieldByName('ESM_Index').AsInteger;
-          Rel_Antenna_Height := FieldByName('Rel_Antenna_Height').AsSingle;
-          Max_Operational_Depth := FieldByName('Max_Operational_Depth')
-            .AsSingle;
-          Submerged_Antenna_Height := FieldByName('Submerged_Antenna_Height')
-            .AsSingle;
-        end;
-
-        with rec.FESM_Def do
-        begin
-          ESM_Index := FieldByName('ESM_Index').AsInteger;
-          Class_Identifier := FieldByName('Class_Identifier').AsString;
-          Low_Detect_Frequency1 := FieldByName('Low_Detect_Frequency1').AsFloat;
-          High_Detect_Frequency1 := FieldByName('High_Detect_Frequency1')
-            .AsFloat;
-          Low_Detect_Frequency2 := FieldByName('Low_Detect_Frequency2').AsFloat;
-          High_Detect_Frequency2 := FieldByName('High_Detect_Frequency2')
-            .AsFloat;
-          ESM_Classification := FieldByName('ESM_Classification').AsInteger;
-          Emitter_Detect_Range_Factor := FieldByName
-            ('Emitter_Detect_Range_Factor').AsSingle;
-          Comm_Intercept_Capable := FieldByName('Comm_Intercept_Capable')
-            .AsInteger;
-          Frequency_Identify_Range := FieldByName('Frequency_Identify_Range')
-            .AsFloat;
-          PRF_Identify_Range := FieldByName('PRF_Identify_Range').AsSingle;
-          Pulsewidth_Identify_Range := FieldByName('Pulsewidth_Identify_Range')
-            .AsSingle;
-          Scan_Period_Identify_Range := FieldByName
-            ('Scan_Period_Identify_Range').AsSingle;
-          Sector_Blank_Detection_Factor := FieldByName
-            ('Sector_Blank_Detection_Factor').AsSingle;
-          Identification_Period := FieldByName('Identification_Period')
-            .AsSingle;
-          Classification_Period := FieldByName('Classification_Period')
-            .AsSingle;
-          Minimum_Bearing_Error_Variance := FieldByName
-            ('Minimum_Bearing_Error_Variance').AsSingle;
-          Initial_Bearing_Error_Variance := FieldByName
-            ('Initial_Bearing_Error_Variance').AsSingle;
-        end;
-
-        with rec.FNote do
-        begin
-          Note_Index := FieldByName('Note_Index').AsInteger;
-          Note_Type := FieldByName('Note_Type').AsInteger;
-          Notes := FieldByName('Notes').AsString;
-        end;
-
-        with rec.FVehicle.FData do
-        begin
-          Vehicle_Identifier := FieldByName('Vehicle_Identifier').AsString;
-        end;
-
-        aRec.Add(rec);
-        ZQ.Next;
-      end;
-
-      for i := 0 to aRec.Count - 1 do
-      begin
-        rec := aRec.Items[i];
-        with ZQ do begin
-          Close;
-          SQL.Clear;
-          SQL.Add('SELECT *');
-          SQL.Add('FROM ESM_On_Board a JOIN Blind_Zone_Definition b ');
-          SQL.Add('On a.ESM_Instance_Index = b.ESM_Instance_Index ');
-          SQL.Add('WHERE (a.ESM_Instance_Index = ' + IntToStr
-              (rec.FData.ESM_Instance_Index) + ')');
-          Open;
-
-          if not IsEmpty then
-          begin
-            First;
-
-            while not Eof do
-            begin
-              ESM_Blind := TBlind_Zone.Create;
-
-              with rec.FBlind_Zone.FData do
-              begin
-                Blind_Zone_Index := FieldByName('Blind_Zone_Index').AsInteger;
-                Blind_Zone_Type := FieldByName('Blind_Zone_Type').AsInteger;
-                BlindZone_Number := FieldByName('BlindZone_Number').AsInteger;
-                ESM_Instance_Index := FieldByName('ESM_Instance_Index').AsInteger;
-                Start_Angle := FieldByName('Start_Angle').AsSingle;
-                End_Angle := FieldByName('End_Angle').AsSingle;
-              end;
-
-              rec.FBlind.Add(ESM_Blind);
-              Next;
-            end;
-          end;
-
-          //added by bebe
-          Close;
-          SQL.Clear;
-          SQL.Add('SELECT * ');
-          SQL.Add('FROM ESM_On_Board a JOIN Blind_Zone_Definition b ');
-          SQL.Add('ON a.ESM_Instance_Index = b.ESM_Instance_Index ');
-          SQL.Add('WHERE (a.ESM_Instance_Index = ' + IntToStr
-              (rec.FData.ESM_Instance_Index) + ')');
-          SQL.Add('AND b.BlindZone_Number = 1 ');
-          Open;
-
-          if not IsEmpty then
-          begin
-            First;
-
-            with rec.FBZone_1 do
-            begin
-              Blind_Zone_Index := FieldByName('Blind_Zone_Index').AsInteger;
-              Blind_Zone_Type := FieldByName('Blind_Zone_Type').AsInteger;
-              BlindZone_Number := FieldByName('BlindZone_Number').AsInteger;
-              ESM_Instance_Index := FieldByName('ESM_Instance_Index').AsInteger;
-              Start_Angle := FieldByName('Start_Angle').AsSingle;
-              End_Angle := FieldByName('End_Angle').AsSingle;
-            end;
-          end;
-
-          Close;
-          SQL.Clear;
-          SQL.Add('SELECT * ');
-          SQL.Add('FROM ESM_On_Board a JOIN Blind_Zone_Definition b ');
-          SQL.Add('ON a.ESM_Instance_Index = b.ESM_Instance_Index ');
-          SQL.Add('WHERE (a.ESM_Instance_Index = ' + IntToStr
-              (rec.FData.ESM_Instance_Index) + ')');
-          SQL.Add('AND b.BlindZone_Number = 2 ');
-          Open;
-
-          if not IsEmpty then
-          begin
-            First;
-
-            with rec.FBZone_2 do
-            begin
-              Blind_Zone_Index := FieldByName('Blind_Zone_Index').AsInteger;
-              Blind_Zone_Type := FieldByName('Blind_Zone_Type').AsInteger;
-              BlindZone_Number := FieldByName('BlindZone_Number').AsInteger;
-              ESM_Instance_Index := FieldByName('ESM_Instance_Index').AsInteger;
-              Start_Angle := FieldByName('Start_Angle').AsSingle;
-              End_Angle := FieldByName('End_Angle').AsSingle;
-            end;
-          end;
-        end;
-
-      end;
-
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.updateESM(rec: TESM_On_Board; id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('UPDATE ESM_On_Board ');
-      SQL.Add('SET ');
-      SQL.Add('ESM_Instance_Index  =' + IntToStr(ESM_Instance_Index) + ',');
-      SQL.Add('Instance_Identifier=''' + Instance_Identifier + ''',');
-      SQL.Add('Instance_Type  =' + IntToStr(Instance_Type) + ',');
-      SQL.Add('ESM_Index =' + IntToStr(ESM_Index) + ',');
-      SQL.Add('Rel_Antenna_Height =' + FloatToStr(Rel_Antenna_Height) + ',');
-      SQL.Add('Max_Operational_Depth =' + FloatToStr(Max_Operational_Depth)
-          + ',');
-      SQL.Add('Submerged_Antenna_Height =' + FloatToStr
-          (Submerged_Antenna_Height));
-    end;
-
-    SQL.Add(' WHERE (Vehicle_Index = ' + id + ')');
-    ExecSQL;
-
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.insertESM(rec: TESM_On_Board): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO ESM_On_Board ');
-      SQL.Add(
-        '(Instance_Identifier,Instance_Type,Vehicle_Index,ESM_Index,Rel_Antenna_Height,Max_Operational_Depth,Submerged_Antenna_Height)');
-      SQL.Add(' VALUES (');
-      SQL.Add('''' + Instance_Identifier + ''',');
-      SQL.Add(IntToStr(Instance_Type) + ',');
-      SQL.Add(IntToStr(Vehicle_Index) + ',');
-      SQL.Add(IntToStr(ESM_Index) + ',');
-      SQL.Add(FloatToStr(Rel_Antenna_Height) + ',');
-      SQL.Add(FloatToStr(Max_Operational_Depth) + ',');
-      SQL.Add(FloatToStr(Submerged_Antenna_Height) + ')');
-      ExecSQL;
-
-      SQL.Clear;
-      SQL.Add('SELECT * FROM ESM_On_Board ');
-      SQL.Add('WHERE Instance_Identifier = '+ QuotedStr(Instance_Identifier) + ' ');
-      SQL.Add('AND ESM_Index = ' + IntToStr(ESM_Index) + ' ');
-      SQL.Add('AND Vehicle_Index = ' + IntToStr(Vehicle_Index) );
-      Open;
-
-      ESM_Instance_Index := FieldByName('ESM_Instance_Index').AsInteger;
-
-    end;
-  end;
-end;
-
-function TdmTTT.deleteESM(id: string): Integer;
-begin
-  result := -1;
-//  deleteNote(10,id);
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM ESM_Definition ');
-    SQL.Add('WHERE ESM_Index = ' + id);
-    ExecSQL;
-  end;
-
-end;
-
-function TdmTTT.getESM_Def(var aRec: TList): boolean;
-var
-  rec: TESM_On_Board;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM ESM_Definition a LEFT JOIN Note_Storage b ');
-    SQL.Add('ON a.ESM_Index = b.ESM_Index ORDER BY Class_Identifier ');
-
-    Open;
-
-    result := RecordCount > 0;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TESM_On_Board.Create;
-        with rec.FESM_Def do
-        begin
-          ESM_Index := FieldByName('ESM_Index').AsInteger;
-          Class_Identifier := FieldByName('Class_Identifier').AsString;
-          Low_Detect_Frequency1 := FieldByName('Low_Detect_Frequency1').AsFloat;
-          High_Detect_Frequency1 := FieldByName('High_Detect_Frequency1')
-            .AsFloat;
-          Low_Detect_Frequency2 := FieldByName('Low_Detect_Frequency2').AsFloat;
-          High_Detect_Frequency2 := FieldByName('High_Detect_Frequency2')
-            .AsFloat;
-          ESM_Classification := FieldByName('ESM_Classification').AsInteger;
-          Emitter_Detect_Range_Factor := FieldByName
-            ('Emitter_Detect_Range_Factor').AsSingle;
-          Comm_Intercept_Capable := FieldByName('Comm_Intercept_Capable')
-            .AsInteger;
-          Frequency_Identify_Range := FieldByName('Frequency_Identify_Range')
-            .AsFloat;
-          PRF_Identify_Range := FieldByName('PRF_Identify_Range').AsSingle;
-          Pulsewidth_Identify_Range := FieldByName('Pulsewidth_Identify_Range')
-            .AsSingle;
-          Scan_Period_Identify_Range := FieldByName
-            ('Scan_Period_Identify_Range').AsSingle;
-          Sector_Blank_Detection_Factor := FieldByName
-            ('Sector_Blank_Detection_Factor').AsSingle;
-          Identification_Period := FieldByName('Identification_Period')
-            .AsSingle;
-          Classification_Period := FieldByName('Classification_Period')
-            .AsSingle;
-          Minimum_Bearing_Error_Variance := FieldByName
-            ('Minimum_Bearing_Error_Variance').AsSingle;
-          Initial_Bearing_Error_Variance := FieldByName
-            ('Initial_Bearing_Error_Variance').AsSingle;
-        end;
-
-        with rec.FNote do
-        begin
-          Note_Index := FieldByName('Note_Index').AsInteger;
-          Note_Type := FieldByName('Note_Type').AsInteger;
-          Notes := FieldByName('Notes').AsString;
-        end;
-
-        aRec.Add(rec);
-        ZQ.Next;
-      end;
-    end;
-  end;
-
-end;
-
-function TdmTTT.updateESM_Def(rec: TESM_On_Board; id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FESM_Def do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('UPDATE ESM_Definition ');
-      SQL.Add('SET ');
-      SQL.Add('Class_Identifier =''' + Class_Identifier + ''',');
-      SQL.Add('Low_Detect_Frequency1  =' + FloatToStr(Low_Detect_Frequency1)
-          + ',');
-      SQL.Add('High_Detect_Frequency1 =' + FloatToStr(High_Detect_Frequency1)
-          + ',');
-      SQL.Add('Low_Detect_Frequency2 =' + FloatToStr(Low_Detect_Frequency2)
-          + ',');
-      SQL.Add('High_Detect_Frequency2 =' + FloatToStr(High_Detect_Frequency2)
-          + ',');
-      SQL.Add('ESM_Classification =' + IntToStr(ESM_Classification) + ',');
-      SQL.Add('Emitter_Detect_Range_Factor  =' + FloatToStr
-          (Emitter_Detect_Range_Factor) + ',');
-      SQL.Add('Comm_Intercept_Capable =' + FloatToStr(Comm_Intercept_Capable)
-          + ',');
-      SQL.Add('Frequency_Identify_Range =' + FloatToStr
-          (Frequency_Identify_Range) + ',');
-      SQL.Add('PRF_Identify_Range =' + FloatToStr(PRF_Identify_Range) + ',');
-      SQL.Add('Pulsewidth_Identify_Range =' + FloatToStr
-          (Pulsewidth_Identify_Range) + ',');
-      SQL.Add('Scan_Period_Identify_Range =' + FloatToStr
-          (Scan_Period_Identify_Range) + ',');
-      SQL.Add('Sector_Blank_Detection_Factor  =' + FloatToStr
-          (Sector_Blank_Detection_Factor) + ',');
-      SQL.Add('Identification_Period =' + FloatToStr(Identification_Period)
-          + ',');
-      SQL.Add('Classification_Period =' + FloatToStr(Classification_Period)
-          + ',');
-      SQL.Add('Minimum_Bearing_Error_Variance =' + FloatToStr
-          (Minimum_Bearing_Error_Variance) + ',');
-      SQL.Add('Initial_Bearing_Error_Variance =' + FloatToStr
-          (Initial_Bearing_Error_Variance));
-    end;
-
-    SQL.Add(' WHERE (ESM_Index = ' + id + ')');
-    ExecSQL;
-
-  end;
-end;
+//function TdmTTT.updateESM_Def(rec: TESM_On_Board; id: string): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    with rec.FESM_Def do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('UPDATE ESM_Definition ');
+//      SQL.Add('SET ');
+//      SQL.Add('Class_Identifier =''' + Class_Identifier + ''',');
+//      SQL.Add('Low_Detect_Frequency1  =' + FloatToStr(Low_Detect_Frequency1)
+//          + ',');
+//      SQL.Add('High_Detect_Frequency1 =' + FloatToStr(High_Detect_Frequency1)
+//          + ',');
+//      SQL.Add('Low_Detect_Frequency2 =' + FloatToStr(Low_Detect_Frequency2)
+//          + ',');
+//      SQL.Add('High_Detect_Frequency2 =' + FloatToStr(High_Detect_Frequency2)
+//          + ',');
+//      SQL.Add('ESM_Classification =' + IntToStr(ESM_Classification) + ',');
+//      SQL.Add('Emitter_Detect_Range_Factor  =' + FloatToStr
+//          (Emitter_Detect_Range_Factor) + ',');
+//      SQL.Add('Comm_Intercept_Capable =' + FloatToStr(Comm_Intercept_Capable)
+//          + ',');
+//      SQL.Add('Frequency_Identify_Range =' + FloatToStr
+//          (Frequency_Identify_Range) + ',');
+//      SQL.Add('PRF_Identify_Range =' + FloatToStr(PRF_Identify_Range) + ',');
+//      SQL.Add('Pulsewidth_Identify_Range =' + FloatToStr
+//          (Pulsewidth_Identify_Range) + ',');
+//      SQL.Add('Scan_Period_Identify_Range =' + FloatToStr
+//          (Scan_Period_Identify_Range) + ',');
+//      SQL.Add('Sector_Blank_Detection_Factor  =' + FloatToStr
+//          (Sector_Blank_Detection_Factor) + ',');
+//      SQL.Add('Identification_Period =' + FloatToStr(Identification_Period)
+//          + ',');
+//      SQL.Add('Classification_Period =' + FloatToStr(Classification_Period)
+//          + ',');
+//      SQL.Add('Minimum_Bearing_Error_Variance =' + FloatToStr
+//          (Minimum_Bearing_Error_Variance) + ',');
+//      SQL.Add('Initial_Bearing_Error_Variance =' + FloatToStr
+//          (Initial_Bearing_Error_Variance));
+//    end;
+//
+//    SQL.Add(' WHERE (ESM_Index = ' + id + ')');
+//    ExecSQL;
+//
+//  end;
+//end;
 
 // -----------------------------------------------------------------------------
 
-function TdmTTT.insertESM_Def(rec: TESM_On_Board): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FESM_Def do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO ESM_Definition ');
-      SQL.Add(
-        '(Class_Identifier,Low_Detect_Frequency1,High_Detect_Frequency1,Low_Detect_Frequency2,');
-      SQL.Add(
-        'High_Detect_Frequency2,ESM_Classification,Emitter_Detect_Range_Factor,Comm_Intercept_Capable,');
-      SQL.Add(
-        'Frequency_Identify_Range,PRF_Identify_Range,Pulsewidth_Identify_Range,Scan_Period_Identify_Range,');
-      SQL.Add(
-        'Sector_Blank_Detection_Factor,Identification_Period,Classification_Period,Minimum_Bearing_Error_Variance,Initial_Bearing_Error_Variance)');
-      SQL.Add(' VALUES (');
-      SQL.Add('''' + Class_Identifier + ''',');
-      SQL.Add(FloatToStr(Low_Detect_Frequency1) + ',');
-      SQL.Add(FloatToStr(High_Detect_Frequency1) + ',');
-      SQL.Add(FloatToStr(Low_Detect_Frequency2) + ',');
-      SQL.Add(FloatToStr(High_Detect_Frequency2) + ',');
-      SQL.Add(IntToStr(ESM_Classification) + ',');
-      SQL.Add(FloatToStr(Emitter_Detect_Range_Factor) + ',');
-      SQL.Add(FloatToStr(Comm_Intercept_Capable) + ',');
-      SQL.Add(FloatToStr(Frequency_Identify_Range) + ',');
-      SQL.Add(FloatToStr(PRF_Identify_Range) + ',');
-      SQL.Add(FloatToStr(Pulsewidth_Identify_Range) + ',');
-      SQL.Add(FloatToStr(Scan_Period_Identify_Range) + ',');
-      SQL.Add(FloatToStr(Sector_Blank_Detection_Factor) + ',');
-      SQL.Add(FloatToStr(Identification_Period) + ',');
-      SQL.Add(FloatToStr(Classification_Period) + ',');
-      SQL.Add(FloatToStr(Minimum_Bearing_Error_Variance) + ',');
-      SQL.Add(FloatToStr(Initial_Bearing_Error_Variance) + ')');
-      ExecSQL;
-
-      SQL.Clear;
-      SQL.Add('SELECT ESM_Index FROM ESM_Definition ');
-      SQL.Add('WHERE Class_Identifier =' + quotedStr(Class_Identifier));
-      Open;
-      with rec.FESM_Def do
-      begin
-        ESM_Index := FieldByName('ESM_Index').AsInteger;
-      end;
-    end;
-  end;
-end;
+//function TdmTTT.insertESM_Def(rec: TESM_On_Board): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    with rec.FESM_Def do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('INSERT INTO ESM_Definition ');
+//      SQL.Add(
+//        '(Class_Identifier,Low_Detect_Frequency1,High_Detect_Frequency1,Low_Detect_Frequency2,');
+//      SQL.Add(
+//        'High_Detect_Frequency2,ESM_Classification,Emitter_Detect_Range_Factor,Comm_Intercept_Capable,');
+//      SQL.Add(
+//        'Frequency_Identify_Range,PRF_Identify_Range,Pulsewidth_Identify_Range,Scan_Period_Identify_Range,');
+//      SQL.Add(
+//        'Sector_Blank_Detection_Factor,Identification_Period,Classification_Period,Minimum_Bearing_Error_Variance,Initial_Bearing_Error_Variance)');
+//      SQL.Add(' VALUES (');
+//      SQL.Add('''' + Class_Identifier + ''',');
+//      SQL.Add(FloatToStr(Low_Detect_Frequency1) + ',');
+//      SQL.Add(FloatToStr(High_Detect_Frequency1) + ',');
+//      SQL.Add(FloatToStr(Low_Detect_Frequency2) + ',');
+//      SQL.Add(FloatToStr(High_Detect_Frequency2) + ',');
+//      SQL.Add(IntToStr(ESM_Classification) + ',');
+//      SQL.Add(FloatToStr(Emitter_Detect_Range_Factor) + ',');
+//      SQL.Add(FloatToStr(Comm_Intercept_Capable) + ',');
+//      SQL.Add(FloatToStr(Frequency_Identify_Range) + ',');
+//      SQL.Add(FloatToStr(PRF_Identify_Range) + ',');
+//      SQL.Add(FloatToStr(Pulsewidth_Identify_Range) + ',');
+//      SQL.Add(FloatToStr(Scan_Period_Identify_Range) + ',');
+//      SQL.Add(FloatToStr(Sector_Blank_Detection_Factor) + ',');
+//      SQL.Add(FloatToStr(Identification_Period) + ',');
+//      SQL.Add(FloatToStr(Classification_Period) + ',');
+//      SQL.Add(FloatToStr(Minimum_Bearing_Error_Variance) + ',');
+//      SQL.Add(FloatToStr(Initial_Bearing_Error_Variance) + ')');
+//      ExecSQL;
+//
+//      SQL.Clear;
+//      SQL.Add('SELECT ESM_Index FROM ESM_Definition ');
+//      SQL.Add('WHERE Class_Identifier =' + quotedStr(Class_Identifier));
+//      Open;
+//      with rec.FESM_Def do
+//      begin
+//        ESM_Index := FieldByName('ESM_Index').AsInteger;
+//      end;
+//    end;
+//  end;
+//end;
 
 // -----------------------------------------------------------------------------
 
-function TdmTTT.getAllIFF_Sensor_On_Board(const id, index: Integer;
-  var aRec: TList): Integer;
-var
-  i, J: Integer;
-  rec: TIFF_Sensor_On_Board;
-  iffScript: TScripted_IFF;
-  iffPattern: TPattern_IFF;
-  ssql: string;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    ssql := 'SELECT * ';
-    ssql := ssql +
-      'FROM  IFF_Sensor_On_Board a LEFT JOIN Vehicle_Definition d ';
-    ssql := ssql + 'ON a.Vehicle_Index = d.Vehicle_Index ';
-
-    if index = 1 then
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 '
-    else if index = 0 then
-    begin
-      // jika id tidak 0
-      if id <> 0 then
-      begin
-        //ssql := ssql + 'JOIN Platform_IFF_Activation b ';
-        //ssql := ssql + 'ON a.IFF_Instance_Index = b.IFF_Instance_Index ';
-        ssql := ssql + 'WHERE (a.Vehicle_index = ' + IntToStr(id) + ')';
-      end;
-    end
-    else
-      if id <> 0 then
-      begin
-        ssql := ssql + 'JOIN Platform_IFF_Activation b ';
-        ssql := ssql + 'ON a.IFF_Instance_Index = b.IFF_Instance_Index ';
-        ssql := ssql + 'WHERE (a.Vehicle_index = ' + IntToStr(id) + ') AND ';
-        ssql := ssql + '(a.IFF_Instance_Index =' + IntToStr(index) +')';
-      end
-      else
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.IFF_Instance_Index =' +
-        IntToStr(index);
-
-    SQL.Add(ssql);
-    SQL.Add('ORDER BY a.Instance_Identifier');
-    Open;
-//    ShowMessage(ssql);
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-      First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TIFF_Sensor_On_Board.Create;
-
-        with rec.FData do
-        begin
-          IFF_Instance_Index := FieldByName('IFF_Instance_Index').AsInteger;
-          Instance_Identifier := FieldByName('Instance_Identifier').AsString;
-          Instance_Type := FieldByName('Instance_Type').AsInteger;
-          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          IFF_Capability := FieldByName('IFF_Capability').AsInteger;
-          Rel_Antenna_Height := FieldByName('Rel_Antenna_Height').AsSingle;
-          Submerged_Antenna_Height := FieldByName('Submerged_Antenna_Height')
-            .AsSingle;
-          Max_Operational_Depth := FieldByName('Max_Operational_Depth')
-            .AsSingle;
-        end;
-
-        with rec.FVehicle.FData do
-        begin
-          Vehicle_Identifier := FieldByName('Vehicle_Identifier').AsString;
-        end;
-
-        aRec.Add(rec);
-        ZQ.Next;
-      end;
-
-      for i := 0 to aRec.Count - 1 do
-      begin
-        rec := aRec.Items[i];
-        Close;
-        SQL.Clear;
-        SQL.Add('SELECT * ');
-        SQL.Add('FROM IFF_Sensor_On_Board a JOIN Scripted_IFF_Event b ');
-        SQL.Add('ON a.IFF_Instance_Index = b.IFF_Instance_Index ');
-        SQL.Add('WHERE (a.IFF_Instance_Index =' + IntToStr
-            (rec.FData.IFF_Instance_Index) + ')');
-        Open;
-
-        ZQ.First;
-
-        while not ZQ.Eof do
-        begin
-          iffScript := TScripted_IFF.Create;
-
-          with iffScript.Event.FData do
-          begin
-            Scripted_Event_Index := FieldByName('Scripted_Event_Index')
-              .AsInteger;
-            IFF_Instance_Index := FieldByName('IFF_Instance_Index').AsInteger;
-            IFF_Interrogator_Control := FieldByName('IFF_Interrogator_Control')
-              .AsInteger;
-            IFF_Transponder_Control := FieldByName('IFF_Transponder_Control')
-              .AsInteger;
-          end;
-
-          GetScripted_Behav(iffScript.Event.FData.Scripted_Event_Index,
-            iffScript.Behav);
-
-          rec.FScripted_IFF.Add(iffScript);
-
-          ZQ.Next;
-
-        end;
-      end;
-
-      for J := 0 to aRec.Count - 1 do
-      begin
-        rec := aRec.Items[J];
-        Close;
-        SQL.Clear;
-        SQL.Add('SELECT * ');
-        SQL.Add('FROM IFF_Sensor_On_Board a JOIN Pattern_IFF_Event b ');
-        SQL.Add('ON a.IFF_Instance_Index = b.IFF_Instance_Index ');
-        SQL.Add('WHERE (a.IFF_Instance_Index =' + IntToStr
-            (rec.FData.IFF_Instance_Index) + ')');
-        Open;
-        ZQ.First;
-        while not ZQ.Eof do
-        begin
-          iffPattern := TPattern_IFF.Create;
-
-          with iffPattern.Event.FData do
-          begin
-            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
-              .AsInteger;
-            IFF_Instance_Index := FieldByName('IFF_Instance_Index').AsInteger;
-            IFF_Interrogator_Control := FieldByName('IFF_Interrogator_Control')
-              .AsInteger;
-            IFF_Transponder_Control := FieldByName('IFF_Transponder_Control')
-              .AsInteger;
-          end;
-
-          GetScripted_Pattern(iffPattern.Event.FData.Scripted_Pattern_Index,
-            iffPattern.pattern);
-
-          rec.FPattern_IFF.Add(iffPattern);
-
-          ZQ.Next;
-
-        end;
-      end;
-    end;
-  end;
-end;
-
-// ------------------------------------------------------------------------------
-
-function TdmTTT.updateIFF(rec: TIFF_Sensor_On_Board; id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('UPDATE IFF_Sensor_On_Board ');
-      SQL.Add('SET ');
-      //SQL.Add('IFF_Instance_Index  =' + IntToStr(IFF_Instance_Index) + ',');
-      SQL.Add('Instance_Identifier=''' + Instance_Identifier + ''',');
-      SQL.Add('Instance_Type  =' + IntToStr(Instance_Type) + ',');
-      SQL.Add('IFF_Capability =' + IntToStr(IFF_Capability) + ',');
-      SQL.Add('Rel_Antenna_Height =' + FloatToStr(Rel_Antenna_Height) + ',');
-      SQL.Add('Max_Operational_Depth =' + FloatToStr(Max_Operational_Depth)
-          + ',');
-      SQL.Add('Submerged_Antenna_Height =' + FloatToStr
-          (Submerged_Antenna_Height));
-    end;
-
-    SQL.Add(' WHERE (IFF_Instance_Index = ' + id + ')');
-    ExecSQL;
-
-  end;
-end;
+//function TdmTTT.getAllIFF_Sensor_On_Board(const id, index: Integer;
+//  var aRec: TList): Integer;
+//var
+//  i, J: Integer;
+//  rec: TIFF_Sensor_On_Board;
+//  iffScript: TScripted_IFF;
+//  iffPattern: TPattern_IFF;
+//  ssql: string;
+//begin
+//  result := -1;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    ssql := 'SELECT * ';
+//    ssql := ssql +
+//      'FROM  IFF_Sensor_On_Board a LEFT JOIN Vehicle_Definition d ';
+//    ssql := ssql + 'ON a.Vehicle_Index = d.Vehicle_Index ';
+//
+//    if index = 1 then
+//      ssql := ssql + 'WHERE a.Vehicle_Index > 0 '
+//    else if index = 0 then
+//    begin
+//      // jika id tidak 0
+//      if id <> 0 then
+//      begin
+//        //ssql := ssql + 'JOIN Platform_IFF_Activation b ';
+//        //ssql := ssql + 'ON a.IFF_Instance_Index = b.IFF_Instance_Index ';
+//        ssql := ssql + 'WHERE (a.Vehicle_index = ' + IntToStr(id) + ')';
+//      end;
+//    end
+//    else
+//      if id <> 0 then
+//      begin
+//        ssql := ssql + 'JOIN Platform_IFF_Activation b ';
+//        ssql := ssql + 'ON a.IFF_Instance_Index = b.IFF_Instance_Index ';
+//        ssql := ssql + 'WHERE (a.Vehicle_index = ' + IntToStr(id) + ') AND ';
+//        ssql := ssql + '(a.IFF_Instance_Index =' + IntToStr(index) +')';
+//      end
+//      else
+//      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.IFF_Instance_Index =' +
+//        IntToStr(index);
+//
+//    SQL.Add(ssql);
+//    SQL.Add('ORDER BY a.Instance_Identifier');
+//    Open;
+////    ShowMessage(ssql);
+//    result := RecordCount;
+//    if not IsEmpty then
+//    begin
+//      First;
+//
+//      if not Assigned(aRec) then
+//        aRec := TList.Create
+//      else
+//        aRec.Clear;
+//
+//      while not ZQ.Eof do
+//      begin
+//        rec := TIFF_Sensor_On_Board.Create;
+//
+//        with rec.FData do
+//        begin
+//          IFF_Instance_Index := FieldByName('IFF_Instance_Index').AsInteger;
+//          Instance_Identifier := FieldByName('Instance_Identifier').AsString;
+//          Instance_Type := FieldByName('Instance_Type').AsInteger;
+//          Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
+//          IFF_Capability := FieldByName('IFF_Capability').AsInteger;
+//          Rel_Antenna_Height := FieldByName('Rel_Antenna_Height').AsSingle;
+//          Submerged_Antenna_Height := FieldByName('Submerged_Antenna_Height')
+//            .AsSingle;
+//          Max_Operational_Depth := FieldByName('Max_Operational_Depth')
+//            .AsSingle;
+//        end;
+//
+//        with rec.FVehicle.FData do
+//        begin
+//          Vehicle_Identifier := FieldByName('Vehicle_Identifier').AsString;
+//        end;
+//
+//        aRec.Add(rec);
+//        ZQ.Next;
+//      end;
+//
+//      for i := 0 to aRec.Count - 1 do
+//      begin
+//        rec := aRec.Items[i];
+//        Close;
+//        SQL.Clear;
+//        SQL.Add('SELECT * ');
+//        SQL.Add('FROM IFF_Sensor_On_Board a JOIN Scripted_IFF_Event b ');
+//        SQL.Add('ON a.IFF_Instance_Index = b.IFF_Instance_Index ');
+//        SQL.Add('WHERE (a.IFF_Instance_Index =' + IntToStr
+//            (rec.FData.IFF_Instance_Index) + ')');
+//        Open;
+//
+//        ZQ.First;
+//
+//        while not ZQ.Eof do
+//        begin
+//          iffScript := TScripted_IFF.Create;
+//
+//          with iffScript.Event.FData do
+//          begin
+//            Scripted_Event_Index := FieldByName('Scripted_Event_Index')
+//              .AsInteger;
+//            IFF_Instance_Index := FieldByName('IFF_Instance_Index').AsInteger;
+//            IFF_Interrogator_Control := FieldByName('IFF_Interrogator_Control')
+//              .AsInteger;
+//            IFF_Transponder_Control := FieldByName('IFF_Transponder_Control')
+//              .AsInteger;
+//          end;
+//
+//          GetScripted_Behav(iffScript.Event.FData.Scripted_Event_Index,
+//            iffScript.Behav);
+//
+//          rec.FScripted_IFF.Add(iffScript);
+//
+//          ZQ.Next;
+//
+//        end;
+//      end;
+//
+//      for J := 0 to aRec.Count - 1 do
+//      begin
+//        rec := aRec.Items[J];
+//        Close;
+//        SQL.Clear;
+//        SQL.Add('SELECT * ');
+//        SQL.Add('FROM IFF_Sensor_On_Board a JOIN Pattern_IFF_Event b ');
+//        SQL.Add('ON a.IFF_Instance_Index = b.IFF_Instance_Index ');
+//        SQL.Add('WHERE (a.IFF_Instance_Index =' + IntToStr
+//            (rec.FData.IFF_Instance_Index) + ')');
+//        Open;
+//        ZQ.First;
+//        while not ZQ.Eof do
+//        begin
+//          iffPattern := TPattern_IFF.Create;
+//
+//          with iffPattern.Event.FData do
+//          begin
+//            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
+//              .AsInteger;
+//            IFF_Instance_Index := FieldByName('IFF_Instance_Index').AsInteger;
+//            IFF_Interrogator_Control := FieldByName('IFF_Interrogator_Control')
+//              .AsInteger;
+//            IFF_Transponder_Control := FieldByName('IFF_Transponder_Control')
+//              .AsInteger;
+//          end;
+//
+//          GetScripted_Pattern(iffPattern.Event.FData.Scripted_Pattern_Index,
+//            iffPattern.pattern);
+//
+//          rec.FPattern_IFF.Add(iffPattern);
+//
+//          ZQ.Next;
+//
+//        end;
+//      end;
+//    end;
+//  end;
+//end;
 
 // ------------------------------------------------------------------------------
 
-function TdmTTT.insertIFF(rec: TIFF_Sensor_On_Board): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO IFF_Sensor_On_Board ');
-      SQL.Add(
-        '(Instance_Identifier,Instance_Type,Vehicle_Index,IFF_Capability,Rel_Antenna_Height,Max_Operational_Depth,Submerged_Antenna_Height)');
-      SQL.Add(' VALUES (');
-      SQL.Add('''' + Instance_Identifier + ''',');
-      SQL.Add(IntToStr(Instance_Type) + ',');
-      SQL.Add(IntToStr(Vehicle_Index) + ',');
-      SQL.Add(IntToStr(IFF_Capability) + ',');
-      SQL.Add(FloatToStr(Rel_Antenna_Height) + ',');
-      SQL.Add(FloatToStr(Max_Operational_Depth) + ',');
-      SQL.Add(FloatToStr(Submerged_Antenna_Height) + ')');
-      ExecSQL;
+//function TdmTTT.updateIFF(rec: TIFF_Sensor_On_Board; id: string): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    with rec.FData do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('UPDATE IFF_Sensor_On_Board ');
+//      SQL.Add('SET ');
+//      //SQL.Add('IFF_Instance_Index  =' + IntToStr(IFF_Instance_Index) + ',');
+//      SQL.Add('Instance_Identifier=''' + Instance_Identifier + ''',');
+//      SQL.Add('Instance_Type  =' + IntToStr(Instance_Type) + ',');
+//      SQL.Add('IFF_Capability =' + IntToStr(IFF_Capability) + ',');
+//      SQL.Add('Rel_Antenna_Height =' + FloatToStr(Rel_Antenna_Height) + ',');
+//      SQL.Add('Max_Operational_Depth =' + FloatToStr(Max_Operational_Depth)
+//          + ',');
+//      SQL.Add('Submerged_Antenna_Height =' + FloatToStr
+//          (Submerged_Antenna_Height));
+//    end;
+//
+//    SQL.Add(' WHERE (IFF_Instance_Index = ' + id + ')');
+//    ExecSQL;
+//
+//  end;
+//end;
 
-      SQL.Clear;
-      SQL.Add('SELECT * FROM IFF_Sensor_On_Board ');
-      SQL.Add('WHERE Vehicle_Index = '+ IntToStr(Vehicle_Index) );
-      Open;
+// ------------------------------------------------------------------------------
 
-      IFF_Instance_Index := FieldByName('IFF_Instance_Index').AsInteger;
-    end;
-  end;
-end;
+//function TdmTTT.insertIFF(rec: TIFF_Sensor_On_Board): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    with rec.FData do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('INSERT INTO IFF_Sensor_On_Board ');
+//      SQL.Add(
+//        '(Instance_Identifier,Instance_Type,Vehicle_Index,IFF_Capability,Rel_Antenna_Height,Max_Operational_Depth,Submerged_Antenna_Height)');
+//      SQL.Add(' VALUES (');
+//      SQL.Add('''' + Instance_Identifier + ''',');
+//      SQL.Add(IntToStr(Instance_Type) + ',');
+//      SQL.Add(IntToStr(Vehicle_Index) + ',');
+//      SQL.Add(IntToStr(IFF_Capability) + ',');
+//      SQL.Add(FloatToStr(Rel_Antenna_Height) + ',');
+//      SQL.Add(FloatToStr(Max_Operational_Depth) + ',');
+//      SQL.Add(FloatToStr(Submerged_Antenna_Height) + ')');
+//      ExecSQL;
+//
+//      SQL.Clear;
+//      SQL.Add('SELECT * FROM IFF_Sensor_On_Board ');
+//      SQL.Add('WHERE Vehicle_Index = '+ IntToStr(Vehicle_Index) );
+//      Open;
+//
+//      IFF_Instance_Index := FieldByName('IFF_Instance_Index').AsInteger;
+//    end;
+//  end;
+//end;
 
 function TdmTTT.getAllMAD_Sensor_On_Board(const id, index: Integer;
   var aRec: TList): Integer;
@@ -34207,89 +32860,89 @@ begin
   end;
 end;
 
-function TdmTTT.getSensor_On_Board(const index, id: Integer; sens_name: string): Boolean;
-var
-  ssql,tabel: string;
-begin
-  result := False;
-  if not ZConn.Connected then
-    exit;
-
-  case index of
-    1: tabel := 'Radar_On_Board';
-    2: tabel := 'MAD_Sensor_On_Board';
-    3: tabel := 'ESM_On_Board';
-    4: tabel := 'Sonar_On_Board';
-    5: tabel := 'EO_On_Board';
-    6: tabel := 'IFF_Sensor_On_Board';
-    7: tabel := 'Visual_Sensor_On_Board';
-    8: tabel := 'Sonobuoy_On_Board';
-  end;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    ssql := 'SELECT * ';
-    ssql := ssql + 'FROM ' + tabel;
-    ssql := ssql + ' WHERE ';
-
-    if id <> 0 then
-      ssql := ssql + 'Vehicle_Index = ' + IntToStr(id);
-
-    if (id <> 0) and (name <> '') then
-      ssql := ssql + ' AND ';
-
-    if sens_name <> '' then
-      ssql := ssql + 'Instance_Identifier = ' + QuotedStr(sens_name);
-
-    SQL.Add(ssql);
-    Open;
-
-    if not IsEmpty then
-      Result := True;
-  end;
-end;
+//function TdmTTT.getSensor_On_Board(const index, id: Integer; sens_name: string): Boolean;
+//var
+//  ssql,tabel: string;
+//begin
+//  result := False;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  case index of
+//    1: tabel := 'Radar_On_Board';
+//    2: tabel := 'MAD_Sensor_On_Board';
+//    3: tabel := 'ESM_On_Board';
+//    4: tabel := 'Sonar_On_Board';
+//    5: tabel := 'EO_On_Board';
+//    6: tabel := 'IFF_Sensor_On_Board';
+//    7: tabel := 'Visual_Sensor_On_Board';
+//    8: tabel := 'Sonobuoy_On_Board';
+//  end;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    ssql := 'SELECT * ';
+//    ssql := ssql + 'FROM ' + tabel;
+//    ssql := ssql + ' WHERE ';
+//
+//    if id <> 0 then
+//      ssql := ssql + 'Vehicle_Index = ' + IntToStr(id);
+//
+//    if (id <> 0) and (name <> '') then
+//      ssql := ssql + ' AND ';
+//
+//    if sens_name <> '' then
+//      ssql := ssql + 'Instance_Identifier = ' + QuotedStr(sens_name);
+//
+//    SQL.Add(ssql);
+//    Open;
+//
+//    if not IsEmpty then
+//      Result := True;
+//  end;
+//end;
 
 // ------------------------------------------------------------------------------
 
-function TdmTTT.getWeapon_On_Board(const index, id: Integer; weap_name: string): Boolean;
-var
-  ssql,tabel: string;
-begin
-  result := False;
-  if not ZConn.Connected then
-    exit;
-
-  case index of
-    1: tabel := 'Fitted_Weapon_On_Board';
-    2: tabel := 'Point_Effect_On_Board';
-  end;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    ssql := 'SELECT * ';
-    ssql := ssql + 'FROM ' + tabel;
-    ssql := ssql + ' WHERE ';
-
-    if id <> 0 then
-      ssql := ssql + 'Vehicle_Index = ' + IntToStr(id);
-
-    if (id <> 0) and (name <> '') then
-      ssql := ssql + ' AND ';
-
-    if weap_name <> '' then
-      ssql := ssql + 'Instance_Identifier = ' + QuotedStr(weap_name);
-
-    SQL.Add(ssql);
-    Open;
-
-    if not IsEmpty then
-      Result := True;
-  end;
-end;
+//function TdmTTT.getWeapon_On_Board(const index, id: Integer; weap_name: string): Boolean;
+//var
+//  ssql,tabel: string;
+//begin
+//  result := False;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  case index of
+//    1: tabel := 'Fitted_Weapon_On_Board';
+//    2: tabel := 'Point_Effect_On_Board';
+//  end;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    ssql := 'SELECT * ';
+//    ssql := ssql + 'FROM ' + tabel;
+//    ssql := ssql + ' WHERE ';
+//
+//    if id <> 0 then
+//      ssql := ssql + 'Vehicle_Index = ' + IntToStr(id);
+//
+//    if (id <> 0) and (name <> '') then
+//      ssql := ssql + ' AND ';
+//
+//    if weap_name <> '' then
+//      ssql := ssql + 'Instance_Identifier = ' + QuotedStr(weap_name);
+//
+//    SQL.Add(ssql);
+//    Open;
+//
+//    if not IsEmpty then
+//      Result := True;
+//  end;
+//end;
 
 function TdmTTT.Get_IdResourceAlloc(const id: Integer;
   var recList: TList): Boolean;
@@ -34338,49 +32991,49 @@ end;
 
 // ------------------------------------------------------------------------------
 
-function TdmTTT.getCountermeasure_On_Board(const index, id: Integer; count_name: string): Boolean;
-var
-  ssql,tabel: string;
-begin
-  result := False;
-  if not ZConn.Connected then
-    exit;
-
-  case index of
-    1: tabel := 'Jammer_On_Board';
-    2: tabel := 'Air_Bubble_Mount';
-    3: tabel := 'Acoustic_Decoy_On_Board';
-    4: tabel := 'Defensive_Jammer_On_Board';
-    5: tabel := 'Towed_Jammer_Decoy_On_Board';
-    6: tabel := 'Floating_Decoy_On_Board';
-    7: tabel := 'Chaff_On_Board';
-    8: tabel := 'Infrared_Decoy_On_Board';
-  end;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    ssql := 'SELECT * ';
-    ssql := ssql + 'FROM ' + tabel;
-    ssql := ssql + ' WHERE ';
-
-    if id <> 0 then
-      ssql := ssql + 'Vehicle_Index = ' + IntToStr(id);
-
-    if (id <> 0) and (name <> '') then
-      ssql := ssql + ' AND ';
-
-    if count_name <> '' then
-      ssql := ssql + 'Instance_Identifier = ' + QuotedStr(count_name);
-
-    SQL.Add(ssql);
-    Open;
-
-    if not IsEmpty then
-      Result := True;
-  end;
-end;
+//function TdmTTT.getCountermeasure_On_Board(const index, id: Integer; count_name: string): Boolean;
+//var
+//  ssql,tabel: string;
+//begin
+//  result := False;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  case index of
+//    1: tabel := 'Jammer_On_Board';
+//    2: tabel := 'Air_Bubble_Mount';
+//    3: tabel := 'Acoustic_Decoy_On_Board';
+//    4: tabel := 'Defensive_Jammer_On_Board';
+//    5: tabel := 'Towed_Jammer_Decoy_On_Board';
+//    6: tabel := 'Floating_Decoy_On_Board';
+//    7: tabel := 'Chaff_On_Board';
+//    8: tabel := 'Infrared_Decoy_On_Board';
+//  end;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    ssql := 'SELECT * ';
+//    ssql := ssql + 'FROM ' + tabel;
+//    ssql := ssql + ' WHERE ';
+//
+//    if id <> 0 then
+//      ssql := ssql + 'Vehicle_Index = ' + IntToStr(id);
+//
+//    if (id <> 0) and (name <> '') then
+//      ssql := ssql + ' AND ';
+//
+//    if count_name <> '' then
+//      ssql := ssql + 'Instance_Identifier = ' + QuotedStr(count_name);
+//
+//    SQL.Add(ssql);
+//    Open;
+//
+//    if not IsEmpty then
+//      Result := True;
+//  end;
+//end;
 
 // ------------------------------------------------------------------------------
 
@@ -35187,109 +33840,109 @@ begin
   end;
 end;
 
-function TdmTTT.GetRadar_Definition(var aRec: TList): boolean;
-var
-  rec: TRadar_On_Board;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Radar_Definition a LEFT JOIN Note_Storage b ');
-    SQL.Add('ON a.Radar_Index = b.Radar_Index ORDER BY Radar_Identifier');
-
-    Open;
-
-    result := RecordCount > 0;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
-
-      while not ZQ.Eof do
-      begin
-        rec := TRadar_On_Board.Create;
-        with rec.FDef do
-        begin
-          Radar_Index := FieldByName('Radar_Index').AsInteger;
-          Radar_Identifier := FieldByName('Radar_Identifier').AsString;
-          Radar_Emitter := FieldByName('Radar_Emitter').AsString;
-          Radar_Type := FieldByName('Radar_Type').AsInteger;
-          Frequency := FieldByName('Frequency').AsSingle;
-          Scan_Rate := FieldByName('Scan_Rate').AsSingle;
-          Pulse_Rep_Freq := FieldByName('Pulse_Rep_Freq').AsSingle;
-          Pulse_Width := FieldByName('Pulse_Width').AsSingle;
-          Radar_Power := FieldByName('Radar_Power').AsSingle;
-          Detection_Range := FieldByName('Detection_Range').AsSingle;
-          Known_Cross_Section := FieldByName('Known_Cross_Section').AsSingle;
-          Max_Unambig_Detect_Range := FieldByName('Max_Unambig_Detect_Range')
-            .AsSingle;
-          IFF_Capability := FieldByName('IFF_Capability').AsBoolean;
-          Altitude_Data_Capability := FieldByName('Altitude_Data_Capability')
-            .AsBoolean;
-          Ground_Speed_Data_Capability := FieldByName
-            ('Ground_Speed_Data_Capability').AsBoolean;
-          Heading_Data_Capability := FieldByName('Heading_Data_Capability')
-            .AsBoolean;
-          Plat_Type_Recog_Capability := FieldByName
-            ('Plat_Type_Recog_Capability')
-            .AsBoolean;
-          Plat_Class_Recog_Capability := FieldByName
-            ('Plat_Class_Recog_Capability').AsBoolean;
-          Clutter_Rejection := FieldByName('Clutter_Rejection').AsSingle;
-          Anti_Jamming_Capable := FieldByName('Anti_Jamming_Capable').AsBoolean;
-          Curve_Definition_Index := FieldByName('Curve_Definition_Index')
-            .AsInteger;
-          Second_Vert_Coverage := FieldByName('Second_Vert_Coverage').AsBoolean;
-          Jamming_A_Resistant := FieldByName('Jamming_A_Resistant').AsBoolean;
-          Jamming_B_Resistant := FieldByName('Jamming_B_Resistant').AsBoolean;
-          Jamming_C_Resistant := FieldByName('Jamming_C_Resistant').AsBoolean;
-          Anti_Jamming_A_Resistant := FieldByName('Anti_Jamming_A_Resistant')
-            .AsBoolean;
-          Anti_Jamming_B_Resistant := FieldByName('Anti_Jamming_B_Resistant')
-            .AsBoolean;
-          Anti_Jamming_C_Resistant := FieldByName('Anti_Jamming_C_Resistant')
-            .AsBoolean;
-          Anti_Jamming_Range_Reduction := FieldByName
-            ('Anti_Jamming_Range_Reduction').AsSingle;
-          Beam_Width := FieldByName('Beam_Width').AsSingle;
-          Sector_Scan_Capable := FieldByName('Sector_Scan_Capable').AsBoolean;
-          Off_Axis_Jammer_Reduction := FieldByName('Off_Axis_Jammer_Reduction')
-            .AsSingle;
-          Num_FCR_Channels := FieldByName('Num_FCR_Channels').AsInteger;
-          Radar_Spot_Number := FieldByName('Radar_Spot_Number').AsInteger;
-          Radar_Horizon_Factor := FieldByName('Radar_Horizon_Factor').AsSingle;
-          Main_Lobe_Gain := FieldByName('Main_Lobe_Gain').AsSingle;
-          Counter_Detection_Factor := FieldByName('Counter_Detection_Factor')
-            .AsSingle;
-          ECCM_Type := FieldByName('ECCM_Type').AsInteger;
-          MTI_Capable := FieldByName('MTI_Capable').AsBoolean;
-          MTI_MinTargetSpeed := FieldByName('MTI_MinTargetSpeed').AsSingle;
-        end;
-
-        with rec.FNote do
-        begin
-          Note_Index := FieldByName('Note_Index').AsInteger;
-          Note_Type := FieldByName('Note_Type').AsInteger;
-          Notes := FieldByName('Notes').AsString;
-        end;
-        aRec.Add(rec);
-        ZQ.Next;
-
-      end;
-    end;
-  end;
-end;
+//function TdmTTT.GetRadar_Definition(var aRec: TList): boolean;
+//var
+//  rec: TRadar_On_Board;
+//begin
+//  result := false;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT * ');
+//    SQL.Add('FROM Radar_Definition a LEFT JOIN Note_Storage b ');
+//    SQL.Add('ON a.Radar_Index = b.Radar_Index ORDER BY Radar_Identifier');
+//
+//    Open;
+//
+//    result := RecordCount > 0;
+//
+//    if not IsEmpty then
+//    begin
+//      First;
+//
+//      if not Assigned(aRec) then
+//        aRec := TList.Create
+//      else
+//        aRec.Clear;
+//
+//      while not ZQ.Eof do
+//      begin
+//        rec := TRadar_On_Board.Create;
+//        with rec.FDef do
+//        begin
+//          Radar_Index := FieldByName('Radar_Index').AsInteger;
+//          Radar_Identifier := FieldByName('Radar_Identifier').AsString;
+//          Radar_Emitter := FieldByName('Radar_Emitter').AsString;
+//          Radar_Type := FieldByName('Radar_Type').AsInteger;
+//          Frequency := FieldByName('Frequency').AsSingle;
+//          Scan_Rate := FieldByName('Scan_Rate').AsSingle;
+//          Pulse_Rep_Freq := FieldByName('Pulse_Rep_Freq').AsSingle;
+//          Pulse_Width := FieldByName('Pulse_Width').AsSingle;
+//          Radar_Power := FieldByName('Radar_Power').AsSingle;
+//          Detection_Range := FieldByName('Detection_Range').AsSingle;
+//          Known_Cross_Section := FieldByName('Known_Cross_Section').AsSingle;
+//          Max_Unambig_Detect_Range := FieldByName('Max_Unambig_Detect_Range')
+//            .AsSingle;
+//          IFF_Capability := FieldByName('IFF_Capability').AsBoolean;
+//          Altitude_Data_Capability := FieldByName('Altitude_Data_Capability')
+//            .AsBoolean;
+//          Ground_Speed_Data_Capability := FieldByName
+//            ('Ground_Speed_Data_Capability').AsBoolean;
+//          Heading_Data_Capability := FieldByName('Heading_Data_Capability')
+//            .AsBoolean;
+//          Plat_Type_Recog_Capability := FieldByName
+//            ('Plat_Type_Recog_Capability')
+//            .AsBoolean;
+//          Plat_Class_Recog_Capability := FieldByName
+//            ('Plat_Class_Recog_Capability').AsBoolean;
+//          Clutter_Rejection := FieldByName('Clutter_Rejection').AsSingle;
+//          Anti_Jamming_Capable := FieldByName('Anti_Jamming_Capable').AsBoolean;
+//          Curve_Definition_Index := FieldByName('Curve_Definition_Index')
+//            .AsInteger;
+//          Second_Vert_Coverage := FieldByName('Second_Vert_Coverage').AsBoolean;
+//          Jamming_A_Resistant := FieldByName('Jamming_A_Resistant').AsBoolean;
+//          Jamming_B_Resistant := FieldByName('Jamming_B_Resistant').AsBoolean;
+//          Jamming_C_Resistant := FieldByName('Jamming_C_Resistant').AsBoolean;
+//          Anti_Jamming_A_Resistant := FieldByName('Anti_Jamming_A_Resistant')
+//            .AsBoolean;
+//          Anti_Jamming_B_Resistant := FieldByName('Anti_Jamming_B_Resistant')
+//            .AsBoolean;
+//          Anti_Jamming_C_Resistant := FieldByName('Anti_Jamming_C_Resistant')
+//            .AsBoolean;
+//          Anti_Jamming_Range_Reduction := FieldByName
+//            ('Anti_Jamming_Range_Reduction').AsSingle;
+//          Beam_Width := FieldByName('Beam_Width').AsSingle;
+//          Sector_Scan_Capable := FieldByName('Sector_Scan_Capable').AsBoolean;
+//          Off_Axis_Jammer_Reduction := FieldByName('Off_Axis_Jammer_Reduction')
+//            .AsSingle;
+//          Num_FCR_Channels := FieldByName('Num_FCR_Channels').AsInteger;
+//          Radar_Spot_Number := FieldByName('Radar_Spot_Number').AsInteger;
+//          Radar_Horizon_Factor := FieldByName('Radar_Horizon_Factor').AsSingle;
+//          Main_Lobe_Gain := FieldByName('Main_Lobe_Gain').AsSingle;
+//          Counter_Detection_Factor := FieldByName('Counter_Detection_Factor')
+//            .AsSingle;
+//          ECCM_Type := FieldByName('ECCM_Type').AsInteger;
+//          MTI_Capable := FieldByName('MTI_Capable').AsBoolean;
+//          MTI_MinTargetSpeed := FieldByName('MTI_MinTargetSpeed').AsSingle;
+//        end;
+//
+//        with rec.FNote do
+//        begin
+//          Note_Index := FieldByName('Note_Index').AsInteger;
+//          Note_Type := FieldByName('Note_Type').AsInteger;
+//          Notes := FieldByName('Notes').AsString;
+//        end;
+//        aRec.Add(rec);
+//        ZQ.Next;
+//
+//      end;
+//    end;
+//  end;
+//end;
 
 function TdmTTT.insertRadar_Def(rec: TRadar_On_Board): Integer;
 begin
@@ -43237,22 +41890,22 @@ begin
   end;
 end;
 
-function TdmTTT.CekMotionNameAlreadyExist(aName: String): Boolean;
-begin
-  Result := False;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Motion_Characteristics');
-    SQL.Add('WHERE Motion_Identifier = '+ QuotedStr(aName));
-    Open;
-
-    result := RecordCount > 0;
-
-  end;
-end;
+//function TdmTTT.CekMotionNameAlreadyExist(aName: String): Boolean;
+//begin
+//  Result := False;
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT * ');
+//    SQL.Add('FROM Motion_Characteristics');
+//    SQL.Add('WHERE Motion_Identifier = '+ QuotedStr(aName));
+//    Open;
+//
+//    result := RecordCount > 0;
+//
+//  end;
+//end;
 
 function TdmTTT.CekRadarNameAlreadyExist(aName: String): Boolean;
 begin
@@ -45615,184 +44268,184 @@ end;
 
 //------------------------------------------------------------------------------
 
-function TdmTTT.getBlind(var bList: TList; const index,id,number: Integer):integer;
-var rec: TBlind_Zone;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Blind_Zone_Definition ');
-    SQL.Add('WHERE  ');
-    case index of
-      1 : SQL.Add('FCR_Instance_index ='+ IntToStr(id));
-      2 : SQL.Add('ESM_Instance_Index ='+ IntToStr(id));
-      3 : SQL.Add('EO_Instance_Index ='+ IntToStr(id));
-      4 : SQL.Add('Visual_Instance_Index ='+ IntToStr(id));
-      5 : SQL.Add('Point_Effect_Index ='+ IntToStr(id));
-      6 : SQL.Add('Fitted_Weap_Index ='+ IntToStr(id));
-      7 : SQL.Add('Sonar_Instance_Index ='+ IntToStr(id));
-      8 : SQL.Add('Radar_Instance_Index ='+ IntToStr(id));
-      9 : SQL.Add('Blind_Zone_Index ='+ IntToStr(id));
-    end;
-    if number <> 0 then
-      SQL.Add(' AND BlindZone_Number = '+ IntToStr(number));
-
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-      First;
-      if not Assigned(bList) then
-        bList := TList.Create;
-    end;
-
-    while not ZQ.Eof do
-    begin
-        rec := TBlind_Zone.Create;
-      with rec.FData do
-      begin
-        Blind_Zone_Index    := FieldByName('Blind_Zone_Index').AsInteger;
-        Blind_Zone_Type     := FieldByName('Blind_Zone_Type').AsInteger;
-        BlindZone_Number    := FieldByName('BlindZone_Number').AsInteger;
-        FCR_Instance_Index  := FieldByName('FCR_Instance_Index').AsInteger;
-        ESM_Instance_Index  := FieldByName('ESM_Instance_Index').AsInteger;
-        EO_Instance_Index   := FieldByName('EO_Instance_Index').AsInteger;
-        Visual_Instance_Index := FieldByName('Visual_Instance_Index').AsInteger;
-        Point_Effect_Index    := FieldByName('Point_Effect_Index').AsInteger;
-        Fitted_Weap_Index     := FieldByName('Fitted_Weap_Index').AsInteger;
-        Sonar_Instance_Index  := FieldByName('Sonar_Instance_Index').AsInteger;
-        Radar_Instance_Index  := FieldByName('Radar_Instance_Index').AsInteger;
-        Start_Angle           := FieldByName('Start_Angle').AsFloat;
-        End_Angle             := FieldByName('End_Angle').AsFloat;
-      end;
-      bList.Add(rec);
-      ZQ.Next;
-    end;
-  end;
-end;
+//function TdmTTT.getBlind(var bList: TList; const index,id,number: Integer):integer;
+//var rec: TBlind_Zone;
+//begin
+//  result := -1;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT * ');
+//    SQL.Add('FROM Blind_Zone_Definition ');
+//    SQL.Add('WHERE  ');
+//    case index of
+//      1 : SQL.Add('FCR_Instance_index ='+ IntToStr(id));
+//      2 : SQL.Add('ESM_Instance_Index ='+ IntToStr(id));
+//      3 : SQL.Add('EO_Instance_Index ='+ IntToStr(id));
+//      4 : SQL.Add('Visual_Instance_Index ='+ IntToStr(id));
+//      5 : SQL.Add('Point_Effect_Index ='+ IntToStr(id));
+//      6 : SQL.Add('Fitted_Weap_Index ='+ IntToStr(id));
+//      7 : SQL.Add('Sonar_Instance_Index ='+ IntToStr(id));
+//      8 : SQL.Add('Radar_Instance_Index ='+ IntToStr(id));
+//      9 : SQL.Add('Blind_Zone_Index ='+ IntToStr(id));
+//    end;
+//    if number <> 0 then
+//      SQL.Add(' AND BlindZone_Number = '+ IntToStr(number));
+//
+//    Open;
+//
+//    result := RecordCount;
+//    if not IsEmpty then
+//    begin
+//      First;
+//      if not Assigned(bList) then
+//        bList := TList.Create;
+//    end;
+//
+//    while not ZQ.Eof do
+//    begin
+//        rec := TBlind_Zone.Create;
+//      with rec.FData do
+//      begin
+//        Blind_Zone_Index    := FieldByName('Blind_Zone_Index').AsInteger;
+//        Blind_Zone_Type     := FieldByName('Blind_Zone_Type').AsInteger;
+//        BlindZone_Number    := FieldByName('BlindZone_Number').AsInteger;
+//        FCR_Instance_Index  := FieldByName('FCR_Instance_Index').AsInteger;
+//        ESM_Instance_Index  := FieldByName('ESM_Instance_Index').AsInteger;
+//        EO_Instance_Index   := FieldByName('EO_Instance_Index').AsInteger;
+//        Visual_Instance_Index := FieldByName('Visual_Instance_Index').AsInteger;
+//        Point_Effect_Index    := FieldByName('Point_Effect_Index').AsInteger;
+//        Fitted_Weap_Index     := FieldByName('Fitted_Weap_Index').AsInteger;
+//        Sonar_Instance_Index  := FieldByName('Sonar_Instance_Index').AsInteger;
+//        Radar_Instance_Index  := FieldByName('Radar_Instance_Index').AsInteger;
+//        Start_Angle           := FieldByName('Start_Angle').AsFloat;
+//        End_Angle             := FieldByName('End_Angle').AsFloat;
+//      end;
+//      bList.Add(rec);
+//      ZQ.Next;
+//    end;
+//  end;
+//end;
 
 //------------------------------------------------------------------------------
 
-function TdmTTT.updateBlind(var rec: TBlind_Zone;const blind_id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('UPDATE Blind_Zone_Definition ');
-      SQL.Add('SET ');
-      SQL.Add('Blind_Zone_Type = ' + IntToStr(Blind_Zone_Type) + ',');
-      SQL.Add('BlindZone_Number =' + IntToStr(BlindZone_Number) + ',');
-      SQL.Add('Start_Angle = ' + FloatToStr(Start_Angle) + ',');
-      SQL.Add('End_Angle =' + FloatToStr(End_Angle));
-      SQL.Add(' WHERE Blind_Zone_Index = ' + blind_id);
-      ExecSQL;
-    end;
-  end;
-end;
+//function TdmTTT.updateBlind(var rec: TBlind_Zone;const blind_id: string): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    with rec.FData do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('UPDATE Blind_Zone_Definition ');
+//      SQL.Add('SET ');
+//      SQL.Add('Blind_Zone_Type = ' + IntToStr(Blind_Zone_Type) + ',');
+//      SQL.Add('BlindZone_Number =' + IntToStr(BlindZone_Number) + ',');
+//      SQL.Add('Start_Angle = ' + FloatToStr(Start_Angle) + ',');
+//      SQL.Add('End_Angle =' + FloatToStr(End_Angle));
+//      SQL.Add(' WHERE Blind_Zone_Index = ' + blind_id);
+//      ExecSQL;
+//    end;
+//  end;
+//end;
 
 // ------------------------------------------------------------------------------
 
-function TdmTTT.insertBlind(var rec: TBlind_Zone;const index,id: Integer): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO Blind_Zone_Definition ');
-      SQL.Add(
-        '(Blind_Zone_Type,BlindZone_Number,Start_Angle,End_Angle,');
-      case index of
-        1:
-          SQL.Add('FCR_Instance_Index)');
-        2:
-          SQL.Add('ESM_Instance_Index)');
-        3:
-          SQL.Add('EO_Instance_Index)');
-        4:
-          SQL.Add('Visual_Instance_Index)');
-        5:
-          SQL.Add('Point_Effect_Index)');
-        6:
-          SQL.Add('Fitted_Weap_Index)');
-        7:
-          SQL.Add('Sonar_Instance_Index)');
-        8:
-          SQL.Add('Radar_Instance_Index)');
-      end;
-      SQL.Add(' VALUES (');
-      SQL.Add(IntToStr(Blind_Zone_Type) + ',');
-      SQL.Add(IntToStr(BlindZone_Number) + ',');
-      SQL.Add(FloatToStr(Start_Angle) + ',');
-      SQL.Add(FloatToStr(End_Angle) + ',');
-      case index of
-        1:
-          SQL.Add(IntToStr(id) + ')');
-        2:
-          SQL.Add(IntToStr(id) + ')');
-        3:
-          SQL.Add(IntToStr(id) + ')');
-        4:
-          SQL.Add(IntToStr(id) + ')');
-        5:
-          SQL.Add(IntToStr(id) + ')');
-        6:
-          SQL.Add(IntToStr(id) + ')');
-        7:
-          SQL.Add(IntToStr(id) + ')');
-        8:
-          SQL.Add(IntToStr(id) + ')');
-      end;
-      ExecSQL;
-    end;
-  end;
-end;
+//function TdmTTT.insertBlind(var rec: TBlind_Zone;const index,id: Integer): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    with rec.FData do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('INSERT INTO Blind_Zone_Definition ');
+//      SQL.Add(
+//        '(Blind_Zone_Type,BlindZone_Number,Start_Angle,End_Angle,');
+//      case index of
+//        1:
+//          SQL.Add('FCR_Instance_Index)');
+//        2:
+//          SQL.Add('ESM_Instance_Index)');
+//        3:
+//          SQL.Add('EO_Instance_Index)');
+//        4:
+//          SQL.Add('Visual_Instance_Index)');
+//        5:
+//          SQL.Add('Point_Effect_Index)');
+//        6:
+//          SQL.Add('Fitted_Weap_Index)');
+//        7:
+//          SQL.Add('Sonar_Instance_Index)');
+//        8:
+//          SQL.Add('Radar_Instance_Index)');
+//      end;
+//      SQL.Add(' VALUES (');
+//      SQL.Add(IntToStr(Blind_Zone_Type) + ',');
+//      SQL.Add(IntToStr(BlindZone_Number) + ',');
+//      SQL.Add(FloatToStr(Start_Angle) + ',');
+//      SQL.Add(FloatToStr(End_Angle) + ',');
+//      case index of
+//        1:
+//          SQL.Add(IntToStr(id) + ')');
+//        2:
+//          SQL.Add(IntToStr(id) + ')');
+//        3:
+//          SQL.Add(IntToStr(id) + ')');
+//        4:
+//          SQL.Add(IntToStr(id) + ')');
+//        5:
+//          SQL.Add(IntToStr(id) + ')');
+//        6:
+//          SQL.Add(IntToStr(id) + ')');
+//        7:
+//          SQL.Add(IntToStr(id) + ')');
+//        8:
+//          SQL.Add(IntToStr(id) + ')');
+//      end;
+//      ExecSQL;
+//    end;
+//  end;
+//end;
 
 //------------------------------------------------------------------------------
 
-function TdmTTT.deleteBlind(index: integer; const id: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Blind_Zone_Definition WHERE ');
-    case index of
-        1:
-          SQL.Add('');
-        2:
-          SQL.Add('ESM_Instance_Index');
-        3:
-          SQL.Add('EO_Instance_Index');
-        4:
-          SQL.Add('Visual_Instance_Index');
-        5:
-          SQL.Add('Point_Effect_Index');
-        6:
-          SQL.Add('Fitted_Weap_Index');
-        7:
-          SQL.Add('Sonar_Instance_Index');
-        8:
-          SQL.Add('Radar_Instance_Index');
-    end;
-    SQL.Add(' = ' + id );
-    ExecSQL;
-  end;
-end;
+//function TdmTTT.deleteBlind(index: integer; const id: string): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('DELETE FROM Blind_Zone_Definition WHERE ');
+//    case index of
+//        1:
+//          SQL.Add('');
+//        2:
+//          SQL.Add('ESM_Instance_Index');
+//        3:
+//          SQL.Add('EO_Instance_Index');
+//        4:
+//          SQL.Add('Visual_Instance_Index');
+//        5:
+//          SQL.Add('Point_Effect_Index');
+//        6:
+//          SQL.Add('Fitted_Weap_Index');
+//        7:
+//          SQL.Add('Sonar_Instance_Index');
+//        8:
+//          SQL.Add('Radar_Instance_Index');
+//    end;
+//    SQL.Add(' = ' + id );
+//    ExecSQL;
+//  end;
+//end;
 
 //------------------------------------------------------------------------------
 
@@ -45935,66 +44588,66 @@ begin
 end;
 
 
-function TdmTTT.updateMotion(rec: TMotion_Characteristics;
-  index: string): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('UPDATE Motion_Characteristics ');
-      SQL.Add('SET ');
-      SQL.Add('Motion_Identifier =''' + Motion_Identifier + ''',');
-      SQL.Add('Motion_Type =' + IntToStr(Motion_Type) + ',');
-      SQL.Add('Max_Altitude = ' + FloatToStr(Max_Altitude) + ',');
-      SQL.Add('Max_Depth =' + FloatToStr(Max_Depth) + ',');
-      SQL.Add('Min_Ground_Speed = ' + FloatToStr(Min_Ground_Speed) + ',');
-      SQL.Add('Cruise_Ground_Speed =' + FloatToStr(Cruise_Ground_Speed) + ',');
-      SQL.Add('High_Ground_Speed =' + FloatToStr(High_Ground_Speed) + ',');
-      SQL.Add('Max_Ground_Speed =' + FloatToStr(Max_Ground_Speed) + ',');
-      SQL.Add('Acceleration = ' + FloatToStr(Acceleration) + ',');
-      SQL.Add('Deceleration =' + FloatToStr(Deceleration) + ',');
-      SQL.Add('Normal_Climb_Rate = ' + FloatToStr(Normal_Climb_Rate) + ',');
-      SQL.Add('Max_Climb_Rate =' + FloatToStr(Max_Climb_Rate) + ',');
-      SQL.Add('Normal_Descent_Rate =' + FloatToStr(Normal_Descent_Rate) + ',');
-      SQL.Add('Max_Descent_Rate =' + FloatToStr(Max_Descent_Rate) + ',');
-      SQL.Add('Vertical_Accel = ' + FloatToStr(Vertical_Accel) + ',');
-      SQL.Add('Standard_Turn_Rate =' + FloatToStr(Standard_Turn_Rate) + ',');
-      SQL.Add('Tight_Turn_Rate = ' + FloatToStr(Tight_Turn_Rate) + ',');
-      SQL.Add('Max_Helm_Angle =' + FloatToStr(Max_Helm_Angle) + ',');
-      SQL.Add('Helm_Angle_Rate =' + FloatToStr(Helm_Angle_Rate) + ',');
-      SQL.Add('Speed_Reduce_In_Turn =' + FloatToStr(Speed_Reduce_In_Turn)
-          + ',');
-      SQL.Add('Time_To_Reduce_Speed = ' + FloatToStr(Time_To_Reduce_Speed)
-          + ',');
-      SQL.Add('Min_Speed_To_Reduce =' + FloatToStr(Min_Speed_To_Reduce) + ',');
-      SQL.Add('Rate_of_Turn_Rate_Chg = ' + FloatToStr(Rate_of_Turn_Rate_Chg)
-          + ',');
-      SQL.Add('Min_Pitch_Angle =' + FloatToStr(Min_Pitch_Angle) + ',');
-      SQL.Add('Max_Pitch_Angle =' + FloatToStr(Max_Pitch_Angle) + ',');
-      SQL.Add('Max_Roll_Angle =' + FloatToStr(Max_Roll_Angle) + ',');
-      SQL.Add('Endurance_Type =' + IntToStr(Endurance_Type) + ',');
-      SQL.Add('Endurance_Time =' + IntToStr(Endurance_Time) + ',');
-      SQL.Add('Max_Effective_Range =' + FloatToStr(Max_Effective_Range) + ',');
-      SQL.Add('Fuel_Unit_Type = ' + IntToStr(Fuel_Unit_Type) + ',');
-      SQL.Add('Max_Fuel_Capacity =' + FloatToStr(Max_Fuel_Capacity) + ',');
-      SQL.Add('Min_Speed_Fuel_Consume = ' + FloatToStr(Min_Speed_Fuel_Consume)
-          + ',');
-      SQL.Add('Cruise_Speed_Fuel_Consume =' + FloatToStr
-          (Cruise_Speed_Fuel_Consume) + ',');
-      SQL.Add('High_Speed_Fuel_Consume =' + FloatToStr(High_Speed_Fuel_Consume)
-          + ',');
-      SQL.Add('Max_Speed_Fuel_Consume =' + FloatToStr(Max_Speed_Fuel_Consume));
-    end;
-
-    SQL.Add(' WHERE Motion_Index = ' + index);
-    ExecSQL;
-
-  end;
-end;
+//function TdmTTT.updateMotion(rec: TMotion_Characteristics;
+//  index: string): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    with rec.FData do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('UPDATE Motion_Characteristics ');
+//      SQL.Add('SET ');
+//      SQL.Add('Motion_Identifier =''' + Motion_Identifier + ''',');
+//      SQL.Add('Motion_Type =' + IntToStr(Motion_Type) + ',');
+//      SQL.Add('Max_Altitude = ' + FloatToStr(Max_Altitude) + ',');
+//      SQL.Add('Max_Depth =' + FloatToStr(Max_Depth) + ',');
+//      SQL.Add('Min_Ground_Speed = ' + FloatToStr(Min_Ground_Speed) + ',');
+//      SQL.Add('Cruise_Ground_Speed =' + FloatToStr(Cruise_Ground_Speed) + ',');
+//      SQL.Add('High_Ground_Speed =' + FloatToStr(High_Ground_Speed) + ',');
+//      SQL.Add('Max_Ground_Speed =' + FloatToStr(Max_Ground_Speed) + ',');
+//      SQL.Add('Acceleration = ' + FloatToStr(Acceleration) + ',');
+//      SQL.Add('Deceleration =' + FloatToStr(Deceleration) + ',');
+//      SQL.Add('Normal_Climb_Rate = ' + FloatToStr(Normal_Climb_Rate) + ',');
+//      SQL.Add('Max_Climb_Rate =' + FloatToStr(Max_Climb_Rate) + ',');
+//      SQL.Add('Normal_Descent_Rate =' + FloatToStr(Normal_Descent_Rate) + ',');
+//      SQL.Add('Max_Descent_Rate =' + FloatToStr(Max_Descent_Rate) + ',');
+//      SQL.Add('Vertical_Accel = ' + FloatToStr(Vertical_Accel) + ',');
+//      SQL.Add('Standard_Turn_Rate =' + FloatToStr(Standard_Turn_Rate) + ',');
+//      SQL.Add('Tight_Turn_Rate = ' + FloatToStr(Tight_Turn_Rate) + ',');
+//      SQL.Add('Max_Helm_Angle =' + FloatToStr(Max_Helm_Angle) + ',');
+//      SQL.Add('Helm_Angle_Rate =' + FloatToStr(Helm_Angle_Rate) + ',');
+//      SQL.Add('Speed_Reduce_In_Turn =' + FloatToStr(Speed_Reduce_In_Turn)
+//          + ',');
+//      SQL.Add('Time_To_Reduce_Speed = ' + FloatToStr(Time_To_Reduce_Speed)
+//          + ',');
+//      SQL.Add('Min_Speed_To_Reduce =' + FloatToStr(Min_Speed_To_Reduce) + ',');
+//      SQL.Add('Rate_of_Turn_Rate_Chg = ' + FloatToStr(Rate_of_Turn_Rate_Chg)
+//          + ',');
+//      SQL.Add('Min_Pitch_Angle =' + FloatToStr(Min_Pitch_Angle) + ',');
+//      SQL.Add('Max_Pitch_Angle =' + FloatToStr(Max_Pitch_Angle) + ',');
+//      SQL.Add('Max_Roll_Angle =' + FloatToStr(Max_Roll_Angle) + ',');
+//      SQL.Add('Endurance_Type =' + IntToStr(Endurance_Type) + ',');
+//      SQL.Add('Endurance_Time =' + IntToStr(Endurance_Time) + ',');
+//      SQL.Add('Max_Effective_Range =' + FloatToStr(Max_Effective_Range) + ',');
+//      SQL.Add('Fuel_Unit_Type = ' + IntToStr(Fuel_Unit_Type) + ',');
+//      SQL.Add('Max_Fuel_Capacity =' + FloatToStr(Max_Fuel_Capacity) + ',');
+//      SQL.Add('Min_Speed_Fuel_Consume = ' + FloatToStr(Min_Speed_Fuel_Consume)
+//          + ',');
+//      SQL.Add('Cruise_Speed_Fuel_Consume =' + FloatToStr
+//          (Cruise_Speed_Fuel_Consume) + ',');
+//      SQL.Add('High_Speed_Fuel_Consume =' + FloatToStr(High_Speed_Fuel_Consume)
+//          + ',');
+//      SQL.Add('Max_Speed_Fuel_Consume =' + FloatToStr(Max_Speed_Fuel_Consume));
+//    end;
+//
+//    SQL.Add(' WHERE Motion_Index = ' + index);
+//    ExecSQL;
+//
+//  end;
+//end;
 
 // ------------------------------------------------------------------------------
 
@@ -46066,93 +44719,93 @@ begin
   end;
 end;
 
-function TdmTTT.insertMotion(rec: TMotion_Characteristics): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    with rec.FData do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Add('INSERT INTO Motion_Characteristics ');
-      SQL.Add(
-        '(Motion_Identifier,Motion_Type,Max_Altitude,Max_Depth,Min_Ground_Speed,Cruise_Ground_Speed,');
-      SQL.Add(
-        'High_Ground_Speed,Max_Ground_Speed,Acceleration,Deceleration,Normal_Climb_Rate,Max_Climb_Rate,');
-      SQL.Add(
-        'Normal_Descent_Rate,Max_Descent_Rate,Vertical_Accel,Standard_Turn_Rate,Tight_Turn_Rate,');
-      SQL.Add(
-        'Max_Helm_Angle,Helm_Angle_Rate,Speed_Reduce_In_Turn,Time_To_Reduce_Speed,Min_Speed_To_Reduce,');
-      SQL.Add(
-        'Rate_of_Turn_Rate_Chg,Min_Pitch_Angle,Max_Pitch_Angle,Max_Roll_Angle,Endurance_Type,Endurance_Time,');
-      SQL.Add(
-        'Max_Effective_Range,Fuel_Unit_Type,Max_Fuel_Capacity,Min_Speed_Fuel_Consume,Cruise_Speed_Fuel_Consume,');
-      SQL.Add('High_Speed_Fuel_Consume,Max_Speed_Fuel_Consume)');
-      SQL.Add(' VALUES (');
-      SQL.Add('''' + Motion_Identifier + ''',');
-      SQL.Add(IntToStr(Motion_Type) + ',');
-      SQL.Add(FloatToStr(Max_Altitude) + ',');
-      SQL.Add(FloatToStr(Max_Depth) + ',');
-      SQL.Add(FloatToStr(Min_Ground_Speed) + ',');
-      SQL.Add(FloatToStr(Cruise_Ground_Speed) + ',');
-      SQL.Add(FloatToStr(High_Ground_Speed) + ',');
-      SQL.Add(FloatToStr(Max_Ground_Speed) + ',');
-      SQL.Add(FloatToStr(Acceleration) + ',');
-      SQL.Add(FloatToStr(Deceleration) + ',');
-      SQL.Add(FloatToStr(Normal_Climb_Rate) + ',');
-      SQL.Add(FloatToStr(Max_Climb_Rate) + ',');
-      SQL.Add(FloatToStr(Normal_Descent_Rate) + ',');
-      SQL.Add(FloatToStr(Max_Descent_Rate) + ',');
-      SQL.Add(FloatToStr(Vertical_Accel) + ',');
-      SQL.Add(FloatToStr(Standard_Turn_Rate) + ',');
-      SQL.Add(FloatToStr(Tight_Turn_Rate) + ',');
-      SQL.Add(FloatToStr(Max_Helm_Angle) + ',');
-      SQL.Add(FloatToStr(Helm_Angle_Rate) + ',');
-      SQL.Add(FloatToStr(Speed_Reduce_In_Turn) + ',');
-      SQL.Add(FloatToStr(Time_To_Reduce_Speed) + ',');
-      SQL.Add(FloatToStr(Min_Speed_To_Reduce) + ',');
-      SQL.Add(FloatToStr(Rate_of_Turn_Rate_Chg) + ',');
-      SQL.Add(FloatToStr(Min_Pitch_Angle) + ',');
-      SQL.Add(FloatToStr(Max_Pitch_Angle) + ',');
-      SQL.Add(FloatToStr(Max_Roll_Angle) + ',');
-      SQL.Add(IntToStr(Endurance_Type) + ',');
-      SQL.Add(IntToStr(Endurance_Time) + ',');
-      SQL.Add(FloatToStr(Max_Effective_Range) + ',');
-      SQL.Add(IntToStr(Fuel_Unit_Type) + ',');
-      SQL.Add(FloatToStr(Max_Fuel_Capacity) + ',');
-      SQL.Add(FloatToStr(Min_Speed_Fuel_Consume) + ',');
-      SQL.Add(FloatToStr(Cruise_Speed_Fuel_Consume) + ',');
-      SQL.Add(FloatToStr(High_Speed_Fuel_Consume) + ',');
-      SQL.Add(FloatToStr(Max_Speed_Fuel_Consume) + ')');
-      ExecSQL;
+//function TdmTTT.insertMotion(rec: TMotion_Characteristics): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    with rec.FData do
+//    begin
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('INSERT INTO Motion_Characteristics ');
+//      SQL.Add(
+//        '(Motion_Identifier,Motion_Type,Max_Altitude,Max_Depth,Min_Ground_Speed,Cruise_Ground_Speed,');
+//      SQL.Add(
+//        'High_Ground_Speed,Max_Ground_Speed,Acceleration,Deceleration,Normal_Climb_Rate,Max_Climb_Rate,');
+//      SQL.Add(
+//        'Normal_Descent_Rate,Max_Descent_Rate,Vertical_Accel,Standard_Turn_Rate,Tight_Turn_Rate,');
+//      SQL.Add(
+//        'Max_Helm_Angle,Helm_Angle_Rate,Speed_Reduce_In_Turn,Time_To_Reduce_Speed,Min_Speed_To_Reduce,');
+//      SQL.Add(
+//        'Rate_of_Turn_Rate_Chg,Min_Pitch_Angle,Max_Pitch_Angle,Max_Roll_Angle,Endurance_Type,Endurance_Time,');
+//      SQL.Add(
+//        'Max_Effective_Range,Fuel_Unit_Type,Max_Fuel_Capacity,Min_Speed_Fuel_Consume,Cruise_Speed_Fuel_Consume,');
+//      SQL.Add('High_Speed_Fuel_Consume,Max_Speed_Fuel_Consume)');
+//      SQL.Add(' VALUES (');
+//      SQL.Add('''' + Motion_Identifier + ''',');
+//      SQL.Add(IntToStr(Motion_Type) + ',');
+//      SQL.Add(FloatToStr(Max_Altitude) + ',');
+//      SQL.Add(FloatToStr(Max_Depth) + ',');
+//      SQL.Add(FloatToStr(Min_Ground_Speed) + ',');
+//      SQL.Add(FloatToStr(Cruise_Ground_Speed) + ',');
+//      SQL.Add(FloatToStr(High_Ground_Speed) + ',');
+//      SQL.Add(FloatToStr(Max_Ground_Speed) + ',');
+//      SQL.Add(FloatToStr(Acceleration) + ',');
+//      SQL.Add(FloatToStr(Deceleration) + ',');
+//      SQL.Add(FloatToStr(Normal_Climb_Rate) + ',');
+//      SQL.Add(FloatToStr(Max_Climb_Rate) + ',');
+//      SQL.Add(FloatToStr(Normal_Descent_Rate) + ',');
+//      SQL.Add(FloatToStr(Max_Descent_Rate) + ',');
+//      SQL.Add(FloatToStr(Vertical_Accel) + ',');
+//      SQL.Add(FloatToStr(Standard_Turn_Rate) + ',');
+//      SQL.Add(FloatToStr(Tight_Turn_Rate) + ',');
+//      SQL.Add(FloatToStr(Max_Helm_Angle) + ',');
+//      SQL.Add(FloatToStr(Helm_Angle_Rate) + ',');
+//      SQL.Add(FloatToStr(Speed_Reduce_In_Turn) + ',');
+//      SQL.Add(FloatToStr(Time_To_Reduce_Speed) + ',');
+//      SQL.Add(FloatToStr(Min_Speed_To_Reduce) + ',');
+//      SQL.Add(FloatToStr(Rate_of_Turn_Rate_Chg) + ',');
+//      SQL.Add(FloatToStr(Min_Pitch_Angle) + ',');
+//      SQL.Add(FloatToStr(Max_Pitch_Angle) + ',');
+//      SQL.Add(FloatToStr(Max_Roll_Angle) + ',');
+//      SQL.Add(IntToStr(Endurance_Type) + ',');
+//      SQL.Add(IntToStr(Endurance_Time) + ',');
+//      SQL.Add(FloatToStr(Max_Effective_Range) + ',');
+//      SQL.Add(IntToStr(Fuel_Unit_Type) + ',');
+//      SQL.Add(FloatToStr(Max_Fuel_Capacity) + ',');
+//      SQL.Add(FloatToStr(Min_Speed_Fuel_Consume) + ',');
+//      SQL.Add(FloatToStr(Cruise_Speed_Fuel_Consume) + ',');
+//      SQL.Add(FloatToStr(High_Speed_Fuel_Consume) + ',');
+//      SQL.Add(FloatToStr(Max_Speed_Fuel_Consume) + ')');
+//      ExecSQL;
+//
+//      SQL.Clear;
+//      SQL.Add('SELECT Motion_Index FROM Motion_Characteristics ');
+//      SQL.Add('WHERE Motion_Identifier =' + quotedStr(Motion_Identifier));
+//      Open;
+//      with rec.FData do
+//      begin
+//        Motion_Index := FieldByName('Motion_Index').AsInteger;
+//      end;
+//
+//    end;
+//  end;
+//end;
 
-      SQL.Clear;
-      SQL.Add('SELECT Motion_Index FROM Motion_Characteristics ');
-      SQL.Add('WHERE Motion_Identifier =' + quotedStr(Motion_Identifier));
-      Open;
-      with rec.FData do
-      begin
-        Motion_Index := FieldByName('Motion_Index').AsInteger;
-      end;
-
-    end;
-  end;
-end;
-
-function TdmTTT.deleteMotion(id: Integer): Integer;
-begin
-  result := -1;
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM Motion_Characteristics ');
-    SQL.Add('WHERE Motion_Index = ' + IntToStr(id));
-    ExecSQL;
-
-  end;
-end;
+//function TdmTTT.deleteMotion(id: Integer): Integer;
+//begin
+//  result := -1;
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('DELETE FROM Motion_Characteristics ');
+//    SQL.Add('WHERE Motion_Index = ' + IntToStr(id));
+//    ExecSQL;
+//
+//  end;
+//end;
 
 // ------------------------------------------------------------------------------
 
@@ -46250,72 +44903,72 @@ end;
 
 //-------------------------------------------------------------------
 
-function TdmTTT.GetMotion_Characteristics(const id: Integer; var rec: TMotion_Characteristics): boolean;
-begin
-  result := false;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Motion_Characteristics ');
-    SQL.Add('WHERE (Motion_Index = ' + IntToStr(id) + ')');
-    Open;
-
-    result := RecordCount > 0;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      if not Assigned(rec) then
-        rec := TMotion_Characteristics.Create;
-
-      with rec.FData do
-      begin
-        Motion_Index := FieldByName('Motion_Index').AsInteger;
-        Motion_Identifier := FieldByName('Motion_Identifier').AsString;
-        Motion_Type := FieldByName('Motion_Type').AsInteger;
-        Max_Altitude := FieldByName('Max_Altitude').AsSingle;
-        Max_Depth := FieldByName('Max_Depth').AsSingle;
-        Min_Ground_Speed := FieldByName('Min_Ground_Speed').AsSingle;
-        Cruise_Ground_Speed := FieldByName('Cruise_Ground_Speed').AsSingle;
-        High_Ground_Speed := FieldByName('High_Ground_Speed').AsSingle;
-        Max_Ground_Speed := FieldByName('Max_Ground_Speed').AsSingle;
-        Acceleration := FieldByName('Acceleration').AsSingle;
-        Deceleration := FieldByName('Deceleration').AsSingle;
-        Normal_Climb_Rate := FieldByName('Normal_Climb_Rate').AsSingle;
-        Max_Climb_Rate := FieldByName('Max_Climb_Rate').AsSingle;
-        Normal_Descent_Rate := FieldByName('Normal_Descent_Rate').AsSingle;
-        Max_Descent_Rate := FieldByName('Max_Descent_Rate').AsSingle;
-        Vertical_Accel := FieldByName('Vertical_Accel').AsSingle;
-        Standard_Turn_Rate := FieldByName('Standard_Turn_Rate').AsSingle;
-        Tight_Turn_Rate := FieldByName('Tight_Turn_Rate').AsSingle;
-        Max_Helm_Angle := FieldByName('Max_Helm_Angle').AsSingle;
-        Helm_Angle_Rate := FieldByName('Helm_Angle_Rate').AsSingle;
-        Speed_Reduce_In_Turn := FieldByName('Speed_Reduce_In_Turn').AsSingle;
-        Time_To_Reduce_Speed := FieldByName('Time_To_Reduce_Speed').AsSingle;
-        Min_Speed_To_Reduce := FieldByName('Min_Speed_To_Reduce').AsSingle;
-        Rate_of_Turn_Rate_Chg := FieldByName('Rate_of_Turn_Rate_Chg').AsSingle;
-        Min_Pitch_Angle := FieldByName('Min_Pitch_Angle').AsSingle;
-        Max_Pitch_Angle := FieldByName('Max_Pitch_Angle').AsSingle;
-        Max_Roll_Angle := FieldByName('Max_Roll_Angle').AsSingle;
-        Endurance_Type := FieldByName('Endurance_Type').AsInteger;
-        Endurance_Time := FieldByName('Endurance_Time').AsInteger;
-        Max_Effective_Range := FieldByName('Max_Effective_Range').AsSingle;
-        Fuel_Unit_Type := FieldByName('Fuel_Unit_Type').AsInteger;
-        Max_Fuel_Capacity := FieldByName('Max_Fuel_Capacity').AsSingle;
-        Min_Speed_Fuel_Consume := FieldByName('Min_Speed_Fuel_Consume').AsFloat;
-        Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume').AsFloat;
-        High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume').AsFloat;
-        Max_Speed_Fuel_Consume := FieldByName('Max_Speed_Fuel_Consume').AsFloat;
-      end;
-    end;
-  end;
-end;
+//function TdmTTT.GetMotion_Characteristics(const id: Integer; var rec: TMotion_Characteristics): boolean;
+//begin
+//  result := false;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT * ');
+//    SQL.Add('FROM Motion_Characteristics ');
+//    SQL.Add('WHERE (Motion_Index = ' + IntToStr(id) + ')');
+//    Open;
+//
+//    result := RecordCount > 0;
+//
+//    if not IsEmpty then
+//    begin
+//      First;
+//
+//      if not Assigned(rec) then
+//        rec := TMotion_Characteristics.Create;
+//
+//      with rec.FData do
+//      begin
+//        Motion_Index := FieldByName('Motion_Index').AsInteger;
+//        Motion_Identifier := FieldByName('Motion_Identifier').AsString;
+//        Motion_Type := FieldByName('Motion_Type').AsInteger;
+//        Max_Altitude := FieldByName('Max_Altitude').AsSingle;
+//        Max_Depth := FieldByName('Max_Depth').AsSingle;
+//        Min_Ground_Speed := FieldByName('Min_Ground_Speed').AsSingle;
+//        Cruise_Ground_Speed := FieldByName('Cruise_Ground_Speed').AsSingle;
+//        High_Ground_Speed := FieldByName('High_Ground_Speed').AsSingle;
+//        Max_Ground_Speed := FieldByName('Max_Ground_Speed').AsSingle;
+//        Acceleration := FieldByName('Acceleration').AsSingle;
+//        Deceleration := FieldByName('Deceleration').AsSingle;
+//        Normal_Climb_Rate := FieldByName('Normal_Climb_Rate').AsSingle;
+//        Max_Climb_Rate := FieldByName('Max_Climb_Rate').AsSingle;
+//        Normal_Descent_Rate := FieldByName('Normal_Descent_Rate').AsSingle;
+//        Max_Descent_Rate := FieldByName('Max_Descent_Rate').AsSingle;
+//        Vertical_Accel := FieldByName('Vertical_Accel').AsSingle;
+//        Standard_Turn_Rate := FieldByName('Standard_Turn_Rate').AsSingle;
+//        Tight_Turn_Rate := FieldByName('Tight_Turn_Rate').AsSingle;
+//        Max_Helm_Angle := FieldByName('Max_Helm_Angle').AsSingle;
+//        Helm_Angle_Rate := FieldByName('Helm_Angle_Rate').AsSingle;
+//        Speed_Reduce_In_Turn := FieldByName('Speed_Reduce_In_Turn').AsSingle;
+//        Time_To_Reduce_Speed := FieldByName('Time_To_Reduce_Speed').AsSingle;
+//        Min_Speed_To_Reduce := FieldByName('Min_Speed_To_Reduce').AsSingle;
+//        Rate_of_Turn_Rate_Chg := FieldByName('Rate_of_Turn_Rate_Chg').AsSingle;
+//        Min_Pitch_Angle := FieldByName('Min_Pitch_Angle').AsSingle;
+//        Max_Pitch_Angle := FieldByName('Max_Pitch_Angle').AsSingle;
+//        Max_Roll_Angle := FieldByName('Max_Roll_Angle').AsSingle;
+//        Endurance_Type := FieldByName('Endurance_Type').AsInteger;
+//        Endurance_Time := FieldByName('Endurance_Time').AsInteger;
+//        Max_Effective_Range := FieldByName('Max_Effective_Range').AsSingle;
+//        Fuel_Unit_Type := FieldByName('Fuel_Unit_Type').AsInteger;
+//        Max_Fuel_Capacity := FieldByName('Max_Fuel_Capacity').AsSingle;
+//        Min_Speed_Fuel_Consume := FieldByName('Min_Speed_Fuel_Consume').AsFloat;
+//        Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume').AsFloat;
+//        High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume').AsFloat;
+//        Max_Speed_Fuel_Consume := FieldByName('Max_Speed_Fuel_Consume').AsFloat;
+//      end;
+//    end;
+//  end;
+//end;
 
 // ------------------------------------------------------------------------------
 
@@ -46400,27 +45053,27 @@ begin
   end;
 end;
 
-function TdmTTT.getVecIndexFromIdent(const aIdent: string): integer;
-begin
-  result := 0;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT Vehicle_Index ');
-    SQL.Add('FROM Vehicle_Definition ');
-    SQL.Add('WHERE Vehicle_Identifier = ' + QuotedStr(aIdent));
-    Open;
-
-    if not ZQ.IsEmpty then
-    begin
-      result := FieldByName('Vehicle_Index').AsInteger;
-    end;
-  end;
-end;
+//function TdmTTT.getVecIndexFromIdent(const aIdent: string): integer;
+//begin
+//  result := 0;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT Vehicle_Index ');
+//    SQL.Add('FROM Vehicle_Definition ');
+//    SQL.Add('WHERE Vehicle_Identifier = ' + QuotedStr(aIdent));
+//    Open;
+//
+//    if not ZQ.IsEmpty then
+//    begin
+//      result := FieldByName('Vehicle_Index').AsInteger;
+//    end;
+//  end;
+//end;
 
 function TdmTTT.getFontByID(const id: Integer; var FontTaktis: TFontTaktis): Integer;
 begin
@@ -46543,162 +45196,162 @@ begin
   end;
 end;
 
-function TdmTTT.getAllMotion_Characteristics(mList: TList): Integer;
-var
-  rec: TMotion_Characteristics;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
+//function TdmTTT.getAllMotion_Characteristics(mList: TList): Integer;
+//var
+//  rec: TMotion_Characteristics;
+//begin
+//  result := -1;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT * ');
+//    SQL.Add('FROM Motion_Characteristics ');
+//    SQL.Add('ORDER BY Motion_Identifier');
+//    Open;
+//
+//    result := RecordCount;
+//    if not IsEmpty then
+//    begin
+//      First;
+//      if not Assigned(mList) then
+//        mList := TList.Create
+//      else
+//        mList.Clear;
+//    end;
+//
+//    while not ZQ.Eof do
+//    begin
+//      rec := TMotion_Characteristics.Create;
+//      with rec.FData do
+//      begin
+//        Motion_Index := FieldByName('Motion_Index').AsInteger;
+//        Motion_Identifier := FieldByName('Motion_Identifier').AsString;
+//        Motion_Type := FieldByName('Motion_Type').AsInteger;
+//        Max_Altitude := FieldByName('Max_Altitude').AsSingle;
+//        Max_Depth := FieldByName('Max_Depth').AsSingle;
+//        Min_Ground_Speed := FieldByName('Min_Ground_Speed').AsSingle;
+//        Cruise_Ground_Speed := FieldByName('Cruise_Ground_Speed').AsSingle;
+//        High_Ground_Speed := FieldByName('High_Ground_Speed').AsSingle;
+//        Max_Ground_Speed := FieldByName('Max_Ground_Speed').AsSingle;
+//        Acceleration := FieldByName('Acceleration').AsSingle;
+//        Deceleration := FieldByName('Deceleration').AsSingle;
+//        Normal_Climb_Rate := FieldByName('Normal_Climb_Rate').AsSingle;
+//        Max_Climb_Rate := FieldByName('Max_Climb_Rate').AsSingle;
+//        Normal_Descent_Rate := FieldByName('Normal_Descent_Rate').AsSingle;
+//        Max_Descent_Rate := FieldByName('Max_Descent_Rate').AsSingle;
+//        Vertical_Accel := FieldByName('Vertical_Accel').AsSingle;
+//        Standard_Turn_Rate := FieldByName('Standard_Turn_Rate').AsSingle;
+//        Tight_Turn_Rate := FieldByName('Tight_Turn_Rate').AsSingle;
+//        Max_Helm_Angle := FieldByName('Max_Helm_Angle').AsSingle;
+//        Helm_Angle_Rate := FieldByName('Helm_Angle_Rate').AsSingle;
+//        Speed_Reduce_In_Turn := FieldByName('Speed_Reduce_In_Turn').AsSingle;
+//        Time_To_Reduce_Speed := FieldByName('Time_To_Reduce_Speed').AsSingle;
+//        Min_Speed_To_Reduce := FieldByName('Min_Speed_To_Reduce').AsSingle;
+//        Rate_of_Turn_Rate_Chg := FieldByName('Rate_of_Turn_Rate_Chg').AsSingle;
+//        Min_Pitch_Angle := FieldByName('Min_Pitch_Angle').AsSingle;
+//        Max_Pitch_Angle := FieldByName('Max_Pitch_Angle').AsSingle;
+//        Max_Roll_Angle := FieldByName('Max_Roll_Angle').AsSingle;
+//        Endurance_Type := FieldByName('Endurance_Type').AsInteger;
+//        Endurance_Time := FieldByName('Endurance_Time').AsInteger;
+//        Max_Effective_Range := FieldByName('Max_Effective_Range').AsSingle;
+//        Fuel_Unit_Type := FieldByName('Fuel_Unit_Type').AsInteger;
+//        Max_Fuel_Capacity := FieldByName('Max_Fuel_Capacity').AsSingle;
+//        Min_Speed_Fuel_Consume := FieldByName('Min_Speed_Fuel_Consume').AsFloat;
+//        Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume')
+//          .AsFloat;
+//        High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume')
+//          .AsFloat;
+//        Max_Speed_Fuel_Consume := FieldByName('Max_Speed_Fuel_Consume').AsFloat;
+//      end;
+//
+//      mList.Add(rec);
+//      ZQ.Next;
+//    end;
+//  end;
+//end;
 
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT * ');
-    SQL.Add('FROM Motion_Characteristics ');
-    SQL.Add('ORDER BY Motion_Identifier');
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-      First;
-      if not Assigned(mList) then
-        mList := TList.Create
-      else
-        mList.Clear;
-    end;
-
-    while not ZQ.Eof do
-    begin
-      rec := TMotion_Characteristics.Create;
-      with rec.FData do
-      begin
-        Motion_Index := FieldByName('Motion_Index').AsInteger;
-        Motion_Identifier := FieldByName('Motion_Identifier').AsString;
-        Motion_Type := FieldByName('Motion_Type').AsInteger;
-        Max_Altitude := FieldByName('Max_Altitude').AsSingle;
-        Max_Depth := FieldByName('Max_Depth').AsSingle;
-        Min_Ground_Speed := FieldByName('Min_Ground_Speed').AsSingle;
-        Cruise_Ground_Speed := FieldByName('Cruise_Ground_Speed').AsSingle;
-        High_Ground_Speed := FieldByName('High_Ground_Speed').AsSingle;
-        Max_Ground_Speed := FieldByName('Max_Ground_Speed').AsSingle;
-        Acceleration := FieldByName('Acceleration').AsSingle;
-        Deceleration := FieldByName('Deceleration').AsSingle;
-        Normal_Climb_Rate := FieldByName('Normal_Climb_Rate').AsSingle;
-        Max_Climb_Rate := FieldByName('Max_Climb_Rate').AsSingle;
-        Normal_Descent_Rate := FieldByName('Normal_Descent_Rate').AsSingle;
-        Max_Descent_Rate := FieldByName('Max_Descent_Rate').AsSingle;
-        Vertical_Accel := FieldByName('Vertical_Accel').AsSingle;
-        Standard_Turn_Rate := FieldByName('Standard_Turn_Rate').AsSingle;
-        Tight_Turn_Rate := FieldByName('Tight_Turn_Rate').AsSingle;
-        Max_Helm_Angle := FieldByName('Max_Helm_Angle').AsSingle;
-        Helm_Angle_Rate := FieldByName('Helm_Angle_Rate').AsSingle;
-        Speed_Reduce_In_Turn := FieldByName('Speed_Reduce_In_Turn').AsSingle;
-        Time_To_Reduce_Speed := FieldByName('Time_To_Reduce_Speed').AsSingle;
-        Min_Speed_To_Reduce := FieldByName('Min_Speed_To_Reduce').AsSingle;
-        Rate_of_Turn_Rate_Chg := FieldByName('Rate_of_Turn_Rate_Chg').AsSingle;
-        Min_Pitch_Angle := FieldByName('Min_Pitch_Angle').AsSingle;
-        Max_Pitch_Angle := FieldByName('Max_Pitch_Angle').AsSingle;
-        Max_Roll_Angle := FieldByName('Max_Roll_Angle').AsSingle;
-        Endurance_Type := FieldByName('Endurance_Type').AsInteger;
-        Endurance_Time := FieldByName('Endurance_Time').AsInteger;
-        Max_Effective_Range := FieldByName('Max_Effective_Range').AsSingle;
-        Fuel_Unit_Type := FieldByName('Fuel_Unit_Type').AsInteger;
-        Max_Fuel_Capacity := FieldByName('Max_Fuel_Capacity').AsSingle;
-        Min_Speed_Fuel_Consume := FieldByName('Min_Speed_Fuel_Consume').AsFloat;
-        Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume')
-          .AsFloat;
-        High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume')
-          .AsFloat;
-        Max_Speed_Fuel_Consume := FieldByName('Max_Speed_Fuel_Consume').AsFloat;
-      end;
-
-      mList.Add(rec);
-      ZQ.Next;
-    end;
-  end;
-end;
-
-function TdmTTT.getAllMotion_CharacteristicsUsedByVec(mList: TList): Integer;
-var
-  rec: TMotion_Characteristics;
-begin
-  result := -1;
-  if not ZConn.Connected then
-    exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT distinct Motion_Characteristics, b.* ');
-    SQL.Add('FROM Vehicle_Definition a ');
-    SQL.Add('INNER JOIN Motion_Characteristics b on a.Motion_Characteristics = b.Motion_Index');
-    SQL.Add('ORDER BY Motion_Identifier');
-    Open;
-
-    result := RecordCount;
-    if not IsEmpty then
-    begin
-      First;
-      if not Assigned(mList) then
-        mList := TList.Create
-      else
-        mList.Clear;
-    end;
-
-    while not ZQ.Eof do
-    begin
-      rec := TMotion_Characteristics.Create;
-      with rec.FData do
-      begin
-        Motion_Index := FieldByName('Motion_Index').AsInteger;
-        Motion_Identifier := FieldByName('Motion_Identifier').AsString;
-        Motion_Type := FieldByName('Motion_Type').AsInteger;
-        Max_Altitude := FieldByName('Max_Altitude').AsSingle;
-        Max_Depth := FieldByName('Max_Depth').AsSingle;
-        Min_Ground_Speed := FieldByName('Min_Ground_Speed').AsSingle;
-        Cruise_Ground_Speed := FieldByName('Cruise_Ground_Speed').AsSingle;
-        High_Ground_Speed := FieldByName('High_Ground_Speed').AsSingle;
-        Max_Ground_Speed := FieldByName('Max_Ground_Speed').AsSingle;
-        Acceleration := FieldByName('Acceleration').AsSingle;
-        Deceleration := FieldByName('Deceleration').AsSingle;
-        Normal_Climb_Rate := FieldByName('Normal_Climb_Rate').AsSingle;
-        Max_Climb_Rate := FieldByName('Max_Climb_Rate').AsSingle;
-        Normal_Descent_Rate := FieldByName('Normal_Descent_Rate').AsSingle;
-        Max_Descent_Rate := FieldByName('Max_Descent_Rate').AsSingle;
-        Vertical_Accel := FieldByName('Vertical_Accel').AsSingle;
-        Standard_Turn_Rate := FieldByName('Standard_Turn_Rate').AsSingle;
-        Tight_Turn_Rate := FieldByName('Tight_Turn_Rate').AsSingle;
-        Max_Helm_Angle := FieldByName('Max_Helm_Angle').AsSingle;
-        Helm_Angle_Rate := FieldByName('Helm_Angle_Rate').AsSingle;
-        Speed_Reduce_In_Turn := FieldByName('Speed_Reduce_In_Turn').AsSingle;
-        Time_To_Reduce_Speed := FieldByName('Time_To_Reduce_Speed').AsSingle;
-        Min_Speed_To_Reduce := FieldByName('Min_Speed_To_Reduce').AsSingle;
-        Rate_of_Turn_Rate_Chg := FieldByName('Rate_of_Turn_Rate_Chg').AsSingle;
-        Min_Pitch_Angle := FieldByName('Min_Pitch_Angle').AsSingle;
-        Max_Pitch_Angle := FieldByName('Max_Pitch_Angle').AsSingle;
-        Max_Roll_Angle := FieldByName('Max_Roll_Angle').AsSingle;
-        Endurance_Type := FieldByName('Endurance_Type').AsInteger;
-        Endurance_Time := FieldByName('Endurance_Time').AsInteger;
-        Max_Effective_Range := FieldByName('Max_Effective_Range').AsSingle;
-        Fuel_Unit_Type := FieldByName('Fuel_Unit_Type').AsInteger;
-        Max_Fuel_Capacity := FieldByName('Max_Fuel_Capacity').AsSingle;
-        Min_Speed_Fuel_Consume := FieldByName('Min_Speed_Fuel_Consume').AsFloat;
-        Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume')
-          .AsFloat;
-        High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume')
-          .AsFloat;
-        Max_Speed_Fuel_Consume := FieldByName('Max_Speed_Fuel_Consume').AsFloat;
-      end;
-
-      mList.Add(rec);
-      ZQ.Next;
-    end;
-  end;
-end;
+//function TdmTTT.getAllMotion_CharacteristicsUsedByVec(mList: TList): Integer;
+//var
+//  rec: TMotion_Characteristics;
+//begin
+//  result := -1;
+//  if not ZConn.Connected then
+//    exit;
+//
+//  with ZQ do
+//  begin
+//    Close;
+//    SQL.Clear;
+//    SQL.Add('SELECT distinct Motion_Characteristics, b.* ');
+//    SQL.Add('FROM Vehicle_Definition a ');
+//    SQL.Add('INNER JOIN Motion_Characteristics b on a.Motion_Characteristics = b.Motion_Index');
+//    SQL.Add('ORDER BY Motion_Identifier');
+//    Open;
+//
+//    result := RecordCount;
+//    if not IsEmpty then
+//    begin
+//      First;
+//      if not Assigned(mList) then
+//        mList := TList.Create
+//      else
+//        mList.Clear;
+//    end;
+//
+//    while not ZQ.Eof do
+//    begin
+//      rec := TMotion_Characteristics.Create;
+//      with rec.FData do
+//      begin
+//        Motion_Index := FieldByName('Motion_Index').AsInteger;
+//        Motion_Identifier := FieldByName('Motion_Identifier').AsString;
+//        Motion_Type := FieldByName('Motion_Type').AsInteger;
+//        Max_Altitude := FieldByName('Max_Altitude').AsSingle;
+//        Max_Depth := FieldByName('Max_Depth').AsSingle;
+//        Min_Ground_Speed := FieldByName('Min_Ground_Speed').AsSingle;
+//        Cruise_Ground_Speed := FieldByName('Cruise_Ground_Speed').AsSingle;
+//        High_Ground_Speed := FieldByName('High_Ground_Speed').AsSingle;
+//        Max_Ground_Speed := FieldByName('Max_Ground_Speed').AsSingle;
+//        Acceleration := FieldByName('Acceleration').AsSingle;
+//        Deceleration := FieldByName('Deceleration').AsSingle;
+//        Normal_Climb_Rate := FieldByName('Normal_Climb_Rate').AsSingle;
+//        Max_Climb_Rate := FieldByName('Max_Climb_Rate').AsSingle;
+//        Normal_Descent_Rate := FieldByName('Normal_Descent_Rate').AsSingle;
+//        Max_Descent_Rate := FieldByName('Max_Descent_Rate').AsSingle;
+//        Vertical_Accel := FieldByName('Vertical_Accel').AsSingle;
+//        Standard_Turn_Rate := FieldByName('Standard_Turn_Rate').AsSingle;
+//        Tight_Turn_Rate := FieldByName('Tight_Turn_Rate').AsSingle;
+//        Max_Helm_Angle := FieldByName('Max_Helm_Angle').AsSingle;
+//        Helm_Angle_Rate := FieldByName('Helm_Angle_Rate').AsSingle;
+//        Speed_Reduce_In_Turn := FieldByName('Speed_Reduce_In_Turn').AsSingle;
+//        Time_To_Reduce_Speed := FieldByName('Time_To_Reduce_Speed').AsSingle;
+//        Min_Speed_To_Reduce := FieldByName('Min_Speed_To_Reduce').AsSingle;
+//        Rate_of_Turn_Rate_Chg := FieldByName('Rate_of_Turn_Rate_Chg').AsSingle;
+//        Min_Pitch_Angle := FieldByName('Min_Pitch_Angle').AsSingle;
+//        Max_Pitch_Angle := FieldByName('Max_Pitch_Angle').AsSingle;
+//        Max_Roll_Angle := FieldByName('Max_Roll_Angle').AsSingle;
+//        Endurance_Type := FieldByName('Endurance_Type').AsInteger;
+//        Endurance_Time := FieldByName('Endurance_Time').AsInteger;
+//        Max_Effective_Range := FieldByName('Max_Effective_Range').AsSingle;
+//        Fuel_Unit_Type := FieldByName('Fuel_Unit_Type').AsInteger;
+//        Max_Fuel_Capacity := FieldByName('Max_Fuel_Capacity').AsSingle;
+//        Min_Speed_Fuel_Consume := FieldByName('Min_Speed_Fuel_Consume').AsFloat;
+//        Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume')
+//          .AsFloat;
+//        High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume')
+//          .AsFloat;
+//        Max_Speed_Fuel_Consume := FieldByName('Max_Speed_Fuel_Consume').AsFloat;
+//      end;
+//
+//      mList.Add(rec);
+//      ZQ.Next;
+//    end;
+//  end;
+//end;
 
 // ------------------------------------------------------------------------------
 

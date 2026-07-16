@@ -203,10 +203,10 @@ begin
 
 
 //get all Motion name
- uSimDBEditor.getAllMotion_Characteristics(pList);
+// uSimDBEditor.getAllMotion_Characteristics(pList);
 
- if mId <> '' then
-   uSimDBEditor.getMotion_Characteristics(StrToInt(mId),motion);
+// if mId <> '' then
+//   uSimDBEditor.GetMotionCharacteristicDef(StrToInt(mId),motion);
 
  showMotion;
 

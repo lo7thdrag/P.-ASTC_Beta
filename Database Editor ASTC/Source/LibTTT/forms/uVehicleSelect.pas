@@ -262,9 +262,9 @@ begin
 
   vList.Clear;
  // dmTTT.GetVehicleBy(domain,tipe,embarked,vList);
-  dmTTT.getFilterVehicle(edtSearch.Text, StrToInt(negara),StrToInt(domain),StrToInt(tipe),
-  StrToInt(weapon),StrToInt(fWeaponDoubleList.idWeapon),StrToInt(sensor),
-  StrToInt(fSensor.idSensor),StrToInt(embarked),vList);
+//  dmTTT.getFilterVehicle(edtSearch.Text, StrToInt(negara),StrToInt(domain),StrToInt(tipe),
+//  StrToInt(weapon),StrToInt(fWeaponDoubleList.idWeapon),StrToInt(sensor),
+//  StrToInt(fSensor.idSensor),StrToInt(embarked),vList);
   refresh;
 end;
 
@@ -714,7 +714,7 @@ begin
 //    id_motion := 605;
 
     edtMotionCharacterictic.Text := '[None]';
-//    if dmTTT.GetMotion_Characteristics(id_motion,frmSummaryMotion.motionCharacteristic) then
+//    if dmTTT.GetMotionCharacteristicDef(id_motion,frmSummaryMotion.motionCharacteristic) then
 //    begin
 //      edtMotionCharacterictic.Text := frmSummaryMotion.motionCharacteristic.FData.Motion_Identifier;
 //    end;

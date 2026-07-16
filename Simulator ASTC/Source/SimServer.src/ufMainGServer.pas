@@ -76,6 +76,9 @@ type
     imgMinimize: TImage;
     pnlWatcher: TPanel;
     pnl1: TPanel;
+    pnlEventLog: TPanel;
+    pnl2: TPanel;
+    pnlEventList: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure btnStartClick(Sender: TObject);
@@ -433,6 +436,13 @@ begin
   TImage(sender).Height := 73;
   TImage(sender).top := 165;
   TImage(sender).Picture.LoadFromFile('data\\Image Simulator\GameServer\' +TImage(sender).Name + '_Select.png');
+
+  case TImage(sender).Tag of
+    1: pnlWatcher.BringToFront;
+    2: pnlEventLog.BringToFront;
+    3: pnlEventList.BringToFront;
+
+  end;
 end;
 
 procedure TfMainGServer.LogStr(const strHeader, strBody: string);

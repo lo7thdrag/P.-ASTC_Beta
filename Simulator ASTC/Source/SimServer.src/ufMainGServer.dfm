@@ -16467,6 +16467,15 @@ object fMainGServer: TfMainGServer
           end
         end
       end
+      object pnl2: TPanel
+        Left = -1048
+        Top = -381
+        Width = 1169
+        Height = 449
+        BevelOuter = bvNone
+        BorderWidth = 8
+        TabOrder = 1
+      end
     end
     object pnlWatcher: TPanel
       Left = 31
@@ -16614,6 +16623,24 @@ object fMainGServer: TfMainGServer
           ViewStyle = vsReport
         end
       end
+    end
+    object pnlEventLog: TPanel
+      Left = 31
+      Top = 216
+      Width = 1169
+      Height = 449
+      BevelOuter = bvNone
+      BorderWidth = 8
+      TabOrder = 3
+    end
+    object pnlEventList: TPanel
+      Left = 31
+      Top = 216
+      Width = 1169
+      Height = 449
+      BevelOuter = bvNone
+      BorderWidth = 8
+      TabOrder = 4
     end
   end
   object Timer1: TTimer

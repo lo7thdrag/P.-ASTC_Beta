@@ -30,6 +30,7 @@ type
     btnZoomOut: TToolButton;
     btnDragFilter: TToolButton;
     lstGSTGame: TListBox;
+    ilToolbar: TImageList;
     procedure FormShow(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure lstGSTGameClick(Sender: TObject);

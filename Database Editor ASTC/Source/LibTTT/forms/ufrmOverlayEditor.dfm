@@ -45326,7 +45326,7 @@ object OverlayEditorForm: TOverlayEditorForm
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
-            OnClick = btnDeleteClick
+            OnClick = btnHandleShapeEditor
           end
           object btnApply: TButton
             Left = 133
@@ -45341,7 +45341,7 @@ object OverlayEditorForm: TOverlayEditorForm
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 1
-            OnClick = btnApplyClick
+            OnClick = btnHandleShapeEditor
           end
         end
         object pnlShape: TPanel
@@ -54564,7 +54564,7 @@ object OverlayEditorForm: TOverlayEditorForm
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 1
-        OnClick = btnSave
+        OnClick = btnHandleShapeEditor
       end
       object btn2: TButton
         Left = 1515
@@ -54580,7 +54580,7 @@ object OverlayEditorForm: TOverlayEditorForm
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 2
-        OnClick = btnCloseClick
+        OnClick = btnHandleShapeEditor
       end
     end
     object pnl1Header: TPanel

@@ -551,6 +551,9 @@ type
     procedure btnNoFillClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
+
+    procedure btnHandleShapeEditor(Sender: TObject);
+
     procedure btnCloseClick(Sender: TObject);
     procedure btnDeletePolyClick(Sender: TObject);
     procedure btnDelPolyClick(Sender: TObject);
@@ -691,9 +694,11 @@ type
     procedure LoadMap(Geoset: String);
 
     {Cicil}
+
     procedure UpAllToolbarButton;
     procedure NormalizeMousePointer;
     procedure Apply;
+    procedure Deleted;
 
     function CekInput{(IdObject: Integer)}: Boolean;
     function GetInput(s: string): Boolean;
@@ -707,6 +712,7 @@ type
 
 var
   OverlayEditorForm: TOverlayEditorForm;
+  b, TmpBmp: TBitmap;
 
 implementation
 
@@ -848,13 +854,36 @@ end;
 
 procedure TOverlayEditorForm.Apply;
 begin
+case ShapeType of
+    ovText:
+      GbrText;
+    ovLine:
+      GbrLine;
+    ovRectangle:
+      GbrRectangle;
+    ovCircle:
+      GbrCircle;
+    ovEllipse:
+      GbrEllipse;
+    ovArc:
+      GbrArc;
+    ovSector:
+      GbrSector;
+    ovGrid:
+      GbrGrid;
+    ovPolygon:
+      GbrPolygon;
+end;
 
+//  btnSelect.OnClick(btnSelect);
+//  btnOk.Enabled := True;
+
+  Map1.Refresh;
+  Map1.Repaint;
 end;
 
 procedure TOverlayEditorForm.btnApplyClick(Sender: TObject);
 begin
-if CekInput then
-Exit;
 
 case ShapeType of
     ovText:
@@ -877,7 +906,7 @@ case ShapeType of
       GbrPolygon;
 end;
 
-  btnSelect.OnClick(btnSelect);
+//  btnSelect.OnClick(btnSelect);
 //  btnOk.Enabled := True;
 
   Map1.Refresh;
@@ -967,6 +996,52 @@ begin
     ovPolygon:
       LoadPanelPolygon
   end;
+end;
+
+procedure TOverlayEditorForm.btnHandleShapeEditor(Sender: TObject);
+begin
+case TButton(Sender).Tag of
+    0: {Apply}
+    begin
+    if CekInput then
+      begin
+        Exit;
+      end;
+      Apply;
+      btnSelect.Click;
+    end;
+    1: {Delete}
+    begin
+      Deleted;
+      btnSelect.Click;
+    end;
+    3: {Close}
+    begin
+      AfterClose := False;
+      Close;
+    end;
+    4: {Ok}
+    begin
+      if CekInput then
+      begin
+        Exit;
+      end;
+
+      DeleteFile(vAppDBSetting.OverlayPath + '\' + SelectedOverlay.FData.Overlay_Identifier + '.dat');
+      RecordToFileStream(vAppDBSetting.OverlayPath + '\' + SelectedOverlay.FData.Overlay_Identifier + '.dat');
+      AfterClose := True;
+      Close;
+    end;
+    5: {Screen Capture}
+    begin
+      b := TBitmap.Create;
+      ScreenShot(b);
+      isCapturingScreen := true;
+      fscrCapture.Image1.Picture.Assign(b);
+      Exit;
+    end;
+end;
+  RefreshForm;
 end;
 
 procedure TOverlayEditorForm.btnSave(Sender: TObject);
@@ -3598,13 +3673,13 @@ begin
               if (edtTextRange.Text = '') or (edtTextBearing.Text = '') or
                 (edtTextFieldD.Text = '') or (cbbTextSizeD.Text = '') then
               begin
-                ShowMessage('Input Data Tidak Lengkap');
+                ShowMessage('Input data tidak lengkap');
                 Result := True;
               end
               else if (StrToInt(cbbTextSizeD.Text) > 72) or
                 (StrToInt(cbbTextSizeD.Text) = 0) then
               begin
-                ShowMessage('Input Ukuran Tidak Valid');
+                ShowMessage('Input ukuran tidak sesuai');
                 Result := True;
               end;
               {$ENDREGION}
@@ -3615,13 +3690,13 @@ begin
               if (edtLineStartRange.Text = '') or (edtLineStartBearing.Text = '') or
                 (edtLineEndRange.Text = '') or (edtLineEndBearing.Text = '') then
               begin
-                ShowMessage('Input Data Tidak Lengkap');
+                ShowMessage('Input data tidak lengkap');
                 Result := True;
               end
               else if (edtLineStartRange.Text = edtLineEndRange.Text) and
                 (edtLineEndRange.Text = edtLineEndBearing.Text) then
               begin
-                ShowMessage('Invalid input..., Start and End position can not be identical');
+                ShowMessage('Input data tidak sesuai, Start dan End position tidak boleh sama');
                 Result := True;
               end;
               {$ENDREGION}
@@ -3633,13 +3708,13 @@ begin
                 or (edtRecEndRange.Text = '') or (edtRecEndBearing.Text = '')
               then
               begin
-                ShowMessage( 'Incomplete data input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (edtRecStartRange.Text = edtRecEndRange.Text) and
                 (edtRecStartBearing.Text = edtRecEndBearing.Text) then
               begin
-                ShowMessage( 'Invalid input..., Top-Left and Bottom-Right position can not be identical' );
+                ShowMessage( 'Input data tidak sesuai, Top-Left dan Bottom-Right tidak boleh sama' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3650,12 +3725,12 @@ begin
               if (edtCircleRange.Text = '') or (edtCircleBearing.Text = '') or
                 (edtCircleRadiusD.Text = '') then
               begin
-                ShowMessage('The provided input data is incomplete.');
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (edtCircleRadiusD.Text = '0') then
               begin
-                ShowMessage('Invalid input. Radius must not be 0.');
+                ShowMessage( 'Input data tidak sesuai, Radius tidak boleh bernilai 0.' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3666,12 +3741,12 @@ begin
               if (edtEllipseRange.Text = '') or (edtEllipseBearing.Text = '') or
               (edtEllipseHorizontalD.Text = '') or (edtEllipseVerticalD.Text = '') then
               begin
-                ShowMessage( 'Incomplete data input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (edtEllipseHorizontalD.Text = '0') or (edtEllipseVerticalD.Text = '0') then
               begin
-                ShowMessage( 'Invalid radius input, minimum radius > 0' );
+                ShowMessage( 'Nilai Radius tidak sesuai, minimum radius > 0' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3683,17 +3758,17 @@ begin
                 (edtArcRadiusD.Text = '') or (edtArcStartAngleD.Text = '') or
                 (edtArcEndAngleD.Text = '') then
               begin
-                ShowMessage( 'Incomplete data input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (edtArcRadiusD.Text = '0') then
               begin
-                ShowMessage( 'Invalid radius input, minimum radius > 0' );
+                ShowMessage( 'Nilai Radius tidak sesuai, minimum radius > 0' );
                 Result := True;
               end
               else if (edtArcStartAngleD.Text = edtArcEndAngleD.Text) then
               begin
-                ShowMessage( 'Invalid input..., Start and End Angle can not be identical' );
+                ShowMessage( 'Input data tidak sesuai, Start dan End Angle tidak boleh sama' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3708,32 +3783,32 @@ begin
               (edtSectorStartAngleD.Text = '') or (edtSectorEndAngleD.Text = '')or
               (edtSectorRange.Text = '')or (edtSectorBearing.Text = '')then
               begin
-                ShowMessage ('The provided input data is incomplete');
+                ShowMessage ('Input data tidak lengkap');
                 Result := True;
               end
               else if (InnerRadius <= 0) or (OuterRadius <= 0) then
               begin
-                ShowMessage ('Invalid radius value. Radius must be greater than 0.');
+                ShowMessage ('Nilai Radius tidak sesuai. minimum radius > 0');
                 Result := True;
               end
               else if (edtSectorStartAngleD.Text = edtSectorEndAngleD.Text) then
               begin
-                ShowMessage ('Invalid input. Start Angle and End Angle cannot be same.');
+                ShowMessage ('Input data tidak sesuai, Start dan End Angle tidak boleh sama');
                 Result := True;
               end
               else if (InnerRadius = OuterRadius) then
               begin
-                ShowMessage ('Invalid input. Inner Radius and Outer Radius must not be same.');
+                ShowMessage ('Input data tidak lengkap, Inner Radius dan Outer Radius tidak boleh sama');
                 Result := True;
               end
               else if (InnerRadius > OuterRadius) then
               begin
-                ShowMessage ('Invalid input data. The Inner Radius value cannot exceed the Outer Radius value.');
+                ShowMessage ('Input data tidak lengkap, Nilai Inner Radius tidak boleh melebihi nilai Outer Radius');
                 Result := True;
               end
               else if (OuterRadius < InnerRadius) then
               begin
-                ShowMessage ('Invalid input. Outer Radius must not be smaller than Inner Radius.');
+                ShowMessage ('Input data tidak lengkap, Nilai Outer Radius tidak kurang melebihi nilai Inner Radius');
                 Result := True;
               end;
               {$ENDREGION}
@@ -3770,13 +3845,13 @@ begin
                 (edtTableWidthD.Text = '') or (edtTableRowD.Text = '') or
                 (edtRotationAngleD.Text = '') then
               begin
-                ShowMessage( 'Incomplete Data Input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (edtTableHeightD.Text = '0') or (edtTableColumnD.Text = '0') or
               (edtTableWidthD.Text = '0') or (edtTableRowD.Text = '0') then
               begin
-                ShowMessage( 'Invalid input, minimum Col, Row and height > 0' );
+                ShowMessage( 'Input data tidak lengkap, minimum Col, Row dan height > 0' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3785,7 +3860,7 @@ begin
             begin
               if lvPolyVertexD.Items.Count < 1 then
               begin
-                ShowMessage( 'Incomplete Data Input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end;
             end;
@@ -3803,13 +3878,13 @@ begin
               if (edtTextPosLong.Text = '') or (edtTextPosLAt.Text = '') or
                 (edtTextField.Text = '') or (cbbTextSize.Text = '') then
               begin
-                ShowMessage( 'Incomplete data input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (StrToInt(cbbTextSize.Text) > 72) or
                 (StrToInt(cbbTextSize.Text) = 0) then
               begin
-                ShowMessage( 'Invalid size input' );
+                ShowMessage( 'Input ukuran tidak boleh melebihi 72' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3820,13 +3895,13 @@ begin
               if (edtLineStartPosLong.Text = '') or (edtLineStartPosLat.Text = '') or
               (edtLineEndPosLong.Text = '') or (edtLineEndPosLat.Text = '') then
               begin
-                ShowMessage( 'Incomplete data input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (edtLineStartPosLong.Text = edtLineEndPosLong.Text) and
                 (edtLineStartPosLat.Text = edtLineEndPosLat.Text) then
               begin
-                ShowMessage( 'Invalid input..., Start and End position can not be identical' );
+                ShowMessage( 'Input data tidak sesuai, Start dan End position tidak boleh sama' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3837,13 +3912,13 @@ begin
               if (edtRectStartPosLong.Text = '') or (edtRectStartPosLat.Text = '') or
               (edtRectEndPosLong.Text = '') or (edtRectEndPosLat.Text = '') then
               begin
-                ShowMessage( 'Incomplete data input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (edtRectStartPosLong.Text = edtRectEndPosLong.Text) and
                 (edtRectStartPosLat.Text = edtRectEndPosLat.Text) then
               begin
-                ShowMessage( 'Invalid input..., Top-Left and Bottom-Right position can not be identical' );
+                ShowMessage( 'Input data tidak sesuai, Top-Left dan Bottom-Right tidak boleh sama' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3854,12 +3929,12 @@ begin
               if (edtCirclePosLong.Text = '') or (edtCirclePosLat.Text = '') or
                 (edtCircleRadius.Text = '') then
               begin
-                ShowMessage('The provided input data is incomplete.');
+                ShowMessage('Input data tidak lengkap');
                 Result := True;
               end
               else if (edtCircleRadius.Text = '0') then
               begin
-                ShowMessage('Invalid input. Radius must not be 0.');
+                ShowMessage('Input data tidak sesuai, Radius tidak boleh bernilai 0.');
                 Result := True;
               end;
               {$ENDREGION}
@@ -3870,13 +3945,13 @@ begin
               if (edtEllipsePosLong.Text = '') or (edtEllipsePosLat.Text = '')
                 or (edtHorizontal.Text = '') or (edtVertical.Text = '') then
               begin
-                ShowMessage( 'Incomplete data input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (edtHorizontal.Text = '0') or (edtVertical.Text = '0')
               then
               begin
-                ShowMessage( 'Invalid radius input, minimum radius > 0' );
+                ShowMessage( 'Nilai Radius tidak sesuai, minimum radius > 0' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3888,17 +3963,17 @@ begin
                 (edtArcRadius.Text = '') or (edtArcEndAngle.Text = '') or
                 (edtArcStartAngle.Text = '') then
               begin
-                ShowMessage( 'Incomplete data input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (edtArcRadius.Text = '0') then
               begin
-                ShowMessage( 'Invalid radius input, minimum radius > 0' );
+                ShowMessage( 'Nilai Radius tidak sesuai, minimum radius > 0' );
                 Result := True;
               end
               else if (edtArcEndAngle.Text = edtArcStartAngle.Text) then
               begin
-                ShowMessage( 'Invalid input..., Start and End Angle can not be identical' );
+                ShowMessage( 'Input data tidak sesuai, Start dan End Angle tidak boleh sama' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3913,32 +3988,32 @@ begin
               (edtSectorStartAngle.Text = '') or (edtSectorEndAngle.Text = '')or
               (edtSectorPosLat.Text = '')or (edtSectorPosLong.Text = '')then
               begin
-                ShowMessage ('The provided input data is incomplete');
+                ShowMessage ('Input data tidak lengkap');
                 Result := True;
               end
               else if (InnerRadius <= 0) or (OuterRadius <= 0) then
               begin
-                ShowMessage ('Invalid radius value. Radius must be greater than 0.');
+                ShowMessage ('Nilai Radius tidak sesuai. minimum radius > 0');
                 Result := True;
               end
               else if (edtSectorStartAngle.Text = edtSectorEndAngle.Text) then
               begin
-                ShowMessage ('Invalid input. Start Angle and End Angle cannot be same.');
+                ShowMessage ('Input data tidak sesuai, Start dan End Angle tidak boleh sama');
                 Result := True;
               end
               else if (InnerRadius = OuterRadius) then
               begin
-                ShowMessage ('Invalid input. Inner Radius and Outer Radius must not be same.');
+                ShowMessage ('Input data tidak lengkap, Inner Radius dan Outer Radius tidak boleh sama');
                 Result := True;
               end
               else if (InnerRadius > OuterRadius) then
               begin
-                ShowMessage ('Invalid input data. The Inner Radius value cannot exceed the Outer Radius value.');
+                ShowMessage ('Input data tidak lengkap, Nilai Inner Radius tidak boleh melebihi nilai Outer Radius');
                 Result := True;
               end
               else if (OuterRadius < InnerRadius) then
               begin
-                ShowMessage ('Invalid input. Outer Radius must not be smaller than Inner Radius.');
+                ShowMessage ('Input data tidak lengkap, Nilai Outer Radius tidak kurang melebihi nilai Inner Radius');
                 Result := True;
               end;
               {$ENDREGION}
@@ -3951,13 +4026,13 @@ begin
                 (edtTableWidth.Text = '') or (edtTableRow.Text = '') or
                 (edtTableRotationAngle.Text = '') then
               begin
-                ShowMessage( 'Incomplete Data Input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end
               else if (edtTableHeight.Text = '0') or (edtTableColumn.Text = '0')
                 or (edtTableWidth.Text = '0') or (edtTableRow.Text = '0') then
               begin
-                ShowMessage( 'Invalid input, minimum Col, Row and height > 0' );
+                ShowMessage( 'Input data tidak lengkap, minimum Col, Row dan height > 0' );
                 Result := True;
               end;
               {$ENDREGION}
@@ -3966,7 +4041,7 @@ begin
             begin
               if lvPolyVertex.Items.Count < 1 then
               begin
-                ShowMessage( 'Incomplete Data Input' );
+                ShowMessage( 'Input data tidak lengkap' );
                 Result := True;
               end;
             end;
@@ -3999,6 +4074,15 @@ begin
     pnlFill.Caption := '';
     pnlFill.Color := colorChoose.ForegroundColor;
   end;
+end;
+
+procedure TOverlayEditorForm.Deleted;
+begin
+  case FTipeOverlay of
+    0 : DrawOverlay.DynamicList.Delete(IdSelectShape);
+    1 : DrawOverlay.StaticList.Delete(IdSelectShape);
+  end;
+  RefreshForm;
 end;
 
 procedure TOverlayEditorForm.edtArcRadiusChange(Sender: TObject);

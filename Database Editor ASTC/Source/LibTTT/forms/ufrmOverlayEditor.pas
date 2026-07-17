@@ -584,6 +584,7 @@ type
     procedure imgPasteTextClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
 //        procedure TfrmWaypointEditor.OnAddRuller(Long, Lat: double);
+
   private
     FSelectedPolyID: Integer;
     FTagTombolPosition: Integer;
@@ -692,8 +693,9 @@ type
     {Cicil}
     procedure UpAllToolbarButton;
     procedure NormalizeMousePointer;
+    procedure Apply;
 
-    function CekInput(IdObject: Integer): Boolean;
+    function CekInput{(IdObject: Integer)}: Boolean;
     function GetInput(s: string): Boolean;
 //    function GetGridLatt(yCursorPoint: Double): string;
 //    function GetGridLong(xCursorPoint: Double): string;
@@ -844,9 +846,17 @@ end;
 
 {$REGION ' Button Handle '}
 
+procedure TOverlayEditorForm.Apply;
+begin
+
+end;
+
 procedure TOverlayEditorForm.btnApplyClick(Sender: TObject);
 begin
-  case ShapeType of
+if CekInput then
+Exit;
+
+case ShapeType of
     ovText:
       GbrText;
     ovLine:
@@ -865,7 +875,7 @@ begin
       GbrGrid;
     ovPolygon:
       GbrPolygon;
-  end;
+end;
 
   btnSelect.OnClick(btnSelect);
 //  btnOk.Enabled := True;
@@ -1003,7 +1013,7 @@ begin
 
   {$REGION ' Dynamic Handle '}
   grpTextD.BringToFront;
-  grpTextD.Visible := false;
+  grpTextD.Visible := True;
   {$ENDREGION}
 
   {$REGION ' Static Handle '}
@@ -1059,7 +1069,7 @@ begin
 
   {$REGION ' Button Handle '}
   btnOutline.Visible := True;
-  btnFill.Visible := True;
+  btnFill.Visible := False;
   pnlPenEditing.Visible := True;
   SetNoFill(false);
   btnOutlineClick(nil);
@@ -1145,7 +1155,7 @@ begin
 
   {$REGION ' Button Handle '}
   btnOutline.Visible := True;
-  btnFill.Visible := false;
+  btnFill.Visible := False;
   pnlPenEditing.Visible := True;
   {$ENDREGION}
 end;
@@ -1187,7 +1197,7 @@ begin
 
   {$REGION ' Button Handle '}
   btnOutline.Visible := True;
-  btnFill.Visible := false;
+  btnFill.Visible := True;
   pnlPenEditing.Visible := True;
   {$ENDREGION}
 end;
@@ -1221,7 +1231,7 @@ begin
         TextDynamic.postStart.Bearing := StrToInt(edtTextBearing.Text);
         TextDynamic.Size := StrToInt(cbbTextSizeD.Text);
         TextDynamic.words := edtTextFieldD.Text;
-        // TextDynamic.Color := txtColorSelect.color;
+        TextDynamic.Color := pnlOutline.color;
         TextDynamic.isSelected := false;
 
         if IdAction <> 2 then
@@ -1362,17 +1372,19 @@ begin
         RectangleDynamic.postStart.Range := StrToFloat(edtRecStartRange.Text);
         RectangleDynamic.PostEnd.Bearing := StrToInt(edtRecEndBearing.Text);
         RectangleDynamic.PostEnd.Range := StrToFloat(edtRecEndRange.Text);
-        // RectangleDynamic.Color := txtColorSelect.color;
+        RectangleDynamic.Color := pnlOutline.color;
+//        RectangleDynamic.Color := pnlFill.color;
 
-        // if isFiFisNoFillen
-        // begin
-        // RectangleDynamic.BrushStyle := bsClear;
-        // end
-        // else
-        // begin
-        // RectangleDynamic.BrushStyle := bsSolid;
-        /// /        RectangleDynamic.ColorFill := txtFillColor.Color;
-        // end;
+         if FisNoFill then
+         begin
+         RectangleDynamic.BrushStyle := bsClear;
+         end
+         else
+         begin
+         RectangleDynamic.BrushStyle := bsSolid;
+//         RectangleDynamic.ColorFill := pnlOutline.Color;
+         RectangleDynamic.ColorFill := pnlFill.Color;
+         end;
 
         RectangleDynamic.lineType := TPenStyle(cbbDashesPen.ItemIndex);
         RectangleDynamic.weight := StrToInt(cbbWeightPen.Text);
@@ -1426,7 +1438,7 @@ begin
         else
         begin
           RectangleStatic.BrushStyle := bsSolid;
-          RectangleStatic.ColorFill := pnlFill.Color;
+          RectangleStatic.ColorFill  := pnlFill.Color;
         end;
 
         RectangleStatic.lineType := TPenStyle(cbbDashesPen.ItemIndex);;
@@ -1462,21 +1474,21 @@ begin
         CircleDynamic.postCenter.Bearing := StrToInt(edtCircleBearing.Text);
         CircleDynamic.postCenter.Range := StrToFloat(edtCircleRange.Text);
         CircleDynamic.Radius := StrToFloat(edtCircleRadiusD.Text);
-        // CircleDynamic.Color := txtColorSelect.color;
+        CircleDynamic.Color := pnlOutline.color;
 
-        // if isFiFisNoFillen
-        // begin
-        // CircleDynamic.BrushStyle := bsClear;
-        // end
-        // else
-        // begin
-        // CircleDynamic.BrushStyle := bsSolid;
-        // //        CircleDynamic.ColorFill := txtFillColor.Color;
-        // end;
-        //
-        // GayaGaris := TPenStyle(cbbDashesPen.ItemIndex);
-        // CircleDynamic.LineType :=  GayaGaris;
-        CircleDynamic.weight := StrToInt(cbbWeightPen.Text);
+         if FisNoFill then
+         begin
+          CircleDynamic.BrushStyle := bsClear;
+         end
+         else
+         begin
+           CircleDynamic.BrushStyle := bsSolid;
+           CircleDynamic.ColorFill := pnlFill.Color;
+         end;
+
+//         GayaGaris := TPenStyle(cbbDashesPen.ItemIndex);
+//         CircleDynamic.LineType :=  GayaGaris;
+         CircleDynamic.weight := StrToInt(cbbWeightPen.Text);
 
         if IdAction <> 2 then
           DrawOverlay.DynamicList.Add(CircleDynamic);
@@ -1549,19 +1561,19 @@ begin
 
         EllipseDynamic.postCenter.Bearing := StrToInt(edtEllipseBearing.Text);
         EllipseDynamic.postCenter.Range := StrToFloat(edtEllipseRange.Text);
-        EllipseDynamic.Vradius := StrToFloat(edtEllipseVerticalD.Text);
-        EllipseDynamic.Hradius := StrToFloat(edtEllipseHorizontalD.Text);
-        // EllipseDynamic.Color := txtColorSelect.color;
-
-        // if isFiFisNoFillen
-        // begin
-        // EllipseDynamic.BrushStyle := bsClear;
-        // end
-        // else
-        // begin
-        // EllipseDynamic.BrushStyle := bsSolid;
-        /// /        EllipseDynamic.ColorFill := txtFillColor.Color;
-        // end;
+        EllipseDynamic.Vradius  := StrToFloat(edtEllipseVerticalD.Text);
+        EllipseDynamic.Hradius  := StrToFloat(edtEllipseHorizontalD.Text);
+        EllipseDynamic.Color    := pnlOutline.color;
+//
+         if FisNoFill then
+         begin
+          EllipseDynamic.BrushStyle := bsClear;
+         end
+         else
+         begin
+          EllipseDynamic.BrushStyle := bsSolid;
+          EllipseDynamic.ColorFill := pnlFill.Color;
+         end;
         //
         // GayaGaris := TPenStyle(cbbDashesPen.ItemIndex);
         // EllipseDynamic.LineType :=  GayaGaris;
@@ -1641,7 +1653,7 @@ begin
         ArcDynamic.Radius := StrToFloat(edtArcRadiusD.Text);
         ArcDynamic.StartAngle := StrToInt(edtArcStartAngleD.Text);
         ArcDynamic.EndAngle := StrToInt(edtArcEndAngleD.Text);
-        // ArcDynamic.Color := txtColorSelect.color;
+        ArcDynamic.Color := pnlOutline.color;
 
         // GayaGaris := TPenStyle(cbbDashesPen.ItemIndex);
         // ArcDynamic.LineType :=  GayaGaris;
@@ -1712,8 +1724,17 @@ begin
         SectorDynamic.Iradius := StrToFloat(edtSectorInnerD.Text);
         SectorDynamic.StartAngle := StrToInt(edtSectorStartAngleD.Text);
         SectorDynamic.EndAngle := StrToInt(edtSectorEndAngleD.Text);
-        // SectorDynamic.Color := txtColorSelect.color;
-        // SectorDynamic.ColorFill := txtFillColor.Color;
+        SectorDynamic.Color := pnlOutline.color;
+
+        if FisNoFill then
+         begin
+          SectorDynamic.BrushStyle := bsClear;
+         end
+         else
+        begin
+         SectorDynamic.BrushStyle := bsSolid;
+         SectorDynamic.ColorFill  := pnlFill.Color;
+        end;
 
         // GayaGaris := TPenStyle(cbbDashesPen.ItemIndex);
         // SectorDynamic.LineType :=  GayaGaris;
@@ -1786,18 +1807,18 @@ begin
         GridDynamic.HCount := StrToInt(edtTableColumnD.Text);
         GridDynamic.WCount := StrToInt(edtTableRowD.Text);
         GridDynamic.Rotation := StrToInt(edtRotationAngleD.Text);
-        // GridDynamic.Color := txtColorSelect.color;
-
-        // if isFiFisNoFillen
-        // begin
-        // GridDynamic.BrushStyle := bsClear;
-        // GridDynamic.ColorFill := clNone;
-        // end
-        // else
-        // begin
-        // GridDynamic.BrushStyle := bsSolid;
-        // GridDynamic.ColorFill := txtFillColor.Color;
-        // end;
+         GridDynamic.Color := pnlOutline.color;
+//
+         if FisNoFill then
+         begin
+           GridDynamic.BrushStyle := bsClear;
+           GridDynamic.ColorFill := clNone;
+         end
+         else
+         begin
+           GridDynamic.BrushStyle := bsSolid;
+           GridDynamic.ColorFill  := pnlFill.Color;
+         end;
         //
         // GayaGaris := TPenStyle(cbbDashesPen.ItemIndex);
         // GridDynamic.LineType :=  GayaGaris;
@@ -1882,21 +1903,21 @@ begin
 
         PolygonDynamic.ParentPos.X := Map1.CenterX;
         PolygonDynamic.ParentPos.Y := Map1.CenterY;
-        // PolygonDynamic.Color := txtColorSelect.color;
+        PolygonDynamic.Color := pnlOutline.color;
+//
+         if FisNoFill then
+         begin
+           PolygonDynamic.BrushStyle := bsClear;
+           PolygonDynamic.ColorFill := clNone;
+         end
+         else
+         begin
+           PolygonDynamic.BrushStyle := bsSolid;
+           PolygonDynamic.ColorFill  := pnlFill.Color;
+         end;
 
-        // if isFiFisNoFillen
-        // begin
-        // PolygonDynamic.BrushStyle := bsClear;
-        // PolygonDynamic.ColorFill := clNone;
-        // end
-        // else
-        // begin
-        // PolygonDynamic.BrushStyle := bsSolid;
-        // PolygonDynamic.ColorFill := txtFillColor.Color;
-        // end;
-        //
-        // GayaGaris := TPenStyle(cbbDashesPen.ItemIndex);
-        // PolygonDynamic.LineType :=  GayaGaris;
+//         GayaGaris := TPenStyle(cbbDashesPen.ItemIndex);
+//         PolygonDynamic.LineType :=  GayaGaris;
         PolygonDynamic.weight := StrToInt(cbbWeightPen.Text);
 
         for i := 0 to lvPolyVertexD.Items.Count - 1 do
@@ -3559,7 +3580,7 @@ begin
   NormalizeMousePointer;
 end;
 
-function TOverlayEditorForm.CekInput(IdObject: Integer): Boolean;
+function TOverlayEditorForm.CekInput{(IdObject: Integer)}: Boolean;
 var
   InnerRadius, OuterRadius, InputHeading: Double;
 begin
@@ -3570,20 +3591,20 @@ begin
   {$REGION ' Dynamic Section '}
     osDynamic:
       begin
-        case IdObject of
+        case ShapeType of
           ovText: { Text }
             begin
               {$REGION ' Text '}
               if (edtTextRange.Text = '') or (edtTextBearing.Text = '') or
                 (edtTextFieldD.Text = '') or (cbbTextSizeD.Text = '') then
               begin
-                ShowMessage('Incomplete data input');
+                ShowMessage('Input Data Tidak Lengkap');
                 Result := True;
               end
               else if (StrToInt(cbbTextSizeD.Text) > 72) or
                 (StrToInt(cbbTextSizeD.Text) = 0) then
               begin
-                ShowMessage('Invalid size input');
+                ShowMessage('Input Ukuran Tidak Valid');
                 Result := True;
               end;
               {$ENDREGION}
@@ -3594,7 +3615,7 @@ begin
               if (edtLineStartRange.Text = '') or (edtLineStartBearing.Text = '') or
                 (edtLineEndRange.Text = '') or (edtLineEndBearing.Text = '') then
               begin
-                ShowMessage('Incomplete data input');
+                ShowMessage('Input Data Tidak Lengkap');
                 Result := True;
               end
               else if (edtLineStartRange.Text = edtLineEndRange.Text) and
@@ -3775,7 +3796,7 @@ begin
   {$REGION ' Static Section '}
     osStatic:
       begin
-        case IdObject of
+        case ShapeType of
           ovText: { Text }
             begin
               {$REGION ' Text '}

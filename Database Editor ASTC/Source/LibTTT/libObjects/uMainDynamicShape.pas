@@ -443,19 +443,14 @@ begin
 
 
     if BrushStyle = bsClear then
-
-      begin
-
-        Brush.Style := BrushStyle
-      end
-
+    begin
+      Brush.Style := BrushStyle
+    end
     else
-
-      begin
-
-        Brush.Style := BrushStyle;
-        Brush.Color := ColorFill;
-      end;
+    begin
+      Brush.Style := BrushStyle;
+      Brush.Color := ColorFill;
+    end;
 
     MoveTo(Isx, Isy); LineTo(Iex, Iey);
     MoveTo(Iex, Iey); LineTo(Oex, Oey);

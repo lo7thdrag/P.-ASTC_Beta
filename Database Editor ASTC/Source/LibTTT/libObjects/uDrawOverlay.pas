@@ -1129,6 +1129,7 @@ begin
     item := DynamicList[countList];
     if item is TTextDynamic then
     begin
+    {$REGION ' TEXT '}
       OText := TTextDynamic(item);
 
       with OText do
@@ -1150,9 +1151,7 @@ begin
           OverlayEditorForm.edtTextRange.Text     := FloatToStr(postStart.Range);
           OverlayEditorForm.edtTextBearing.Text   := FloatToStr(postStart.Bearing);
           OverlayEditorForm.edtTextFieldD.Text    := words;
-//          OverlayEditorForm.txtColorSelect.color  := OText.Color;
-//          OverlayEditorForm.txtFillColor.Color := OText.Color;
-//          OverlayEditorForm.pnlNoFill.Visible := False;
+          OverlayEditorForm.pnlOutline.color      := OText.Color;
 
           OverlayEditorForm.cbbTextSizeD.Text     := IntToStr(OText.size);
 
@@ -1160,18 +1159,20 @@ begin
           OverlayEditorForm.lblShape.Caption := 'Text';
           OverlayEditorForm.grpTextD.BringToFront;
           OverlayEditorForm.pnlPenEditing.Visible := False;
-          OverlayEditorForm.btnFill.Enabled := False;
-          OverlayEditorForm.btnOutline.Enabled := True;
+          OverlayEditorForm.btnFill.Visible := False;
+          OverlayEditorForm.btnOutline.Visible := True;
 
           IdSelected := countList;
           break;
         end;
 
       end;
+    {$ENDREGION}
     end;
 
     if item is TLineDynamic then
     begin
+    {$REGION ' LINE '}
       OLine := TLineDynamic(item);
 
       with OLine do
@@ -1200,9 +1201,7 @@ begin
           OverlayEditorForm.edtLineStartBearing.Text  := FloatToStr(postStart.Bearing);
           OverlayEditorForm.edtLineEndRange.Text      := FloatToStr(postEnd.Range);
           OverlayEditorForm.edtLineEndBearing.Text    := FloatToStr(postEnd.Bearing);
-//          frmOverlayEditor.txtColorSelect.color  := OLine.Color;
-//          frmOverlayEditor.txtFillColor.Color := OLine.Color;
-//          frmOverlayEditor.pnlNoFill.Visible := False;
+          OverlayEditorForm.pnlOutline.color          := OLine.Color;
 
           OverlayEditorForm.ShapeType := ovLine;
           OverlayEditorForm.lblShape.Caption := 'Line';
@@ -1213,16 +1212,18 @@ begin
           OverlayEditorForm.cbbWeightPen.Text := IntToStr(OLine.weight);
 
           OverlayEditorForm.pnlPenEditing.Visible := True;
-          OverlayEditorForm.btnFill.Enabled := False;
-          OverlayEditorForm.btnOutline.Enabled := True;
+          OverlayEditorForm.btnFill.Visible := False;
+          OverlayEditorForm.btnOutline.Visible := True;
           IdSelected := countList;
           break;
         end;
       end;
+    {$ENDREGION}
     end;
 
     if item is TRectangleDynamic then
     begin
+    {$REGION ' Rectangle '}
       ORectangle := TRectangleDynamic(item);
 
       with ORectangle do
@@ -1273,20 +1274,22 @@ begin
           OverlayEditorForm.edtRecStartBearing.Text := FloatToStr(postStart.Bearing);
           OverlayEditorForm.edtRecEndRange.Text     := FloatToStr(postEnd.Range);
           OverlayEditorForm.edtRecEndBearing.Text   := FloatToStr(postEnd.Bearing);
-//          OverlayEditorForm.txtColorSelect.color    := ORectangle.color;
+          OverlayEditorForm.pnlOutline.color        := ORectangle.color;
 
           OverlayEditorForm.cbbDashesPen.Text :=  lineTypeChoice(ORectangle.LineType);
 
           OverlayEditorForm.cbbWeightPen.Text := IntToStr(ORectangle.weight);
           if ORectangle.BrushStyle = bsClear then
           begin
-//            frmOverlayEditor.pnlNoFill.Visible := True;
+//            OverlayEditorForm.SetNoFill(True);
+//            OverlayEditorForm.pnlOutline.Visible := True;
+//            OverlayEditorForm.pnlFill.Visible := True;
 //            FisNoFill := True;
           end
           else
           begin
-//            frmOverlayEditor.txtFillColor.Color := ORectangle.ColorFill;
-//            frmOverlayEditor.pnlNoFill.Visible := False;
+//            OverlayEditorForm.SetNoFill(False);
+//            OverlayEditorForm.pnlFill.Visible := False;
 //            FisNoFill := False;
           end;
 
@@ -1294,16 +1297,18 @@ begin
           OverlayEditorForm.lblShape.Caption := 'Rectangle';
           OverlayEditorForm.grpRectangleD.BringToFront;
           OverlayEditorForm.pnlPenEditing.Visible := True;
-          OverlayEditorForm.btnFill.Enabled := False;
-          OverlayEditorForm.btnOutline.Enabled := True;
+          OverlayEditorForm.btnFill.Visible := False;
+          OverlayEditorForm.btnOutline.Visible := True;
           IdSelected := countList;
           break;
         end;
       end;
+    {$ENDREGION}
     end;
 
     if item is TCircleDynamic then
     begin
+    {$REGION ' CIRCLE '}
       OCircle := TCircleDynamic(item);
       with OCircle do
       begin
@@ -1323,7 +1328,7 @@ begin
           OverlayEditorForm.edtCircleRange.Text   := FloatToStr(postCenter.Range);
           OverlayEditorForm.edtCircleBearing.Text := FloatToStr(postCenter.Bearing);
           OverlayEditorForm.edtCircleRadiusD.Text := FloatToStr(radius);
-//          frmOverlayEditor.txtColorSelect.color  := OCircle.color;
+          OverlayEditorForm.pnlOutline.color      := OCircle.color;
 
           OverlayEditorForm.cbbDashesPen.Text :=  lineTypeChoice(OCircle.LineType);
 
@@ -1332,11 +1337,13 @@ begin
           if OCircle.BrushStyle = bsClear then
           begin
 //           frmOverlayEditor.pnlNoFill.Visible := True;
+            OverlayEditorForm.SetNoFill(True);
 //           FisNoFill := True;
           end
           else
           begin
-//            frmOverlayEditor.txtFillColor.Color := OCircle.ColorFill;
+            OverlayEditorForm.SetNoFill(False);
+            OverlayEditorForm.pnlFill.Color := OCircle.ColorFill;
 //            frmOverlayEditor.pnlNoFill.Visible := False;
 //            FisNoFill := False;
           end;
@@ -1344,18 +1351,20 @@ begin
           OverlayEditorForm.ShapeType := ovCircle;
           OverlayEditorForm.lblShape.Caption := 'Circle';
           OverlayEditorForm.pnlPenEditing.Visible := True;
-          OverlayEditorForm.btnFill.Enabled := True;
-          OverlayEditorForm.btnOutline.Enabled := True;
+          OverlayEditorForm.btnFill.Visible := True;
+          OverlayEditorForm.btnOutline.Visible := True;
           OverlayEditorForm.grpCircleD.BringToFront;
           OverlayEditorForm.grpCircleD.Visible := True;
           IdSelected := countList;
           break;
         end;
       end;
+    {$ENDREGION}
     end;
 
     if item is TEllipseDynamic then
     begin
+    {$REGION ' ELLIPSE '}
       OEllipse := TEllipseDynamic(item);
 
       with OEllipse do
@@ -1390,8 +1399,8 @@ begin
           OverlayEditorForm.edtEllipseRange.Text        := FloatToStr(postCenter.Range);
           OverlayEditorForm.edtEllipseBearing.Text      := FloatToStr(postCenter.Bearing);
           OverlayEditorForm.edtEllipseHorizontalD.Text  := FloatToStr(OEllipse.Hradius);
-          OverlayEditorForm.edtEllipseVerticalD.Text  := FloatToStr(OEllipse.Vradius);
-//          frmOverlayEditor.txtColorSelect.color  := OEllipse.color;
+          OverlayEditorForm.edtEllipseVerticalD.Text    := FloatToStr(OEllipse.Vradius);
+          OverlayEditorForm.pnlOutline.color            := OEllipse.color;
 
           OverlayEditorForm.cbbDashesPen.Text :=  lineTypeChoice(OEllipse.LineType);
 
@@ -1399,11 +1408,14 @@ begin
 
           if OEllipse.BrushStyle = bsClear then
           begin
+            OverlayEditorForm.SetNoFill(True);
 //            OverlayEditorForm.pnlNoFill.Visible := True;
 //            FisNoFill := True;
           end
           else
           begin
+            OverlayEditorForm.SetNoFill(False);
+            OverlayEditorForm.pnlFill.Color := OEllipse.ColorFill;
 //            OverlayEditorForm.txtFillColor.Color := OEllipse.ColorFill;
 //            OverlayEditorForm.pnlNoFill.Visible := False;
 //            FisNoFill := False;
@@ -1413,17 +1425,19 @@ begin
           OverlayEditorForm.lblShape.Caption := 'Ellipse';
           OverlayEditorForm.grpEllipseD.BringToFront;
           OverlayEditorForm.pnlPenEditing.Visible := True;
-          OverlayEditorForm.btnFill.Enabled := True;
-          OverlayEditorForm.btnOutline.Enabled := True;
+          OverlayEditorForm.btnFill.Visible := True;
+          OverlayEditorForm.btnOutline.Visible := True;
 
           IdSelected := countList;
           break;
         end;
       end;
+    {$ENDREGION}
     end;
 
     if item is TArcDynamic then
     begin
+    {$REGION ' ARC '}
       OArc := TArcDynamic(item);
       with OArc do
       begin
@@ -1445,7 +1459,7 @@ begin
           OverlayEditorForm.edtArcRadiusD.Text      := FloatToStr(radius);
           OverlayEditorForm.edtArcStartAngleD.Text  := FloatToStr(StartAngle);
           OverlayEditorForm.edtArcEndAngleD.Text    := FloatToStr(EndAngle);
-//          frmOverlayEditor.txtColorSelect.color  := OArc.color;
+          OverlayEditorForm.pnlOutline.color        := OArc.color;
 
           OverlayEditorForm.cbbDashesPen.Text :=  lineTypeChoice(OArc.LineType);
 
@@ -1454,16 +1468,18 @@ begin
           OverlayEditorForm.lblShape.Caption := 'Arc';
           OverlayEditorForm.grpArcD.BringToFront;
           OverlayEditorForm.pnlPenEditing.Visible := True;
-          OverlayEditorForm.btnFill.Enabled := False;
-          OverlayEditorForm.btnOutline.Enabled := True;
+          OverlayEditorForm.btnFill.Visible := False;
+          OverlayEditorForm.btnOutline.Visible := True;
           IdSelected := countList;
           break;
         end;
       end;
+    {$ENDREGION}
     end;
 
     if item is TSectorDynamic then
     begin
+    {$REGION ' SECTOR '}
       OSector := TSectorDynamic(item);
       with OSector do
       begin
@@ -1486,7 +1502,7 @@ begin
           OverlayEditorForm.edtSectorOuterD.Text      := FloatToStr(Oradius);
           OverlayEditorForm.edtSectorStartAngleD.Text := FloatToStr(StartAngle);
           OverlayEditorForm.edtSectorEndAngleD.Text   := FloatToStr(EndAngle);
-//          frmOverlayEditor.txtColorSelect.color  := OSector.color;
+          OverlayEditorForm.pnlOutline.color          := OSector.color;
 
           OverlayEditorForm.cbbDashesPen.Text :=  lineTypeChoice(OSector.LineType);
 
@@ -1494,11 +1510,14 @@ begin
 
           if OSector.BrushStyle = bsClear then
           begin
+            OverlayEditorForm.SetNoFill(True);
 //            frmOverlayEditor.pnlNoFill.Visible := True;
 //            FisNoFill := True;
           end
           else
           begin
+            OverlayEditorForm.SetNoFill(False);
+            OverlayEditorForm.pnlFill.Color := OSector.ColorFill;
 //            frmOverlayEditor.txtFillColor.Color := OSector.ColorFill;
 //            frmOverlayEditor.pnlNoFill.Visible := False;
 //            FisNoFill := False;
@@ -1508,16 +1527,18 @@ begin
           OverlayEditorForm.lblShape.Caption := 'Sector';
           OverlayEditorForm.grpSectorD.BringToFront;
           OverlayEditorForm.pnlPenEditing.Visible := True;
-          OverlayEditorForm.btnFill.Enabled := False;
-          OverlayEditorForm.btnOutline.Enabled := True;
+          OverlayEditorForm.btnFill.Visible := True;
+          OverlayEditorForm.btnOutline.Visible := True;
           IdSelected := countList;
           break;
         end;
       end;
+    {$ENDREGION}
     end;
 
     if item is TGridDynamic then
     begin
+    {$REGION ' GRID '}
       OGrid := TGridDynamic(item);
       with OGrid do
       begin
@@ -1567,7 +1588,7 @@ begin
           OverlayEditorForm.edtTableHeightD.Text      := FloatToStr(OGrid.Height);
           OverlayEditorForm.edtTableWidthD.Text       := FloatToStr(OGrid.Width);
           OverlayEditorForm.edtRotationAngleD.Text    := FloatToStr(OGrid.Rotation);
-//          frmOverlayEditor.txtColorSelect.color  := OGrid.color;
+          OverlayEditorForm.pnlOutline.color          := OGrid.color;
 
           OverlayEditorForm.cbbDashesPen.Text :=  lineTypeChoice(OGrid.LineType);
 
@@ -1577,16 +1598,18 @@ begin
           OverlayEditorForm.lblShape.Caption := 'Grid';
           OverlayEditorForm.grpGridD.BringToFront;
           OverlayEditorForm.pnlPenEditing.Visible := True;
-          OverlayEditorForm.btnFill.Enabled := False;
-          OverlayEditorForm.btnOutline.Enabled := True;
+          OverlayEditorForm.btnFill.Visible := False;
+          OverlayEditorForm.btnOutline.Visible := True;
           IdSelected := countList;
           break;
         end;
       end;
+    {$ENDREGION}
     end;
 
     if item is TPolygonDynamic then
     begin
+    {$REGION ' POLYGON '}
       OPolygon := TPolygonDynamic(item);
       with OPolygon do
       begin
@@ -1637,7 +1660,7 @@ begin
             finally
               OverlayEditorForm.lvPolyVertexD.Items.EndUpdate;
             end;
-//            frmOverlayEditor.txtColorSelect.color  := OPolygon.color;
+            OverlayEditorForm.pnlOutline.color  := OPolygon.color;
 
             OverlayEditorForm.cbbDashesPen.Text :=  lineTypeChoice(OPolygon.LineType);
 
@@ -1645,22 +1668,20 @@ begin
 
             if OPolygon.BrushStyle = bsClear then
             begin
-//              frmOverlayEditor.pnlNoFill.Visible := True;
-//              FisNoFill := True;
+              OverlayEditorForm.SetNoFill(True);
             end
             else
             begin
-//              frmOverlayEditor.txtFillColor.Color := OPolygon.ColorFill;
-//              frmOverlayEditor.pnlNoFill.Visible := False;
-//              FisNoFill := False;
+              OverlayEditorForm.SetNoFill(False);
+              OverlayEditorForm.pnlFill.Color := OPolygon.ColorFill;
             end;
 
             OverlayEditorForm.ShapeType := ovPolygon;
             OverlayEditorForm.lblShape.Caption := 'Polygon';
             OverlayEditorForm.grpPolygonD.BringToFront;
             OverlayEditorForm.pnlPenEditing.Visible := True;
-            OverlayEditorForm.btnFill.Enabled := True;
-            OverlayEditorForm.btnOutline.Enabled := True;
+            OverlayEditorForm.btnFill.Visible := True;
+            OverlayEditorForm.btnOutline.Visible := True;
             IdSelected := countList;
             break;
           end;
@@ -1668,6 +1689,7 @@ begin
       end;
        if IsFind then
           Break;
+    {$ENDREGION}
     end;
   end;
 

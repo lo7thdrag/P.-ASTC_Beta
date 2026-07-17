@@ -307,7 +307,7 @@ begin
         if not isSaved then
         begin
           //delete
-          dmTTT.DeleteRadar_Interval_List(IntToStr(TRadar_Interval_List(MList[I]).FData.Interval_List_Index));
+//          dmTTT.DeleteRadar_Interval_List(IntToStr(TRadar_Interval_List(MList[I]).FData.Interval_List_Index));
         end;
       end;
     end
@@ -358,7 +358,7 @@ begin
             //update
             Minerec := TFitted_Weapon_On_Board.Create;
             Minerec.FData := TMine_On_Board(MINEList[K]).FData;
-            dmTTT.UpdateFitted_Weapon_OnBoard(IntToStr(id_MineInstance),3,Minerec.FData);
+//            dmTTT.UpdateFitted_Weapon_OnBoard(IntToStr(id_MineInstance),3,Minerec.FData);
 
             isSaved := True;
             if I < MList.Count - 1 then
@@ -391,7 +391,7 @@ begin
         //insert
         Minerec := TFitted_Weapon_On_Board.Create;
         Minerec.FData := TMine_On_Board(MINEList[K]).FData;
-        //~~dmTTT.InsertFitted_Weapon_On_Board(3,Minerec);
+//        ~~dmTTT.InsertFitted_Weapon_On_Board(3,Minerec);
       end;
     end;
   end
@@ -403,7 +403,7 @@ begin
       Minerec := TFitted_Weapon_On_Board.Create;
       Minerec.FData := TMine_On_Board(MINEList[K]).FData;
       Minerec.FData.Vehicle_Index := v_id;
-      //~~dmTTT.InsertFitted_Weapon_On_Board(3,Minerec);
+//      ~~dmTTT.InsertFitted_Weapon_On_Board(3,Minerec);
     end;
   end;
 end;
@@ -420,7 +420,7 @@ begin
   begin
     MList := TList.Create;
     Hybrid_miss := THybrid_On_Board.Create;
-    dmTTT.getAllMissile_OnBoard2(v_id, 0, MList);
+//    dmTTT.getAllMissile_OnBoard2(v_id, 0, MList);
     if MList.Count > 0 then
     begin
       for I := 0 to MList.Count - 1 do
@@ -438,21 +438,21 @@ begin
             begin
               //using hybrid ID
               MisRec.FData.Hybrid_Index := Hybrid_miss.FData.Hybrid_Index;
-              dmTTT.UpdateFitted_Weapon_OnBoard(IntToStr(id_MisInstance),4,MisRec.FData);
+//              dmTTT.UpdateFitted_Weapon_OnBoard(IntToStr(id_MisInstance),4,MisRec.FData);
             end
             else
             begin
               //using missile ID
-              dmTTT.UpdateFitted_Weapon_OnBoard(IntToStr(id_MisInstance),1,MisRec.FData);
+//              dmTTT.UpdateFitted_Weapon_OnBoard(IntToStr(id_MisInstance),1,MisRec.FData);
             end;
 
             //launcher
-            dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(id_MisInstance),'');
+//            dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(id_MisInstance),'');
             for L := 0 to TMissile_On_Board(MISSLList[K]).FLaunchs.Count - 1 do
             begin
               LaunchRec := TFitted_Weap_Launcher_On_Board.Create;
               LaunchRec := TMissile_On_Board(MISSLList[K]).FLaunchs[L];
-              dmTTT.InsertFitted_Weap_Launcher_On_Board(LaunchRec.FData);
+//              dmTTT.InsertFitted_Weap_Launcher_On_Board(LaunchRec.FData);
             end;
 
             isSaved := True;
@@ -514,7 +514,7 @@ begin
         end
         else
         begin
-          //~~dmTTT.InsertFitted_Weapon_On_Board(1,MisRec);
+//          ~~dmTTT.InsertFitted_Weapon_On_Board(1,MisRec);
         end;
 
         //~~dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(MisRec.FData.Fitted_Weap_Index),'');
@@ -568,7 +568,7 @@ begin
   if not isNew then
   begin
     MList := TList.Create;
-    dmTTT.GetOverlay_Definition(id_OvLay,MList);
+//    dmTTT.GetOverlay_Definition(id_OvLay,MList);
     if MList.Count > 0 then
     begin
       for I := 0 to MList.Count - 1 do
@@ -604,7 +604,7 @@ begin
         if not isSaved then
         begin
           //delete
-          dmTTT.DeleteOverlay_Definition(IntToStr(TOverlay_Definition(MList[I]).FData.Overlay_Index));
+//          dmTTT.DeleteOverlay_Definition(IntToStr(TOverlay_Definition(MList[I]).FData.Overlay_Index));
         end;
       end;
     end
@@ -677,7 +677,7 @@ begin
         if not isSaved then
         begin
           //delete
-          dmTTT.DeleteFitted_Weapon_On_Board(IntToStr(TMine_On_Board(MList[I]).FData.Fitted_Weap_Index));
+//          dmTTT.DeleteFitted_Weapon_On_Board(IntToStr(TMine_On_Board(MList[I]).FData.Fitted_Weap_Index));
         end;
       end;
     end
@@ -688,7 +688,7 @@ begin
         //insert
         PreFinrec := TPredefined_Pattern.Create;
         PreFinrec.FData := TPredefined_Pattern(PREList[K]).FData;
-        dmTTT.insertPredifened_Pattern(PreFinrec);
+//        dmTTT.insertPredifened_Pattern(PreFinrec);
       end;
     end;
   end
@@ -700,7 +700,7 @@ begin
       PreFinrec := TPredefined_Pattern.Create;
       PreFinrec.FData := TPredefined_Pattern(PREList[K]).FData;
       PreFinrec.FData.Vehicle_Index := v_id;
-      dmTTT.insertPredifened_Pattern(PreFinrec);
+//      dmTTT.insertPredifened_Pattern(PreFinrec);
     end;
   end;
 end;
@@ -859,7 +859,7 @@ begin
     id_envi := ra.FData.Game_Enviro_Index;
 
   fReferencePointEditor.rList.Clear;
-  dmTTT.getGame_Area_By_Envi(IntToStr(id_envi), fReferencePointEditor.rList, fReferencePointEditor.game_area);
+//  dmTTT.getGame_Area_By_Envi(IntToStr(id_envi), fReferencePointEditor.rList, fReferencePointEditor.game_area);
 
   fReferencePointEditor.ra_id := ra_id;
   fReferencePointEditor.force := getForcedesignation;
@@ -1206,7 +1206,7 @@ begin
         if not isSaved then
         begin
           //delete
-          dmTTT.DeleteRuntime_Platform_LibraryByResourceAlloc(RP_id);
+//          dmTTT.DeleteRuntime_Platform_LibraryByResourceAlloc(RP_id);
         end;
       end;
     end
@@ -1330,7 +1330,7 @@ begin
             //update
             Sonorec := TSonobuoy_On_Board.Create;
             Sonorec := TSonobuoy_On_Board(SONOList[K]);
-            dmTTT.UpdateSonobuoy_On_Board(IntToStr(id_SonoInstance),Sonorec);
+//            dmTTT.UpdateSonobuoy_On_Board(IntToStr(id_SonoInstance),Sonorec);
 
             isSaved := True;
             if I < MList.Count - 1 then
@@ -1352,7 +1352,7 @@ begin
         if not isSaved then
         begin
           //delete
-          dmTTT.DeleteSonobuoy_On_Board(IntToStr(TSonobuoy_On_Board(MList[I]).FData.Sonobuoy_Instance_Index));
+//          dmTTT.DeleteSonobuoy_On_Board(IntToStr(TSonobuoy_On_Board(MList[I]).FData.Sonobuoy_Instance_Index));
         end;
       end;
     end
@@ -1363,7 +1363,7 @@ begin
         //insert
         Sonorec := TSonobuoy_On_Board.Create;
         Sonorec := TSonobuoy_On_Board(SONOList[K]);
-        dmTTT.InsertSonobuoy_On_Board(Sonorec);
+//        dmTTT.InsertSonobuoy_On_Board(Sonorec);
       end;
     end;
   end
@@ -1375,7 +1375,7 @@ begin
       Sonorec := TSonobuoy_On_Board.Create;
       Sonorec := TSonobuoy_On_Board(SONOList[K]);
       Sonorec.FData.Vehicle_Index := v_id;
-      dmTTT.InsertSonobuoy_On_Board(Sonorec);
+//      dmTTT.InsertSonobuoy_On_Board(Sonorec);
     end;
   end;
 end;
@@ -1404,15 +1404,15 @@ begin
             //update
             TorRec := TFitted_Weapon_On_Board.Create;
             TorRec.FData := TTorpedo_On_Board(TORPList[K]).FData;
-            dmTTT.UpdateFitted_Weapon_OnBoard(IntToStr(id_TorpInstance),2,TorRec.FData);
+//            dmTTT.UpdateFitted_Weapon_OnBoard(IntToStr(id_TorpInstance),2,TorRec.FData);
 
             //launcher
-            dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(id_TorpInstance),'');
+//            dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(id_TorpInstance),'');
             for L := 0 to TTorpedo_On_Board(TORPList[K]).FLaunchs.Count - 1 do
             begin
               LaunchRec := TFitted_Weap_Launcher_On_Board.Create;
               LaunchRec := TTorpedo_On_Board(TORPList[K]).FLaunchs[L];
-              dmTTT.InsertFitted_Weap_Launcher_On_Board(LaunchRec.FData);
+//              dmTTT.InsertFitted_Weap_Launcher_On_Board(LaunchRec.FData);
             end;
 
             isSaved := True;
@@ -1434,7 +1434,7 @@ begin
 //                LaunchRec := TFitted_Weap_Launcher_On_Board.Create;
 //                LaunchRec := TTorpedo_On_Board(TORPList[K]).FLaunchs[L];
 //                LaunchRec.FData.Fitted_Weap_Index := TorRec.FData.Fitted_Weap_Index;
-//                //~~dmTTT.InsertFitted_Weap_Launcher_On_Board(LaunchRec.FData);
+//                ~~dmTTT.InsertFitted_Weap_Launcher_On_Board(LaunchRec.FData);
 //              end;
 //
 //              isSaved := True;
@@ -1444,9 +1444,9 @@ begin
         if not isSaved then
         begin
           //delete
-          dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(TTorpedo_On_Board(MList[I]).FData.Fitted_Weap_Index),'');
+//          dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(TTorpedo_On_Board(MList[I]).FData.Fitted_Weap_Index),'');
 //          dmTTT.DeleteBlindZone(6,IntToStr(TTorpedo_On_Board(MList[I]).FData.Fitted_Weap_Index));
-          dmTTT.DeleteFitted_Weapon_On_Board(IntToStr(TTorpedo_On_Board(MList[I]).FData.Fitted_Weap_Index));
+//          dmTTT.DeleteFitted_Weapon_On_Board(IntToStr(TTorpedo_On_Board(MList[I]).FData.Fitted_Weap_Index));
         end;
       end;
     end
@@ -1457,7 +1457,7 @@ begin
         //insert
         TorRec := TFitted_Weapon_On_Board.Create;
         TorRec.FData := TTorpedo_On_Board(TORPList[K]).FData;
-        //~~dmTTT.InsertFitted_Weapon_On_Board(2,TorRec);
+//        ~~dmTTT.InsertFitted_Weapon_On_Board(2,TorRec);
 
         //~~dmTTT.DeleteFitted_Weap_Launcher_On_Board(0,IntToStr(TorRec.FData.Fitted_Weap_Index),'');
         for L := 0 to TTorpedo_On_Board(TORPList[K]).FLaunchs.Count - 1 do

@@ -104,8 +104,8 @@ interface
 
  //sonobuoy
  procedure getAllSonobuoy (const id_vec,id:integer;var slist: TList;var rec:TSonobuoy_On_Board);
- procedure insertSonobuoy_Def(rec: TSonobuoy_On_Board);
- procedure updateSonobuoy_Def(rec: TSonobuoy_On_Board;id:string);
+// procedure insertSonobuoy_Def(rec: TSonobuoy_On_Board);
+// procedure updateSonobuoy_Def(rec: TSonobuoy_On_Board;id:string);
 
  //note
 // procedure updateNote(rec: TNote_Storage; index: Integer; id: string);
@@ -152,15 +152,15 @@ begin
   dmTTT.getAllSonobuoy(id_vec,id,sList,rec);
 end;
 
-procedure insertSonobuoy_Def(rec: TSonobuoy_On_Board);
-begin
- dmTTT.insertSonobuoy_Def(rec);
-end;
+//procedure insertSonobuoy_Def(rec: TSonobuoy_On_Board);
+//begin
+// dmTTT.insertSonobuoy_Def(rec);
+//end;
 
-procedure updateSonobuoy_Def(rec: TSonobuoy_On_Board;id:string);
-begin
- dmTTT.updateSonobuoy_Def(rec,id);
-end;
+//procedure updateSonobuoy_Def(rec: TSonobuoy_On_Board;id:string);
+//begin
+// dmTTT.updateSonobuoy_Def(rec,id);
+//end;
 
 //procedure getAllESM_Definition(var rec: TList);
 //begin
@@ -363,7 +363,7 @@ end;
 
 procedure getEnvironments(var sclist:Tlist);
 begin
- dmTTT.GetAllGame_Environment_Definition(sclist);
+// dmTTT.GetAllGame_Environment_Definition(sclist);
 end;
 
 procedure getDefaults(var sclist:Tlist;var rec:TGame_Defaults);
@@ -378,7 +378,7 @@ end;
 
 procedure getGameArea(id:string;gList:TList;var rec:TGame_Environment_Definition );
 begin
-  dmTTT.getGame_Area_Identifier(id,gList,rec);
+//  dmTTT.getGame_Area_Identifier(id,gList,rec);
 end;
 
 procedure getAllVehicles(var sclist:Tlist;id:integer;var rec:TVehicle_Definition);
@@ -410,9 +410,9 @@ procedure getRA(const index,ra_id,force:integer;var pList:TList );
 begin
   case index of
     1: dmTTT.getPIMissile(pList,ra_id,force);
-    2: dmTTT.getPITorpedo(pList,ra_id,force);
-    3: dmTTT.getPISonobuoy(pList,ra_id,force);
-    4: dmTTT.getPIMine(pList,ra_id,force);
+//    2: dmTTT.getPITorpedo(pList,ra_id,force);
+//    3: dmTTT.getPISonobuoy(pList,ra_id,force);
+//    4: dmTTT.getPIMine(pList,ra_id,force);
 //    5: dmTTT.getPISatellite(pList,ra_id,force);
   end;
 
@@ -490,7 +490,7 @@ end;
 
 procedure deleteGameArea(id : Integer);
 begin
-  dmTTT.deleteGame_Area_Def(id);
+//  dmTTT.deleteGame_Area_Def(id);
 end;
 
 procedure updateGameArea(Game_Area: TGame_Environment_Definition ; id: String);
@@ -608,10 +608,10 @@ end;
 //  dmTTT.insertRadar_Def(rec);
 //end;
 
-procedure updateRadar_Interval_Def(rec: TRadar_Interval_Definition;id:string);
-begin
-  dmTTT.updateRadar_Interval_Def(rec, id);
-end;
+//procedure updateRadar_Interval_Def(rec: TRadar_Interval_Definition;id:string);
+//begin
+//  dmTTT.updateRadar_Interval_Def(rec, id);
+//end;
 
 procedure insertRadar_Interval_Def(rec: TRadar_Interval_Definition);
 begin
@@ -628,12 +628,12 @@ end;
 procedure getGameEnviByGameDef(const DefName : string;
    var rec: TGame_Environment_Definition);
 begin
-  dmTTT.GetGame_Environment_Definition_By_Game_Def(DefName, rec);
+//  dmTTT.GetGame_Environment_Definition_By_Game_Def(DefName, rec);
 end;
 
 procedure getSonarCategory(var cList: TList);
 begin
-  dmTTT.getAllSonarCategory(cList);
+//  dmTTT.getAllSonarCategory(cList);
 end;
 
 procedure getAllSonar(const id:integer;var aRec:TList;var rec: TSonar_On_Board);

@@ -11,24 +11,16 @@ type
 
   TfMainGServer = class(TForm)
     Timer1: TTimer;
-    Panel2: TPanel;
-    PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
     Memo1: TMemo;
-    TabSheet2: TTabSheet;
     mmEvents: TMemo;
     Button2: TButton;
-    TabSheet3: TTabSheet;
     mmInit: TMemo;
     Button1: TButton;
-    TabSheet4: TTabSheet;
     mmEvent: TMemo;
-    TabSheet5: TTabSheet;
     pnlHeaderWatcher: TPanel;
     Button3: TButton;
     Button4: TButton;
     Timer2: TTimer;
-    tsDatalink: TTabSheet;
     lblNCS: TLabel;
     lblDL1: TLabel;
     lblDL2: TLabel;
@@ -36,12 +28,10 @@ type
     mmoDL3: TMemo;
     mmoDL2: TMemo;
     mmoDL1: TMemo;
-    tsDataBuffer: TTabSheet;
     mmo1: TMemo;
     btn2: TButton;
     lvPlatform: TListView;
     btn4: TSpeedButton;
-    tsVersion: TTabSheet;
     lvVersion: TListView;
     pnlMainBackground: TPanel;
     imgBackground: TImage;
@@ -78,6 +68,12 @@ type
     pnl1: TPanel;
     pnlEventLog: TPanel;
     pnlEventList: TPanel;
+    pnlPlatforms: TPanel;
+    pnlLogs: TPanel;
+    Panel1: TPanel;
+    pnlDataLink: TPanel;
+    pnlData: TPanel;
+    pnlVersion: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure btnStartClick(Sender: TObject);
@@ -440,6 +436,12 @@ begin
     1: pnlWatcher.BringToFront;
     2: pnlEventLog.BringToFront;
     3: pnlEventList.BringToFront;
+    4: pnlPlatforms.BringToFront;
+    5: pnlLogs.BringToFront;
+    6: pnlDataLink.BringToFront;
+    7: pnlData.BringToFront;
+    8: pnlVersion.BringToFront;
+
 
   end;
 end;

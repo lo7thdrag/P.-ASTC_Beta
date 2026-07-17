@@ -38,7 +38,7 @@ Form yang perlu didesain ulang
 1. Tombol Start dan End pada form Ruler perlu diperbaiki lagi.
 2. Create overlay bagian edit belum selesai. 
 3. formOption satuannya belum berubah.
- 
+4. frmBrowserMap Perlu diperbaiki lagi.
 
 
 catatan: 

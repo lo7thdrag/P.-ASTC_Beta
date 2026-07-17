@@ -2,10 +2,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
   Left = 44
   Top = -238
   ActiveControl = cbAssumeControl
-  BorderStyle = bsSingle
+  BorderStyle = bsNone
   Caption = 'Tactical Display'
-  ClientHeight = 2603
-  ClientWidth = 1998
+  ClientHeight = 2632
+  ClientWidth = 2004
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -31,7 +31,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     Left = 0
     Top = 121
     Width = 341
-    Height = 2402
+    Height = 2431
     Align = alLeft
     BevelOuter = bvNone
     Color = 2695445
@@ -145,7 +145,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           Color = 2695445
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 0
           object lbClassHook: TLabel
             Left = 125
             Top = 49
@@ -700,6 +699,701 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           end
         end
       end
+      object pnlContentDetection: TPanel
+        Left = 0
+        Top = 25
+        Width = 339
+        Height = 235
+        Caption = 'pnlContentIFF'
+        Color = 2695445
+        ParentBackground = False
+        TabOrder = 5
+        object pnlDetection: TPanel
+          Left = 1
+          Top = 1
+          Width = 337
+          Height = 233
+          Align = alClient
+          BevelOuter = bvNone
+          ParentBackground = False
+          ParentColor = True
+          TabOrder = 0
+          object lbDetectionDetectionType: TLabel
+            Left = 155
+            Top = 145
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbOwner: TLabel
+            Left = 155
+            Top = 75
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbClassDetection: TLabel
+            Left = 155
+            Top = 45
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbNameDetection: TLabel
+            Left = 155
+            Top = 25
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label16: TLabel
+            Left = 10
+            Top = 25
+            Width = 33
+            Height = 16
+            Caption = 'Name'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbTrackDetection: TLabel
+            Left = 155
+            Top = 5
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label17: TLabel
+            Left = 10
+            Top = 45
+            Width = 30
+            Height = 16
+            Caption = 'Class'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label18: TLabel
+            Left = 10
+            Top = 75
+            Width = 106
+            Height = 16
+            Caption = 'Owner PU Number'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label19: TLabel
+            Left = 10
+            Top = 105
+            Width = 79
+            Height = 16
+            Caption = 'First Detected'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label20: TLabel
+            Left = 85
+            Top = 114
+            Width = 4
+            Height = 16
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbFirstDetected: TLabel
+            Left = 155
+            Top = 105
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbLastDetected: TLabel
+            Left = 155
+            Top = 125
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object StaticText48: TStaticText
+            Left = 135
+            Top = 5
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            Transparent = False
+          end
+          object lbDetectionType: TStaticText
+            Left = 10
+            Top = 145
+            Width = 89
+            Height = 20
+            Caption = 'Detection Type'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            Transparent = False
+          end
+          object StaticText15: TStaticText
+            Left = 10
+            Top = 125
+            Width = 81
+            Height = 20
+            Caption = 'Last Detected'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            Transparent = False
+          end
+          object StaticText14: TStaticText
+            Left = 10
+            Top = 5
+            Width = 36
+            Height = 20
+            Caption = 'Track'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+            Transparent = False
+          end
+          object StaticText49: TStaticText
+            Left = 135
+            Top = 25
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 4
+            Transparent = False
+          end
+          object StaticText55: TStaticText
+            Left = 135
+            Top = 125
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 5
+            Transparent = False
+          end
+          object StaticText54: TStaticText
+            Left = 135
+            Top = 145
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 6
+            Transparent = False
+          end
+          object StaticText53: TStaticText
+            Left = 135
+            Top = 105
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 7
+            Transparent = False
+          end
+          object StaticText51: TStaticText
+            Left = 135
+            Top = 75
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 8
+            Transparent = False
+          end
+          object StaticText50: TStaticText
+            Left = 135
+            Top = 45
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 9
+            Transparent = False
+          end
+        end
+      end
+      object pnlContentIFF: TPanel
+        Left = 0
+        Top = 25
+        Width = 339
+        Height = 235
+        Caption = 'pnlContentIFF'
+        Color = 16775920
+        ParentBackground = False
+        TabOrder = 4
+        object pnlIFF: TPanel
+          Left = 1
+          Top = 1
+          Width = 337
+          Height = 233
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 2695445
+          ParentBackground = False
+          TabOrder = 0
+          object lbTrackIff: TLabel
+            Left = 110
+            Top = 5
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label88: TLabel
+            Left = 10
+            Top = 25
+            Width = 33
+            Height = 16
+            Caption = 'Name'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbNameIff: TLabel
+            Left = 110
+            Top = 25
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbClassIff: TLabel
+            Left = 110
+            Top = 45
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label91: TLabel
+            Left = 10
+            Top = 45
+            Width = 30
+            Height = 16
+            Caption = 'Class'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label92: TLabel
+            Left = 10
+            Top = 85
+            Width = 42
+            Height = 16
+            Caption = 'Mode 1'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label93: TLabel
+            Left = 10
+            Top = 105
+            Width = 42
+            Height = 16
+            Caption = 'Mode 2'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbMode2Iff: TLabel
+            Left = 110
+            Top = 105
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label95: TLabel
+            Left = 95
+            Top = 106
+            Width = 4
+            Height = 16
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbMode1Iff: TLabel
+            Left = 110
+            Top = 85
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbMode3CIff: TLabel
+            Left = 110
+            Top = 145
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbMode3Iff: TLabel
+            Left = 110
+            Top = 125
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbMode4Iff: TLabel
+            Left = 110
+            Top = 165
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object StaticText17: TStaticText
+            Left = 10
+            Top = 5
+            Width = 36
+            Height = 20
+            Caption = 'Track'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            Transparent = False
+          end
+          object StaticText18: TStaticText
+            Left = 10
+            Top = 125
+            Width = 46
+            Height = 20
+            Caption = 'Mode 3'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            Transparent = False
+          end
+          object StaticText19: TStaticText
+            Left = 10
+            Top = 145
+            Width = 54
+            Height = 20
+            Caption = 'Mode 3C'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            Transparent = False
+          end
+          object StaticText20: TStaticText
+            Left = 10
+            Top = 165
+            Width = 46
+            Height = 20
+            Caption = 'Mode 4'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+            Transparent = False
+          end
+          object StaticText52: TStaticText
+            Left = 85
+            Top = 5
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 4
+            Transparent = False
+          end
+          object StaticText56: TStaticText
+            Left = 85
+            Top = 25
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 5
+            Transparent = False
+          end
+          object StaticText57: TStaticText
+            Left = 85
+            Top = 45
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 6
+            Transparent = False
+          end
+          object StaticText59: TStaticText
+            Left = 85
+            Top = 85
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 7
+            Transparent = False
+          end
+          object StaticText60: TStaticText
+            Left = 85
+            Top = 105
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 8
+            Transparent = False
+          end
+          object StaticText61: TStaticText
+            Left = 85
+            Top = 145
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 9
+            Transparent = False
+          end
+          object StaticText62: TStaticText
+            Left = 85
+            Top = 165
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 10
+            Transparent = False
+          end
+          object StaticText63: TStaticText
+            Left = 85
+            Top = 125
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 11
+            Transparent = False
+          end
+        end
+      end
       object pnlContentDetails: TPanel
         Left = 0
         Top = 25
@@ -719,9 +1413,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           Color = 2695445
           ParentBackground = False
           TabOrder = 0
-          ExplicitLeft = 2
-          ExplicitTop = 3
-          ExplicitHeight = 230
           object lbTrackDetails: TLabel
             Left = 145
             Top = 5
@@ -1201,715 +1892,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           end
         end
       end
-      object pnlContentDetection: TPanel
-        Left = 0
-        Top = 25
-        Width = 339
-        Height = 235
-        Caption = 'pnlContentIFF'
-        Color = 2695445
-        ParentBackground = False
-        TabOrder = 5
-        object pnlDetection: TPanel
-          Left = 1
-          Top = 1
-          Width = 337
-          Height = 233
-          Align = alClient
-          BevelOuter = bvNone
-          ParentBackground = False
-          ParentColor = True
-          TabOrder = 0
-          ExplicitLeft = 11
-          ExplicitTop = 11
-          ExplicitWidth = 325
-          ExplicitHeight = 192
-          object lbDetectionDetectionType: TLabel
-            Left = 155
-            Top = 145
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbOwner: TLabel
-            Left = 155
-            Top = 75
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbClassDetection: TLabel
-            Left = 155
-            Top = 45
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbNameDetection: TLabel
-            Left = 155
-            Top = 25
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label16: TLabel
-            Left = 10
-            Top = 25
-            Width = 33
-            Height = 16
-            Caption = 'Name'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbTrackDetection: TLabel
-            Left = 155
-            Top = 5
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label17: TLabel
-            Left = 10
-            Top = 45
-            Width = 30
-            Height = 16
-            Caption = 'Class'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label18: TLabel
-            Left = 10
-            Top = 75
-            Width = 106
-            Height = 16
-            Caption = 'Owner PU Number'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label19: TLabel
-            Left = 10
-            Top = 105
-            Width = 79
-            Height = 16
-            Caption = 'First Detected'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label20: TLabel
-            Left = 85
-            Top = 114
-            Width = 4
-            Height = 16
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbFirstDetected: TLabel
-            Left = 155
-            Top = 105
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbLastDetected: TLabel
-            Left = 155
-            Top = 125
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object StaticText48: TStaticText
-            Left = 135
-            Top = 5
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            Transparent = False
-          end
-          object lbDetectionType: TStaticText
-            Left = 10
-            Top = 145
-            Width = 89
-            Height = 20
-            Caption = 'Detection Type'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-            Transparent = False
-          end
-          object StaticText15: TStaticText
-            Left = 10
-            Top = 125
-            Width = 81
-            Height = 20
-            Caption = 'Last Detected'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 2
-            Transparent = False
-          end
-          object StaticText14: TStaticText
-            Left = 10
-            Top = 5
-            Width = 36
-            Height = 20
-            Caption = 'Track'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 3
-            Transparent = False
-          end
-          object StaticText49: TStaticText
-            Left = 135
-            Top = 25
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 4
-            Transparent = False
-          end
-          object StaticText55: TStaticText
-            Left = 135
-            Top = 125
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 5
-            Transparent = False
-          end
-          object StaticText54: TStaticText
-            Left = 135
-            Top = 145
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 6
-            Transparent = False
-          end
-          object StaticText53: TStaticText
-            Left = 135
-            Top = 105
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 7
-            Transparent = False
-          end
-          object StaticText51: TStaticText
-            Left = 135
-            Top = 75
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 8
-            Transparent = False
-          end
-          object StaticText50: TStaticText
-            Left = 135
-            Top = 45
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 9
-            Transparent = False
-          end
-        end
-      end
-      object pnlContentIFF: TPanel
-        Left = 0
-        Top = 25
-        Width = 339
-        Height = 235
-        Caption = 'pnlContentIFF'
-        Color = 16775920
-        ParentBackground = False
-        TabOrder = 4
-        object pnlIFF: TPanel
-          Left = 1
-          Top = 1
-          Width = 337
-          Height = 233
-          Align = alClient
-          BevelOuter = bvNone
-          Color = 2695445
-          ParentBackground = False
-          TabOrder = 0
-          ExplicitLeft = 3
-          ExplicitTop = 3
-          ExplicitWidth = 325
-          ExplicitHeight = 192
-          object lbTrackIff: TLabel
-            Left = 110
-            Top = 5
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label88: TLabel
-            Left = 10
-            Top = 25
-            Width = 33
-            Height = 16
-            Caption = 'Name'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbNameIff: TLabel
-            Left = 110
-            Top = 25
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbClassIff: TLabel
-            Left = 110
-            Top = 45
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label91: TLabel
-            Left = 10
-            Top = 45
-            Width = 30
-            Height = 16
-            Caption = 'Class'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label92: TLabel
-            Left = 10
-            Top = 85
-            Width = 42
-            Height = 16
-            Caption = 'Mode 1'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label93: TLabel
-            Left = 10
-            Top = 105
-            Width = 42
-            Height = 16
-            Caption = 'Mode 2'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbMode2Iff: TLabel
-            Left = 110
-            Top = 105
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label95: TLabel
-            Left = 95
-            Top = 106
-            Width = 4
-            Height = 16
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbMode1Iff: TLabel
-            Left = 110
-            Top = 85
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbMode3CIff: TLabel
-            Left = 110
-            Top = 145
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbMode3Iff: TLabel
-            Left = 110
-            Top = 125
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbMode4Iff: TLabel
-            Left = 110
-            Top = 165
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object StaticText17: TStaticText
-            Left = 10
-            Top = 5
-            Width = 36
-            Height = 20
-            Caption = 'Track'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            Transparent = False
-          end
-          object StaticText18: TStaticText
-            Left = 10
-            Top = 125
-            Width = 46
-            Height = 20
-            Caption = 'Mode 3'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-            Transparent = False
-          end
-          object StaticText19: TStaticText
-            Left = 10
-            Top = 145
-            Width = 54
-            Height = 20
-            Caption = 'Mode 3C'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 2
-            Transparent = False
-          end
-          object StaticText20: TStaticText
-            Left = 10
-            Top = 165
-            Width = 46
-            Height = 20
-            Caption = 'Mode 4'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 3
-            Transparent = False
-          end
-          object StaticText52: TStaticText
-            Left = 85
-            Top = 5
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 4
-            Transparent = False
-          end
-          object StaticText56: TStaticText
-            Left = 85
-            Top = 25
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 5
-            Transparent = False
-          end
-          object StaticText57: TStaticText
-            Left = 85
-            Top = 45
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 6
-            Transparent = False
-          end
-          object StaticText59: TStaticText
-            Left = 85
-            Top = 85
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 7
-            Transparent = False
-          end
-          object StaticText60: TStaticText
-            Left = 85
-            Top = 105
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 8
-            Transparent = False
-          end
-          object StaticText61: TStaticText
-            Left = 85
-            Top = 145
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 9
-            Transparent = False
-          end
-          object StaticText62: TStaticText
-            Left = 85
-            Top = 165
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 10
-            Transparent = False
-          end
-          object StaticText63: TStaticText
-            Left = 85
-            Top = 125
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 11
-            Transparent = False
-          end
-        end
-      end
     end
     object pnlTacticalDisplayControlPanel: TPanel
       Left = 0
       Top = 393
       Width = 341
-      Height = 2009
+      Height = 2038
       Align = alClient
       BevelOuter = bvNone
       ParentColor = True
@@ -2730,115 +2718,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 ParentFont = False
               end
             end
-            inherited grbStraightLine: TGroupBox
-              Width = 335
-              Height = 1955
-              Color = 2695445
-              ParentColor = False
-              ExplicitWidth = 335
-              ExplicitHeight = 1955
-              inherited ScrollBox5: TScrollBox
-                Width = 333
-                Height = 1937
-                Color = 2695445
-                ParentColor = False
-                ExplicitWidth = 333
-                ExplicitHeight = 1937
-                inherited whHeading: TVrWheel
-                  OnChange = fmPlatformGuidance1whHeadingChange
-                end
-                inherited lblStraightLineActualHeading: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label128: TLabel
-                  Top = 152
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitTop = 152
-                end
-                inherited lblStraightLineActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label126: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label125: TLabel
-                  Top = 193
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitTop = 193
-                end
-                inherited Label124: TLabel
-                  Top = 172
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitTop = 172
-                end
-                inherited Label123: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label122: TLabel
-                  Top = 108
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitTop = 108
-                end
-                inherited Label121: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblStraightLineActuaCourse: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label119: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited edtStraightLineOrderedGroundSpeed: TEdit
-                  OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedGroundSpeedKeyPress
-                end
-                inherited edtStraightLineOrderedHeading: TEdit
-                  OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedHeadingKeyPress
-                end
-                inherited StaticText82: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText81: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited panDepth: TPanel
-                  inherited lbl4: TLabel
-                    Top = 26
-                    ExplicitTop = 26
-                  end
-                end
-                inherited panAltitude: TPanel
-                  Left = 1
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 1
-                  inherited Label57: TLabel
-                    Left = 16
-                    ExplicitLeft = 16
-                  end
-                  inherited StaticText105: TStaticText
-                    Left = 16
-                    ExplicitLeft = 16
-                  end
-                  inherited edOrderAltitude: TEdit
-                    OnKeyPress = fmPlatformGuidance1edOrderAltitudeKeyPress
-                  end
-                end
-              end
-            end
-            inherited grbEngagement: TGroupBox [10]
+            inherited grbEngagement: TGroupBox [9]
               Width = 335
               Height = 1955
               ExplicitWidth = 335
@@ -2911,7 +2791,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
             end
-            inherited grbEvasion: TGroupBox [11]
+            inherited grbEvasion: TGroupBox [10]
               Width = 335
               Height = 1955
               ExplicitWidth = 335
@@ -2960,7 +2840,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 ParentFont = False
               end
             end
-            inherited grbHelm: TGroupBox [12]
+            inherited grbHelm: TGroupBox [11]
               Width = 335
               Height = 1955
               ExplicitWidth = 335
@@ -3092,6 +2972,114 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 ParentFont = False
               end
               inherited edtHelmOrderedGroundSpeed: TEdit [34]
+              end
+            end
+            inherited grbStraightLine: TGroupBox [12]
+              Width = 335
+              Height = 1955
+              Color = 2695445
+              ParentColor = False
+              ExplicitWidth = 335
+              ExplicitHeight = 1955
+              inherited ScrollBox5: TScrollBox
+                Width = 333
+                Height = 1937
+                Color = 2695445
+                ParentColor = False
+                ExplicitWidth = 333
+                ExplicitHeight = 1937
+                inherited whHeading: TVrWheel
+                  OnChange = fmPlatformGuidance1whHeadingChange
+                end
+                inherited lblStraightLineActualHeading: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label128: TLabel
+                  Top = 152
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitTop = 152
+                end
+                inherited lblStraightLineActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label126: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label125: TLabel
+                  Top = 193
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitTop = 193
+                end
+                inherited Label124: TLabel
+                  Top = 172
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitTop = 172
+                end
+                inherited Label123: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label122: TLabel
+                  Top = 108
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitTop = 108
+                end
+                inherited Label121: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblStraightLineActuaCourse: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label119: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited edtStraightLineOrderedGroundSpeed: TEdit
+                  OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedGroundSpeedKeyPress
+                end
+                inherited edtStraightLineOrderedHeading: TEdit
+                  OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedHeadingKeyPress
+                end
+                inherited StaticText82: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText81: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited panDepth: TPanel
+                  inherited lbl4: TLabel
+                    Top = 26
+                    ExplicitTop = 26
+                  end
+                end
+                inherited panAltitude: TPanel
+                  Left = 1
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 1
+                  inherited Label57: TLabel
+                    Left = 16
+                    ExplicitLeft = 16
+                  end
+                  inherited StaticText105: TStaticText
+                    Left = 16
+                    ExplicitLeft = 16
+                  end
+                  inherited edOrderAltitude: TEdit
+                    OnKeyPress = fmPlatformGuidance1edOrderAltitudeKeyPress
+                  end
+                end
               end
             end
             inherited gbWaypoint: TGroupBox [13]
@@ -3287,6 +3275,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           Width = 337
           Height = 1998
           Align = alClient
+          Color = 2695445
+          ParentBackground = False
+          ParentColor = False
           TabOrder = 0
           ExplicitLeft = 1
           ExplicitTop = 1
@@ -3296,7 +3287,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Top = 111
             Width = 337
             Height = 0
-            Color = 2695445
             ExplicitTop = 111
             ExplicitWidth = 337
             ExplicitHeight = 0
@@ -3304,7 +3294,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           inherited PanelSensorChoices: TPanel
             Width = 337
             Height = 111
-            Color = 2695445
             ExplicitWidth = 337
             ExplicitHeight = 111
             inherited lstSensor: TListView
@@ -3319,7 +3308,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Top = 111
             Width = 337
             Height = 1887
-            Color = 2695445
             ExplicitTop = 111
             ExplicitWidth = 337
             ExplicitHeight = 1887
@@ -3397,7 +3385,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               inherited grbSearchRadarControl: TGroupBox [2]
                 Width = 331
                 Height = 1881
-                Color = 2695445
                 ParentBackground = False
                 ParentColor = False
                 ExplicitWidth = 331
@@ -3408,33 +3395,26 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitWidth = 327
                   ExplicitHeight = 1861
                   inherited Label189: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label193: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label194: TLabel
                     Top = 14
-                    Font.Color = clWhite
                     ParentFont = False
                     ExplicitTop = 14
                   end
                   inherited Label261: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label262: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label263: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label264: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited btnControlComboInterval: TSpeedButton
@@ -3472,7 +3452,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Width = 88
                     Height = 67
                     Color = 2695445
-                    Font.Color = clWhite
                     ParentBackground = False
                     ParentFont = False
                     ExplicitTop = 32
@@ -3500,7 +3479,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   inherited pnlControlModeRadar2: TPanel [19]
                     Height = 68
                     Color = 2695445
-                    Font.Color = clWhite
                     ParentBackground = False
                     ParentFont = False
                     ExplicitHeight = 68
@@ -3517,7 +3495,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   inherited pnlScanSector: TPanel [20]
                     Height = 65
                     Color = 2695445
-                    Font.Color = clWhite
                     ParentBackground = False
                     ParentFont = False
                     ExplicitHeight = 65
@@ -3571,7 +3548,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               inherited grbSonobuoyControl: TGroupBox [3]
                 Width = 331
                 Height = 1881
-                Color = 2695445
                 ParentBackground = False
                 ParentColor = False
                 ExplicitWidth = 331
@@ -3582,63 +3558,48 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitWidth = 327
                   ExplicitHeight = 1861
                   inherited Label17: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label18: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label19: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label20: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label21: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label22: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label23: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label24: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label25: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label26: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label27: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited lblSonobuoyMonitorCurrently: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited lblSonobuoyMonitorPlatform: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited lblStatusSonobuoy: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited lbStatusQuantity: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited btnSonobuoyControlDeploy: TButton
@@ -3655,21 +3616,17 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               inherited grbVisualDetectorSensor: TGroupBox [4]
                 Width = 331
                 Height = 1881
-                Color = 2695445
                 ParentBackground = False
                 ParentColor = False
                 ExplicitWidth = 331
                 ExplicitHeight = 1881
                 inherited Label257: TLabel
-                  Font.Color = clWhite
                   ParentFont = False
                 end
                 inherited Label258: TLabel
-                  Font.Color = clWhite
                   ParentFont = False
                 end
                 inherited Label259: TLabel
-                  Font.Color = clWhite
                   ParentFont = False
                 end
                 inherited sbVisualDetectorDisplayRangeShow: TSpeedButton
@@ -3704,7 +3661,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               inherited grbSonarControl: TGroupBox [6]
                 Width = 331
                 Height = 1881
-                Color = 2695445
                 ParentBackground = False
                 ParentColor = False
                 ExplicitWidth = 331
@@ -3721,23 +3677,18 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     ExplicitTop = 219
                   end
                   inherited Label213: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label214: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label237: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label238: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label239: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited sbDisplayBlindHide: TSpeedButton
@@ -3759,7 +3710,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     OnClick = OnSonarBtnClick
                   end
                   inherited lblRangeTIOW: TLabel [13]
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited btnRange1: TSpeedButton [14]
@@ -3774,7 +3724,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   inherited pnlDeployment: TPanel
                     Top = 91
                     Color = 2695445
-                    Font.Color = clWhite
                     ParentBackground = False
                     ParentFont = False
                     ExplicitTop = 91
@@ -3798,35 +3747,26 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               inherited grbIFFInterrogatorControl: TGroupBox [7]
                 Width = 331
                 Height = 1881
-                Color = 2695445
-                ParentBackground = False
-                ParentColor = False
                 ExplicitWidth = 331
                 ExplicitHeight = 1881
                 inherited ScrollBox5: TScrollBox
                   Width = 327
                   Height = 1861
-                  Color = 2695445
-                  ParentColor = False
                   ExplicitWidth = 327
                   ExplicitHeight = 1861
                   inherited btnIFFInterrogatorTrackSearch: TSpeedButton
                     OnClick = fmSensor1btnIFFInterrogatorTrackSearchClick
                   end
                   inherited Label10: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label11: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label12: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label13: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited sbIFFInterrogatorControlModeOff: TSpeedButton
@@ -3840,7 +3780,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     ExplicitTop = 62
                   end
                   inherited lblInterrogation: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited cbbtnIFFInterrogatorMode1: TCheckBox
@@ -3872,7 +3811,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               inherited grbIFFTransponderControl: TGroupBox [8]
                 Width = 331
                 Height = 1881
-                Color = 2695445
                 ParentBackground = False
                 ParentColor = False
                 ExplicitWidth = 331
@@ -3883,15 +3821,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitWidth = 327
                   ExplicitHeight = 1861
                   inherited Label14: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label15: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label16: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited sbIFFTransponderControlModeOff: TSpeedButton
@@ -4498,8 +4433,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   Height = 1864
                   Color = 2695445
                   ParentColor = False
-                  ExplicitLeft = 3
-                  ExplicitTop = 19
                   ExplicitWidth = 333
                   ExplicitHeight = 1864
                   inherited btnComboRadarJammingControlMode: TSpeedButton
@@ -5828,185 +5761,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbSurfaceToAirMissile: TGroupBox
-                Width = 337
-                Height = 1973
-                ParentBackground = False
-                ParentColor = False
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited ScrollBox1: TScrollBox
-                  Width = 333
-                  Height = 1953
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1953
-                  inherited Label1: TLabel
-                    ParentFont = False
-                  end
-                  inherited lblSurfaceToAirStatus: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label2: TLabel
-                    ParentFont = False
-                  end
-                  inherited lbSurfaceToAirStatusQuantity: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label3: TLabel
-                    ParentFont = False
-                  end
-                  inherited Bevel2: TBevel
-                    Height = 3
-                    ExplicitHeight = 3
-                  end
-                  inherited Label4: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label5: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label6: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label7: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label8: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label9: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label10: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited Label11: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited Label12: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited Label13: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited Label14: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label15: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label16: TLabel
-                    ParentFont = False
-                  end
-                  inherited lbSurfaceToAirCourse: TLabel
-                    ParentFont = False
-                  end
-                  inherited lbSurfaceToAirGround: TLabel
-                    ParentFont = False
-                  end
-                  inherited lbSurfaceToAirAltitude: TLabel
-                    ParentFont = False
-                  end
-                  inherited lbSurfaceToAirStatus: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited lbSurfaceToAirTimeToWait: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited lbSurfaceToAirTimeToIntercept: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited Label17: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label18: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label19: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label20: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited Label22: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited btnSurfaceToAirTargetTrack: TSpeedButton
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                  end
-                  inherited sbSurfaceToAirDisplayRangeShow: TSpeedButton
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                  end
-                  inherited sbSurfaceToAirDisplayRangeHide: TSpeedButton
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                  end
-                  inherited sbSurfaceToAirDisplayBlindShow: TSpeedButton
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                  end
-                  inherited sbSurfaceToAirDisplayBlindHide: TSpeedButton
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                  end
-                  inherited Label106: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label107: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label108: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label109: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label110: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited Label111: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited Label112: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited Label113: TLabel
-                    ParentFont = False
-                    Visible = False
-                  end
-                  inherited ediSurfaceToAirSalvo: TEdit
-                    Left = 155
-                    Width = 67
-                    ExplicitLeft = 155
-                    ExplicitWidth = 67
-                  end
-                  inherited btSurfaceToAirPlan: TButton
-                    Left = 7
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                    ExplicitLeft = 7
-                  end
-                  inherited btSurfaceToAirLaunch: TButton
-                    Left = 238
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                    ExplicitLeft = 238
-                  end
-                  inherited btSurfaceToAirCancel: TButton
-                    Left = 97
-                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
-                    ExplicitLeft = 97
-                  end
-                end
-              end
-              inherited grbSurfaceToSurfaceMissile: TGroupBox [11]
+              inherited grbSurfaceToSurfaceMissile: TGroupBox [10]
                 Width = 337
                 Height = 1973
                 ParentBackground = False
@@ -6285,7 +6040,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbTacticalAcousticTorpedos: TGroupBox [12]
+              inherited grbTacticalAcousticTorpedos: TGroupBox [11]
                 Width = 337
                 Height = 1973
                 ParentBackground = False
@@ -6304,7 +6059,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitLeft = 128
                 end
               end
-              inherited grbTacticalMissiles: TGroupBox [13]
+              inherited grbTacticalMissiles: TGroupBox [12]
                 Width = 337
                 Height = 1973
                 ParentBackground = False
@@ -6337,7 +6092,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbWakeHomingTorpedos: TGroupBox [14]
+              inherited grbWakeHomingTorpedos: TGroupBox [13]
                 Width = 337
                 Height = 1973
                 ParentBackground = False
@@ -6382,7 +6137,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbWireGuidedTorpedo: TGroupBox [15]
+              inherited grbWireGuidedTorpedo: TGroupBox [14]
                 Width = 337
                 Height = 1973
                 ParentColor = False
@@ -6513,6 +6268,184 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Text = '---'
                     ExplicitTop = 83
                     ExplicitWidth = 60
+                  end
+                end
+              end
+              inherited grbSurfaceToAirMissile: TGroupBox [15]
+                Width = 337
+                Height = 1973
+                ParentBackground = False
+                ParentColor = False
+                ExplicitWidth = 337
+                ExplicitHeight = 1973
+                inherited ScrollBox1: TScrollBox
+                  Width = 333
+                  Height = 1953
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1953
+                  inherited Label1: TLabel
+                    ParentFont = False
+                  end
+                  inherited lblSurfaceToAirStatus: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label2: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToAirStatusQuantity: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label3: TLabel
+                    ParentFont = False
+                  end
+                  inherited Bevel2: TBevel
+                    Height = 3
+                    ExplicitHeight = 3
+                  end
+                  inherited Label4: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label5: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label6: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label7: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label8: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label9: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label10: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label11: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label12: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label13: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label14: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label15: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label16: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToAirCourse: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToAirGround: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToAirAltitude: TLabel
+                    ParentFont = False
+                  end
+                  inherited lbSurfaceToAirStatus: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited lbSurfaceToAirTimeToWait: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited lbSurfaceToAirTimeToIntercept: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label17: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label18: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label19: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label20: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label22: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited btnSurfaceToAirTargetTrack: TSpeedButton
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                  end
+                  inherited sbSurfaceToAirDisplayRangeShow: TSpeedButton
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                  end
+                  inherited sbSurfaceToAirDisplayRangeHide: TSpeedButton
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                  end
+                  inherited sbSurfaceToAirDisplayBlindShow: TSpeedButton
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                  end
+                  inherited sbSurfaceToAirDisplayBlindHide: TSpeedButton
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                  end
+                  inherited Label106: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label107: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label108: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label109: TLabel
+                    ParentFont = False
+                  end
+                  inherited Label110: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label111: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label112: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited Label113: TLabel
+                    ParentFont = False
+                    Visible = False
+                  end
+                  inherited ediSurfaceToAirSalvo: TEdit
+                    Left = 155
+                    Width = 67
+                    ExplicitLeft = 155
+                    ExplicitWidth = 67
+                  end
+                  inherited btSurfaceToAirPlan: TButton
+                    Left = 7
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                    ExplicitLeft = 7
+                  end
+                  inherited btSurfaceToAirLaunch: TButton
+                    Left = 238
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                    ExplicitLeft = 238
+                  end
+                  inherited btSurfaceToAirCancel: TButton
+                    Left = 97
+                    OnClick = fmWeapon1btnSurfaceToAirTargetTrackClick
+                    ExplicitLeft = 97
                   end
                 end
               end
@@ -7333,7 +7266,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
   object pnlTop: TPanel
     Left = 0
     Top = 0
-    Width = 1998
+    Width = 2004
     Height = 76
     Align = alTop
     AutoSize = True
@@ -7344,7 +7277,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     object ToolBar1: TToolBar
       Left = 0
       Top = 0
-      Width = 1998
+      Width = 2004
       Height = 76
       AutoSize = True
       ButtonHeight = 34
@@ -7358,7 +7291,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       ParentColor = False
       TabOrder = 0
       DesignSize = (
-        1998
+        2004
         76)
       object ToolButton2: TToolButton
         Left = 0
@@ -7984,8 +7917,8 @@ object frmTacticalDisplay: TfrmTacticalDisplay
   end
   object pnlBottom: TPanel
     Left = 0
-    Top = 2523
-    Width = 1998
+    Top = 2552
+    Width = 2004
     Height = 80
     Align = alBottom
     AutoSize = True
@@ -8415,7 +8348,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
   object Panel3: TPanel
     Left = 0
     Top = 81
-    Width = 1998
+    Width = 2004
     Height = 40
     Align = alTop
     BevelOuter = bvNone
@@ -8425,7 +8358,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     object toolbar4: TToolBar
       Left = 0
       Top = 0
-      Width = 1998
+      Width = 2004
       Height = 40
       Align = alClient
       ButtonHeight = 34
@@ -8748,10 +8681,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     end
   end
   object pnlRight: TPanel
-    Left = 1708
+    Left = 1714
     Top = 121
     Width = 290
-    Height = 2402
+    Height = 2431
     Align = alRight
     BevelOuter = bvNone
     Color = 2695445
@@ -9521,7 +9454,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
   object pnlMenubar: TPanel
     Left = 0
     Top = 76
-    Width = 1998
+    Width = 2004
     Height = 5
     Align = alTop
     Caption = 'Click to Show Panel'
@@ -39228,7 +39161,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     Left = 880
     Top = 256
     Bitmap = {
-      494C010125003C0004001C001C00FFFFFFFF2100FFFFFFFFFFFFFFFF424D3600
+      494C010125003C0004001C001C00FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000007000000018010000010020000000000000EA
       010000000000000000000000000000000000392D0FFF392D0FFF392D0FFF392D
       0FFF392D0FFF3B2E10FF3C2F10FF3D3010FF3E3110FF3E3110FF3E3110FF3E31
@@ -43292,6 +43225,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000}
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000}
   end
 end

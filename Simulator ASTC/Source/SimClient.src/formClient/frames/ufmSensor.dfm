@@ -1,6 +1,9 @@
 inherited fmSensor: TfmSensor
   Width = 323
   Height = 442
+  Color = 2695445
+  ParentBackground = False
+  ParentColor = False
   ExplicitWidth = 323
   ExplicitHeight = 442
   object PanelSpace: TPanel
@@ -10,7 +13,7 @@ inherited fmSensor: TfmSensor
     Height = 5
     Align = alTop
     BevelOuter = bvNone
-    Color = 16775920
+    Color = 2695445
     ParentBackground = False
     TabOrder = 1
   end
@@ -20,7 +23,7 @@ inherited fmSensor: TfmSensor
     Width = 323
     Height = 115
     Align = alTop
-    Color = 16775920
+    Color = 2695445
     ParentBackground = False
     TabOrder = 0
     object lstSensor: TListView
@@ -63,7 +66,7 @@ inherited fmSensor: TfmSensor
     Height = 322
     Align = alClient
     BevelOuter = bvNone
-    Color = 16775920
+    Color = 2695445
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -80,8 +83,8 @@ inherited fmSensor: TfmSensor
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 3
+      Color = 2695445
       ParentBackground = False
-      ParentColor = True
       TabOrder = 0
       object grbElectroOpticalSensor: TGroupBox
         Left = 3
@@ -89,6 +92,12 @@ inherited fmSensor: TfmSensor
         Width = 317
         Height = 316
         Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
         object btnElectroOpticalSensorExecuteSingleScan: TButton
           Left = 145
@@ -265,6 +274,12 @@ inherited fmSensor: TfmSensor
         Width = 317
         Height = 316
         Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 2
         object ScrollBox4: TScrollBox
           Left = 2
@@ -396,6 +411,12 @@ inherited fmSensor: TfmSensor
         Width = 317
         Height = 316
         Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 8
         object ScrollBox6: TScrollBox
           Left = 2
@@ -576,6 +597,12 @@ inherited fmSensor: TfmSensor
         Width = 317
         Height = 316
         Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
         object ScrollBox1: TScrollBox
           Left = 2
@@ -1198,6 +1225,12 @@ inherited fmSensor: TfmSensor
         Width = 317
         Height = 316
         Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
         object ScrollBox7: TScrollBox
           Left = 2
@@ -1432,6 +1465,12 @@ inherited fmSensor: TfmSensor
         Width = 317
         Height = 316
         Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 6
         object Label257: TLabel
           Left = 5
@@ -1546,6 +1585,12 @@ inherited fmSensor: TfmSensor
           Width = 41
           Height = 16
           Caption = 'Control'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel47: TBevel
           Left = 55
@@ -1559,6 +1604,12 @@ inherited fmSensor: TfmSensor
           Width = 31
           Height = 16
           Caption = 'Mode'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object sbAnomalyDetectorControlModeOn: TSpeedButton
           Left = 15
@@ -1601,6 +1652,12 @@ inherited fmSensor: TfmSensor
         Width = 317
         Height = 316
         Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
         object ScrollBox2: TScrollBox
           Left = 2
@@ -2003,6 +2060,15 @@ inherited fmSensor: TfmSensor
         Width = 317
         Height = 316
         Align = alClient
+        Color = 2695445
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentColor = False
+        ParentFont = False
         TabOrder = 7
         object ScrollBox5: TScrollBox
           Left = 2
@@ -2013,6 +2079,8 @@ inherited fmSensor: TfmSensor
           BevelInner = bvNone
           BevelOuter = bvNone
           BorderStyle = bsNone
+          Color = 2695445
+          ParentColor = False
           TabOrder = 0
           object Bevel5: TBevel
             Left = 55

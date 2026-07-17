@@ -1224,6 +1224,8 @@ type
 
     procedure SetupWasdalUI;
     procedure SetupPlotterUI;
+    //    procedure SetUpPlotterUI;
+    procedure SetUpNavigasiUI;
   public
     // move to public, use by wasdal UI
     FLastMapCenterX, FLastMapCenterY : double;
@@ -1365,7 +1367,9 @@ uses
   ufrmGuidance, ufrmRadar, ufrmWeapon, ufrmLogistic, ufrmEMCON, ufrmFireControl,
   ufrmC, ufrmPlatformTools, ufrmGeneraPfTools, ufDeployMine,
   uBrowseMap, uRuler, uObjectVisuals, uDrawStrategi, uMainPlottingShape, uSaveAsPlotting, newClassASTT,
-  uDBAsset_Deploy, uDBAsset_Cubicle, uSaveAsOverlay;
+  uDBAsset_Deploy, uDBAsset_Cubicle, uSaveAsOverlay,
+
+  ufrmBottomNav, ufrmLeftNav, ufrmRightNav, ufrmTopNav;
 
 {$R *.dfm}
 
@@ -1449,6 +1453,9 @@ begin
   lbTrackIff.Caption := 'Unknown';
   lbNameIff.Caption  := 'Unknown';
   lbClassIff.Caption := 'Unknown';
+
+  {Navigasi}
+  frmTopNav.lblTrackID.Caption := 'Unknown';
 end;
 
 function ZoomIndexToScale(const i: Integer): double;
@@ -6087,7 +6094,7 @@ begin
           1:
           begin
             {$REGION ' Navigasi '}
-//            SetUpNavigasiUI;
+            SetUpNavigasiUI;
             {$ENDREGION}
           end;
           2:
@@ -6252,6 +6259,50 @@ begin
 
   fPictureCentreSettings.FormStyle := fsStayOnTop;
   fPictureCentreSettings.Show;
+end;
+
+procedure TfrmTacticalDisplay.SetUpNavigasiUI;
+begin
+  pnlTop.Visible    := False;
+  pnlBottom.Visible := False;
+//  pnlLeft.Visible   := False;
+  Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
+
+  if not Assigned(frmLeftNav) then
+    frmLeftNav := TfrmLeftNav.Create(Application);
+
+  frmRightNav.Parent := nil;
+  frmLeftNav.Align  := alLeft;
+  frmLeftNav.Parent := Self;
+  frmLeftNav.Show;
+  frmLeftNav.BringToFront;
+
+  if not Assigned(frmBottomNav) then
+  frmBottomNav := TfrmBottomNav.Create(Application);
+
+  frmBottomNav.Parent := nil;
+  frmBottomNav.Align  := alBottom;
+  frmBottomNav.Parent := Self;
+  frmBottomNav.Show;
+  frmBottomNav.SendToBack;
+
+  if not Assigned(frmTopNav) then
+  frmTopNav := TfrmTopNav.Create(Application);
+
+  frmTopNav.Parent := nil;
+  frmTopNav.Align  := alTop;
+  frmTopNav.Parent := Self;
+  frmTopNav.Show;
+  frmTopNav.BringToFront;
+
+  if not Assigned(frmRightNav) then
+    frmRightNav := TfrmRightNav.Create(Application);
+
+  frmRightNav.Parent := nil;
+  frmRightNav.Align  := alRight;
+  frmRightNav.Parent := Self;
+  frmRightNav.Show;
+  frmRightNav.BringToFront;
 end;
 
 //procedure TfrmTacticalDisplay.SettingStrategiClick(Sender: TObject);
@@ -9161,6 +9212,9 @@ begin
       begin
         lbPositionHook1.Caption := formatDMS_long(v.getPositionX);
         lbPositionHook2.Caption := formatDMS_latt(v.getPositionY);
+        {Navigasi}
+//        frmTopNav.lblLong1.Caption := formatDMS_long(v.getPositionX);
+//        frmTopNav.lblLat1.Caption := formatDMS_latt(v.getPositionY);
       end;
     end;
     2:
@@ -9200,7 +9254,6 @@ begin
         ConvDegree_To_UTM_and_MGRS(lat, long, hasilUTM, hasilMGRS);
         lbPositionHook1.Caption := hasilUTM ;   //dng
         lbPositionHook2.Caption := '';
-
       end;
     end;
     5:
@@ -9254,6 +9307,8 @@ begin
         lbTypeDetails.Caption := 'Other';
         lbDoppler.Caption := '[None]';
         lbTrackType.Caption := 'Real Time Bearing Track';
+        {Navigasi}
+        frmTopNav.lblTrackID.Caption := (det.MergedESM.TrackNumber);
 
         if TT3ESMTrack(Sender).IsMerged then
           lbMergeStatus.Caption := 'Merged'
@@ -9272,6 +9327,12 @@ begin
     begin
       {$REGION ' ESM Track '}
       esm := TT3ESMTrack(Sender);
+
+      {Navigasi}
+      if esm.DetailedDetectionShowedESM.Track_ID then
+        frmTopNav.lblTrackID.Caption      := esm.TrackNumber
+      else
+        frmTopNav.lblTrackID.Caption      := 'Unknown';
 
       if esm.DetailedDetectionShowedESM.Track_ID then
         lbTrackDetails.Caption      := esm.TrackNumber
@@ -9312,6 +9373,8 @@ begin
       {$REGION ' Jk yg di hook detected track '}
       GetNameAndClass(det, dName, dClass);
 
+      {Navigasi}
+      frmTopNav.lblTrackID.Caption := FormatTrackNumber(det.trackNumber);
       lbTrackDetails.Caption := FormatTrackNumber(det.trackNumber);
       lbNameDetails.Caption  := det.TrackName;
       lbClassDetails.Caption := det.TrackClass;
@@ -9362,6 +9425,9 @@ begin
       {$REGION ' Jk yg di hook selain detected track  '}
       if v is TT3NonRealVehicle then
       begin
+        {Navigasi}
+        frmTopNav.lblTrackID.Caption := IntToStr(v.TrackNumber);
+
         lbTrackDetails.Caption := IntToStr(v.TrackNumber);
         lbTypeDetails.Caption  := 'Other';
         lbIdentifier.Caption    := getIdentStr(v.TrackIdent);
@@ -9370,6 +9436,9 @@ begin
       end
       else
       begin
+        {Navigasi}
+        frmTopNav.lblTrackID.Caption := v.Track_ID;
+
         lbTrackDetails.Caption := v.Track_ID;
         lbTypeDetails.Caption := getVehicleTypestr(v.PlatformDomain, v.PlatformCategory, v.PlatformType);
 

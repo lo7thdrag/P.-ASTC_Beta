@@ -2,7 +2,7 @@ Penting
 1. Mengecek fungsi Search, Add, Copy, Edit, Usage dan Delete di setiap form   
 2. Mengecek memoryleak disetiap form
 3. Showmassage dicek, masih ada yang Bahasa inggris
-29. Available pada saat Add belum dicek, object yg dicreate sudah di free apa belum 
+29. Available pada saat Add belum dicek, object yg dicreate sudah di free apa belum  
 
 2. Pengecekan posisi tombol Search, Add, Copy, Edit, Usage dan Delete yang tidak sama.(sudah)
 4. summary waypoint perlu didesain ulang.(sudah)
@@ -35,9 +35,11 @@ Form yang perlu didesain ulang
 - vehicle belum dicek semua
 
 //Plotter
-- Fitur Range Rings On Hook belum berfungsi.
-- Tombol Start dan End pada form Ruler masih mengalami error. 
-- btnCreate di form overlay Editor belum bisa.
+1. Tombol Start dan End pada form Ruler perlu diperbaiki lagi.
+2. Create overlay bagian edit belum selesai. 
+3. formOption satuannya belum berubah.
+ 
+
 
 catatan: 
 yang Waypoint editor dikasih overlay atau tidak?

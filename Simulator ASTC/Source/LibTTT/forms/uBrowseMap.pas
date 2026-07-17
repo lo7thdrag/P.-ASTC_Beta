@@ -45,6 +45,7 @@ type
     procedure btnDragFilterClick(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure PanelTopResize(Sender: TObject);
   private
     { Private declarations }
     FLyrDraw : CMapXLayer;
@@ -99,7 +100,7 @@ begin
     cbbSetScaleChange(cbbSetScale);
 
     if cbbSetScale.ItemIndex = 0 then
-     btnDecreaseScale.Enabled := false
+     btnDecreaseScale.Enabled := True
     else
      btnDecreaseScale.Enabled := true;
   end;
@@ -268,7 +269,7 @@ var
   dirP : string;
 begin
   lstGSTGame.Clear;
-  dirP := vMapSetting.MapGSTGame;
+  dirP := vMapSetting.MapDestPathENC;
   GetFilename(dirP, lstGSTGame.Items);
 
 end;
@@ -371,6 +372,11 @@ begin
       cbbSetScale.Text := floattostr(tempZoom);
     mpLayer.OnMapViewChanged := mpLayerMapViewChanged;
   end;
+end;
+
+procedure TfrmBrowseMap.PanelTopResize(Sender: TObject);
+begin
+  cbbSetScale.Top := (PanelTop.ClientHeight - cbbSetScale.Height) div 2;
 end;
 
 end.

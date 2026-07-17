@@ -259,7 +259,11 @@ uses
   uMainPlottingShape in '..\LibTTT\libObjects\uMainPlottingShape.pas',
   uMainStaticShape in '..\LibTTT\libObjects\uMainStaticShape.pas',
   uMainStrategi in '..\LibTTT\libObjects\uMainStrategi.pas',
-  ufrmPlatformBaseDetail in '..\LibTTT\forms\ufrmPlatformBaseDetail.pas' {frmPlatformBaseDetail};
+  ufrmPlatformBaseDetail in '..\LibTTT\forms\ufrmPlatformBaseDetail.pas' {frmPlatformBaseDetail},
+  ufrmBottomNav in 'formClient\NavigasiUI\ufrmBottomNav.pas' {frmBottomNav},
+  ufrmLeftNav in 'formClient\NavigasiUI\ufrmLeftNav.pas' {frmLeftNav},
+  ufrmTopNav in 'formClient\NavigasiUI\ufrmTopNav.pas' {frmTopNav},
+  ufrmRightNav in 'formClient\NavigasiUI\ufrmRightNav.pas' {frmRightNav};
 
 {$R *.res}
 
@@ -314,6 +318,10 @@ begin
   Application.CreateForm(TfrmViewWasdal, frmViewWasdal);
   Application.CreateForm(TfrmRightToolsPlotter, frmRightToolsPlotter);
   Application.CreateForm(TfrmPlatformBaseDetail, frmPlatformBaseDetail);
+  Application.CreateForm(TfrmLeftNav, frmLeftNav);
+  Application.CreateForm(TfrmBottomNav, frmBottomNav);
+  Application.CreateForm(TfrmTopNav, frmTopNav);
+  Application.CreateForm(TfrmRightNav, frmRightNav);
   frmLog.LogFile.FileName := ChangeFileExt(Application.ExeName, '.log');
   frmLog.LogFile.Init;
 

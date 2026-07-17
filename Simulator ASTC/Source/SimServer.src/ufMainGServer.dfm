@@ -16225,9 +16225,160 @@ object fMainGServer: TfMainGServer
       BorderWidth = 8
       TabOrder = 6
     end
+    object pnlWatcher: TPanel
+      Left = 29
+      Top = 215
+      Width = 1169
+      Height = 449
+      BevelOuter = bvNone
+      BorderWidth = 8
+      TabOrder = 1
+      object pnl1: TPanel
+        Left = 8
+        Top = 36
+        Width = 1153
+        Height = 405
+        Align = alClient
+        BevelOuter = bvNone
+        Color = clInactiveCaption
+        Ctl3D = True
+        ParentCtl3D = False
+        TabOrder = 1
+        object lvPlatform: TListView
+          Left = 0
+          Top = 0
+          Width = 1153
+          Height = 405
+          Align = alClient
+          BevelInner = bvNone
+          BevelOuter = bvNone
+          Color = 4924424
+          Columns = <
+            item
+              Caption = 'ID'
+            end
+            item
+              Caption = 'Name'
+              Width = 130
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Pos X'
+              Width = 100
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Pos Y'
+              Width = 100
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Actual Speed'
+              Width = 95
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Ordered Speed '
+              Width = 95
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Actual Heading'
+              Width = 95
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Ordered Heading'
+              Width = 95
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Draft'
+              Width = 70
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Map Depth'
+              Width = 70
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Land'
+              Width = 80
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Grounded'
+              Width = 80
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Collision'
+              Width = 75
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Port State'
+              Width = 0
+            end>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindow
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ReadOnly = True
+          RowSelect = True
+          ParentFont = False
+          TabOrder = 0
+          ViewStyle = vsReport
+        end
+      end
+      object pnlHeaderWatcher: TPanel
+        Left = 8
+        Top = 8
+        Width = 1153
+        Height = 28
+        Align = alTop
+        BevelOuter = bvNone
+        Color = clInactiveCaption
+        Ctl3D = True
+        ParentCtl3D = False
+        TabOrder = 0
+        object Button3: TButton
+          Left = 1019
+          Top = 0
+          Width = 64
+          Height = 25
+          Caption = 'Start'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+          OnClick = Button3Click
+        end
+        object Button4: TButton
+          Left = 1089
+          Top = 0
+          Width = 64
+          Height = 25
+          Caption = 'Stop'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 1
+          OnClick = Button4Click
+        end
+      end
+    end
     object pnlVersion: TPanel
       Left = 29
-      Top = 220
+      Top = 215
       Width = 1169
       Height = 449
       BevelOuter = bvNone
@@ -16269,27 +16420,146 @@ object fMainGServer: TfMainGServer
         OnDrawItem = lvVersionDrawItem
       end
     end
-    object pnlData: TPanel
+    object pnlPlatforms: TPanel
       Left = 29
-      Top = 220
+      Top = 215
       Width = 1169
       Height = 449
       BevelOuter = bvNone
       BorderWidth = 8
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 8
-      object btn2: TButton
+      TabOrder = 4
+      object mmInit: TMemo
+        Left = 8
+        Top = 33
+        Width = 1153
+        Height = 408
+        Align = alClient
+        BevelKind = bkFlat
+        BorderStyle = bsNone
+        Color = 4924424
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssBoth
+        TabOrder = 0
+        WordWrap = False
+      end
+      object Button1: TButton
         Left = 8
         Top = 8
         Width = 1153
         Height = 25
         Align = alTop
-        Caption = 'Get Data Buffer'
+        Caption = 'Get PLATFORMS'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        OnClick = Button1Click
+      end
+    end
+    object pnlLogs: TPanel
+      Left = 29
+      Top = 215
+      Width = 1169
+      Height = 449
+      BevelOuter = bvNone
+      BorderWidth = 8
+      TabOrder = 5
+      object btn4: TSpeedButton
+        Left = 8
+        Top = 8
+        Width = 1153
+        Height = 21
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Align = alTop
+        Caption = 'Log'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Visible = False
+        OnClick = btn4Click
+        ExplicitLeft = 236
+        ExplicitTop = 0
+        ExplicitWidth = 78
+      end
+      object mmEvent: TMemo
+        Left = 8
+        Top = 29
+        Width = 1153
+        Height = 412
+        Align = alClient
+        BevelKind = bkFlat
+        BorderStyle = bsNone
+        Color = 4924424
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssBoth
+        TabOrder = 0
+        WordWrap = False
+      end
+    end
+    object pnlEventLog: TPanel
+      Left = 29
+      Top = 215
+      Width = 1169
+      Height = 449
+      BevelOuter = bvNone
+      BorderWidth = 8
+      Color = 4924424
+      ParentBackground = False
+      TabOrder = 2
+      object Memo1: TMemo
+        Left = 8
+        Top = 8
+        Width = 1153
+        Height = 433
+        Align = alClient
+        BevelKind = bkFlat
+        BorderStyle = bsNone
+        Color = 4924424
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssBoth
+        TabOrder = 0
+        WordWrap = False
+      end
+    end
+    object pnlEventList: TPanel
+      Left = 29
+      Top = 215
+      Width = 1169
+      Height = 449
+      BevelOuter = bvNone
+      BorderWidth = 8
+      TabOrder = 3
+      object Button2: TButton
+        Left = 8
+        Top = 8
+        Width = 1153
+        Height = 25
+        Align = alTop
+        Caption = 'Get EVENTS Buffer'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -16297,17 +16567,16 @@ object fMainGServer: TfMainGServer
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
-        OnClick = btn2Click
-        ExplicitLeft = 1
-        ExplicitTop = 1
-        ExplicitWidth = 1135
+        OnClick = Button2Click
       end
-      object mmo1: TMemo
+      object mmEvents: TMemo
         Left = 8
         Top = 33
         Width = 1153
         Height = 408
         Align = alClient
+        BevelKind = bkFlat
+        BorderStyle = bsNone
         Color = 4924424
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
@@ -16317,15 +16586,12 @@ object fMainGServer: TfMainGServer
         ParentFont = False
         ScrollBars = ssBoth
         TabOrder = 1
-        ExplicitLeft = 1
-        ExplicitTop = 1
-        ExplicitWidth = 1135
-        ExplicitHeight = 391
+        WordWrap = False
       end
     end
     object pnlDataLink: TPanel
       Left = 29
-      Top = 220
+      Top = 215
       Width = 1169
       Height = 449
       BevelOuter = bvNone
@@ -16431,21 +16697,27 @@ object fMainGServer: TfMainGServer
         TabOrder = 2
       end
     end
-    object pnlEventList: TPanel
+    object pnlData: TPanel
       Left = 29
-      Top = 220
+      Top = 215
       Width = 1169
       Height = 449
       BevelOuter = bvNone
       BorderWidth = 8
-      TabOrder = 3
-      object Button2: TButton
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 8
+      object btn2: TButton
         Left = 8
         Top = 8
         Width = 1153
         Height = 25
         Align = alTop
-        Caption = 'Get EVENTS Buffer'
+        Caption = 'Get Data Buffer'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -16453,16 +16725,14 @@ object fMainGServer: TfMainGServer
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
-        OnClick = Button2Click
+        OnClick = btn2Click
       end
-      object mmEvents: TMemo
+      object mmo1: TMemo
         Left = 8
         Top = 33
         Width = 1153
         Height = 408
         Align = alClient
-        BevelKind = bkFlat
-        BorderStyle = bsNone
         Color = 4924424
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
@@ -16472,287 +16742,6 @@ object fMainGServer: TfMainGServer
         ParentFont = False
         ScrollBars = ssBoth
         TabOrder = 1
-        WordWrap = False
-      end
-    end
-    object pnlLogs: TPanel
-      Left = 29
-      Top = 220
-      Width = 1169
-      Height = 449
-      BevelOuter = bvNone
-      BorderWidth = 8
-      TabOrder = 5
-      object btn4: TSpeedButton
-        Left = 8
-        Top = 8
-        Width = 1153
-        Height = 21
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
-        Align = alTop
-        Caption = 'Log'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        Visible = False
-        OnClick = btn4Click
-        ExplicitLeft = 236
-        ExplicitTop = 0
-        ExplicitWidth = 78
-      end
-      object mmEvent: TMemo
-        Left = 8
-        Top = 29
-        Width = 1153
-        Height = 412
-        Align = alClient
-        BevelKind = bkFlat
-        BorderStyle = bsNone
-        Color = 4924424
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ScrollBars = ssBoth
-        TabOrder = 0
-        WordWrap = False
-      end
-    end
-    object pnlPlatforms: TPanel
-      Left = 29
-      Top = 220
-      Width = 1169
-      Height = 449
-      BevelOuter = bvNone
-      BorderWidth = 8
-      TabOrder = 4
-      object mmInit: TMemo
-        Left = 8
-        Top = 33
-        Width = 1153
-        Height = 408
-        Align = alClient
-        BevelKind = bkFlat
-        BorderStyle = bsNone
-        Color = 4924424
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ScrollBars = ssBoth
-        TabOrder = 0
-        WordWrap = False
-      end
-      object Button1: TButton
-        Left = 8
-        Top = 8
-        Width = 1153
-        Height = 25
-        Align = alTop
-        Caption = 'Get PLATFORMS'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 1
-        OnClick = Button1Click
-      end
-    end
-    object pnlEventLog: TPanel
-      Left = 29
-      Top = 220
-      Width = 1169
-      Height = 449
-      BevelOuter = bvNone
-      BorderWidth = 8
-      Color = 4924424
-      ParentBackground = False
-      TabOrder = 2
-      object Memo1: TMemo
-        Left = 8
-        Top = 8
-        Width = 1153
-        Height = 433
-        Align = alClient
-        BevelKind = bkFlat
-        BorderStyle = bsNone
-        Color = 4924424
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ScrollBars = ssBoth
-        TabOrder = 0
-        WordWrap = False
-      end
-    end
-    object pnlWatcher: TPanel
-      Left = 29
-      Top = 220
-      Width = 1169
-      Height = 449
-      BevelOuter = bvNone
-      BorderWidth = 8
-      TabOrder = 1
-      object pnl1: TPanel
-        Left = 8
-        Top = 36
-        Width = 1153
-        Height = 405
-        Align = alClient
-        BevelOuter = bvNone
-        Color = clInactiveCaption
-        Ctl3D = True
-        ParentCtl3D = False
-        TabOrder = 1
-        ExplicitTop = 42
-        ExplicitHeight = 400
-        object lvPlatform: TListView
-          Left = 0
-          Top = 0
-          Width = 1153
-          Height = 405
-          Align = alClient
-          BevelInner = bvNone
-          BevelOuter = bvNone
-          Color = 4924424
-          Columns = <
-            item
-              Caption = 'ID'
-            end
-            item
-              Caption = 'Name'
-              Width = 130
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Pos X'
-              Width = 100
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Pos Y'
-              Width = 100
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Actual Speed'
-              Width = 95
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Ordered Speed '
-              Width = 95
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Actual Heading'
-              Width = 95
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Ordered Heading'
-              Width = 95
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Draft'
-              Width = 70
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Map Depth'
-              Width = 70
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Land'
-              Width = 80
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Grounded'
-              Width = 80
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Collision'
-              Width = 75
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Port State'
-              Width = 0
-            end>
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindow
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ReadOnly = True
-          RowSelect = True
-          ParentFont = False
-          TabOrder = 0
-          ViewStyle = vsReport
-          ExplicitTop = 2
-          ExplicitHeight = 400
-        end
-      end
-      object pnlHeaderWatcher: TPanel
-        Left = 8
-        Top = 8
-        Width = 1153
-        Height = 28
-        Align = alTop
-        BevelOuter = bvNone
-        Color = clInactiveCaption
-        Ctl3D = True
-        ParentCtl3D = False
-        TabOrder = 0
-        object Button3: TButton
-          Left = 1019
-          Top = 0
-          Width = 64
-          Height = 25
-          Caption = 'Start'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-          OnClick = Button3Click
-        end
-        object Button4: TButton
-          Left = 1089
-          Top = 0
-          Width = 64
-          Height = 25
-          Caption = 'Stop'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 1
-          OnClick = Button4Click
-        end
       end
     end
   end

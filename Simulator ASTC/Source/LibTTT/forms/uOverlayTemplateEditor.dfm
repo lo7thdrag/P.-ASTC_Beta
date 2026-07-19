@@ -26,7 +26,7 @@ object fmOverlayEditor: TfmOverlayEditor
     Top = 154
     Width = 298
     Height = 500
-    Color = 16775920
+    Color = 2499101
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -11
@@ -70,7 +70,7 @@ object fmOverlayEditor: TfmOverlayEditor
       AutoSize = False
       Caption = 'Dynamic'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
@@ -89,7 +89,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Height = 16
       Caption = '::.'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
@@ -102,7 +102,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Height = 16
       Caption = '.::'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
@@ -6119,92 +6119,92 @@ object fmOverlayEditor: TfmOverlayEditor
         object Label21: TLabel
           Left = 14
           Top = 21
-          Width = 40
-          Height = 13
+          Width = 53
+          Height = 16
           Caption = 'Centre :'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
         object Label25: TLabel
           Left = 66
           Top = 198
-          Width = 18
-          Height = 13
+          Width = 24
+          Height = 16
           Caption = 'deg'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
         object Label26: TLabel
           Left = 153
           Top = 198
-          Width = 18
-          Height = 13
+          Width = 24
+          Height = 16
           Caption = 'deg'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
         object Label27: TLabel
           Left = 14
           Top = 110
-          Width = 39
-          Height = 13
+          Width = 52
+          Height = 16
           Caption = 'Radius :'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
         object Label28: TLabel
           Left = 71
           Top = 132
-          Width = 14
-          Height = 13
+          Width = 19
+          Height = 16
           Caption = 'nm'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
         object lbl7: TLabel
           Left = 14
           Top = 176
-          Width = 31
-          Height = 13
+          Width = 43
+          Height = 16
           Caption = 'Start :'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
         object lbl8: TLabel
           Left = 110
           Top = 175
-          Width = 25
-          Height = 13
+          Width = 32
+          Height = 16
           Caption = 'End :'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
         object SpeedButton7: TSpeedButton
@@ -6396,27 +6396,27 @@ object fmOverlayEditor: TfmOverlayEditor
         object Label63: TLabel
           Left = 28
           Top = 43
-          Width = 28
-          Height = 13
+          Width = 38
+          Height = 16
           Caption = 'Lat   :'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
         object Label64: TLabel
           Left = 28
           Top = 65
-          Width = 30
-          Height = 13
+          Width = 40
+          Height = 16
           Caption = 'Long :'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
         object edtArcPosLat: TEdit
@@ -6501,7 +6501,7 @@ object fmOverlayEditor: TfmOverlayEditor
     Top = 8
     Width = 117
     Height = 83
-    Color = 16775920
+    Color = 2499101
     ParentBackground = False
     ParentColor = False
     TabOrder = 2
@@ -6593,7 +6593,7 @@ object fmOverlayEditor: TfmOverlayEditor
     Top = 8
     Width = 175
     Height = 83
-    Color = 16775920
+    Color = 2499101
     ParentBackground = False
     ParentColor = False
     TabOrder = 3
@@ -6639,17 +6639,17 @@ object fmOverlayEditor: TfmOverlayEditor
     Top = 98
     Width = 298
     Height = 47
-    Color = 16775920
+    Color = 2499101
     ParentBackground = False
     ParentColor = False
     TabOrder = 4
     object pnlPenEditing: TPanel
-      Left = 3
-      Top = 10
+      Left = 5
+      Top = 8
       Width = 288
       Height = 31
       BevelOuter = bvNone
-      Color = 16775920
+      Color = 2499101
       ParentBackground = False
       TabOrder = 0
       object lbl16: TLabel
@@ -6659,7 +6659,7 @@ object fmOverlayEditor: TfmOverlayEditor
         Height = 15
         Caption = 'Dashes : '
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Berlin Sans FB'
         Font.Style = []
@@ -6672,7 +6672,7 @@ object fmOverlayEditor: TfmOverlayEditor
         Height = 15
         Caption = 'Weight :'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Berlin Sans FB'
         Font.Style = []
@@ -6715,7 +6715,7 @@ object fmOverlayEditor: TfmOverlayEditor
     Top = 8
     Width = 298
     Height = 646
-    Color = 16775920
+    Color = 2499101
     ParentBackground = False
     ParentColor = False
     TabOrder = 0
@@ -6981,7 +6981,7 @@ object fmOverlayEditor: TfmOverlayEditor
         Height = 16
         Caption = 'Name'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -6994,7 +6994,7 @@ object fmOverlayEditor: TfmOverlayEditor
         Height = 16
         Caption = ' : '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -7007,7 +7007,7 @@ object fmOverlayEditor: TfmOverlayEditor
         Height = 16
         Caption = 'Type  '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -7034,19 +7034,26 @@ object fmOverlayEditor: TfmOverlayEditor
         Height = 16
         Caption = ' : '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
         Visible = False
       end
+      object Label85: TLabel
+        Left = 120
+        Top = 88
+        Width = 37
+        Height = 5
+        Caption = 'Label85'
+      end
       object rgForce: TRadioGroup
         Left = 11
-        Top = 54
+        Top = 65
         Width = 259
         Height = 59
-        Caption = ' Force   '
+        Caption = '        '
         Columns = 2
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
@@ -7083,13 +7090,38 @@ object fmOverlayEditor: TfmOverlayEditor
           Width = 259
           Height = 5
         end
+        object Label5: TLabel
+          Left = 31
+          Top = 0
+          Width = 32
+          Height = 16
+          Caption = 'Static'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label84: TLabel
+          Left = 91
+          Top = 0
+          Width = 48
+          Height = 16
+          Caption = 'Dynamic'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
         object rbStatic: TRadioButton
           Tag = 1
-          Left = 1
-          Top = -2
-          Width = 57
+          Left = 11
+          Top = 0
+          Width = 14
           Height = 17
-          Caption = 'Static'
           Checked = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
@@ -7104,8 +7136,8 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object rbDynamic: TRadioButton
           Left = 72
-          Top = -2
-          Width = 65
+          Top = 0
+          Width = 14
           Height = 17
           Caption = 'Dynamic'
           Color = 3683636

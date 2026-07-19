@@ -407,6 +407,9 @@ type
     Label3: TLabel;
     cbbWeightPen: TComboBox;
     cbbDashesPen: TComboBox;
+    Label5: TLabel;
+    Label84: TLabel;
+    Label85: TLabel;
 
     procedure FormShow(Sender: TObject);
 

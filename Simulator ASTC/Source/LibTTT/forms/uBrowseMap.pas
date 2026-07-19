@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ComCtrls, ToolWin, CheckLst, ExtCtrls, OleCtrls, StrUtils,
-  MapXLib_TLB, ImgList, uLibSettingTTT, uMapXHandler, System.ImageList;
+  MapXLib_TLB, ImgList, uLibSettingTTT, uMapXHandler, System.ImageList,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmBrowseMap = class(TForm)
@@ -19,18 +20,24 @@ type
     toolbar2: TToolBar;
     btnNormal: TToolButton;
     btnPan: TToolButton;
-    btn1: TToolButton;
     btnDecreaseScale: TToolButton;
-    btn2: TToolButton;
     cbbSetScale: TComboBox;
-    btn3: TToolButton;
     btnIncreaseScale: TToolButton;
-    btn4: TToolButton;
     btnZoom: TToolButton;
     btnZoomOut: TToolButton;
     btnDragFilter: TToolButton;
     lstGSTGame: TListBox;
     ilToolbar: TImageList;
+    pnlMainBackground: TPanel;
+    pnl1Header: TPanel;
+    pnlVertical1: TPanel;
+    pnlVertical2: TPanel;
+    pnlVertical3: TPanel;
+    pnl3SparatorHor2: TPanel;
+    pnlMap: TPanel;
+    pnl3SparatorHor1: TPanel;
+    imgBackground: TImage;
+    pnlAlignToolBar: TPanel;
     procedure FormShow(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure lstGSTGameClick(Sender: TObject);
@@ -46,6 +53,7 @@ type
     procedure btnOkClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure PanelTopResize(Sender: TObject);
+    procedure FormResize(Sender: TObject);
   private
     { Private declarations }
     FLyrDraw : CMapXLayer;
@@ -263,6 +271,12 @@ begin
   frmKeyboard.HandleOfTheTargetForm := Self.Handle;
 end;
 
+procedure TfrmBrowseMap.FormResize(Sender: TObject);
+begin
+   WindowState := wsMaximized;
+   pnlAlignToolBar.Width := round((toolbar2.Width - 179) / 2);
+end;
+
 procedure TfrmBrowseMap.FormShow(Sender: TObject);
 var
   i : Integer;
@@ -376,7 +390,7 @@ end;
 
 procedure TfrmBrowseMap.PanelTopResize(Sender: TObject);
 begin
-  cbbSetScale.Top := (PanelTop.ClientHeight - cbbSetScale.Height) div 2;
+//  cbbSetScale.Top := (PanelTop.ClientHeight - cbbSetScale.Height) div 2;
 end;
 
 end.

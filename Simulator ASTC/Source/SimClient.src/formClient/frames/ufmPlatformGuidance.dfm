@@ -2597,522 +2597,6 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
         Transparent = False
       end
     end
-    object grbStraightLine: TGroupBox
-      Left = 1
-      Top = 1
-      Width = 364
-      Height = 427
-      Align = alClient
-      ParentBackground = False
-      TabOrder = 12
-      object ScrollBox5: TScrollBox
-        Left = 1
-        Top = 17
-        Width = 362
-        Height = 409
-        Align = alClient
-        BorderStyle = bsNone
-        TabOrder = 0
-        object whHeading: TVrWheel
-          Left = 139
-          Top = 10
-          Width = 85
-          Height = 85
-          MaxValue = 360
-          Position = 180
-          BackImage.Data = {
-            120F0000424D120F000000000000760000002800000055000000550000000100
-            0400000000009C0E000000000000000000001000000000000000000000000000
-            80000080000000808000800000008000800080800000C0C0C000808080000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-            3333333333333333333333333333333333333333333333333333333333333333
-            3333333330003333333333333333333333333333333333333333333333333333
-            3333333333333333333333333333333330003333333333333333333333333333
-            3333333333333333333333333333333333333333333333333333333330003333
-            3333333333333333333333333333333333333333333333333333333333333333
-            3333333333333333300033333333333333333333333333333333333000000000
-            0000033333333333333333333333333333333333300033333333333333333333
-            3333333333300008888888888888800003333333333333333333333333333333
-            3000333333333333333333333333333300088888888888888888888880003333
-            3333333333333333333333333000333333333333333333333333300088888888
-            8888888888888888888800033333333333333333333333333000333333333333
-            3333333333300888888888887777777777778888888888800333333333333333
-            3333333330003333333333333333333333088888888877777777777777777777
-            8888888880333333333333333333333330003333333333333333333300888888
-            8777777777777777777777777778888888003333333333333333333330003333
-            3333333333333330888888877777777777777777777777777777788888880333
-            3333333333333333300033333333333333333008888887777777777777777777
-            7777777777777778888880033333333333333333300033333333333333330888
-            8887777777777777777777777777777777777777788888803333333333333333
-            3000333333333333333088888877777777777777777777777777777777777777
-            7788888803333333333333333000333333333333330888887777777777777777
-            7777777777777777777777777777888880333333333333333000333333333333
-            30F8888777777777777777777777777777777777777777777777788888033333
-            3333333330003333333333330FF8887777777777777777777777777777777777
-            777777777777778888803333333333333000333333333330FFFFF77777777777
-            7777777777777777777777777777777777777778888803333333333330003333
-            3333330FFFFF7777777777777777777777777777777777777777777777777777
-            8888803333333333300033333333330FFFF77777777777777777777777777777
-            777777777777777777777777788880333333333330003333333330FFFF777777
-            7777777777777777777777777777777777777777777777777788880333333333
-            3000333333330FFFF77777777777777777777777777777777777777777777777
-            7777777777788880333333333000333333330FFFF77777777777777777777777
-            777777777777777777777777777777777778888033333333300033333330FFFF
-            7777777777777777777777777777777777777777777777777777777777778888
-            0333333330003333330FFFF77777777777777777777777777777777777777777
-            7777777777777777777778888033333330003333330FFFF77777777777777777
-            7777777777777777777777777777777777777777777778888033333330003333
-            30FFFF7777777777777777777777777777777777777777777777777777777777
-            77777788880333333000333330FFFF7777777777777777777777777777777777
-            77777777777777777777777777777788880333333000333330FFF77777777777
-            7777777777777777777777777777777777777777777777777777777888033333
-            300033330FFFF777777777777777777777777777777777777777777777777777
-            777777777777777888803333300033330FFF7777777777777777777777777777
-            777777777777777777777777777777777777777788803333300033330FFF7777
-            7777777777777777777777777777777777777777777777777777777777777777
-            8880333330003330FFFF77777777777777777777777777777777777777777777
-            7777777777777777777777778888033330003330FFF777777777777777777777
-            7777777777777777777777777777777777777777777777777888033330003330
-            FFF7777777777777777777777777777777777777777777777777777777777777
-            777777777888033330003330FFF7777777777777777777777777777777777777
-            77777777777777777777777777777777788803333000330FFFF7777777777777
-            7777777777777777777777777777777777777777777777777777777778888033
-            3000330FFF777777777777777777777777777777777777777777777777777777
-            7777777777777777778880333000330FFF777777777777777777777777777777
-            7777777777777777777777777777777777777777778880333000330FFF777777
-            7777777777777777777777777777777777777777777777777777777777777777
-            778880333000330FFF7777777777777777777777777777777777777777777777
-            777777777777777777777777778880333000330FFF7777777777777777777777
-            777777777777777777777777777777777777777777777777778880333000330F
-            FF77777777777777777777777777777777777777777777777777777777777777
-            77777777778880333000330FFF77777777777777777777777777777777777777
-            77777777777777777777777777777777778880333000330FFF77777777777777
-            7777777777777777777777777777777777777777777777777777777777888033
-            3000330FFF777777777777777777777777777777777777777777777777777777
-            7777777777777777778880333000330FFF777777777777777777777777777777
-            7777777777777777777777777777777777777777778880333000330FFF777777
-            7777777777777777777777777777777777777777777777777777777777777777
-            778880333000330FFFF777777777777777777777777777777777777777777777
-            777777777777777777777777788880333000330FFFF777777777777777777777
-            7777777777777777777777777777777777777777777777777888803330003330
-            FFF7777777777777777777777777777777777777777777777777777777777777
-            777777777888033330003330FFF7777777777777777777777777777777777777
-            777777777777777777777777777777777888033330003330FFFF777777777777
-            7777777777777777777777777777777777777777777777777777777788880333
-            30003330FFFF7777777777777777777777777777777777777777777777777777
-            777777777777777788880333300033330FFF7777777777777777777777777777
-            777777777777777777777777777777777777777788803333300033330FFFF777
-            7777777777777777777777777777777777777777777777777777777777777778
-            88803333300033330FFFF7777777777777777777777777777777777777777777
-            777777777777777777777778888033333000333330FFFF777777777777777777
-            7777777777777777777777777777777777777777777777888803333330003333
-            30FFFF7777777777777777777777777777777777777777777777777777777777
-            77777788880333333000333330FFFFF777777777777777777777777777777777
-            777777777777777777777777777778888803333330003333330FFFF777777777
-            7777777777777777777777777777777777777777777777777777788880333333
-            30003333330FFFFF777777777777777777777777777777777777777777777777
-            777777777777888880333333300033333330FFFFF77777777777777777777777
-            7777777777777777777777777777777777788888033333333000333333330FFF
-            F777777777777777777777777777777777777777777777777777777777788880
-            333333333000333333330FFFFF77777777777777777777777777777777777777
-            7777777777777777778888803333333330003333333330FFFFF7777777777777
-            7777777777777777777777777777777777777777788888033333333330003333
-            3333330FFFFF7777777777777777777777777777777777777777777777777777
-            8888803333333333300033333333330FFFFFF777777777777777777777777777
-            77777777777777777777777788888033333333333000333333333330FFFFFF77
-            7777777777777777777777777777777777777777777777FF8888033333333333
-            30003333333333330FFFFFF77777777777777777777777777777777777777777
-            77777FFF8880333333333333300033333333333330FFFFFF7777777777777777
-            7777777777777777777777777777FFFFFF033333333333333000333333333333
-            330FFFFFF777777777777777777777777777777777777777777FFFFFF0333333
-            3333333330003333333333333330FFFFFFF77777777777777777777777777777
-            777777777FFFFFFF0333333333333333300033333333333333330FFFFFFF7777
-            77777777777777777777777777777777FFFFFFF0333333333333333330003333
-            333333333333300FFFFFFF77777777777777777777777777777777FFFFFFF003
-            3333333333333333300033333333333333333330FFFFFFFF7777777777777777
-            777777777777FFFFFFFF03333333333333333333300033333333333333333333
-            00FFFFFFFF777777777777777777777777FFFFFFFF0033333333333333333333
-            300033333333333333333333330FFFFFFFFFF777777777777777777FFFFFFFFF
-            F0333333333333333333333330003333333333333333333333300FFFFFFFFFFF
-            F7777777777FFFFFFFFFFFF00333333333333333333333333000333333333333
-            3333333333333000FFFFFFFFFFFFFFFFFFFFFFFFFFFF00033333333333333333
-            3333333330003333333333333333333333333333000FFFFFFFFFFFFFFFFFFFFF
-            F000333333333333333333333333333330003333333333333333333333333333
-            3330000FFFFFFFFFFFFFF0000333333333333333333333333333333330003333
-            3333333333333333333333333333333000000000000003333333333333333333
-            3333333333333333300033333333333333333333333333333333333333333333
-            33333333333333333333333333333333333333333000}
-          HandleImage.Data = {
-            BE000000424DBE00000000000000760000002800000009000000090000000100
-            0400000000004800000000000000000000001000000000000000000000000000
-            80000080000000808000800000008000800080800000C0C0C000808080000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333000
-            0000333000333000000033099903300000003099999030000000309999903000
-            0000307999903000000033077903300000003330003330000000333333333000
-            0000}
-          Radius = 45
-          OnChange = whHeadingChange
-          OnMouseUp = whHeadingMouseUp
-        end
-        object lblStraightLineActualHeading: TLabel
-          Left = 165
-          Top = 130
-          Width = 15
-          Height = 16
-          Caption = '---'
-        end
-        object Label128: TLabel
-          Left = 250
-          Top = 150
-          Width = 58
-          Height = 16
-          Caption = 'degrees T'
-        end
-        object lblStraightLineActualGroundSpeed: TLabel
-          Left = 165
-          Top = 190
-          Width = 15
-          Height = 16
-          Caption = '---'
-        end
-        object Label126: TLabel
-          Left = 250
-          Top = 130
-          Width = 58
-          Height = 16
-          Caption = 'degrees T'
-        end
-        object Label125: TLabel
-          Left = 250
-          Top = 190
-          Width = 30
-          Height = 16
-          Caption = 'knots'
-        end
-        object Label124: TLabel
-          Left = 250
-          Top = 170
-          Width = 30
-          Height = 16
-          Caption = 'knots'
-        end
-        object Label123: TLabel
-          Left = 10
-          Top = 170
-          Width = 132
-          Height = 16
-          Caption = 'Ordered Ground Speed'
-        end
-        object Label122: TLabel
-          Left = 250
-          Top = 110
-          Width = 58
-          Height = 16
-          Caption = 'degrees T'
-        end
-        object Label121: TLabel
-          Left = 10
-          Top = 130
-          Width = 85
-          Height = 16
-          Caption = 'Actual Heading'
-        end
-        object lblStraightLineActuaCourse: TLabel
-          Left = 165
-          Top = 150
-          Width = 15
-          Height = 16
-          Caption = '---'
-        end
-        object Label119: TLabel
-          Left = 10
-          Top = 110
-          Width = 97
-          Height = 16
-          Caption = 'Ordered Heading'
-        end
-        object edtStraightLineOrderedGroundSpeed: TEdit
-          Tag = 1
-          Left = 165
-          Top = 170
-          Width = 55
-          Height = 19
-          BevelInner = bvNone
-          BevelOuter = bvNone
-          BorderStyle = bsNone
-          Color = clWhite
-          Ctl3D = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          MaxLength = 9
-          ParentCtl3D = False
-          ParentFont = False
-          TabOrder = 0
-          Text = '0'
-          OnKeyPress = edtStraightLineOrderedGroundSpeedKeyPress
-        end
-        object edtStraightLineOrderedHeading: TEdit
-          Left = 165
-          Top = 110
-          Width = 55
-          Height = 19
-          BevelInner = bvNone
-          BevelOuter = bvNone
-          BorderStyle = bsNone
-          Color = clWhite
-          Ctl3D = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          MaxLength = 5
-          ParentCtl3D = False
-          ParentFont = False
-          TabOrder = 1
-          Text = '0'
-          OnKeyPress = edtStraightLineOrderedHeadingKeyPress
-        end
-        object StaticText87: TStaticText
-          Left = 150
-          Top = 170
-          Width = 9
-          Height = 20
-          Caption = ':'
-          TabOrder = 2
-          Transparent = False
-        end
-        object StaticText86: TStaticText
-          Left = 150
-          Top = 190
-          Width = 9
-          Height = 20
-          Caption = ':'
-          TabOrder = 3
-          Transparent = False
-        end
-        object StaticText85: TStaticText
-          Left = 150
-          Top = 150
-          Width = 9
-          Height = 20
-          Caption = ':'
-          TabOrder = 4
-          Transparent = False
-        end
-        object StaticText84: TStaticText
-          Left = 150
-          Top = 130
-          Width = 9
-          Height = 20
-          Caption = ':'
-          TabOrder = 5
-          Transparent = False
-        end
-        object StaticText83: TStaticText
-          Left = 150
-          Top = 110
-          Width = 9
-          Height = 20
-          Caption = ':'
-          TabOrder = 6
-          Transparent = False
-        end
-        object StaticText82: TStaticText
-          Left = 10
-          Top = 190
-          Width = 124
-          Height = 20
-          Caption = 'Actual Ground Speed'
-          TabOrder = 7
-          Transparent = False
-        end
-        object StaticText81: TStaticText
-          Left = 10
-          Top = 150
-          Width = 83
-          Height = 20
-          Caption = 'Actual Course'
-          TabOrder = 8
-          Transparent = False
-        end
-        object panDepth: TPanel
-          Left = 0
-          Top = 210
-          Width = 319
-          Height = 58
-          BevelOuter = bvNone
-          ParentColor = True
-          TabOrder = 10
-          Visible = False
-          object lbl1: TLabel
-            Left = 10
-            Top = 2
-            Width = 84
-            Height = 16
-            Caption = 'Ordered Depth'
-          end
-          object lbl2: TLabel
-            Left = 165
-            Top = 22
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbl3: TLabel
-            Left = 250
-            Top = 2
-            Width = 11
-            Height = 16
-            Caption = 'm'
-          end
-          object lbl4: TLabel
-            Left = 250
-            Top = 22
-            Width = 11
-            Height = 16
-            Caption = 'm'
-          end
-          object txt1: TStaticText
-            Left = 10
-            Top = 22
-            Width = 76
-            Height = 20
-            Caption = 'Actual Depth'
-            TabOrder = 0
-            Transparent = False
-          end
-          object txt2: TStaticText
-            Left = 150
-            Top = 2
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 1
-            Transparent = False
-          end
-          object txt3: TStaticText
-            Left = 150
-            Top = 22
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 2
-            Transparent = False
-          end
-          object edt1: TEdit
-            Tag = 2
-            Left = 165
-            Top = 0
-            Width = 55
-            Height = 22
-            BevelInner = bvNone
-            BevelOuter = bvNone
-            Ctl3D = False
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 9
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-            OnKeyPress = edOrderAltitudeKeyPress
-          end
-        end
-        object panAltitude: TPanel
-          Left = 0
-          Top = 210
-          Width = 319
-          Height = 58
-          BevelOuter = bvNone
-          ParentColor = True
-          TabOrder = 9
-          Visible = False
-          object Label57: TLabel
-            Left = 10
-            Top = 2
-            Width = 94
-            Height = 16
-            Caption = 'Ordered Altitude'
-          end
-          object lblActualAltitude: TLabel
-            Left = 165
-            Top = 22
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object Label63: TLabel
-            Left = 250
-            Top = 2
-            Width = 22
-            Height = 16
-            Caption = 'feet'
-          end
-          object Label65: TLabel
-            Left = 250
-            Top = 22
-            Width = 22
-            Height = 16
-            Caption = 'feet'
-          end
-          object StaticText105: TStaticText
-            Left = 10
-            Top = 22
-            Width = 86
-            Height = 20
-            Caption = 'Actual Altitude'
-            TabOrder = 0
-            Transparent = False
-          end
-          object StaticText107: TStaticText
-            Left = 150
-            Top = 2
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 1
-            Transparent = False
-          end
-          object StaticText111: TStaticText
-            Left = 150
-            Top = 22
-            Width = 9
-            Height = 20
-            Caption = ':'
-            TabOrder = 2
-            Transparent = False
-          end
-          object edOrderAltitude: TEdit
-            Tag = 1
-            Left = 165
-            Top = 0
-            Width = 55
-            Height = 22
-            BevelInner = bvNone
-            BevelOuter = bvNone
-            Ctl3D = False
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 9
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-            OnKeyPress = edOrderAltitudeKeyPress
-          end
-        end
-      end
-    end
     object grbZigZag: TGroupBox
       Left = 1
       Top = 1
@@ -4978,6 +4462,522 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
         ReadOnly = True
         TabOrder = 2
         OnKeyPress = edtPersonelGuidanceOrderedHeadingKeyPress
+      end
+    end
+    object grbStraightLine: TGroupBox
+      Left = 1
+      Top = 1
+      Width = 364
+      Height = 427
+      Align = alClient
+      ParentBackground = False
+      TabOrder = 12
+      object ScrollBox5: TScrollBox
+        Left = 1
+        Top = 17
+        Width = 362
+        Height = 409
+        Align = alClient
+        BorderStyle = bsNone
+        TabOrder = 0
+        object whHeading: TVrWheel
+          Left = 139
+          Top = 10
+          Width = 85
+          Height = 85
+          MaxValue = 360
+          Position = 180
+          BackImage.Data = {
+            120F0000424D120F000000000000760000002800000055000000550000000100
+            0400000000009C0E000000000000000000001000000000000000000000000000
+            80000080000000808000800000008000800080800000C0C0C000808080000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            3333333333333333333333333333333333333333333333333333333333333333
+            3333333330003333333333333333333333333333333333333333333333333333
+            3333333333333333333333333333333330003333333333333333333333333333
+            3333333333333333333333333333333333333333333333333333333330003333
+            3333333333333333333333333333333333333333333333333333333333333333
+            3333333333333333300033333333333333333333333333333333333000000000
+            0000033333333333333333333333333333333333300033333333333333333333
+            3333333333300008888888888888800003333333333333333333333333333333
+            3000333333333333333333333333333300088888888888888888888880003333
+            3333333333333333333333333000333333333333333333333333300088888888
+            8888888888888888888800033333333333333333333333333000333333333333
+            3333333333300888888888887777777777778888888888800333333333333333
+            3333333330003333333333333333333333088888888877777777777777777777
+            8888888880333333333333333333333330003333333333333333333300888888
+            8777777777777777777777777778888888003333333333333333333330003333
+            3333333333333330888888877777777777777777777777777777788888880333
+            3333333333333333300033333333333333333008888887777777777777777777
+            7777777777777778888880033333333333333333300033333333333333330888
+            8887777777777777777777777777777777777777788888803333333333333333
+            3000333333333333333088888877777777777777777777777777777777777777
+            7788888803333333333333333000333333333333330888887777777777777777
+            7777777777777777777777777777888880333333333333333000333333333333
+            30F8888777777777777777777777777777777777777777777777788888033333
+            3333333330003333333333330FF8887777777777777777777777777777777777
+            777777777777778888803333333333333000333333333330FFFFF77777777777
+            7777777777777777777777777777777777777778888803333333333330003333
+            3333330FFFFF7777777777777777777777777777777777777777777777777777
+            8888803333333333300033333333330FFFF77777777777777777777777777777
+            777777777777777777777777788880333333333330003333333330FFFF777777
+            7777777777777777777777777777777777777777777777777788880333333333
+            3000333333330FFFF77777777777777777777777777777777777777777777777
+            7777777777788880333333333000333333330FFFF77777777777777777777777
+            777777777777777777777777777777777778888033333333300033333330FFFF
+            7777777777777777777777777777777777777777777777777777777777778888
+            0333333330003333330FFFF77777777777777777777777777777777777777777
+            7777777777777777777778888033333330003333330FFFF77777777777777777
+            7777777777777777777777777777777777777777777778888033333330003333
+            30FFFF7777777777777777777777777777777777777777777777777777777777
+            77777788880333333000333330FFFF7777777777777777777777777777777777
+            77777777777777777777777777777788880333333000333330FFF77777777777
+            7777777777777777777777777777777777777777777777777777777888033333
+            300033330FFFF777777777777777777777777777777777777777777777777777
+            777777777777777888803333300033330FFF7777777777777777777777777777
+            777777777777777777777777777777777777777788803333300033330FFF7777
+            7777777777777777777777777777777777777777777777777777777777777777
+            8880333330003330FFFF77777777777777777777777777777777777777777777
+            7777777777777777777777778888033330003330FFF777777777777777777777
+            7777777777777777777777777777777777777777777777777888033330003330
+            FFF7777777777777777777777777777777777777777777777777777777777777
+            777777777888033330003330FFF7777777777777777777777777777777777777
+            77777777777777777777777777777777788803333000330FFFF7777777777777
+            7777777777777777777777777777777777777777777777777777777778888033
+            3000330FFF777777777777777777777777777777777777777777777777777777
+            7777777777777777778880333000330FFF777777777777777777777777777777
+            7777777777777777777777777777777777777777778880333000330FFF777777
+            7777777777777777777777777777777777777777777777777777777777777777
+            778880333000330FFF7777777777777777777777777777777777777777777777
+            777777777777777777777777778880333000330FFF7777777777777777777777
+            777777777777777777777777777777777777777777777777778880333000330F
+            FF77777777777777777777777777777777777777777777777777777777777777
+            77777777778880333000330FFF77777777777777777777777777777777777777
+            77777777777777777777777777777777778880333000330FFF77777777777777
+            7777777777777777777777777777777777777777777777777777777777888033
+            3000330FFF777777777777777777777777777777777777777777777777777777
+            7777777777777777778880333000330FFF777777777777777777777777777777
+            7777777777777777777777777777777777777777778880333000330FFF777777
+            7777777777777777777777777777777777777777777777777777777777777777
+            778880333000330FFFF777777777777777777777777777777777777777777777
+            777777777777777777777777788880333000330FFFF777777777777777777777
+            7777777777777777777777777777777777777777777777777888803330003330
+            FFF7777777777777777777777777777777777777777777777777777777777777
+            777777777888033330003330FFF7777777777777777777777777777777777777
+            777777777777777777777777777777777888033330003330FFFF777777777777
+            7777777777777777777777777777777777777777777777777777777788880333
+            30003330FFFF7777777777777777777777777777777777777777777777777777
+            777777777777777788880333300033330FFF7777777777777777777777777777
+            777777777777777777777777777777777777777788803333300033330FFFF777
+            7777777777777777777777777777777777777777777777777777777777777778
+            88803333300033330FFFF7777777777777777777777777777777777777777777
+            777777777777777777777778888033333000333330FFFF777777777777777777
+            7777777777777777777777777777777777777777777777888803333330003333
+            30FFFF7777777777777777777777777777777777777777777777777777777777
+            77777788880333333000333330FFFFF777777777777777777777777777777777
+            777777777777777777777777777778888803333330003333330FFFF777777777
+            7777777777777777777777777777777777777777777777777777788880333333
+            30003333330FFFFF777777777777777777777777777777777777777777777777
+            777777777777888880333333300033333330FFFFF77777777777777777777777
+            7777777777777777777777777777777777788888033333333000333333330FFF
+            F777777777777777777777777777777777777777777777777777777777788880
+            333333333000333333330FFFFF77777777777777777777777777777777777777
+            7777777777777777778888803333333330003333333330FFFFF7777777777777
+            7777777777777777777777777777777777777777788888033333333330003333
+            3333330FFFFF7777777777777777777777777777777777777777777777777777
+            8888803333333333300033333333330FFFFFF777777777777777777777777777
+            77777777777777777777777788888033333333333000333333333330FFFFFF77
+            7777777777777777777777777777777777777777777777FF8888033333333333
+            30003333333333330FFFFFF77777777777777777777777777777777777777777
+            77777FFF8880333333333333300033333333333330FFFFFF7777777777777777
+            7777777777777777777777777777FFFFFF033333333333333000333333333333
+            330FFFFFF777777777777777777777777777777777777777777FFFFFF0333333
+            3333333330003333333333333330FFFFFFF77777777777777777777777777777
+            777777777FFFFFFF0333333333333333300033333333333333330FFFFFFF7777
+            77777777777777777777777777777777FFFFFFF0333333333333333330003333
+            333333333333300FFFFFFF77777777777777777777777777777777FFFFFFF003
+            3333333333333333300033333333333333333330FFFFFFFF7777777777777777
+            777777777777FFFFFFFF03333333333333333333300033333333333333333333
+            00FFFFFFFF777777777777777777777777FFFFFFFF0033333333333333333333
+            300033333333333333333333330FFFFFFFFFF777777777777777777FFFFFFFFF
+            F0333333333333333333333330003333333333333333333333300FFFFFFFFFFF
+            F7777777777FFFFFFFFFFFF00333333333333333333333333000333333333333
+            3333333333333000FFFFFFFFFFFFFFFFFFFFFFFFFFFF00033333333333333333
+            3333333330003333333333333333333333333333000FFFFFFFFFFFFFFFFFFFFF
+            F000333333333333333333333333333330003333333333333333333333333333
+            3330000FFFFFFFFFFFFFF0000333333333333333333333333333333330003333
+            3333333333333333333333333333333000000000000003333333333333333333
+            3333333333333333300033333333333333333333333333333333333333333333
+            33333333333333333333333333333333333333333000}
+          HandleImage.Data = {
+            BE000000424DBE00000000000000760000002800000009000000090000000100
+            0400000000004800000000000000000000001000000000000000000000000000
+            80000080000000808000800000008000800080800000C0C0C000808080000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333000
+            0000333000333000000033099903300000003099999030000000309999903000
+            0000307999903000000033077903300000003330003330000000333333333000
+            0000}
+          Radius = 45
+          OnChange = whHeadingChange
+          OnMouseUp = whHeadingMouseUp
+        end
+        object lblStraightLineActualHeading: TLabel
+          Left = 165
+          Top = 130
+          Width = 15
+          Height = 16
+          Caption = '---'
+        end
+        object Label128: TLabel
+          Left = 250
+          Top = 150
+          Width = 58
+          Height = 16
+          Caption = 'degrees T'
+        end
+        object lblStraightLineActualGroundSpeed: TLabel
+          Left = 165
+          Top = 190
+          Width = 15
+          Height = 16
+          Caption = '---'
+        end
+        object Label126: TLabel
+          Left = 250
+          Top = 130
+          Width = 58
+          Height = 16
+          Caption = 'degrees T'
+        end
+        object Label125: TLabel
+          Left = 250
+          Top = 190
+          Width = 30
+          Height = 16
+          Caption = 'knots'
+        end
+        object Label124: TLabel
+          Left = 250
+          Top = 170
+          Width = 30
+          Height = 16
+          Caption = 'knots'
+        end
+        object Label123: TLabel
+          Left = 10
+          Top = 170
+          Width = 132
+          Height = 16
+          Caption = 'Ordered Ground Speed'
+        end
+        object Label122: TLabel
+          Left = 250
+          Top = 110
+          Width = 58
+          Height = 16
+          Caption = 'degrees T'
+        end
+        object Label121: TLabel
+          Left = 10
+          Top = 130
+          Width = 85
+          Height = 16
+          Caption = 'Actual Heading'
+        end
+        object lblStraightLineActuaCourse: TLabel
+          Left = 165
+          Top = 150
+          Width = 15
+          Height = 16
+          Caption = '---'
+        end
+        object Label119: TLabel
+          Left = 10
+          Top = 110
+          Width = 97
+          Height = 16
+          Caption = 'Ordered Heading'
+        end
+        object edtStraightLineOrderedGroundSpeed: TEdit
+          Tag = 1
+          Left = 165
+          Top = 170
+          Width = 55
+          Height = 19
+          BevelInner = bvNone
+          BevelOuter = bvNone
+          BorderStyle = bsNone
+          Color = clWhite
+          Ctl3D = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxLength = 9
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 0
+          Text = '0'
+          OnKeyPress = edtStraightLineOrderedGroundSpeedKeyPress
+        end
+        object edtStraightLineOrderedHeading: TEdit
+          Left = 165
+          Top = 110
+          Width = 55
+          Height = 19
+          BevelInner = bvNone
+          BevelOuter = bvNone
+          BorderStyle = bsNone
+          Color = clWhite
+          Ctl3D = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxLength = 5
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 1
+          Text = '0'
+          OnKeyPress = edtStraightLineOrderedHeadingKeyPress
+        end
+        object StaticText87: TStaticText
+          Left = 150
+          Top = 170
+          Width = 9
+          Height = 20
+          Caption = ':'
+          TabOrder = 2
+          Transparent = False
+        end
+        object StaticText86: TStaticText
+          Left = 150
+          Top = 190
+          Width = 9
+          Height = 20
+          Caption = ':'
+          TabOrder = 3
+          Transparent = False
+        end
+        object StaticText85: TStaticText
+          Left = 150
+          Top = 150
+          Width = 9
+          Height = 20
+          Caption = ':'
+          TabOrder = 4
+          Transparent = False
+        end
+        object StaticText84: TStaticText
+          Left = 150
+          Top = 130
+          Width = 9
+          Height = 20
+          Caption = ':'
+          TabOrder = 5
+          Transparent = False
+        end
+        object StaticText83: TStaticText
+          Left = 150
+          Top = 110
+          Width = 9
+          Height = 20
+          Caption = ':'
+          TabOrder = 6
+          Transparent = False
+        end
+        object StaticText82: TStaticText
+          Left = 10
+          Top = 190
+          Width = 124
+          Height = 20
+          Caption = 'Actual Ground Speed'
+          TabOrder = 7
+          Transparent = False
+        end
+        object StaticText81: TStaticText
+          Left = 10
+          Top = 150
+          Width = 83
+          Height = 20
+          Caption = 'Actual Course'
+          TabOrder = 8
+          Transparent = False
+        end
+        object panDepth: TPanel
+          Left = 0
+          Top = 210
+          Width = 319
+          Height = 58
+          BevelOuter = bvNone
+          ParentColor = True
+          TabOrder = 10
+          Visible = False
+          object lbl1: TLabel
+            Left = 10
+            Top = 2
+            Width = 84
+            Height = 16
+            Caption = 'Ordered Depth'
+          end
+          object lbl2: TLabel
+            Left = 165
+            Top = 22
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object lbl3: TLabel
+            Left = 250
+            Top = 2
+            Width = 11
+            Height = 16
+            Caption = 'm'
+          end
+          object lbl4: TLabel
+            Left = 250
+            Top = 22
+            Width = 11
+            Height = 16
+            Caption = 'm'
+          end
+          object txt1: TStaticText
+            Left = 10
+            Top = 22
+            Width = 76
+            Height = 20
+            Caption = 'Actual Depth'
+            TabOrder = 0
+            Transparent = False
+          end
+          object txt2: TStaticText
+            Left = 150
+            Top = 2
+            Width = 9
+            Height = 20
+            Caption = ':'
+            TabOrder = 1
+            Transparent = False
+          end
+          object txt3: TStaticText
+            Left = 150
+            Top = 22
+            Width = 9
+            Height = 20
+            Caption = ':'
+            TabOrder = 2
+            Transparent = False
+          end
+          object edt1: TEdit
+            Tag = 2
+            Left = 165
+            Top = 0
+            Width = 55
+            Height = 22
+            BevelInner = bvNone
+            BevelOuter = bvNone
+            Ctl3D = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 9
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+            OnKeyPress = edOrderAltitudeKeyPress
+          end
+        end
+        object panAltitude: TPanel
+          Left = 0
+          Top = 210
+          Width = 319
+          Height = 58
+          BevelOuter = bvNone
+          ParentColor = True
+          TabOrder = 9
+          Visible = False
+          object Label57: TLabel
+            Left = 10
+            Top = 2
+            Width = 94
+            Height = 16
+            Caption = 'Ordered Altitude'
+          end
+          object lblActualAltitude: TLabel
+            Left = 165
+            Top = 22
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object Label63: TLabel
+            Left = 250
+            Top = 2
+            Width = 22
+            Height = 16
+            Caption = 'feet'
+          end
+          object Label65: TLabel
+            Left = 250
+            Top = 22
+            Width = 22
+            Height = 16
+            Caption = 'feet'
+          end
+          object StaticText105: TStaticText
+            Left = 10
+            Top = 22
+            Width = 86
+            Height = 20
+            Caption = 'Actual Altitude'
+            TabOrder = 0
+            Transparent = False
+          end
+          object StaticText107: TStaticText
+            Left = 150
+            Top = 2
+            Width = 9
+            Height = 20
+            Caption = ':'
+            TabOrder = 1
+            Transparent = False
+          end
+          object StaticText111: TStaticText
+            Left = 150
+            Top = 22
+            Width = 9
+            Height = 20
+            Caption = ':'
+            TabOrder = 2
+            Transparent = False
+          end
+          object edOrderAltitude: TEdit
+            Tag = 1
+            Left = 165
+            Top = 0
+            Width = 55
+            Height = 22
+            BevelInner = bvNone
+            BevelOuter = bvNone
+            Ctl3D = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 9
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+            OnKeyPress = edOrderAltitudeKeyPress
+          end
+        end
       end
     end
   end

@@ -45,6 +45,7 @@ object frmEMCON: TfrmEMCON
         Font.Color = clBlack
         Font.Height = -11
         ParentFont = False
+        ExplicitTop = 0
         ExplicitWidth = 338
       end
     end
@@ -65,10 +66,8 @@ object frmEMCON: TfrmEMCON
         inherited ScrollBox2: TScrollBox
           Width = 338
           Height = 366
-          Color = 2695445
           Font.Color = clWhite
           Font.Height = -11
-          ParentColor = False
           ParentFont = False
           ExplicitWidth = 338
           ExplicitHeight = 366

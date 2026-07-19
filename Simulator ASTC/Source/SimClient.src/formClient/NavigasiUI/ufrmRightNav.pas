@@ -15,9 +15,6 @@ type
     imgMainBackgorund: TImage;
     Image2: TImage;
     Label10: TLabel;
-    PanelGuidanceControlChoices: TPanel;
-    SpeedButton2: TSpeedButton;
-    edGuidance: TEdit;
     gbWaypoint: TGroupBox;
     whHeading: TVrWheel;
     Label119: TLabel;

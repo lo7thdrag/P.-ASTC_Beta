@@ -29,14 +29,14 @@ object frmRightNav: TfrmRightNav
       Left = 4
       Top = 0
       Width = 332
-      Height = 340
+      Height = 307
       BevelOuter = bvNone
       TabOrder = 0
       object imgMainBackgorund: TImage
         Left = 0
         Top = 0
         Width = 332
-        Height = 340
+        Height = 307
         Align = alClient
         Picture.Data = {
           07544269746D61702E0F0D00424D2E0F0D00000000003600000028000000DD02
@@ -26984,76 +26984,18 @@ object frmRightNav: TfrmRightNav
         Font.Style = []
         ParentFont = False
       end
-      object PanelGuidanceControlChoices: TPanel
+      object gbWaypoint: TGroupBox
         Left = 10
         Top = 51
         Width = 312
-        Height = 41
-        Color = 2695445
-        ParentBackground = False
-        TabOrder = 0
-        object SpeedButton2: TSpeedButton
-          Tag = 1
-          Left = 272
-          Top = 6
-          Width = 32
-          Height = 30
-          Glyph.Data = {
-            36030000424D3603000000000000360000002800000010000000100000000100
-            18000000000000030000120B0000120B0000000000000000000026221D26221D
-            26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
-            1D26221D26221D26221D26221D26221D26221D26221D26221D201C1626221C27
-            231D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
-            26221D25211C29252025211D16110B28241F26221E26221D26221D26221D2622
-            1D26221D26221D26221D26221D26221D26221D25211C16110B7676744E4C4906
-            010029262026221E26221D26221D26221D26221D26221D26221D26221D26221D
-            26221D26221D0C07017A7977C8CACC35312E07020029262026221E26221D2622
-            1D26221D26221D26221D26221D26221D26221D26221D100B05666462C0C2C3B3
-            B3B435322E07020029252026221E26221D26221D26221D26221D26221D26221D
-            26221D26221D100B056B6A67ADADADAAAAABB3B4B534312E0904002A26212622
-            1D26221D26221D26221D26221D26221D26221D26221D100B056B6A67B1B2B296
-            9696A7A7A7BABBBC4C4A4614100A26221D26221D26221D26221D26221D26221D
-            26221D26221D100B056A6A68B0B2B2969696A7A8A8B8B9BA4B484515100B2622
-            1D26221D26221D26221D26221D26221D26221D26221D100C056B6A68ACADAEAB
-            ABABB2B2B3322F2B0904002A262126221D26221D26221D26221D26221D26221D
-            26221D26221D100C06676664C1C2C3B1B1B3332F2C0702002A262126221D2622
-            1D26221D26221D26221D26221D26221D26221D26221D0C07027C7B7AC7C9CA32
-            2F2B0702002A262126221D26221D26221D26221D26221D26221D26221D26221D
-            26221D25211C16110C7877754C49460602002A262126221D26221D26221D2622
-            1D26221D26221D26221D26221D26221D26221D25211C29252025211C16110C29
-            252026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
-            26221D26221D26221D201C1626221D26221D26221D26221D26221D26221D2622
-            1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
-            221D26221D26221D26221D26221D26221D26221D26221D26221D}
-        end
-        object edGuidance: TEdit
-          Left = 9
-          Top = 9
-          Width = 255
-          Height = 24
-          Enabled = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-          Text = 'Straight Line'
-        end
-      end
-      object gbWaypoint: TGroupBox
-        Left = 10
-        Top = 98
-        Width = 312
-        Height = 231
+        Height = 246
         Color = 2695445
         ParentBackground = False
         ParentColor = False
-        TabOrder = 1
+        TabOrder = 0
         object whHeading: TVrWheel
           Left = 114
-          Top = 19
+          Top = 23
           Width = 85
           Height = 85
           MaxValue = 360
@@ -27192,7 +27134,7 @@ object frmRightNav: TfrmRightNav
         end
         object Label119: TLabel
           Left = 10
-          Top = 115
+          Top = 126
           Width = 82
           Height = 13
           Caption = 'Ordered Heading'
@@ -27205,7 +27147,7 @@ object frmRightNav: TfrmRightNav
         end
         object Label121: TLabel
           Left = 10
-          Top = 135
+          Top = 145
           Width = 72
           Height = 13
           Caption = 'Actual Heading'
@@ -27218,7 +27160,7 @@ object frmRightNav: TfrmRightNav
         end
         object Label123: TLabel
           Left = 10
-          Top = 175
+          Top = 185
           Width = 111
           Height = 13
           Caption = 'Ordered Ground Speed'
@@ -27231,7 +27173,7 @@ object frmRightNav: TfrmRightNav
         end
         object lblStraightLineActualGroundSpeed: TLabel
           Left = 165
-          Top = 195
+          Top = 205
           Width = 12
           Height = 13
           Caption = '---'
@@ -27244,7 +27186,7 @@ object frmRightNav: TfrmRightNav
         end
         object lblStraightLineActuaCourse: TLabel
           Left = 165
-          Top = 155
+          Top = 165
           Width = 12
           Height = 13
           Caption = '---'
@@ -27257,7 +27199,7 @@ object frmRightNav: TfrmRightNav
         end
         object lblStraightLineActualHeading: TLabel
           Left = 165
-          Top = 135
+          Top = 145
           Width = 12
           Height = 13
           Caption = '---'
@@ -27270,7 +27212,7 @@ object frmRightNav: TfrmRightNav
         end
         object Label125: TLabel
           Left = 250
-          Top = 198
+          Top = 208
           Width = 26
           Height = 13
           Caption = 'knots'
@@ -27283,7 +27225,7 @@ object frmRightNav: TfrmRightNav
         end
         object Label124: TLabel
           Left = 250
-          Top = 177
+          Top = 187
           Width = 26
           Height = 13
           Caption = 'knots'
@@ -27296,7 +27238,7 @@ object frmRightNav: TfrmRightNav
         end
         object Label128: TLabel
           Left = 250
-          Top = 157
+          Top = 167
           Width = 48
           Height = 13
           Caption = 'degrees T'
@@ -27309,7 +27251,7 @@ object frmRightNav: TfrmRightNav
         end
         object Label126: TLabel
           Left = 250
-          Top = 135
+          Top = 145
           Width = 48
           Height = 13
           Caption = 'degrees T'
@@ -27322,7 +27264,7 @@ object frmRightNav: TfrmRightNav
         end
         object Label122: TLabel
           Left = 250
-          Top = 113
+          Top = 123
           Width = 48
           Height = 13
           Caption = 'degrees T'
@@ -27335,7 +27277,7 @@ object frmRightNav: TfrmRightNav
         end
         object StaticText81: TStaticText
           Left = 10
-          Top = 155
+          Top = 165
           Width = 71
           Height = 17
           Caption = 'Actual Course'
@@ -27350,7 +27292,7 @@ object frmRightNav: TfrmRightNav
         end
         object StaticText82: TStaticText
           Left = 10
-          Top = 195
+          Top = 205
           Width = 105
           Height = 17
           Caption = 'Actual Ground Speed'
@@ -27366,7 +27308,7 @@ object frmRightNav: TfrmRightNav
         object edtStraightLineOrderedGroundSpeed: TEdit
           Tag = 1
           Left = 165
-          Top = 175
+          Top = 185
           Width = 55
           Height = 19
           BevelInner = bvNone
@@ -27387,7 +27329,7 @@ object frmRightNav: TfrmRightNav
         end
         object edtStraightLineOrderedHeading: TEdit
           Left = 165
-          Top = 115
+          Top = 125
           Width = 55
           Height = 19
           BevelInner = bvNone
@@ -27408,7 +27350,7 @@ object frmRightNav: TfrmRightNav
         end
         object StaticText83: TStaticText
           Left = 150
-          Top = 115
+          Top = 125
           Width = 8
           Height = 17
           Caption = ':'
@@ -27423,7 +27365,7 @@ object frmRightNav: TfrmRightNav
         end
         object StaticText84: TStaticText
           Left = 150
-          Top = 135
+          Top = 145
           Width = 8
           Height = 17
           Caption = ':'
@@ -27438,7 +27380,7 @@ object frmRightNav: TfrmRightNav
         end
         object StaticText85: TStaticText
           Left = 150
-          Top = 150
+          Top = 160
           Width = 8
           Height = 17
           Caption = ':'
@@ -27453,7 +27395,7 @@ object frmRightNav: TfrmRightNav
         end
         object StaticText87: TStaticText
           Left = 150
-          Top = 175
+          Top = 185
           Width = 8
           Height = 17
           Caption = ':'
@@ -27468,7 +27410,7 @@ object frmRightNav: TfrmRightNav
         end
         object StaticText86: TStaticText
           Left = 150
-          Top = 195
+          Top = 205
           Width = 8
           Height = 17
           Caption = ':'
@@ -27485,7 +27427,7 @@ object frmRightNav: TfrmRightNav
     end
     object pnlHookContactInfoTraineeDisplay: TPanel
       Left = 4
-      Top = 346
+      Top = 315
       Width = 331
       Height = 265
       BevelOuter = bvNone

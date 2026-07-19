@@ -1233,15 +1233,15 @@ type
     pnlWeaponsStatus: TPanel;
     Image4: TImage;
     Label82: TLabel;
-    TreeView2: TTreeView;
+    lvWeaponNav: TTreeView;
     pnlCountermeasures: TPanel;
     Image3: TImage;
     Label83: TLabel;
-    TreeView3: TTreeView;
+    lvCountermeasuresNav: TTreeView;
     pnSensorsStatusBG: TPanel;
     Image5: TImage;
     Label84: TLabel;
-    ListView2: TListView;
+    lvSensorNav: TListView;
     pnlSystemState: TPanel;
     Image2: TImage;
     Label85: TLabel;
@@ -1291,7 +1291,7 @@ type
     Panel118: TPanel;
     Image7: TImage;
     Label90: TLabel;
-    ListView7: TListView;
+    lvPlatformNav: TListView;
 
 
     // pnlRightUp: TPanel;
@@ -1594,6 +1594,10 @@ type
     procedure SidebarButtonClick(Sender: TObject);
     procedure btnDetailLogisticClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnSensorsClick(Sender: TObject);
+    procedure btnWeaponsClick(Sender: TObject);
+    procedure btnCountermeasuresClick(Sender: TObject);
+    procedure btnPlatformClick(Sender: TObject);
 
     {$ENDREGION}
 
@@ -2348,6 +2352,11 @@ begin
   lvEventSummary.Columns[3].Width := 500;
 end;
 
+procedure TfrmToteDisplay.btnPlatformClick(Sender: TObject);
+begin
+  lvPlatformNav.Items.Assign(lvPlatforms.Items);
+end;
+
 procedure TfrmToteDisplay.btnPlatformRemovalClick(sender: TObject);
 begin
   gbPlatformRemovalSummary.BringToFront;
@@ -2410,6 +2419,11 @@ begin
    gbCommunicationsChannelMapping.BringToFront;
   tmrEnviDisplay.Enabled := False;
   //gbCommunicationsChannelDefinition.BringToFront;
+end;
+
+procedure TfrmToteDisplay.btnCountermeasuresClick(Sender: TObject);
+begin
+  lvCountermeasuresNav.Items.Assign(tvCountermeasures.Items);
 end;
 
 procedure TfrmToteDisplay.btnCommInterfeceneClick(sender: TObject);
@@ -2567,6 +2581,11 @@ begin
     lvSensorOverride.ItemIndex := 0
   else
     lvSensorOverride.ItemIndex := -1;
+end;
+
+procedure TfrmToteDisplay.btnSensorsClick(Sender: TObject);
+begin
+  lvSensorNav.Items.Assign(lvPlatforms.Items);
 end;
 
 procedure TfrmToteDisplay.Label156Click(sender: TObject);
@@ -3807,6 +3826,11 @@ begin
   lvWeaponEngagement.Columns[4].Width := 200;
 end;
 
+procedure TfrmToteDisplay.btnWeaponsClick(Sender: TObject);
+begin
+  lvWeaponNav.Items.Assign(tvWeapons.Items);
+end;
+
 procedure TfrmToteDisplay.btSetTimeApplyClick(sender: TObject);
 begin
   if tvSettings.Selected = nil then
@@ -4906,7 +4930,6 @@ begin
   LandingPlatformID := 160;
   LandingPlatformName := 'LCU';
   LastButton := 1;
-
 
 end;
 

@@ -1369,7 +1369,7 @@ uses
   uBrowseMap, uRuler, uObjectVisuals, uDrawStrategi, uMainPlottingShape, uSaveAsPlotting, newClassASTT,
   uDBAsset_Deploy, uDBAsset_Cubicle, uSaveAsOverlay,
 
-  ufrmBottomNav, ufrmLeftNav, ufrmRightNav, ufrmTopNav;
+  ufrmBottomNav, ufrmLeftNav, ufrmRightNav, ufrmTopNav, ufrmRullerNav;
 
 {$R *.dfm}
 
@@ -7306,7 +7306,6 @@ begin
       frmRuler.StartPosX := frmRuler.STempX;
       frmRuler.StartPosY := frmRuler.STempY;
     end;
-
     frmRuler.FillEditText;
 
     Map1.Repaint;
@@ -8965,6 +8964,9 @@ begin
 
       if Assigned(det.MergedESM) then
       begin
+        {Navigasi}
+        frmTopNav.lblTrackID.Caption:= (det.MergedESM.TrackNumber);
+
         lbTrackHook.Caption:= (det.MergedESM.TrackNumber);
         lbNameHook.Caption := TT3PlatformInstance(det.MergedESM.TrackObject).InstanceName;
         lbClassHook.Caption:= TT3Radar(det.MergedESM.TrackObject).
@@ -8983,6 +8985,12 @@ begin
     else if Sender is TT3ESMTrack then
     begin
       esm := TT3ESMTrack(Sender);
+
+      {NAVIGASI}
+      if esm.DetailedDetectionShowedESM.Track_ID then
+        frmTopNav.lblTrackID.Caption      := esm.TrackNumber
+      else
+        frmTopNav.lblTrackID.Caption      := 'Unknown';
 
       if esm.DetailedDetectionShowedESM.Track_ID then
         lbTrackHook.Caption      := esm.TrackNumber
@@ -9121,6 +9129,11 @@ begin
         else
           lbAltitude.Caption    := '---';
 //      end;
+      {Navigasi}
+      if det.DetailedDetectionShowed.Track_ID then
+        frmTopNav.lblTrackID.Caption := FormatTrackNumber(det.trackNumber)
+      else
+        frmTopNav.lblTrackID.Caption   := 'Unknown';
 
       if det.DetailedDetectionShowed.Track_ID then
         lbTrackHook.Caption := FormatTrackNumber(det.trackNumber)
@@ -9143,6 +9156,12 @@ begin
   begin
     if Assigned(v) then
     begin
+      {Navigasi}
+      if v is TT3NonRealVehicle then
+        frmTopNav.lblTrackID.Caption := IntToStr(v.TrackNumber)
+      else
+        frmTopNav.lblTrackID.Caption := v.Track_ID;
+
       if v is TT3NonRealVehicle then
         lbTrackHook.Caption := IntToStr(v.TrackNumber)
       else
@@ -9308,7 +9327,6 @@ begin
         lbDoppler.Caption := '[None]';
         lbTrackType.Caption := 'Real Time Bearing Track';
         {Navigasi}
-        frmTopNav.lblTrackID.Caption := (det.MergedESM.TrackNumber);
 
         if TT3ESMTrack(Sender).IsMerged then
           lbMergeStatus.Caption := 'Merged'

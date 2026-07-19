@@ -4,8 +4,8 @@ object frmRuler: TfrmRuler
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'Ruler'
-  ClientHeight = 248
-  ClientWidth = 279
+  ClientHeight = 231
+  ClientWidth = 256
   Color = 5980694
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,11 +21,14 @@ object frmRuler: TfrmRuler
   PixelsPerInch = 96
   TextHeight = 13
   object grpLine: TGroupBox
-    Left = 12
-    Top = 9
+    Left = 0
+    Top = 0
     Width = 256
     Height = 231
+    Align = alClient
     TabOrder = 0
+    ExplicitLeft = 12
+    ExplicitTop = 9
     object btn1: TSpeedButton
       Tag = 1
       Left = 201
@@ -663,9 +666,9 @@ object frmRuler: TfrmRuler
     object lblDistance: TLabel
       Left = 14
       Top = 12
-      Width = 46
+      Width = 54
       Height = 14
-      Caption = 'Range : '
+      Caption = 'Range   : '
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -12
@@ -812,9 +815,9 @@ object frmRuler: TfrmRuler
     end
     object cbbFormat: TComboBox
       Left = 146
-      Top = 19
+      Top = 12
       Width = 100
-      Height = 30
+      Height = 23
       Style = csOwnerDrawFixed
       DropDownCount = 10
       Font.Charset = DEFAULT_CHARSET
@@ -822,7 +825,7 @@ object frmRuler: TfrmRuler
       Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = []
-      ItemHeight = 24
+      ItemHeight = 17
       ItemIndex = 0
       ParentFont = False
       TabOrder = 4

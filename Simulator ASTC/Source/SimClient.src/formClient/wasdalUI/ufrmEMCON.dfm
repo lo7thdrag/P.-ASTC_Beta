@@ -24,9 +24,9 @@ object frmEMCON: TfrmEMCON
     Width = 340
     Height = 465
     Align = alClient
-    Color = 4012087
+    Color = 2695445
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clWhite
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -38,10 +38,12 @@ object frmEMCON: TfrmEMCON
     ExplicitHeight = 465
     inherited PanelEmconChoices: TPanel
       Width = 340
+      Color = 2695445
       ExplicitWidth = 340
       inherited LvEmcon: TListView
         Width = 338
         Font.Color = clBlack
+        Font.Height = -11
         ParentFont = False
         ExplicitWidth = 338
       end
@@ -49,19 +51,23 @@ object frmEMCON: TfrmEMCON
     inherited PaneALL: TPanel
       Width = 340
       Height = 368
+      Color = 2695445
       ExplicitWidth = 340
       ExplicitHeight = 368
       inherited PanelEmcon: TPanel
         Width = 340
         Height = 368
         Font.Color = clBlack
+        Font.Height = -11
         ParentFont = False
         ExplicitWidth = 340
         ExplicitHeight = 368
         inherited ScrollBox2: TScrollBox
           Width = 338
           Height = 366
+          Color = 2695445
           Font.Color = clWhite
+          Font.Height = -11
           ParentColor = False
           ParentFont = False
           ExplicitWidth = 338
@@ -80,14 +86,20 @@ object frmEMCON: TfrmEMCON
           end
           inherited Label562: TLabel
             Top = 276
-            Font.Color = clBlack
+            Width = 54
+            Height = 13
+            Font.Color = clWhite
+            Font.Height = -11
             ParentFont = False
             ExplicitTop = 276
+            ExplicitWidth = 54
+            ExplicitHeight = 13
           end
           inherited sbEmconAllSystemsAllSilent: TSpeedButton
             Top = 297
             Height = 30
             Font.Color = clBlack
+            Font.Height = -11
             ParentFont = False
             ExplicitTop = 297
             ExplicitHeight = 30
@@ -96,6 +108,7 @@ object frmEMCON: TfrmEMCON
             Top = 326
             Height = 30
             Font.Color = clBlack
+            Font.Height = -11
             ParentFont = False
             ExplicitTop = 326
             ExplicitHeight = 30
@@ -105,6 +118,7 @@ object frmEMCON: TfrmEMCON
             Top = 21
             Height = 30
             Font.Color = clBlack
+            Font.Height = -11
             ParentFont = False
             ExplicitLeft = 188
             ExplicitTop = 21
@@ -113,18 +127,21 @@ object frmEMCON: TfrmEMCON
           inherited cbEmconAcousticDecoys: TCheckBox
             Top = 254
             Font.Color = clBtnFace
+            Font.Height = -11
             ParentFont = False
             ExplicitTop = 254
           end
           inherited cbEmconActiveSonar: TCheckBox
             Top = 233
             Font.Color = clBtnFace
+            Font.Height = -11
             ParentFont = False
             ExplicitTop = 233
           end
           inherited cbEmconFireControl: TCheckBox
             Top = 51
             Font.Color = clBtnFace
+            Font.Height = -11
             ParentFont = False
             ExplicitTop = 51
           end
@@ -139,6 +156,7 @@ object frmEMCON: TfrmEMCON
           inherited cbEmconIFF: TCheckBox
             Top = 71
             Font.Color = clBtnFace
+            Font.Height = -11
             ParentFont = False
             ExplicitTop = 71
           end
@@ -154,6 +172,7 @@ object frmEMCON: TfrmEMCON
             Top = 31
             Width = 156
             Font.Color = clBtnFace
+            Font.Height = -11
             ParentFont = False
             ExplicitTop = 31
             ExplicitWidth = 156
@@ -162,6 +181,7 @@ object frmEMCON: TfrmEMCON
             Top = 213
             Height = 19
             Font.Color = clBtnFace
+            Font.Height = -11
             ParentFont = False
             ExplicitTop = 213
             ExplicitHeight = 19
@@ -173,23 +193,34 @@ object frmEMCON: TfrmEMCON
           inherited cbEmconVHFUHFDatalink: TCheckBox
             Top = 193
             Font.Color = clBtnFace
+            Font.Height = -11
             ParentFont = False
             ExplicitTop = 193
           end
           inherited cbxEmcon: TComboBox
+            Height = 21
             Font.Color = clBlack
+            Font.Height = -11
             ParentFont = False
+            ExplicitHeight = 21
           end
           inherited pnlGroupAirbone: TPanel
             Top = 257
             Height = 100
+            Color = 2695445
+            ParentBackground = False
             ExplicitTop = 257
             ExplicitHeight = 100
             inherited Label87: TLabel
               Top = 19
+              Width = 101
+              Height = 13
               Font.Color = clBlack
+              Font.Height = -11
               ParentFont = False
               ExplicitTop = 19
+              ExplicitWidth = 101
+              ExplicitHeight = 13
             end
             inherited Bevel22: TBevel
               Left = 134
@@ -206,6 +237,7 @@ object frmEMCON: TfrmEMCON
               Top = 69
               Height = 30
               Font.Color = clWhite
+              Font.Height = -11
               ParentFont = False
               ExplicitLeft = 44
               ExplicitTop = 69
@@ -215,6 +247,7 @@ object frmEMCON: TfrmEMCON
               Left = 44
               Height = 30
               Font.Color = clWhite
+              Font.Height = -11
               ParentFont = False
               ExplicitLeft = 44
               ExplicitHeight = 30

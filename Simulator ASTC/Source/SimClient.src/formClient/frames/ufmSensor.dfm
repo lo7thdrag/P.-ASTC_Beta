@@ -1219,246 +1219,6 @@ inherited fmSensor: TfmSensor
           end
         end
       end
-      object grbSonobuoyControl: TGroupBox
-        Left = 3
-        Top = 3
-        Width = 317
-        Height = 316
-        Align = alClient
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 5
-        object ScrollBox7: TScrollBox
-          Left = 2
-          Top = 18
-          Width = 313
-          Height = 296
-          Align = alClient
-          BevelInner = bvNone
-          BevelOuter = bvNone
-          BorderStyle = bsNone
-          TabOrder = 0
-          object Bevel10: TBevel
-            Left = 55
-            Top = 10
-            Width = 255
-            Height = 3
-          end
-          object Bevel11: TBevel
-            Left = 55
-            Top = 62
-            Width = 255
-            Height = 3
-          end
-          object Bevel12: TBevel
-            Left = 55
-            Top = 178
-            Width = 255
-            Height = 3
-          end
-          object btnSonobuoyControlCombo: TSpeedButton
-            Left = 280
-            Top = 82
-            Width = 26
-            Height = 26
-            Glyph.Data = {
-              D6050000424DD605000000000000360000002800000017000000140000000100
-              180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-              000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-              0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-            OnClick = btnSonobuoyControlComboClick
-          end
-          object Label17: TLabel
-            Left = 5
-            Top = 3
-            Width = 36
-            Height = 16
-            Caption = 'Status'
-          end
-          object Label18: TLabel
-            Left = 5
-            Top = 55
-            Width = 41
-            Height = 16
-            Caption = 'Control'
-          end
-          object Label19: TLabel
-            Left = 35
-            Top = 85
-            Width = 40
-            Height = 16
-            Caption = 'Mode :'
-          end
-          object Label20: TLabel
-            Left = 107
-            Top = 30
-            Width = 56
-            Height = 16
-            Caption = 'Quantity :'
-          end
-          object Label21: TLabel
-            Left = 35
-            Top = 115
-            Width = 42
-            Height = 16
-            Caption = 'Depth :'
-          end
-          object Label22: TLabel
-            Left = 165
-            Top = 115
-            Width = 40
-            Height = 16
-            Caption = 'metres'
-          end
-          object Label23: TLabel
-            Left = 5
-            Top = 170
-            Width = 43
-            Height = 16
-            Caption = 'Monitor'
-          end
-          object Label24: TLabel
-            Left = 25
-            Top = 200
-            Width = 160
-            Height = 16
-            Caption = 'Platform Monitor Capacity  :'
-          end
-          object Label25: TLabel
-            Left = 25
-            Top = 230
-            Width = 161
-            Height = 16
-            Caption = 'Currently Monitoring          :'
-          end
-          object Label26: TLabel
-            Left = 230
-            Top = 200
-            Width = 63
-            Height = 16
-            Caption = 'sonobuy(s)'
-          end
-          object Label27: TLabel
-            Left = 230
-            Top = 230
-            Width = 63
-            Height = 16
-            Caption = 'sonobuy(s)'
-          end
-          object lblSonobuoyMonitorCurrently: TLabel
-            Left = 205
-            Top = 230
-            Width = 7
-            Height = 16
-            Caption = '0'
-          end
-          object lblSonobuoyMonitorPlatform: TLabel
-            Left = 205
-            Top = 200
-            Width = 14
-            Height = 16
-            Caption = '50'
-          end
-          object lblStatusSonobuoy: TLabel
-            Left = 35
-            Top = 30
-            Width = 51
-            Height = 16
-            Caption = 'Available'
-          end
-          object lbStatusQuantity: TLabel
-            Left = 170
-            Top = 30
-            Width = 21
-            Height = 16
-            Caption = '100'
-          end
-          object btnSonobuoyControlDeploy: TButton
-            Left = 230
-            Top = 140
-            Width = 75
-            Height = 25
-            Caption = 'Deploy'
-            TabOrder = 0
-            OnClick = btnSonobuoyControlDeployClick
-          end
-          object editControlDepth: TEdit
-            Left = 85
-            Top = 112
-            Width = 73
-            Height = 24
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-            Text = '1'
-          end
-          object editControlMode: TEdit
-            Left = 85
-            Top = 83
-            Width = 194
-            Height = 24
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 2
-            Text = 'Passive'
-          end
-        end
-      end
       object grbVisualDetectorSensor: TGroupBox
         Left = 3
         Top = 3
@@ -2389,6 +2149,246 @@ inherited fmSensor: TfmSensor
             Text = '0000'
             Visible = False
             OnKeyPress = edtInterrogatorOnKeyPress
+          end
+        end
+      end
+      object grbSonobuoyControl: TGroupBox
+        Left = 3
+        Top = 3
+        Width = 317
+        Height = 316
+        Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        object ScrollBox7: TScrollBox
+          Left = 2
+          Top = 18
+          Width = 313
+          Height = 296
+          Align = alClient
+          BevelInner = bvNone
+          BevelOuter = bvNone
+          BorderStyle = bsNone
+          TabOrder = 0
+          object Bevel10: TBevel
+            Left = 55
+            Top = 10
+            Width = 255
+            Height = 3
+          end
+          object Bevel11: TBevel
+            Left = 55
+            Top = 62
+            Width = 255
+            Height = 3
+          end
+          object Bevel12: TBevel
+            Left = 55
+            Top = 178
+            Width = 255
+            Height = 3
+          end
+          object btnSonobuoyControlCombo: TSpeedButton
+            Left = 280
+            Top = 82
+            Width = 26
+            Height = 26
+            Glyph.Data = {
+              D6050000424DD605000000000000360000002800000017000000140000000100
+              180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
+              000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+              0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+              0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+              B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
+            OnClick = btnSonobuoyControlComboClick
+          end
+          object Label17: TLabel
+            Left = 5
+            Top = 3
+            Width = 36
+            Height = 16
+            Caption = 'Status'
+          end
+          object Label18: TLabel
+            Left = 5
+            Top = 55
+            Width = 41
+            Height = 16
+            Caption = 'Control'
+          end
+          object Label19: TLabel
+            Left = 35
+            Top = 85
+            Width = 40
+            Height = 16
+            Caption = 'Mode :'
+          end
+          object Label20: TLabel
+            Left = 107
+            Top = 30
+            Width = 56
+            Height = 16
+            Caption = 'Quantity :'
+          end
+          object Label21: TLabel
+            Left = 35
+            Top = 115
+            Width = 42
+            Height = 16
+            Caption = 'Depth :'
+          end
+          object Label22: TLabel
+            Left = 165
+            Top = 115
+            Width = 40
+            Height = 16
+            Caption = 'metres'
+          end
+          object Label23: TLabel
+            Left = 5
+            Top = 170
+            Width = 43
+            Height = 16
+            Caption = 'Monitor'
+          end
+          object Label24: TLabel
+            Left = 25
+            Top = 200
+            Width = 160
+            Height = 16
+            Caption = 'Platform Monitor Capacity  :'
+          end
+          object Label25: TLabel
+            Left = 25
+            Top = 230
+            Width = 161
+            Height = 16
+            Caption = 'Currently Monitoring          :'
+          end
+          object Label26: TLabel
+            Left = 230
+            Top = 200
+            Width = 63
+            Height = 16
+            Caption = 'sonobuy(s)'
+          end
+          object Label27: TLabel
+            Left = 230
+            Top = 230
+            Width = 63
+            Height = 16
+            Caption = 'sonobuy(s)'
+          end
+          object lblSonobuoyMonitorCurrently: TLabel
+            Left = 205
+            Top = 230
+            Width = 7
+            Height = 16
+            Caption = '0'
+          end
+          object lblSonobuoyMonitorPlatform: TLabel
+            Left = 205
+            Top = 200
+            Width = 14
+            Height = 16
+            Caption = '50'
+          end
+          object lblStatusSonobuoy: TLabel
+            Left = 35
+            Top = 30
+            Width = 51
+            Height = 16
+            Caption = 'Available'
+          end
+          object lbStatusQuantity: TLabel
+            Left = 170
+            Top = 30
+            Width = 21
+            Height = 16
+            Caption = '100'
+          end
+          object btnSonobuoyControlDeploy: TButton
+            Left = 230
+            Top = 140
+            Width = 75
+            Height = 25
+            Caption = 'Deploy'
+            TabOrder = 0
+            OnClick = btnSonobuoyControlDeployClick
+          end
+          object editControlDepth: TEdit
+            Left = 85
+            Top = 112
+            Width = 73
+            Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            Text = '1'
+          end
+          object editControlMode: TEdit
+            Left = 85
+            Top = 83
+            Width = 194
+            Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            Text = 'Passive'
           end
         end
       end

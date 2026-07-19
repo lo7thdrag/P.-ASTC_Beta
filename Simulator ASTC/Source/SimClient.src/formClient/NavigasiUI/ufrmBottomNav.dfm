@@ -13,6 +13,7 @@ object frmBottomNav: TfrmBottomNav
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnlContainerBottom: TPanel
@@ -34,6 +35,21 @@ object frmBottomNav: TfrmBottomNav
     DesignSize = (
       1925
       50)
+    object lblRangeRings: TLabel
+      Left = 587
+      Top = 28
+      Width = 88
+      Height = 21
+      Alignment = taCenter
+      AutoSize = False
+      Caption = '1 : ---'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object ZoomOut: TRzBmpButton
       Left = 468
       Top = 2
@@ -1358,6 +1374,7 @@ object frmBottomNav: TfrmBottomNav
       Layout = blGlyphTop
       Spacing = 1
       TabOrder = 0
+      OnClick = ZoomOutClick
     end
     object btnCenterGame: TRzBmpButton
       Left = 1019
@@ -6661,6 +6678,7 @@ object frmBottomNav: TfrmBottomNav
       Layout = blGlyphTop
       Spacing = 1
       TabOrder = 4
+      OnClick = btnRulerClick
     end
     object btnZoomIn: TRzBmpButton
       Left = 683
@@ -7986,6 +8004,7 @@ object frmBottomNav: TfrmBottomNav
       Layout = blGlyphTop
       Spacing = 1
       TabOrder = 5
+      OnClick = btnZoomInClick
     end
     object btnPan: TRzBmpButton
       Left = 356
@@ -9310,9 +9329,10 @@ object frmBottomNav: TfrmBottomNav
       ButtonSize = bszStretchToButton
       Spacing = 1
       TabOrder = 6
+      OnClick = btnPanClick
     end
     object btnMapTools: TRzBmpButton
-      Left = 1468
+      Left = 1472
       Top = 2
       Width = 110
       Height = 47
@@ -10635,9 +10655,10 @@ object frmBottomNav: TfrmBottomNav
       Layout = blGlyphTop
       Spacing = 1
       TabOrder = 7
+      OnClick = btnMapToolsClick
     end
-    object cbSetScale: TComboBox
-      Left = 580
+    object cbbSetScale: TComboBox
+      Left = 581
       Top = 2
       Width = 100
       Height = 24
@@ -10652,6 +10673,7 @@ object frmBottomNav: TfrmBottomNav
       Font.Style = []
       ParentFont = False
       TabOrder = 8
+      OnChange = cbbSetScaleChange
     end
     object btnZoomIn1: TRzBmpButton
       Left = 795
@@ -11322,6 +11344,7 @@ object frmBottomNav: TfrmBottomNav
       Layout = blGlyphTop
       Spacing = 1
       TabOrder = 9
+      OnClick = btnZoomIn1Click
     end
     object btnRangeRingsonHook: TRzBmpButton
       Left = 1244
@@ -11992,7 +12015,7 @@ object frmBottomNav: TfrmBottomNav
       Layout = blGlyphTop
       Spacing = 1
       TabOrder = 10
-      OnClick = btnFilterRingsClick
+      OnClick = btnRangeRingsonHookClick
     end
   end
 end

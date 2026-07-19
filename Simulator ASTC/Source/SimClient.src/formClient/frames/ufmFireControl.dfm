@@ -15,8 +15,14 @@ inherited fmFireControl: TfmFireControl
     Align = alTop
     BevelOuter = bvNone
     BorderStyle = bsSingle
-    Color = 16775920
+    Color = 2695445
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
     ParentBackground = False
+    ParentFont = False
     TabOrder = 0
     object lstAssetsChoices: TListView
       Left = 0
@@ -52,7 +58,7 @@ inherited fmFireControl: TfmFireControl
     Height = 12
     Align = alTop
     BevelOuter = bvNone
-    Color = 16775920
+    Color = 2695445
     ParentBackground = False
     TabOrder = 1
   end
@@ -63,8 +69,14 @@ inherited fmFireControl: TfmFireControl
     Height = 417
     Align = alClient
     BevelOuter = bvNone
-    Color = 16775920
+    Color = 2695445
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
     ParentBackground = False
+    ParentFont = False
     TabOrder = 2
     object PanelFC: TPanel
       Left = 0
@@ -251,6 +263,12 @@ inherited fmFireControl: TfmFireControl
             GroupIndex = 2
             Down = True
             Caption = 'Hide'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnFCROnClick
           end
           object sbFireControlAssetsBlindZonesShow: TSpeedButton
@@ -263,6 +281,12 @@ inherited fmFireControl: TfmFireControl
             AllowAllUp = True
             GroupIndex = 2
             Caption = 'Show'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnFCROnClick
           end
           object sbFireControlAssetsDisplayHide: TSpeedButton
@@ -275,6 +299,12 @@ inherited fmFireControl: TfmFireControl
             GroupIndex = 3
             Down = True
             Caption = 'Hide'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnFCROnClick
           end
           object sbFireControlAssetsDisplayShow: TSpeedButton
@@ -287,6 +317,12 @@ inherited fmFireControl: TfmFireControl
             AllowAllUp = True
             GroupIndex = 3
             Caption = 'Show'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnFCROnClick
           end
           object sbFireControlAssetsModeOff: TSpeedButton
@@ -299,6 +335,12 @@ inherited fmFireControl: TfmFireControl
             GroupIndex = 1
             Down = True
             Caption = 'Off'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnFCROnClick
           end
           object sbFireControlAssetsModeSearch: TSpeedButton
@@ -311,6 +353,12 @@ inherited fmFireControl: TfmFireControl
             AllowAllUp = True
             GroupIndex = 1
             Caption = 'Search / Track'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnFCROnClick
           end
           object sbFireControlAssetsModeTrackOnly: TSpeedButton
@@ -323,6 +371,12 @@ inherited fmFireControl: TfmFireControl
             AllowAllUp = True
             GroupIndex = 1
             Caption = 'Track Only'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnFCROnClick
           end
           object btnFireControlAssetsTargetAssign: TButton
@@ -360,6 +414,12 @@ inherited fmFireControl: TfmFireControl
             Top = 155
             Width = 75
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             ReadOnly = True
             TabOrder = 3
           end
@@ -375,6 +435,12 @@ inherited fmFireControl: TfmFireControl
                 MinWidth = 100
                 Width = 100
               end>
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 4
             ViewStyle = vsReport
             OnSelectItem = lstFireControlAssetsAssignedTracksSelectItem

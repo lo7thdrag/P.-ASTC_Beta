@@ -6,9 +6,9 @@ object frmGuidance: TfrmGuidance
   Caption = 'Guidance'
   ClientHeight = 546
   ClientWidth = 394
-  Color = clBtnFace
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
-  Font.Color = clWindowText
+  Font.Color = clWhite
   Font.Height = -16
   Font.Name = 'Tahoma'
   Font.Style = []
@@ -28,7 +28,7 @@ object frmGuidance: TfrmGuidance
     Height = 372
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clWhite
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -39,6 +39,7 @@ object frmGuidance: TfrmGuidance
     ExplicitHeight = 372
     inherited PanelGuidanceControlChoices: TPanel
       Width = 394
+      Color = 2695445
       Font.Height = -16
       ParentFont = False
       ExplicitWidth = 394
@@ -62,517 +63,29 @@ object frmGuidance: TfrmGuidance
       Height = 331
       ExplicitWidth = 394
       ExplicitHeight = 331
-      inherited grbEngagement: TGroupBox [0]
+      inherited grbEvasion: TGroupBox [0]
         Width = 392
         Height = 329
-        ExplicitWidth = 392
-        ExplicitHeight = 329
-        inherited Label300: TLabel
-          Top = 32
-          Font.Color = clBlack
-          ParentFont = False
-          ExplicitTop = 32
-        end
-        inherited Label305: TLabel
-          Top = 68
-          Font.Color = clBlack
-          ParentFont = False
-          ExplicitTop = 68
-        end
-        inherited Label306: TLabel
-          Top = 94
-          Font.Color = clBlack
-          ParentFont = False
-          ExplicitTop = 94
-        end
-        inherited Label307: TLabel
-          Left = 274
-          Top = 94
-          Font.Color = clBlack
-          ParentFont = False
-          ExplicitLeft = 274
-          ExplicitTop = 94
-        end
-        inherited Label308: TLabel
-          Top = 120
-          Font.Color = clBlack
-          ParentFont = False
-          ExplicitTop = 120
-        end
-        inherited Label309: TLabel
-          Left = 274
-          Top = 120
-          Font.Color = clBlack
-          ParentFont = False
-          ExplicitLeft = 274
-          ExplicitTop = 120
-        end
-        inherited lblEngageActualGroundSpeed: TLabel
-          Left = 193
-          Top = 120
-          Font.Color = clBlack
-          ParentFont = False
-          ExplicitLeft = 193
-          ExplicitTop = 120
-        end
-        inherited Label314: TLabel
-          Left = 274
-          Top = 68
-          Font.Color = clBlack
-          ParentFont = False
-          ExplicitLeft = 274
-          ExplicitTop = 68
-        end
-        inherited sbEngageTrackToEngage: TSpeedButton
-          Left = 274
-          Top = 20
-          Width = 40
-          Height = 40
-          Glyph.Data = {
-            D21B0000424DD21B00000000000042000000280000002A0000002A0000000100
-            200003000000901B0000130B0000130B000000000000000000000000FF0000FF
-            0000FF000000E6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF8F8C8CFF737070FF737070FF737070FF737070FF737070FF7370
-            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
-            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
-            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
-            70FF737070FF737070FFADA9A9FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FF817F7FFF9E9B9BFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFACA8A8FF817F7FFFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFACA9A9FFACA9A9FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF9E9A
-            9AFF908D8DFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFD8D3D3FF8F8C8CFF565454FF2B2A2AFF0E0E0EFF0000
-            00FF000000FF0E0E0EFF2B2A2AFF575454FF908C8CFFD8D3D3FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
-            70FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFC9C5C5FF565454FF000000FF484646FF817E7EFFACA8
-            A8FFD8D3D3FF393838FF3A3838FFD8D3D3FFBBB6B6FF817E7EFF393838FF1C1C
-            1CFF656262FFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFD7D3D3FF646262FF1D1C1CFF727070FFC9C5C5FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFD8D3D3FF727070FF0E0E0EFF656363FFD8D3D3FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5C5FF1C1C1CFF565454FFC9C5C5FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFD8D3D3FF646262FF1D1C
-            1CFFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFBAB7B7FF1C1C1CFF817E7EFFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
-            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF807E7EFF1D1C1CFFBAB7B7FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
-            70FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5C5FF1C1C1CFF908D
-            8DFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF8F8D8DFF1D1C1CFFC9C5C5FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFD7D3D3FF1C1C
-            1CFF817E7EFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF807E
-            7EFF1D1C1CFFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FF646262FF646363FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FF565454FF656363FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
-            E1FFE6E1E1FFC9C5C5FF0E0E0EFFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
-            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5C5FF1C1C1CFFC9C5C5FFE6E1
-            E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
-            70FFE6E1E1FFE6E1E1FFE6E1E1FF646262FF737070FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7270
-            70FF565454FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFD7D3D3FF1D1C1CFFD8D3D3FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFC9C5C5FF000000FFD8D3D3FFE6E1E1FFE6E1E1FF737070FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FF8F8C8CFF3938
-            38FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF484646FF908D8DFFE6E1E1FFE6E1
-            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
-            E1FF565454FF817E7EFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
-            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF817E7EFF5654
-            54FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
-            70FFE6E1E1FFE6E1E1FF2B2A2AFFBBB7B7FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFBBB6B6FFBBB7B7FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFACA8A8FF2B2A2AFFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FF0E0E0EFFD8D3D3FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFD7D3D3FF0E0E0EFFE6E1E1FFE6E1E1FF737070FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FF000000FF3A38
-            38FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF3A38
-            38FF3A3838FF3A3838FF3A3838FFBBB7B7FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFBBB6B6FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF3A38
-            38FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF000000FFE6E1E1FFE6E1
-            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
-            E1FF000000FF393838FF393838FF393838FF393838FF393838FF393838FF3938
-            38FF393838FF393838FF393838FF393838FF393838FFBBB7B7FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFBAB6B6FF393838FF393838FF393838FF393838FF3938
-            38FF393838FF393838FF393838FF393838FF393838FF393838FF393838FF0000
-            00FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
-            70FFE6E1E1FFE6E1E1FF0E0E0EFFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFD7D3D3FF0E0E0EFFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FF2B2A2AFFADA9A9FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFBBB6B6FFBBB7B7FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFBBB6B6FF2B2A2AFFE6E1E1FFE6E1E1FF737070FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FF565454FF817E
-            7EFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF817E7EFF575454FFE6E1E1FFE6E1
-            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
-            E1FF8F8C8CFF484646FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
-            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF908C
-            8CFFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
-            70FFE6E1E1FFE6E1E1FFD7D3D3FF000000FFC9C5C5FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFD7D3
-            D3FF1D1C1CFFD8D3D3FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FF565454FF737171FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF737070FF656262FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5
-            C5FF1D1C1CFFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFD7D3D3FF0E0E0EFFC9C5C5FFE6E1E1FFE6E1E1FFE6E1
-            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FF646262FF565454FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
-            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF646262FF646363FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
-            70FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFD8D3D3FF1C1C1CFF817F7FFFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF817E7EFF1D1C1CFFD8D3
-            D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5
-            C5FF1C1C1CFF908D8DFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF8F8D8DFF1D1C
-            1CFFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFBAB7B7FF1C1C1CFF817F7FFFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF817E
-            7EFF1D1C1CFFBBB7B7FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5C5FF1C1C1CFF6563
-            63FFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
-            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5
-            C5FF565454FF1D1C1CFFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
-            70FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFD8D3D3FF646262FF0E0E0EFF737171FFD8D3D3FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5
-            C5FF737171FF1C1C1CFF646363FFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5C5FF656262FF1C1C1CFF3A38
-            38FF817E7EFFBBB7B7FFD8D3D3FF393838FF3A3838FFD8D3D3FFADA9A9FF817E
-            7EFF484646FF000000FF565454FFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFD8D3D3FF8F8C8CFF565454FF2B2A2AFF0E0E0EFF000000FF000000FF0E0E
-            0EFF2B2A2AFF565454FF908D8DFFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF8F8C8CFF9F9B9BFFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFACA9A9FFACA9A9FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FF817E7EFFADA9A9FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FF9E9B9BFF817E7EFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFACA8A8FF737070FF737070FF737070FF7370
-            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
-            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
-            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
-            70FF737070FF737070FF737070FF737070FF908D8DFFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
-            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF}
-          ExplicitLeft = 274
-          ExplicitTop = 20
-          ExplicitWidth = 40
-          ExplicitHeight = 40
-        end
-        inherited StaticText146: TStaticText
-          Left = 179
-          Top = 30
-          Font.Color = clBlack
-          ParentFont = False
-          Transparent = True
-          ExplicitLeft = 179
-          ExplicitTop = 30
-        end
-        inherited edtTrackToEngage: TEdit
-          Left = 193
-          Top = 29
-          ExplicitLeft = 193
-          ExplicitTop = 29
-        end
-        inherited StaticText147: TStaticText
-          Left = 179
-          Top = 66
-          Font.Color = clBlack
-          ParentFont = False
-          Transparent = True
-          ExplicitLeft = 179
-          ExplicitTop = 66
-        end
-        inherited StaticText148: TStaticText
-          Left = 179
-          Top = 92
-          Font.Color = clBlack
-          ParentFont = False
-          Transparent = True
-          ExplicitLeft = 179
-          ExplicitTop = 92
-        end
-        inherited StaticText149: TStaticText
-          Left = 179
-          Top = 118
-          Font.Color = clBlack
-          ParentFont = False
-          Transparent = True
-          ExplicitLeft = 179
-          ExplicitTop = 118
-        end
-        inherited edtEngageStandOffDistance: TEdit
-          Left = 193
-          Top = 65
-          ExplicitLeft = 193
-          ExplicitTop = 65
-        end
-        inherited edtEngageOrderedGroundSpeed: TEdit
-          Left = 193
-          Top = 91
-          ExplicitLeft = 193
-          ExplicitTop = 91
-        end
-        inherited pnlDepthEngagement: TPanel
-          Left = 0
-          Top = 140
-          ExplicitLeft = 0
-          ExplicitTop = 140
-          inherited Label13: TLabel
-            Top = 8
-            Font.Color = clBlack
-            ParentFont = False
-            ExplicitTop = 8
-          end
-          inherited lblDeptEngagMOde: TLabel
-            Left = 192
-            Top = 35
-            Font.Color = clBlack
-            ParentFont = False
-            ExplicitLeft = 192
-            ExplicitTop = 35
-          end
-          inherited Label26: TLabel
-            Left = 273
-            Top = 8
-            Font.Color = clBlack
-            ParentFont = False
-            ExplicitLeft = 273
-            ExplicitTop = 8
-          end
-          inherited Label27: TLabel
-            Left = 273
-            Top = 35
-            Font.Color = clBlack
-            ParentFont = False
-            ExplicitLeft = 273
-            ExplicitTop = 35
-          end
-          inherited StaticText17: TStaticText
-            Top = 33
-            Font.Color = clBlack
-            ParentFont = False
-            Transparent = True
-            ExplicitTop = 33
-          end
-          inherited StaticText18: TStaticText
-            Left = 178
-            Top = 6
-            Font.Color = clBlack
-            ParentFont = False
-            Transparent = True
-            ExplicitLeft = 178
-            ExplicitTop = 6
-          end
-          inherited StaticText19: TStaticText
-            Left = 178
-            Top = 33
-            Font.Color = clBlack
-            ParentFont = False
-            Transparent = True
-            ExplicitLeft = 178
-            ExplicitTop = 33
-          end
-          inherited Edit2: TEdit
-            Left = 192
-            Top = 4
-            Font.Height = -13
-            ExplicitLeft = 192
-            ExplicitTop = 4
-          end
-        end
-        inherited pnlAltitudeEngagement: TPanel
-          Top = 140
-          ExplicitTop = 140
-          inherited Label1: TLabel
-            Top = 8
-            Font.Color = clBlack
-            ParentFont = False
-            ExplicitTop = 8
-          end
-          inherited lblAltitudeEngagement: TLabel
-            Left = 195
-            Top = 35
-            Font.Color = clBlack
-            ParentFont = False
-            ExplicitLeft = 195
-            ExplicitTop = 35
-          end
-          inherited Label11: TLabel
-            Left = 274
-            Top = 8
-            Font.Color = clBlack
-            ParentFont = False
-            ExplicitLeft = 274
-            ExplicitTop = 8
-          end
-          inherited Label12: TLabel
-            Left = 274
-            Top = 35
-            Font.Color = clBlack
-            ParentFont = False
-            ExplicitLeft = 274
-            ExplicitTop = 35
-          end
-          inherited StaticText8: TStaticText
-            Top = 33
-            Color = 4012087
-            Font.Color = clBlack
-            ParentColor = False
-            ParentFont = False
-            Transparent = True
-            ExplicitTop = 33
-          end
-          inherited StaticText9: TStaticText
-            Left = 179
-            Top = 6
-            Color = 4012087
-            Font.Color = clBlack
-            ParentColor = False
-            ParentFont = False
-            Transparent = True
-            ExplicitLeft = 179
-            ExplicitTop = 6
-          end
-          inherited StaticText16: TStaticText
-            Left = 179
-            Top = 33
-            Color = 4012087
-            Font.Color = clBlack
-            ParentColor = False
-            ParentFont = False
-            Transparent = True
-            ExplicitLeft = 179
-            ExplicitTop = 33
-          end
-          inherited edtAltitudeEngagement: TEdit
-            Left = 193
-            Top = 4
-            Font.Height = -13
-            ExplicitLeft = 193
-            ExplicitTop = 4
-          end
-        end
-      end
-      inherited grbEvasion: TGroupBox [1]
-        Width = 392
-        Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited Label318: TLabel
           Top = 32
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 32
         end
         inherited Label319: TLabel
           Top = 63
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 63
         end
         inherited Label320: TLabel
           Left = 234
           Top = 63
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 234
           ExplicitTop = 63
@@ -580,7 +93,7 @@ object frmGuidance: TfrmGuidance
         inherited lblEvasionActualGroundSpeed: TLabel
           Left = 180
           Top = 63
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 180
           ExplicitTop = 63
@@ -821,14 +334,14 @@ object frmGuidance: TfrmGuidance
         end
         inherited Label10: TLabel
           Top = 92
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 92
         end
         inherited lblEvasionActualAltitudeDepth: TLabel
           Left = 180
           Top = 92
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 180
           ExplicitTop = 92
@@ -836,7 +349,7 @@ object frmGuidance: TfrmGuidance
         inherited Label16: TLabel
           Left = 234
           Top = 92
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 234
           ExplicitTop = 92
@@ -844,7 +357,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText151: TStaticText
           Left = 166
           Top = 30
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 166
           ExplicitTop = 30
@@ -858,7 +371,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText152: TStaticText
           Left = 166
           Top = 61
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 166
           ExplicitTop = 61
@@ -866,21 +379,23 @@ object frmGuidance: TfrmGuidance
         inherited StaticText20: TStaticText
           Left = 166
           Top = 92
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 166
           ExplicitTop = 92
         end
       end
-      inherited grbHelm: TGroupBox [2]
+      inherited grbHelm: TGroupBox [1]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited Label120: TLabel
           Left = 9
           Top = 117
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 9
           ExplicitTop = 117
@@ -888,7 +403,7 @@ object frmGuidance: TfrmGuidance
         inherited lblHelmActualTurnRate: TLabel
           Left = 185
           Top = 159
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 185
           ExplicitTop = 159
@@ -896,7 +411,7 @@ object frmGuidance: TfrmGuidance
         inherited Label127: TLabel
           Left = 9
           Top = 137
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 9
           ExplicitTop = 137
@@ -906,7 +421,7 @@ object frmGuidance: TfrmGuidance
           Top = 138
           Width = 46
           Caption = 'degrees'
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 264
           ExplicitTop = 138
@@ -915,7 +430,7 @@ object frmGuidance: TfrmGuidance
         inherited Label131: TLabel
           Left = 9
           Top = 222
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 9
           ExplicitTop = 222
@@ -923,7 +438,7 @@ object frmGuidance: TfrmGuidance
         inherited Label132: TLabel
           Left = 264
           Top = 222
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 264
           ExplicitTop = 222
@@ -931,7 +446,7 @@ object frmGuidance: TfrmGuidance
         inherited Label133: TLabel
           Left = 264
           Top = 243
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 264
           ExplicitTop = 243
@@ -939,7 +454,7 @@ object frmGuidance: TfrmGuidance
         inherited Label134: TLabel
           Left = 264
           Top = 117
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 264
           ExplicitTop = 117
@@ -947,7 +462,7 @@ object frmGuidance: TfrmGuidance
         inherited lblHelmActualGroundSpeed: TLabel
           Left = 185
           Top = 243
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 185
           ExplicitTop = 243
@@ -961,7 +476,7 @@ object frmGuidance: TfrmGuidance
         inherited Label135: TLabel
           Left = 264
           Top = 159
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 264
           ExplicitTop = 159
@@ -969,7 +484,7 @@ object frmGuidance: TfrmGuidance
         inherited lbActualHelmAngle: TLabel
           Left = 185
           Top = 137
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 185
           ExplicitTop = 137
@@ -977,7 +492,7 @@ object frmGuidance: TfrmGuidance
         inherited lblHelmActualHeading: TLabel
           Left = 185
           Top = 180
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 185
           ExplicitTop = 180
@@ -985,7 +500,7 @@ object frmGuidance: TfrmGuidance
         inherited Label137: TLabel
           Left = 264
           Top = 180
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 264
           ExplicitTop = 180
@@ -993,20 +508,21 @@ object frmGuidance: TfrmGuidance
         inherited lblHelmActualCourse: TLabel
           Left = 185
           Top = 201
+          Font.Color = clWhite
           ExplicitLeft = 185
           ExplicitTop = 201
         end
         inherited Label139: TLabel
           Left = 264
           Top = 201
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 264
           ExplicitTop = 201
         end
         inherited lblHelmActualDepth: TLabel
           Top = 45
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 45
         end
@@ -1019,7 +535,7 @@ object frmGuidance: TfrmGuidance
         inherited Label24: TLabel
           Left = 112
           Top = 48
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 112
           ExplicitTop = 48
@@ -1027,7 +543,7 @@ object frmGuidance: TfrmGuidance
         inherited Label25: TLabel
           Left = 272
           Top = 47
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 272
           ExplicitTop = 47
@@ -1035,7 +551,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText88: TStaticText
           Left = 9
           Top = 157
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 9
           ExplicitTop = 157
@@ -1043,7 +559,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText89: TStaticText
           Left = 9
           Top = 241
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 9
           ExplicitTop = 241
@@ -1051,7 +567,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText90: TStaticText
           Left = 171
           Top = 115
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 171
           ExplicitTop = 115
@@ -1059,7 +575,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText91: TStaticText
           Left = 171
           Top = 135
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 171
           ExplicitTop = 135
@@ -1067,7 +583,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText92: TStaticText
           Left = 171
           Top = 157
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 171
           ExplicitTop = 157
@@ -1075,7 +591,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText93: TStaticText
           Left = 171
           Top = 241
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 171
           ExplicitTop = 241
@@ -1083,7 +599,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText94: TStaticText
           Left = 171
           Top = 220
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 171
           ExplicitTop = 220
@@ -1097,7 +613,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText95: TStaticText
           Left = 9
           Top = 178
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 9
           ExplicitTop = 178
@@ -1105,7 +621,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText96: TStaticText
           Left = 171
           Top = 178
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 171
           ExplicitTop = 178
@@ -1113,7 +629,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText97: TStaticText
           Left = 9
           Top = 199
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 9
           ExplicitTop = 199
@@ -1121,7 +637,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText98: TStaticText
           Left = 171
           Top = 199
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 171
           ExplicitTop = 199
@@ -1139,14 +655,14 @@ object frmGuidance: TfrmGuidance
           ExplicitTop = 266
           inherited Label140: TLabel
             Top = 3
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 3
           end
           inherited Label141: TLabel
             Left = 255
             Top = 27
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 255
             ExplicitTop = 27
@@ -1154,7 +670,7 @@ object frmGuidance: TfrmGuidance
           inherited Label142: TLabel
             Left = 255
             Top = 3
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 255
             ExplicitTop = 3
@@ -1162,7 +678,7 @@ object frmGuidance: TfrmGuidance
           inherited Label20: TLabel
             Left = 176
             Top = 27
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 176
             ExplicitTop = 27
@@ -1178,7 +694,7 @@ object frmGuidance: TfrmGuidance
             Left = 162
             Top = 25
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -1189,7 +705,7 @@ object frmGuidance: TfrmGuidance
             Left = 162
             Top = 1
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -1199,7 +715,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText99: TStaticText
             Top = 25
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -1217,7 +733,7 @@ object frmGuidance: TfrmGuidance
             Top = 3
             Width = 118
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitTop = 3
@@ -1229,7 +745,7 @@ object frmGuidance: TfrmGuidance
             Top = 27
             Width = 33
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 256
@@ -1242,7 +758,7 @@ object frmGuidance: TfrmGuidance
             Top = 3
             Width = 33
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 256
@@ -1255,7 +771,7 @@ object frmGuidance: TfrmGuidance
             Top = 27
             Width = 18
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 176
@@ -1277,7 +793,7 @@ object frmGuidance: TfrmGuidance
             Top = 25
             Width = 10
             Height = 23
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             Transparent = True
@@ -1291,7 +807,7 @@ object frmGuidance: TfrmGuidance
             Top = 1
             Width = 10
             Height = 23
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             Transparent = True
@@ -1304,7 +820,7 @@ object frmGuidance: TfrmGuidance
             Top = 25
             Width = 105
             Height = 23
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             Transparent = True
@@ -1314,27 +830,29 @@ object frmGuidance: TfrmGuidance
           end
         end
       end
-      inherited grbOutrun: TGroupBox [3]
+      inherited grbOutrun: TGroupBox [2]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited Label310: TLabel
           Top = 30
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 30
         end
         inherited Label321: TLabel
           Top = 65
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 65
         end
         inherited Label322: TLabel
           Left = 264
           Top = 65
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 264
           ExplicitTop = 65
@@ -1342,7 +860,7 @@ object frmGuidance: TfrmGuidance
         inherited lblOutrunActualGroundSpeed: TLabel
           Left = 185
           Top = 65
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 185
           ExplicitTop = 65
@@ -1583,14 +1101,14 @@ object frmGuidance: TfrmGuidance
         end
         inherited Label23: TLabel
           Top = 94
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 94
         end
         inherited lblOutrunAltitudeDepth: TLabel
           Left = 185
           Top = 94
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 185
           ExplicitTop = 94
@@ -1598,7 +1116,7 @@ object frmGuidance: TfrmGuidance
         inherited Label29: TLabel
           Left = 264
           Top = 94
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 264
           ExplicitTop = 94
@@ -1606,7 +1124,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText150: TStaticText
           Left = 166
           Top = 28
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 166
@@ -1621,7 +1139,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText153: TStaticText
           Left = 166
           Top = 63
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 166
@@ -1630,81 +1148,83 @@ object frmGuidance: TfrmGuidance
         inherited StaticText21: TStaticText
           Left = 166
           Top = 92
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 166
           ExplicitTop = 92
         end
       end
-      inherited grbReturnToBase: TGroupBox [4]
+      inherited grbReturnToBase: TGroupBox [3]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited Label327: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited lblReturnToBaseDestinationBase: TLabel
           Left = 190
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 190
         end
         inherited Label329: TLabel
           Top = 51
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 51
         end
         inherited Label334: TLabel
           Left = 290
           Top = 51
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 290
           ExplicitTop = 51
         end
         inherited Label382: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited Label397: TLabel
           Left = 290
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 290
         end
         inherited lblReturnToBaseActualGroundSpeed: TLabel
           Left = 190
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 190
         end
         inherited Label406: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited Label419: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited Label437: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited Label451: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited lblReturnToBaseActualAltitude: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited StaticText158: TStaticText
           Left = 180
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
@@ -1712,7 +1232,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText159: TStaticText
           Left = 180
           Top = 49
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
@@ -1724,63 +1244,65 @@ object frmGuidance: TfrmGuidance
         end
         inherited StaticText160: TStaticText
           Left = 180
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
         end
         inherited StaticText161: TStaticText
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
         end
         inherited StaticText162: TStaticText
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
         end
       end
-      inherited grbShadow: TGroupBox [5]
+      inherited grbShadow: TGroupBox [4]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited Label173: TLabel
           Top = 32
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 32
         end
         inherited Label180: TLabel
           Top = 70
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 70
         end
         inherited Label196: TLabel
           Top = 94
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 94
         end
         inherited Label290: TLabel
           Left = 271
           Top = 94
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 271
           ExplicitTop = 94
         end
         inherited Label298: TLabel
           Top = 119
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 119
         end
         inherited Label299: TLabel
           Left = 271
           Top = 119
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 271
           ExplicitTop = 119
@@ -1788,7 +1310,7 @@ object frmGuidance: TfrmGuidance
         inherited lblShadowActualGroundSpeed: TLabel
           Left = 191
           Top = 119
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 191
           ExplicitTop = 119
@@ -1796,7 +1318,7 @@ object frmGuidance: TfrmGuidance
         inherited Label301: TLabel
           Left = 271
           Top = 70
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 271
           ExplicitTop = 70
@@ -2036,7 +1558,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText128: TStaticText
           Left = 177
           Top = 30
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 177
@@ -2051,7 +1573,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText143: TStaticText
           Left = 177
           Top = 68
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 177
@@ -2066,7 +1588,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText144: TStaticText
           Left = 177
           Top = 92
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 177
@@ -2081,7 +1603,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText145: TStaticText
           Left = 177
           Top = 117
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 177
@@ -2092,14 +1614,14 @@ object frmGuidance: TfrmGuidance
           ExplicitTop = 140
           inherited Label33: TLabel
             Top = 6
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 6
           end
           inherited lblActShadowDepth: TLabel
             Left = 191
             Top = 30
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 191
             ExplicitTop = 30
@@ -2107,7 +1629,7 @@ object frmGuidance: TfrmGuidance
           inherited Label35: TLabel
             Left = 271
             Top = 6
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 271
             ExplicitTop = 6
@@ -2115,14 +1637,14 @@ object frmGuidance: TfrmGuidance
           inherited Label36: TLabel
             Left = 271
             Top = 30
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 271
             ExplicitTop = 30
           end
           inherited StaticText28: TStaticText
             Top = 28
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitTop = 28
@@ -2130,7 +1652,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText29: TStaticText
             Left = 177
             Top = 4
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 177
@@ -2139,7 +1661,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText30: TStaticText
             Left = 177
             Top = 28
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 177
@@ -2157,14 +1679,14 @@ object frmGuidance: TfrmGuidance
           ExplicitTop = 140
           inherited Label28: TLabel
             Top = 6
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 6
           end
           inherited lblActShadowAltitude: TLabel
             Left = 191
             Top = 30
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 191
             ExplicitTop = 30
@@ -2172,7 +1694,7 @@ object frmGuidance: TfrmGuidance
           inherited Label31: TLabel
             Left = 271
             Top = 6
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 271
             ExplicitTop = 6
@@ -2180,7 +1702,7 @@ object frmGuidance: TfrmGuidance
           inherited Label32: TLabel
             Left = 271
             Top = 30
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 271
             ExplicitTop = 30
@@ -2188,7 +1710,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText22: TStaticText
             Top = 28
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -2198,7 +1720,7 @@ object frmGuidance: TfrmGuidance
             Left = 177
             Top = 4
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -2209,7 +1731,7 @@ object frmGuidance: TfrmGuidance
             Left = 177
             Top = 28
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -2224,57 +1746,59 @@ object frmGuidance: TfrmGuidance
           end
         end
       end
-      inherited grbSinuation: TGroupBox [6]
+      inherited grbSinuation: TGroupBox [5]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited Label206: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited Label227: TLabel
           Top = 53
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 53
         end
         inherited Label241: TLabel
           Top = 82
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 82
         end
         inherited Label255: TLabel
           Left = 274
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 274
         end
         inherited Label256: TLabel
           Top = 111
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 111
         end
         inherited Label260: TLabel
           Left = 274
           Top = 111
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 274
           ExplicitTop = 111
         end
         inherited Label270: TLabel
           Top = 140
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 140
         end
         inherited Label287: TLabel
           Left = 274
           Top = 140
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 274
           ExplicitTop = 140
@@ -2282,7 +1806,7 @@ object frmGuidance: TfrmGuidance
         inherited lblSinuationActualGroundSpeed: TLabel
           Left = 194
           Top = 140
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 194
           ExplicitTop = 140
@@ -2290,7 +1814,7 @@ object frmGuidance: TfrmGuidance
         inherited Label293: TLabel
           Left = 274
           Top = 53
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 274
           ExplicitTop = 53
@@ -2298,7 +1822,7 @@ object frmGuidance: TfrmGuidance
         inherited Label297: TLabel
           Left = 274
           Top = 82
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 274
           ExplicitTop = 82
@@ -2306,7 +1830,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText138: TStaticText
           Left = 180
           Top = 23
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
@@ -2319,7 +1843,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText139: TStaticText
           Left = 180
           Top = 51
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
@@ -2334,7 +1858,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText140: TStaticText
           Left = 180
           Top = 80
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
@@ -2349,7 +1873,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText141: TStaticText
           Left = 180
           Top = 109
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
@@ -2364,62 +1888,64 @@ object frmGuidance: TfrmGuidance
         inherited StaticText142: TStaticText
           Left = 180
           Top = 138
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
           ExplicitTop = 138
         end
       end
-      inherited grbZigZag: TGroupBox [7]
+      inherited grbZigZag: TGroupBox [6]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited Label145: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited Label146: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited Label147: TLabel
           Top = 76
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 76
         end
         inherited Label148: TLabel
           Left = 274
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 274
         end
         inherited Label149: TLabel
           Top = 101
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 101
         end
         inherited Label197: TLabel
           Left = 274
           Top = 101
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 274
           ExplicitTop = 101
         end
         inherited Label198: TLabel
           Top = 127
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 127
         end
         inherited Label199: TLabel
           Left = 274
           Top = 127
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 274
           ExplicitTop = 127
@@ -2427,21 +1953,21 @@ object frmGuidance: TfrmGuidance
         inherited lblZigZagActualGroundSpeed: TLabel
           Left = 194
           Top = 127
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 194
           ExplicitTop = 127
         end
         inherited Label207: TLabel
           Left = 274
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 274
         end
         inherited Label209: TLabel
           Left = 274
           Top = 76
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 274
           ExplicitTop = 76
@@ -2449,7 +1975,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText106: TStaticText
           Left = 180
           Top = 23
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
@@ -2462,7 +1988,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText108: TStaticText
           Left = 180
           Top = 48
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
@@ -2475,7 +2001,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText109: TStaticText
           Left = 180
           Top = 74
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
@@ -2490,7 +2016,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText110: TStaticText
           Left = 180
           Top = 99
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
@@ -2504,15 +2030,17 @@ object frmGuidance: TfrmGuidance
         end
         inherited StaticText137: TStaticText
           Left = 180
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 180
         end
       end
-      inherited grpCircle: TGroupBox [8]
+      inherited grpCircle: TGroupBox [7]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited ScrollBox1: TScrollBox
@@ -2521,18 +2049,18 @@ object frmGuidance: TfrmGuidance
           ExplicitWidth = 390
           ExplicitHeight = 311
           inherited Label3: TLabel
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
           end
           inherited Label4: TLabel
             Top = 178
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 178
           end
           inherited Label5: TLabel
             Left = 217
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 217
           end
@@ -2544,28 +2072,28 @@ object frmGuidance: TfrmGuidance
           end
           inherited Label6: TLabel
             Top = 211
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 211
           end
           inherited Label7: TLabel
             Left = 274
             Top = 211
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 274
             ExplicitTop = 211
           end
           inherited Label8: TLabel
             Top = 238
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 238
           end
           inherited Label9: TLabel
             Left = 274
             Top = 238
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 274
             ExplicitTop = 238
@@ -2573,14 +2101,14 @@ object frmGuidance: TfrmGuidance
           inherited lblCircleActualGroundSpeed: TLabel
             Left = 194
             Top = 238
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 194
             ExplicitTop = 238
           end
           inherited lb1: TLabel
             Top = 18
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 18
           end
@@ -2607,7 +2135,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText1: TStaticText
             Left = 121
             Top = 16
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 121
@@ -2621,14 +2149,14 @@ object frmGuidance: TfrmGuidance
           end
           inherited StaticText2: TStaticText
             Top = -2
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitTop = -2
           end
           inherited StaticText4: TStaticText
             Left = 121
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 121
@@ -2640,7 +2168,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText5: TStaticText
             Left = 121
             Top = 176
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 121
@@ -2655,7 +2183,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText6: TStaticText
             Left = 180
             Top = 211
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 180
@@ -2670,7 +2198,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText7: TStaticText
             Left = 180
             Top = 236
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 180
@@ -2686,7 +2214,7 @@ object frmGuidance: TfrmGuidance
             inherited Label2: TLabel
               Left = 15
               Top = 8
-              Font.Color = clBlack
+              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 15
               ExplicitTop = 8
@@ -2807,7 +2335,7 @@ object frmGuidance: TfrmGuidance
               Left = 116
               Top = 6
               Color = 4012087
-              Font.Color = clBlack
+              Font.Color = clWhite
               ParentColor = False
               ParentFont = False
               Transparent = True
@@ -2828,7 +2356,7 @@ object frmGuidance: TfrmGuidance
             ExplicitHeight = 90
             inherited Label14: TLabel
               Top = 8
-              Font.Color = clBlack
+              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 8
             end
@@ -2932,28 +2460,28 @@ object frmGuidance: TfrmGuidance
             end
             inherited Label15: TLabel
               Top = 36
-              Font.Color = clBlack
+              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 36
             end
             inherited lblCircleDegree: TLabel
               Left = 217
               Top = 36
-              Font.Color = clBlack
+              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 217
               ExplicitTop = 36
             end
             inherited Label17: TLabel
               Top = 65
-              Font.Color = clBlack
+              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 65
             end
             inherited Label18: TLabel
               Left = 217
               Top = 65
-              Font.Color = clBlack
+              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 217
               ExplicitTop = 65
@@ -2969,7 +2497,7 @@ object frmGuidance: TfrmGuidance
             inherited StaticText10: TStaticText
               Left = 121
               Top = 6
-              Font.Color = clBlack
+              Font.Color = clWhite
               ParentFont = False
               Transparent = True
               ExplicitLeft = 121
@@ -2984,7 +2512,7 @@ object frmGuidance: TfrmGuidance
             inherited StaticText11: TStaticText
               Left = 121
               Top = 34
-              Font.Color = clBlack
+              Font.Color = clWhite
               ParentFont = False
               Transparent = True
               ExplicitLeft = 121
@@ -2999,7 +2527,7 @@ object frmGuidance: TfrmGuidance
             inherited StaticText12: TStaticText
               Left = 121
               Top = 63
-              Font.Color = clBlack
+              Font.Color = clWhite
               ParentFont = False
               Transparent = True
               ExplicitLeft = 121
@@ -3014,9 +2542,11 @@ object frmGuidance: TfrmGuidance
           end
         end
       end
-      inherited grpPersonelGuidance: TGroupBox [9]
+      inherited grpPersonelGuidance: TGroupBox [8]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited whHeadingPersonel: TVrWheel
@@ -3024,17 +2554,17 @@ object frmGuidance: TfrmGuidance
           ExplicitTop = 18
         end
         inherited lbl6: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited lbl9: TLabel
           Top = 141
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 141
         end
         inherited lbl11: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited sbPersonalGuidanceMode: TSpeedButton
@@ -3046,7 +2576,7 @@ object frmGuidance: TfrmGuidance
           ExplicitHeight = 25
         end
         inherited lbl7: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited sbPersonelFormationMode: TSpeedButton
@@ -3077,13 +2607,15 @@ object frmGuidance: TfrmGuidance
           ExplicitHeight = 22
         end
       end
-      inherited grpStation: TGroupBox [10]
+      inherited grpStation: TGroupBox [9]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited Label154: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited Bevel32: TBevel
@@ -3113,7 +2645,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText113: TStaticText
           Left = 125
           Top = 30
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 125
@@ -3130,7 +2662,7 @@ object frmGuidance: TfrmGuidance
         end
         inherited StaticText114: TStaticText
           Color = 4012087
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentColor = False
           ParentFont = False
           Transparent = True
@@ -3254,7 +2786,7 @@ object frmGuidance: TfrmGuidance
           end
           inherited lbl5: TLabel [1]
             Top = 13
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 13
           end
@@ -3270,7 +2802,7 @@ object frmGuidance: TfrmGuidance
           inherited txt4: TStaticText
             Left = 111
             Top = 11
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 111
@@ -3640,7 +3172,7 @@ object frmGuidance: TfrmGuidance
           inherited Label43: TLabel
             Left = 1
             Top = 8
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 1
             ExplicitTop = 8
@@ -3648,27 +3180,27 @@ object frmGuidance: TfrmGuidance
           inherited Label45: TLabel
             Left = 200
             Top = 8
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 200
             ExplicitTop = 8
           end
           inherited Label46: TLabel
             Left = 200
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 200
           end
           inherited lblStationActualDepth: TLabel
             Left = 132
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 132
           end
           inherited StaticText38: TStaticText
             Left = 1
             Top = 29
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 1
@@ -3676,7 +3208,7 @@ object frmGuidance: TfrmGuidance
           end
           inherited StaticText39: TStaticText
             Left = 113
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 113
@@ -3684,7 +3216,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText40: TStaticText
             Left = 113
             Top = 29
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 113
@@ -3709,26 +3241,26 @@ object frmGuidance: TfrmGuidance
           ExplicitWidth = 275
           inherited Label30: TLabel
             Left = 3
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 3
           end
           inherited Label39: TLabel
             Left = 199
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 199
           end
           inherited Label41: TLabel
             Left = 199
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 199
           end
           inherited lblStationActualAltitude: TLabel
             Left = 132
             Top = 32
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 132
             ExplicitTop = 32
@@ -3736,7 +3268,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText32: TStaticText
             Left = 3
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -3745,7 +3277,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText35: TStaticText
             Left = 113
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -3754,7 +3286,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText37: TStaticText
             Left = 113
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -3771,51 +3303,53 @@ object frmGuidance: TfrmGuidance
           end
         end
       end
-      inherited grbFormation: TGroupBox [11]
+      inherited grbFormation: TGroupBox [10]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited Label323: TLabel
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
         end
         inherited Label324: TLabel
           Top = 47
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 47
         end
         inherited lblLeaderFormation: TLabel
           Left = 142
           Top = 47
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 142
           ExplicitTop = 47
         end
         inherited lblNameFormation: TLabel
           Left = 142
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 142
         end
         inherited Label373: TLabel
           Top = 83
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 83
         end
         inherited Label374: TLabel
           Top = 102
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 102
         end
         inherited Label381: TLabel
           Left = 237
           Top = 102
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 237
           ExplicitTop = 102
@@ -3823,7 +3357,7 @@ object frmGuidance: TfrmGuidance
         inherited lblRangeFormation: TLabel
           Left = 142
           Top = 102
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 142
           ExplicitTop = 102
@@ -3831,7 +3365,7 @@ object frmGuidance: TfrmGuidance
         inherited lblBearingFormation: TLabel
           Left = 142
           Top = 83
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 142
           ExplicitTop = 83
@@ -3839,14 +3373,14 @@ object frmGuidance: TfrmGuidance
         inherited Label399: TLabel
           Left = 237
           Top = 83
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 237
           ExplicitTop = 83
         end
         inherited StaticText154: TStaticText
           Left = 117
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 117
@@ -3854,7 +3388,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText155: TStaticText
           Left = 117
           Top = 45
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 117
@@ -3863,7 +3397,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText156: TStaticText
           Left = 117
           Top = 81
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 117
@@ -3872,7 +3406,7 @@ object frmGuidance: TfrmGuidance
         inherited StaticText157: TStaticText
           Left = 117
           Top = 100
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitLeft = 117
@@ -3889,7 +3423,7 @@ object frmGuidance: TfrmGuidance
           inherited labelFormationDepth: TLabel
             Left = 132
             Top = 8
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 132
             ExplicitTop = 8
@@ -3897,14 +3431,14 @@ object frmGuidance: TfrmGuidance
           inherited Label42: TLabel
             Left = 227
             Top = 8
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitLeft = 227
             ExplicitTop = 8
           end
           inherited StaticText34: TStaticText
             Top = 6
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitTop = 6
@@ -3912,7 +3446,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText36: TStaticText
             Left = 107
             Top = 6
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             Transparent = True
             ExplicitLeft = 107
@@ -3926,13 +3460,13 @@ object frmGuidance: TfrmGuidance
           ExplicitTop = 124
           inherited labelFormationAltitude: TLabel
             Top = 8
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 8
           end
           inherited Label38: TLabel
             Top = 8
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 8
           end
@@ -3940,7 +3474,7 @@ object frmGuidance: TfrmGuidance
             Left = 8
             Top = 6
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -3950,7 +3484,7 @@ object frmGuidance: TfrmGuidance
           inherited StaticText33: TStaticText
             Top = 6
             Color = 4012087
-            Font.Color = clBlack
+            Font.Color = clWhite
             ParentColor = False
             ParentFont = False
             Transparent = True
@@ -3958,9 +3492,11 @@ object frmGuidance: TfrmGuidance
           end
         end
       end
-      inherited grbStraightLine: TGroupBox [12]
+      inherited grbStraightLine: TGroupBox [11]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited ScrollBox5: TScrollBox
@@ -3975,7 +3511,7 @@ object frmGuidance: TfrmGuidance
             Top = 133
             Width = 18
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 195
@@ -3988,7 +3524,7 @@ object frmGuidance: TfrmGuidance
             Top = 159
             Width = 70
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 256
@@ -4001,7 +3537,7 @@ object frmGuidance: TfrmGuidance
             Top = 211
             Width = 18
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 195
@@ -4014,7 +3550,7 @@ object frmGuidance: TfrmGuidance
             Top = 133
             Width = 70
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 256
@@ -4027,7 +3563,7 @@ object frmGuidance: TfrmGuidance
             Top = 211
             Width = 38
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 256
@@ -4040,7 +3576,7 @@ object frmGuidance: TfrmGuidance
             Top = 185
             Width = 38
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 256
@@ -4052,7 +3588,7 @@ object frmGuidance: TfrmGuidance
             Top = 185
             Width = 164
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitTop = 185
@@ -4064,7 +3600,7 @@ object frmGuidance: TfrmGuidance
             Top = 108
             Width = 70
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 256
@@ -4076,7 +3612,7 @@ object frmGuidance: TfrmGuidance
             Top = 133
             Width = 107
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitTop = 133
@@ -4088,7 +3624,7 @@ object frmGuidance: TfrmGuidance
             Top = 159
             Width = 18
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitLeft = 195
@@ -4100,7 +3636,7 @@ object frmGuidance: TfrmGuidance
             Top = 108
             Width = 121
             Height = 19
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             ExplicitTop = 108
@@ -4130,7 +3666,7 @@ object frmGuidance: TfrmGuidance
             Top = 183
             Width = 10
             Height = 23
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             Transparent = True
@@ -4144,7 +3680,7 @@ object frmGuidance: TfrmGuidance
             Top = 209
             Width = 10
             Height = 23
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             Transparent = True
@@ -4158,7 +3694,7 @@ object frmGuidance: TfrmGuidance
             Top = 157
             Width = 10
             Height = 23
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             Transparent = True
@@ -4172,7 +3708,7 @@ object frmGuidance: TfrmGuidance
             Top = 131
             Width = 10
             Height = 23
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             Transparent = True
@@ -4186,7 +3722,7 @@ object frmGuidance: TfrmGuidance
             Top = 106
             Width = 10
             Height = 23
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             Transparent = True
@@ -4199,7 +3735,7 @@ object frmGuidance: TfrmGuidance
             Top = 209
             Width = 154
             Height = 23
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             Transparent = True
@@ -4211,7 +3747,7 @@ object frmGuidance: TfrmGuidance
             Top = 157
             Width = 102
             Height = 23
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -16
             ParentFont = False
             Transparent = True
@@ -4222,6 +3758,9 @@ object frmGuidance: TfrmGuidance
           inherited panDepth: TPanel
             Left = 3
             Top = 235
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
             ExplicitLeft = 3
             ExplicitTop = 235
             inherited lbl1: TLabel
@@ -4314,12 +3853,15 @@ object frmGuidance: TfrmGuidance
           end
           inherited panAltitude: TPanel
             Top = 235
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
             ExplicitTop = 235
             inherited Label57: TLabel
               Top = 3
               Width = 118
               Height = 19
-              Font.Color = clBlack
+              Font.Color = clWhite
               Font.Height = -16
               ParentFont = False
               ExplicitTop = 3
@@ -4331,7 +3873,7 @@ object frmGuidance: TfrmGuidance
               Top = 27
               Width = 18
               Height = 19
-              Font.Color = clBlack
+              Font.Color = clWhite
               Font.Height = -16
               ParentFont = False
               ExplicitLeft = 195
@@ -4344,7 +3886,7 @@ object frmGuidance: TfrmGuidance
               Top = 3
               Width = 26
               Height = 19
-              Font.Color = clBlack
+              Font.Color = clWhite
               Font.Height = -16
               ParentFont = False
               ExplicitLeft = 256
@@ -4357,7 +3899,7 @@ object frmGuidance: TfrmGuidance
               Top = 27
               Width = 26
               Height = 19
-              Font.Color = clBlack
+              Font.Color = clWhite
               Font.Height = -16
               ParentFont = False
               ExplicitLeft = 256
@@ -4369,7 +3911,7 @@ object frmGuidance: TfrmGuidance
               Top = 25
               Width = 108
               Height = 23
-              Font.Color = clBlack
+              Font.Color = clWhite
               Font.Height = -16
               ParentFont = False
               Transparent = True
@@ -4382,7 +3924,7 @@ object frmGuidance: TfrmGuidance
               Top = 1
               Width = 10
               Height = 23
-              Font.Color = clBlack
+              Font.Color = clWhite
               Font.Height = -16
               ParentFont = False
               Transparent = True
@@ -4396,7 +3938,7 @@ object frmGuidance: TfrmGuidance
               Top = 25
               Width = 10
               Height = 23
-              Font.Color = clBlack
+              Font.Color = clWhite
               Font.Height = -16
               ParentFont = False
               Transparent = True
@@ -4412,105 +3954,107 @@ object frmGuidance: TfrmGuidance
           end
         end
       end
-      inherited gbWaypoint: TGroupBox [13]
+      inherited gbWaypoint: TGroupBox [12]
         Width = 392
         Height = 329
+        Color = 2695445
+        ParentColor = False
         ExplicitWidth = 392
         ExplicitHeight = 329
         inherited Label97: TLabel
           Top = 29
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 29
         end
         inherited lbName: TLabel
           Top = 29
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 29
         end
         inherited lblLongitude: TLabel
           Top = 48
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 48
         end
         inherited Label103: TLabel
           Top = 48
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 48
         end
         inherited lbGroundSpeed: TLabel
           Top = 67
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 67
         end
         inherited Label104: TLabel
           Top = 67
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 67
         end
         inherited lbEta: TLabel
           Top = 107
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 107
         end
         inherited Label105: TLabel
           Top = 86
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 86
         end
         inherited Label106: TLabel
           Top = 86
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 86
         end
         inherited Label107: TLabel
           Top = 144
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 144
         end
         inherited lbDistance: TLabel
           Top = 86
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 86
         end
         inherited Label177: TLabel
           Top = 144
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 144
         end
         inherited Label179: TLabel
           Top = 170
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 170
         end
         inherited Label184: TLabel
           Top = 67
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 67
         end
         inherited lblLatitude: TLabel
           Top = 48
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitTop = 48
         end
         inherited lbActualGroundWaypoint: TLabel
           Left = 174
           Top = 170
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           ExplicitLeft = 174
           ExplicitTop = 170
@@ -4531,19 +4075,19 @@ object frmGuidance: TfrmGuidance
         end
         inherited StaticText24: TStaticText
           Top = 105
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitTop = 105
         end
         inherited StaticText26: TStaticText
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
         end
         inherited StaticText27: TStaticText
           Top = 168
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitTop = 168
@@ -4560,49 +4104,49 @@ object frmGuidance: TfrmGuidance
         end
         inherited StaticText67: TStaticText
           Top = 27
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitTop = 27
         end
         inherited StaticText71: TStaticText
           Top = 46
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitTop = 46
         end
         inherited StaticText76: TStaticText
           Top = 65
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitTop = 65
         end
         inherited StaticText77: TStaticText
           Top = 84
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitTop = 84
         end
         inherited StaticText78: TStaticText
           Top = 105
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitTop = 105
         end
         inherited StaticText79: TStaticText
           Top = 168
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitTop = 168
         end
         inherited StaticText80: TStaticText
           Top = 142
-          Font.Color = clBlack
+          Font.Color = clWhite
           ParentFont = False
           Transparent = True
           ExplicitTop = 142
@@ -4612,6 +4156,498 @@ object frmGuidance: TfrmGuidance
           Top = 141
           ExplicitLeft = 173
           ExplicitTop = 141
+        end
+      end
+      inherited grbEngagement: TGroupBox [13]
+        Width = 392
+        Height = 329
+        Color = 2695445
+        ParentColor = False
+        ExplicitWidth = 392
+        ExplicitHeight = 329
+        inherited Label300: TLabel
+          Top = 32
+          Font.Color = clWhite
+          ParentFont = False
+          ExplicitTop = 32
+        end
+        inherited Label305: TLabel
+          Top = 68
+          Font.Color = clWhite
+          ParentFont = False
+          ExplicitTop = 68
+        end
+        inherited Label306: TLabel
+          Top = 94
+          Font.Color = clWhite
+          ParentFont = False
+          ExplicitTop = 94
+        end
+        inherited Label307: TLabel
+          Left = 274
+          Top = 94
+          Font.Color = clWhite
+          ParentFont = False
+          ExplicitLeft = 274
+          ExplicitTop = 94
+        end
+        inherited Label308: TLabel
+          Top = 120
+          Font.Color = clWhite
+          ParentFont = False
+          ExplicitTop = 120
+        end
+        inherited Label309: TLabel
+          Left = 274
+          Top = 120
+          Font.Color = clWhite
+          ParentFont = False
+          ExplicitLeft = 274
+          ExplicitTop = 120
+        end
+        inherited lblEngageActualGroundSpeed: TLabel
+          Left = 193
+          Top = 120
+          Font.Color = clWhite
+          ParentFont = False
+          ExplicitLeft = 193
+          ExplicitTop = 120
+        end
+        inherited Label314: TLabel
+          Left = 274
+          Top = 68
+          Font.Color = clWhite
+          ParentFont = False
+          ExplicitLeft = 274
+          ExplicitTop = 68
+        end
+        inherited sbEngageTrackToEngage: TSpeedButton
+          Left = 274
+          Top = 20
+          Width = 40
+          Height = 40
+          Glyph.Data = {
+            D21B0000424DD21B00000000000042000000280000002A0000002A0000000100
+            200003000000901B0000130B0000130B000000000000000000000000FF0000FF
+            0000FF000000E6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF8F8C8CFF737070FF737070FF737070FF737070FF737070FF7370
+            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
+            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
+            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
+            70FF737070FF737070FFADA9A9FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FF817F7FFF9E9B9BFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFACA8A8FF817F7FFFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFACA9A9FFACA9A9FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF9E9A
+            9AFF908D8DFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFD8D3D3FF8F8C8CFF565454FF2B2A2AFF0E0E0EFF0000
+            00FF000000FF0E0E0EFF2B2A2AFF575454FF908C8CFFD8D3D3FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
+            70FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFC9C5C5FF565454FF000000FF484646FF817E7EFFACA8
+            A8FFD8D3D3FF393838FF3A3838FFD8D3D3FFBBB6B6FF817E7EFF393838FF1C1C
+            1CFF656262FFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFD7D3D3FF646262FF1D1C1CFF727070FFC9C5C5FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFD8D3D3FF727070FF0E0E0EFF656363FFD8D3D3FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5C5FF1C1C1CFF565454FFC9C5C5FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFD8D3D3FF646262FF1D1C
+            1CFFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFBAB7B7FF1C1C1CFF817E7EFFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
+            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF807E7EFF1D1C1CFFBAB7B7FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
+            70FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5C5FF1C1C1CFF908D
+            8DFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF8F8D8DFF1D1C1CFFC9C5C5FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFD7D3D3FF1C1C
+            1CFF817E7EFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF807E
+            7EFF1D1C1CFFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FF646262FF646363FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FF565454FF656363FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
+            E1FFE6E1E1FFC9C5C5FF0E0E0EFFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
+            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5C5FF1C1C1CFFC9C5C5FFE6E1
+            E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
+            70FFE6E1E1FFE6E1E1FFE6E1E1FF646262FF737070FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7270
+            70FF565454FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFD7D3D3FF1D1C1CFFD8D3D3FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFC9C5C5FF000000FFD8D3D3FFE6E1E1FFE6E1E1FF737070FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FF8F8C8CFF3938
+            38FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF484646FF908D8DFFE6E1E1FFE6E1
+            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
+            E1FF565454FF817E7EFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
+            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF817E7EFF5654
+            54FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
+            70FFE6E1E1FFE6E1E1FF2B2A2AFFBBB7B7FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFBBB6B6FFBBB7B7FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFACA8A8FF2B2A2AFFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FF0E0E0EFFD8D3D3FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFD7D3D3FF0E0E0EFFE6E1E1FFE6E1E1FF737070FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FF000000FF3A38
+            38FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF3A38
+            38FF3A3838FF3A3838FF3A3838FFBBB7B7FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFBBB6B6FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF3A38
+            38FF3A3838FF3A3838FF3A3838FF3A3838FF3A3838FF000000FFE6E1E1FFE6E1
+            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
+            E1FF000000FF393838FF393838FF393838FF393838FF393838FF393838FF3938
+            38FF393838FF393838FF393838FF393838FF393838FFBBB7B7FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFBAB6B6FF393838FF393838FF393838FF393838FF3938
+            38FF393838FF393838FF393838FF393838FF393838FF393838FF393838FF0000
+            00FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
+            70FFE6E1E1FFE6E1E1FF0E0E0EFFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFD7D3D3FF0E0E0EFFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FF2B2A2AFFADA9A9FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFBBB6B6FFBBB7B7FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFBBB6B6FF2B2A2AFFE6E1E1FFE6E1E1FF737070FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FF565454FF817E
+            7EFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF817E7EFF575454FFE6E1E1FFE6E1
+            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
+            E1FF8F8C8CFF484646FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
+            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF908C
+            8CFFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
+            70FFE6E1E1FFE6E1E1FFD7D3D3FF000000FFC9C5C5FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFD7D3
+            D3FF1D1C1CFFD8D3D3FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FF565454FF737171FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF737070FF656262FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5
+            C5FF1D1C1CFFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFD7D3D3FF0E0E0EFFC9C5C5FFE6E1E1FFE6E1E1FFE6E1
+            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FF646262FF565454FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
+            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF646262FF646363FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
+            70FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFD8D3D3FF1C1C1CFF817F7FFFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF817E7EFF1D1C1CFFD8D3
+            D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5
+            C5FF1C1C1CFF908D8DFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF8F8D8DFF1D1C
+            1CFFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFBAB7B7FF1C1C1CFF817F7FFFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF393838FF3A3838FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF817E
+            7EFF1D1C1CFFBBB7B7FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5C5FF1C1C1CFF6563
+            63FFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF3938
+            38FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5
+            C5FF565454FF1D1C1CFFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF7370
+            70FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFD8D3D3FF646262FF0E0E0EFF737171FFD8D3D3FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF393838FF3A3838FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5
+            C5FF737171FF1C1C1CFF646363FFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFC9C5C5FF656262FF1C1C1CFF3A38
+            38FF817E7EFFBBB7B7FFD8D3D3FF393838FF3A3838FFD8D3D3FFADA9A9FF817E
+            7EFF484646FF000000FF565454FFC9C5C5FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFD8D3D3FF8F8C8CFF565454FF2B2A2AFF0E0E0EFF000000FF000000FF0E0E
+            0EFF2B2A2AFF565454FF908D8DFFD8D3D3FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FF737070FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF8F8C8CFF9F9B9BFFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFACA9A9FFACA9A9FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FF817E7EFFADA9A9FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FF9E9B9BFF817E7EFFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFACA8A8FF737070FF737070FF737070FF7370
+            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
+            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
+            70FF737070FF737070FF737070FF737070FF737070FF737070FF737070FF7370
+            70FF737070FF737070FF737070FF737070FF908D8DFFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1
+            E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FFE6E1E1FF}
+          ExplicitLeft = 274
+          ExplicitTop = 20
+          ExplicitWidth = 40
+          ExplicitHeight = 40
+        end
+        inherited StaticText146: TStaticText
+          Left = 179
+          Top = 30
+          Font.Color = clWhite
+          ParentFont = False
+          Transparent = True
+          ExplicitLeft = 179
+          ExplicitTop = 30
+        end
+        inherited edtTrackToEngage: TEdit
+          Left = 193
+          Top = 29
+          ExplicitLeft = 193
+          ExplicitTop = 29
+        end
+        inherited StaticText147: TStaticText
+          Left = 179
+          Top = 66
+          Font.Color = clWhite
+          ParentFont = False
+          Transparent = True
+          ExplicitLeft = 179
+          ExplicitTop = 66
+        end
+        inherited StaticText148: TStaticText
+          Left = 179
+          Top = 92
+          Font.Color = clWhite
+          ParentFont = False
+          Transparent = True
+          ExplicitLeft = 179
+          ExplicitTop = 92
+        end
+        inherited StaticText149: TStaticText
+          Left = 179
+          Top = 118
+          Font.Color = clWhite
+          ParentFont = False
+          Transparent = True
+          ExplicitLeft = 179
+          ExplicitTop = 118
+        end
+        inherited edtEngageStandOffDistance: TEdit
+          Left = 193
+          Top = 65
+          ExplicitLeft = 193
+          ExplicitTop = 65
+        end
+        inherited edtEngageOrderedGroundSpeed: TEdit
+          Left = 193
+          Top = 91
+          ExplicitLeft = 193
+          ExplicitTop = 91
+        end
+        inherited pnlDepthEngagement: TPanel
+          Left = 0
+          Top = 140
+          ExplicitLeft = 0
+          ExplicitTop = 140
+          inherited Label13: TLabel
+            Top = 8
+            Font.Color = clWhite
+            ParentFont = False
+            ExplicitTop = 8
+          end
+          inherited lblDeptEngagMOde: TLabel
+            Left = 192
+            Top = 35
+            Font.Color = clWhite
+            ParentFont = False
+            ExplicitLeft = 192
+            ExplicitTop = 35
+          end
+          inherited Label26: TLabel
+            Left = 273
+            Top = 8
+            Font.Color = clWhite
+            ParentFont = False
+            ExplicitLeft = 273
+            ExplicitTop = 8
+          end
+          inherited Label27: TLabel
+            Left = 273
+            Top = 35
+            Font.Color = clWhite
+            ParentFont = False
+            ExplicitLeft = 273
+            ExplicitTop = 35
+          end
+          inherited StaticText17: TStaticText
+            Top = 33
+            Font.Color = clWhite
+            ParentFont = False
+            Transparent = True
+            ExplicitTop = 33
+          end
+          inherited StaticText18: TStaticText
+            Left = 178
+            Top = 6
+            Font.Color = clWhite
+            ParentFont = False
+            Transparent = True
+            ExplicitLeft = 178
+            ExplicitTop = 6
+          end
+          inherited StaticText19: TStaticText
+            Left = 178
+            Top = 33
+            Font.Color = clWhite
+            ParentFont = False
+            Transparent = True
+            ExplicitLeft = 178
+            ExplicitTop = 33
+          end
+          inherited Edit2: TEdit
+            Left = 192
+            Top = 4
+            Font.Height = -13
+            ExplicitLeft = 192
+            ExplicitTop = 4
+          end
+        end
+        inherited pnlAltitudeEngagement: TPanel
+          Top = 140
+          ExplicitTop = 140
+          inherited Label1: TLabel
+            Top = 8
+            Font.Color = clWhite
+            ParentFont = False
+            ExplicitTop = 8
+          end
+          inherited lblAltitudeEngagement: TLabel
+            Left = 195
+            Top = 35
+            Font.Color = clWhite
+            ParentFont = False
+            ExplicitLeft = 195
+            ExplicitTop = 35
+          end
+          inherited Label11: TLabel
+            Left = 274
+            Top = 8
+            Font.Color = clWhite
+            ParentFont = False
+            ExplicitLeft = 274
+            ExplicitTop = 8
+          end
+          inherited Label12: TLabel
+            Left = 274
+            Top = 35
+            Font.Color = clWhite
+            ParentFont = False
+            ExplicitLeft = 274
+            ExplicitTop = 35
+          end
+          inherited StaticText8: TStaticText
+            Top = 33
+            Color = 4012087
+            Font.Color = clWhite
+            ParentColor = False
+            ParentFont = False
+            Transparent = True
+            ExplicitTop = 33
+          end
+          inherited StaticText9: TStaticText
+            Left = 179
+            Top = 6
+            Color = 4012087
+            Font.Color = clWhite
+            ParentColor = False
+            ParentFont = False
+            Transparent = True
+            ExplicitLeft = 179
+            ExplicitTop = 6
+          end
+          inherited StaticText16: TStaticText
+            Left = 179
+            Top = 33
+            Color = 4012087
+            Font.Color = clWhite
+            ParentColor = False
+            ParentFont = False
+            Transparent = True
+            ExplicitLeft = 179
+            ExplicitTop = 33
+          end
+          inherited edtAltitudeEngagement: TEdit
+            Left = 193
+            Top = 4
+            Font.Height = -13
+            ExplicitLeft = 193
+            ExplicitTop = 4
+          end
         end
       end
     end
@@ -4657,7 +4693,7 @@ object frmGuidance: TfrmGuidance
     Width = 394
     Height = 54
     Align = alBottom
-    Color = 16775920
+    Color = 2695445
     ParentBackground = False
     TabOrder = 1
     object btnLaunch: TButton
@@ -4700,6 +4736,8 @@ object frmGuidance: TfrmGuidance
     Width = 394
     Height = 120
     Align = alTop
+    Color = 2695445
+    ParentBackground = False
     TabOrder = 2
     object lvTrackControl: TListView
       Left = 1

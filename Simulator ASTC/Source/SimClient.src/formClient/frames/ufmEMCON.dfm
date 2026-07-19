@@ -64,6 +64,8 @@ inherited fmEMCON: TfmEMCON
         BevelInner = bvNone
         BevelOuter = bvNone
         BorderStyle = bsNone
+        Color = 2695445
+        ParentColor = False
         TabOrder = 0
         object Bevel17: TBevel
           Left = 131

@@ -13,9 +13,9 @@ inherited fmCounterMeasure: TfmCounterMeasure
     Height = 412
     Align = alClient
     BevelOuter = bvNone
-    Color = 16775920
+    Color = 2695445
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clWhite
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -244,6 +244,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             GroupIndex = 1
             Caption = 'Deploy'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnECMAcousticDecoyOnClick
           end
           object sbAcousticDecoyActionStow: TSpeedButton
@@ -257,6 +263,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Down = True
             Caption = 'Stow'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnECMAcousticDecoyOnClick
           end
           object sbAcousticDecoyActivationOn: TSpeedButton
@@ -270,6 +282,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Down = True
             Caption = 'On'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnECMAcousticDecoyOnClick
           end
           object sbAcousticDecoyActivationOff: TSpeedButton
@@ -282,6 +300,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             GroupIndex = 3
             Caption = 'Off'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnECMAcousticDecoyOnClick
           end
           object sbAcousticDecoyCycleTimerOn: TSpeedButton
@@ -295,6 +319,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Down = True
             Caption = 'On'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnECMAcousticDecoyOnClick
           end
           object sbAcousticDecoyCycleTimerOff: TSpeedButton
@@ -307,6 +337,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             GroupIndex = 2
             Caption = 'Off'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnECMAcousticDecoyOnClick
           end
           object edtAcousticDecoyMode: TEdit
@@ -314,6 +350,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Top = 193
             Width = 171
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             ReadOnly = True
             TabOrder = 0
             Text = 'Pulsed noise'
@@ -323,125 +365,16 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Top = 228
             Width = 170
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             ReadOnly = True
             TabOrder = 1
             Text = '2'
           end
-        end
-      end
-      object grbAirborneChaff: TGroupBox
-        Left = 0
-        Top = 0
-        Width = 328
-        Height = 412
-        Align = alClient
-        TabOrder = 0
-        object Label510: TLabel
-          Left = 10
-          Top = 5
-          Width = 67
-          Height = 16
-          Caption = 'Deployment'
-        end
-        object Label511: TLabel
-          Left = 25
-          Top = 60
-          Width = 64
-          Height = 16
-          Caption = 'Quantity   :'
-        end
-        object Label516: TLabel
-          Left = 25
-          Top = 33
-          Width = 65
-          Height = 16
-          Caption = 'Type        :'
-        end
-        object Bevel110: TBevel
-          Left = 90
-          Top = 12
-          Width = 220
-          Height = 3
-        end
-        object lbChaffAirboneQuantity: TLabel
-          Left = 105
-          Top = 60
-          Width = 15
-          Height = 16
-          Caption = '---'
-        end
-        object btnAirboneChaffType: TSpeedButton
-          Left = 288
-          Top = 30
-          Width = 23
-          Height = 22
-          Glyph.Data = {
-            D6050000424DD605000000000000360000002800000017000000140000000100
-            180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-            000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-          OnClick = btnAirboneChaffTypeClick
-        end
-        object editChaffAirboneType: TEdit
-          Left = 105
-          Top = 29
-          Width = 175
-          Height = 24
-          ReadOnly = True
-          TabOrder = 0
-          Text = 'Barrier'
-        end
-        object btnChaffAirboneDeploy: TButton
-          Left = 25
-          Top = 100
-          Width = 80
-          Height = 25
-          Caption = 'Deploy'
-          TabOrder = 1
-          OnClick = btnChaffAirboneDeployClick
         end
       end
       object grbFloatingDecoy: TGroupBox
@@ -540,6 +473,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             AllowAllUp = True
             GroupIndex = 1
             Caption = 'Automatic'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = sbOnBoardSelfDefenseJammerControlModeAutoClick
           end
           object sbOnBoardSelfDefenseJammerControlModeManual: TSpeedButton
@@ -552,6 +491,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             GroupIndex = 1
             Down = True
             Caption = 'Manual'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = sbOnBoardSelfDefenseJammerControlModeAutoClick
           end
           object sbOnBoardSelfDefenseJammerControlModeOff: TSpeedButton
@@ -563,6 +508,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             AllowAllUp = True
             GroupIndex = 1
             Caption = 'Off'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = sbOnBoardSelfDefenseJammerControlModeAutoClick
           end
           object sbOnBoardSelfDefenseJammerControlTargetingSpot: TSpeedButton
@@ -575,6 +526,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             GroupIndex = 2
             Down = True
             Caption = 'Spot'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = sbOnBoardSelfDefenseJammerControlModeAutoClick
           end
           object sbOnBoardSelfDefenseJammerControlTargetingTrack: TSpeedButton
@@ -586,6 +543,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             AllowAllUp = True
             GroupIndex = 2
             Caption = 'Track'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = sbOnBoardSelfDefenseJammerControlModeAutoClick
           end
           object grbManualTrack: TGroupBox
@@ -726,6 +689,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
               Width = 63
               Height = 24
               Enabled = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
               TabOrder = 0
               Text = '0'
               OnKeyPress = edtOnBoardSelfDefenseText
@@ -737,6 +706,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
               Width = 63
               Height = 24
               Enabled = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
               TabOrder = 1
               Text = '000'
               OnKeyPress = edtOnBoardSelfDefenseText
@@ -854,6 +829,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             GroupIndex = 1
             Down = True
             Caption = 'Off'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnRadarNoiseJammerOnClick
           end
           object sbRadarJammingControlActivationOn: TSpeedButton
@@ -865,6 +846,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             AllowAllUp = True
             GroupIndex = 1
             Caption = 'On'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnRadarNoiseJammerOnClick
           end
           object cbRadarJammingControlMode: TComboBox
@@ -872,7 +859,13 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Top = 107
             Width = 208
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
             ItemIndex = 0
+            ParentFont = False
             TabOrder = 0
             Text = 'Barrage'
             OnChange = cbRadarJammingControlModeChange
@@ -1272,6 +1265,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
                 Top = 54
                 Width = 53
                 Height = 24
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
                 TabOrder = 0
                 Text = '10.0'
               end
@@ -1281,6 +1280,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
                 Top = 31
                 Width = 53
                 Height = 24
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
                 TabOrder = 1
                 Text = '000'
                 OnKeyPress = editRadarJammingSpotNumberSpotKeyPress
@@ -1291,6 +1296,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
                 Top = 78
                 Width = 53
                 Height = 24
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
                 TabOrder = 2
                 Text = '2.0'
               end
@@ -1300,6 +1311,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
                 Top = 8
                 Width = 53
                 Height = 24
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
                 TabOrder = 3
                 Text = '---'
                 OnKeyPress = editRadarJammingSpotNumberSpotKeyPress
@@ -1519,6 +1536,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Width = 135
             Height = 28
             Caption = 'Copy to All Launchers'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnSurfaceChaffOnClick
           end
           object btnSurfaceChaffLaunch: TSpeedButton
@@ -1528,6 +1551,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Width = 135
             Height = 28
             Caption = 'Launch Distraction'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnSurfaceChaffOnClick
           end
           object btnSurfaceChaffAbort: TSpeedButton
@@ -1537,6 +1566,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Width = 135
             Height = 28
             Caption = 'Abort Salvo'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             OnClick = btnSurfaceChaffOnClick
           end
           object Label19: TLabel
@@ -1585,6 +1620,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Top = 16
             Width = 160
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             ReadOnly = True
             TabOrder = 0
           end
@@ -1594,6 +1635,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Top = 41
             Width = 75
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 1
             OnKeyPress = OnSurfaceChaffKeyPress
           end
@@ -1602,6 +1649,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Top = 96
             Width = 160
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             ReadOnly = True
             TabOrder = 2
           end
@@ -1611,6 +1664,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Top = 146
             Width = 75
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 3
             OnKeyPress = OnSurfaceChaffKeyPress
           end
@@ -1620,6 +1679,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Top = 171
             Width = 75
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 4
             OnKeyPress = OnSurfaceChaffKeyPress
           end
@@ -1629,6 +1694,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Top = 196
             Width = 75
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 5
             OnKeyPress = OnSurfaceChaffKeyPress
           end
@@ -1638,6 +1709,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Top = 221
             Width = 75
             Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 6
             OnKeyPress = OnSurfaceChaffKeyPress
           end
@@ -1658,6 +1735,156 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Caption = 'Enabled'
             TabOrder = 8
           end
+        end
+      end
+      object grpAirBubble: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 328
+        Height = 412
+        Align = alClient
+        Color = 2695445
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 6
+        object lblDeploy: TLabel
+          Left = 10
+          Top = 5
+          Width = 67
+          Height = 16
+          Caption = 'Deployment'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblQuant: TLabel
+          Left = 20
+          Top = 60
+          Width = 56
+          Height = 16
+          Caption = 'Quantity :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblType: TLabel
+          Left = 20
+          Top = 35
+          Width = 37
+          Height = 16
+          Caption = 'Type :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object bvl1: TBevel
+          Left = 90
+          Top = 12
+          Width = 220
+          Height = 3
+        end
+        object lblBubblelQuantity: TLabel
+          Left = 97
+          Top = 60
+          Width = 15
+          Height = 16
+          Caption = '---'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object btnType: TSpeedButton
+          Left = 284
+          Top = 32
+          Width = 23
+          Height = 22
+          Enabled = False
+          Glyph.Data = {
+            D6050000424DD605000000000000360000002800000017000000140000000100
+            180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
+            000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+            0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
+          Visible = False
+          OnClick = btnAirboneChaffTypeClick
+        end
+        object edtBubble: TEdit
+          Left = 97
+          Top = 31
+          Width = 175
+          Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 0
+          Text = 'Air Bubble'
+        end
+        object btnAirBubbleDeploy: TButton
+          Left = 20
+          Top = 100
+          Width = 80
+          Height = 25
+          Caption = 'Deploy'
+          TabOrder = 1
+          OnClick = btnAirBubbleDeployClick
         end
       end
       object grbTowedJammerDecoy: TGroupBox
@@ -1816,6 +2043,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Down = True
             Caption = 'Deploy'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object sbTowedJammerDecoyActionStow: TSpeedButton
             Left = 18
@@ -1826,6 +2059,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             GroupIndex = 3
             Caption = 'Stow'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object sbTowedJammerDecoyModeAuto: TSpeedButton
             Left = 20
@@ -1836,6 +2075,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             GroupIndex = 1
             Caption = 'Automatic'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object sbTowedJammerDecoyModeManual: TSpeedButton
             Left = 20
@@ -1847,6 +2092,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Down = True
             Caption = 'Manual'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object sbTowedJammerDecoyModeOff: TSpeedButton
             Left = 20
@@ -1857,6 +2108,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             GroupIndex = 1
             Caption = 'Off'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object sbTowedJammerDecoyTargetingSpot: TSpeedButton
             Left = 138
@@ -1868,6 +2125,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Down = True
             Caption = 'Spot'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object sbTowedJammerDecoyTargetingTrack: TSpeedButton
             Left = 138
@@ -1878,6 +2141,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             GroupIndex = 2
             Caption = 'Track'
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object editTowedJammerDecoyOrdered: TEdit
             Left = 215
@@ -1885,6 +2154,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Width = 40
             Height = 24
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 0
           end
           object edtTowedJammerDecoyBearing: TEdit
@@ -1893,6 +2168,12 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Width = 88
             Height = 24
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 1
             Text = '000'
           end
@@ -1902,58 +2183,63 @@ inherited fmCounterMeasure: TfmCounterMeasure
             Width = 88
             Height = 24
             Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 2
             Text = '---'
           end
         end
       end
-      object grpAirBubble: TGroupBox
+      object grbAirborneChaff: TGroupBox
         Left = 0
         Top = 0
         Width = 328
         Height = 412
         Align = alClient
-        TabOrder = 6
-        object lblDeploy: TLabel
+        TabOrder = 0
+        object Label510: TLabel
           Left = 10
           Top = 5
           Width = 67
           Height = 16
           Caption = 'Deployment'
         end
-        object lblQuant: TLabel
-          Left = 20
+        object Label511: TLabel
+          Left = 25
           Top = 60
-          Width = 56
+          Width = 64
           Height = 16
-          Caption = 'Quantity :'
+          Caption = 'Quantity   :'
         end
-        object lblType: TLabel
-          Left = 20
-          Top = 35
-          Width = 37
+        object Label516: TLabel
+          Left = 25
+          Top = 33
+          Width = 65
           Height = 16
-          Caption = 'Type :'
+          Caption = 'Type        :'
         end
-        object bvl1: TBevel
+        object Bevel110: TBevel
           Left = 90
           Top = 12
           Width = 220
           Height = 3
         end
-        object lblBubblelQuantity: TLabel
-          Left = 97
+        object lbChaffAirboneQuantity: TLabel
+          Left = 105
           Top = 60
           Width = 15
           Height = 16
           Caption = '---'
         end
-        object btnType: TSpeedButton
-          Left = 284
-          Top = 32
+        object btnAirboneChaffType: TSpeedButton
+          Left = 288
+          Top = 30
           Width = 23
           Height = 22
-          Enabled = False
           Glyph.Data = {
             D6050000424DD605000000000000360000002800000017000000140000000100
             180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
@@ -2002,26 +2288,31 @@ inherited fmCounterMeasure: TfmCounterMeasure
             B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
             B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
             B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-          Visible = False
           OnClick = btnAirboneChaffTypeClick
         end
-        object edtBubble: TEdit
-          Left = 97
-          Top = 31
+        object editChaffAirboneType: TEdit
+          Left = 105
+          Top = 29
           Width = 175
           Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           ReadOnly = True
           TabOrder = 0
-          Text = 'Air Bubble'
+          Text = 'Barrier'
         end
-        object btnAirBubbleDeploy: TButton
-          Left = 20
+        object btnChaffAirboneDeploy: TButton
+          Left = 25
           Top = 100
           Width = 80
           Height = 25
           Caption = 'Deploy'
           TabOrder = 1
-          OnClick = btnAirBubbleDeployClick
+          OnClick = btnChaffAirboneDeployClick
         end
       end
     end
@@ -2033,7 +2324,7 @@ inherited fmCounterMeasure: TfmCounterMeasure
     Height = 14
     Align = alTop
     BevelOuter = bvNone
-    Color = 16775920
+    Color = 2695445
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13

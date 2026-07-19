@@ -1,7 +1,8 @@
 inherited fmOwnShip: TfmOwnShip
   Width = 330
   Height = 370
-  Color = 16775920
+  Color = 2695445
+  Font.Color = clWhite
   Font.Height = -13
   ParentBackground = False
   ParentColor = False

@@ -12,6 +12,7 @@ object frmRightNav: TfrmRightNav
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlContainer: TPanel
@@ -27506,6 +27507,7 @@ object frmRightNav: TfrmRightNav
         ParentBackground = False
         ParentFont = False
         TabOrder = 1
+        OnClick = THButtonClick
       end
       object pnlTabDetection: TPanel
         Left = 140
@@ -27523,6 +27525,7 @@ object frmRightNav: TfrmRightNav
         ParentBackground = False
         ParentFont = False
         TabOrder = 2
+        OnClick = THButtonClick
       end
       object pnlTabIFF: TPanel
         Left = 210
@@ -27540,6 +27543,7 @@ object frmRightNav: TfrmRightNav
         ParentBackground = False
         ParentFont = False
         TabOrder = 3
+        OnClick = THButtonClick
       end
       object pnlTabHook: TPanel
         Left = 0
@@ -27557,6 +27561,7 @@ object frmRightNav: TfrmRightNav
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        OnClick = THButtonClick
       end
       object pnlContentDetails: TPanel
         Left = 0

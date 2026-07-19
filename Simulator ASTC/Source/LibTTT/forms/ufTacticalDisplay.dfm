@@ -110,8 +110,8 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = THButtonClick
       end
       object pnlTabHook: TPanel
-        Left = 0
-        Top = 1
+        Left = 1
+        Top = 0
         Width = 70
         Height = 25
         BevelOuter = bvLowered
@@ -3613,7 +3613,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbVisualDetectorSensor: TGroupBox [4]
+              inherited grbVisualDetectorSensor: TGroupBox
                 Width = 331
                 Height = 1881
                 ParentBackground = False
@@ -3642,7 +3642,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   OnClick = OnVisualShowClick
                 end
               end
-              inherited grbAnomalyDetectorSensor: TGroupBox [5]
+              inherited grbAnomalyDetectorSensor: TGroupBox
                 Width = 331
                 Height = 1881
                 ExplicitWidth = 331
@@ -3658,7 +3658,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitWidth = 85
                 end
               end
-              inherited grbSonarControl: TGroupBox [6]
+              inherited grbSonarControl: TGroupBox
                 Width = 331
                 Height = 1881
                 ParentBackground = False
@@ -3744,7 +3744,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbIFFInterrogatorControl: TGroupBox [7]
+              inherited grbIFFInterrogatorControl: TGroupBox
                 Width = 331
                 Height = 1881
                 ExplicitWidth = 331
@@ -3911,7 +3911,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           inherited PaneFCSpace: TPanel [0]
             Top = 82
             Width = 337
-            Color = 2695445
             ExplicitTop = 82
             ExplicitWidth = 337
           end
@@ -3940,7 +3939,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 inherited grbFireControl: TGroupBox
                   Width = 337
                   Height = 1904
-                  Color = 2695445
                   ParentBackground = False
                   ParentColor = False
                   ExplicitWidth = 337
@@ -3951,35 +3949,27 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     OnClick = fmFireControl1btnSearchFireControlAssetsTargetClick
                   end
                   inherited Label265: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label266: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label267: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label268: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label514: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label515: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label527: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited lbControlChannel: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited sbFireControlAssetsBlindZonesHide: TSpeedButton
@@ -4017,8 +4007,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Top = 184
                     Width = 108
                     Height = 108
-                    Font.Color = clBlack
-                    ParentFont = False
                     ExplicitLeft = 26
                     ExplicitTop = 184
                     ExplicitWidth = 108
@@ -4083,8 +4071,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               inherited ScrollBox2: TScrollBox
                 Width = 335
                 Height = 1899
-                Color = 2695445
-                ParentColor = False
                 ExplicitWidth = 335
                 ExplicitHeight = 1899
                 inherited Label562: TLabel
@@ -4214,13 +4200,11 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           inherited PanelALL: TPanel
             Width = 337
             Height = 1884
-            Color = 2695445
             ExplicitWidth = 337
             ExplicitHeight = 1884
             inherited PanelCounterMeasure: TPanel
               Width = 337
               Height = 1884
-              Color = 2695445
               ParentColor = False
               ExplicitWidth = 337
               ExplicitHeight = 1884
@@ -4235,39 +4219,30 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitWidth = 333
                   ExplicitHeight = 1864
                   inherited Label1: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label2: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label3: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label4: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label5: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label6: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label7: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label8: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label9: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited btnComboAcousticDecoyMode: TSpeedButton
@@ -4284,56 +4259,18 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbAirborneChaff: TGroupBox
-                Width = 337
-                Height = 1884
-                ExplicitWidth = 337
-                ExplicitHeight = 1884
-                inherited Label510: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label511: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label516: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbChaffAirboneQuantity: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited btnAirboneChaffType: TSpeedButton
-                  Width = 28
-                  Height = 23
-                  ExplicitWidth = 28
-                  ExplicitHeight = 23
-                end
-                inherited btnChaffAirboneDeploy: TButton
-                  Width = 89
-                  Height = 24
-                  OnClick = fmCounterMeasure1btnChaffAirboneDeployClick
-                  ExplicitWidth = 89
-                  ExplicitHeight = 24
-                end
-              end
               inherited grbFloatingDecoy: TGroupBox
                 Width = 337
                 Height = 1884
                 ExplicitWidth = 337
                 ExplicitHeight = 1884
                 inherited Label502: TLabel
-                  Font.Color = clWhite
                   ParentFont = False
                 end
                 inherited Label550: TLabel
-                  Font.Color = clWhite
                   ParentFont = False
                 end
                 inherited lbFloatingDecoyQuantity: TLabel
-                  Font.Color = clWhite
                   ParentFont = False
                 end
                 inherited btnFloatingDecoyDeploy: TButton
@@ -4353,57 +4290,32 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitWidth = 333
                   ExplicitHeight = 1864
                   inherited Label542: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label543: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label544: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited grbManualSpot: TGroupBox
                     inherited Label547: TLabel
-                      Font.Color = clWhite
                       ParentFont = False
                     end
                     inherited Label546: TLabel
-                      Font.Color = clWhite
                       ParentFont = False
                     end
                     inherited Label549: TLabel
-                      Font.Color = clWhite
                       ParentFont = False
                     end
                   end
                 end
               end
-              inherited grpAirBubble: TGroupBox [4]
+              inherited grpAirBubble: TGroupBox [3]
                 Width = 337
                 Height = 1884
-                Color = 2695445
-                ParentBackground = False
-                ParentColor = False
                 ExplicitWidth = 337
                 ExplicitHeight = 1884
-                inherited lblDeploy: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblQuant: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblType: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblBubblelQuantity: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
                 inherited btnType: TSpeedButton
                   Left = 278
                   Width = 29
@@ -4420,10 +4332,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitHeight = 24
                 end
               end
-              inherited grbRadarNoiseJammer: TGroupBox [5]
+              inherited grbRadarNoiseJammer: TGroupBox [4]
                 Width = 337
                 Height = 1884
-                Color = 2695445
                 ParentBackground = False
                 ParentColor = False
                 ExplicitWidth = 337
@@ -4431,7 +4342,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 inherited ScrollBox3: TScrollBox
                   Width = 333
                   Height = 1864
-                  Color = 2695445
                   ParentColor = False
                   ExplicitWidth = 333
                   ExplicitHeight = 1864
@@ -4442,15 +4352,12 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     ExplicitHeight = 23
                   end
                   inherited Label532: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label557: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label558: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited sbRadarJammingControlActivationOn: TSpeedButton [5]
@@ -4464,144 +4371,112 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     ParentBackground = False
                     inherited gbRadarJammingSpotNumberMode: TGroupBox [0]
                       inherited Label519: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label521: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label522: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label523: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label524: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label525: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label517: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label25: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label26: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label27: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label28: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                     end
                     inherited gbRadarJammingSelectedTrackMode: TGroupBox
                       inherited Label518: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label528: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label530: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label535: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label539: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label540: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label541: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited btnRadarJammingModeSelectedTrackTrack: TSpeedButton
                         OnClick = fmCounterMeasure1btnRadarJammingModeSelectedTrackTrackClick
                       end
                       inherited Label32: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label33: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label34: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label35: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                     end
                     inherited gbRadarJammingBarrageMode: TGroupBox [2]
                       inherited Label531: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label533: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label534: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label536: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label537: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label538: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label29: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label30: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                       inherited Label31: TLabel
-                        Font.Color = clWhite
                         ParentFont = False
                       end
                     end
                   end
                 end
               end
-              inherited grbSurfaceChaffDeployment: TGroupBox [6]
+              inherited grbSurfaceChaffDeployment: TGroupBox [5]
                 Width = 337
                 Height = 1884
-                Color = 2695445
                 ParentBackground = False
                 ParentColor = False
                 ExplicitWidth = 337
@@ -4609,7 +4484,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 inherited ScrollBox2: TScrollBox
                   Width = 333
                   Height = 1864
-                  Color = 2695445
                   ParentColor = False
                   ExplicitWidth = 333
                   ExplicitHeight = 1864
@@ -4618,45 +4492,35 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     ExplicitTop = 4
                   end
                   inherited Label10: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label11: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label12: TLabel
                     Top = 43
-                    Font.Color = clWhite
                     ParentFont = False
                     ExplicitTop = 43
                   end
                   inherited Label13: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label14: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label15: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label16: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label17: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label18: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited lblSurfaceChaffQuantity: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited btnSurfaceChaffLauncher: TSpeedButton
@@ -4675,23 +4539,18 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     OnClick = fmCounterMeasure1btnSurfaceChaffAbortClick
                   end
                   inherited Label19: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label20: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label21: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label22: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label23: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited edtSurfaceChaffBloomRange: TEdit
@@ -4716,10 +4575,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbTowedJammerDecoy: TGroupBox [7]
+              inherited grbTowedJammerDecoy: TGroupBox
                 Width = 337
                 Height = 1884
-                Color = 2695445
                 ParentBackground = False
                 ParentColor = False
                 ExplicitWidth = 337
@@ -4727,72 +4585,55 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 inherited ScrollBox4: TScrollBox
                   Width = 333
                   Height = 1864
-                  Color = 2695445
                   ParentColor = False
                   ExplicitWidth = 333
                   ExplicitHeight = 1864
                   inherited Label501: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label503: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label504: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label505: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label506: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label507: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label508: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label509: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label512: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label559: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label560: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label561: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label563: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited Label564: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited lblTowedJammerDecoyActual: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited lblTowedJammerDecoyQuantity: TLabel
-                    Font.Color = clWhite
                     ParentFont = False
                   end
                   inherited sbTowedJammerDecoyActionDeploy: TSpeedButton
@@ -4805,11 +4646,41 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
+              inherited grbAirborneChaff: TGroupBox
+                Width = 337
+                Height = 1884
+                ExplicitWidth = 337
+                ExplicitHeight = 1884
+                inherited Label510: TLabel
+                  ParentFont = False
+                end
+                inherited Label511: TLabel
+                  ParentFont = False
+                end
+                inherited Label516: TLabel
+                  ParentFont = False
+                end
+                inherited lbChaffAirboneQuantity: TLabel
+                  ParentFont = False
+                end
+                inherited btnAirboneChaffType: TSpeedButton
+                  Width = 28
+                  Height = 23
+                  ExplicitWidth = 28
+                  ExplicitHeight = 23
+                end
+                inherited btnChaffAirboneDeploy: TButton
+                  Width = 89
+                  Height = 24
+                  OnClick = fmCounterMeasure1btnChaffAirboneDeployClick
+                  ExplicitWidth = 89
+                  ExplicitHeight = 24
+                end
+              end
             end
           end
           inherited PanelCounterMeasureSpace: TPanel
             Width = 337
-            Color = 2695445
             ExplicitWidth = 337
           end
           inherited PanelCounterMeasureChoice: TPanel
@@ -5761,286 +5632,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbSurfaceToSurfaceMissile: TGroupBox [10]
-                Width = 337
-                Height = 1973
-                ParentBackground = False
-                ParentColor = False
-                ExplicitWidth = 337
-                ExplicitHeight = 1973
-                inherited ScrollBox6: TScrollBox
-                  Width = 333
-                  Height = 1953
-                  ExplicitWidth = 333
-                  ExplicitHeight = 1953
-                  inherited btnSurfaceToSurfaceMissileFiring: TSpeedButton
-                    Left = 184
-                    Height = 21
-                    Visible = True
-                    ExplicitLeft = 184
-                    ExplicitHeight = 21
-                  end
-                  inherited btnSurfaceToSurfaceMissileEngagement: TSpeedButton
-                    Left = 184
-                    Height = 21
-                    ExplicitLeft = 184
-                    ExplicitHeight = 21
-                  end
-                  inherited Label67: TLabel
-                    ParentFont = False
-                  end
-                  inherited lblSurfaceToSurfaceMissileStatus: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label69: TLabel
-                    ParentFont = False
-                  end
-                  inherited lbSurfaceToSurfaceMissileQuantity: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label75: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label76: TLabel
-                    ParentFont = False
-                  end
-                  inherited Label77: TLabel
-                    ParentFont = False
-                    Visible = True
-                  end
-                  inherited Label78: TLabel [11]
-                    Top = 322
-                    ParentFont = False
-                    ExplicitTop = 322
-                  end
-                  inherited Bevel77: TBevel [12]
-                    Top = 329
-                    ExplicitTop = 329
-                  end
-                  inherited Label414: TLabel [13]
-                    ParentFont = False
-                  end
-                  inherited Label415: TLabel [14]
-                    ParentFont = False
-                    Visible = True
-                  end
-                  inherited Label416: TLabel [15]
-                    ParentFont = False
-                  end
-                  inherited btnSurfaceToSurfaceMissileTargetTrack: TSpeedButton [16]
-                    Left = 164
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitLeft = 164
-                  end
-                  inherited sbSurfaceToSurfaceMissileDisplayRangeShow: TSpeedButton [17]
-                    Top = 347
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitTop = 347
-                  end
-                  inherited sbSurfaceToSurfaceMissileDisplayRangeHide: TSpeedButton [18]
-                    Top = 372
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitTop = 372
-                  end
-                  inherited lblDestruckRange: TLabel [19]
-                    Left = 20
-                    Top = 238
-                    ParentFont = False
-                    ExplicitLeft = 20
-                    ExplicitTop = 238
-                  end
-                  inherited lblCrossOverRange: TLabel [20]
-                    Left = 20
-                    Top = 213
-                    ParentFont = False
-                    ExplicitLeft = 20
-                    ExplicitTop = 213
-                  end
-                  inherited lblNmCrossOverRange: TLabel [21]
-                    Left = 174
-                    Top = 215
-                    ParentFont = False
-                    ExplicitLeft = 174
-                    ExplicitTop = 215
-                  end
-                  inherited lblNmDestruckRange: TLabel [22]
-                    Left = 174
-                    Top = 240
-                    ParentFont = False
-                    ExplicitLeft = 174
-                    ExplicitTop = 240
-                  end
-                  inherited Bevel74: TBevel [23]
-                  end
-                  inherited editSurfaceToSurfaceMissileFiring: TEdit
-                    Left = 124
-                    Visible = True
-                    ExplicitLeft = 124
-                  end
-                  inherited editSurfaceToSurfaceMissileEngangement: TEdit
-                    Left = 124
-                    ExplicitLeft = 124
-                  end
-                  inherited editSurfaceToSurfaceMissileTargetTrack: TEdit
-                    Left = 107
-                    ExplicitLeft = 107
-                  end
-                  inherited btnSurfaceToSurfacePlan: TButton
-                    Top = 407
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitTop = 407
-                  end
-                  inherited btnSurfaceToSurfaceLaunch: TButton
-                    Top = 407
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitTop = 407
-                  end
-                  inherited btnSurfaceToSurfaceCancel: TButton
-                    Top = 407
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    ExplicitTop = 407
-                  end
-                  inherited btnSurfaceToSurfaceMissileLauncherMore: TButton [31]
-                    Top = 235
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileLauncherMoreClick
-                    ExplicitTop = 235
-                  end
-                  inherited pnlLaunch1: TPanel [32]
-                    Color = 2695445
-                    ParentBackground = False
-                    ParentFont = False
-                    OnClick = fmWeapon1pnlLaunch1Click
-                  end
-                  inherited pnlLaunch2: TPanel [33]
-                    Color = 2695445
-                    ParentBackground = False
-                    ParentFont = False
-                    OnClick = fmWeapon1pnlLaunch2Click
-                    inherited vbl2: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                    end
-                  end
-                  inherited pnlLaunch3: TPanel [34]
-                    Color = 2695445
-                    ParentBackground = False
-                    ParentFont = False
-                    OnClick = fmWeapon1pnlLaunch3Click
-                  end
-                  inherited pnlLaunch4: TPanel [35]
-                    Color = 2695445
-                    ParentBackground = False
-                    ParentFont = False
-                    OnClick = nil
-                    inherited vbl4: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                      ExplicitWidth = 21
-                    end
-                  end
-                  inherited pnlLaunch5: TPanel [36]
-                    Color = 2695445
-                    ParentBackground = False
-                    ParentFont = False
-                    OnClick = nil
-                    inherited vbl5: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                      ExplicitWidth = 21
-                    end
-                  end
-                  inherited pnlLaunch6: TPanel [37]
-                    Color = 2695445
-                    ParentBackground = False
-                    ParentFont = False
-                    OnClick = fmWeapon1pnlLaunch6Click
-                    inherited vbl6: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                      ExplicitWidth = 21
-                    end
-                  end
-                  inherited pnlLaunch7: TPanel [38]
-                    Color = 2695445
-                    ParentBackground = False
-                    ParentFont = False
-                    OnClick = fmWeapon1pnlLaunch7Click
-                    inherited vbl7: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                      ExplicitWidth = 21
-                    end
-                  end
-                  inherited pnlLaunch8: TPanel [39]
-                    Color = 2695445
-                    ParentBackground = False
-                    ParentFont = False
-                    OnClick = fmWeapon1pnlLaunch8Click
-                    inherited vbl8: TVrBlinkLed
-                      ExplicitLeft = 1
-                      ExplicitTop = 1
-                      ExplicitWidth = 21
-                    end
-                  end
-                  inherited edtDestructRange: TEdit [40]
-                    Left = 124
-                    Top = 238
-                    Width = 45
-                    ExplicitLeft = 124
-                    ExplicitTop = 238
-                    ExplicitWidth = 45
-                  end
-                  inherited edtCrossOverRange: TEdit [41]
-                    Left = 124
-                    Top = 213
-                    Width = 45
-                    ExplicitLeft = 124
-                    ExplicitTop = 213
-                    ExplicitWidth = 45
-                  end
-                  inherited panSurfaceToSurfaceWp: TPanel [42]
-                    Left = 16
-                    Top = 261
-                    Color = 2695445
-                    ParentBackground = False
-                    ParentFont = False
-                    ExplicitLeft = 16
-                    ExplicitTop = 261
-                    inherited Bevel16: TBevel
-                      Left = 75
-                      ExplicitLeft = 75
-                    end
-                    inherited btnSurfaceToSurfaceMissileWaypointsEdit: TButton
-                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                    end
-                    inherited btnSurfaceToSurfaceMissileWaypointsAdd: TButton
-                      Left = 60
-                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                      ExplicitLeft = 60
-                    end
-                    inherited btnSurfaceToSurfaceMissileWaypointsDelete: TButton
-                      Left = 116
-                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                      ExplicitLeft = 116
-                    end
-                    inherited btnSurfaceToSurfaceMissileWaypointsApply: TButton
-                      Left = 172
-                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                      ExplicitLeft = 172
-                    end
-                    inherited btnSurfaceToSurfaceMissileWaypointsCancel: TButton
-                      Left = 228
-                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
-                      ExplicitLeft = 228
-                    end
-                  end
-                  inherited btnSurfaceToSurfaceMissileTargetTrackDetails: TButton [43]
-                    Visible = True
-                    OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackDetailsClick
-                  end
-                end
-              end
-              inherited grbTacticalAcousticTorpedos: TGroupBox [11]
+              inherited grbTacticalAcousticTorpedos: TGroupBox [10]
                 Width = 337
                 Height = 1973
                 ParentBackground = False
@@ -6059,7 +5651,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitLeft = 128
                 end
               end
-              inherited grbTacticalMissiles: TGroupBox [12]
+              inherited grbTacticalMissiles: TGroupBox [11]
                 Width = 337
                 Height = 1973
                 ParentBackground = False
@@ -6092,7 +5684,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbWakeHomingTorpedos: TGroupBox [13]
+              inherited grbWakeHomingTorpedos: TGroupBox [12]
                 Width = 337
                 Height = 1973
                 ParentBackground = False
@@ -6137,7 +5729,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbWireGuidedTorpedo: TGroupBox [14]
+              inherited grbWireGuidedTorpedo: TGroupBox [13]
                 Width = 337
                 Height = 1973
                 ParentColor = False
@@ -6271,7 +5863,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
-              inherited grbSurfaceToAirMissile: TGroupBox [15]
+              inherited grbSurfaceToAirMissile: TGroupBox [14]
                 Width = 337
                 Height = 1973
                 ParentBackground = False
@@ -6448,8 +6040,289 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     ExplicitLeft = 97
                   end
                 end
+                inherited grbSurfaceToSurfaceMissile: TGroupBox
+                  Width = 333
+                  Height = 1953
+                  ParentBackground = False
+                  ParentColor = False
+                  ExplicitLeft = 2
+                  ExplicitTop = 18
+                  ExplicitWidth = 333
+                  ExplicitHeight = 1953
+                  inherited ScrollBox6: TScrollBox
+                    Width = 329
+                    Height = 1933
+                    ExplicitWidth = 329
+                    ExplicitHeight = 1933
+                    inherited btnSurfaceToSurfaceMissileFiring: TSpeedButton
+                      Left = 184
+                      Height = 21
+                      Visible = True
+                      ExplicitLeft = 184
+                      ExplicitHeight = 21
+                    end
+                    inherited btnSurfaceToSurfaceMissileEngagement: TSpeedButton
+                      Left = 184
+                      Height = 21
+                      ExplicitLeft = 184
+                      ExplicitHeight = 21
+                    end
+                    inherited Label67: TLabel
+                      ParentFont = False
+                    end
+                    inherited lblSurfaceToSurfaceMissileStatus: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label69: TLabel
+                      ParentFont = False
+                    end
+                    inherited lbSurfaceToSurfaceMissileQuantity: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label75: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label76: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label77: TLabel
+                      ParentFont = False
+                      Visible = True
+                    end
+                    inherited Label78: TLabel [11]
+                      Top = 322
+                      ParentFont = False
+                      ExplicitTop = 322
+                    end
+                    inherited Bevel77: TBevel [12]
+                      Top = 329
+                      ExplicitTop = 329
+                    end
+                    inherited Label414: TLabel [13]
+                      ParentFont = False
+                    end
+                    inherited Label415: TLabel [14]
+                      ParentFont = False
+                      Visible = True
+                    end
+                    inherited Label416: TLabel [15]
+                      ParentFont = False
+                    end
+                    inherited btnSurfaceToSurfaceMissileTargetTrack: TSpeedButton [16]
+                      Left = 164
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      ExplicitLeft = 164
+                    end
+                    inherited sbSurfaceToSurfaceMissileDisplayRangeShow: TSpeedButton [17]
+                      Top = 347
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      ExplicitTop = 347
+                    end
+                    inherited sbSurfaceToSurfaceMissileDisplayRangeHide: TSpeedButton [18]
+                      Top = 372
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      ExplicitTop = 372
+                    end
+                    inherited lblDestruckRange: TLabel [19]
+                      Left = 20
+                      Top = 238
+                      ParentFont = False
+                      ExplicitLeft = 20
+                      ExplicitTop = 238
+                    end
+                    inherited lblCrossOverRange: TLabel [20]
+                      Left = 20
+                      Top = 213
+                      ParentFont = False
+                      ExplicitLeft = 20
+                      ExplicitTop = 213
+                    end
+                    inherited lblNmCrossOverRange: TLabel [21]
+                      Left = 174
+                      Top = 215
+                      ParentFont = False
+                      ExplicitLeft = 174
+                      ExplicitTop = 215
+                    end
+                    inherited lblNmDestruckRange: TLabel [22]
+                      Left = 174
+                      Top = 240
+                      ParentFont = False
+                      ExplicitLeft = 174
+                      ExplicitTop = 240
+                    end
+                    inherited Bevel74: TBevel [23]
+                    end
+                    inherited editSurfaceToSurfaceMissileFiring: TEdit
+                      Left = 124
+                      Visible = True
+                      ExplicitLeft = 124
+                    end
+                    inherited editSurfaceToSurfaceMissileEngangement: TEdit
+                      Left = 124
+                      ExplicitLeft = 124
+                    end
+                    inherited editSurfaceToSurfaceMissileTargetTrack: TEdit
+                      Left = 107
+                      ExplicitLeft = 107
+                    end
+                    inherited btnSurfaceToSurfacePlan: TButton
+                      Top = 407
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      ExplicitTop = 407
+                    end
+                    inherited btnSurfaceToSurfaceLaunch: TButton
+                      Top = 407
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      ExplicitTop = 407
+                    end
+                    inherited btnSurfaceToSurfaceCancel: TButton
+                      Top = 407
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      ExplicitTop = 407
+                    end
+                    inherited btnSurfaceToSurfaceMissileLauncherMore: TButton [31]
+                      Top = 235
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileLauncherMoreClick
+                      ExplicitTop = 235
+                    end
+                    inherited pnlLaunch1: TPanel [32]
+                      Color = 2695445
+                      ParentBackground = False
+                      ParentFont = False
+                      OnClick = fmWeapon1pnlLaunch1Click
+                    end
+                    inherited pnlLaunch2: TPanel [33]
+                      Color = 2695445
+                      ParentBackground = False
+                      ParentFont = False
+                      OnClick = fmWeapon1pnlLaunch2Click
+                      inherited vbl2: TVrBlinkLed
+                        ExplicitLeft = 1
+                        ExplicitTop = 1
+                      end
+                    end
+                    inherited pnlLaunch3: TPanel [34]
+                      Color = 2695445
+                      ParentBackground = False
+                      ParentFont = False
+                      OnClick = fmWeapon1pnlLaunch3Click
+                    end
+                    inherited pnlLaunch4: TPanel [35]
+                      Color = 2695445
+                      ParentBackground = False
+                      ParentFont = False
+                      OnClick = nil
+                      inherited vbl4: TVrBlinkLed
+                        ExplicitLeft = 1
+                        ExplicitTop = 1
+                        ExplicitWidth = 21
+                      end
+                    end
+                    inherited pnlLaunch5: TPanel [36]
+                      Color = 2695445
+                      ParentBackground = False
+                      ParentFont = False
+                      OnClick = nil
+                      inherited vbl5: TVrBlinkLed
+                        ExplicitLeft = 1
+                        ExplicitTop = 1
+                        ExplicitWidth = 21
+                      end
+                    end
+                    inherited pnlLaunch6: TPanel [37]
+                      Color = 2695445
+                      ParentBackground = False
+                      ParentFont = False
+                      OnClick = fmWeapon1pnlLaunch6Click
+                      inherited vbl6: TVrBlinkLed
+                        ExplicitLeft = 1
+                        ExplicitTop = 1
+                        ExplicitWidth = 21
+                      end
+                    end
+                    inherited pnlLaunch7: TPanel [38]
+                      Color = 2695445
+                      ParentBackground = False
+                      ParentFont = False
+                      OnClick = fmWeapon1pnlLaunch7Click
+                      inherited vbl7: TVrBlinkLed
+                        ExplicitLeft = 1
+                        ExplicitTop = 1
+                        ExplicitWidth = 21
+                      end
+                    end
+                    inherited pnlLaunch8: TPanel [39]
+                      Color = 2695445
+                      ParentBackground = False
+                      ParentFont = False
+                      OnClick = fmWeapon1pnlLaunch8Click
+                      inherited vbl8: TVrBlinkLed
+                        ExplicitLeft = 1
+                        ExplicitTop = 1
+                        ExplicitWidth = 21
+                      end
+                    end
+                    inherited edtDestructRange: TEdit [40]
+                      Left = 124
+                      Top = 238
+                      Width = 45
+                      ExplicitLeft = 124
+                      ExplicitTop = 238
+                      ExplicitWidth = 45
+                    end
+                    inherited edtCrossOverRange: TEdit [41]
+                      Left = 124
+                      Top = 213
+                      Width = 45
+                      ExplicitLeft = 124
+                      ExplicitTop = 213
+                      ExplicitWidth = 45
+                    end
+                    inherited panSurfaceToSurfaceWp: TPanel [42]
+                      Left = 16
+                      Top = 261
+                      Color = 2695445
+                      ParentBackground = False
+                      ParentFont = False
+                      ExplicitLeft = 16
+                      ExplicitTop = 261
+                      inherited Bevel16: TBevel
+                        Left = 75
+                        ExplicitLeft = 75
+                      end
+                      inherited btnSurfaceToSurfaceMissileWaypointsEdit: TButton
+                        OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                      end
+                      inherited btnSurfaceToSurfaceMissileWaypointsAdd: TButton
+                        Left = 60
+                        OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                        ExplicitLeft = 60
+                      end
+                      inherited btnSurfaceToSurfaceMissileWaypointsDelete: TButton
+                        Left = 116
+                        OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                        ExplicitLeft = 116
+                      end
+                      inherited btnSurfaceToSurfaceMissileWaypointsApply: TButton
+                        Left = 172
+                        OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                        ExplicitLeft = 172
+                      end
+                      inherited btnSurfaceToSurfaceMissileWaypointsCancel: TButton
+                        Left = 228
+                        OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick
+                        ExplicitLeft = 228
+                      end
+                    end
+                    inherited btnSurfaceToSurfaceMissileTargetTrackDetails: TButton [43]
+                      Visible = True
+                      OnClick = fmWeapon1btnSurfaceToSurfaceMissileTargetTrackDetailsClick
+                    end
+                  end
+                end
               end
-              inherited grbAcousticTorpedo: TGroupBox [16]
+              inherited grbAcousticTorpedo: TGroupBox [15]
                 Width = 337
                 Height = 1973
                 ParentBackground = False
@@ -6677,9 +6550,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           Width = 337
           Height = 1998
           Align = alClient
-          Color = 16775920
+          Color = 2695445
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
+          Font.Color = clWhite
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -6694,28 +6567,24 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           inherited ScrollBox4: TScrollBox
             Width = 337
             Height = 1998
-            Color = 2695445
             ParentColor = False
             ExplicitWidth = 337
             ExplicitHeight = 1998
             inherited lbOwnShipPosition1: TLabel
               Left = 172
               Top = 59
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 59
             end
             inherited Label22: TLabel
               Top = 101
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 101
             end
             inherited lbOrderHeading: TLabel
               Left = 172
               Top = 101
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 101
@@ -6723,35 +6592,30 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited lbActualHeading: TLabel
               Left = 172
               Top = 122
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 122
             end
             inherited Label23: TLabel
               Top = 122
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 122
             end
             inherited lbActualCourse: TLabel
               Left = 172
               Top = 143
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 143
             end
             inherited Label25: TLabel
               Top = 143
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 143
             end
             inherited Label26: TLabel
               Left = 218
               Top = 143
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 143
@@ -6759,7 +6623,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited Label27: TLabel
               Left = 17
               Top = 162
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 17
               ExplicitTop = 162
@@ -6767,21 +6630,18 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited lbOwnShipOrderGround: TLabel
               Left = 172
               Top = 164
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 164
             end
             inherited Label28: TLabel
               Top = 164
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 164
             end
             inherited lbOrderedAltitude: TLabel
               Left = 172
               Top = 206
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 206
@@ -6789,21 +6649,18 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited lbOwnShipActualground: TLabel
               Left = 172
               Top = 185
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 185
             end
             inherited Label29: TLabel
               Top = 248
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 248
             end
             inherited lbGuidance: TLabel
               Left = 172
               Top = 248
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 248
@@ -6811,21 +6668,18 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited lbFuel: TLabel
               Left = 172
               Top = 269
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 269
             end
             inherited Label46: TLabel
               Top = 269
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 269
             end
             inherited lbOwnShipPosition2: TLabel
               Left = 172
               Top = 80
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 80
@@ -6833,7 +6687,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited Label30: TLabel
               Left = 218
               Top = 101
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 101
@@ -6841,7 +6694,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited Label31: TLabel
               Left = 218
               Top = 122
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 122
@@ -6849,7 +6701,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited Label32: TLabel
               Left = 218
               Top = 164
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 164
@@ -6857,7 +6708,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited Label33: TLabel
               Left = 218
               Top = 185
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 185
@@ -6865,7 +6715,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited lbActualAltitude: TLabel
               Left = 172
               Top = 227
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 227
@@ -6875,7 +6724,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               Top = 206
               Width = 22
               Caption = 'feet'
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 206
@@ -6886,7 +6734,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               Top = 227
               Width = 22
               Caption = 'feet'
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 218
               ExplicitTop = 227
@@ -6895,7 +6742,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited lbName: TLabel
               Left = 172
               Top = 17
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 17
@@ -6903,27 +6749,23 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             inherited lbClass: TLabel
               Left = 172
               Top = 38
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 38
             end
             inherited lbl47: TLabel
               Top = 290
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 290
             end
             inherited lblStatus: TLabel
               Left = 172
               Top = 290
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 172
               ExplicitTop = 290
             end
             inherited lblColision: TLabel
-              Font.Color = clWhite
               ParentFont = False
             end
             inherited StaticText22: TStaticText [30]
@@ -6932,13 +6774,11 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited StaticText21: TStaticText
               Top = 183
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 183
             end
             inherited StaticText16: TStaticText [32]
               Top = 57
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 57
             end
@@ -7009,6 +6849,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited btnLaunch: TButton
               Top = 327
+              Font.Color = clWindowText
               ParentFont = False
               Visible = False
               OnClick = fmOwnShip1btnLaunchClick
@@ -7016,28 +6857,24 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited lb1: TStaticText
               Top = 15
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 15
             end
             inherited lb2: TStaticText
               Left = 157
               Top = 15
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 157
               ExplicitTop = 15
             end
             inherited lb4: TStaticText
               Top = 36
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 36
             end
             inherited lb5: TStaticText
               Left = 157
               Top = 36
-              Font.Color = clWhite
               ParentFont = False
               ExplicitLeft = 157
               ExplicitTop = 36
@@ -7065,7 +6902,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited pnlInfoDepth: TPanel
               Top = 204
-              Font.Color = clWhite
               ParentFont = False
               ExplicitTop = 204
               inherited StaticText1: TStaticText

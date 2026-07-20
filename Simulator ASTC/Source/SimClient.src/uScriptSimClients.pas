@@ -13,7 +13,7 @@ uses
    SysUtils, Controls, Forms,
    uLibSettingTTT, uSimMgr_Client,
    uNetHandle_Client, uNetVoipCtrl_Server,
-   uMapXHandler,
+   uMapXHandler, uMapLayerDB,
    ufTacticalDisplay, uCoordConvertor, ufToteDisplay,
    uT3Listener, uGameSetting, ufLog, uSRRFunction, uFilter, uSlidingTrans;
 
@@ -32,6 +32,8 @@ begin
   LoadFF_CubicalAssignSetting(vSettingFile, vCubicalAssignSetting);
   LoadFF_AppSetting(vSettingFile, vAppSetting);
   LoadFF_TerrainArea(vSettingFile, vTerrainArea);
+
+  DepthLayerDB := TMapStubLayerDb.Create(vMapSetting.MapDataGeoset);
 
   vFilter := TFilter.Create;
   simMgrClient := TSimMgr_Client.Create(frmTacticalDisplay.Map1);
@@ -168,6 +170,7 @@ begin
 
   simMgrClient.Free;
 
+  DepthLayerDB.Free;
   VSimMap.Free;
   vFilter.Free
 end;

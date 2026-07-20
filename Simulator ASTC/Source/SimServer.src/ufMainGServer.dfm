@@ -16225,157 +16225,6 @@ object fMainGServer: TfMainGServer
       BorderWidth = 8
       TabOrder = 6
     end
-    object pnlWatcher: TPanel
-      Left = 29
-      Top = 215
-      Width = 1169
-      Height = 449
-      BevelOuter = bvNone
-      BorderWidth = 8
-      TabOrder = 1
-      object pnl1: TPanel
-        Left = 8
-        Top = 36
-        Width = 1153
-        Height = 405
-        Align = alClient
-        BevelOuter = bvNone
-        Color = clInactiveCaption
-        Ctl3D = True
-        ParentCtl3D = False
-        TabOrder = 1
-        object lvPlatform: TListView
-          Left = 0
-          Top = 0
-          Width = 1153
-          Height = 405
-          Align = alClient
-          BevelInner = bvNone
-          BevelOuter = bvNone
-          Color = 4924424
-          Columns = <
-            item
-              Caption = 'ID'
-            end
-            item
-              Caption = 'Name'
-              Width = 130
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Pos X'
-              Width = 100
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Pos Y'
-              Width = 100
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Actual Speed'
-              Width = 95
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Ordered Speed '
-              Width = 95
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Actual Heading'
-              Width = 95
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Ordered Heading'
-              Width = 95
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Draft'
-              Width = 70
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Map Depth'
-              Width = 70
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Land'
-              Width = 80
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Grounded'
-              Width = 80
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Collision'
-              Width = 75
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Port State'
-              Width = 0
-            end>
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindow
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ReadOnly = True
-          RowSelect = True
-          ParentFont = False
-          TabOrder = 0
-          ViewStyle = vsReport
-        end
-      end
-      object pnlHeaderWatcher: TPanel
-        Left = 8
-        Top = 8
-        Width = 1153
-        Height = 28
-        Align = alTop
-        BevelOuter = bvNone
-        Color = clInactiveCaption
-        Ctl3D = True
-        ParentCtl3D = False
-        TabOrder = 0
-        object Button3: TButton
-          Left = 1019
-          Top = 0
-          Width = 64
-          Height = 25
-          Caption = 'Start'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-          OnClick = Button3Click
-        end
-        object Button4: TButton
-          Left = 1089
-          Top = 0
-          Width = 64
-          Height = 25
-          Caption = 'Stop'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 1
-          OnClick = Button4Click
-        end
-      end
-    end
     object pnlVersion: TPanel
       Left = 29
       Top = 215
@@ -16742,6 +16591,157 @@ object fMainGServer: TfMainGServer
         ParentFont = False
         ScrollBars = ssBoth
         TabOrder = 1
+      end
+    end
+    object pnlWatcher: TPanel
+      Left = 29
+      Top = 215
+      Width = 1169
+      Height = 449
+      BevelOuter = bvNone
+      BorderWidth = 8
+      TabOrder = 1
+      object pnl1: TPanel
+        Left = 8
+        Top = 36
+        Width = 1153
+        Height = 405
+        Align = alClient
+        BevelOuter = bvNone
+        Color = clInactiveCaption
+        Ctl3D = True
+        ParentCtl3D = False
+        TabOrder = 1
+        object lvPlatform: TListView
+          Left = 0
+          Top = 0
+          Width = 1153
+          Height = 405
+          Align = alClient
+          BevelInner = bvNone
+          BevelOuter = bvNone
+          Color = 4924424
+          Columns = <
+            item
+              Caption = 'ID'
+            end
+            item
+              Caption = 'Name'
+              Width = 130
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Pos X'
+              Width = 100
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Pos Y'
+              Width = 100
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Actual Speed'
+              Width = 95
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Ordered Speed '
+              Width = 95
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Actual Heading'
+              Width = 95
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Ordered Heading'
+              Width = 95
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Draft'
+              Width = 70
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Map Depth'
+              Width = 70
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Land'
+              Width = 80
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Grounded'
+              Width = 80
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Collision'
+              Width = 75
+            end
+            item
+              Alignment = taCenter
+              Caption = 'Port State'
+              Width = 0
+            end>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindow
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ReadOnly = True
+          RowSelect = True
+          ParentFont = False
+          TabOrder = 0
+          ViewStyle = vsReport
+        end
+      end
+      object pnlHeaderWatcher: TPanel
+        Left = 8
+        Top = 8
+        Width = 1153
+        Height = 28
+        Align = alTop
+        BevelOuter = bvNone
+        Color = clInactiveCaption
+        Ctl3D = True
+        ParentCtl3D = False
+        TabOrder = 0
+        object Button3: TButton
+          Left = 1019
+          Top = 0
+          Width = 64
+          Height = 25
+          Caption = 'Start'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+          OnClick = Button3Click
+        end
+        object Button4: TButton
+          Left = 1089
+          Top = 0
+          Width = 64
+          Height = 25
+          Caption = 'Stop'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 1
+          OnClick = Button4Click
+        end
       end
     end
   end

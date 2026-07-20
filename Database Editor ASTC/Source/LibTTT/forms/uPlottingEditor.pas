@@ -834,7 +834,7 @@ var
   minfo : CMapXLayerInfo;
   mLayer : CMapXLayer;
 begin
-  mp1.Geoset := vAppDBSetting.MapDefView + '\Indonesia\' + 'Indonesia2.gst';
+  mp1.Geoset := vAppDBSetting.MapDestPathENC + '\Indonesia\' + 'Indonesia2.gst';
   mp1.DefaultStyle.RegionBackColor := TransparentColorValue;
   minfo := CoLayerInfo.Create;
   minfo.type_ := miLayerInfoTypeUserDraw;

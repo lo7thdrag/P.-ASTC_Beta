@@ -10672,6 +10672,10 @@ object frmExerciseHome: TfrmExerciseHome
       OnChange = PageControl1Change
       object tsScenario: TTabSheet
         Caption = 'Scenario'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lstScenario: TListBox
           Left = 0
           Top = 0
@@ -10696,6 +10700,10 @@ object frmExerciseHome: TfrmExerciseHome
       object tsReplay: TTabSheet
         Caption = 'Replay'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lstReplay: TListBox
           Left = 0
           Top = 0
@@ -10720,6 +10728,10 @@ object frmExerciseHome: TfrmExerciseHome
       object tsSnapshot: TTabSheet
         Caption = 'Snapshot'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lstSnapshot: TListBox
           Left = 0
           Top = 0

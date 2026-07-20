@@ -171,7 +171,7 @@ uses
 
 procedure TENCSelect.defaultPath;
 begin
-  path_mapIndex     := vAppDBSetting.MapENC + '\' + 'mapindex.ini';
+//  path_mapIndex     := vAppDBSetting.MapENC + '\' + 'mapindex.ini';
   path_confLayerENC := ExtractFilePath(Application.ExeName) + '\ConfigureLayerENC.txt';
   strConfLayerENC   := 'ConfigureLayerENC.txt';
 end;
@@ -517,7 +517,7 @@ var
   vHelpFile, vHelpID : OleVariant;
   mapTemp : TMap;
 begin
-  dirP := vAppDBSetting.MapGSTGame + '\' + edtName.Text;
+  dirP := vAppDBSetting.MapDestPathENC + '\' + edtName.Text;
   try
     mapTemp := TMap.Create(self);
 
@@ -641,12 +641,12 @@ begin
     Writeln(myFile, ListSelectedArea[I] {+ '\' + ListMapType[I]});
   CloseFile(myFile);
 
-  dirP := vAppDBSetting.MapGSTGame + '\' + edtName.Text;
+  dirP := vAppDBSetting.MapDestPathENC + '\' + edtName.Text;
 
   if isCopy then
   begin
-    sourceCopy := vAppDBSetting.MapGSTGame + '\' + lastGameAreaName ;
-    destCopy   := vAppDBSetting.MapGSTGame + '\' + edtName.Text ;
+    sourceCopy := vAppDBSetting.MapDestPathENC + '\' + lastGameAreaName ;
+    destCopy   := vAppDBSetting.MapDestPathENC + '\' + edtName.Text ;
 
     if DirectoryExists(destCopy) then
       Exit
@@ -877,7 +877,7 @@ var
   s1, s2 : string;
 begin
   ssLayer      := TStringList.Create;
-  pathConFile  := vAppDBSetting.MapGSTGame;
+  pathConFile  := vAppDBSetting.MapDestPathENC;
   nameGameArea := ExerciseAreaForm.gameEnv.FGameArea.Game_Area_Identifier;
 
   if FileExists(pathConFile + '\' + nameGameArea + '\' + nameGameArea + '.txt') then
@@ -978,7 +978,7 @@ var
   indx, mtype : string;
 begin
   nameGameArea   := frmAvailableGameArea.lstGameArea.Items.Strings[frmAvailableGameArea.lstGameArea.ItemIndex];
-  pathConFile    := vAppDBSetting.MapGSTGame + '\' + nameGameArea;
+  pathConFile    := vAppDBSetting.MapDestPathENC + '\' + nameGameArea;
   listFromGeoset := TStringList.Create;
 
   if FileExists(pathConFile + '\' + nameGameArea  + '.txt') then
@@ -1324,7 +1324,7 @@ begin
   fillAreaList;
 
   // Modified and added by sidami
-  dir := vAppDBSetting.MapDefView + '\' + cbbMapType.Text;
+  dir := vAppDBSetting.MapDestPathENC + '\' + cbbMapType.Text;
 
   try
     if FindFirst(IncludeTrailingPathDelimiter(dir)+'*.*', faDirectory, sr) = 0 then
@@ -1347,14 +1347,14 @@ begin
    if cbbMapType.Text = '_MAP_ENC' then
    begin
      if sr.Name <> '' then
-       load_MAP_(vAppDBSetting.MapDefView + '\' + cbbMapType.Text + '\AreaCoverage.gst')
+       load_MAP_(vAppDBSetting.MapDestPathENC + '\' + cbbMapType.Text + '\AreaCoverage.gst')
      else
        Exit;
    end
    else
    begin
      if sr.Name <> '' then
-       load_MAP_(vAppDBSetting.MapDefView + '\' + cbbMapType.Text + '\' + sr.Name)
+       load_MAP_(vAppDBSetting.MapDestPathENC + '\' + cbbMapType.Text + '\' + sr.Name)
      else
        Exit;
    end;

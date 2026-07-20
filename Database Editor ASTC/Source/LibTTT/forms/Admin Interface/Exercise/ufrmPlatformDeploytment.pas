@@ -340,7 +340,7 @@ begin
   {$Region ' Load Map Area '}
   with FSelectedEnviArea.FGameArea do
   begin
-    LoadMap(vAppDBSetting.MapGSTGame + '\' + Game_Area_Identifier + '\' + Game_Area_Identifier + '.gst');
+    LoadMap(vAppDBSetting.MapDestPathENC + '\' + Game_Area_Identifier + '\' + Game_Area_Identifier + '.gst');
 
     Map1.CenterX := Game_Centre_Long;
     Map1.CenterY := Game_Centre_Lat;

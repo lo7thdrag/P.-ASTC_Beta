@@ -94,7 +94,7 @@ begin
     begin
       if lst_DefinitionArea.Selected[I] then
         FDefName := lst_DefinitionArea.Items.Strings[I];
-        Directory := vAppDBSetting.MapDefGame + '\Def_' + FDefName + '.txt';
+        Directory := vAppDBSetting.MapDestPathENC + '\Def_' + FDefName + '.txt';
     end
     else
       Break;
@@ -209,7 +209,7 @@ end;
 
 procedure TDefinitionArea.FormShow(Sender: TObject);
 begin
-  Path := vAppDBSetting.MapDefGame + '\Def_';
+  Path := vAppDBSetting.MapDestPathENC + '\Def_';
   RefreshDef;
 end;
 
@@ -261,7 +261,7 @@ begin
   lst_DefinitionArea.Items.Clear;
   ListFile.Clear;
 
-  Path := vAppDBSetting.MapDefGame + '\Def_';
+  Path := vAppDBSetting.MapDestPathENC + '\Def_';
 
   if FindFirst(Path + '*', faAnyFile, SR) = 0 then
   begin

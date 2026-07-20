@@ -882,7 +882,7 @@ begin
   with FSelectedGameArea.FData do
   begin
     try
-      LoadMap(vAppDBSetting.MapGSTGame + '\' + Game_Area_Identifier + '\' + Game_Area_Identifier + '.gst');
+      LoadMap(vAppDBSetting.MapDestPathENC + '\' + Game_Area_Identifier + '\' + Game_Area_Identifier + '.gst');
     except
       ShowMessage('File map Game Area ' +Game_Area_Identifier + ' not found');
       LoadMap(vAppDBSetting.Pattern);

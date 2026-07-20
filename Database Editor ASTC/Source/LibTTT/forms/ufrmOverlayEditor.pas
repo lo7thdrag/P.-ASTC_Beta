@@ -3358,7 +3358,7 @@ begin
     with frmGameAreaPickList do
     begin
       ShowModal;
-      LoadMap(vAppDBSetting.MapGSTGame +'\'+ SelectedGameAreaName+'\' +SelectedGameAreaName+'.gst');
+      LoadMap(vAppDBSetting.MapDestPathENC +'\'+ SelectedGameAreaName+'\' +SelectedGameAreaName+'.gst');
 
       end;
   finally

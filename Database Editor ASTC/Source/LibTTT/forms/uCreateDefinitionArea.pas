@@ -178,7 +178,7 @@ var
   I, TotalCopy : Integer;
   Available : Boolean;
 begin
-  MyDirectory := vAppDBSetting.MapDefGame;
+  MyDirectory := vAppDBSetting.MapDestPathENC;
 
   if DirectoryExists(MyDirectory) = False then
     CreateDir(MyDirectory);
@@ -378,7 +378,7 @@ begin
     if DefinitionArea.lst_DefinitionArea.Selected[I] then
     begin
       FDefSelected := DefinitionArea.lst_DefinitionArea.Items.Strings[I];
-      Directory := vAppDBSetting.MapDefGame + '\Def_' + FDefSelected + '.txt';
+      Directory := vAppDBSetting.MapDestPathENC + '\Def_' + FDefSelected + '.txt';
       Break;
     end;
   end;
@@ -548,7 +548,7 @@ var
   mInfo : CMapXLayerInfo;
   mLayer : CMapXLayer;
 begin
-  mp_SelectedGameArea.Geoset := vAppDBSetting.MapDefView + '\_MAP_OTHER\Indonesia.gst';;
+  mp_SelectedGameArea.Geoset := vAppDBSetting.MapDestPathENC + '\_MAP_OTHER\Indonesia.gst';;
   mInfo := CoLayerInfo.Create;
   mInfo.type_ := miLayerInfoTypeUserDraw;
   mInfo.AddParameter('Name', 'LYR_DRAW');
@@ -675,7 +675,7 @@ var
   mInfo : CMapXLayerInfo;
   mLayer : CMapXLayer;
 begin
-  mp_SelectedGameArea.Geoset := vAppDBSetting.MapGSTGame + '\' + NameArea + '\' + NameArea + '.gst';
+  mp_SelectedGameArea.Geoset := vAppDBSetting.MapDestPathENC + '\' + NameArea + '\' + NameArea + '.gst';
   mInfo := CoLayerInfo.Create;
   mInfo.type_ := miLayerInfoTypeUserDraw;
   mInfo.AddParameter('Name', 'LYR_DRAW');

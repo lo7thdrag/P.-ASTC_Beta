@@ -1362,7 +1362,7 @@ begin
   ClearAllDataScenario;
 //  Close;
 //  fmPlottingResourceAllocationPickList.PlotListOK.Clear;
-  aGeoset := vAppDBSetting.MapDefView + '\Indonesia\' +'Indonesia2.gst';
+  aGeoset := vAppDBSetting.MapDestPathENC + '\Indonesia\' +'Indonesia2.gst';
   dmTTT.GetGame_Area_DefByID(0, ExerciseAreaForm.gameEnv);
   LoadMap(aGeoset, ExerciseAreaForm.gameEnv.FGameArea);
 
@@ -2228,7 +2228,7 @@ begin
 
   ClearAllDataScenario;
 //
-  aGeoset := vAppDBSetting.MapDefView + '\Indonesia\' +'Indonesia2.gst';
+  aGeoset := vAppDBSetting.MapDestPathENC + '\Indonesia\' +'Indonesia2.gst';
 //  aGeoset := vAppDBSetting.MapGSTGame + '\STBD\' + 'STBD.gst';
   dmTTT.GetGame_Area_DefByID(0, ExerciseAreaForm.gameEnv);
   LoadMap(aGeoset, ExerciseAreaForm.gameEnv.FGameArea);
@@ -3052,7 +3052,7 @@ begin
   if FileExists(aGeoset) then
     Map1.Geoset := aGeoset
   else
-    Map1.Geoset := vAppDBSetting.MapDefView + '\Indonesia\' +'Indonesia2.gst';
+    Map1.Geoset := vAppDBSetting.MapDestPathENC + '\Indonesia\' +'Indonesia2.gst';
 
   if aGeoset <> '' then
   begin
@@ -3800,7 +3800,7 @@ begin
         ShowMessage('File Not Found!')
       else
       begin
-        aGeoset := vAppDBSetting.MapGSTGame + '\' + NewArea + '\' + NewArea + '.gst';
+        aGeoset := vAppDBSetting.MapDestPathENC + '\' + NewArea + '\' + NewArea + '.gst';
         dmTTT.GetGame_Area_DefByID(ExerciseAreaForm.inx1, ExerciseAreaForm.gameEnv);
 
         if isOk = False then
@@ -3831,7 +3831,7 @@ begin
         ShowMessage('File Not Found!')
       else
       begin
-        aGeoset := vAppDBSetting.MapGSTGame + '\' + NewArea + '\' + NewArea + '.gst';
+        aGeoset := vAppDBSetting.MapDestPathENC + '\' + NewArea + '\' + NewArea + '.gst';
         dmTTT.GetGame_Area_DefByID(ExerciseAreaForm.inx2, ExerciseAreaForm.gameEnv);
 
         if isOk = False then
@@ -3862,7 +3862,7 @@ begin
         ShowMessage('File Not Found!')
       else
       begin
-        aGeoset := vAppDBSetting.MapGSTGame + '\' + NewArea + '\' + NewArea + '.gst';
+        aGeoset := vAppDBSetting.MapDestPathENC + '\' + NewArea + '\' + NewArea + '.gst';
         dmTTT.GetGame_Area_DefByID(ExerciseAreaForm.inx3, ExerciseAreaForm.gameEnv);
 
         if isOk = False then
@@ -4611,7 +4611,7 @@ begin
         ShowMessage('File Not Found!')
       else
       begin
-        aGeoset := vAppDBSetting.MapGSTGame + '\' + FArea + '\' + FArea + '.gst';
+        aGeoset := vAppDBSetting.MapDestPathENC + '\' + FArea + '\' + FArea + '.gst';
         dmTTT.GetGame_Area_DefByID(ExerciseAreaForm.inx1, ExerciseAreaForm.gameEnv);
         LoadMap(aGeoset, ExerciseAreaForm.gameEnv.FGameArea);
 
@@ -4641,7 +4641,7 @@ begin
         ShowMessage('File Not Found!')
       else
       begin
-        aGeoset := vAppDBSetting.MapGSTGame + '\' + FArea + '\' + FArea + '.gst';
+        aGeoset := vAppDBSetting.MapDestPathENC + '\' + FArea + '\' + FArea + '.gst';
         dmTTT.GetGame_Area_DefByID(ExerciseAreaForm.inx2, ExerciseAreaForm.gameEnv);
         LoadMap(aGeoset, ExerciseAreaForm.gameEnv.FGameArea);
 
@@ -4671,7 +4671,7 @@ begin
         ShowMessage('File Not Found!')
       else
       begin
-        aGeoset := vAppDBSetting.MapGSTGame + '\' + FArea + '\' + FArea + '.gst';
+        aGeoset := vAppDBSetting.MapDestPathENC + '\' + FArea + '\' + FArea + '.gst';
         dmTTT.GetGame_Area_DefByID(ExerciseAreaForm.inx3, ExerciseAreaForm.gameEnv);
         LoadMap(aGeoset, ExerciseAreaForm.gameEnv.FGameArea);
 

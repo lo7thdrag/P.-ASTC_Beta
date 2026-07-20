@@ -198,7 +198,7 @@ begin
 //      end;
 //    end;
 
-    dirP := vAppDBSetting.MapGSTGame + '\' + lblName.Caption + '\';
+    dirP := vAppDBSetting.MapDestPathENC + '\' + lblName.Caption + '\';
 
 //    if FileExists(dirP + lblName.Caption + '_Layers.txt') then
 //    begin
@@ -219,7 +219,7 @@ begin
 //      CloseFile(myFile);
 //    end;
 
-    files := vAppDBSetting.MapGSTGame + '\' + lblName.Caption + '\' + lblName.Caption + '.gst';
+    files := vAppDBSetting.MapDestPathENC + '\' + lblName.Caption + '\' + lblName.Caption + '.gst';
 
     if FileExists(files) then
     begin
@@ -365,7 +365,7 @@ var
   strFN : string;
   dirP  : string;
 begin
-  dirP := vAppDBSetting.MapGSTGame + '\' + lblName.Caption;
+  dirP := vAppDBSetting.MapDestPathENC + '\' + lblName.Caption;
 
   mpLayer.Geoset := '';
   mapGeo := dirP + '\' + lblName.Caption + '.gst';

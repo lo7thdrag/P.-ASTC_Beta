@@ -133,8 +133,8 @@ begin
     dmTTT.InsertGameAreaDef(FGameArea);
 
     {$REGION ' Copy file game area '}
-    SourcePath := vAppDBSetting.MapGSTGame + '\' + oldAreaName;
-    TargetPath := vAppDBSetting.MapGSTGame + '\' + newAreaName;
+    SourcePath := vAppDBSetting.MapDestPathENC + '\' + oldAreaName;
+    TargetPath := vAppDBSetting.MapDestPathENC + '\' + newAreaName;
 
     CopyGameAreaDirectory(SourcePath, SourcePath, TargetPath);
     RenameFile(TargetPath + '\'+ oldAreaName + '.gst', TargetPath + '\'+ newAreaName + '.gst');
@@ -207,7 +207,7 @@ begin
       end;
       FreeItemsAndFreeList(tempList);
 
-      MapDirPath := vAppDBSetting.MapGSTGame + '\' + Game_Area_Identifier;
+      MapDirPath := vAppDBSetting.MapDestPathENC + '\' + Game_Area_Identifier;
       DeleteGameAreaDirectory(MapDirPath, MapDirPath);
 
       if dmTTT.DeleteGameAreaDef(Game_Area_Index) then

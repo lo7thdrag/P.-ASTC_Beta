@@ -640,7 +640,7 @@ end;
 procedure TfrmSummaryGameAreaEditor.setCBScale(max: Integer);
 var
   widthNM: Integer;
-  limitWidth: Array [0 .. 15] of Double;
+  limitWidth: Array [0 .. 16] of Double;
   arrayTemp: Array [0 .. 30] of Double;
   arrayStringTemp: Array [0 .. 30] of String;
   resultTemp: Array [0 .. 30] of String;
@@ -667,6 +667,7 @@ begin
   limitWidth[13] := 1024;
   limitWidth[14] := 2048;
   limitWidth[15] := 2500;
+  limitWidth[16] := 3500;
 
   a := 0;
   while limitWidth[a] < widthNM do
@@ -787,7 +788,7 @@ procedure TfrmSummaryGameAreaEditor.UpdateGeosetFile;
 var
   MapDirPath : string;
 begin
-  MapDirPath := vAppDBSetting.MapGSTGame + '\' + LastName;
+  MapDirPath := vAppDBSetting.MapDestPathENC + '\' + LastName;
   DeleteGameAreaDirectory(MapDirPath, MapDirPath);
   CreateGeosetFile;
 end;
@@ -812,7 +813,7 @@ begin
 
   CloseFile(myFile);
 
-  dirP := vAppDBSetting.MapGSTGame + '\' + edtName.Text;
+  dirP := vAppDBSetting.MapDestPathENC + '\' + edtName.Text;
   CreateDir(dirP);
 
   fileSource := ExtractFilePath(ParamStr(0)) + '\ConfigureLayerENC.txt';

@@ -33,7 +33,7 @@ begin
 
   simMgrServer := TSimMgr_Server.Create(VMapData.DMap);
 
-  fMainGServer.Caption := 'Game Server V ' + simMgrServer.Version;
+  fMainGServer.Caption := 'Game Server ASTC' {+ simMgrServer.Version};
 
   simMgrServer.OnUpdateVersion  := fMainGServer.OnUpdateVersion;
   DepthLayerDB.OnLogStr         := fMainGServer.LogStr;

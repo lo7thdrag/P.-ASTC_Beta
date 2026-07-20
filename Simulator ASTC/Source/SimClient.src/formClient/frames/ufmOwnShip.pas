@@ -56,15 +56,15 @@ type
     lb5: TStaticText;
     lbClass: TLabel;
     btnLandPlatform: TButton;
-    pnlInfoDepth: TPanel;
-    StaticText1: TStaticText;
-    StaticText2: TStaticText;
     btnRangeLanding: TButton;
     btnReturntobase: TButton;
     lbl47: TLabel;
     lblStatus: TLabel;
     txt1: TStaticText;
     lblColision: TLabel;
+    lbl1: TLabel;
+    txt2: TStaticText;
+    lblDepth: TLabel;
     procedure btnLaunchClick(Sender: TObject);
     procedure btnLandPlatformClick(Sender: TObject);
     procedure btnRangeLandingClick(Sender: TObject);
@@ -89,7 +89,7 @@ uses
   uT3Unit, uT3Vehicle, uBaseCoordSystem, uGuidance, uLaunchPlatform,
   uDBAsset_Vehicle, uSettingCoordinate, uSimMgr_Client, uSimObjects,
   uGameData_TTT, uFLanding, tttData, ufLandTemp, ufReturnToBase,
-  uMapXHandler, ufrmTopNav;
+  uMapXHandler, ufrmTopNav, uMapLayerDB;
 
 {$R *.dfm}
 
@@ -142,6 +142,9 @@ var
   pY, pX: Extended;
   hasilUTM, hasilMGRS : string;   //dng
   largeLtr, smallLtr, horizontalNumb, verticalNumb, horzPoint, vertPoint : string;
+
+  d1,d2 : Double;
+  isOnlandTemp, isdeptAvailTemp : Boolean;
 begin
   idCoordinat := fSettingCoordinate.IdCoordinat;
   long := simMgrClient.GameEnvironment.FGameArea.Game_Centre_Long;
@@ -150,7 +153,8 @@ begin
   if Sender = nil then
     exit;
 
-  if FControlled = nil then begin
+  if FControlled = nil then
+  begin
     btnLaunch.Enabled := false;
     exit;
   end;
@@ -255,11 +259,6 @@ begin
       end;
     end;
 
-    if FControlled is TT3Vehicle then
-      lbActualHeading.Caption       := FormatCourse(TT3Vehicle(FControlled).Heading)
-    else
-      lbActualHeading.Caption       := '---';
-
     lbActualCourse.Caption        := FormatCourse(Course);
     lbOwnShipActualground.Caption := FormatSpeed(Speed);
 
@@ -284,9 +283,12 @@ begin
 
     if FControlled is TT3Vehicle then
     begin
+
+      {$REGION ' Ordered & Actual Depth/Altitude Status '}
       if (TT3Vehicle(FControlled).PlatformDomain = vhdSubsurface) then
       begin
-        pnlInfoDepth.Visible := True;
+        StaticText22.Caption := 'Ordered Depth';
+        StaticText23.Caption := 'Actual Depth';
         Label34.Caption := 'meter';
         Label37.Caption := 'meter';
         lbOrderedAltitude.Caption := FormatAltitude (TT3Vehicle(FControlled).OrderedAltitude);
@@ -294,34 +296,33 @@ begin
       end
       else
       begin
-        pnlInfoDepth.Visible := False;
+        StaticText22.Caption := 'Ordered Altitude';
+        StaticText23.Caption := 'Actual Altitude';
         Label34.Caption := 'feet';
         Label37.Caption := 'feet';
         lbOrderedAltitude.Caption := FormatAltitude (TT3Vehicle(FControlled).OrderedAltitude * C_Meter_To_Feet);
         lbActualAltitude.Caption := FormatAltitude(Altitude * C_Meter_To_Feet);
       end;
+      {$ENDREGION}
 
-      lbOrderHeading.Caption        := FormatCourse   (TT3Vehicle(FControlled).OrderedHeading);
-      lbOwnShipOrderGround.Caption  := FormatSpeed    (TT3Vehicle(FControlled).OrderedSpeed);
-
-      if TT3Vehicle(FControlled).OrderedHeading = 0 then
-        lbOrderHeading.Caption  := '0.00';
-
-      if TT3Vehicle(FControlled).OrderedSpeed = 0 then
-        lbOwnShipOrderGround.Caption := '0.00';
+      {$REGION ' Ordered & Actual Heading Status '}
+      lbActualHeading.Caption := FormatCourse(TT3Vehicle(FControlled).Heading);
 
       if TT3Vehicle(FControlled).OrderedHeading = 0 then
-        lbOrderHeading.Caption := '0.00';
-
-      if TT3Vehicle(FControlled).EmbarkedVehicles.Count > 0 then
-        btnLaunch.Enabled := true
+        lbOrderHeading.Caption  := '0.00'
       else
-        btnLaunch.Enabled := false;
+        lbOrderHeading.Caption  := FormatCourse(TT3Vehicle(FControlled).OrderedHeading);
+      {$ENDREGION}
 
-      lbFuel.Caption := FloatToStr(Round(TT3Vehicle(FControlled).FuelPercentage)) + ' %';
+      {$REGION ' Ordered Speed Status '}
+      if TT3Vehicle(FControlled).OrderedSpeed = 0 then
+        lbOwnShipOrderGround.Caption := '0.00'
+      else
+        lbOwnShipOrderGround.Caption  := FormatSpeed(TT3Vehicle(FControlled).OrderedSpeed);
+      {$ENDREGION}
 
-
-      if TT3Vehicle(FControlled).OnGrounded then // === dng add vehicle status
+      {$REGION ' Ground Status '}
+      if TT3Vehicle(FControlled).OnGrounded then
         lblStatus.Caption := 'On Grounded';
 
       if TT3Vehicle(FControlled).OnLand then
@@ -329,19 +330,55 @@ begin
 
       if not TT3Vehicle(FControlled).OnLand and not TT3Vehicle(FControlled).OnGrounded then
         lblStatus.Caption := 'On Sea';
+      {$ENDREGION}
 
-      if TT3Vehicle(FControlled).isCollision then      // if collision
-        begin
-          if Assigned(TT3Vehicle(FControlled).TrackCollision) then
+      {$REGION ' Fuel Status '}
+      lbFuel.Caption := FloatToStr(Round(TT3Vehicle(FControlled).FuelPercentage)) + ' %';
+      {$ENDREGION}
+
+      {$REGION ' Collision Status '}
+      if TT3Vehicle(FControlled).isCollision then
+      begin
+        if Assigned(TT3Vehicle(FControlled).TrackCollision) then
           lblColision.Caption := 'Collision with ' + ' " ' + TT3PlatformInstance(TT3Vehicle(FControlled).TrackCollision).InstanceName + ' " '
-        end
+      end
       else
-        lblColision.Caption := '';// ==== default vehicle collision status
+        lblColision.Caption := '';
+      {$ENDREGION}
+
+      isOnlandTemp := DepthLayerDB.GetMapLand(getPositionX, getPositionY, d1, d2);
+
+      if isOnlandTemp then
+      begin
+        lblDepth.Caption := FormatSpeed(d2);
+      end
+      else
+      begin
+        try
+          isdeptAvailTemp := DepthLayerDB.GetMapDepth(getPositionX, getPositionY, d1, d2);
+        except
+          isdeptAvailTemp := True;
+        end;
+
+        if isdeptAvailTemp then
+        begin
+          lblDepth.Caption := FormatSpeed(d2);
+        end
+        else
+        begin
+          lblDepth.Caption := '0';
+        end;
+      end;
 
       if TT3Vehicle(FControlled).RangeLanding.isShow then
         btnRangeLanding.Caption := 'Hide Range'
       else
         btnRangeLanding.Caption := 'Show Range';
+
+      if TT3Vehicle(FControlled).EmbarkedVehicles.Count > 0 then
+        btnLaunch.Enabled := true
+      else
+        btnLaunch.Enabled := false;
 
       if TT3Vehicle(FControlled).UnitCapability.FData.Carriable then
       begin
@@ -366,8 +403,9 @@ begin
     end
     else
     begin
-      lbOrderHeading.Caption      := '---';
-      lbOrderedAltitude.Caption   := '---';
+      lbActualHeading.Caption := '---';
+      lbOrderHeading.Caption := '---';
+      lbOrderedAltitude.Caption := '---';
       btnLaunch.Enabled := false;
     end;
   end;

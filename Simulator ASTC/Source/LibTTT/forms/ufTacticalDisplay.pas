@@ -352,9 +352,6 @@ type
     ransfer1: TMenuItem;
     Label22: TLabel;
     tmMove: TTimer;
-    pnlInfoDepth: TPanel;
-    StaticText23: TStaticText;
-    StaticText22: TStaticText;
     mniTorpedo: TMenuItem;
     mniTorpedoCourse: TMenuItem;
     mniTorpedoDepth: TMenuItem;

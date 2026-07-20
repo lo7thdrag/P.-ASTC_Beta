@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, ExtCtrls, ComCtrls, uDBEditSetting, uGameData_TTT, uDBAssetObject,
   Buttons, uMainOverlay, uMainStaticShape, uMainDynamicShape, uSimObjects, uT3DetectedTrack,
   uFormula, uDataTypes,
-  ColorGrd,  U_Helper,uDrawOverlay, Vcl.Imaging.pngimage{, acPNG};
+  ColorGrd,  U_Helper,uDrawOverlay, Vcl.Imaging.pngimage, RzBmpBtn{, acPNG};
 
 type
   E_ShapeColor = (scOutline, scFill);
@@ -380,18 +380,7 @@ type
     rgForce: TRadioGroup;
     chkShowAllOverlayTemplate: TCheckBox;
     chkHideAllOverlayTemplate: TCheckBox;
-    btnMove: TSpeedButton;
     lblIdxDrawOverlay: TLabel;
-    btnSelect: TImage;
-    btnText: TImage;
-    btnLine: TImage;
-    btnRectangle: TImage;
-    btnCircle: TImage;
-    btnEllipse: TImage;
-    btnArc: TImage;
-    btnSector: TImage;
-    btnGrid: TImage;
-    btnPolygon: TImage;
     grpColorEditing: TGroupBox;
     btnOutline: TImage;
     btnFill: TImage;
@@ -410,6 +399,28 @@ type
     Label5: TLabel;
     Label84: TLabel;
     Label85: TLabel;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    btnSelect: TRzBmpButton;
+    btnText: TRzBmpButton;
+    btnLine: TRzBmpButton;
+    btnRectangle: TRzBmpButton;
+    btnArc: TRzBmpButton;
+    btnPolygon: TRzBmpButton;
+    btnGrid: TRzBmpButton;
+    btnSector: TRzBmpButton;
+    btnEllipse: TRzBmpButton;
+    btnCircle: TRzBmpButton;
+    btnMove: TRzBmpButton;
+    Label86: TLabel;
+    Label87: TLabel;
+    imgCopyArc: TImage;
+    imgPasteArc: TImage;
+    Bevel4: TBevel;
+    Label88: TLabel;
+    Label89: TLabel;
+    Label90: TLabel;
+    Bevel13: TBevel;
 
     procedure FormShow(Sender: TObject);
 

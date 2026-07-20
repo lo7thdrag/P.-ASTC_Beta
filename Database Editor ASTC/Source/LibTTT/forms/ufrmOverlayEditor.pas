@@ -1808,7 +1808,7 @@ begin
          else
         begin
          SectorDynamic.BrushStyle := bsSolid;
-         SectorDynamic.ColorFill  := pnlFill.Color;
+//         SectorDynamic.ColorFill  := pnlFill.Color;
         end;
 
         // GayaGaris := TPenStyle(cbbDashesPen.ItemIndex);

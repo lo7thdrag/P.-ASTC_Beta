@@ -1510,14 +1510,14 @@ begin
 
           if OSector.BrushStyle = bsClear then
           begin
-            OverlayEditorForm.SetNoFill(True);
+//            OverlayEditorForm.SetNoFill(True);
 //            frmOverlayEditor.pnlNoFill.Visible := True;
 //            FisNoFill := True;
           end
           else
           begin
-            OverlayEditorForm.SetNoFill(False);
-            OverlayEditorForm.pnlFill.Color := OSector.ColorFill;
+//            OverlayEditorForm.SetNoFill(False);
+//            OverlayEditorForm.pnlFill.Color := OSector.ColorFill;
 //            frmOverlayEditor.txtFillColor.Color := OSector.ColorFill;
 //            frmOverlayEditor.pnlNoFill.Visible := False;
 //            FisNoFill := False;
@@ -1527,7 +1527,7 @@ begin
           OverlayEditorForm.lblShape.Caption := 'Sector';
           OverlayEditorForm.grpSectorD.BringToFront;
           OverlayEditorForm.pnlPenEditing.Visible := True;
-          OverlayEditorForm.btnFill.Visible := True;
+          OverlayEditorForm.btnFill.Visible := False;
           OverlayEditorForm.btnOutline.Visible := True;
           IdSelected := countList;
           break;

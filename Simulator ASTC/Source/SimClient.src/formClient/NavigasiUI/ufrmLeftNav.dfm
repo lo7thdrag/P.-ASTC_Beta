@@ -26,16 +26,19 @@ object frmLeftNav: TfrmLeftNav
     TabOrder = 0
     object pnlEnvironment: TPanel
       Left = 0
-      Top = 428
-      Width = 352
+      Top = 594
+      Width = 356
       Height = 492
+      Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 0
+      ExplicitTop = 428
+      ExplicitWidth = 352
       object imgMainBackgorund: TImage
         Left = 0
         Top = 0
-        Width = 352
+        Width = 356
         Height = 492
         Align = alClient
         Picture.Data = {
@@ -19794,6 +19797,7 @@ object frmLeftNav: TfrmLeftNav
           28D8A427B28723614B1B2A22162A2216E4BA}
         Stretch = True
         ExplicitTop = -3
+        ExplicitWidth = 352
       end
       object Label5: TLabel
         Left = 16
@@ -178832,85 +178836,6 @@ object frmLeftNav: TfrmLeftNav
           TabOrder = 0
         end
       end
-    end
-    object StatusBar1: TStatusBar
-      Left = 0
-      Top = 1086
-      Width = 356
-      Height = 0
-      BiDiMode = bdLeftToRight
-      Color = 5524532
-      Panels = <
-        item
-          Alignment = taCenter
-          Text = 'Fly-by Help'
-          Width = 150
-        end
-        item
-          Alignment = taCenter
-          Text = 'Entities'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Text = 'Filter'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Text = 'Declutter'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Style = psOwnerDraw
-          Text = 'EMCON'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Style = psOwnerDraw
-          Text = 'Jamming'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Style = psOwnerDraw
-          Text = 'Gunfire'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Style = psOwnerDraw
-          Text = 'FCR LOCK'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Text = 'COMMS'
-          Width = 70
-        end
-        item
-          Style = psOwnerDraw
-          Text = 'FROZEN'
-          Width = 70
-        end
-        item
-          Text = ' DateTime'
-          Width = 150
-        end
-        item
-          Style = psOwnerDraw
-          Text = 'Elapsed Time'
-          Width = 175
-        end
-        item
-          Style = psOwnerDraw
-          Width = 50
-        end>
-      ParentBiDiMode = False
-      Visible = False
-      ExplicitTop = 1067
     end
   end
 end

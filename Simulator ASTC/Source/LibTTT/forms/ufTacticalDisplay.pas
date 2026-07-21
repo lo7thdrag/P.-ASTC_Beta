@@ -6128,7 +6128,8 @@ end;
 
 procedure TfrmTacticalDisplay.SetRoleClient(rc: Integer);
 begin
-  case rc of
+    pnlContainerBottom.Visible := False;
+    case rc of
     crpInstruktur:
       begin
         if simMgrClient.ISWasdal then
@@ -6370,6 +6371,7 @@ begin
   pnl1ToolbarGeneral.Visible    := False;
   pnlBottom.Visible := False;
   pnlLeft.Visible   := False;
+  pnlContainerBottom.Visible := True;
   Self.Menu := nil;   {M
   enyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 

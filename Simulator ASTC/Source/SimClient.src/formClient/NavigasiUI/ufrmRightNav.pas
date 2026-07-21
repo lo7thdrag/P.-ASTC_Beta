@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzBmpBtn, Vcl.StdCtrls, VrControls,
   VrWheel, Vcl.Buttons, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uSimObjects, ufmControlled;
+  uSimObjects, ufmControlled, Vcl.ComCtrls;
 
 type
   TfrmRightNav = class(TForm)
@@ -170,6 +170,7 @@ type
     lb3: TStaticText;
     lb7: TStaticText;
     lb5: TStaticText;
+    StatusBar1: TStatusBar;
     procedure THButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
 

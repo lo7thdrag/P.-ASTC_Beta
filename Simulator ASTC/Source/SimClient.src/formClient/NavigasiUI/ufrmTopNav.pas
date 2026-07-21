@@ -61,7 +61,7 @@ implementation
 
 uses
   ufTacticalDisplay,uMapXHandler, uT3Unit, uT3Vehicle, uBaseCoordSystem, uDBAsset_Vehicle,
-  uSimMgr_Client, uSettingCoordinate, ufrmRightNav;
+  uSimMgr_Client, uSettingCoordinate;
 
 {$R *.dfm}
 

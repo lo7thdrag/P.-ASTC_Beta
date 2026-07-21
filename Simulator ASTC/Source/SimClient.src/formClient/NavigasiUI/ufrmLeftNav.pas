@@ -73,7 +73,6 @@ type
     Label21: TLabel;
     Panel10: TPanel;
     Image2: TImage;
-    StatusBar1: TStatusBar;
   private
     { Private declarations }
   public

@@ -35,14 +35,12 @@ type
     lvVersion: TListView;
     pnlMainBackground: TPanel;
     imgBackground: TImage;
-    lbl4: TLabel;
     lbl1: TLabel;
     lblScenarioID: TLabel;
     lbl2: TLabel;
     lblScenarioName: TLabel;
     lbl3: TLabel;
     lblSession: TLabel;
-    lbl5: TLabel;
     lbl6: TLabel;
     lblGameState: TLabel;
     lbl7: TLabel;

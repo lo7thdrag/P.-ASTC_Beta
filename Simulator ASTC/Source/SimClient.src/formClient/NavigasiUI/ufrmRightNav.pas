@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzBmpBtn, Vcl.StdCtrls, VrControls,
   VrWheel, Vcl.Buttons, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uSimObjects;
+  uSimObjects, ufmControlled;
 
 type
   TfrmRightNav = class(TForm)
@@ -1155,42 +1155,42 @@ begin
 
       if v is TT3Mine then lbClassIff.Caption := 'Mine';
 
-      if v is TT3Vehicle then
-      begin
-        for i := 0 to TT3Vehicle(v).Devices.Count -1 do
-        begin
-          SensorDevice := TT3DeviceUnit(TT3Vehicle(v).Devices.Items[i]);
-
-          if SensorDevice is TT3IFFSensor then
-          begin
-            SensorIFF := TT3IFFSensor(SensorDevice);
-
-            lbMode3CIff.Caption := '---';
-            if SensorIFF.TransponderOperateStatus = sopon then
-              begin
-                if SensorIFF.TransponderMode1Enabled then
-                  lbMode1Iff.Caption := DecToOct(IntToStr(SensorIFF.TransponderMode1))
-                else
-                  lbMode1Iff.Caption := '---';
-                if SensorIFF.TransponderMode2Enabled then
-                  lbMode2Iff.Caption := DecToOct(IntToStr(SensorIFF.TransponderMode2))
-                else
-                  lbMode2Iff.Caption := '---';
-                if SensorIFF.TransponderMode3Enabled then
-                  lbMode3Iff.Caption := DecToOct(IntToStr(SensorIFF.TransponderMode3))
-                else
-                  lbMode3Iff.Caption := '---';
-                end
-            else
-            begin
-              lbMode1Iff.Caption  :='---';
-              lbMode2Iff.Caption  := '---';
-              lbMode3Iff.Caption  := '---';
-              lbMode3CIff.Caption := '---';
-            end;
-          end;
-        end;
-      end;
+//      if v is TT3Vehicle then
+//      begin
+//        for i := 0 to TT3Vehicle(v).Devices.Count -1 do
+//        begin
+//          SensorDevice := TT3DeviceUnit(TT3Vehicle(v).Devices.Items[i]);
+//
+//          if SensorDevice is TT3IFFSensor then
+//          begin
+//            SensorIFF := TT3IFFSensor(SensorDevice);
+//
+//            lbMode3CIff.Caption := '---';
+//            if SensorIFF.TransponderOperateStatus = sopon then
+//              begin
+//                if SensorIFF.TransponderMode1Enabled then
+//                  lbMode1Iff.Caption := DecToOct(IntToStr(SensorIFF.TransponderMode1))
+//                else
+//                  lbMode1Iff.Caption := '---';
+//                if SensorIFF.TransponderMode2Enabled then
+//                  lbMode2Iff.Caption := DecToOct(IntToStr(SensorIFF.TransponderMode2))
+//                else
+//                  lbMode2Iff.Caption := '---';
+//                if SensorIFF.TransponderMode3Enabled then
+//                  lbMode3Iff.Caption := DecToOct(IntToStr(SensorIFF.TransponderMode3))
+//                else
+//                  lbMode3Iff.Caption := '---';
+//                end
+//            else
+//            begin
+//              lbMode1Iff.Caption  :='---';
+//              lbMode2Iff.Caption  := '---';
+//              lbMode3Iff.Caption  := '---';
+//              lbMode3CIff.Caption := '---';
+//            end;
+//          end;
+//        end;
+//      end;
       {$ENDREGION}
     end;
   end;

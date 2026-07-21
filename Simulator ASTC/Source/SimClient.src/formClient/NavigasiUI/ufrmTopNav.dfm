@@ -10191,7 +10191,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblClass: TLabel
-      Left = 406
+      Left = 411
       Top = 33
       Width = 323
       Height = 32

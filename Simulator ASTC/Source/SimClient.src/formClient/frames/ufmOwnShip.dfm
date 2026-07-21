@@ -17,7 +17,6 @@ inherited fmOwnShip: TfmOwnShip
     Align = alClient
     BorderStyle = bsNone
     TabOrder = 0
-    ExplicitHeight = 370
     object lbOwnShipPosition1: TLabel
       Left = 175
       Top = 61

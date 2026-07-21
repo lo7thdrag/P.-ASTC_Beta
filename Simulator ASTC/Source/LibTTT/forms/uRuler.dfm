@@ -27,8 +27,6 @@ object frmRuler: TfrmRuler
     Height = 231
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 12
-    ExplicitTop = 9
     object btn1: TSpeedButton
       Tag = 1
       Left = 201

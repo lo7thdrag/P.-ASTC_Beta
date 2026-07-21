@@ -44,7 +44,7 @@ begin
   simMgrClient.OnMapViewChange  := frmTacticalDisplay.MapViewChanged;
 
   if simMgrClient.ISWasdal then
-    frmTacticalDisplay.pnlTop.Height := 45;
+    frmTacticalDisplay.pnl1ToolbarGeneral.Height := 45;
 
   VSimMap := TSimMap.Create(frmTacticalDisplay.Map1);
 

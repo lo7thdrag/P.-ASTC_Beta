@@ -1,9 +1,9 @@
 object frmMainSessionSvr: TfrmMainSessionSvr
-  Left = 417
-  Top = 167
+  Left = 0
+  Top = 0
   BorderStyle = bsDialog
   Caption = 'Action Speed Tactical Command Session Server'
-  ClientHeight = 577
+  ClientHeight = 858
   ClientWidth = 394
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,7 +12,7 @@ object frmMainSessionSvr: TfrmMainSessionSvr
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poDesigned
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -20,7 +20,7 @@ object frmMainSessionSvr: TfrmMainSessionSvr
     Left = 0
     Top = 0
     Width = 394
-    Height = 577
+    Height = 858
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44844,26 +44844,21 @@ object frmMainSessionSvr: TfrmMainSessionSvr
     Left = 0
     Top = 0
     Width = 394
-    Height = 577
+    Height = 858
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 199
-    ExplicitTop = -16
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitHeight = 577
     object pnlBottom: TPanel
       Left = 1
       Top = 90
       Width = 392
-      Height = 467
+      Height = 748
       Align = alClient
       BevelKind = bkTile
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = 72
-      ExplicitWidth = 382
-      ExplicitHeight = 475
+      ExplicitHeight = 467
       object PageControl1: TPageControl
         Left = 12
         Top = 14
@@ -44873,7 +44868,6 @@ object frmMainSessionSvr: TfrmMainSessionSvr
         TabOrder = 0
         object tsClients: TTabSheet
           Caption = 'Clients'
-          ExplicitHeight = 411
           object lvConnection: TListView
             Left = 0
             Top = 0
@@ -44899,17 +44893,11 @@ object frmMainSessionSvr: TfrmMainSessionSvr
             TabOrder = 0
             ViewStyle = vsReport
             OnCompare = lvConnectionCompare
-            ExplicitWidth = 171
-            ExplicitHeight = 7
           end
         end
         object tsLogs: TTabSheet
           Caption = 'Logs'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 329
-          ExplicitHeight = 541
           object mmLogs: TMemo
             Left = 0
             Top = 0
@@ -44927,17 +44915,11 @@ object frmMainSessionSvr: TfrmMainSessionSvr
             ReadOnly = True
             TabOrder = 0
             WordWrap = False
-            ExplicitWidth = 370
-            ExplicitHeight = 443
           end
         end
         object tsNetLog: TTabSheet
           Caption = 'tsNetLog'
           ImageIndex = 2
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 329
-          ExplicitHeight = 541
           object tvClientLogs: TTreeView
             Left = 0
             Top = 0
@@ -44949,8 +44931,6 @@ object frmMainSessionSvr: TfrmMainSessionSvr
             ParentDoubleBuffered = False
             RowSelect = True
             TabOrder = 0
-            ExplicitWidth = 329
-            ExplicitHeight = 541
           end
         end
       end
@@ -44964,8 +44944,6 @@ object frmMainSessionSvr: TfrmMainSessionSvr
       BevelKind = bkTile
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = -5
-      ExplicitWidth = 382
       object Label3: TLabel
         Left = 6
         Top = 19
@@ -45038,7 +45016,7 @@ object frmMainSessionSvr: TfrmMainSessionSvr
     end
     object sBar: TStatusBar
       Left = 1
-      Top = 557
+      Top = 838
       Width = 392
       Height = 19
       Panels = <
@@ -45051,8 +45029,7 @@ object frmMainSessionSvr: TfrmMainSessionSvr
         item
           Width = 50
         end>
-      ExplicitTop = 685
-      ExplicitWidth = 341
+      ExplicitTop = 557
     end
   end
 end

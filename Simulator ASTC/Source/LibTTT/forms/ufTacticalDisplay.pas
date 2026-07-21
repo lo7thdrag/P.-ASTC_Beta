@@ -47,8 +47,7 @@ type
     btnSeparator1: TToolButton;
     btn6 : TToolButton;
     btn7 : TToolButton;
-
-    pnlTop: TPanel;
+    pnl1ToolbarGeneral: TPanel;
     pnlLeft: TPanel;
     pnlBottom: TPanel;
     MainMenu1: TMainMenu;
@@ -377,7 +376,7 @@ type
     mnitoBack: TMenuItem;
     MenuItem1: TMenuItem;
     mniDelete: TMenuItem;
-    Panel3: TPanel;
+    pnl2ToolbarViewer: TPanel;
     toolbar4: TToolBar;
     btnCentreOnGameCentre2D: TToolButton;
     btnPan2D: TToolButton;
@@ -543,17 +542,17 @@ type
     N19: TMenuItem;
     dlgPnt1: TPrintDialog;
     mniPrintCurrentMap1: TMenuItem;
-    pnlMenubar: TPanel;
+    pnl3Menubar: TPanel;
     btnRangeRingsOnHook2D: TToolButton;
     btnSs: TToolButton;
     btnSs2D: TToolButton;
     ImageList5: TImageList;
-    pnlpgcControl: TPanel;
+    pnlTrackInformation: TPanel;
     pnlTabTrackTable: TPanel;
     pnlTabTrackControl: TPanel;
     pnlTrackTable: TPanel;
     pnlTrackControl: TPanel;
-    pnlHookContactInfoTraineeDisplay: TPanel;
+    pnlContactInformationBody: TPanel;
     pnlTabHook: TPanel;
     pnlTabDetails: TPanel;
     pnlTabDetection: TPanel;
@@ -562,7 +561,7 @@ type
     pnlContentHook: TPanel;
     pnlContentDetails: TPanel;
     pnlContentDetection: TPanel;
-    pnlTacticalDisplayControlPanel: TPanel;
+    pnlShipInformationBody: TPanel;
     pnlTabOwnShip: TPanel;
     imgOwnShip: TImage;
     pnlTabPlatformGuidance: TPanel;
@@ -719,6 +718,20 @@ type
     StaticText61: TStaticText;
     StaticText62: TStaticText;
     StaticText63: TStaticText;
+    pnlHorizontalSparator1: TPanel;
+    pnlHorizontalSparator2: TPanel;
+    pnlTrackSparator: TPanel;
+    pnlContactSparator: TPanel;
+    pnlTrackInformationHeader: TPanel;
+    pnlContactInformationHeader: TPanel;
+    pnlTrackSheet: TPanel;
+    pnlTrackInformationBody: TPanel;
+    pnlContactInformation: TPanel;
+    pnlContactSheet: TPanel;
+    pnlShipInformation: TPanel;
+    pnlShipInformationHeader: TPanel;
+    pnlShipSheet: TPanel;
+    pnlShipSparator: TPanel;
 
 //    ToolBtnComm: TToolButton;
 
@@ -1123,9 +1136,9 @@ type
 //    procedure StatciviewMenBarClick(Sender: TObject);
 //    procedure DimensionMenBarClick(Sender: TObject);
     procedure mniPrintCurrentMap1Click(Sender: TObject);
-    procedure pnlMenubarClick(Sender: TObject);
+    procedure pnl3MenubarClick(Sender: TObject);
     procedure toolbar4MouseLeave(Sender: TObject);
-    procedure pnlMenubarMouseMove(Sender: TObject; Shift: TShiftState; X,
+    procedure pnl3MenubarMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
     procedure btnDDay2DClick(Sender: TObject);
     procedure btnOverlayClick(Sender: TObject);
@@ -2000,21 +2013,21 @@ begin
   begin
     pnlBottom.Show;
     Panel1.Show;
-    Panel3.Show;
+    pnl2ToolbarViewer.Show;
 
     toolbar4.OnMouseLeave := nil;
-    pnlMenubar.OnMouseMove := nil;
+    pnl3Menubar.OnMouseMove := nil;
   end
   else
   begin
     pnlBottom.Hide;
     Panel1.Hide;
-    Panel3.Hide;
+    pnl2ToolbarViewer.Hide;
 
     FIsShowed := False;
 
     toolbar4.OnMouseLeave := toolbar4MouseLeave;
-    pnlMenubar.OnMouseMove := pnlMenubarMouseMove;
+    pnl3Menubar.OnMouseMove := pnl3MenubarMouseMove;
   end;
 end;
 
@@ -2571,7 +2584,7 @@ begin
   EnableComposited(pnlMap);
   EnableComposited(Panel1);
   EnableComposited(pnlLeft);
-  EnableComposited(pnlTacticalDisplayControlPanel);
+  EnableComposited(pnlShipInformationBody);
 
 //  MiniMap := TMapXTouch.Create(Self);
 //  MiniMap.Parent := Self;
@@ -2625,7 +2638,7 @@ begin
   cbSetScale2D.Items.Clear;
 
   toolbar4.OnMouseLeave := nil;
-  pnlMenubar.OnMouseMove := nil;
+  pnl3Menubar.OnMouseMove := nil;
 
   for i := CMin_Z to CMax_Z do
   begin
@@ -5672,15 +5685,15 @@ begin
 //  simMgrClient.PlatformViewMode := not simMgrClient.PlatformViewMode;
 //  PlatformView1.Checked := simMgrClient.PlatformViewMode;
 end;
-procedure TfrmTacticalDisplay.pnlMenubarClick(Sender: TObject);
+procedure TfrmTacticalDisplay.pnl3MenubarClick(Sender: TObject);
 begin
   FIsShowed := True;
 end;
 
-procedure TfrmTacticalDisplay.pnlMenubarMouseMove(Sender: TObject;
+procedure TfrmTacticalDisplay.pnl3MenubarMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
-  Panel3.Show;
+  pnl2ToolbarViewer.Show;
 end;
 
 procedure TfrmTacticalDisplay.pnlStatusRedClick(Sender: TObject);
@@ -6035,7 +6048,7 @@ begin
           if vMapSetting.FormViewer then
           begin
             BorderStyle := bsNone;
-            pnlTop.Hide;
+            pnl1ToolbarGeneral.Hide;
             pnlLeft.Hide;
 
             File1.Visible := False;
@@ -6062,8 +6075,8 @@ begin
             btnAnnotate.Hide;
             btnMerge.Hide;
             btnSplit.Hide;
-            Panel3.Hide;
-            pnlMenubar.Hide;
+            pnl2ToolbarViewer.Hide;
+            pnl3Menubar.Hide;
           end;
         end;
 
@@ -6148,8 +6161,8 @@ begin
         btnAnnotate.Hide;
         btnMerge.Hide;
         btnSplit.Hide;
-        Panel3.Hide;
-        pnlMenubar.Hide;
+        pnl2ToolbarViewer.Hide;
+        pnl3Menubar.Hide;
 
         {filter click kanan plotting}
         miPlottingNew.Visible := False;
@@ -6260,7 +6273,7 @@ end;
 
 procedure TfrmTacticalDisplay.SetUpNavigasiUI;
 begin
-  pnlTop.Visible    := False;
+  pnl1ToolbarGeneral.Visible    := False;
   pnlBottom.Visible := False;
 //  pnlLeft.Visible   := False;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
@@ -6394,7 +6407,7 @@ begin
     Tools1.Visible := False;
     Help1.Visible := False;
 
-    pnlTop.Hide;
+    pnl1ToolbarGeneral.Hide;
   end;
 end;
 
@@ -7313,11 +7326,11 @@ procedure TfrmTacticalDisplay.toolbar4MouseLeave(Sender: TObject);
 begin
   if FIsShowed then
   begin
-    Panel3.Show;
+    pnl2ToolbarViewer.Show;
     FIsShowed := False;
   end
   else
-    Panel3.Hide;
+    pnl2ToolbarViewer.Hide;
 end;
 
 procedure TfrmTacticalDisplay.btnGameFreezeClick(Sender: TObject);
@@ -12081,7 +12094,7 @@ begin
   begin
     if execute then
     begin
-      pnlTop.Visible := False;
+      pnl1ToolbarGeneral.Visible := False;
       pnlBottom.Visible := False;
       pnlLeft.Visible := False;
 
@@ -12118,7 +12131,7 @@ begin
     end;
   end;
 
-  pnlTop.Visible := True;
+  pnl1ToolbarGeneral.Visible := True;
   pnlBottom.Visible := True;
   pnlLeft.Visible := True;
 
@@ -13723,10 +13736,10 @@ end;
 
 procedure TfrmTacticalDisplay.SetupPlotterUI;
 begin
-  pnlTop.Hide;
+  pnl1ToolbarGeneral.Hide;
   pnlLeft.Hide;
-  Panel3.Hide;
-  pnlMenubar.Hide;
+  pnl2ToolbarViewer.Hide;
+  pnl3Menubar.Hide;
 
   StatusBar1.Visible := False;
   pnlStatusRed.Visible := False;
@@ -13771,10 +13784,10 @@ end;
 
 procedure TfrmTacticalDisplay.SetupWasdalUI;
 begin
-  pnlTop.Hide;
+  pnl1ToolbarGeneral.Hide;
   pnlLeft.Hide;
-  Panel3.Hide;
-  pnlMenubar.Hide;
+  pnl2ToolbarViewer.Hide;
+  pnl3Menubar.Hide;
 
   frmRight := TfrmRight.Create(nil);
   frmRight.Parent := Self;

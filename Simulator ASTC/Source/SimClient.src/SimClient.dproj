@@ -594,10 +594,6 @@
             <Form>frmPlatformBaseDetail</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="formClient\NavigasiUI\ufrmBottomNav.pas">
-            <Form>frmBottomNav</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="formClient\NavigasiUI\ufrmLeftNav.pas">
             <Form>frmLeftNav</Form>
             <FormType>dfm</FormType>

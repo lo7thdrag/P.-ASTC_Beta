@@ -421,6 +421,21 @@ type
     Label89: TLabel;
     Label90: TLabel;
     Bevel13: TBevel;
+    Label91: TLabel;
+    Label92: TLabel;
+    Label93: TLabel;
+    Label94: TLabel;
+    Bevel14: TBevel;
+    Label95: TLabel;
+    Label96: TLabel;
+    btnCopyCircle: TImage;
+    btnPasteCircle: TImage;
+    Label97: TLabel;
+    Label98: TLabel;
+    Label99: TLabel;
+    Label100: TLabel;
+    Image1: TImage;
+    Image2: TImage;
 
     procedure FormShow(Sender: TObject);
 

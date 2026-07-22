@@ -7748,7 +7748,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Caption = 'FROZEN'
         Color = clRed
         Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -17
         Font.Name = 'System'
         Font.Style = [fsBold]

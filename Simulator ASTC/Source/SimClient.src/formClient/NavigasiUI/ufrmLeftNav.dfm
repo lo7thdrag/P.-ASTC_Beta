@@ -33,8 +33,6 @@ object frmLeftNav: TfrmLeftNav
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 0
-      ExplicitTop = 428
-      ExplicitWidth = 352
       object imgMainBackgorund: TImage
         Left = 0
         Top = 0
@@ -46591,7 +46589,7 @@ object frmLeftNav: TfrmLeftNav
           Font.Style = []
           ParentFont = False
         end
-        object Label12: TLabel
+        object lbl: TLabel
           Left = 57
           Top = 47
           Width = 47
@@ -46605,7 +46603,7 @@ object frmLeftNav: TfrmLeftNav
           Font.Style = []
           ParentFont = False
         end
-        object lblWindSpeed: TLabel
+        object lblSpeedWIndTrue: TLabel
           Left = 57
           Top = 80
           Width = 57
@@ -46649,7 +46647,7 @@ object frmLeftNav: TfrmLeftNav
           Font.Style = []
           ParentFont = False
         end
-        object Label2: TLabel
+        object lblDirectionWindTrue: TLabel
           Left = 241
           Top = 80
           Width = 57
@@ -46663,20 +46661,6 @@ object frmLeftNav: TfrmLeftNav
           Font.Name = 'Deusex'
           Font.Style = []
           ParentColor = False
-          ParentFont = False
-        end
-        object o: TLabel
-          Left = 302
-          Top = 66
-          Width = 15
-          Height = 29
-          Caption = 'o'
-          FocusControl = Panel1
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clAqua
-          Font.Height = -24
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
           ParentFont = False
         end
         object btnPlatformOp: TSpeedButton
@@ -73771,7 +73755,7 @@ object frmLeftNav: TfrmLeftNav
           Font.Style = []
           ParentFont = False
         end
-        object Label14: TLabel
+        object lblOceanCurrentSpeed: TLabel
           Left = 57
           Top = 80
           Width = 57
@@ -73815,7 +73799,7 @@ object frmLeftNav: TfrmLeftNav
           Font.Style = []
           ParentFont = False
         end
-        object Label17: TLabel
+        object lblOceanCurrentDirection: TLabel
           Left = 241
           Top = 80
           Width = 57
@@ -73829,20 +73813,6 @@ object frmLeftNav: TfrmLeftNav
           Font.Name = 'Deusex'
           Font.Style = []
           ParentColor = False
-          ParentFont = False
-        end
-        object Label18: TLabel
-          Left = 302
-          Top = 66
-          Width = 15
-          Height = 29
-          Caption = 'o'
-          FocusControl = Panel1
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clAqua
-          Font.Height = -24
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
           ParentFont = False
         end
         object Label19: TLabel
@@ -100953,8 +100923,8 @@ object frmLeftNav: TfrmLeftNav
           Width = 220
           Height = 2
         end
-        object Label30: TLabel
-          Left = 119
+        object lblWaterTemp: TLabel
+          Left = 129
           Top = 37
           Width = 79
           Height = 37
@@ -100964,20 +100934,6 @@ object frmLeftNav: TfrmLeftNav
           Font.Height = -37
           Font.Name = 'Deusex'
           Font.Style = []
-          ParentFont = False
-        end
-        object Label23: TLabel
-          Left = 202
-          Top = 23
-          Width = 15
-          Height = 29
-          Caption = 'o'
-          FocusControl = Panel1
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clAqua
-          Font.Height = -24
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
           ParentFont = False
         end
         object lblRange: TLabel
@@ -101000,7 +100956,7 @@ object frmLeftNav: TfrmLeftNav
           Height = 2
         end
         object lblDepthNav: TLabel
-          Left = 118
+          Left = 128
           Top = 102
           Width = 79
           Height = 37
@@ -147563,9 +147519,7 @@ object frmLeftNav: TfrmLeftNav
             E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA
             27E1AA27E1AA27D8A326A77F21503E19292115292115292115BC}
           Stretch = True
-          ExplicitTop = -2
-          ExplicitWidth = 377
-          ExplicitHeight = 236
+          ExplicitTop = -1
         end
         object Label4: TLabel
           Left = 8
@@ -147580,9 +147534,9 @@ object frmLeftNav: TfrmLeftNav
           Font.Style = []
           ParentFont = False
         end
-        object lblHeading: TLabel
-          Left = 227
-          Top = 161
+        object lblActualHeading: TLabel
+          Left = 241
+          Top = 155
           Width = 62
           Height = 37
           Caption = '04.7'
@@ -151118,20 +151072,6 @@ object frmLeftNav: TfrmLeftNav
             082429A4674E6D434C621949CE2C21C92D8BD923DB4F55F65F6756249357A573
             389CA0E6FF0170D486D5B982742D0000000049454E44AE426082}
           Stretch = True
-        end
-        object Label22: TLabel
-          Left = 293
-          Top = 148
-          Width = 15
-          Height = 29
-          Caption = 'o'
-          FocusControl = Panel1
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clAqua
-          Font.Height = -24
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
         end
         object Image17: TImage
           Left = 147

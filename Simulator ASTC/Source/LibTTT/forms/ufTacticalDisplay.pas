@@ -746,6 +746,7 @@ type
     btnRangeRingsOnHookNav: TRzBmpButton;
     cbbSetScale: TComboBox;
     btnSelect: TRzBmpButton;
+    pnlAlignToolBar: TPanel;
 
 //    ToolBtnComm: TToolButton;
 

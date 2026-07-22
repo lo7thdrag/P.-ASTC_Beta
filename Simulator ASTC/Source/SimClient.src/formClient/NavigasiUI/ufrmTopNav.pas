@@ -144,26 +144,26 @@ begin
       end;
       3:
       begin
-        frmTopNav.lblLong1.Caption := ConvDegree_To_Georef(getPositionX,getPositionY);
-        frmTopNav.lblLat1.Caption := '---';
+        lblLong1.Caption := ConvDegree_To_Georef(getPositionX,getPositionY);
+        lblLat1.Caption := '---';
       end;
       4:
       begin
-        frmTopNav.lblLong1.Caption := hasilUTM ;   //dng
-        frmTopNav.lblLat1.Caption := '';
+        lblLong1.Caption := hasilUTM ;   //dng
+        lblLat1.Caption := '';
       end;
       5:
       begin
         ConvDegree_To_UTM_and_MGRS(lat, long, hasilUTM, hasilMGRS);
-        frmTopNav.lblLong1.Caption := hasilMGRS ;   //dng
-        frmTopNav.lblLat1.Caption := '';
+        lblLong1.Caption := hasilMGRS ;   //dng
+        lblLat1.Caption := '';
       end;
       6:
       begin
         VSimMap.GetValLayerKarvak(getPositionX, getPositionY, largeLtr, smallLtr, horizontalNumb, verticalNumb);
         ConvDegree_To_Karvak(getPositionX, getPositionY, horzPoint, vertPoint);
-        frmTopNav.lblLong1.Caption :=  largeLtr+horizontalNumb + horzPoint + verticalNumb + vertPoint;
-        frmTopNav.lblLat1.Caption := '';
+        lblLong1.Caption :=  largeLtr+horizontalNumb + horzPoint + verticalNumb + vertPoint;
+        lblLat1.Caption := '';
       end;
     end;
   end;

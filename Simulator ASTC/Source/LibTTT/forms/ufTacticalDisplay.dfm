@@ -6663,6 +6663,149 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ParentFont = False
                 end
               end
+              inherited grbEngagement: TGroupBox [8]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label300: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label305: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label306: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label307: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label308: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label309: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblEngageActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label314: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbEngageTrackToEngage: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbEngageTrackToEngageClick
+                end
+                inherited StaticText146: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText147: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText148: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText149: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlDepthEngagement: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                  inherited Edit2: TEdit
+                    Height = 21
+                    ExplicitHeight = 21
+                  end
+                end
+                inherited pnlAltitudeEngagement: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                  inherited edtAltitudeEngagement: TEdit
+                    Height = 21
+                    ExplicitHeight = 21
+                  end
+                end
+              end
+              inherited grbFormation: TGroupBox [9]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label323: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label324: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblLeaderFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblNameFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label373: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label374: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label381: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblRangeFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblBearingFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label399: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText154: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText155: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText156: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText157: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlDepth: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlAltitude: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
               inherited grpCircle: TGroupBox
                 Width = 357
                 Height = 1948
@@ -6758,149 +6901,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Font.Color = clWhite
                     ParentFont = False
                   end
-                end
-              end
-              inherited grbEngagement: TGroupBox [9]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label300: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label305: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label306: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label307: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label308: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label309: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblEngageActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label314: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbEngageTrackToEngage: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbEngageTrackToEngageClick
-                end
-                inherited StaticText146: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText147: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText148: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText149: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlDepthEngagement: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                  inherited Edit2: TEdit
-                    Height = 21
-                    ExplicitHeight = 21
-                  end
-                end
-                inherited pnlAltitudeEngagement: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                  inherited edtAltitudeEngagement: TEdit
-                    Height = 21
-                    ExplicitHeight = 21
-                  end
-                end
-              end
-              inherited grbFormation: TGroupBox [10]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label323: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label324: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblLeaderFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblNameFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label373: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label374: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label381: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblRangeFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblBearingFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label399: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText154: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText155: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText156: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText157: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlDepth: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlAltitude: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
                 end
               end
               inherited grbHelm: TGroupBox [11]
@@ -7037,7 +7037,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 inherited edtHelmOrderedGroundSpeed: TEdit [34]
                 end
               end
-              inherited grpPersonelGuidance: TGroupBox [12]
+              inherited grpPersonelGuidance: TGroupBox
                 Width = 357
                 Height = 1948
                 ExplicitWidth = 357
@@ -7068,7 +7068,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   OnKeyPress = fmPlatformGuidance1edtPersonelGuidanceOrderedHeadingKeyPress
                 end
               end
-              inherited grbStraightLine: TGroupBox [13]
+              inherited grbStraightLine: TGroupBox
                 Width = 357
                 Height = 1948
                 Color = 2695445
@@ -8786,7 +8786,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       Left = 5
       Top = 5
       Width = 1216
-      Height = 76
+      Height = 82
       Align = alTop
       AutoSize = True
       BevelOuter = bvNone
@@ -8794,12 +8794,13 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       ParentBackground = False
       TabOrder = 0
       object ToolBar1: TToolBar
-        Left = 0
-        Top = 0
-        Width = 1216
-        Height = 76
+        Left = 100
+        Top = 4
+        Width = 1200
+        Height = 78
+        Align = alNone
         AutoSize = True
-        ButtonHeight = 34
+        ButtonHeight = 35
         ButtonWidth = 35
         Caption = 'ToolBar1'
         Color = 2695445
@@ -8866,7 +8867,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object cbSetScale: TComboBox
           Left = 193
-          Top = 0
+          Top = 5
           Width = 76
           Height = 24
           Hint = 'Select Scale'
@@ -8988,7 +8989,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           Top = 0
           Hint = 'GameArea 1'
           Caption = 'btnAirMap'
-          Down = True
           Grouped = True
           ImageIndex = 63
           Style = tbsCheck
@@ -9099,7 +9099,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object cbAssumeControl: TComboBox
           Left = 970
-          Top = 0
+          Top = 5
           Width = 195
           Height = 24
           Hint = 'Platform Select (for control)'
@@ -9133,7 +9133,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnTrackHistory: TToolButton
           Left = 0
-          Top = 42
+          Top = 43
           Hint = 'History'
           Caption = 'btnTrackHistory'
           ImageIndex = 15
@@ -9142,7 +9142,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnRemovePlatformOrTrack: TToolButton
           Left = 35
-          Top = 42
+          Top = 43
           Hint = 'Remove Platform / Track'
           Caption = 'btnRemovePlatformOrTrack'
           ImageIndex = 26
@@ -9150,7 +9150,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnEdit: TToolButton
           Left = 70
-          Top = 42
+          Top = 43
           Hint = 'Edit Text'
           Caption = 'btnEdit'
           ImageIndex = 35
@@ -9159,7 +9159,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnSeparator7: TToolButton
           Left = 105
-          Top = 42
+          Top = 43
           Width = 8
           Caption = 'btnSeparator7'
           ImageIndex = 16
@@ -9167,14 +9167,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnLogistic: TToolButton
           Left = 113
-          Top = 42
+          Top = 43
           Hint = 'Logistic'
           ImageIndex = 43
           OnClick = btnLogisticClick
         end
         object btnPlotting: TToolButton
           Left = 148
-          Top = 42
+          Top = 43
           Hint = 'Plotting'
           Caption = 'btnPlotting'
           ImageIndex = 44
@@ -9182,7 +9182,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnOverlay: TToolButton
           Left = 183
-          Top = 42
+          Top = 43
           Hint = 'Overlay'
           Caption = 'btnOverlay'
           ImageIndex = 60
@@ -9190,7 +9190,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnMultiMode: TToolButton
           Left = 218
-          Top = 42
+          Top = 43
           Hint = 'Multi Select '
           AllowAllUp = True
           Caption = 'btnMultiMode'
@@ -9200,7 +9200,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnToolAddMine: TToolButton
           Left = 253
-          Top = 42
+          Top = 43
           Hint = 'Add Mine'
           Caption = 'btnToolAddMine'
           ImageIndex = 69
@@ -9209,7 +9209,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnAddPlatform: TToolButton
           Left = 288
-          Top = 42
+          Top = 43
           Hint = 'Runtime Platform'
           Caption = 'btnAddPlatform'
           ImageIndex = 25
@@ -9217,7 +9217,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnSeparator9: TToolButton
           Left = 323
-          Top = 42
+          Top = 43
           Width = 8
           Caption = 'btnSeparator9'
           ImageIndex = 38
@@ -9225,7 +9225,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnMonitorStudent: TToolButton
           Left = 331
-          Top = 42
+          Top = 43
           Hint = 'Monitor Student'
           Caption = 'btnMonitorStudent'
           ImageIndex = 22
@@ -9233,7 +9233,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnTimeOfRaid: TToolButton
           Left = 366
-          Top = 42
+          Top = 43
           Hint = 'D Day'
           Caption = 'btnTimeOfRaid'
           ImageIndex = 71
@@ -9242,7 +9242,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnFilterCursor: TToolButton
           Left = 401
-          Top = 42
+          Top = 43
           Hint = 'Filter Cursor'
           Caption = 'btnFilterCursor'
           ImageIndex = 27
@@ -9250,7 +9250,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnAnchorCursor: TToolButton
           Left = 436
-          Top = 42
+          Top = 43
           Hint = 'Anchor Cursor'
           Caption = 'btnAnchorCursor'
           ImageIndex = 28
@@ -9258,7 +9258,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnRuller: TToolButton
           Left = 471
-          Top = 42
+          Top = 43
           Hint = 'Ruler'
           Caption = 'btnRuller'
           ImageIndex = 81
@@ -9266,7 +9266,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnOptions: TToolButton
           Left = 506
-          Top = 42
+          Top = 43
           Hint = 'Options'
           Caption = 'btnOptions'
           ImageIndex = 29
@@ -9275,21 +9275,21 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnTacticalSymbolViewMode: TToolButton
           Left = 541
-          Top = 42
+          Top = 43
           Hint = 'Tactical Symbol View Mode'
           ImageIndex = 82
           OnClick = btnTacticalSymbolViewModeClick
         end
         object btnTacticalInfoSet: TToolButton
           Left = 576
-          Top = 42
+          Top = 43
           Hint = 'Tactical Info Set'
           ImageIndex = 57
           OnClick = acticalInfoSet1Click
         end
         object btnSeparator10: TToolButton
           Left = 611
-          Top = 42
+          Top = 43
           Width = 8
           Caption = 'btnSeparator10'
           ImageIndex = 58
@@ -9297,7 +9297,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnSelectPlatform: TToolButton
           Left = 619
-          Top = 42
+          Top = 43
           Hint = 'Select Map / Platform'
           AllowAllUp = True
           Caption = 'btnSelectPlatform'
@@ -9308,18 +9308,16 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnToolBtnSlide: TToolButton
           Left = 654
-          Top = 42
+          Top = 43
           Hint = 'Tactical / Tote Display'
-          Enabled = False
           ImageIndex = 45
           OnClick = btnToolBtnSlideClick
         end
         object btnCom: TToolButton
           Left = 689
-          Top = 42
+          Top = 43
           Hint = 'Communication'
           AllowAllUp = True
-          Enabled = False
           ImageIndex = 46
           Style = tbsCheck
           Visible = False
@@ -9327,16 +9325,15 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btn6: TToolButton
           Left = 724
-          Top = 42
+          Top = 43
           Hint = 'Add Data Link'
           Caption = 'btn6'
-          Enabled = False
           ImageIndex = 32
           Visible = False
         end
         object btn7: TToolButton
           Left = 759
-          Top = 42
+          Top = 43
           Hint = 'Remove Data Link'
           Caption = 'btn7'
           Enabled = False
@@ -9345,7 +9342,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnTransferSonobuoy: TToolButton
           Left = 794
-          Top = 42
+          Top = 43
           Hint = 'Transfer Sonobuoy'
           Caption = 'btnTransferSonobuoy'
           Enabled = False
@@ -9354,7 +9351,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnRemoveSonobuoy: TToolButton
           Left = 829
-          Top = 42
+          Top = 43
           Hint = 'Remove Sonobuoy'
           Caption = 'btnRemoveSonobuoy'
           Enabled = False
@@ -9363,7 +9360,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnAnnotate: TToolButton
           Left = 864
-          Top = 42
+          Top = 43
           Hint = 'Annotate'
           Caption = 'btnAnnotate'
           Enabled = False
@@ -9372,33 +9369,36 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnContents: TToolButton
           Left = 899
-          Top = 42
+          Top = 43
           Hint = 'Contents'
           Caption = 'btnContents'
+          Enabled = False
           ImageIndex = 30
           Visible = False
         end
         object btnMerge: TToolButton
           Left = 934
-          Top = 42
+          Top = 43
           Hint = 'Merge'
           Caption = 'btnMerge'
+          Enabled = False
           ImageIndex = 34
           Visible = False
           OnClick = btnMergeClick
         end
         object btnSplit: TToolButton
           Left = 969
-          Top = 42
+          Top = 43
           Hint = 'Split'
           Caption = 'btnSplit'
+          Enabled = False
           ImageIndex = 33
           Visible = False
           OnClick = btnSplitClick
         end
         object btnhelp: TToolButton
           Left = 1004
-          Top = 42
+          Top = 43
           Hint = 'Help'
           Caption = 'btnhelp'
           ImageIndex = 35
@@ -9406,7 +9406,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnSeparator1: TToolButton
           Left = 1039
-          Top = 42
+          Top = 43
           Width = 8
           Caption = 'btnSeparator1'
           ImageIndex = 31
@@ -9415,7 +9415,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnSeparator11: TToolButton
           Left = 1047
-          Top = 42
+          Top = 43
           Width = 8
           Caption = 'btnSeparator11'
           ImageIndex = 31
@@ -9424,12 +9424,22 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object btnSs: TToolButton
           Left = 1055
-          Top = 42
+          Top = 43
           Caption = 'btnSs'
           ImageIndex = 14
           Visible = False
           OnClick = takeSS
         end
+      end
+      object pnlAlignToolBar: TPanel
+        Left = 0
+        Top = 0
+        Width = 5
+        Height = 42
+        BevelOuter = bvNone
+        Color = 2499101
+        ParentBackground = False
+        TabOrder = 1
       end
     end
     object pnlContainerBottom: TPanel

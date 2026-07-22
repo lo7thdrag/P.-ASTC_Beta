@@ -7,7 +7,9 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, RzBmpBtn,
   Vcl.Imaging.pngimage, VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series,
   VCLTee.TeeProcs, VCLTee.Chart, VrControls, VrWheel, Vcl.StdCtrls, Vcl.ComCtrls,
-  VrMeter, AdvSmoothLabel, Vcl.Buttons;
+  VrMeter, AdvSmoothLabel, Vcl.Buttons,
+
+  uT3Unit;
 
 type
   TfrmLeftNav = class(TForm)
@@ -18,23 +20,21 @@ type
     pnlAboveWater: TPanel;
     Image1: TImage;
     lblTittle1: TLabel;
-    Label12: TLabel;
-    lblWindSpeed: TLabel;
+    lbl: TLabel;
+    lblSpeedWIndTrue: TLabel;
     Label1: TLabel;
     Label13: TLabel;
-    Label2: TLabel;
-    o: TLabel;
+    lblDirectionWindTrue: TLabel;
     btnPlatformOp: TSpeedButton;
     SpeedButton2: TSpeedButton;
     Panel4: TPanel;
     Panel1: TPanel;
     Image5: TImage;
     Label3: TLabel;
-    Label14: TLabel;
+    lblOceanCurrentSpeed: TLabel;
     Label15: TLabel;
     Label16: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
+    lblOceanCurrentDirection: TLabel;
     Label19: TLabel;
     SpeedButton1: TSpeedButton;
     SpeedButton3: TSpeedButton;
@@ -43,8 +43,7 @@ type
     Image4: TImage;
     Label29: TLabel;
     Bevel8: TBevel;
-    Label30: TLabel;
-    Label23: TLabel;
+    lblWaterTemp: TLabel;
     lblRange: TLabel;
     Bevel5: TBevel;
     lblDepthNav: TLabel;
@@ -53,9 +52,8 @@ type
     Panel5: TPanel;
     Image3: TImage;
     Label4: TLabel;
-    lblHeading: TLabel;
+    lblActualHeading: TLabel;
     Image14: TImage;
-    Label22: TLabel;
     Image17: TImage;
     Panel6: TPanel;
     Image7: TImage;
@@ -73,6 +71,9 @@ type
     Label21: TLabel;
     Panel10: TPanel;
     Image2: TImage;
+    procedure Refresh_OwnShipTab(Sender: TObject);
+  protected
+    FControlled: TObject;
   private
     { Private declarations }
   public
@@ -84,6 +85,81 @@ var
 
 implementation
 
+uses
+  uDBAsset_GameEnvironment, uT3SimManager, uSimMgr_Client, uBaseCoordSystem, uMapLayerDB,
+  uSimObjects, ufmOwnShip, tttData, ufmControlled, uT3Vehicle;
+
 {$R *.dfm}
+
+procedure TfrmLeftNav.Refresh_OwnShipTab(Sender: TObject);
+var
+  ge: TGame_Environment_Definition;
+  isOnlandTemp, isdeptAvailTemp : Boolean;
+  d1, d2: Double;
+
+begin
+  {$REGION ' LEFT '}
+  if not Assigned(simMgrClient) then Exit;
+  ge := (simMgrClient).GameEnvironment;
+
+  with ge.FData do
+  begin
+    lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);
+    lblDirectionWindTrue.Caption          := FormatCourse(Wind_Direction);
+    lblWaterTemp.Caption                  := FormatFloat('00.0', Air_Temperature);
+    lblOceanCurrentSpeed.Caption          := FormatFloat('00.0', Ocean_Current_Speed);
+    lblOceanCurrentDirection.Caption      := FormatFloat('000.0', Ocean_Current_Direction);
+    {Kedalaman ikut Environment Status pada Tote Display}
+//    lblDepthNav.Caption                   := FormatFloat('0.0', Ave_Ocean_Depth) + ' Meter';
+  end;
+
+  {Kedalaman ikut di ownship}
+  if Assigned(FControlled) and TT3PlatformInstance(FControlled).Initialized then
+  begin
+    with TT3PlatformInstance(FControlled) do
+    begin
+      isOnlandTemp := DepthLayerDB.GetMapLand(getPositionX, getPositionY, d1, d2);
+
+      if isOnlandTemp then
+      begin
+        lblDepthNav.Caption := FormatSpeed(d2) + ' Meter';
+      end
+      else
+      begin
+        try
+          isdeptAvailTemp := DepthLayerDB.GetMapDepth(getPositionX, getPositionY, d1, d2);
+        except
+          isdeptAvailTemp := False;
+        end;
+
+        if isdeptAvailTemp then
+        begin
+          lblDepthNav.Caption := FormatSpeed(d2) + ' Meter';
+        end
+        else
+        begin
+          lblDepthNav.Caption := '0 Meter';
+        end;
+      end;
+    end;
+
+    if Assigned(FControlled) then
+    begin
+      if TT3Vehicle(FControlled).Course = 0 then
+      begin
+        lblActualHeading.Caption := '0.00';
+      end
+      else
+      begin
+        lblActualHeading.Caption := FormatCourse(TT3Vehicle(FControlled).Heading);
+      end;
+    end
+    else
+    begin
+      lblActualHeading.Caption := '---';
+    end;
+  end;
+  {$ENDREGION}
+end;
 
 end.

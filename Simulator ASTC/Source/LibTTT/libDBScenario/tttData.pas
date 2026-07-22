@@ -552,6 +552,7 @@ const
   C_GotoTimeSecond : array [0..4] of Extended =
     ( 60 * 5, 60 * 30, 60 * 60, 60 * 60 * 2, 60 * 60 * 24);
 type
+  E_RulerMapCursor = (mcSelect, mcAdd, mcEdit, mcHook, mcRullerStart, mcRullerEnd);
   TWeapoonCategory = (
       wcMissileAirToSurfaceSubsurface,
       wcMissileSurfaceSubsurfaceToSurfaceSubsurface,

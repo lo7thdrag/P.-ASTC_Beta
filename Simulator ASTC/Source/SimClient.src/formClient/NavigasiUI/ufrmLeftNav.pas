@@ -24,11 +24,8 @@ type
     Label13: TLabel;
     Label2: TLabel;
     o: TLabel;
-    Image10: TImage;
-    Image15: TImage;
     btnPlatformOp: TSpeedButton;
     SpeedButton2: TSpeedButton;
-    Panel3: TPanel;
     Panel4: TPanel;
     Panel1: TPanel;
     Image5: TImage;
@@ -38,12 +35,9 @@ type
     Label16: TLabel;
     Label17: TLabel;
     Label18: TLabel;
-    Image13: TImage;
     Label19: TLabel;
-    Image16: TImage;
     SpeedButton1: TSpeedButton;
     SpeedButton3: TSpeedButton;
-    Panel7: TPanel;
     Panel8: TPanel;
     Panel9: TPanel;
     Image4: TImage;
@@ -53,10 +47,8 @@ type
     Label23: TLabel;
     lblRange: TLabel;
     Bevel5: TBevel;
-    Label28: TLabel;
-    Label24: TLabel;
+    lblDepthNav: TLabel;
     Panel2: TPanel;
-    Image2: TImage;
     lblShipName: TLabel;
     Panel5: TPanel;
     Image3: TImage;
@@ -80,6 +72,7 @@ type
     Label20: TLabel;
     Label21: TLabel;
     Panel10: TPanel;
+    Image2: TImage;
   private
     { Private declarations }
   public

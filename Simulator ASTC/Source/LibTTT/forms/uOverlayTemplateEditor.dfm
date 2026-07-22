@@ -44858,7 +44858,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Top = 8
       Width = 175
       Height = 83
-      Color = 2499101
+      Color = 2695445
       ParentBackground = False
       ParentColor = False
       TabOrder = 0
@@ -44904,7 +44904,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Top = 98
       Width = 298
       Height = 47
-      Color = 2499101
+      Color = 2695445
       ParentBackground = False
       ParentColor = False
       TabOrder = 1
@@ -44914,7 +44914,7 @@ object fmOverlayEditor: TfmOverlayEditor
         Width = 288
         Height = 31
         BevelOuter = bvNone
-        Color = 2499101
+        Color = 2695445
         ParentBackground = False
         TabOrder = 0
         object lbl16: TLabel
@@ -44980,7 +44980,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Top = 8
       Width = 117
       Height = 83
-      Color = 2499101
+      Color = 2695445
       ParentBackground = False
       ParentColor = False
       TabOrder = 2
@@ -45072,7 +45072,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Top = 8
       Width = 298
       Height = 646
-      Color = 2499101
+      Color = 2695445
       ParentBackground = False
       ParentColor = False
       TabOrder = 4
@@ -45317,8 +45317,8 @@ object fmOverlayEditor: TfmOverlayEditor
         end
       end
       object pnlCreateNew: TPanel
-        Left = 8
-        Top = 467
+        Left = 13
+        Top = 469
         Width = 282
         Height = 174
         BevelOuter = bvNone
@@ -45334,39 +45334,39 @@ object fmOverlayEditor: TfmOverlayEditor
         object Label1: TLabel
           Left = 8
           Top = 25
-          Width = 33
-          Height = 16
+          Width = 32
+          Height = 13
           Caption = 'Name'
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
         end
         object Label65: TLabel
           Left = 48
           Top = 25
-          Width = 13
-          Height = 16
+          Width = 9
+          Height = 13
           Caption = ' : '
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
         end
         object Label2: TLabel
-          Left = 6
-          Top = 48
-          Width = 36
-          Height = 16
+          Left = 7
+          Top = 51
+          Width = 31
+          Height = 13
           Caption = 'Type  '
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
           Visible = False
@@ -45379,21 +45379,21 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object Bevel2: TBevel
           Left = 12
-          Top = 127
+          Top = 129
           Width = 259
           Height = 3
           Visible = False
         end
         object Label4: TLabel
           Left = 48
-          Top = 48
-          Width = 13
-          Height = 16
+          Top = 51
+          Width = 9
+          Height = 13
           Caption = ' : '
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
           Visible = False
@@ -45405,29 +45405,9 @@ object fmOverlayEditor: TfmOverlayEditor
           Height = 13
           Caption = 'Label85'
         end
-        object rgForce: TRadioGroup
-          Left = 11
-          Top = 65
-          Width = 259
-          Height = 59
-          Caption = '        '
-          Columns = 2
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ItemIndex = 0
-          Items.Strings = (
-            'Blue'
-            'Red')
-          ParentBackground = False
-          ParentFont = False
-          TabOrder = 2
-        end
         object Panel1: TPanel
-          Left = 56
-          Top = 50
+          Left = 59
+          Top = 51
           Width = 225
           Height = 21
           BevelOuter = bvNone
@@ -45450,33 +45430,33 @@ object fmOverlayEditor: TfmOverlayEditor
           object Label5: TLabel
             Left = 31
             Top = 0
-            Width = 32
-            Height = 16
+            Width = 28
+            Height = 13
             Caption = 'Static'
-            Font.Charset = DEFAULT_CHARSET
+            Font.Charset = ANSI_CHARSET
             Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentFont = False
           end
           object Label84: TLabel
             Left = 91
             Top = 0
-            Width = 48
-            Height = 16
+            Width = 44
+            Height = 13
             Caption = 'Dynamic'
-            Font.Charset = DEFAULT_CHARSET
+            Font.Charset = ANSI_CHARSET
             Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentFont = False
           end
           object rbStatic: TRadioButton
             Tag = 1
             Left = 11
-            Top = 0
+            Top = -2
             Width = 14
             Height = 17
             Checked = True
@@ -45493,7 +45473,7 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           object rbDynamic: TRadioButton
             Left = 72
-            Top = 0
+            Top = -2
             Width = 14
             Height = 17
             Caption = 'Dynamic'
@@ -45511,7 +45491,7 @@ object fmOverlayEditor: TfmOverlayEditor
           end
         end
         object edtNameOverlay: TEdit
-          Left = 77
+          Left = 70
           Top = 21
           Width = 188
           Height = 24
@@ -45556,6 +45536,26 @@ object fmOverlayEditor: TfmOverlayEditor
           ParentFont = False
           TabOrder = 3
           OnClick = btnHandleTemplate
+        end
+        object rgForce: TRadioGroup
+          Left = 11
+          Top = 67
+          Width = 259
+          Height = 59
+          Caption = '       '
+          Columns = 2
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ItemIndex = 0
+          Items.Strings = (
+            'Blue'
+            'Red')
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 2
         end
       end
       object pnlTrackSelection: TPanel
@@ -45974,7 +45974,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Top = 154
       Width = 298
       Height = 500
-      Color = 2499101
+      Color = 2695445
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -11
@@ -46178,2164 +46178,6 @@ object fmOverlayEditor: TfmOverlayEditor
         ParentFont = False
         TabOrder = 7
         OnClick = btnHandleObjectEditor
-      end
-      object pnlWarning: TPanel
-        Left = 60
-        Top = 380
-        Width = 214
-        Height = 66
-        BevelOuter = bvNone
-        ParentBackground = False
-        ParentColor = True
-        TabOrder = 3
-        object lbl86: TLabel
-          Left = 0
-          Top = 8
-          Width = 47
-          Height = 13
-          Caption = 'Warning !'
-          Color = clBtnFace
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentColor = False
-          ParentFont = False
-        end
-        object lblWarning: TLabel
-          Left = 0
-          Top = 27
-          Width = 214
-          Height = 36
-          AutoSize = False
-          Caption = 'Invalid Data Input'
-          Color = clBtnFace
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentColor = False
-          ParentFont = False
-          WordWrap = True
-        end
-        object lblIdxDrawOverlay: TLabel
-          Left = 3
-          Top = 9
-          Width = 47
-          Height = 13
-          Caption = 'Warning !'
-          Color = clBtnFace
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentColor = False
-          ParentFont = False
-          Visible = False
-        end
-      end
-      object pnlWarningEdit: TPanel
-        Left = 53
-        Top = 105
-        Width = 228
-        Height = 278
-        BevelOuter = bvNone
-        ParentBackground = False
-        ParentColor = True
-        TabOrder = 2
-        object lblWarningEdit: TLabel
-          Left = 14
-          Top = 21
-          Width = 98
-          Height = 13
-          Caption = 'Can'#39't edit this shape'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-      end
-      object pnlDynamic: TPanel
-        Left = 53
-        Top = 97
-        Width = 228
-        Height = 278
-        BevelOuter = bvNone
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentBackground = False
-        ParentColor = True
-        ParentFont = False
-        TabOrder = 1
-        object lbl111: TLabel
-          Left = 17
-          Top = 24
-          Width = 40
-          Height = 13
-          Caption = 'Centre :'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object grpPolygonD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 4
-          object Label30: TLabel
-            Left = 16
-            Top = 21
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label31: TLabel
-            Left = 104
-            Top = 21
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label33: TLabel
-            Left = 104
-            Top = 43
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label37: TLabel
-            Left = 16
-            Top = 43
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object AddPolyD: TSpeedButton
-            Tag = 1
-            Left = 158
-            Top = 16
-            Width = 43
-            Height = 43
-            Cursor = crHandPoint
-            Hint = 'Add'
-            ParentCustomHint = False
-            AllowAllUp = True
-            Glyph.Data = {
-              E6040000424DE604000000000000360000002800000014000000140000000100
-              180000000000B0040000120B0000120B00000000000000000000FFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303000000030303FFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
-              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
-              030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303030303
-              0303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
-              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
-              030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303030303
-              0303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFF}
-            OnClick = AddPolyDClick
-          end
-          object btnAddPointD: TSpeedButton
-            Tag = 1
-            Left = 14
-            Top = 240
-            Width = 45
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Add'
-            AllowAllUp = True
-            Caption = 'Insert'
-            OnClick = btnAddPointDClick
-          end
-          object btnEditPointD: TSpeedButton
-            Tag = 2
-            Left = 62
-            Top = 240
-            Width = 45
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Edit'
-            AllowAllUp = True
-            Caption = 'Edit'
-            Enabled = False
-            OnClick = btnEditPointDClick
-          end
-          object btnDeletePointD: TSpeedButton
-            Tag = 3
-            Left = 107
-            Top = 240
-            Width = 45
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Delete'
-            AllowAllUp = True
-            Caption = 'Delete'
-            Enabled = False
-            OnClick = btnDeletePointDClick
-          end
-          object btnClearPointD: TSpeedButton
-            Tag = 4
-            Left = 156
-            Top = 240
-            Width = 45
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Clear'
-            AllowAllUp = True
-            Caption = 'Clear'
-            OnClick = btnClearPointDClick
-          end
-          object edtPolygonRange: TEdit
-            Left = 64
-            Top = 17
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtPolygonBearing: TEdit
-            Left = 64
-            Top = 39
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object lvPolyVertexD: TListView
-            AlignWithMargins = True
-            Left = 14
-            Top = 65
-            Width = 187
-            Height = 169
-            Columns = <
-              item
-                Caption = '+'
-                Width = 25
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Range'
-                Width = 79
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Bearing'
-                Width = 79
-              end>
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            GridLines = True
-            RowSelect = True
-            ParentFont = False
-            TabOrder = 2
-            ViewStyle = vsReport
-            OnSelectItem = lvPolyVertexDSelectItem
-          end
-        end
-        object grpCircleD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 1
-          object Label52: TLabel
-            Left = 14
-            Top = 110
-            Width = 39
-            Height = 13
-            Caption = 'Radius :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl1: TLabel
-            Left = 71
-            Top = 132
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lblCentre: TLabel
-            Left = 14
-            Top = 23
-            Width = 40
-            Height = 13
-            Caption = 'Centre :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label53: TLabel
-            Left = 31
-            Top = 43
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label54: TLabel
-            Left = 31
-            Top = 65
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label55: TLabel
-            Left = 112
-            Top = 65
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label56: TLabel
-            Left = 112
-            Top = 43
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtCircleRange: TEdit
-            Left = 72
-            Top = 39
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtCircleBearing: TEdit
-            Left = 72
-            Top = 61
-            Width = 34
-            Height = 21
-            Hint = '185'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object edtCircleRadiusD: TEdit
-            Left = 31
-            Top = 128
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-        end
-        object grpGridD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 2
-          object lbl53: TLabel
-            Left = 17
-            Top = 24
-            Width = 40
-            Height = 13
-            Caption = 'Centre :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl54: TLabel
-            Left = 31
-            Top = 169
-            Width = 28
-            Height = 13
-            Caption = 'Width'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl55: TLabel
-            Left = 108
-            Top = 122
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl56: TLabel
-            Left = 31
-            Top = 122
-            Width = 31
-            Height = 13
-            Caption = 'Height'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl57: TLabel
-            Left = 135
-            Top = 169
-            Width = 29
-            Height = 13
-            Caption = 'Count'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl58: TLabel
-            Left = 108
-            Top = 169
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl59: TLabel
-            Left = 135
-            Top = 122
-            Width = 29
-            Height = 13
-            Caption = 'Count'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object bvl5: TBevel
-            Left = 89
-            Top = 104
-            Width = 110
-            Height = 3
-          end
-          object lbl60: TLabel
-            Left = 17
-            Top = 100
-            Width = 66
-            Height = 13
-            Caption = ' Vertical Cells '
-            Color = 3683636
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            Transparent = False
-          end
-          object bvl6: TBevel
-            Left = 99
-            Top = 211
-            Width = 100
-            Height = 3
-          end
-          object lbl61: TLabel
-            Left = 16
-            Top = 206
-            Width = 77
-            Height = 13
-            Caption = ' Rotation Angle '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Transparent = False
-          end
-          object lbl62: TLabel
-            Left = 65
-            Top = 228
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl81: TLabel
-            Left = 31
-            Top = 46
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl82: TLabel
-            Left = 112
-            Top = 46
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl83: TLabel
-            Left = 112
-            Top = 68
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label44: TLabel
-            Left = 17
-            Top = 147
-            Width = 76
-            Height = 13
-            Caption = 'Horisontal Cells '
-            Color = 3683636
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            Transparent = False
-          end
-          object Bevel12: TBevel
-            Left = 99
-            Top = 152
-            Width = 100
-            Height = 3
-          end
-          object Label45: TLabel
-            Left = 31
-            Top = 68
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtTableRange: TEdit
-            Left = 72
-            Top = 42
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtTableBearing: TEdit
-            Left = 72
-            Top = 64
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object edtTableHeightD: TEdit
-            Left = 69
-            Top = 118
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtTableWidthD: TEdit
-            Left = 69
-            Top = 165
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 4
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtTableColumnD: TEdit
-            Left = 169
-            Top = 118
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-          end
-          object edtTableRowD: TEdit
-            Left = 169
-            Top = 165
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 5
-            Text = '0'
-          end
-          object edtRotationAngleD: TEdit
-            Left = 30
-            Top = 224
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 6
-            Text = '0'
-          end
-        end
-        object grpLineD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 9
-          object lbl20: TLabel
-            Left = 14
-            Top = 33
-            Width = 31
-            Height = 13
-            Caption = 'Start :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl21: TLabel
-            Left = 14
-            Top = 136
-            Width = 25
-            Height = 13
-            Caption = 'End :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl22: TLabel
-            Left = 31
-            Top = 55
-            Width = 38
-            Height = 13
-            Caption = 'Range :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl85: TLabel
-            Left = 112
-            Top = 77
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl23: TLabel
-            Left = 31
-            Top = 158
-            Width = 38
-            Height = 13
-            Caption = 'Range :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl25: TLabel
-            Left = 112
-            Top = 180
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label40: TLabel
-            Left = 112
-            Top = 55
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label41: TLabel
-            Left = 31
-            Top = 77
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label42: TLabel
-            Left = 31
-            Top = 180
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label43: TLabel
-            Left = 112
-            Top = 158
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtLineStartRange: TEdit
-            Left = 72
-            Top = 51
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtLineStartBearing: TEdit
-            Left = 72
-            Top = 73
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object edtLineEndRange: TEdit
-            Left = 72
-            Top = 154
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtLineEndBearing: TEdit
-            Left = 72
-            Top = 176
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-          end
-        end
-        object grpNoneD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 6
-        end
-        object grpRectangleD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 8
-          object lbl26: TLabel
-            Left = 14
-            Top = 33
-            Width = 54
-            Height = 13
-            Caption = 'Top - Left :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl27: TLabel
-            Left = 14
-            Top = 136
-            Width = 76
-            Height = 13
-            Caption = 'Bottom - Right :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl28: TLabel
-            Left = 31
-            Top = 55
-            Width = 38
-            Height = 13
-            Caption = 'Range :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl29: TLabel
-            Left = 112
-            Top = 55
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl30: TLabel
-            Left = 112
-            Top = 77
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl31: TLabel
-            Left = 31
-            Top = 158
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl32: TLabel
-            Left = 31
-            Top = 180
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl33: TLabel
-            Left = 112
-            Top = 180
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label38: TLabel
-            Left = 31
-            Top = 77
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label39: TLabel
-            Left = 112
-            Top = 158
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtRecStartRange: TEdit
-            Left = 72
-            Top = 51
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtRecStartBearing: TEdit
-            Left = 72
-            Top = 73
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object edtRecEndRange: TEdit
-            Left = 72
-            Top = 154
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtRecEndBearing: TEdit
-            Left = 72
-            Top = 176
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-          end
-        end
-        object grpSectorD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 0
-          object lbl64: TLabel
-            Left = 14
-            Top = 24
-            Width = 40
-            Height = 13
-            Caption = 'Centre :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl65: TLabel
-            Left = 31
-            Top = 132
-            Width = 26
-            Height = 13
-            Caption = 'Inner'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl66: TLabel
-            Left = 31
-            Top = 154
-            Width = 28
-            Height = 13
-            Caption = 'Outer'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl67: TLabel
-            Left = 31
-            Top = 203
-            Width = 31
-            Height = 13
-            Caption = 'Start :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl68: TLabel
-            Left = 31
-            Top = 225
-            Width = 25
-            Height = 13
-            Caption = 'End :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl69: TLabel
-            Left = 115
-            Top = 132
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl70: TLabel
-            Left = 115
-            Top = 154
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl71: TLabel
-            Left = 110
-            Top = 203
-            Width = 22
-            Height = 13
-            Caption = 'deg.'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl72: TLabel
-            Left = 110
-            Top = 225
-            Width = 22
-            Height = 13
-            Caption = 'deg.'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object bvl7: TBevel
-            Left = 59
-            Top = 114
-            Width = 140
-            Height = 3
-          end
-          object bvl8: TBevel
-            Left = 59
-            Top = 185
-            Width = 140
-            Height = 3
-          end
-          object lbl73: TLabel
-            Left = 14
-            Top = 110
-            Width = 35
-            Height = 13
-            Caption = ' Radius'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Transparent = False
-          end
-          object lbl74: TLabel
-            Left = 14
-            Top = 181
-            Width = 38
-            Height = 13
-            Caption = ' Angles '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Transparent = False
-          end
-          object lbl63: TLabel
-            Left = 31
-            Top = 46
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl89: TLabel
-            Left = 31
-            Top = 68
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl90: TLabel
-            Left = 112
-            Top = 68
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label46: TLabel
-            Left = 112
-            Top = 46
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtSectorRange: TEdit
-            Left = 72
-            Top = 42
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtSectorInnerD: TEdit
-            Left = 75
-            Top = 128
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtSectorOuterD: TEdit
-            Left = 75
-            Top = 150
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtSectorStartAngleD: TEdit
-            Left = 75
-            Top = 199
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 4
-            Text = '0'
-          end
-          object edtSectorEndAngleD: TEdit
-            Left = 75
-            Top = 221
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 5
-            Text = '0'
-          end
-          object edtSectorBearing: TEdit
-            Left = 72
-            Top = 64
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-        end
-        object grpTextD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 5
-          object lbl17: TLabel
-            Left = 14
-            Top = 107
-            Width = 29
-            Height = 13
-            Caption = 'Text :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl18: TLabel
-            Left = 14
-            Top = 168
-            Width = 26
-            Height = 13
-            Caption = 'Size :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl91: TLabel
-            Left = 31
-            Top = 43
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl93: TLabel
-            Left = 112
-            Top = 65
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label49: TLabel
-            Left = 31
-            Top = 65
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label50: TLabel
-            Left = 112
-            Top = 43
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label51: TLabel
-            Left = 14
-            Top = 21
-            Width = 31
-            Height = 13
-            Caption = 'Start :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtTextRange: TEdit
-            Left = 72
-            Top = 39
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtTextFieldD: TEdit
-            Left = 31
-            Top = 125
-            Width = 162
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 30
-            ParentFont = False
-            TabOrder = 2
-            Text = 'None'
-          end
-          object edtTextBearing: TEdit
-            Left = 72
-            Top = 61
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object cbbTextSizeD: TComboBox
-            Left = 31
-            Top = 186
-            Width = 82
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 3
-            Text = '11'
-            Items.Strings = (
-              '8'
-              '9'
-              '10'
-              '11'
-              '12'
-              '14'
-              '16'
-              '18'
-              '20'
-              '22'
-              '24'
-              '26'
-              '28'
-              '36'
-              '48'
-              '72')
-          end
-        end
-        object grpEllipseD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 7
-          object lbl47: TLabel
-            Left = 16
-            Top = 21
-            Width = 40
-            Height = 13
-            Caption = 'Centre :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl48: TLabel
-            Left = 31
-            Top = 132
-            Width = 48
-            Height = 13
-            Caption = 'Horizontal'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl50: TLabel
-            Left = 127
-            Top = 132
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl51: TLabel
-            Left = 31
-            Top = 154
-            Width = 35
-            Height = 13
-            Caption = 'Vertical'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl52: TLabel
-            Left = 127
-            Top = 154
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object bvl4: TBevel
-            Left = 86
-            Top = 114
-            Width = 115
-            Height = 3
-          end
-          object lbl49: TLabel
-            Left = 12
-            Top = 110
-            Width = 65
-            Height = 13
-            Caption = ' Semi - Axis : '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Transparent = False
-          end
-          object lbl79: TLabel
-            Left = 31
-            Top = 43
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl80: TLabel
-            Left = 112
-            Top = 43
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label47: TLabel
-            Left = 31
-            Top = 68
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label48: TLabel
-            Left = 112
-            Top = 68
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtEllipseRange: TEdit
-            Left = 72
-            Top = 39
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtEllipseBearing: TEdit
-            Left = 72
-            Top = 64
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object edtEllipseHorizontalD: TEdit
-            Left = 87
-            Top = 128
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtEllipseVerticalD: TEdit
-            Left = 87
-            Top = 150
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-        end
-        object grpArcD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 3
-          object lbl40: TLabel
-            Left = 14
-            Top = 21
-            Width = 40
-            Height = 13
-            Caption = 'Centre :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl41: TLabel
-            Left = 66
-            Top = 198
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl42: TLabel
-            Left = 153
-            Top = 198
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl44: TLabel
-            Left = 71
-            Top = 132
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl45: TLabel
-            Left = 14
-            Top = 176
-            Width = 31
-            Height = 13
-            Caption = 'Start :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl46: TLabel
-            Left = 110
-            Top = 176
-            Width = 25
-            Height = 13
-            Caption = 'End :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label57: TLabel
-            Left = 31
-            Top = 43
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label58: TLabel
-            Left = 31
-            Top = 65
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label59: TLabel
-            Left = 112
-            Top = 65
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label60: TLabel
-            Left = 112
-            Top = 43
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl43: TLabel
-            Left = 14
-            Top = 110
-            Width = 39
-            Height = 13
-            Caption = 'Radius :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtArcRange: TEdit
-            Left = 72
-            Top = 39
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtArcBearing: TEdit
-            Left = 72
-            Top = 61
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object edtArcRadiusD: TEdit
-            Left = 31
-            Top = 128
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtArcStartAngleD: TEdit
-            Left = 31
-            Top = 194
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-          end
-          object edtArcEndAngleD: TEdit
-            Left = 118
-            Top = 194
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 4
-            Text = '0'
-          end
-        end
       end
       object btnSelect: TRzBmpButton
         Left = 17
@@ -50661,6 +48503,87 @@ object fmOverlayEditor: TfmOverlayEditor
         TabOrder = 18
         OnClick = btnHandleShape
       end
+      object pnlWarning: TPanel
+        Left = 60
+        Top = 380
+        Width = 214
+        Height = 66
+        BevelOuter = bvNone
+        ParentBackground = False
+        ParentColor = True
+        TabOrder = 3
+        object lbl86: TLabel
+          Left = 0
+          Top = 8
+          Width = 47
+          Height = 13
+          Caption = 'Warning !'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblWarning: TLabel
+          Left = 0
+          Top = 27
+          Width = 214
+          Height = 36
+          AutoSize = False
+          Caption = 'Invalid Data Input'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          WordWrap = True
+        end
+        object lblIdxDrawOverlay: TLabel
+          Left = 0
+          Top = 8
+          Width = 47
+          Height = 13
+          Caption = 'Warning !'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          Visible = False
+        end
+      end
+      object pnlWarningEdit: TPanel
+        Left = 53
+        Top = 105
+        Width = 228
+        Height = 278
+        BevelOuter = bvNone
+        ParentBackground = False
+        ParentColor = True
+        TabOrder = 2
+        object lblWarningEdit: TLabel
+          Left = 14
+          Top = 21
+          Width = 98
+          Height = 13
+          Caption = 'Can'#39't edit this shape'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+      end
       object pnlStatic: TPanel
         Left = 53
         Top = 97
@@ -50670,479 +48593,542 @@ object fmOverlayEditor: TfmOverlayEditor
         ParentBackground = False
         ParentColor = True
         TabOrder = 0
-        object grpRectangle: TGroupBox
-          Left = 7
+        object grpEllipse: TGroupBox
+          Left = 1
           Top = 7
-          Width = 214
+          Width = 224
           Height = 270
-          ParentBackground = False
-          TabOrder = 7
-          object Label10: TLabel
+          TabOrder = 1
+          object Label14: TLabel
             Left = 14
-            Top = 33
-            Width = 54
+            Top = 21
+            Width = 33
             Height = 13
-            Caption = 'Top - Left :'
+            Caption = 'Centre'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object Label12: TLabel
-            Left = 14
+          object lblHorizontal: TLabel
+            Left = 22
             Top = 136
-            Width = 76
+            Width = 51
             Height = 13
-            Caption = 'Bottom - Right :'
+            Caption = 'Horizontal '
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object SpeedButton3: TSpeedButton
-            Tag = 3
-            Left = 157
-            Top = 51
+          object Label23: TLabel
+            Left = 129
+            Top = 136
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lblVertical: TLabel
+            Left = 22
+            Top = 158
             Width = 38
-            Height = 43
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlight
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            Glyph.Data = {
-              4E150000424D4E150000000000003600000028000000280000002D0000000100
-              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
-              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
-              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
-              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
-              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
-              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
-              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
-              00000000007270708F8C8C000000000000908C8C727070000000000000000000
-              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
-              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
-              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
-              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
-              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
-              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
-              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
-              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
-              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
-              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
-              0000000000000000000000000000000000000000000000000000000000ADA9A9
-              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
-              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
-              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
-              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
-              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
-              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
-              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
-              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
-              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
-              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
-              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
-              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
-              7070000000000000000000000000000000000000000000000000727070E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
-              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
-              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
-              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
-              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
-              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
-              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
-            ParentFont = False
-            OnClick = btnHandleShapePosition
-          end
-          object SpeedButton4: TSpeedButton
-            Tag = 4
-            Left = 157
-            Top = 155
-            Width = 38
-            Height = 43
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlight
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            Glyph.Data = {
-              4E150000424D4E150000000000003600000028000000280000002D0000000100
-              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
-              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
-              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
-              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
-              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
-              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
-              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
-              00000000007270708F8C8C000000000000908C8C727070000000000000000000
-              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
-              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
-              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
-              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
-              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
-              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
-              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
-              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
-              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
-              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
-              0000000000000000000000000000000000000000000000000000000000ADA9A9
-              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
-              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
-              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
-              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
-              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
-              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
-              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
-              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
-              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
-              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
-              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
-              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
-              7070000000000000000000000000000000000000000000000000727070E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
-              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
-              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
-              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
-              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
-              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
-              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
-            ParentFont = False
-            OnClick = btnHandleShapePosition
-          end
-          object Label78: TLabel
-            Left = 28
-            Top = 55
-            Width = 28
             Height = 13
-            Caption = 'Lat   :'
+            Caption = 'Vertical '
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object Label79: TLabel
-            Left = 28
-            Top = 77
-            Width = 30
+          object lbl6: TLabel
+            Left = 129
+            Top = 158
+            Width = 14
             Height = 13
-            Caption = 'Long :'
+            Caption = 'nm'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object Label80: TLabel
-            Left = 28
-            Top = 159
-            Width = 28
-            Height = 13
-            Caption = 'Lat   :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
+          object bvl1: TBevel
+            Left = 76
+            Top = 117
+            Width = 115
+            Height = 3
           end
-          object Label81: TLabel
-            Left = 28
-            Top = 181
-            Width = 30
-            Height = 13
-            Caption = 'Long :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl94: TLabel
+          object Label22: TLabel
             Left = 14
-            Top = 14
-            Width = 31
+            Top = 110
+            Width = 58
             Height = 13
-            Caption = 'Point :'
+            Caption = ' Semi - Axis '
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object SpeedButton6: TSpeedButton
+            Tag = 6
+            Left = 158
+            Top = 39
+            Width = 38
+            Height = 43
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clHighlight
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Glyph.Data = {
+              4E150000424D4E150000000000003600000028000000280000002D0000000100
+              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
+              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
+              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
+              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
+              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
+              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
+              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
+              00000000007270708F8C8C000000000000908C8C727070000000000000000000
+              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
+              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
+              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
+              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
+              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
+              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
+              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
+              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
+              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
+              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
+              0000000000000000000000000000000000000000000000000000000000ADA9A9
+              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
+              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
+              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
+              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
+              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
+              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
+              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
+              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
+              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
+              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
+              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
+              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
+              7070000000000000000000000000000000000000000000000000727070E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
+              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
+              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
+              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
+              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
+              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
+              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
+            ParentFont = False
+            OnClick = btnHandleShapePosition
+          end
+          object Label68: TLabel
+            Left = 22
+            Top = 43
+            Width = 15
+            Height = 13
+            Caption = 'Lat'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object edtRectStartPosLat: TEdit
-            Left = 60
-            Top = 51
+          object Label69: TLabel
+            Left = 22
+            Top = 65
+            Width = 23
+            Height = 13
+            Caption = 'Long'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label97: TLabel
+            Left = 57
+            Top = 43
+            Width = 4
+            Height = 13
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label98: TLabel
+            Left = 57
+            Top = 65
+            Width = 4
+            Height = 13
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label99: TLabel
+            Left = 77
+            Top = 136
+            Width = 4
+            Height = 13
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label100: TLabel
+            Left = 77
+            Top = 158
+            Width = 4
+            Height = 13
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Image1: TImage
+            Left = 198
+            Top = 39
+            Width = 25
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Copy Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
+              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
+              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
+              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
+              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
+              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
+              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
+              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
+              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
+              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
+              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
+              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
+              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
+              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
+              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
+              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
+              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
+              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
+              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
+              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
+              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
+              432163622963612863612863612863612863612863612863622961602826231A
+              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
+              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
+              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
+              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
+              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
+              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
+              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
+              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
+              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
+              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
+              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
+              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
+              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
+              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
+              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
+              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
+              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
+              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
+              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
+              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
+              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
+              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
+              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
+              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
+              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
+              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
+              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
+              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
+              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
+              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
+              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
+              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
+              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
+              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
+              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
+              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
+              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
+              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
+              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
+              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D5005}
+            ShowHint = True
+            Stretch = True
+          end
+          object Image2: TImage
+            Left = 198
+            Top = 61
+            Width = 25
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Paste Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
+              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
+              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
+              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
+              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
+              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
+              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
+              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
+              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
+              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
+              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
+              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
+              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
+              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
+              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
+              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
+              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
+              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
+              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
+              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
+              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
+              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
+              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
+              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
+              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
+              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
+              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
+              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
+              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
+              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
+              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
+              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
+              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
+              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
+              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
+              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
+              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
+              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
+              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
+              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
+              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
+              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
+              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
+              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
+              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
+              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
+              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
+            ShowHint = True
+            Stretch = True
+          end
+          object edtEllipsePosLat: TEdit
+            Left = 64
+            Top = 39
             Width = 91
             Height = 21
             Font.Charset = DEFAULT_CHARSET
@@ -51153,9 +49139,9 @@ object fmOverlayEditor: TfmOverlayEditor
             ParentFont = False
             TabOrder = 0
           end
-          object edtRectStartPosLong: TEdit
-            Left = 60
-            Top = 73
+          object edtEllipsePosLong: TEdit
+            Left = 64
+            Top = 61
             Width = 91
             Height = 21
             Font.Charset = DEFAULT_CHARSET
@@ -51166,23 +49152,536 @@ object fmOverlayEditor: TfmOverlayEditor
             ParentFont = False
             TabOrder = 1
           end
-          object edtRectEndPosLat: TEdit
-            Left = 60
-            Top = 155
-            Width = 91
+          object edtHorizontal: TEdit
+            Left = 85
+            Top = 132
+            Width = 35
             Height = 21
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
+            MaxLength = 4
             ParentFont = False
             TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
           end
-          object edtRectEndPosLong: TEdit
-            Left = 60
-            Top = 177
-            Width = 91
+          object edtVertical: TEdit
+            Left = 85
+            Top = 154
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+        end
+        object grpCircle: TGroupBox
+          Left = 1
+          Top = 7
+          Width = 224
+          Height = 270
+          TabOrder = 4
+          object lbl34: TLabel
+            Left = 14
+            Top = 21
+            Width = 33
+            Height = 13
+            Caption = 'Centre'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl35: TLabel
+            Left = 13
+            Top = 110
+            Width = 32
+            Height = 13
+            Caption = 'Radius'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl36: TLabel
+            Left = 108
+            Top = 139
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object SpeedButton5: TSpeedButton
+            Tag = 5
+            Left = 158
+            Top = 39
+            Width = 38
+            Height = 43
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clHighlight
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Glyph.Data = {
+              4E150000424D4E150000000000003600000028000000280000002D0000000100
+              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
+              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
+              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
+              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
+              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
+              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
+              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
+              00000000007270708F8C8C000000000000908C8C727070000000000000000000
+              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
+              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
+              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
+              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
+              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
+              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
+              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
+              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
+              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
+              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
+              0000000000000000000000000000000000000000000000000000000000ADA9A9
+              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
+              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
+              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
+              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
+              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
+              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
+              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
+              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
+              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
+              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
+              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
+              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
+              7070000000000000000000000000000000000000000000000000727070E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
+              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
+              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
+              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
+              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
+              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
+              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
+            ParentFont = False
+            OnClick = btnHandleShapePosition
+          end
+          object Label66: TLabel
+            Left = 22
+            Top = 43
+            Width = 18
+            Height = 13
+            Caption = 'Lat '
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label67: TLabel
+            Left = 22
+            Top = 65
+            Width = 23
+            Height = 13
+            Caption = 'Long'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label93: TLabel
+            Left = 57
+            Top = 43
+            Width = 4
+            Height = 13
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label94: TLabel
+            Left = 57
+            Top = 65
+            Width = 4
+            Height = 13
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Bevel14: TBevel
+            Left = 54
+            Top = 118
+            Width = 147
+            Height = 2
+          end
+          object Label95: TLabel
+            Left = 22
+            Top = 139
+            Width = 31
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label96: TLabel
+            Left = 57
+            Top = 139
+            Width = 4
+            Height = 13
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object btnCopyCircle: TImage
+            Left = 198
+            Top = 39
+            Width = 25
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Copy Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
+              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
+              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
+              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
+              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
+              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
+              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
+              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
+              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
+              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
+              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
+              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
+              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
+              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
+              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
+              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
+              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
+              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
+              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
+              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
+              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
+              432163622963612863612863612863612863612863612863622961602826231A
+              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
+              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
+              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
+              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
+              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
+              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
+              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
+              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
+              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
+              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
+              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
+              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
+              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
+              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
+              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
+              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
+              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
+              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
+              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
+              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
+              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
+              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
+              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
+              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
+              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
+              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
+              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
+              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
+              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
+              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
+              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
+              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
+              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
+              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
+              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
+              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
+              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
+              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
+              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
+              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D5005}
+            ShowHint = True
+            Stretch = True
+          end
+          object btnPasteCircle: TImage
+            Left = 198
+            Top = 61
+            Width = 25
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Paste Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
+              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
+              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
+              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
+              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
+              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
+              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
+              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
+              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
+              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
+              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
+              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
+              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
+              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
+              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
+              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
+              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
+              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
+              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
+              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
+              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
+              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
+              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
+              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
+              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
+              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
+              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
+              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
+              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
+              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
+              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
+              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
+              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
+              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
+              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
+              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
+              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
+              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
+              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
+              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
+              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
+              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
+              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
+              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
+              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
+              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
+              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
+            ShowHint = True
+            Stretch = True
+          end
+          object edtCirclePosLong: TEdit
+            Left = 64
+            Top = 61
+            Width = 90
             Height = 21
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clBlack
@@ -51190,19 +49689,55 @@ object fmOverlayEditor: TfmOverlayEditor
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
-            TabOrder = 3
+            TabOrder = 1
+          end
+          object edtCircleRadius: TEdit
+            Left = 64
+            Top = 135
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtCirclePosLat: TEdit
+            Left = 64
+            Top = 39
+            Width = 90
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
           end
         end
-        object grpLine: TGroupBox
-          Left = 7
+        object grpNone: TGroupBox
+          Left = 1
           Top = 7
-          Width = 214
+          Width = 227
+          Height = 270
+          TabOrder = 5
+        end
+        object grpLine: TGroupBox
+          Left = 1
+          Top = 7
+          Width = 224
           Height = 270
           TabOrder = 8
           object SpeedButton1: TSpeedButton
             Tag = 1
-            Left = 156
-            Top = 51
+            Left = 158
+            Top = 39
             Width = 38
             Height = 43
             Font.Charset = DEFAULT_CHARSET
@@ -51387,34 +49922,34 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           object Label9: TLabel
             Left = 14
-            Top = 33
-            Width = 31
+            Top = 21
+            Width = 25
             Height = 13
-            Caption = 'Start :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
+            Caption = 'Start'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentFont = False
           end
           object Label11: TLabel
-            Left = 19
-            Top = 136
-            Width = 25
+            Left = 14
+            Top = 100
+            Width = 19
             Height = 13
-            Caption = 'End :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
+            Caption = 'End'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentFont = False
           end
           object SpeedButton2: TSpeedButton
             Tag = 2
-            Left = 156
-            Top = 154
+            Left = 158
+            Top = 120
             Width = 38
             Height = 43
             Glyph.Data = {
@@ -51592,60 +50127,474 @@ object fmOverlayEditor: TfmOverlayEditor
             OnClick = btnHandleShapePosition
           end
           object Label72: TLabel
-            Left = 28
-            Top = 55
-            Width = 28
+            Left = 22
+            Top = 43
+            Width = 17
             Height = 13
-            Caption = 'Lat   :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
+            Caption = 'Lat'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentFont = False
           end
           object Label73: TLabel
-            Left = 28
-            Top = 77
-            Width = 30
+            Left = 22
+            Top = 65
+            Width = 24
             Height = 13
-            Caption = 'Long :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
+            Caption = 'Long'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentFont = False
           end
           object Label74: TLabel
-            Left = 28
-            Top = 158
-            Width = 28
+            Left = 22
+            Top = 124
+            Width = 17
             Height = 13
-            Caption = 'Lat   :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
+            Caption = 'Lat'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentFont = False
           end
           object Label75: TLabel
-            Left = 28
-            Top = 180
-            Width = 30
+            Left = 22
+            Top = 146
+            Width = 24
             Height = 13
-            Caption = 'Long :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
+            Caption = 'Long'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentFont = False
           end
+          object Label105: TLabel
+            Left = 57
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label106: TLabel
+            Left = 57
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label107: TLabel
+            Left = 57
+            Top = 124
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label108: TLabel
+            Left = 57
+            Top = 146
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object img3: TImage
+            Left = 198
+            Top = 39
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Copy Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
+              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
+              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
+              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
+              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
+              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
+              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
+              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
+              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
+              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
+              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
+              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
+              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
+              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
+              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
+              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
+              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
+              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
+              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
+              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
+              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
+              432163622963612863612863612863612863612863612863622961602826231A
+              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
+              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
+              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
+              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
+              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
+              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
+              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
+              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
+              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
+              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
+              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
+              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
+              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
+              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
+              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
+              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
+              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
+              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
+              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
+              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
+              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
+              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
+              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
+              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
+              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
+              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
+              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
+              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
+              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
+              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
+              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
+              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
+              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
+              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
+              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
+              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
+              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
+              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
+              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
+              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D5005}
+            ShowHint = True
+            Stretch = True
+          end
+          object img4: TImage
+            Left = 198
+            Top = 61
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Paste Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
+              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
+              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
+              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
+              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
+              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
+              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
+              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
+              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
+              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
+              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
+              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
+              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
+              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
+              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
+              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
+              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
+              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
+              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
+              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
+              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
+              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
+              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
+              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
+              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
+              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
+              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
+              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
+              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
+              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
+              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
+              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
+              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
+              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
+              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
+              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
+              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
+              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
+              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
+              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
+              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
+              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
+              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
+              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
+              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
+              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
+              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
+            ShowHint = True
+            Stretch = True
+          end
+          object img5: TImage
+            Left = 198
+            Top = 120
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Copy Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
+              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
+              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
+              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
+              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
+              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
+              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
+              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
+              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
+              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
+              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
+              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
+              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
+              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
+              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
+              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
+              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
+              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
+              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
+              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
+              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
+              432163622963612863612863612863612863612863612863622961602826231A
+              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
+              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
+              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
+              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
+              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
+              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
+              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
+              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
+              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
+              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
+              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
+              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
+              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
+              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
+              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
+              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
+              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
+              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
+              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
+              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
+              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
+              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
+              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
+              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
+              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
+              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
+              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
+              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
+              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
+              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
+              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
+              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
+              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
+              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
+              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
+              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
+              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
+              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
+              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
+              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D5005}
+            ShowHint = True
+            Stretch = True
+          end
+          object img6: TImage
+            Left = 198
+            Top = 142
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Paste Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
+              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
+              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
+              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
+              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
+              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
+              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
+              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
+              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
+              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
+              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
+              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
+              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
+              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
+              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
+              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
+              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
+              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
+              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
+              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
+              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
+              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
+              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
+              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
+              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
+              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
+              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
+              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
+              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
+              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
+              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
+              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
+              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
+              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
+              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
+              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
+              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
+              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
+              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
+              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
+              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
+              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
+              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
+              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
+              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
+              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
+              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
+            ShowHint = True
+            Stretch = True
+          end
+          object Bevel15: TBevel
+            Left = 42
+            Top = 106
+            Width = 155
+            Height = 3
+          end
           object edtLineStartPosLat: TEdit
-            Left = 60
-            Top = 51
+            Left = 64
+            Top = 39
             Width = 91
             Height = 21
             Font.Charset = DEFAULT_CHARSET
@@ -51657,333 +50606,7 @@ object fmOverlayEditor: TfmOverlayEditor
             TabOrder = 0
           end
           object edtLineStartPosLong: TEdit
-            Left = 60
-            Top = 73
-            Width = 91
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-          end
-          object edtLineEndPosLat: TEdit
-            Left = 60
-            Top = 154
-            Width = 91
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 2
-          end
-          object edtLineEndPosLong: TEdit
-            Left = 60
-            Top = 176
-            Width = 91
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 3
-          end
-        end
-        object grpNone: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 5
-        end
-        object grpText: TGroupBox
-          Left = 7
-          Top = 8
-          Width = 214
-          Height = 270
-          ParentBackground = False
-          TabOrder = 9
-          object lblTextPosition: TLabel
-            Left = 14
-            Top = 21
-            Width = 31
-            Height = 13
-            Caption = 'Start :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lblTextField: TLabel
-            Left = 14
-            Top = 107
-            Width = 29
-            Height = 13
-            Caption = 'Text :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lblTextSize: TLabel
-            Left = 14
-            Top = 168
-            Width = 26
-            Height = 13
-            Caption = 'Size :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object SpeedButton: TSpeedButton
-            Left = 156
-            Top = 39
-            Width = 38
-            Height = 43
-            Glyph.Data = {
-              4E150000424D4E150000000000003600000028000000280000002D0000000100
-              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
-              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
-              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
-              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
-              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
-              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
-              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
-              00000000007270708F8C8C000000000000908C8C727070000000000000000000
-              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
-              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
-              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
-              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
-              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
-              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
-              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
-              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
-              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
-              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
-              0000000000000000000000000000000000000000000000000000000000ADA9A9
-              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
-              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
-              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
-              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
-              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
-              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
-              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
-              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
-              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
-              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
-              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
-              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
-              7070000000000000000000000000000000000000000000000000727070E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
-              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
-              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
-              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
-              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
-              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
-              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
-            OnClick = btnHandleShapePosition
-          end
-          object Label61: TLabel
-            Left = 28
-            Top = 43
-            Width = 28
-            Height = 13
-            Caption = 'Lat   :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label62: TLabel
-            Left = 28
-            Top = 65
-            Width = 30
-            Height = 13
-            Caption = 'Long :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtTextPosLat: TEdit
-            Left = 60
-            Top = 39
-            Width = 91
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-          end
-          object edtTextField: TEdit
-            Left = 31
-            Top = 125
-            Width = 162
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 30
-            ParentFont = False
-            TabOrder = 2
-            Text = 'None'
-          end
-          object edtTextPosLong: TEdit
-            Left = 60
+            Left = 64
             Top = 61
             Width = 91
             Height = 21
@@ -51995,424 +50618,9 @@ object fmOverlayEditor: TfmOverlayEditor
             ParentFont = False
             TabOrder = 1
           end
-          object cbbTextSize: TComboBox
-            Left = 31
-            Top = 186
-            Width = 82
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 3
-            Text = '11'
-            Items.Strings = (
-              '8'
-              '9'
-              '10'
-              '11'
-              '12'
-              '14'
-              '16'
-              '18'
-              '20'
-              '22'
-              '24'
-              '26'
-              '28'
-              '36'
-              '48'
-              '72')
-          end
-        end
-        object grpGrid: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          ParentBackground = False
-          TabOrder = 0
-          object Label29: TLabel
-            Left = 17
-            Top = 24
-            Width = 40
-            Height = 13
-            Caption = 'Centre :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label32: TLabel
-            Left = 31
-            Top = 169
-            Width = 31
-            Height = 13
-            Caption = 'Width '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label34: TLabel
-            Left = 108
-            Top = 122
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label35: TLabel
-            Left = 31
-            Top = 122
-            Width = 34
-            Height = 13
-            Caption = 'Height '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label36: TLabel
-            Left = 135
-            Top = 169
-            Width = 32
-            Height = 13
-            Caption = 'Count '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl9: TLabel
-            Left = 108
-            Top = 169
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl10: TLabel
-            Left = 135
-            Top = 122
-            Width = 29
-            Height = 13
-            Caption = 'Count'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object bvl2: TBevel
-            Left = 89
-            Top = 105
-            Width = 110
-            Height = 3
-          end
-          object lbl13: TLabel
-            Left = 17
-            Top = 100
-            Width = 66
-            Height = 13
-            Caption = ' Vertical Cells '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Transparent = False
-          end
-          object bvl3: TBevel
-            Left = 99
-            Top = 211
-            Width = 100
-            Height = 3
-          end
-          object lbl14: TLabel
-            Left = 16
-            Top = 206
-            Width = 77
-            Height = 13
-            Caption = ' Rotation Angle '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Transparent = False
-          end
-          object lbl15: TLabel
-            Left = 65
-            Top = 228
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object SpeedButton9: TSpeedButton
-            Tag = 9
-            Left = 156
-            Top = 42
-            Width = 38
-            Height = 43
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlight
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            Glyph.Data = {
-              4E150000424D4E150000000000003600000028000000280000002D0000000100
-              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
-              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
-              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
-              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
-              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
-              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
-              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
-              00000000007270708F8C8C000000000000908C8C727070000000000000000000
-              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
-              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
-              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
-              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
-              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
-              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
-              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
-              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
-              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
-              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
-              0000000000000000000000000000000000000000000000000000000000ADA9A9
-              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
-              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
-              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
-              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
-              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
-              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
-              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
-              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
-              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
-              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
-              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
-              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
-              7070000000000000000000000000000000000000000000000000727070E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
-              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
-              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
-              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
-              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
-              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
-              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
-            ParentFont = False
-            OnClick = btnHandleShapePosition
-          end
-          object Label8: TLabel
-            Left = 17
-            Top = 147
-            Width = 76
-            Height = 13
-            Caption = 'Horisontal Cells '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Transparent = False
-          end
-          object Bevel9: TBevel
-            Left = 99
-            Top = 152
-            Width = 100
-            Height = 3
-          end
-          object Label70: TLabel
-            Left = 28
-            Top = 43
-            Width = 28
-            Height = 13
-            Caption = 'Lat   :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label71: TLabel
-            Left = 28
-            Top = 65
-            Width = 30
-            Height = 13
-            Caption = 'Long :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtTablePosLat: TEdit
-            Left = 60
-            Top = 42
+          object edtLineEndPosLat: TEdit
+            Left = 64
+            Top = 120
             Width = 91
             Height = 21
             Font.Charset = DEFAULT_CHARSET
@@ -52420,125 +50628,45 @@ object fmOverlayEditor: TfmOverlayEditor
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-          end
-          object edtTablePosLong: TEdit
-            Left = 60
-            Top = 64
-            Width = 91
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-          end
-          object edtTableHeight: TEdit
-            Left = 69
-            Top = 118
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
             ParentFont = False
             TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
           end
-          object edtTableWidth: TEdit
-            Left = 69
-            Top = 165
-            Width = 35
+          object edtLineEndPosLong: TEdit
+            Left = 64
+            Top = 142
+            Width = 91
             Height = 21
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 4
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtTableColumn: TEdit
-            Left = 169
-            Top = 118
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
             ParentFont = False
             TabOrder = 3
-            Text = '0'
-          end
-          object edtTableRow: TEdit
-            Left = 169
-            Top = 165
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 5
-            Text = '0'
-          end
-          object edtTableRotationAngle: TEdit
-            Left = 30
-            Top = 224
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 6
-            Text = '0'
           end
         end
         object grpPolygon: TGroupBox
-          Left = 7
+          Left = 1
           Top = 7
-          Width = 214
+          Width = 227
           Height = 270
           TabOrder = 2
           object Label13: TLabel
             Left = 14
             Top = 21
-            Width = 31
+            Width = 25
             Height = 13
-            Caption = 'Point :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
+            Caption = 'Point'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentFont = False
           end
           object SpeedButton10: TSpeedButton
             Tag = 10
-            Left = 156
+            Left = 158
             Top = 39
             Width = 38
             Height = 43
@@ -52725,31 +50853,31 @@ object fmOverlayEditor: TfmOverlayEditor
             OnClick = btnHandleShapePosition
           end
           object Label76: TLabel
-            Left = 28
+            Left = 22
             Top = 43
-            Width = 28
+            Width = 17
             Height = 13
-            Caption = 'Lat   :'
+            Caption = 'Lat'
             Color = clWhite
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentColor = False
             ParentFont = False
           end
           object Label77: TLabel
-            Left = 28
+            Left = 22
             Top = 65
-            Width = 30
+            Width = 24
             Height = 13
-            Caption = 'Long :'
+            Caption = 'Long'
             Color = clWhite
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
             Font.Style = []
             ParentColor = False
             ParentFont = False
@@ -52775,7 +50903,7 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           object btnEditPoint: TSpeedButton
             Tag = 2
-            Left = 11
+            Left = 19
             Top = 240
             Width = 45
             Height = 23
@@ -52794,7 +50922,7 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           object btnDeletePoint: TSpeedButton
             Tag = 3
-            Left = 59
+            Left = 67
             Top = 240
             Width = 45
             Height = 23
@@ -52813,7 +50941,7 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           object btnClearPoint: TSpeedButton
             Tag = 4
-            Left = 154
+            Left = 162
             Top = 240
             Width = 45
             Height = 23
@@ -52829,8 +50957,216 @@ object fmOverlayEditor: TfmOverlayEditor
             ParentFont = False
             OnClick = btnClearPointClick
           end
+          object Label109: TLabel
+            Left = 57
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Color = clWhite
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentColor = False
+            ParentFont = False
+          end
+          object Label110: TLabel
+            Left = 57
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Color = clWhite
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentColor = False
+            ParentFont = False
+          end
+          object img7: TImage
+            Left = 198
+            Top = 39
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Copy Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
+              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
+              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
+              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
+              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
+              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
+              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
+              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
+              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
+              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
+              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
+              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
+              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
+              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
+              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
+              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
+              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
+              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
+              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
+              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
+              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
+              432163622963612863612863612863612863612863612863622961602826231A
+              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
+              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
+              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
+              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
+              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
+              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
+              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
+              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
+              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
+              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
+              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
+              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
+              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
+              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
+              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
+              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
+              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
+              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
+              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
+              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
+              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
+              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
+              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
+              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
+              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
+              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
+              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
+              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
+              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
+              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
+              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
+              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
+              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
+              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
+              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
+              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
+              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
+              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
+              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
+              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D5005}
+            ShowHint = True
+            Stretch = True
+          end
+          object img8: TImage
+            Left = 198
+            Top = 61
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Paste Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
+              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
+              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
+              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
+              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
+              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
+              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
+              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
+              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
+              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
+              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
+              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
+              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
+              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
+              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
+              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
+              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
+              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
+              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
+              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
+              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
+              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
+              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
+              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
+              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
+              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
+              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
+              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
+              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
+              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
+              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
+              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
+              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
+              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
+              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
+              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
+              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
+              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
+              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
+              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
+              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
+              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
+              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
+              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
+              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
+              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
+              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
+            ShowHint = True
+            Stretch = True
+          end
           object edtPolyPosLat: TEdit
-            Left = 60
+            Left = 64
             Top = 39
             Width = 91
             Height = 21
@@ -52843,7 +51179,7 @@ object fmOverlayEditor: TfmOverlayEditor
             TabOrder = 0
           end
           object edtPolyPosLong: TEdit
-            Left = 60
+            Left = 64
             Top = 61
             Width = 91
             Height = 21
@@ -52857,7 +51193,7 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           object lvPolyVertex: TListView
             AlignWithMargins = True
-            Left = 12
+            Left = 20
             Top = 96
             Width = 187
             Height = 138
@@ -52889,131 +51225,1788 @@ object fmOverlayEditor: TfmOverlayEditor
             OnSelectItem = lvPolyVertexSelectItem
           end
         end
-        object grpSector: TGroupBox
-          Left = 7
+        object grpGrid: TGroupBox
+          Left = 1
           Top = 7
-          Width = 214
+          Width = 224
+          Height = 270
+          ParentBackground = False
+          TabOrder = 0
+          object Label29: TLabel
+            Left = 14
+            Top = 21
+            Width = 33
+            Height = 13
+            Caption = 'Centre'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label32: TLabel
+            Left = 22
+            Top = 179
+            Width = 33
+            Height = 13
+            Caption = 'Width '
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label34: TLabel
+            Left = 105
+            Top = 122
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label35: TLabel
+            Left = 22
+            Top = 122
+            Width = 36
+            Height = 13
+            Caption = 'Height '
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label36: TLabel
+            Left = 133
+            Top = 179
+            Width = 33
+            Height = 13
+            Caption = 'Count '
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl9: TLabel
+            Left = 105
+            Top = 179
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl10: TLabel
+            Left = 135
+            Top = 122
+            Width = 30
+            Height = 13
+            Caption = 'Count'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object bvl2: TBevel
+            Left = 85
+            Top = 106
+            Width = 110
+            Height = 3
+          end
+          object lbl13: TLabel
+            Left = 14
+            Top = 100
+            Width = 67
+            Height = 13
+            Caption = ' Vertical Cells '
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object bvl3: TBevel
+            Left = 90
+            Top = 218
+            Width = 100
+            Height = 3
+          end
+          object lbl14: TLabel
+            Left = 14
+            Top = 213
+            Width = 79
+            Height = 13
+            Caption = ' Rotation Angle '
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object lbl15: TLabel
+            Left = 98
+            Top = 236
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object SpeedButton9: TSpeedButton
+            Tag = 9
+            Left = 158
+            Top = 39
+            Width = 38
+            Height = 43
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clHighlight
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Glyph.Data = {
+              4E150000424D4E150000000000003600000028000000280000002D0000000100
+              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
+              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
+              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
+              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
+              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
+              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
+              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
+              00000000007270708F8C8C000000000000908C8C727070000000000000000000
+              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
+              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
+              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
+              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
+              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
+              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
+              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
+              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
+              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
+              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
+              0000000000000000000000000000000000000000000000000000000000ADA9A9
+              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
+              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
+              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
+              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
+              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
+              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
+              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
+              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
+              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
+              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
+              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
+              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
+              7070000000000000000000000000000000000000000000000000727070E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
+              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
+              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
+              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
+              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
+              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
+              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
+            ParentFont = False
+            OnClick = btnHandleShapePosition
+          end
+          object Label8: TLabel
+            Left = 14
+            Top = 157
+            Width = 77
+            Height = 13
+            Caption = 'Horisontal Cells '
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object Bevel9: TBevel
+            Left = 90
+            Top = 162
+            Width = 100
+            Height = 3
+          end
+          object Label70: TLabel
+            Left = 22
+            Top = 43
+            Width = 17
+            Height = 13
+            Caption = 'Lat'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label71: TLabel
+            Left = 22
+            Top = 65
+            Width = 24
+            Height = 13
+            Caption = 'Long'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label101: TLabel
+            Left = 57
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label102: TLabel
+            Left = 57
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label103: TLabel
+            Left = 57
+            Top = 122
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label104: TLabel
+            Left = 57
+            Top = 179
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object img1: TImage
+            Left = 198
+            Top = 39
+            Width = 25
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Copy Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
+              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
+              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
+              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
+              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
+              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
+              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
+              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
+              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
+              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
+              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
+              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
+              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
+              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
+              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
+              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
+              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
+              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
+              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
+              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
+              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
+              432163622963612863612863612863612863612863612863622961602826231A
+              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
+              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
+              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
+              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
+              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
+              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
+              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
+              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
+              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
+              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
+              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
+              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
+              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
+              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
+              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
+              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
+              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
+              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
+              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
+              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
+              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
+              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
+              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
+              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
+              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
+              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
+              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
+              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
+              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
+              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
+              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
+              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
+              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
+              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
+              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
+              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
+              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
+              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
+              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
+              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D5005}
+            ShowHint = True
+            Stretch = True
+          end
+          object img2: TImage
+            Left = 198
+            Top = 61
+            Width = 25
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Paste Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
+              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
+              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
+              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
+              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
+              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
+              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
+              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
+              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
+              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
+              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
+              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
+              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
+              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
+              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
+              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
+              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
+              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
+              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
+              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
+              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
+              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
+              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
+              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
+              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
+              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
+              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
+              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
+              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
+              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
+              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
+              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
+              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
+              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
+              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
+              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
+              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
+              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
+              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
+              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
+              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
+              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
+              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
+              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
+              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
+              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
+              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
+            ShowHint = True
+            Stretch = True
+          end
+          object edtTablePosLat: TEdit
+            Left = 64
+            Top = 39
+            Width = 91
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+          object edtTablePosLong: TEdit
+            Left = 64
+            Top = 61
+            Width = 91
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+          end
+          object edtTableHeight: TEdit
+            Left = 64
+            Top = 118
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtTableWidth: TEdit
+            Left = 64
+            Top = 175
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 4
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtTableColumn: TEdit
+            Left = 169
+            Top = 118
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+          end
+          object edtTableRow: TEdit
+            Left = 169
+            Top = 175
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 5
+            Text = '0'
+          end
+          object edtTableRotationAngle: TEdit
+            Left = 64
+            Top = 232
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 6
+            Text = '0'
+          end
+        end
+        object grpRectangle: TGroupBox
+          Left = 0
+          Top = 7
+          Width = 227
+          Height = 270
+          ParentBackground = False
+          TabOrder = 7
+          object Label10: TLabel
+            Left = 14
+            Top = 21
+            Width = 50
+            Height = 13
+            Caption = 'Top - Left'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label12: TLabel
+            Left = 14
+            Top = 100
+            Width = 73
+            Height = 13
+            Caption = 'Bottom - Right'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object SpeedButton3: TSpeedButton
+            Tag = 3
+            Left = 158
+            Top = 39
+            Width = 38
+            Height = 43
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clHighlight
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Glyph.Data = {
+              4E150000424D4E150000000000003600000028000000280000002D0000000100
+              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
+              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
+              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
+              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
+              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
+              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
+              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
+              00000000007270708F8C8C000000000000908C8C727070000000000000000000
+              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
+              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
+              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
+              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
+              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
+              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
+              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
+              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
+              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
+              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
+              0000000000000000000000000000000000000000000000000000000000ADA9A9
+              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
+              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
+              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
+              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
+              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
+              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
+              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
+              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
+              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
+              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
+              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
+              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
+              7070000000000000000000000000000000000000000000000000727070E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
+              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
+              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
+              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
+              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
+              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
+              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
+            ParentFont = False
+            OnClick = btnHandleShapePosition
+          end
+          object SpeedButton4: TSpeedButton
+            Tag = 4
+            Left = 158
+            Top = 127
+            Width = 38
+            Height = 43
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clHighlight
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Glyph.Data = {
+              4E150000424D4E150000000000003600000028000000280000002D0000000100
+              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
+              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
+              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
+              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
+              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
+              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
+              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
+              00000000007270708F8C8C000000000000908C8C727070000000000000000000
+              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
+              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
+              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
+              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
+              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
+              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
+              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
+              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
+              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
+              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
+              0000000000000000000000000000000000000000000000000000000000ADA9A9
+              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
+              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
+              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
+              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
+              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
+              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
+              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
+              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
+              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
+              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
+              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
+              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
+              7070000000000000000000000000000000000000000000000000727070E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
+              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
+              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
+              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
+              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
+              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
+              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
+            ParentFont = False
+            OnClick = btnHandleShapePosition
+          end
+          object Label78: TLabel
+            Left = 22
+            Top = 43
+            Width = 17
+            Height = 13
+            Caption = 'Lat'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label79: TLabel
+            Left = 22
+            Top = 65
+            Width = 24
+            Height = 13
+            Caption = 'Long'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label80: TLabel
+            Left = 22
+            Top = 131
+            Width = 17
+            Height = 13
+            Caption = 'Lat'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label81: TLabel
+            Left = 22
+            Top = 153
+            Width = 24
+            Height = 13
+            Caption = 'Long'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label111: TLabel
+            Left = 57
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label112: TLabel
+            Left = 57
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label113: TLabel
+            Left = 57
+            Top = 133
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl19: TLabel
+            Left = 57
+            Top = 153
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object img9: TImage
+            Left = 198
+            Top = 39
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Copy Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
+              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
+              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
+              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
+              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
+              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
+              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
+              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
+              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
+              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
+              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
+              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
+              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
+              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
+              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
+              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
+              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
+              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
+              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
+              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
+              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
+              432163622963612863612863612863612863612863612863622961602826231A
+              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
+              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
+              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
+              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
+              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
+              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
+              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
+              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
+              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
+              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
+              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
+              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
+              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
+              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
+              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
+              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
+              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
+              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
+              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
+              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
+              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
+              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
+              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
+              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
+              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
+              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
+              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
+              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
+              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
+              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
+              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
+              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
+              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
+              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
+              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
+              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
+              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
+              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
+              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
+              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D5005}
+            ShowHint = True
+            Stretch = True
+          end
+          object img10: TImage
+            Left = 198
+            Top = 61
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Paste Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
+              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
+              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
+              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
+              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
+              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
+              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
+              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
+              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
+              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
+              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
+              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
+              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
+              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
+              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
+              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
+              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
+              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
+              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
+              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
+              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
+              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
+              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
+              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
+              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
+              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
+              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
+              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
+              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
+              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
+              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
+              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
+              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
+              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
+              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
+              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
+              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
+              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
+              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
+              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
+              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
+              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
+              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
+              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
+              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
+              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
+              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
+            ShowHint = True
+            Stretch = True
+          end
+          object img11: TImage
+            Left = 198
+            Top = 127
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Copy Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
+              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
+              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
+              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
+              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
+              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
+              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
+              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
+              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
+              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
+              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
+              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
+              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
+              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
+              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
+              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
+              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
+              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
+              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
+              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
+              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
+              432163622963612863612863612863612863612863612863622961602826231A
+              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
+              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
+              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
+              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
+              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
+              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
+              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
+              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
+              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
+              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
+              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
+              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
+              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
+              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
+              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
+              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
+              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
+              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
+              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
+              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
+              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
+              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
+              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
+              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
+              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
+              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
+              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
+              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
+              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
+              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
+              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
+              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
+              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
+              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
+              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
+              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
+              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
+              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
+              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
+              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D5005}
+            ShowHint = True
+            Stretch = True
+          end
+          object img12: TImage
+            Left = 198
+            Top = 149
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Paste Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
+              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
+              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
+              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
+              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
+              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
+              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
+              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
+              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
+              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
+              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
+              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
+              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
+              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
+              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
+              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
+              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
+              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
+              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
+              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
+              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
+              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
+              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
+              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
+              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
+              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
+              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
+              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
+              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
+              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
+              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
+              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
+              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
+              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
+              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
+              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
+              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
+              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
+              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
+              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
+              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
+              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
+              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
+              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
+              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
+              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
+              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
+            ShowHint = True
+            Stretch = True
+          end
+          object lbl94: TLabel
+            Left = 14
+            Top = 4
+            Width = 25
+            Height = 13
+            Caption = 'Point'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Bevel16: TBevel
+            Left = 93
+            Top = 104
+            Width = 100
+            Height = 3
+          end
+          object edtRectStartPosLat: TEdit
+            Left = 64
+            Top = 39
+            Width = 91
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+          object edtRectStartPosLong: TEdit
+            Left = 64
+            Top = 61
+            Width = 91
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+          end
+          object edtRectEndPosLat: TEdit
+            Left = 64
+            Top = 127
+            Width = 91
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+          end
+          object edtRectEndPosLong: TEdit
+            Left = 64
+            Top = 149
+            Width = 91
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+          end
+        end
+        object grpSector: TGroupBox
+          Left = 0
+          Top = 7
+          Width = 228
           Height = 270
           TabOrder = 6
           object lblSectorCenter: TLabel
             Left = 14
-            Top = 24
-            Width = 40
-            Height = 13
-            Caption = 'Centre :'
+            Top = 21
+            Width = 37
+            Height = 14
+            Caption = 'Centre'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object lblSectorInner: TLabel
-            Left = 31
+            Left = 22
             Top = 132
-            Width = 33
-            Height = 13
-            Caption = 'Inner :'
+            Width = 29
+            Height = 14
+            Caption = 'Inner'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object lblSectorOuter: TLabel
-            Left = 31
+            Left = 22
             Top = 154
-            Width = 35
-            Height = 13
-            Caption = 'Outer :'
+            Width = 32
+            Height = 14
+            Caption = 'Outer'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object lblSectorStartAngle: TLabel
-            Left = 31
+            Left = 22
             Top = 203
-            Width = 31
-            Height = 13
-            Caption = 'Start :'
+            Width = 27
+            Height = 14
+            Caption = 'Start'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object lblSectorEndAngle: TLabel
-            Left = 31
+            Left = 22
             Top = 225
-            Width = 25
-            Height = 13
-            Caption = 'End :'
+            Width = 21
+            Height = 14
+            Caption = 'End'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object lbl2: TLabel
-            Left = 115
+            Left = 109
             Top = 132
-            Width = 14
-            Height = 13
+            Width = 17
+            Height = 14
             Caption = 'nm'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object lbl3: TLabel
-            Left = 115
+            Left = 109
             Top = 154
-            Width = 14
-            Height = 13
+            Width = 17
+            Height = 14
             Caption = 'nm'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object lbl4: TLabel
-            Left = 110
+            Left = 104
             Top = 203
-            Width = 22
-            Height = 13
+            Width = 25
+            Height = 14
             Caption = 'deg.'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object lbl5: TLabel
-            Left = 110
+            Left = 104
             Top = 225
-            Width = 22
-            Height = 13
+            Width = 25
+            Height = 14
             Caption = 'deg.'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object bvlRadii: TBevel
-            Left = 59
+            Left = 58
             Top = 115
             Width = 140
             Height = 3
@@ -53025,28 +53018,28 @@ object fmOverlayEditor: TfmOverlayEditor
             Height = 3
           end
           object lbl11: TLabel
-            Left = 17
+            Left = 14
             Top = 110
-            Width = 35
-            Height = 13
+            Width = 38
+            Height = 14
             Caption = ' Radius'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
             Transparent = False
           end
           object lbl12: TLabel
-            Left = 15
+            Left = 14
             Top = 181
-            Width = 38
-            Height = 13
+            Width = 44
+            Height = 14
             Caption = ' Angles '
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -53054,8 +53047,8 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           object SpeedButton8: TSpeedButton
             Tag = 8
-            Left = 156
-            Top = 42
+            Left = 158
+            Top = 40
             Width = 38
             Height = 43
             Font.Charset = DEFAULT_CHARSET
@@ -53239,34 +53232,290 @@ object fmOverlayEditor: TfmOverlayEditor
             OnClick = btnHandleShapePosition
           end
           object Label82: TLabel
-            Left = 28
-            Top = 46
-            Width = 28
-            Height = 13
-            Caption = 'Lat   :'
+            Left = 22
+            Top = 43
+            Width = 17
+            Height = 14
+            Caption = 'Lat'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object Label83: TLabel
-            Left = 28
-            Top = 68
-            Width = 30
-            Height = 13
-            Caption = 'Long :'
+            Left = 22
+            Top = 66
+            Width = 27
+            Height = 14
+            Caption = 'Long'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label114: TLabel
+            Left = 57
+            Top = 43
+            Width = 4
+            Height = 14
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label115: TLabel
+            Left = 57
+            Top = 66
+            Width = 4
+            Height = 14
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object img13: TImage
+            Left = 198
+            Top = 40
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Copy Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
+              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
+              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
+              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
+              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
+              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
+              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
+              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
+              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
+              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
+              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
+              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
+              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
+              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
+              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
+              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
+              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
+              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
+              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
+              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
+              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
+              432163622963612863612863612863612863612863612863622961602826231A
+              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
+              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
+              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
+              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
+              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
+              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
+              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
+              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
+              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
+              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
+              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
+              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
+              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
+              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
+              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
+              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
+              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
+              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
+              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
+              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
+              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
+              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
+              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
+              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
+              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
+              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
+              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
+              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
+              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
+              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
+              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
+              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
+              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
+              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
+              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
+              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
+              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
+              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
+              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
+              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
+              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
+              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
+              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
+              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
+              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D5005}
+            ShowHint = True
+            Stretch = True
+          end
+          object img14: TImage
+            Left = 198
+            Top = 62
+            Width = 24
+            Height = 21
+            Cursor = crHandPoint
+            Hint = 'Paste Position'
+            ParentShowHint = False
+            Picture.Data = {
+              07544269746D61708E090000424D8E0900000000000036000000280000001E00
+              00001A000000010018000000000058090000120B0000120B0000000000000000
+              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
+              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
+              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
+              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
+              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
+              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
+              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
+              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
+              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
+              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
+              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
+              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
+              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
+              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
+              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
+              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
+              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
+              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
+              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
+              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
+              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
+              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
+              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
+              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
+              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
+              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
+              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
+              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
+              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
+              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
+              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
+              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
+              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
+              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
+              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
+              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
+              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
+              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
+              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
+              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
+              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
+              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
+              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
+              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
+              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
+              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
+              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
+              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
+              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
+              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
+              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
+              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
+              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
+              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
+            ShowHint = True
+            Stretch = True
+          end
+          object Label116: TLabel
+            Left = 57
+            Top = 132
+            Width = 4
+            Height = 14
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label117: TLabel
+            Left = 57
+            Top = 154
+            Width = 4
+            Height = 14
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label118: TLabel
+            Left = 57
+            Top = 203
+            Width = 4
+            Height = 14
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label119: TLabel
+            Left = 57
+            Top = 225
+            Width = 4
+            Height = 14
+            Caption = ':'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object edtSectorPosLat: TEdit
-            Left = 60
-            Top = 42
+            Left = 64
+            Top = 40
             Width = 91
             Height = 21
             Font.Charset = DEFAULT_CHARSET
@@ -53278,7 +53527,7 @@ object fmOverlayEditor: TfmOverlayEditor
             TabOrder = 0
           end
           object edtSectorInner: TEdit
-            Left = 75
+            Left = 67
             Top = 128
             Width = 35
             Height = 21
@@ -53294,7 +53543,7 @@ object fmOverlayEditor: TfmOverlayEditor
             OnKeyPress = OnKeyPress
           end
           object edtSectorOuter: TEdit
-            Left = 75
+            Left = 67
             Top = 150
             Width = 35
             Height = 21
@@ -53310,7 +53559,7 @@ object fmOverlayEditor: TfmOverlayEditor
             OnKeyPress = OnKeyPress
           end
           object edtSectorStartAngle: TEdit
-            Left = 75
+            Left = 67
             Top = 199
             Width = 30
             Height = 21
@@ -53326,7 +53575,7 @@ object fmOverlayEditor: TfmOverlayEditor
             Text = '0'
           end
           object edtSectorEndAngle: TEdit
-            Left = 75
+            Left = 67
             Top = 221
             Width = 30
             Height = 21
@@ -53342,8 +53591,8 @@ object fmOverlayEditor: TfmOverlayEditor
             Text = '0'
           end
           object edtSectorPosLong: TEdit
-            Left = 60
-            Top = 64
+            Left = 64
+            Top = 62
             Width = 91
             Height = 21
             Font.Charset = DEFAULT_CHARSET
@@ -53353,6 +53602,368 @@ object fmOverlayEditor: TfmOverlayEditor
             Font.Style = []
             ParentFont = False
             TabOrder = 1
+          end
+        end
+        object grpText: TGroupBox
+          Left = 0
+          Top = 7
+          Width = 228
+          Height = 270
+          ParentBackground = False
+          TabOrder = 9
+          object lblTextPosition: TLabel
+            Left = 14
+            Top = 21
+            Width = 31
+            Height = 13
+            Caption = 'Start :'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lblTextField: TLabel
+            Left = 14
+            Top = 107
+            Width = 25
+            Height = 13
+            Caption = 'Text '
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lblTextSize: TLabel
+            Left = 14
+            Top = 168
+            Width = 19
+            Height = 13
+            Caption = 'Size'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object SpeedButton: TSpeedButton
+            Left = 158
+            Top = 39
+            Width = 38
+            Height = 43
+            Glyph.Data = {
+              4E150000424D4E150000000000003600000028000000280000002D0000000100
+              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
+              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
+              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
+              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
+              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
+              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
+              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
+              00000000007270708F8C8C000000000000908C8C727070000000000000000000
+              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
+              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
+              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
+              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
+              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
+              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
+              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
+              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
+              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
+              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
+              0000000000000000000000000000000000000000000000000000000000ADA9A9
+              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
+              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
+              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
+              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
+              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
+              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
+              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
+              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
+              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
+              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
+              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
+              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
+              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
+              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
+              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
+              7070000000000000000000000000000000000000000000000000727070E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
+              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
+              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
+              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
+              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
+              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
+              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
+              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
+              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
+              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
+              7070737070737070737070737070737070737070737070737070737070737070
+              7370707370707370707370707370707370707370707370707370707370707370
+              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
+            OnClick = btnHandleShapePosition
+          end
+          object Label61: TLabel
+            Left = 22
+            Top = 43
+            Width = 17
+            Height = 13
+            Caption = 'Lat'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label62: TLabel
+            Left = 22
+            Top = 65
+            Width = 24
+            Height = 13
+            Caption = 'Long'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label120: TLabel
+            Left = 57
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label121: TLabel
+            Left = 57
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Bevel17: TBevel
+            Left = 44
+            Top = 112
+            Width = 140
+            Height = 3
+          end
+          object Bevel18: TBevel
+            Left = 44
+            Top = 173
+            Width = 140
+            Height = 3
+          end
+          object edtTextPosLat: TEdit
+            Left = 64
+            Top = 39
+            Width = 91
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+          object edtTextField: TEdit
+            Left = 31
+            Top = 129
+            Width = 162
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 30
+            ParentFont = False
+            TabOrder = 2
+            Text = 'None'
+          end
+          object edtTextPosLong: TEdit
+            Left = 64
+            Top = 61
+            Width = 91
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+          end
+          object cbbTextSize: TComboBox
+            Left = 31
+            Top = 190
+            Width = 82
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+            Text = '11'
+            Items.Strings = (
+              '8'
+              '9'
+              '10'
+              '11'
+              '12'
+              '14'
+              '16'
+              '18'
+              '20'
+              '22'
+              '24'
+              '26'
+              '28'
+              '36'
+              '48'
+              '72')
           end
         end
         object grpArc: TGroupBox
@@ -54014,515 +54625,523 @@ object fmOverlayEditor: TfmOverlayEditor
             Text = '0'
           end
         end
-        object grpCircle: TGroupBox
-          Left = 1
+      end
+      object pnlDynamic: TPanel
+        Left = 53
+        Top = 97
+        Width = 228
+        Height = 278
+        BevelOuter = bvNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentColor = True
+        ParentFont = False
+        TabOrder = 1
+        object lbl111: TLabel
+          Left = 17
+          Top = 24
+          Width = 40
+          Height = 13
+          Caption = 'Centre :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object grpPolygonD: TGroupBox
+          Left = 7
           Top = 7
-          Width = 224
+          Width = 214
           Height = 270
           TabOrder = 4
-          object lbl34: TLabel
-            Left = 14
+          object Label30: TLabel
+            Left = 16
             Top = 21
-            Width = 33
-            Height = 13
-            Caption = 'Centre'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl35: TLabel
-            Left = 13
-            Top = 110
-            Width = 32
-            Height = 13
-            Caption = 'Radius'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl36: TLabel
-            Left = 108
-            Top = 139
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object SpeedButton5: TSpeedButton
-            Tag = 5
-            Left = 158
-            Top = 39
-            Width = 38
-            Height = 43
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlight
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            Glyph.Data = {
-              4E150000424D4E150000000000003600000028000000280000002D0000000100
-              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
-              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
-              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
-              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
-              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
-              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
-              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
-              00000000007270708F8C8C000000000000908C8C727070000000000000000000
-              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
-              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
-              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
-              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
-              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
-              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
-              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
-              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
-              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
-              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
-              0000000000000000000000000000000000000000000000000000000000ADA9A9
-              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
-              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
-              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
-              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
-              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
-              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
-              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
-              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
-              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
-              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
-              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
-              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
-              7070000000000000000000000000000000000000000000000000727070E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
-              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
-              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
-              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
-              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
-              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
-              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
-            ParentFont = False
-            OnClick = btnHandleShapePosition
-          end
-          object Label66: TLabel
-            Left = 22
-            Top = 43
-            Width = 18
-            Height = 13
-            Caption = 'Lat '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label67: TLabel
-            Left = 22
-            Top = 65
-            Width = 23
-            Height = 13
-            Caption = 'Long'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label93: TLabel
-            Left = 57
-            Top = 43
-            Width = 4
-            Height = 13
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label94: TLabel
-            Left = 57
-            Top = 65
-            Width = 4
-            Height = 13
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Bevel14: TBevel
-            Left = 54
-            Top = 118
-            Width = 147
-            Height = 2
-          end
-          object Label95: TLabel
-            Left = 22
-            Top = 139
             Width = 31
             Height = 13
             Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label96: TLabel
-            Left = 57
-            Top = 139
-            Width = 4
-            Height = 13
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object btnCopyCircle: TImage
-            Left = 198
-            Top = 39
-            Width = 25
-            Height = 21
-            Cursor = crHandPoint
-            Hint = 'Copy Position'
-            ParentShowHint = False
-            Picture.Data = {
-              07544269746D61708E090000424D8E0900000000000036000000280000001E00
-              00001A000000010018000000000058090000120B0000120B0000000000000000
-              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
-              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
-              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
-              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
-              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
-              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
-              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
-              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
-              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
-              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
-              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
-              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
-              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
-              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
-              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
-              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
-              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
-              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
-              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
-              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
-              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
-              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
-              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
-              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
-              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
-              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
-              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
-              432163622963612863612863612863612863612863612863622961602826231A
-              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
-              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
-              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
-              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
-              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
-              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
-              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
-              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
-              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
-              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
-              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
-              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
-              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
-              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
-              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
-              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
-              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
-              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
-              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
-              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
-              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
-              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
-              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
-              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
-              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
-              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
-              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
-              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
-              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
-              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
-              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
-              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
-              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
-              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
-              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
-              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
-              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
-              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
-              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
-              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
-              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
-              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
-              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
-              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
-              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
-              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
-              26221D26221D26221D26221D26221D26221D26221D26221D5005}
-            ShowHint = True
-            Stretch = True
-          end
-          object btnPasteCircle: TImage
-            Left = 198
-            Top = 61
-            Width = 25
-            Height = 21
-            Cursor = crHandPoint
-            Hint = 'Paste Position'
-            ParentShowHint = False
-            Picture.Data = {
-              07544269746D61708E090000424D8E0900000000000036000000280000001E00
-              00001A000000010018000000000058090000120B0000120B0000000000000000
-              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
-              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
-              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
-              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
-              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
-              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
-              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
-              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
-              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
-              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
-              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
-              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
-              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
-              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
-              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
-              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
-              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
-              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
-              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
-              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
-              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
-              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
-              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
-              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
-              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
-              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
-              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
-              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
-              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
-              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
-              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
-              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
-              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
-              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
-              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
-              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
-              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
-              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
-              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
-              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
-              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
-              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
-              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
-              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
-              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
-              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
-              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
-              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
-              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
-              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
-              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
-              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
-              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
-              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
-              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
-              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
-              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
-              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
-              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
-              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
-              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
-              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
-              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
-              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
-              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
-              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
-              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
-              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
-              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
-              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
-              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
-              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
-              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
-              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
-              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
-            ShowHint = True
-            Stretch = True
-          end
-          object edtCirclePosLong: TEdit
-            Left = 64
-            Top = 61
-            Width = 90
-            Height = 21
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
-            TabOrder = 1
           end
-          object edtCircleRadius: TEdit
+          object Label31: TLabel
+            Left = 104
+            Top = 21
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label33: TLabel
+            Left = 104
+            Top = 43
+            Width = 18
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label37: TLabel
+            Left = 16
+            Top = 43
+            Width = 36
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object AddPolyD: TSpeedButton
+            Tag = 1
+            Left = 158
+            Top = 16
+            Width = 43
+            Height = 43
+            Cursor = crHandPoint
+            Hint = 'Add'
+            ParentCustomHint = False
+            AllowAllUp = True
+            Glyph.Data = {
+              E6040000424DE604000000000000360000002800000014000000140000000100
+              180000000000B0040000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303000000030303FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
+              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
+              030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303030303
+              0303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
+              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
+              030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303030303
+              0303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFF}
+            OnClick = AddPolyDClick
+          end
+          object btnAddPointD: TSpeedButton
+            Tag = 1
+            Left = 14
+            Top = 240
+            Width = 45
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Add'
+            AllowAllUp = True
+            Caption = 'Insert'
+            OnClick = btnAddPointDClick
+          end
+          object btnEditPointD: TSpeedButton
+            Tag = 2
+            Left = 62
+            Top = 240
+            Width = 45
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Edit'
+            AllowAllUp = True
+            Caption = 'Edit'
+            Enabled = False
+            OnClick = btnEditPointDClick
+          end
+          object btnDeletePointD: TSpeedButton
+            Tag = 3
+            Left = 107
+            Top = 240
+            Width = 45
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Delete'
+            AllowAllUp = True
+            Caption = 'Delete'
+            Enabled = False
+            OnClick = btnDeletePointDClick
+          end
+          object btnClearPointD: TSpeedButton
+            Tag = 4
+            Left = 156
+            Top = 240
+            Width = 45
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Clear'
+            AllowAllUp = True
+            Caption = 'Clear'
+            OnClick = btnClearPointDClick
+          end
+          object edtPolygonRange: TEdit
             Left = 64
-            Top = 135
+            Top = 17
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtPolygonBearing: TEdit
+            Left = 64
+            Top = 39
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object lvPolyVertexD: TListView
+            AlignWithMargins = True
+            Left = 14
+            Top = 65
+            Width = 187
+            Height = 169
+            Columns = <
+              item
+                Caption = '+'
+                Width = 25
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Range'
+                Width = 79
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Bearing'
+                Width = 79
+              end>
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            GridLines = True
+            RowSelect = True
+            ParentFont = False
+            TabOrder = 2
+            ViewStyle = vsReport
+            OnSelectItem = lvPolyVertexDSelectItem
+          end
+        end
+        object grpGridD: TGroupBox
+          Left = 7
+          Top = 7
+          Width = 214
+          Height = 270
+          TabOrder = 2
+          object lbl53: TLabel
+            Left = 17
+            Top = 24
+            Width = 40
+            Height = 13
+            Caption = 'Centre :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl54: TLabel
+            Left = 31
+            Top = 169
+            Width = 28
+            Height = 13
+            Caption = 'Width'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl55: TLabel
+            Left = 108
+            Top = 122
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl56: TLabel
+            Left = 31
+            Top = 122
+            Width = 31
+            Height = 13
+            Caption = 'Height'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl57: TLabel
+            Left = 135
+            Top = 169
+            Width = 29
+            Height = 13
+            Caption = 'Count'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl58: TLabel
+            Left = 108
+            Top = 169
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl59: TLabel
+            Left = 135
+            Top = 122
+            Width = 29
+            Height = 13
+            Caption = 'Count'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object bvl5: TBevel
+            Left = 89
+            Top = 104
+            Width = 110
+            Height = 3
+          end
+          object lbl60: TLabel
+            Left = 17
+            Top = 100
+            Width = 66
+            Height = 13
+            Caption = ' Vertical Cells '
+            Color = 3683636
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentColor = False
+            ParentFont = False
+            Transparent = False
+          end
+          object bvl6: TBevel
+            Left = 99
+            Top = 211
+            Width = 100
+            Height = 3
+          end
+          object lbl61: TLabel
+            Left = 16
+            Top = 206
+            Width = 77
+            Height = 13
+            Caption = ' Rotation Angle '
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object lbl62: TLabel
+            Left = 65
+            Top = 228
+            Width = 18
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl81: TLabel
+            Left = 31
+            Top = 46
+            Width = 31
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl82: TLabel
+            Left = 112
+            Top = 46
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl83: TLabel
+            Left = 112
+            Top = 68
+            Width = 18
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label44: TLabel
+            Left = 17
+            Top = 147
+            Width = 76
+            Height = 13
+            Caption = 'Horisontal Cells '
+            Color = 3683636
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentColor = False
+            ParentFont = False
+            Transparent = False
+          end
+          object Bevel12: TBevel
+            Left = 99
+            Top = 152
+            Width = 100
+            Height = 3
+          end
+          object Label45: TLabel
+            Left = 31
+            Top = 68
+            Width = 36
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edtTableRange: TEdit
+            Left = 72
+            Top = 42
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtTableBearing: TEdit
+            Left = 72
+            Top = 64
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object edtTableHeightD: TEdit
+            Left = 69
+            Top = 118
             Width = 35
             Height = 21
             Font.Charset = DEFAULT_CHARSET
@@ -54536,581 +55155,713 @@ object fmOverlayEditor: TfmOverlayEditor
             Text = '0'
             OnKeyPress = OnKeyPress
           end
-          object edtCirclePosLat: TEdit
-            Left = 64
-            Top = 39
-            Width = 90
+          object edtTableWidthD: TEdit
+            Left = 69
+            Top = 165
+            Width = 35
             Height = 21
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
+            MaxLength = 4
             ParentFont = False
-            TabOrder = 0
+            TabOrder = 4
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtTableColumnD: TEdit
+            Left = 169
+            Top = 118
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+          end
+          object edtTableRowD: TEdit
+            Left = 169
+            Top = 165
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 5
+            Text = '0'
+          end
+          object edtRotationAngleD: TEdit
+            Left = 30
+            Top = 224
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 6
+            Text = '0'
           end
         end
-        object grpEllipse: TGroupBox
-          Left = 1
+        object grpLineD: TGroupBox
+          Left = 7
           Top = 7
-          Width = 224
+          Width = 214
           Height = 270
-          TabOrder = 1
-          object Label14: TLabel
+          TabOrder = 9
+          object lbl20: TLabel
             Left = 14
-            Top = 21
-            Width = 33
+            Top = 33
+            Width = 31
             Height = 13
-            Caption = 'Centre'
+            Caption = 'Start :'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object lblHorizontal: TLabel
-            Left = 22
-            Top = 132
-            Width = 51
+          object lbl21: TLabel
+            Left = 14
+            Top = 136
+            Width = 25
             Height = 13
-            Caption = 'Horizontal '
+            Caption = 'End :'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object Label23: TLabel
-            Left = 129
-            Top = 132
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lblVertical: TLabel
-            Left = 22
-            Top = 154
+          object lbl22: TLabel
+            Left = 31
+            Top = 55
             Width = 38
             Height = 13
-            Caption = 'Vertical '
+            Caption = 'Range :'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object lbl6: TLabel
-            Left = 129
+          object lbl85: TLabel
+            Left = 112
+            Top = 77
+            Width = 18
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl23: TLabel
+            Left = 31
+            Top = 158
+            Width = 38
+            Height = 13
+            Caption = 'Range :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl25: TLabel
+            Left = 112
+            Top = 180
+            Width = 18
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label40: TLabel
+            Left = 112
+            Top = 55
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label41: TLabel
+            Left = 31
+            Top = 77
+            Width = 36
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label42: TLabel
+            Left = 31
+            Top = 180
+            Width = 36
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label43: TLabel
+            Left = 112
+            Top = 158
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edtLineStartRange: TEdit
+            Left = 72
+            Top = 51
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtLineStartBearing: TEdit
+            Left = 72
+            Top = 73
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object edtLineEndRange: TEdit
+            Left = 72
+            Top = 154
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtLineEndBearing: TEdit
+            Left = 72
+            Top = 176
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+          end
+        end
+        object grpNoneD: TGroupBox
+          Left = 7
+          Top = 7
+          Width = 214
+          Height = 270
+          TabOrder = 6
+        end
+        object grpRectangleD: TGroupBox
+          Left = 7
+          Top = 7
+          Width = 214
+          Height = 270
+          TabOrder = 8
+          object lbl26: TLabel
+            Left = 14
+            Top = 33
+            Width = 54
+            Height = 13
+            Caption = 'Top - Left :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl27: TLabel
+            Left = 14
+            Top = 136
+            Width = 76
+            Height = 13
+            Caption = 'Bottom - Right :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl28: TLabel
+            Left = 31
+            Top = 55
+            Width = 38
+            Height = 13
+            Caption = 'Range :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl29: TLabel
+            Left = 112
+            Top = 55
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl30: TLabel
+            Left = 112
+            Top = 77
+            Width = 18
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl31: TLabel
+            Left = 31
+            Top = 158
+            Width = 31
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl32: TLabel
+            Left = 31
+            Top = 180
+            Width = 36
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl33: TLabel
+            Left = 112
+            Top = 180
+            Width = 18
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label38: TLabel
+            Left = 31
+            Top = 77
+            Width = 36
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label39: TLabel
+            Left = 112
+            Top = 158
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edtRecStartRange: TEdit
+            Left = 72
+            Top = 51
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtRecStartBearing: TEdit
+            Left = 72
+            Top = 73
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object edtRecEndRange: TEdit
+            Left = 72
+            Top = 154
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtRecEndBearing: TEdit
+            Left = 72
+            Top = 176
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+          end
+        end
+        object grpSectorD: TGroupBox
+          Left = 7
+          Top = 7
+          Width = 214
+          Height = 270
+          TabOrder = 0
+          object lbl64: TLabel
+            Left = 14
+            Top = 24
+            Width = 40
+            Height = 13
+            Caption = 'Centre :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl65: TLabel
+            Left = 31
+            Top = 132
+            Width = 26
+            Height = 13
+            Caption = 'Inner'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl66: TLabel
+            Left = 31
+            Top = 154
+            Width = 28
+            Height = 13
+            Caption = 'Outer'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl67: TLabel
+            Left = 31
+            Top = 203
+            Width = 31
+            Height = 13
+            Caption = 'Start :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl68: TLabel
+            Left = 31
+            Top = 225
+            Width = 25
+            Height = 13
+            Caption = 'End :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl69: TLabel
+            Left = 115
+            Top = 132
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl70: TLabel
+            Left = 115
             Top = 154
             Width = 14
             Height = 13
             Caption = 'nm'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object bvl1: TBevel
-            Left = 86
-            Top = 115
-            Width = 115
+          object lbl71: TLabel
+            Left = 110
+            Top = 203
+            Width = 22
+            Height = 13
+            Caption = 'deg.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl72: TLabel
+            Left = 110
+            Top = 225
+            Width = 22
+            Height = 13
+            Caption = 'deg.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object bvl7: TBevel
+            Left = 59
+            Top = 114
+            Width = 140
             Height = 3
           end
-          object Label22: TLabel
+          object bvl8: TBevel
+            Left = 59
+            Top = 185
+            Width = 140
+            Height = 3
+          end
+          object lbl73: TLabel
             Left = 14
             Top = 110
-            Width = 58
+            Width = 35
             Height = 13
-            Caption = ' Semi - Axis '
+            Caption = ' Radius'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
             Transparent = False
           end
-          object SpeedButton6: TSpeedButton
-            Tag = 6
-            Left = 158
-            Top = 39
+          object lbl74: TLabel
+            Left = 14
+            Top = 181
             Width = 38
-            Height = 43
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlight
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            Glyph.Data = {
-              4E150000424D4E150000000000003600000028000000280000002D0000000100
-              18000000000018150000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C58F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908C8CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E17371715654549E9A9AACA8A8ACA8A8ACA8A8
-              ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8
-              A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8ACA8A8AC
-              A8A8ACA8A89E9A9A474646817F7FE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1817E7E727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D7D3D3484646E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E15654
-              54C9C5C5E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1737171000000000000000000000000737171E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000
-              000000000000000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000000000000000000000
-              00000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17371710000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173717100000000
-              00000000007270708F8C8C000000000000908C8C727070000000000000000000
-              737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1
-              8F8C8C000000000000908C8CE6E1E1727070000000000000000000737171E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171000000000000000000727070E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000000000
-              00000000727070E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6
-              E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000
-              00000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1737171000000000000
-              000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A83938383938
-              389E9B9BE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000
-              0000737171E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E10000000000000000000000001D1C1C1D1C1C1D1C1C1D1C1C1D1C1C1D
-              1C1C1D1C1CADA9A9E6E1E1E6E1E1E6E1E1E6E1E1BBB6B61D1C1C1D1C1C1D1C1C
-              1D1C1C1D1C1C1D1C1C1D1C1C000000000000000000000000E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E100000000
-              0000000000000000000000000000000000000000000000000000000000ADA9A9
-              E6E1E1E6E1E1E6E1E1E6E1E1ACA8A80000000000000000000000000000000000
-              00000000000000000000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1000000000000000000000000
-              1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1CBBB7B7E6E1E1E6E1E1E6E1
-              E1E6E1E1ACA8A81C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C00000000
-              0000000000000000E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E19E9B9B3A38383A3838ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1727070000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              8F8C8C000000000000908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E17371710000
-              00000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070
-              000000000000000000737171E6E1E1E6E1E1E6E1E1E6E1E18F8C8C0000000000
-              00908C8CE6E1E1E6E1E1E6E1E1E6E1E1737171000000000000000000727070E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000
-              00000000737171E6E1E1E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6
-              E1E1E6E1E1737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172707000000000000000000073
-              7171E6E1E1E6E1E18F8C8C000000000000908C8CE6E1E1E6E1E1737171000000
-              000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000000000000000737171E6E1E1
-              8F8C8C000000000000908C8CE6E1E1737171000000000000000000727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E17270700000000000000000007371718F8C8C0000000000
-              00908C8C737171000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E17270700000000000000000002B2A2A0000000000002B2A2A00000000
-              0000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E172
-              7070000000000000000000000000000000000000000000000000727070E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1727070000000
-              000000000000000000000000000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6
-              E1E1E6E1E1E6E1E1737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E17270700000000000000000
-              00000000727070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1
-              737070ADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C737070737070908D8DE6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1ACA8A8737070E6E1E1E6E1E1E6E1E1E6E1E1737070ADA9A9E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8
-              A8737070E6E1E1E6E1E1E6E1E1E6E1E18F8C8C9E9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A908C8CE6E1E1E6
-              E1E1E6E1E1E6E1E1C9C5C5565454E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1474646D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1727070737171E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737171817E7EE6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1807E
-              7E4746469E9B9BADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9AD
-              A9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9
-              ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A9ADA9A99E9B9B565454727070E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1D8D3D38F8C8C73
-              7070737070737070737070737070737070737070737070737070737070737070
-              7370707370707370707370707370707370707370707370707370707370707370
-              70737070737070737070737070908D8DC9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1}
-            ParentFont = False
-            OnClick = btnHandleShapePosition
-          end
-          object Label68: TLabel
-            Left = 22
-            Top = 43
-            Width = 15
             Height = 13
-            Caption = 'Lat'
+            Caption = ' Angles '
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
+            Transparent = False
           end
-          object Label69: TLabel
-            Left = 22
-            Top = 65
-            Width = 23
+          object lbl63: TLabel
+            Left = 31
+            Top = 46
+            Width = 31
             Height = 13
-            Caption = 'Long'
+            Caption = 'Range'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object Label97: TLabel
-            Left = 57
-            Top = 43
-            Width = 4
+          object lbl89: TLabel
+            Left = 31
+            Top = 68
+            Width = 36
             Height = 13
-            Caption = ':'
+            Caption = 'Bearing'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object Label98: TLabel
-            Left = 57
-            Top = 65
-            Width = 4
+          object lbl90: TLabel
+            Left = 112
+            Top = 68
+            Width = 18
             Height = 13
-            Caption = ':'
+            Caption = 'deg'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object Label99: TLabel
-            Left = 77
-            Top = 132
-            Width = 4
+          object Label46: TLabel
+            Left = 112
+            Top = 46
+            Width = 14
             Height = 13
-            Caption = ':'
+            Caption = 'nm'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
-          object Label100: TLabel
-            Left = 77
-            Top = 154
-            Width = 4
-            Height = 13
-            Caption = ':'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Image1: TImage
-            Left = 198
-            Top = 39
-            Width = 25
-            Height = 21
-            Cursor = crHandPoint
-            Hint = 'Copy Position'
-            ParentShowHint = False
-            Picture.Data = {
-              07544269746D61708E090000424D8E0900000000000036000000280000001E00
-              00001A000000010018000000000058090000120B0000120B0000000000000000
-              000026221D26221D26221D25211C24201C231F1B221F1A221E1A221E1A221E1A
-              221E1A221E1A221E1A221E1A221E1A221E1A221E1A221E1A221F1A231F1B2420
-              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
-              1D26221D25211D24211C231F1B5453256968296A69296B69296B69296B69296B
-              69296B69296B69296B69296B69296B69296B6929686828464321221E1A23201B
-              25211C26221D26221D26221D26221D26221D26221D26221D500526221D26221D
-              25211C24201B221E1AC7C841D9DA46C3C441C3C441C3C441C3C441C3C441C3C4
-              41C3C441C3C441C3C441C3C440C3C440C9CA42E1E348646328211E19231F1B25
-              211C26221D26221D26221D26221D26221D26221D000026221D26221D25211C23
-              201B211E19D4D54574732D1E1B171E1A171E1B171E1A171D1A161D1A161D1A16
-              1D1A161E1A171D1A161D1A161C19168A8A32C2C3401F1C18211E19231F1B2521
-              1C25211D26221D26221D26221D26221DFE2926221D26221D25211C231F1B211E
-              19D3D44572712C1E1A1738361D5E5D2661602661602661602661602661602661
-              60265E5D26565424585625939333D9DA456362283D3B1F221E1A24201B25211C
-              26221D26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
-              71702C1E1A17989835E6E849DEE047DEE047DEE047DEE047DEE047DEE047DEE0
-              47DEE047DEE047DEE047DEE047DFE148E0E2477F7F2F221F1A24201B25211C26
-              221D26221D26221D831C26221D26221D25211C231F1B211E19D3D44572712C1E
-              1B17A3A338A5A5391E1B171E1B171E1B171E1B171E1B171E1B171E1B171E1B17
-              1E1B171E1B171D1A161E1B1768672AE9EB4B2D2B1C23201B25211C26221D2622
-              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1A17A2A2
-              38A3A3391E1B171E1B171F1B171F1B171E1B171E1B171E1B171E1B171E1B171F
-              1B171E1B171E1B1737341DECEE4B38351F231F1B25211C26221D26221D26221D
-              681C26221D26221D25211C231F1B211E19D3D44572702C1E1A17A2A238A2A238
-              1E1B179C9C36D0D243D2D444D2D444D2D444D2D444D2D444D2D444D2D444CCCD
-              4247452136331DECEE4B38351F231F1A24211C26221D26221D26221D00002622
-              1D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C1845
-              432163622963612863612863612863612863612863612863622961602826231A
-              37351EECEE4B38351F231F1A24211C26221D26221D26221D000026221D26221D
-              25211C231F1B211E19D3D44572712C1E1B17A2A238A2A2381F1C181F1C181F1C
-              181F1B171E1B171E1B171E1B171E1B171E1B171F1C181F1C181F1C1837341EEB
-              ED4B38351F231F1A24211C26221D26221D26221D000026221D26221D25211C23
-              1F1B211E19D3D44572712C1E1B17A2A238A2A2381F1B17878731B1B23BB1B23B
-              B1B23BB1B23BB1B23BB1B23BB1B23BB2B33BAFB03A3F3D2036341EEBED4B3E3B
-              20231F1A24201C26221D26221D26221D000026221D26221D25211C231F1B211E
-              19D3D44572712C1E1B17A2A238A2A2381F1C185856257F7D2F7E7D2F7E7D2F7E
-              7D2F7E7D2F7E7D2F7E7D2F7F7D2F7A792E2A281B37351EEBED4B444121231F1A
-              24201C26221D26221D26221D000026221D26221D25211C231F1B211E19D3D445
-              72712C1E1B17A2A238A2A2381F1C181F1C181F1C181F1B171E1B171E1B171E1B
-              171E1B171E1B171F1C181F1C181F1C1837341EECEE4B444121221F1A24201C26
-              221D26221D26221D266826221D26221D25211C231F1B211E19D3D44572712C1E
-              1B17A2A238A2A2381F1C1872702C939333939333939333939333939333939333
-              93933393933392923338341D36331DECEE4B434121221F1A24201C26221D2622
-              1D26221D000026221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A2
-              38A2A238201C186D6C2B9A9A379A9A379A9A379A9A379A9A379A9A369A9A369A
-              9A3691903432301C36341DECEE4B434121221F1A24201C26221D26221D26221D
-              5F6726221D26221D25211C231F1B211E19D3D44572712C1E1B17A2A238A2A238
-              201D19211E19221E1A221F1A221E1A211E19211D19201C181F1C181F1B171E1B
-              171D1A1634321CE6E849434121221F1A24211C26221D26221D26221D00002622
-              1D26221D25211C231F1B211E19D3D44571702B1D1A16A2A238A2A238211D1922
-              1E1A23201B24201B23201B231F1A211E19201D1839371D646227696828696728
-              7E7E2EDFE147444221231F1A25211C26221D26221D26221D1D3F26221D26221D
-              25211C231F1B211E19D3D445706F2B1C1916A0A138A3A339211E19231F1B2521
-              1C25211C25211C24201B221E1A514F24DBDD46D7D846C3C440C8C941ECEE4BDB
-              DD472B281C231F1B25211C26221D26221D26221D000026221D26221D25211C23
-              201B211E19CECF436D6B2A1C19159191339FA037211E1923201B25211C26221D
-              25211C24201B221E1AADAE3BA1A1381D1A15232017B9BA3EDBDD47454321221E
-              1A24201C25211C26221D26221D26221D446226221D26221D25211C24201B221E
-              1ACFD044E4E649CDCF43E3E548A1A138201D19221F1A24201C25211C24201C22
-              1F1A201D19C6C7417A792D232017AFB03BDCDD47454321211E1923201B25211C
-              26221D26221D26221D26221D000026221D26221D26221D25211C231F1B4E4C24
-              716F2C706F2BC2C340A3A3381F1C18211D19221F1A231F1B221F1A211D191F1B
-              17C2C3407E7D2EB0B13BDCDD47454321211E19231F1B25211C26221D26221D26
-              221D26221D26221DFA7C26221D26221D26221D25211C24211C231F1A211D191F
-              1C18A3A3399A9A361F1B17201C18211D19211E19211D191F1C181E1B17B6B73C
-              E6E84ADCDD47454321211E1923201B25211C26221D26221D26221D26221D2622
-              1D26221D000026221D26221D26221D26221D25211C24201C231F1A211D19A3A3
-              39E0E248B7B83DB0B13AB0B13AB0B13AB0B13AB0B13AB9BA3EE8EA4ADCDD4745
-              4321211D19231F1B25211C26221D26221D26221D26221D26221D26221D26221D
-              846526221D26221D26221D26221D26221D25211C24211C231F1B4D4B248A8932
-              8D8C338C8C338D8C338D8C338D8C338C8C338C8C33888732403E20211E19231F
-              1B25211C26221D26221D26221D26221D26221D26221D26221D26221D00002622
-              1D26221D26221D26221D26221D26221D25211C24211C23201B221F1A221E1A22
-              1E1A221E1A221E1A221E1A221E1A221E1A221E1A231F1A24201B25211C26221D
-              26221D26221D26221D26221D26221D26221D26221D26221D5005}
-            ShowHint = True
-            Stretch = True
-          end
-          object Image2: TImage
-            Left = 198
-            Top = 61
-            Width = 25
-            Height = 21
-            Cursor = crHandPoint
-            Hint = 'Paste Position'
-            ParentShowHint = False
-            Picture.Data = {
-              07544269746D61708E090000424D8E0900000000000036000000280000001E00
-              00001A000000010018000000000058090000120B0000120B0000000000000000
-              000026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
-              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
-              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D00002622
-              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
-              221D5F5C2ACFD044EBED4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4BECEE4B
-              D9DB47706E2E26221D26221D26221D26221D26221D26221D3C3F26221D26221D
-              26221D26221D26221D26221D26221D26221D26221D26221D26221D322E20E0E1
-              48A5A53B69672D68662C68662C68662C68662C68662C68662C68662C979637E8
-              EA4A413E2326221D26221D26221D26221D26221D8D3F26221D26221D26221D26
-              221D26221D26221D393521A1A03AD0D145D9DA46DCDD47DCDE47ECEE4B403C23
-              26221D26221D26221D26221D26221D26221D26221D26221D28241DE7E84A6866
-              2C26221D26221D26221D26221D26221D863F26221D26221D26221D26221D2622
-              1D2A261ECECF44CDCE448988348281328280329A9938ECEE4B38342126221D26
-              221D26221D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D
-              26221D26221D26221D26221D8E3F26221D26221D26221D26221D26221D585529
-              ECEE4B413E2326221D26221D26221D555228ECEE4B322E20504D27E4E649ECEE
-              4BECEE4BECEE4BECEE4BE6E84A66642C26221DE0E2486C6A2D26221D26221D26
-              221D26221D26221D903F26221D26221D26221D26221D26221D6C6A2DE3E54926
-              221D26221D26221D26221D555228ECEE4B322E202D291F66642C68662C68662C
-              68662C68662C68662C33302026221DE0E2486C6A2D26221D26221D26221D2622
-              1D26221D3D3F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
-              1D26221D26221D555228ECEE4B322E2026221D26221D26221D26221D26221D26
-              221D26221D26221D26221DE0E2486C6A2D26221D26221D26221D26221D26221D
-              993F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
-              26221D555228ECEE4B322E20423F23AFB03DB7B83FB7B83FB7B83FB7B83FB1B1
-              3D504D2726221DE0E2486C6A2D26221D26221D26221D26221D26221D933F2622
-              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D55
-              5228ECEE4B322E203B38229B9B389D9C399D9C399D9C399D9C399C9C38494625
-              26221DE0E2486C6A2D26221D26221D26221D26221D26221D543F26221D26221D
-              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE
-              4B322E2026221D26221D26221D26221D26221D26221D26221D26221D26221DE0
-              E2486C6A2D26221D26221D26221D26221D26221D943F26221D26221D26221D26
-              221D26221D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20
-              343020807F328281328281328281328281328281323D3A2226221DE0E2486C6A
-              2D26221D26221D26221D26221D26221D783F26221D26221D26221D26221D2622
-              1D6C6A2DE0E24826221D26221D26221D26221D555228ECEE4B322E20484525CA
-              CB43D2D345D2D345D2D345D2D345CDCE445D5B2A26221DE0E2486C6A2D26221D
-              26221D26221D26221D26221D833F26221D26221D26221D26221D26221D6C6A2D
-              E0E24826221D26221D26221D26221D555228ECEE4B322E2026221D26221D2622
-              1D26221D26221D26221D26221D26221D26221DE0E2486C6A2D26221D26221D26
-              221D26221D26221D8A3F26221D26221D26221D26221D26221D6C6A2DE0E24826
-              221D26221D26221D26221D4E4C26ECEE4B403C2326221D26221D26221D26221D
-              26221D26221D26221D26221D29251EE8EA4A67652C26221D26221D26221D2622
-              1D26221D843F26221D26221D26221D26221D26221D6C6A2DE0E24826221D2622
-              1D26221D26221D2C281ED7D846BBBC4082813282813282813282813282813282
-              8132828132828132ACAC3CE5E7493A372226221D26221D26221D26221D26221D
-              773F26221D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D
-              26221D26221D514E27BBBC40D2D345D2D345D2D345D2D345D2D345D2D345E3E5
-              49ECEE4BC4C5425C5A2A26221D26221D26221D26221D26221D26221DA53F2622
-              1D26221D26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26
-              221D26221D26221D26221D26221D26221D26221D26221D26221D7B7931D6D846
-              26221D26221D26221D26221D26221D26221D26221D26221D1D3F26221D26221D
-              26221D26221D26221D6C6A2DE0E24826221D26221D26221D26221D26221D2622
-              1D26221D26221D26221D26221D26221D26221D26221D787630D5D64626221D26
-              221D26221D26221D26221D26221D26221D26221D4F3F26221D26221D26221D26
-              221D26221D6C6A2DE0E24826221D26221D28241E5250275B58295B58295B5829
-              5B58295B58295B58293C382226221D26221D787630D5D64626221D26221D2622
-              1D26221D26221D26221D26221D26221D364026221D26221D26221D26221D2622
-              1D5C5929EBED4B37342126221D8C8B35ECEE4BECEE4BECEE4BECEE4BECEE4BEC
-              EE4BECEE4BE3E54938342126221D939336C4C44226221D26221D26221D26221D
-              26221D26221D26221D26221D813F26221D26221D26221D26221D26221D2D291F
-              D7D846C3C44172702FCDCE44A3A33A333020333020333020333020333020413E
-              23ECEE4B9090368D8C35E7E84A7E7C3126221D26221D26221D26221D26221D26
-              221D26221D26221D3B3F26221D26221D26221D26221D26221D26221D474425B7
-              B83FE5E749ECEE4B9A9A3826221D26221D26221D26221D26221D322E20ECEE4B
-              ECEE4BD5D74688873428241E26221D26221D26221D26221D26221D26221D2622
-              1D26221D883F26221D26221D26221D26221D26221D26221D26221D26221D2622
-              1DB6B73FBFC04175742F75742F75742F75742F75742F807F32ECEE4B5A582926
-              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
-              DE3E26221D26221D26221D26221D26221D26221D26221D26221D26221D62602B
-              D7D846DFE048DFE048DFE048DFE048DFE048DFE048B5B53E2C281E26221D2622
-              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D793F2622
-              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
-              221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
-              26221D26221D26221D26221D26221D26221D26221D26221D2F3F}
-            ShowHint = True
-            Stretch = True
-          end
-          object edtEllipsePosLat: TEdit
-            Left = 64
-            Top = 39
-            Width = 91
+          object edtSectorRange: TEdit
+            Left = 72
+            Top = 42
+            Width = 35
             Height = 21
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clBlack
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
+            MaxLength = 4
             ParentFont = False
             TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
           end
-          object edtEllipsePosLong: TEdit
-            Left = 64
-            Top = 61
-            Width = 91
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-          end
-          object edtHorizontal: TEdit
-            Left = 85
+          object edtSectorInnerD: TEdit
+            Left = 75
             Top = 128
             Width = 35
             Height = 21
@@ -55125,9 +55876,1031 @@ object fmOverlayEditor: TfmOverlayEditor
             Text = '0'
             OnKeyPress = OnKeyPress
           end
-          object edtVertical: TEdit
-            Left = 85
+          object edtSectorOuterD: TEdit
+            Left = 75
             Top = 150
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtSectorStartAngleD: TEdit
+            Left = 75
+            Top = 199
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 4
+            Text = '0'
+          end
+          object edtSectorEndAngleD: TEdit
+            Left = 75
+            Top = 221
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 5
+            Text = '0'
+          end
+          object edtSectorBearing: TEdit
+            Left = 72
+            Top = 64
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+        end
+        object grpTextD: TGroupBox
+          Left = 7
+          Top = 7
+          Width = 214
+          Height = 270
+          TabOrder = 5
+          object lbl17: TLabel
+            Left = 14
+            Top = 107
+            Width = 29
+            Height = 13
+            Caption = 'Text :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl18: TLabel
+            Left = 14
+            Top = 168
+            Width = 26
+            Height = 13
+            Caption = 'Size :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl91: TLabel
+            Left = 31
+            Top = 43
+            Width = 31
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl93: TLabel
+            Left = 112
+            Top = 65
+            Width = 18
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label49: TLabel
+            Left = 31
+            Top = 65
+            Width = 36
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label50: TLabel
+            Left = 112
+            Top = 43
+            Width = 14
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label51: TLabel
+            Left = 14
+            Top = 21
+            Width = 31
+            Height = 13
+            Caption = 'Start :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edtTextRange: TEdit
+            Left = 72
+            Top = 39
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtTextFieldD: TEdit
+            Left = 31
+            Top = 125
+            Width = 162
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 30
+            ParentFont = False
+            TabOrder = 2
+            Text = 'None'
+          end
+          object edtTextBearing: TEdit
+            Left = 72
+            Top = 61
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object cbbTextSizeD: TComboBox
+            Left = 31
+            Top = 186
+            Width = 82
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+            Text = '11'
+            Items.Strings = (
+              '8'
+              '9'
+              '10'
+              '11'
+              '12'
+              '14'
+              '16'
+              '18'
+              '20'
+              '22'
+              '24'
+              '26'
+              '28'
+              '36'
+              '48'
+              '72')
+          end
+        end
+        object grpArcD: TGroupBox
+          Left = 1
+          Top = 7
+          Width = 220
+          Height = 270
+          TabOrder = 3
+          object lbl41: TLabel
+            Left = 116
+            Top = 195
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl42: TLabel
+            Left = 116
+            Top = 218
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl44: TLabel
+            Left = 117
+            Top = 138
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl45: TLabel
+            Left = 21
+            Top = 195
+            Width = 25
+            Height = 13
+            Caption = 'Start'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl46: TLabel
+            Left = 21
+            Top = 218
+            Width = 19
+            Height = 13
+            Caption = 'End'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label57: TLabel
+            Left = 22
+            Top = 43
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label58: TLabel
+            Left = 22
+            Top = 65
+            Width = 38
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label59: TLabel
+            Left = 116
+            Top = 65
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl43: TLabel
+            Left = 14
+            Top = 110
+            Width = 34
+            Height = 13
+            Caption = 'Radius'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl40: TLabel
+            Left = 16
+            Top = 16
+            Width = 33
+            Height = 13
+            Caption = 'Centre'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label122: TLabel
+            Left = 65
+            Top = 42
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label123: TLabel
+            Left = 65
+            Top = 64
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Bevel19: TBevel
+            Left = 59
+            Top = 116
+            Width = 120
+            Height = 2
+          end
+          object Label124: TLabel
+            Left = 65
+            Top = 195
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label125: TLabel
+            Left = 65
+            Top = 218
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label126: TLabel
+            Left = 22
+            Top = 138
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label127: TLabel
+            Left = 65
+            Top = 138
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label128: TLabel
+            Left = 14
+            Top = 172
+            Width = 28
+            Height = 13
+            Caption = 'Angle'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Bevel20: TBevel
+            Left = 59
+            Top = 178
+            Width = 120
+            Height = 2
+          end
+          object Label60: TLabel
+            Left = 119
+            Top = 43
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edtArcRange: TEdit
+            Left = 74
+            Top = 38
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtArcBearing: TEdit
+            Left = 74
+            Top = 61
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object edtArcRadiusD: TEdit
+            Left = 74
+            Top = 134
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtArcStartAngleD: TEdit
+            Left = 75
+            Top = 191
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+          end
+          object edtArcEndAngleD: TEdit
+            Left = 75
+            Top = 214
+            Width = 30
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 4
+            Text = '0'
+          end
+        end
+        object grpCircleD: TGroupBox
+          Left = 1
+          Top = 7
+          Width = 220
+          Height = 270
+          TabOrder = 1
+          object Label52: TLabel
+            Left = 10
+            Top = 110
+            Width = 34
+            Height = 13
+            Caption = 'Radius'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl1: TLabel
+            Left = 116
+            Top = 137
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lblCentre: TLabel
+            Left = 10
+            Top = 17
+            Width = 33
+            Height = 13
+            Caption = 'Centre'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label53: TLabel
+            Left = 22
+            Top = 43
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label54: TLabel
+            Left = 22
+            Top = 65
+            Width = 38
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label55: TLabel
+            Left = 115
+            Top = 65
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label56: TLabel
+            Left = 116
+            Top = 43
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label129: TLabel
+            Left = 65
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label130: TLabel
+            Left = 65
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Bevel21: TBevel
+            Left = 53
+            Top = 117
+            Width = 120
+            Height = 2
+          end
+          object Label131: TLabel
+            Left = 22
+            Top = 137
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label132: TLabel
+            Left = 65
+            Top = 137
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edtCircleRange: TEdit
+            Left = 74
+            Top = 39
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtCircleBearing: TEdit
+            Left = 74
+            Top = 61
+            Width = 35
+            Height = 21
+            Hint = '185'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object edtCircleRadiusD: TEdit
+            Left = 74
+            Top = 133
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+        end
+        object grpEllipseD: TGroupBox
+          Left = 7
+          Top = 7
+          Width = 214
+          Height = 270
+          TabOrder = 7
+          object lbl47: TLabel
+            Left = 10
+            Top = 16
+            Width = 33
+            Height = 13
+            Caption = 'Centre'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl48: TLabel
+            Left = 22
+            Top = 136
+            Width = 51
+            Height = 13
+            Caption = 'Horizontal'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl50: TLabel
+            Left = 132
+            Top = 136
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl51: TLabel
+            Left = 22
+            Top = 158
+            Width = 37
+            Height = 13
+            Caption = 'Vertical'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl52: TLabel
+            Left = 132
+            Top = 158
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object bvl4: TBevel
+            Left = 76
+            Top = 115
+            Width = 115
+            Height = 3
+          end
+          object lbl49: TLabel
+            Left = 10
+            Top = 110
+            Width = 58
+            Height = 13
+            Caption = ' Semi - Axis'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object lbl79: TLabel
+            Left = 22
+            Top = 43
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl80: TLabel
+            Left = 118
+            Top = 43
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label47: TLabel
+            Left = 22
+            Top = 65
+            Width = 38
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label48: TLabel
+            Left = 117
+            Top = 65
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label133: TLabel
+            Left = 65
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label134: TLabel
+            Left = 65
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label135: TLabel
+            Left = 80
+            Top = 136
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label136: TLabel
+            Left = 80
+            Top = 158
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edtEllipseRange: TEdit
+            Left = 74
+            Top = 39
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtEllipseBearing: TEdit
+            Left = 74
+            Top = 61
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object edtEllipseHorizontalD: TEdit
+            Left = 89
+            Top = 132
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtEllipseVerticalD: TEdit
+            Left = 89
+            Top = 154
             Width = 35
             Height = 21
             Font.Charset = DEFAULT_CHARSET

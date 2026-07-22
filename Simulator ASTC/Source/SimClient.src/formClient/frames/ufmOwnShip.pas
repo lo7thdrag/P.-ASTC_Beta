@@ -89,7 +89,7 @@ uses
   uT3Unit, uT3Vehicle, uBaseCoordSystem, uGuidance, uLaunchPlatform,
   uDBAsset_Vehicle, uSettingCoordinate, uSimMgr_Client, uSimObjects,
   uGameData_TTT, uFLanding, tttData, ufLandTemp, ufReturnToBase,
-  uMapXHandler, ufrmTopNav, uMapLayerDB;
+  uMapXHandler, ufrmTopNav, uMapLayerDB, ufrmLeftNav;
 
 {$R *.dfm}
 
@@ -179,18 +179,12 @@ begin
       lbClass.Caption := '---';
 
     lbName.Caption := InstanceName;
-    {NAVIGASI}
-    frmTopNav.lblName.Caption := InstanceName;
-    frmTopNav.lblClass.Caption := TT3Vehicle(FControlled).VehicleDefinition.FData.Vehicle_Identifier;
 
     case idCoordinat of
       1:
       begin
         lbOwnShipPosition1.Caption  := formatDMS_long(getPositionX);
         lbOwnShipPosition2.Caption  := formatDMS_latt(getPositionY);
-        {Navigasi}
-        frmTopNav.lblLong1.Caption  := formatDMS_long(getPositionX);
-        frmTopNav.lblLat1.Caption   := formatDMS_latt(getPositionY);
       end;
       2:
       begin
@@ -200,52 +194,38 @@ begin
         if (pX >= 0) and (pY >=0) then
         begin
           lbOwnShipPosition1.Caption := 'White ' + FormatFloat('0.00', Abs(pX));  //kuadran 1
-          frmTopNav.lblLong1.Caption := 'White ' + FormatFloat('0.00', Abs(pX));  {Navigasi}
         end;
         if (pX <= 0) and (pY >=0) then
         begin
           lbOwnShipPosition1.Caption := 'Red ' + FormatFloat('0.00', Abs(pX));    //kuadran 2
-          frmTopNav.lblLong1.Caption := 'Red ' + FormatFloat('0.00', Abs(pX));    {Navigasi}
         end;
         if (pX < 0) and (pY < 0) then
         begin
           lbOwnShipPosition1.Caption := 'Green ' + FormatFloat('0.00', Abs(pX));  //kuadran 3
-          frmTopNav.lblLong1.Caption := 'Green ' + FormatFloat('0.00', Abs(pX));  {Navigasi}
         end;
         if (pX >= 0) and (pY <= 0) then
         begin
           lbOwnShipPosition1.Caption := 'Blue ' + FormatFloat('0.00', Abs(pX));   //kuadran 4
-          frmTopNav.lblLong1.Caption := 'Blue ' + FormatFloat('0.00', Abs(pX));   {Navigasi}
         end;
 
        lbOwnShipPosition2.Caption := FormatFloat('0.00', Abs(pY));
-       frmTopNav.lblLat1.Caption := FormatFloat('0.00', Abs(pY)); {Navigasi}
       end;
       3:
       begin
         lbOwnShipPosition1.Caption := ConvDegree_To_Georef(getPositionX,getPositionY);
         lbOwnShipPosition2.Caption := '---';
-        {Navigasi}
-        frmTopNav.lblLong1.Caption := ConvDegree_To_Georef(getPositionX,getPositionY);
-        frmTopNav.lblLat1.Caption := '---';
       end;
       4:
       begin
         ConvDegree_To_UTM_and_MGRS(lat, long, hasilUTM, hasilMGRS);
         lbOwnShipPosition1.Caption := hasilUTM ;   //dng
         lbOwnShipPosition2.Caption := '';
-        {Navigasi}
-        frmTopNav.lblLong1.Caption := hasilUTM ;   //dng
-        frmTopNav.lblLat1.Caption := '';
       end;
       5:
       begin
         ConvDegree_To_UTM_and_MGRS(lat, long, hasilUTM, hasilMGRS);
         lbOwnShipPosition1.Caption := hasilMGRS ;   //dng
         lbOwnShipPosition2.Caption := '';
-        {Navigasi}
-        frmTopNav.lblLong1.Caption := hasilMGRS ;   //dng
-        frmTopNav.lblLat1.Caption := '';
       end;
       6:
       begin
@@ -253,9 +233,6 @@ begin
         ConvDegree_To_Karvak(getPositionX, getPositionY, horzPoint, vertPoint);
         lbOwnShipPosition1.Caption :=  largeLtr+horizontalNumb + horzPoint + verticalNumb + vertPoint;
         lbOwnShipPosition2.Caption := '';
-        {Navigasi}
-        frmTopNav.lblLong1.Caption :=  largeLtr+horizontalNumb + horzPoint + verticalNumb + vertPoint;
-        frmTopNav.lblLat1.Caption := '';
       end;
     end;
 
@@ -351,6 +328,7 @@ begin
       if isOnlandTemp then
       begin
         lblDepth.Caption := FormatSpeed(d2);
+        frmleftNav.lblDepthNav.Caption := FormatSpeed(d2)+ ' Meter';
       end
       else
       begin
@@ -363,10 +341,12 @@ begin
         if isdeptAvailTemp then
         begin
           lblDepth.Caption := FormatSpeed(d2);
+          frmleftNav.lblDepthNav.Caption := FormatSpeed(d2)+ ' Meter';
         end
         else
         begin
           lblDepth.Caption := '0';
+          frmleftNav.lblDepthNav.Caption := '0'+ ' Meter';
         end;
       end;
 

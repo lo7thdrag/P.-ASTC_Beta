@@ -732,6 +732,20 @@ type
     pnlShipInformationHeader: TPanel;
     pnlShipSheet: TPanel;
     pnlShipSparator: TPanel;
+    pnlContainerBottom: TPanel;
+    lblRangeRings: TLabel;
+    ZoomOut: TRzBmpButton;
+    btnCenterGame: TRzBmpButton;
+    btnCenterHook: TRzBmpButton;
+    btnFilterRings: TRzBmpButton;
+    btnRuler: TRzBmpButton;
+    btnZoomIn: TRzBmpButton;
+    btnPanNav: TRzBmpButton;
+    btnMapTools: TRzBmpButton;
+    btnZoomIn1: TRzBmpButton;
+    btnRangeRingsOnHookNav: TRzBmpButton;
+    cbbSetScale: TComboBox;
+    btnSelect: TRzBmpButton;
 
 //    ToolBtnComm: TToolButton;
 
@@ -1183,6 +1197,18 @@ type
     procedure fmWeapon1EdtWHSalvoKeyPress(Sender: TObject; var Key: Char);
     procedure fmWeapon1btnWHDefaultSeekerRangeClick(Sender: TObject);
     procedure fmWeapon1btnWGTargetTrackClick(Sender: TObject);
+    procedure btnPanNavClick(Sender: TObject);
+    procedure UpAllToolbarButton;
+    procedure ZoomOutClick(Sender: TObject);
+    procedure cbbSetScaleChange(Sender: TObject);
+    procedure btnZoomInClick(Sender: TObject);
+    procedure btnCenterHookClick(Sender: TObject);
+    procedure btnCenterGameClick(Sender: TObject);
+    procedure btnFilterRingsClick(Sender: TObject);
+    procedure btnRangeRingsOnHookNavClick(Sender: TObject);
+    procedure btnRulerClick(Sender: TObject);
+    procedure btnMapToolsClick(Sender: TObject);
+    procedure btnSelectClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -1191,6 +1217,7 @@ type
     FIndexTrack : integer;
     FLastPos : TPoint;
     FMinimapFocusRect : TRect;
+    FMapRulerCursor : E_RulerMapCursor;
 
     function FindTrackListByMember(const arg: string): TListItem;
 
@@ -1379,7 +1406,7 @@ uses
   uBrowseMap, uRuler, uObjectVisuals, uDrawStrategi, uMainPlottingShape, uSaveAsPlotting, newClassASTT,
   uDBAsset_Deploy, uDBAsset_Cubicle, uSaveAsOverlay,
 
-  ufrmBottomNav, ufrmLeftNav, ufrmRightNav, ufrmTopNav;
+  ufrmLeftNav, ufrmRightNav, ufrmTopNav;
 
 {$R *.dfm}
 
@@ -1465,7 +1492,7 @@ begin
   lbClassIff.Caption := 'Unknown';
 
   {Navigasi}
-  frmTopNav.lblTrackID.Caption := 'Unknown';
+//  frmTopNav.lblTrackID.Caption := 'Unknown';
 end;
 
 function ZoomIndexToScale(const i: Integer): double;
@@ -1855,6 +1882,11 @@ begin
     fmCounterMeasure1.SetControlledObject(pit);
     fmEMCON1.SetControlledObject(pit);
 //    fmLogisticCalculation1.SetControlledObject(pit);
+
+    {$REGION ' Navigasi '}
+    frmTopNav.SetControlledObject(pit);
+
+    {$ENDREGION}
 
     // wasdal UI
     if simMgrClient.ISWasdal then
@@ -2299,6 +2331,13 @@ begin
   fmSensor1.sbAnomalyDetectorOnClick(Sender);
 end;
 
+procedure TfrmTacticalDisplay.btnMapToolsClick(Sender: TObject);
+var
+  vHelpFile, vHelpID : OleVariant;
+begin
+  VSimMap.FMap.Layers.LayersDlg(vHelpFile, vHelpID);
+end;
+
 procedure TfrmTacticalDisplay.btnMinimapClick(Sender: TObject);
 begin
   {Jika diakses melalui menbar}
@@ -2524,6 +2563,37 @@ begin
   end;
 end;
 
+procedure TfrmTacticalDisplay.cbbSetScaleChange(Sender: TObject);
+var
+  z: double;
+  s: string;
+  i: Integer;
+  rrVis: Boolean;
+begin
+  if cbbSetScale.ItemIndex < 0 then
+    exit;
+
+  s := cbbSetScale.Items[cbbSetScale.ItemIndex];
+  try
+    z := StrToFloat(s);
+    VSimMap.SetMapZoom(z * 2);
+    frmTacticalDisplay.lblRangeScale.Caption := cbbSetScale.Text;
+    lblRangeRings.Caption := '1 : ' + FloatToStr(z/4);
+
+    // Set Range Ring
+    rrVis := btnFilterRings.down;
+    if rrVis then
+    begin
+      z := FixMapZoom(VSimMap.FMap.Zoom);
+      i := FindClosestZoomIndex(z);
+      z := ZoomIndexToScale(i);
+      simMgrClient.RangeRing.Interval := 0.125 * z;
+    end;
+  finally
+
+  end;
+end;
+
 procedure TfrmTacticalDisplay.cbbTerrainChange(Sender: TObject);
 var
   rec : TRec_SwitchTerrain;
@@ -2561,7 +2631,22 @@ var
   k,l : Integer;
   readPath : string;
   subHelp : TMenuItem;
+
 begin
+  {Navigasi}
+  cbbSetScale.Items.Clear;
+
+  for i := CMin_Z to CMax_Z do
+  begin
+    z := ZoomIndexToScale(i);
+    cbbSetScale.Items.Add(FloatToStr(z));
+  end;
+
+//  cbbSetScale.ItemIndex := 8;
+  cbbSetScale.Text := '25';
+  lblRangeRings.Caption := '1 : 6.25';
+//  cbbSetScaleChange(nil);
+
   //Disable All Floating Point Exceptions
   SetExceptionMask(exAllArithmeticExceptions);
 
@@ -2608,6 +2693,11 @@ begin
   fmCounterMeasure1.InitCreate(self);
   fmFireControl1.InitCreate(self);
   fmEMCON1.InitCreate(self);
+
+  {$REGION ' Navigasi '}
+  frmTopNav.InitCreate(Self);
+  {$ENDREGION}
+
 //  fmLogisticCalculation1.InitCreate(Self);
 
 //  FOnUpdateAsset := nil;
@@ -5953,6 +6043,11 @@ begin
     fmEMCON1.SetControlledObject(pit);
 //    fmLogisticCalculation1.SetControlledObject(pit);
 
+    {$REGION ' Navigasi '}
+    frmTopNav.SetControlledObject(pit);
+
+    {$ENDREGION}
+
     {Wasdal UI}
     if simMgrClient.ISWasdal then
     begin
@@ -6034,7 +6129,8 @@ end;
 
 procedure TfrmTacticalDisplay.SetRoleClient(rc: Integer);
 begin
-  case rc of
+    pnlContainerBottom.Visible := False;
+    case rc of
     crpInstruktur:
       begin
         if simMgrClient.ISWasdal then
@@ -6275,7 +6371,8 @@ procedure TfrmTacticalDisplay.SetUpNavigasiUI;
 begin
   pnl1ToolbarGeneral.Visible    := False;
   pnlBottom.Visible := False;
-//  pnlLeft.Visible   := False;
+  pnlLeft.Visible   := False;
+  pnlContainerBottom.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   if not Assigned(frmLeftNav) then
@@ -6287,15 +6384,6 @@ begin
   frmLeftNav.Show;
   frmLeftNav.BringToFront;
 
-  if not Assigned(frmBottomNav) then
-  frmBottomNav := TfrmBottomNav.Create(Application);
-
-  frmBottomNav.Parent := nil;
-  frmBottomNav.Align  := alBottom;
-  frmBottomNav.Parent := Self;
-  frmBottomNav.Show;
-  frmBottomNav.SendToBack;
-
   if not Assigned(frmTopNav) then
   frmTopNav := TfrmTopNav.Create(Application);
 
@@ -6304,7 +6392,7 @@ begin
   frmTopNav.Parent := Self;
   frmTopNav.Show;
   frmTopNav.BringToFront;
-
+//
   if not Assigned(frmRightNav) then
     frmRightNav := TfrmRightNav.Create(Application);
 
@@ -6994,6 +7082,57 @@ begin
     StatusBar1.Panels[0].Text := TMenuItem(Sender).Hint;
 end;
 
+procedure TfrmTacticalDisplay.btnCenterGameClick(Sender: TObject);
+var
+  long, lat: double;
+begin
+  long := simMgrClient.GameEnvironment.FGameArea.Game_Centre_Long;
+  lat := simMgrClient.GameEnvironment.FGameArea.Game_Centre_Lat;
+  VSimMap.SetMapCenter(long, lat);
+
+  frmTacticalDisplay.StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
+  btnCenterGame.Down := False;
+
+  if btnCenterHook.Down then
+  begin
+    btnCenterHook.Down := False;
+    frmTacticalDisplay.FHookOnPlatform := not frmTacticalDisplay.FHookOnPlatform;
+  end;
+end;
+
+procedure TfrmTacticalDisplay.btnCenterHookClick(Sender: TObject);
+begin
+  with frmTacticalDisplay do
+  begin
+    if focusedTrack = nil then   //mk
+      exit;
+
+    FHookOnPlatform := not FHookOnPlatform;
+    btnCenterHook.Down := FHookOnPlatform;
+
+    if FHookOnPlatform then
+    begin
+      try
+        simMgrClient.MyCenterHookedPlatfom := focusedTrack;
+
+        VSimMap.SetMapCenter(simMgrClient.MyCenterHookedPlatfom.getPositionX,
+              simMgrClient.MyCenterHookedPlatfom.getPositionY);
+//        FLastMapCenterY := simMgrClient.MyCenterHookedPlatfom.getPositionY;
+//        FLastMapCenterX := simMgrClient.MyCenterHookedPlatfom.getPositionX;
+      except
+        focusedTrack := nil;
+        simMgrClient.MyCenterHookedPlatfom := nil;
+      end;
+    end
+    else
+    begin
+      simMgrClient.MyCenterHookedPlatfom := nil;
+    end;
+
+    StatusBar1.Panels[0].Text := btnCenterHook.Hint;
+  end;
+end;
+
 procedure TfrmTacticalDisplay.btnCentreOnHookClick(Sender: TObject);
 begin
   {jika diakses melalui menubar}
@@ -7241,6 +7380,36 @@ begin
     StatusBar1.Panels[0].Text := TToolButton(Sender).Hint
   else if Sender is TMenuItem then
     StatusBar1.Panels[0].Text := TMenuItem(Sender).Hint;
+end;
+
+procedure TfrmTacticalDisplay.btnFilterRingsClick(Sender: TObject);
+var
+  i: Integer;
+  rrVis: Boolean;
+  z: double;
+begin
+  rrVis := btnFilterRings.Down;
+
+  // toolBtnFilterRangeRings.Down := FRangeRingVisible;
+  if rrVis then
+  begin
+    z := FixMapZoom(VSimMap.FMap.Zoom);
+    i := FindClosestZoomIndex(z);
+    z := ZoomIndexToScale(i);
+    simMgrClient.RangeRing.Interval := 0.125 * z;
+  end;
+
+  if Assigned(frmTacticalDisplay.focusedTrack) then
+    simMgrClient.MyRingHookedPlatfom := frmTacticalDisplay.focusedTrack;
+
+  if Assigned(simMgrClient.MyRingHookedPlatfom)then
+  begin
+    simMgrClient.RangeRing.mX := simMgrClient.MyRingHookedPlatfom.getPositionX;
+    simMgrClient.RangeRing.mY := simMgrClient.MyRingHookedPlatfom.getPositionY;
+    simMgrClient.RangeRing.Visible := rrVis;
+  end;
+
+  frmTacticalDisplay.StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
 end;
 
 procedure TfrmTacticalDisplay.btnStartGameClick(Sender: TObject);
@@ -7667,6 +7836,26 @@ begin
   end;
 end;
 
+procedure TfrmTacticalDisplay.btnPanNavClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnPan.Down := True;
+
+  Map1.CurrentTool := miPanTool;
+  Map1.MousePointer := miPanCursor;
+
+  FMapRulerCursor := mcSelect;
+
+  {$REGION 'LAMA'}
+  if Assigned(frmRuler) then
+  frmRuler.Hide;   // atau Close jika Action := caHide
+
+  frmTacticalDisplay.Map1.CurrentTool := miPanTool;
+  frmTacticalDisplay.Map1.MousePointer := miPanCursor;
+  frmTacticalDisplay.Map1.IsPan := False;
+  {$ENDREGION}
+end;
+
 procedure TfrmTacticalDisplay.btnRangeRingsOnHookClick(Sender: TObject);
 begin
   {Set menubar item}
@@ -7706,6 +7895,25 @@ begin
     StatusBar1.Panels[0].Text := TToolButton(Sender).Hint
   else if Sender is TMenuItem then
     StatusBar1.Panels[0].Text := TMenuItem(Sender).Hint;
+end;
+
+procedure TfrmTacticalDisplay.btnRangeRingsOnHookNavClick(Sender: TObject);
+begin
+  with frmTacticalDisplay do
+  begin
+    FRangeRingOnHook := btnRangeRingsonHook.Down;
+
+    if FRangeRingOnHook then
+      simMgrClient.MyRingHookedPlatfom := focusedTrack;
+
+    if FRangeRingOnHook and (simMgrClient.MyRingHookedPlatfom <> nil) then
+    begin
+      simMgrClient.RangeRing.mx := simMgrClient.MyRingHookedPlatfom.getPositionX;
+      simMgrClient.RangeRing.my := simMgrClient.MyRingHookedPlatfom.getPositionY;
+    end;
+
+    StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
+  end;
 end;
 
 procedure TfrmTacticalDisplay.btnRemoveFromTrackTableClick(Sender: TObject);
@@ -7818,6 +8026,48 @@ begin
   end;
 end;
 
+procedure TfrmTacticalDisplay.btnRulerClick(Sender: TObject);
+begin
+  btnruler.Down := not btnruler.Down;
+
+//  if btnruler.Down then
+//  begin
+//    with frmRuler do
+//    begin
+//      IDForm := 2;
+//      frmRuler.Color := RGB (21, 33, 41);
+//      Show;
+//    end;
+//  end
+//  else
+//  begin
+//    frmRuler.Hide;
+//  end;
+
+
+  with frmTacticalDisplay do
+  begin
+    if btnRuler.Down then
+    begin
+      Map1.CurrentTool := miSelectTool;
+      StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
+
+      frmRuler.Color := RGB (21, 33, 41);
+      frmRuler.Show;
+
+      btnPan.Down := False;
+      Map1.IsPan := True;
+    end
+    else
+    begin
+      Map1.CurrentTool := mtSelectObject;
+      StatusBar1.Panels[0].Text := 'Select';
+
+    end;
+    btnRuler.Down := False;
+  end;
+end;
+
 procedure TfrmTacticalDisplay.btnRullerClick(Sender: TObject);
 begin
   frmRuler.Show
@@ -7835,6 +8085,15 @@ begin
 //    frmRotateMonitor.BtnSelectMode(1);
 //    ToolButtonBtn11.Down := False;
 //  end;
+end;
+
+procedure TfrmTacticalDisplay.btnSelectClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnSelect.Down := True;
+
+  Map1.CurrentTool := miSelectTool;
+  Map1.MousePointer := miDefaultCursor;
 end;
 
 procedure TfrmTacticalDisplay.btnSelectPlatformClick(Sender: TObject);
@@ -7959,6 +8218,19 @@ begin
     {Uncheck menu item}
     Zoom1.Checked := False;
   end;
+end;
+
+procedure TfrmTacticalDisplay.btnZoomInClick(Sender: TObject);
+begin
+  if cbbSetScale.Text = '25' then
+  begin
+    cbbSetScale.ItemIndex := 9;
+    cbbSetScaleChange(nil);
+    Exit
+  end;
+
+  cbbSetScale.ItemIndex := cbbSetScale.ItemIndex + 1;
+  cbbSetScaleChange(nil);
 end;
 
 procedure TfrmTacticalDisplay.ToolButton10Click(Sender: TObject);
@@ -8339,7 +8611,9 @@ begin // ini procedure update yg dipanggil dari sim client
 
     case i of
       0:
+      begin
         fmOwnShip1.Refresh_OwnShipTab(pi);
+      end;
       1:
         fmPlatformGuidance1.Refresh_VisibleTab();
       2:
@@ -8347,6 +8621,11 @@ begin // ini procedure update yg dipanggil dari sim client
       3:
         fmWeapon1.Refresh_VisibleTab;
     end;
+
+    {$REGION ' Navigasi '}
+    frmTopNav.Refresh_OwnShipTab(pi);
+    frmLeftNav.Refresh_OwnShipTab(pi);
+    {$ENDREGION}
 
     { wasdal UI }
     if simMgrClient.ISWasdal then
@@ -8778,6 +9057,19 @@ begin
   end;
 end;
 
+procedure TfrmTacticalDisplay.UpAllToolbarButton;
+begin
+//  btnSelect.Down := False;
+  btnCenterGame.Down := False;
+  btnZoom.Down := False;
+  btnPan.Down := False;
+  btnLayerTool.Down := False;
+  btnRuler.Down := False;
+
+  Map1.CurrentTool  := miArrowTool;
+  Map1.MousePointer := miDefaultCursor;
+end;
+
 procedure TfrmTacticalDisplay.UpdateCenter(Sender: TObject);
 var
   range : double;
@@ -8975,7 +9267,7 @@ begin
       if Assigned(det.MergedESM) then
       begin
         {Navigasi}
-        frmTopNav.lblTrackID.Caption:= (det.MergedESM.TrackNumber);
+//        frmTopNav.lblTrackID.Caption:= (det.MergedESM.TrackNumber);
 
         lbTrackHook.Caption:= (det.MergedESM.TrackNumber);
         lbNameHook.Caption := TT3PlatformInstance(det.MergedESM.TrackObject).InstanceName;
@@ -8997,10 +9289,10 @@ begin
       esm := TT3ESMTrack(Sender);
 
       {NAVIGASI}
-      if esm.DetailedDetectionShowedESM.Track_ID then
-        frmTopNav.lblTrackID.Caption      := esm.TrackNumber
-      else
-        frmTopNav.lblTrackID.Caption      := 'Unknown';
+//      if esm.DetailedDetectionShowedESM.Track_ID then
+//        frmTopNav.lblTrackID.Caption      := esm.TrackNumber
+//      else
+//        frmTopNav.lblTrackID.Caption      := 'Unknown';
 
       if esm.DetailedDetectionShowedESM.Track_ID then
         lbTrackHook.Caption      := esm.TrackNumber
@@ -9140,10 +9432,10 @@ begin
           lbAltitude.Caption    := '---';
 //      end;
       {Navigasi}
-      if det.DetailedDetectionShowed.Track_ID then
-        frmTopNav.lblTrackID.Caption := FormatTrackNumber(det.trackNumber)
-      else
-        frmTopNav.lblTrackID.Caption   := 'Unknown';
+//      if det.DetailedDetectionShowed.Track_ID then
+//        frmTopNav.lblTrackID.Caption := FormatTrackNumber(det.trackNumber)
+//      else
+//        frmTopNav.lblTrackID.Caption   := 'Unknown';
 
       if det.DetailedDetectionShowed.Track_ID then
         lbTrackHook.Caption := FormatTrackNumber(det.trackNumber)
@@ -9167,10 +9459,10 @@ begin
     if Assigned(v) then
     begin
       {Navigasi}
-      if v is TT3NonRealVehicle then
-        frmTopNav.lblTrackID.Caption := IntToStr(v.TrackNumber)
-      else
-        frmTopNav.lblTrackID.Caption := v.Track_ID;
+//      if v is TT3NonRealVehicle then
+//        frmTopNav.lblTrackID.Caption := IntToStr(v.TrackNumber)
+//      else
+//        frmTopNav.lblTrackID.Caption := v.Track_ID;
 
       if v is TT3NonRealVehicle then
         lbTrackHook.Caption := IntToStr(v.TrackNumber)
@@ -9356,12 +9648,6 @@ begin
       {$REGION ' ESM Track '}
       esm := TT3ESMTrack(Sender);
 
-      {Navigasi}
-      if esm.DetailedDetectionShowedESM.Track_ID then
-        frmTopNav.lblTrackID.Caption      := esm.TrackNumber
-      else
-        frmTopNav.lblTrackID.Caption      := 'Unknown';
-
       if esm.DetailedDetectionShowedESM.Track_ID then
         lbTrackDetails.Caption      := esm.TrackNumber
       else
@@ -9453,8 +9739,6 @@ begin
       {$REGION ' Jk yg di hook selain detected track  '}
       if v is TT3NonRealVehicle then
       begin
-        {Navigasi}
-        frmTopNav.lblTrackID.Caption := IntToStr(v.TrackNumber);
 
         lbTrackDetails.Caption := IntToStr(v.TrackNumber);
         lbTypeDetails.Caption  := 'Other';
@@ -9464,9 +9748,6 @@ begin
       end
       else
       begin
-        {Navigasi}
-        frmTopNav.lblTrackID.Caption := v.Track_ID;
-
         lbTrackDetails.Caption := v.Track_ID;
         lbTypeDetails.Caption := getVehicleTypestr(v.PlatformDomain, v.PlatformCategory, v.PlatformType);
 
@@ -12990,6 +13271,19 @@ begin
   rec.valueInt := StrToInt(edtPositionAzimuth.Text);
 
   simMgrClient.netSend_CameraController(rec);
+end;
+
+procedure TfrmTacticalDisplay.ZoomOutClick(Sender: TObject);
+begin
+  if cbbSetScale.Text = '25' then
+  begin
+    cbbSetScale.ItemIndex := 7;
+    cbbSetScaleChange(nil);
+    Exit
+  end;
+
+  cbbSetScale.ItemIndex := cbbSetScale.ItemIndex - 1;
+  cbbSetScaleChange(nil);
 end;
 
 procedure TfrmTacticalDisplay.RefreshLogistikList;

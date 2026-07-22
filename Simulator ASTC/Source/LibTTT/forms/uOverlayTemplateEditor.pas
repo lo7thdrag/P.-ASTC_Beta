@@ -494,6 +494,14 @@ type
     Label134: TLabel;
     Label135: TLabel;
     Label136: TLabel;
+    Label137: TLabel;
+    Label138: TLabel;
+    Label139: TLabel;
+    Label140: TLabel;
+    Label141: TLabel;
+    Label142: TLabel;
+    Label143: TLabel;
+    Label144: TLabel;
 
     procedure FormShow(Sender: TObject);
 

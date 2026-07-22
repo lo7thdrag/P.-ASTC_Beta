@@ -485,6 +485,15 @@ type
     Label128: TLabel;
     Bevel20: TBevel;
     Label60: TLabel;
+    Label129: TLabel;
+    Label130: TLabel;
+    Bevel21: TBevel;
+    Label131: TLabel;
+    Label132: TLabel;
+    Label133: TLabel;
+    Label134: TLabel;
+    Label135: TLabel;
+    Label136: TLabel;
 
     procedure FormShow(Sender: TObject);
 

@@ -7,7 +7,8 @@ uses
   Dialogs, StdCtrls, Buttons, ExtCtrls, ImgList, ComCtrls, ToolWin, OleCtrls,
   uMapXHandler, uBaseCoordSystem, math, {TeCanvas,} ColorGrd,
   uMainOverlay,uMainStaticShape, uMainDynamicShape, uCoordConvertor, tttData,
-  uRecord, uFormula, uDataTypes;
+  uRecord, uFormula, uDataTypes,
+  uSimContainers;
 type
   TDrawOverlay = class
   private
@@ -100,9 +101,9 @@ end;
 
 destructor TDrawOverlay.Destroy;
 begin
-  FList.Free;
-  StaticList.Free;
-  DynamicList.Free;
+  FreeItemsAndFreeList(DynamicList);
+  FreeItemsAndFreeList(StaticList);
+  FreeItemsAndFreeList(FList);
 end;
 
 procedure TDrawOverlay.BringToFront(idx : integer);

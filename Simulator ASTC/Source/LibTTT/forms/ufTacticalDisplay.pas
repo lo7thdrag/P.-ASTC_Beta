@@ -168,9 +168,6 @@ type
     Label68: TLabel;
     lbBearingAnchor: TLabel;
     Label70: TLabel;
-    Label71: TLabel;
-    Label73: TLabel;
-    Label74: TLabel;
     Label72: TLabel;
     lbLongitude: TLabel;
     lbLatitude: TLabel;
@@ -185,8 +182,6 @@ type
     Bevel2: TBevel;
     Bevel3: TBevel;
     Bevel4: TBevel;
-    Label35: TLabel;
-    Bevel5: TBevel;
     Bevel6: TBevel;
     btnSeparator2: TToolButton;
     lbColor: TLabel;
@@ -747,6 +742,23 @@ type
     cbbSetScale: TComboBox;
     btnSelect: TRzBmpButton;
     pnlAlignToolBar: TPanel;
+    bvl2: TBevel;
+    lbl4: TLabel;
+    lbl5: TLabel;
+    lbl6: TLabel;
+    lbl7: TLabel;
+    lbl8: TLabel;
+    lbl9: TLabel;
+    lbl11: TLabel;
+    lbl12: TLabel;
+    lbl10: TLabel;
+    lbl13: TLabel;
+    lbl14: TLabel;
+    lbl15: TLabel;
+    lbl16: TLabel;
+    bvl3: TBevel;
+    bvl4: TBevel;
+    pnlGameState: TPanel;
 
 //    ToolBtnComm: TToolButton;
 
@@ -2748,6 +2760,9 @@ begin
 
   StatusBar1.DoubleBuffered := true;
   FHookOnPlatform := false;
+
+  pnlGameState.Color := clRed;
+  pnlGameState.Caption := 'FROZEN';
 
   StatusBar1.Panels[9].Text := 'FROZEN';
   StatusBar1.Repaint;
@@ -13689,6 +13704,9 @@ begin
   begin
     StatusBar1.Panels[9].Text := 'FROZEN';
     StatusBar1.Repaint;
+
+    pnlGameState.Color := clRed;
+    pnlGameState.Caption := 'FROZEN';
   end
   else
   begin
@@ -13696,10 +13714,17 @@ begin
     begin
       i := Round(1.0 / gSpeed);
       StatusBar1.Panels[9].Text := '1/' + IntToStr(i) + ' X';
+
+      pnlGameState.Color := clLime;
+      pnlGameState.Caption := '1/' + IntToStr(i) + ' X';
     end
     else
+    begin
       StatusBar1.Panels[9].Text := IntToStr(Round(gSpeed)) + ' X';
 
+      pnlGameState.Color := clYellow;
+      pnlGameState.Caption := IntToStr(Round(gSpeed)) + ' X';
+    end;
   end;
 
   StatusBar1.Panels[10].Text := FormatDateTime('ddhhnnss', gTime)

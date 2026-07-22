@@ -745,6 +745,7 @@ type
     btnZoomIn1: TRzBmpButton;
     btnRangeRingsOnHookNav: TRzBmpButton;
     cbbSetScale: TComboBox;
+    btnSelect: TRzBmpButton;
 
 //    ToolBtnComm: TToolButton;
 
@@ -1207,6 +1208,7 @@ type
     procedure btnRangeRingsOnHookNavClick(Sender: TObject);
     procedure btnRulerClick(Sender: TObject);
     procedure btnMapToolsClick(Sender: TObject);
+    procedure btnSelectClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -2632,7 +2634,6 @@ var
 
 begin
   {Navigasi}
-
   cbbSetScale.Items.Clear;
 
   for i := CMin_Z to CMax_Z do
@@ -6372,8 +6373,7 @@ begin
   pnlBottom.Visible := False;
   pnlLeft.Visible   := False;
   pnlContainerBottom.Visible := True;
-  Self.Menu := nil;   {M
-  enyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
+  Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   if not Assigned(frmLeftNav) then
     frmLeftNav := TfrmLeftNav.Create(Application);
@@ -6383,16 +6383,7 @@ begin
   frmLeftNav.Parent := Self;
   frmLeftNav.Show;
   frmLeftNav.BringToFront;
-//
-//  if not Assigned(frmBottomNav) then
-//  frmBottomNav := TfrmBottomNav.Create(Application);
-//
-//  frmBottomNav.Parent := nil;
-//  frmBottomNav.Align  := alBottom;
-//  frmBottomNav.Parent := Self;
-//  frmBottomNav.Show;
-//  frmBottomNav.SendToBack;
-//
+
   if not Assigned(frmTopNav) then
   frmTopNav := TfrmTopNav.Create(Application);
 
@@ -8096,6 +8087,15 @@ begin
 //  end;
 end;
 
+procedure TfrmTacticalDisplay.btnSelectClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnSelect.Down := True;
+
+  Map1.CurrentTool := miSelectTool;
+  Map1.MousePointer := miDefaultCursor;
+end;
+
 procedure TfrmTacticalDisplay.btnSelectPlatformClick(Sender: TObject);
 begin
   if btnSelectPlatform.Down then
@@ -8624,6 +8624,7 @@ begin // ini procedure update yg dipanggil dari sim client
 
     {$REGION ' Navigasi '}
     frmTopNav.Refresh_OwnShipTab(pi);
+    frmLeftNav.Refresh_OwnShipTab(pi);
     {$ENDREGION}
 
     { wasdal UI }

@@ -2,7 +2,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
   Left = 44
   Top = -238
   BorderStyle = bsNone
-  Caption = 'Tactical Display'
+  Caption = '=-'
   ClientHeight = 2632
   ClientWidth = 2004
   Color = clBtnFace
@@ -3772,1155 +3772,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
           end
         end
-        object pnlPlatformGuidance: TPanel
-          Left = 1
-          Top = 1
-          Width = 359
-          Height = 1991
-          Align = alClient
-          BevelOuter = bvNone
-          Color = 4012086
-          ParentBackground = False
-          TabOrder = 3
-          inline fmPlatformGuidance1: TfmPlatformGuidance
-            Left = 0
-            Top = 0
-            Width = 359
-            Height = 1991
-            Align = alClient
-            Color = clMedGray
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 0
-            ExplicitWidth = 359
-            ExplicitHeight = 1991
-            inherited PanelGuidanceControlChoices: TPanel
-              Width = 359
-              Color = 2695445
-              ExplicitWidth = 359
-              inherited SpeedButton2: TSpeedButton
-                OnClick = fmPlatformGuidance1SpeedButton2Click
-              end
-            end
-            inherited PanelPlatformGuidance: TPanel
-              Width = 359
-              Height = 1950
-              Color = 2695445
-              ExplicitWidth = 359
-              ExplicitHeight = 1950
-              inherited grbOutrun: TGroupBox [0]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label310: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label321: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label322: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblOutrunActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbTrackToOutrun: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbTrackToOutrunClick
-                end
-                inherited Label23: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblOutrunAltitudeDepth: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label29: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText150: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText153: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText21: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbReturnToBase: TGroupBox [1]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label327: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblReturnToBaseDestinationBase: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label329: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label334: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label382: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label397: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblReturnToBaseActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label406: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label419: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label437: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label451: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblReturnToBaseActualAltitude: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText158: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText159: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText160: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText161: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText162: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlCoverAltitudeReturnToBase: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbShadow: TGroupBox [2]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label173: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label180: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label196: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label290: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label298: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label299: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblShadowActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label301: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText128: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText143: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText144: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText145: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited panShadowDepth: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited panShadowAltitude: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbSinuation: TGroupBox [3]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label206: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label227: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label241: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label255: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label256: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label260: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label270: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label287: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblSinuationActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label293: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label297: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText138: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText139: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText140: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText141: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText142: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbZigZag: TGroupBox [4]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label145: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label146: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label147: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label148: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label149: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label197: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label198: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label199: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblZigZagActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label207: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label209: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText106: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText108: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText109: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText110: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText137: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grpStation: TGroupBox [5]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label154: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbOnTrackAnchorMode: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbOnTrackAnchorModeClick
-                end
-                inherited StaticText113: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText114: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlStationPosition: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                  inherited btnStationAnchorPosition: TSpeedButton
-                    OnClick = fmPlatformGuidance1btnStationAnchorPositionClick
-                  end
-                end
-                inherited pnlStationTrack: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                  inherited sbOnTrackAnchorTrack: TSpeedButton
-                    OnClick = fmPlatformGuidance1sbOnTrackAnchorTrackClick
-                  end
-                end
-                inherited pnlStationDepth: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlStationAltitude: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited gbWaypoint: TGroupBox [6]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label97: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbName: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblLongitude: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label103: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label104: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbEta: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label105: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label106: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label107: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbDistance: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label177: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label179: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label184: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblLatitude: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbActualGroundWaypoint: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText24: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText26: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText27: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited btnWaypoint: TButton
-                  Left = 197
-                  Top = 217
-                  OnClick = fmPlatformGuidance1btnWaypointClick
-                  ExplicitLeft = 197
-                  ExplicitTop = 217
-                end
-                inherited StaticText67: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText71: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText76: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText77: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText78: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText79: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText80: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbEvasion: TGroupBox [7]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label318: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label319: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label320: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblEvasionActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbTrackToEvade: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbTrackToEvadeClick
-                end
-                inherited Label10: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblEvasionActualAltitudeDepth: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label16: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText151: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText152: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText20: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grpCircle: TGroupBox [8]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited ScrollBox1: TScrollBox
-                  Width = 355
-                  Height = 1930
-                  ExplicitWidth = 355
-                  ExplicitHeight = 1930
-                  inherited Label3: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label4: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label5: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label6: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label7: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label8: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label9: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited lblCircleActualGroundSpeed: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited lb1: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited btnCircleMode: TSpeedButton
-                    Top = 14
-                    OnClick = fmPlatformGuidance1btnCircleModeClick
-                    ExplicitTop = 14
-                  end
-                  inherited StaticText1: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited StaticText2: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited StaticText4: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited edtCircleRadius: TEdit
-                    Top = 145
-                    ExplicitTop = 145
-                  end
-                  inherited StaticText5: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited StaticText6: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited pnlTrack: TPanel [22]
-                    Font.Color = clWhite
-                    ParentFont = False
-                    inherited sbCircleOnTrackTrack: TSpeedButton
-                      OnClick = fmPlatformGuidance1sbCircleOnTrackTrackClick
-                    end
-                  end
-                  inherited pnlPosition: TPanel
-                    Font.Color = clWhite
-                    ParentFont = False
-                    inherited sbCircleOnPositionPosition: TSpeedButton
-                      Height = 27
-                      OnClick = fmPlatformGuidance1sbCircleOnPositionPositionClick
-                      ExplicitHeight = 27
-                    end
-                  end
-                  inherited StaticText7: TStaticText [24]
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                end
-              end
-              inherited grbEngagement: TGroupBox [9]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label300: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label305: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label306: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label307: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label308: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label309: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblEngageActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label314: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbEngageTrackToEngage: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbEngageTrackToEngageClick
-                end
-                inherited StaticText146: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText147: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText148: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText149: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlDepthEngagement: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                  inherited Edit2: TEdit
-                    Height = 21
-                    ExplicitHeight = 21
-                  end
-                end
-                inherited pnlAltitudeEngagement: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                  inherited edtAltitudeEngagement: TEdit
-                    Height = 21
-                    ExplicitHeight = 21
-                  end
-                end
-              end
-              inherited grbFormation: TGroupBox [10]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label323: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label324: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblLeaderFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblNameFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label373: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label374: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label381: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblRangeFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblBearingFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label399: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText154: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText155: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText156: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText157: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlDepth: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlAltitude: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbHelm: TGroupBox [11]
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited Label120: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblHelmActualTurnRate: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label127: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label129: TLabel
-                  Width = 46
-                  Caption = 'degrees'
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitWidth = 46
-                end
-                inherited Label131: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label132: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label133: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label134: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblHelmActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label135: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbActualHelmAngle: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblHelmActualHeading: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label137: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblHelmActualCourse: TLabel
-                  Font.Color = clWhite
-                end
-                inherited Label139: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblHelmActualDepth: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label24: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label25: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText88: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText89: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText90: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText91: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText92: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText93: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText94: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText95: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText96: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText97: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText98: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Panel2: TPanel [32]
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Panel1: TPanel [33]
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited edtHelmOrderedGroundSpeed: TEdit [34]
-                end
-              end
-              inherited grpPersonelGuidance: TGroupBox
-                Width = 357
-                Height = 1948
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited whHeadingPersonel: TVrWheel
-                  OnChange = fmPlatformGuidance1whHeadingPersonelChange
-                end
-                inherited lbl6: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbl9: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbl11: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbPersonalGuidanceMode: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbPersonalGuidanceModeClick
-                end
-                inherited lbl7: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited edtPersonelGuidanceOrderedHeading: TEdit
-                  OnKeyPress = fmPlatformGuidance1edtPersonelGuidanceOrderedHeadingKeyPress
-                end
-              end
-              inherited grbStraightLine: TGroupBox
-                Width = 357
-                Height = 1948
-                Color = 2695445
-                ParentColor = False
-                ExplicitWidth = 357
-                ExplicitHeight = 1948
-                inherited ScrollBox5: TScrollBox
-                  Width = 355
-                  Height = 1930
-                  Color = 2695445
-                  ParentColor = False
-                  ExplicitWidth = 355
-                  ExplicitHeight = 1930
-                  inherited whHeading: TVrWheel
-                    Top = 9
-                    OnChange = fmPlatformGuidance1whHeadingChange
-                    ExplicitTop = 9
-                  end
-                  inherited lblStraightLineActualHeading: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label128: TLabel
-                    Top = 152
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitTop = 152
-                  end
-                  inherited lblStraightLineActualGroundSpeed: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label126: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label125: TLabel
-                    Top = 193
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitTop = 193
-                  end
-                  inherited Label124: TLabel
-                    Top = 172
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitTop = 172
-                  end
-                  inherited Label123: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label122: TLabel
-                    Top = 108
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitTop = 108
-                  end
-                  inherited Label121: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited lblStraightLineActuaCourse: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label119: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited edtStraightLineOrderedGroundSpeed: TEdit
-                    OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedGroundSpeedKeyPress
-                  end
-                  inherited edtStraightLineOrderedHeading: TEdit
-                    OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedHeadingKeyPress
-                  end
-                  inherited StaticText82: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited StaticText81: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited panDepth: TPanel
-                    inherited lbl4: TLabel
-                      Top = 26
-                      ExplicitTop = 26
-                    end
-                  end
-                  inherited panAltitude: TPanel
-                    Left = 1
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 1
-                    inherited Label57: TLabel
-                      Left = 16
-                      ExplicitLeft = 16
-                    end
-                    inherited StaticText105: TStaticText
-                      Left = 16
-                      ExplicitLeft = 16
-                    end
-                    inherited edOrderAltitude: TEdit
-                      OnKeyPress = fmPlatformGuidance1edOrderAltitudeKeyPress
-                    end
-                  end
-                end
-              end
-            end
-            inherited pmGuidance: TPopupMenu
-              inherited mnStraightLine1: TMenuItem
-                OnClick = fmPlatformGuidance1mnStraightLine1Click
-              end
-              inherited mnHelm1: TMenuItem
-                Visible = False
-              end
-              inherited mnCircle: TMenuItem
-                Visible = False
-              end
-              inherited mnStation: TMenuItem
-                Visible = False
-              end
-              inherited mnZigzag1: TMenuItem
-                Visible = False
-                inherited Short1: TMenuItem
-                  OnClick = fmPlatformGuidance1Short1Click
-                end
-                inherited Long1: TMenuItem
-                  OnClick = fmPlatformGuidance1Long1Click
-                end
-                inherited VeryLong1: TMenuItem
-                  OnClick = fmPlatformGuidance1VeryLong1Click
-                end
-              end
-              inherited mnSinuation1: TMenuItem
-                Visible = False
-              end
-              inherited mnFormation2: TMenuItem
-                Visible = False
-              end
-              inherited mnEvasion1: TMenuItem
-                Visible = False
-              end
-              inherited mnOutrun1: TMenuItem
-                Visible = False
-                OnClick = fmPlatformGuidance1mnOutrun1Click
-              end
-              inherited mnEngagement1: TMenuItem
-                Visible = False
-              end
-              inherited mnShadow1: TMenuItem
-                Visible = False
-              end
-              inherited mnReturntoBase1: TMenuItem
-                Visible = False
-              end
-              inherited mnPersonelGudance1: TMenuItem
-                OnClick = fmPlatformGuidance1PersonelGudance1Click
-              end
-            end
-          end
-        end
         object pnlEMCON: TPanel
           Left = 1
           Top = 1
@@ -7232,6 +6083,1155 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Transparent = False
           end
         end
+        object pnlPlatformGuidance: TPanel
+          Left = 1
+          Top = 1
+          Width = 359
+          Height = 1991
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 4012086
+          ParentBackground = False
+          TabOrder = 3
+          inline fmPlatformGuidance1: TfmPlatformGuidance
+            Left = 0
+            Top = 0
+            Width = 359
+            Height = 1991
+            Align = alClient
+            Color = clMedGray
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentBackground = False
+            ParentColor = False
+            ParentFont = False
+            TabOrder = 0
+            ExplicitWidth = 359
+            ExplicitHeight = 1991
+            inherited PanelGuidanceControlChoices: TPanel
+              Width = 359
+              Color = 2695445
+              ExplicitWidth = 359
+              inherited SpeedButton2: TSpeedButton
+                OnClick = fmPlatformGuidance1SpeedButton2Click
+              end
+            end
+            inherited PanelPlatformGuidance: TPanel
+              Width = 359
+              Height = 1950
+              Color = 2695445
+              ExplicitWidth = 359
+              ExplicitHeight = 1950
+              inherited grbOutrun: TGroupBox [0]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label310: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label321: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label322: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblOutrunActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbTrackToOutrun: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbTrackToOutrunClick
+                end
+                inherited Label23: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblOutrunAltitudeDepth: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label29: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText150: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText153: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText21: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbReturnToBase: TGroupBox [1]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label327: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblReturnToBaseDestinationBase: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label329: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label334: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label382: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label397: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblReturnToBaseActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label406: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label419: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label437: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label451: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblReturnToBaseActualAltitude: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText158: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText159: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText160: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText161: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText162: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlCoverAltitudeReturnToBase: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbShadow: TGroupBox [2]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label173: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label180: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label196: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label290: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label298: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label299: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblShadowActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label301: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText128: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText143: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText144: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText145: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited panShadowDepth: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited panShadowAltitude: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbSinuation: TGroupBox [3]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label206: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label227: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label241: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label255: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label256: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label260: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label270: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label287: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblSinuationActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label293: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label297: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText138: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText139: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText140: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText141: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText142: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbZigZag: TGroupBox [4]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label145: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label146: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label147: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label148: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label149: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label197: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label198: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label199: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblZigZagActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label207: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label209: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText106: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText108: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText109: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText110: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText137: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grpStation: TGroupBox [5]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label154: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbOnTrackAnchorMode: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbOnTrackAnchorModeClick
+                end
+                inherited StaticText113: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText114: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlStationPosition: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                  inherited btnStationAnchorPosition: TSpeedButton
+                    OnClick = fmPlatformGuidance1btnStationAnchorPositionClick
+                  end
+                end
+                inherited pnlStationTrack: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                  inherited sbOnTrackAnchorTrack: TSpeedButton
+                    OnClick = fmPlatformGuidance1sbOnTrackAnchorTrackClick
+                  end
+                end
+                inherited pnlStationDepth: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlStationAltitude: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited gbWaypoint: TGroupBox [6]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label97: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbName: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblLongitude: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label103: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label104: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbEta: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label105: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label106: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label107: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbDistance: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label177: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label179: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label184: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblLatitude: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbActualGroundWaypoint: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText24: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText26: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText27: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited btnWaypoint: TButton
+                  Left = 197
+                  Top = 217
+                  OnClick = fmPlatformGuidance1btnWaypointClick
+                  ExplicitLeft = 197
+                  ExplicitTop = 217
+                end
+                inherited StaticText67: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText71: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText76: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText77: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText78: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText79: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText80: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbEvasion: TGroupBox [7]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label318: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label319: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label320: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblEvasionActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbTrackToEvade: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbTrackToEvadeClick
+                end
+                inherited Label10: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblEvasionActualAltitudeDepth: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label16: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText151: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText152: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText20: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grpCircle: TGroupBox
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited ScrollBox1: TScrollBox
+                  Width = 355
+                  Height = 1930
+                  ExplicitWidth = 355
+                  ExplicitHeight = 1930
+                  inherited Label3: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label4: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label5: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label6: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label7: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label8: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label9: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lblCircleActualGroundSpeed: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lb1: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited btnCircleMode: TSpeedButton
+                    Top = 14
+                    OnClick = fmPlatformGuidance1btnCircleModeClick
+                    ExplicitTop = 14
+                  end
+                  inherited StaticText1: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited StaticText2: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited StaticText4: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited edtCircleRadius: TEdit
+                    Top = 145
+                    ExplicitTop = 145
+                  end
+                  inherited StaticText5: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited StaticText6: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited pnlTrack: TPanel [22]
+                    Font.Color = clWhite
+                    ParentFont = False
+                    inherited sbCircleOnTrackTrack: TSpeedButton
+                      OnClick = fmPlatformGuidance1sbCircleOnTrackTrackClick
+                    end
+                  end
+                  inherited pnlPosition: TPanel
+                    Font.Color = clWhite
+                    ParentFont = False
+                    inherited sbCircleOnPositionPosition: TSpeedButton
+                      Height = 27
+                      OnClick = fmPlatformGuidance1sbCircleOnPositionPositionClick
+                      ExplicitHeight = 27
+                    end
+                  end
+                  inherited StaticText7: TStaticText [24]
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                end
+              end
+              inherited grbEngagement: TGroupBox [9]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label300: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label305: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label306: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label307: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label308: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label309: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblEngageActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label314: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbEngageTrackToEngage: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbEngageTrackToEngageClick
+                end
+                inherited StaticText146: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText147: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText148: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText149: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlDepthEngagement: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                  inherited Edit2: TEdit
+                    Height = 21
+                    ExplicitHeight = 21
+                  end
+                end
+                inherited pnlAltitudeEngagement: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                  inherited edtAltitudeEngagement: TEdit
+                    Height = 21
+                    ExplicitHeight = 21
+                  end
+                end
+              end
+              inherited grbFormation: TGroupBox [10]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label323: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label324: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblLeaderFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblNameFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label373: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label374: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label381: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblRangeFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblBearingFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label399: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText154: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText155: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText156: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText157: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlDepth: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlAltitude: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbHelm: TGroupBox [11]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited Label120: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblHelmActualTurnRate: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label127: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label129: TLabel
+                  Width = 46
+                  Caption = 'degrees'
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitWidth = 46
+                end
+                inherited Label131: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label132: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label133: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label134: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblHelmActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label135: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbActualHelmAngle: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblHelmActualHeading: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label137: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblHelmActualCourse: TLabel
+                  Font.Color = clWhite
+                end
+                inherited Label139: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblHelmActualDepth: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label24: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label25: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText88: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText89: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText90: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText91: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText92: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText93: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText94: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText95: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText96: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText97: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText98: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Panel2: TPanel [32]
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Panel1: TPanel [33]
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited edtHelmOrderedGroundSpeed: TEdit [34]
+                end
+              end
+              inherited grpPersonelGuidance: TGroupBox [12]
+                Width = 357
+                Height = 1948
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited whHeadingPersonel: TVrWheel
+                  OnChange = fmPlatformGuidance1whHeadingPersonelChange
+                end
+                inherited lbl6: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbl9: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbl11: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbPersonalGuidanceMode: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbPersonalGuidanceModeClick
+                end
+                inherited lbl7: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited edtPersonelGuidanceOrderedHeading: TEdit
+                  OnKeyPress = fmPlatformGuidance1edtPersonelGuidanceOrderedHeadingKeyPress
+                end
+              end
+              inherited grbStraightLine: TGroupBox [13]
+                Width = 357
+                Height = 1948
+                Color = 2695445
+                ParentColor = False
+                ExplicitWidth = 357
+                ExplicitHeight = 1948
+                inherited ScrollBox5: TScrollBox
+                  Width = 355
+                  Height = 1930
+                  Color = 2695445
+                  ParentColor = False
+                  ExplicitWidth = 355
+                  ExplicitHeight = 1930
+                  inherited whHeading: TVrWheel
+                    Top = 9
+                    OnChange = fmPlatformGuidance1whHeadingChange
+                    ExplicitTop = 9
+                  end
+                  inherited lblStraightLineActualHeading: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label128: TLabel
+                    Top = 152
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitTop = 152
+                  end
+                  inherited lblStraightLineActualGroundSpeed: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label126: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label125: TLabel
+                    Top = 193
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitTop = 193
+                  end
+                  inherited Label124: TLabel
+                    Top = 172
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitTop = 172
+                  end
+                  inherited Label123: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label122: TLabel
+                    Top = 108
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitTop = 108
+                  end
+                  inherited Label121: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lblStraightLineActuaCourse: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label119: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited edtStraightLineOrderedGroundSpeed: TEdit
+                    OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedGroundSpeedKeyPress
+                  end
+                  inherited edtStraightLineOrderedHeading: TEdit
+                    OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedHeadingKeyPress
+                  end
+                  inherited StaticText82: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited StaticText81: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited panDepth: TPanel
+                    inherited lbl4: TLabel
+                      Top = 26
+                      ExplicitTop = 26
+                    end
+                  end
+                  inherited panAltitude: TPanel
+                    Left = 1
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 1
+                    inherited Label57: TLabel
+                      Left = 16
+                      ExplicitLeft = 16
+                    end
+                    inherited StaticText105: TStaticText
+                      Left = 16
+                      ExplicitLeft = 16
+                    end
+                    inherited edOrderAltitude: TEdit
+                      OnKeyPress = fmPlatformGuidance1edOrderAltitudeKeyPress
+                    end
+                  end
+                end
+              end
+            end
+            inherited pmGuidance: TPopupMenu
+              inherited mnStraightLine1: TMenuItem
+                OnClick = fmPlatformGuidance1mnStraightLine1Click
+              end
+              inherited mnHelm1: TMenuItem
+                Visible = False
+              end
+              inherited mnCircle: TMenuItem
+                Visible = False
+              end
+              inherited mnStation: TMenuItem
+                Visible = False
+              end
+              inherited mnZigzag1: TMenuItem
+                Visible = False
+                inherited Short1: TMenuItem
+                  OnClick = fmPlatformGuidance1Short1Click
+                end
+                inherited Long1: TMenuItem
+                  OnClick = fmPlatformGuidance1Long1Click
+                end
+                inherited VeryLong1: TMenuItem
+                  OnClick = fmPlatformGuidance1VeryLong1Click
+                end
+              end
+              inherited mnSinuation1: TMenuItem
+                Visible = False
+              end
+              inherited mnFormation2: TMenuItem
+                Visible = False
+              end
+              inherited mnEvasion1: TMenuItem
+                Visible = False
+              end
+              inherited mnOutrun1: TMenuItem
+                Visible = False
+                OnClick = fmPlatformGuidance1mnOutrun1Click
+              end
+              inherited mnEngagement1: TMenuItem
+                Visible = False
+              end
+              inherited mnShadow1: TMenuItem
+                Visible = False
+              end
+              inherited mnReturntoBase1: TMenuItem
+                Visible = False
+              end
+              inherited mnPersonelGudance1: TMenuItem
+                OnClick = fmPlatformGuidance1PersonelGudance1Click
+              end
+            end
+          end
+        end
       end
     end
   end
@@ -8793,7 +8793,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       Color = 2695445
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 1200
       object ToolBar1: TToolBar
         Left = 0
         Top = 0
@@ -8810,8 +8809,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Images = il1
         ParentColor = False
         TabOrder = 0
-        ExplicitWidth = 900
-        ExplicitHeight = 118
         object ToolButton2: TToolButton
           Left = 0
           Top = 0
@@ -8869,7 +8866,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object cbSetScale: TComboBox
           Left = 193
-          Top = 5
+          Top = 0
           Width = 76
           Height = 24
           Hint = 'Select Scale'
@@ -9102,7 +9099,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         end
         object cbAssumeControl: TComboBox
           Left = 970
-          Top = 5
+          Top = 0
           Width = 195
           Height = 24
           Hint = 'Platform Select (for control)'
@@ -9451,12 +9448,11 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitTop = 470
       DesignSize = (
         1216
         56)
       object lblRangeRings: TLabel
-        Left = 228
+        Left = 211
         Top = 30
         Width = 88
         Height = 21
@@ -9471,9 +9467,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         ParentFont = False
       end
       object ZoomOut: TRzBmpButton
-        Left = 113
+        Left = 302
         Top = 4
-        Width = 111
+        Width = 100
         Height = 47
         Hint = 'Increase'
         AllowAllUp = True
@@ -10797,9 +10793,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = ZoomOutClick
       end
       object btnCenterGame: TRzBmpButton
-        Left = 655
+        Left = 706
         Top = 4
-        Width = 111
+        Width = 100
         Height = 47
         Hint = 'Center on Game Center'
         AllowAllUp = True
@@ -12124,9 +12120,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnCenterGameClick
       end
       object btnCenterHook: TRzBmpButton
-        Left = 543
+        Left = 605
         Top = 4
-        Width = 111
+        Width = 100
         Height = 47
         Hint = 'Center on Hook'
         AllowAllUp = True
@@ -13449,9 +13445,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnCenterHookClick
       end
       object btnFilterRings: TRzBmpButton
-        Left = 767
+        Left = 807
         Top = 4
-        Width = 111
+        Width = 100
         Height = 47
         Hint = 'Filter Range Rings'
         AllowAllUp = True
@@ -14775,9 +14771,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnFilterRingsClick
       end
       object btnRuler: TRzBmpButton
-        Left = 991
+        Left = 1009
         Top = 4
-        Width = 111
+        Width = 100
         Height = 47
         Hint = 'Ruler'
         AllowAllUp = True
@@ -16101,9 +16097,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnRulerClick
       end
       object btnZoomIn: TRzBmpButton
-        Left = 319
+        Left = 403
         Top = 4
-        Width = 111
+        Width = 100
         Height = 47
         Hint = 'Decrease'
         AllowAllUp = True
@@ -17427,9 +17423,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnZoomInClick
       end
       object btnPanNav: TRzBmpButton
-        Left = 1
+        Left = 107
         Top = 4
-        Width = 111
+        Width = 100
         Height = 47
         Hint = 'Pan'
         AllowAllUp = True
@@ -18752,9 +18748,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnPanNavClick
       end
       object btnMapTools: TRzBmpButton
-        Left = 1103
+        Left = 1110
         Top = 4
-        Width = 111
+        Width = 100
         Height = 47
         Hint = 'Map Tools'
         AllowAllUp = True
@@ -20078,9 +20074,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnMapToolsClick
       end
       object btnZoomIn1: TRzBmpButton
-        Left = 431
+        Left = 504
         Top = 4
-        Width = 111
+        Width = 100
         Height = 47
         Hint = 'Decrease'
         AllowAllUp = True
@@ -20748,9 +20744,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         TabOrder = 8
       end
       object btnRangeRingsOnHookNav: TRzBmpButton
-        Left = 879
+        Left = 908
         Top = 4
-        Width = 111
+        Width = 100
         Height = 47
         Hint = 'Filter Range Rings'
         AllowAllUp = True
@@ -21419,7 +21415,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnRangeRingsOnHookNavClick
       end
       object cbbSetScale: TComboBox
-        Left = 225
+        Left = 208
         Top = 4
         Width = 93
         Height = 24
@@ -21435,6 +21431,1331 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         ParentFont = False
         TabOrder = 10
         OnChange = cbbSetScaleChange
+      end
+      object btnSelect: TRzBmpButton
+        Left = 6
+        Top = 4
+        Width = 100
+        Height = 47
+        Hint = 'Pan'
+        AllowAllUp = True
+        GroupIndex = 8
+        Bitmaps.Hot.Data = {
+          BA510000424DBA510000000000003600000028000000940000002F0000000100
+          18000000000084510000120B0000120B00000000000000000000211912211912
+          211912211912211912241D1655504B83807EA09F9EAFAFAFB2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+          B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2AFAFAFA09F9E8380
+          7E55504B241D1621191221191221191221191221191221191221191221191221
+          1912504B469E9C9B8E8C8A605D583D38312D28222B261E2B261F2B261F2B261F
+          2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B26
+          1F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B
+          261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F
+          2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B26
+          1F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B
+          261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F
+          2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B26
+          1F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B
+          261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F
+          2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B26
+          1F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B
+          261F2B261F2B261F2B261F2B261F2B261F2B261E302C24403B35605D588E8C8A
+          9E9C9B514B47211912211912211912211912211912211912231B1475716E9C9B
+          9A4A474028231B29241C29241D2A251D2A251D2B261E2B261E2B261E2B261F2B
+          261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F
+          2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B26
+          1F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B
+          261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F
+          2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B26
+          1F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B
+          261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F
+          2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B26
+          1F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B
+          261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F
+          2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B261F2B26
+          1F2B261F2B261E2B261E2B261E2A251D2A251D29241D29241C28231B4A47409C
+          9B9A75726F231B142119122119122119122119126F6C698F8E8C2C271F262119
+          27221B28231B28231B29241C29241D2A251D2A251D2A251D2A251D2A251D2A25
+          1D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A
+          251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D
+          2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A25
+          1D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A
+          251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D
+          2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A25
+          1D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A
+          251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D
+          2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A25
+          1D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A
+          251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D2A251D
+          2A251D2A251D2A251D29241D29241C28231B28231B27221B2621192C271F8F8E
+          8C6F6C69211912211912211912514C479B9A982B261F241E16251F1826201826
+          221A27221B28231B28231B29241C29241C29241D29241D29241D29241D29241D
+          29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D2924
+          1D29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D29
+          241D29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D
+          29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D2924
+          1D29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D29
+          241D29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D
+          29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D2924
+          1D29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D29
+          241D29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D
+          29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D2924
+          1D29241D29241D29241D29241D29241D29241D29241D29241D29241D29241D29
+          241C29241C28231B28231B27221B26221A262018251F18241E162B261F9B9A99
+          514C47211912241D16A1A0A0423D36221C14221D14231E16241F17251F182621
+          1926221A27221B28231B28231B28231B28231B28231B28231B28231B28231B28
+          231B28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B
+          28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B2823
+          1B28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B28
+          231B28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B
+          28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B2823
+          1B28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B28
+          231B28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B
+          28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B2823
+          1B28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B28
+          231B28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B
+          28231B28231B28231B28231B28231B28231B28231B28231B28231B28231B2823
+          1B27221B26221A262119251F18241F17231E16221D14221C14413D36A2A1A025
+          1D1655504B8A89871F19111F1A12201B13221C14221D15241E16241F17251F18
+          26201826211926221A26221A26221A26221A26221A26221A26221A26221A2622
+          1A26221A26221A26221A26221A26221A26221A26221A26221A26221A26221A26
+          221A26221A26221A26221A26221A26221A26221A26221A26221A26221A26221A
+          26221A26221A26221A26221A26221A26221A26221A26221A26221A26221A2622
+          1A26221A26221A26221A26221A26221A26221A26221A26221A26221A26221A26
+          221A26221A26221A26221A26221A26221A26221A26221A26221A26221A26221A
+          26221A26221A26221A26221A26221A26221A26221A26221A26221A26221A2622
+          1A26221A26221A26221A26221A26221A26221A26221A26221A26221A26221A26
+          221A26221A26221A26221A26221A26221A26221A26221A26221A26221A26221A
+          26221A26221A26221A26221A26221A26221A26221A26221A26221A26221A2622
+          1A26221A26221A26221A26221A26221A26221A26221A26221A26221A26221A26
+          221A26221A26221A26221A26221A26221A26221A26221A26221A262119262018
+          251F18241F17241E16221D15221C14201B131F1A121F19118A898755504C7D7A
+          7857534E1D170F1E18101F19111F1A12211B13221D14221D15241E16241F1724
+          1F17251F18251F18251F18251F18251F18251F18251F18251F18251F18251F18
+          251F18251F18251F18251F18251F18251F18251F18251F18251F18251F18251F
+          18251F18251F18251F18251F18251F18251F18251F18251F18251F18251F1825
+          1F18251F18251F18251F18251F18251F18251F18251F18251F18251F18251F18
+          251F18251F18251F18251F18251F18251F18251F18251F18251F18251F18251F
+          18251F18251F18251F18251F18251F18251F18251F18251F18251F18251F1825
+          1F18251F18251F18251F18251F18251F18251F18251F18251F18251F18251F18
+          251F18251F18251F18251F18251F18251F18251F18251F18251F18251F18251F
+          18251F18251F18251F18251F18251F18251F18251F18251F18251F18251F1825
+          1F18251F18251F18251F18251F18251F18251F18251F18251F18251F18251F18
+          251F18251F18251F18251F18251F18251F18251F18251F18251F18251F18251F
+          18251F18251F18251F18251F18251F18251F18251F18241F17241F17241E1622
+          1D15221D14211B131F1A121F19111E18101D170F57534E7D7B798F8E8D312C26
+          1B160E1C160F1D180F1E18101F1911201B13211B13221C14221D14221D15231E
+          16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E1623
+          1E16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E16
+          231E16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E
+          16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E1623
+          1E16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E16
+          231E16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E
+          16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E1623
+          1E16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E16
+          231E16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E
+          16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E1623
+          1E16231E16231E16231E16231E16231E16231E16231E16231E16231E16231E16
+          231E16231E16231E16231E16231E16231E16221D15221D14221C14211B13201B
+          131F19111E18101D180F1C160F1B160E2D2922929190949393201B141A150D1B
+          160E1B160E1C160F1D180F1F19111F19111F1A12201B13211B13221C14221C14
+          221C14221C14221C14221C14221C14221C14221C14221C143A352D58554D5855
+          4D58554D58554D58554D58554D58554D47433B241E16221C14221C14221C1422
+          1C14221C14221C14221C14221C14221C14221C14221C14221C14221C14221C14
+          221C14221C14221C14221C14221C14221C14221C14221C14221C14221C14221C
+          14221C14221C14221C14221C14221C14221C14221C14221C14221C14221C1422
+          1C14221C14221C14221C14221C14221C14221C14221C14221C14221C14221C14
+          221C14221C14221C14221C14221C14221C14221C14221C14221C14221C14221C
+          14221C14221C14221C14221C14221C14221C14221C14221C14221C14221C1422
+          1C14221C14221C14221C14221C14221C14221C14221C14221C14221C14221C14
+          221C14221C14221C14221C14221C14221C14221C14221C14221C14221C14221C
+          14221C14221C14221C14221C14221C14221C14221C14221C14221C14221C1422
+          1C14221C14221C14221C14221C14211B13201B131F1A121F19111F19111D180F
+          1C160F1B160E1B160E1A150D1D181197979794949418140D18140D19140D1A15
+          0D1B160E1C160E1D170F1E18101F19111F19111F1A121F1A12201B13201B1320
+          1B13201B13201B13201B13201B1328231B6B696095958D96968E96968E96968E
+          96968E96968E96968E96968E96968E85847C47433B201B13201B13201B13201B
+          13201B13201B13201B13201B13201B13201B13201B13201B13201B13201B1320
+          1B13201B13201B13201B13201B13201B13201B13201B13201B13201B13201B13
+          201B13201B13201B13201B13201B13201B13201B13201B13201B13201B13201B
+          13201B13201B13201B13201B13201B13201B13201B13201B13201B13201B1320
+          1B13201B13201B13201B13201B13201B13201B13201B13201B13201B13201B13
+          201B13201B13201B13201B13201B13201B13201B13201B13201B13201B13201B
+          13201B13201B13201B13201B13201B13201B13201B13201B13201B13201B1320
+          1B13201B13201B13201B13201B13201B13201B13201B13201B13201B13201B13
+          201B13201B13201B13201B13201B13201B13201B13201B13201B13201B13201B
+          13201B13201B131F1A121F1A121F19111F19111E18101D170F1C160E1B160E1A
+          150D19140D18140D18140D9494948F8F8F17130C18130C18140D19140D1A150D
+          1B160D1B160E1D170F1D180F1E18101F19111F19111F19111F19111F19111F19
+          111F19111F191136322A87867E96968E96968E96968E96968E96968E96968E96
+          968E96968E96968E96968E96968E96968E605D541F19111F19111F19111F1911
+          1F19111F19111F19111F19111F19111F19111F19111F19111F19111F19111F19
+          111F19111F19111F19111F19111F19111F19111F19111F19111F19111F19111F
+          19111F19111F19111F19111F19111F19111F19111F19111F19111F19111F1911
+          1F19111F19111F19111F19111F19111F19111F19111F19111F19111F19111F19
+          111F19111F19111F19111F19111F19111F19111F19111F19111F19111F19111F
+          19111F19111F19111F19111F19111F19111F19111F19111F19111F19111F1911
+          1F19111F19111F19111F19111F19111F19111F19111F19111F19111F19111F19
+          111F19111F19111F19111F19111F19111F19111F19111F19111F19111F19111F
+          19111F19111F19111F19111F19111F19111F19111F19111F19111F19111F1911
+          1F19111F19111F19111E18101D180F1D170F1B160E1B160D1A150D19140D1814
+          0D18130C17130C8E8E8E8B8B8B16120C17130C18130C18140D19140D1A150D1B
+          160D1B160E1C160F1D170F1D180F1E18101E18101E18101E18101E18101E1810
+          3B362E90908796968E96968E96968E96968E96968E96968E96968E96968E9696
+          8E96968E96968E96968E96968E96968E4D4A421E18101E18101E18101E18101E
+          18101E18101E18101E18101E18101E18101E18101E18101E18101E18101E1810
+          1E18101E18101E18101E18101E18101E18101E18101E18101E18101E18101E18
+          101E18101E18101E18101E18101E18101E18101E18101E18101E18101E18101E
+          18101E18101E18101E18101E18101E18101E18101E18101E18101E18101E1810
+          1E18101E18101E18101E18101E18101E18101E18101E18101E18101E18101E18
+          101E18101E18101E18101E18101E18101E18101E18101E18101E18101E18101E
+          18101E18101E18101E18101E18101E18101E18101E18101E18101E18101E1810
+          1E18101E18101E18101E18101E18101E18101E18101E18101E18101E18101E18
+          101E18101E18101E18101E18101E18101E18101E18101E18101E18101E18101E
+          18101D180F1D170F1C160F1B160E1B160D1A150D19140D18140D18130C17130C
+          16120C8B8B8B88888816110B16120B17120C18130C18140D19140D1A150D1B16
+          0E1B160E1C160F1D170F1D170F1D180F1D180F1D180F1D180F312C248F8E8696
+          968E96968E96968E96968E96968E96968E96968E96968E96968E96968E96968E
+          96968E96968E96968E96968E8C8C83221D141D180F1D180F1D180F1D180F1D18
+          0F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D
+          180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F
+          1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D18
+          0F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D
+          180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F
+          1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D18
+          0F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D
+          180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F
+          1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D170F1D17
+          0F1C160F1B160E1B160E1A150D19140D18140D18130C17120C16120B16110B88
+          888886868616110B16110B16120B17130C18130C18140D19140D1A150D1B160E
+          1B160E1C160F1D170F1D170F1D170F1D170F1F1A11807F7796968E96968E9696
+          8E96968E96968E96968E96968E96968E96968E96968E96968E96968E96968E96
+          968E96968E96968E96968E433F361D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1C160F1B160E
+          1B160E1A150D19140D18140D18130C17130C16120B16110B16110B8686868585
+          8516110B16110B16120B17120C18130C18140D19140D1A150D1B160E1B160E1C
+          160E1C160F1D170F1D170F1D170F4D494196968E96968E96968E96968E96968E
+          96968E96968E96968E96968E96968E96968E96968E96968E96968E96968E9696
+          8E96968E96968E4F4B431D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1C160F1C160E1B160E1B160E1A
+          150D19140D18140D17130C17120C16120B16110B16110B85858584848416110B
+          16110B16110B16120C17130C18140D19140D1A150D1B160D1B160E1C160E1C16
+          0F1D170F1D170F1E181087867E96968E96968E96968E96968E96968E96968E96
+          968E96968E96968E96968E96968E96968E96968E96968E96968E96968E96968E
+          96968E4F4B431D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1C160F1C160E1B160E1B160D1A150D1914
+          0D18140D17130C16120C16110B16110B16110B84848484848416110B16110B16
+          110B16120C17130C18140D19140D1A150D1B160D1B160E1C160E1C160F1D170F
+          1D170F3B372F96968E96968E96968E96968E96968E96968E96968E96968E9696
+          8E96968E96968E96968E96968E96968E96968E96968E96968E96968E96968E4F
+          4B431D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1C160F1C160E1B160E1B160D1A150D19140D18140D
+          17130C16120C16110B16110B16110B84848484848416110B16110B16110B1612
+          0C17130C18140D19140D1A150D1B160D1B160E1C160E1C160F1D170F1D170F58
+          554D96968E96968E96968E96968E96968E96968E96968E96968E96968E96968E
+          96968E96968E96968E96968E96968E96968E96968E96968E96968E4F4B431D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F2A261F1D170F1D170F1D170F1D170F1D170F2A261F
+          1D170F1D170F1D170F1D170F1D170F2A261F1D170F2A261F1D170F1D170F1D17
+          0F1D170F2A261F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1C160F1C160E1B160E1B160D1A150D19140D18140D17130C16
+          120C16110B16110B16110B84848484848416110B16110B16110B16120C17130C
+          18140D19140D1A150D1B160D1B160E1C160E1C160F1D170F1D170F68665E9696
+          8E96968E7978708E8D8596968E96968E96968E96968E96968E96968E96968E96
+          968E96968E96968E96968E96968E96968E96968E96968E4F4B431D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F69686096968E6968601D170F1D170F1D170F49474096968E77766E1D
+          170F1D170F1D170F9090888A8A8269686096968E6968601D170F2A261F8A8A82
+          96968E5250491D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1C160F1C160E1B160E1B160D1A150D19140D18140D17130C16120C1611
+          0B16110B16110B84848484848416110B16110B16110B16120C17130C18140D19
+          140D1A150D1B160D1B160E1C160E1C160F1D170F1D170F68665E96968E96968E
+          4F4B4380807796968E96968E96968E96968E96968E96968E96968E96968E9696
+          8E96968E96968E96968E96968E96968E96968E4F4B431D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          69686096968E6968601D170F1D170F1D170F1D170F8A8A8290908884837C8483
+          7C84837C96968E706F6769686096968E6968601D170F706F6796968E96968E52
+          50491D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1C
+          160F1C160E1B160E1B160D1A150D19140D18140D17130C16120C16110B16110B
+          16110B84848484848416110B16110B16110B16120C17130C18140D19140D1A15
+          0D1B160D1B160E1C160E1C160F1D170F1D170F59574E96968E96968E4F4B4380
+          807796968E96968E96968E96968E96968E96968E96968E96968E96968E96968E
+          96968E96968E96968E96968E96968E4F4B431D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F69686096
+          968E7E7D756260595250491D170F1D170F69686096968E8A8A8284837C909088
+          96968E49474069686096968E69686052504996968E96968E96968E5250491D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1C160F1C16
+          0E1B160E1B160D1A150D19140D18140D17130C16120C16110B16110B16110B84
+          848484848416110B16110B16110B16120C17130C18140D19140D1A150D1B160D
+          1B160E1C160E1C160F1D170F1D170F342F2796968E96968E4F4B438080779696
+          8E96968E96968E96968E96968E96968E96968E96968E96968E96968E96968E96
+          968E96968E96968E96968E4F4B431D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F69686096968E9696
+          8E96968E96968E706F671D170F403D3696968E77766E1D170F90908884837C1D
+          170F69686096968E6968608A8A82909088706F6796968E5250491D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1C160F1C160E1B160E
+          1B160D1A150D19140D18140D17130C16120C16110B16110B16110B8484848484
+          8416110B16110B16110B16120C17130C18140D19140D1A150D1B160D1B160E1C
+          160E1C160F1D170F1D170F1D170F6B696196968E4F4B4380807796968E96968E
+          96968E96968E96968E96968E96968E96968E96968E96968E96968E96968E9696
+          8E96968E96968E4F4B431D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F69686096968E69686035322B
+          7E7D7596968E4947401D170F84837C90908862605996968E6260591D170F6968
+          6096968E90908896968E5A585169686096968E5250491D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1C160F1C160E1B160E1B160D1A
+          150D19140D18140D17130C16120C16110B16110B16110B84848484848416110B
+          16110B16110B16120C17130C18140D19140D1A150D1B160D1B160E1C160E1C16
+          0F1D170F1D170F1D170F221C147372694F4B4384837B96968E96968E96968E96
+          968E96968E96968E96968E96968E96968E96968E96968E96968E96968E96968E
+          96968E4F4B431D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F69686096968E6968602A261F7E7D7596
+          968E4947401D170F62605996968E90908896968E35322B1D170F69686096968E
+          96968E77766E1D170F69686096968E5250491D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1C160F1C160E1B160E1B160D1A150D1914
+          0D18140D17130C16120C16110B16110B16110B84848484848416110B16110B16
+          110B16120C17130C18140D19140D1A150D1B160D1B160E1C160E1C160F1D170F
+          1D170F1D170F1D170F1D180F26211888877F96968E96968E96968E78776E7E7D
+          7596968E96968E96968E96968E96968E96968E96968E96968E96968E96968E4F
+          4B431D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F69686096968E96968E96968E96968E84837C1D17
+          0F1D170F35322B96968E96968E7E7D751D170F1D170F69686096968E90908835
+          322B1D170F69686096968E5250491D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1C160F1C160E1B160E1B160D1A150D19140D18140D
+          17130C16120C16110B16110B16110B84848484848416110B16110B16110B1612
+          0C17130C18140D19140D1A150D1B160D1B160E1C160E1C160F1D170F1D170F1D
+          170F1D170F1D170F1D170F88877F96968E96968E96968E6462596B696196968E
+          96968E96968E706E6696968E96968E96968E96968E96968E96968E4F4B431D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F5250496968606968606968606260592A261F1D170F1D170F
+          1D170F6260596968605250491D170F1D170F5250496968605A58511D170F1D17
+          0F52504969686035322B1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1C160F1C160E1B160E1B160D1A150D19140D18140D17130C16
+          120C16110B16110B16110B84848484848416110B16110B16110B16120C17130C
+          18140D19140D1A150D1B160D1B160E1C160E1C160F1D170F1D170F1D170F1D17
+          0F1D170F1D170F88877F96968E96968E96968E6462596B696196968E96968E96
+          968E39352D96968E96968E96968E77756D96968E96968E4F4B431D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1C160F1C160E1B160E1B160D1A150D19140D18140D17130C16120C1611
+          0B16110B16110B84848484848416110B16110B16110B16120C17130C18140D19
+          140D1A150D1B160D1B160E1C160E1C160F1D170F1D170F1D170F1D170F1D170F
+          1D170F88877F96968E96968E96968E6462596B696196968E96968E96968E3935
+          2D96968E96968E96968E56534B96968E96968E4F4B431D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1C
+          160F1C160E1B160E1B160D1A150D19140D18140D17130C16120C16110B16110B
+          16110B84848484848416110B16110B16110B16120C17130C18140D19140D1A15
+          0D1B160D1B160E1C160E1C160F1D170F1D170F1D170F1D170F1D170F1D170F88
+          877F96968E96968E96968E6462596B696196968E96968E96968E39352D96968E
+          96968E96968E55524996968E96968E4D4B421D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1C160F1C16
+          0E1B160E1B160D1A150D19140D18140D17130C16120C16110B16110B16110B84
+          848484848416110B16110B16110B16120C17130C18140D19140D1A150D1B160D
+          1B160E1C160E1C160F1D170F1D170F1D170F1D170F1D170F1D170F88877F9696
+          8E96968E96968E6462596B696196968E96968E96968E39352D96968E96968E96
+          968E403D348C8C8393938A302B231D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1C160F1C160E1B160E
+          1B160D1A150D19140D18140D17130C16120C16110B16110B16110B8484848383
+          8315110B16110B16110B16120B17130C18130C18140D1A150D1B150D1B160E1C
+          160E1C160F1D170F1D170F1D170F1D170F1D170F1D170F8C8C8396968E96968E
+          96968E6462596B696196968E96968E96968E35302895958D96968E96968E3632
+          29241E162621181D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1C160F1C160E1B160E1B150D1A
+          150D18140D18140D17130C16120B16110B16110B15110B83838382828215110A
+          16110B16110B16120B17120C18130C18140D19140D1A150D1B160E1B160E1C16
+          0E1C160F1D170F1D170F1D170F1D170F1D170F8F8E8696968E96968E96968E64
+          6259615F5796968E96968E95958D26211855524A88877F68665E1D180F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D17
+          0F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D
+          170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F1D170F
+          1D170F1D170F1D170F1D170F1C160F1C160E1B160E1B160E1A150D19140D1814
+          0D18130C17120C16120B16110B16110B15110A82828280808015110A15110A16
+          110B16110B16120B17130C18140D19140D1A150D1B150D1B160E1B160E1C160E
+          1C160E1C160F1C160F1C160F1C160F8F8E8696968E96968E96968E6462592823
+          1B7C7B7293928A58554D1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C
+          160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F
+          1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C16
+          0F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C
+          160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F
+          1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C16
+          0F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C
+          160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F
+          1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C16
+          0F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C160F1C
+          160F1C160F1C160E1C160E1B160E1B160E1B150D1A150D19140D18140D17130C
+          16120B16110B16110B15110A15110A8080807E7E7E14100A14110A15110A1611
+          0B16110B16120C17130C18140D19140D1A150D1A150D1B160E1B160E1B160E1B
+          160E1B160E1B160E1B160E8F8E8696968E96968E96968E6461591B160E1B160E
+          1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B16
+          0E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B
+          160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E
+          1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B16
+          0E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B
+          160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E
+          1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B16
+          0E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B
+          160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E
+          1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B16
+          0E1B160E1B160E1B160E1A150D1A150D19140D18140D17130C16120C16110B16
+          110B15110A14110A14100A7E7E7E7B7B7B14100A14100A14100A15110A15110B
+          16110B16120C18130C18140D19140D19140D1A150D1A150D1B150D1B150D1B15
+          0D1B150D1B150D8F8E8696968E96968E96968E6361591B150D1B150D1B150D1B
+          150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D
+          1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B15
+          0D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B
+          150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D
+          1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B15
+          0D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B
+          150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D
+          1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B15
+          0D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B
+          150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D1B150D
+          1A150D1A150D19140D19140D18140D18130C16120C16110B15110B15110A1410
+          0A14100A14100A7B7B7B777777130F0A140F0A14100A14100A14110A15110A16
+          110B16120B17130C18130C18140D18140D19140D19140D19140D19140D19140D
+          19140D8E8E8696968E96968E96968E62605919140D19140D19140D19140D1914
+          0D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19
+          140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D
+          19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D1914
+          0D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19
+          140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D
+          19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D1914
+          0D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19
+          140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D
+          19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D1914
+          0D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D18
+          140D18140D18130C17130C16120B16110B15110A14110A14100A14100A140F0A
+          130F0A77777770706F15110C130F0A130F0A130F0A140F0A14100A14110A1511
+          0B16110B16120B17120C17130C18130C18130C18140D18140D18140D18140D8E
+          8E8696968E96968E96968E62605918140D18140D18140D18140D18140D18140D
+          18140D18140D18140D18140D18140D18140D18140D18140D18140D18140D1814
+          0D18140D18140D18140D18140D18140D18140D18140D18140D18140D18140D18
+          140D18140D18140D18140D18140D18140D18140D18140D18140D18140D18140D
+          18140D18140D18140D18140D18140D18140D18140D18140D18140D18140D1814
+          0D18140D18140D18140D18140D18140D18140D18140D18140D18140D18140D18
+          140D18140D18140D18140D18140D18140D18140D18140D18140D18140D18140D
+          18140D18140D18140D18140D18140D18140D18140D18140D18140D18140D1814
+          0D18140D18140D18140D18140D18140D18140D18140D18140D18140D18140D18
+          140D18140D18140D18140D18140D18140D18140D18140D18140D18140D18140D
+          18140D18140D18140D18140D18140D18140D18140D18130C18130C17130C1712
+          0C16120B16110B15110B14110A14100A140F0A130F0A130F0A130F0A15110C70
+          70706564631F1B17110E09120F09120F09120F0A130F0A140F0A14100A14110A
+          15110A16110B16110B16110B16120B16120B16120B16120B16120B8A8A829696
+          8E96968E96968E5E5D5516120B16120B16120B16120B16120B16120B16120B16
+          120B16120B16120B16120B16120B16120B16120B16120B16120B16120B16120B
+          16120B16120B16120B16120B16120B16120B16120B16120B16120B16120B1612
+          0B16120B16120B16120B16120B16120B16120B16120B16120B16120B16120B16
+          120B16120B16120B16120B16120B16120B16120B16120B16120B16120B16120B
+          16120B16120B16120B16120B16120B16120B16120B16120B16120B16120B1612
+          0B16120B16120B16120B16120B16120B16120B16120B16120B16120B16120B16
+          120B16120B16120B16120B16120B16120B16120B16120B16120B16120B16120B
+          16120B16120B16120B16120B16120B16120B16120B16120B16120B16120B1612
+          0B16120B16120B16120B16120B16120B16120B16120B16120B16120B16120B16
+          120B16120B16120B16120B16120B16120B16120B16110B16110B16110B15110A
+          14110A14100A140F0A130F0A120F0A120F09120F09110E091E1B17656463514F
+          4C34322F110E08110E09110E09110E09110E09120F09130F0A130F0A140F0A14
+          100A14100A14100A14110A14110A14110A14110A14110A57564E96968E96968E
+          93938B322F2814110A14110A14110A14110A14110A14110A14110A14110A1411
+          0A14110A14110A14110A14110A14110A14110A14110A14110A14110A14110A14
+          110A14110A14110A14110A14110A14110A14110A14110A14110A14110A14110A
+          14110A14110A14110A14110A14110A14110A14110A14110A14110A14110A1411
+          0A14110A14110A14110A14110A14110A14110A14110A14110A14110A14110A14
+          110A14110A14110A14110A14110A14110A14110A14110A14110A14110A14110A
+          14110A14110A14110A14110A14110A14110A14110A14110A14110A14110A1411
+          0A14110A14110A14110A14110A14110A14110A14110A14110A14110A14110A14
+          110A14110A14110A14110A14110A14110A14110A14110A14110A14110A14110A
+          14110A14110A14110A14110A14110A14110A14110A14110A14110A14110A1411
+          0A14110A14110A14110A14110A14110A14100A14100A14100A140F0A130F0A13
+          0F0A120F09110E09110E09110E09110E09110E0834322F524F4D3934304E4D4C
+          100D08100D08100D08110D08110D08110E09110E09120F09120F09120F0A130F
+          0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A33302A44423B26241D13
+          0F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A
+          130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F
+          0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A13
+          0F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A
+          130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F
+          0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A13
+          0F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A
+          130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F
+          0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A13
+          0F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A130F0A
+          130F0A130F0A130F0A130F0A130F0A130F0A120F0A120F09120F09110E09110E
+          09110D08110D08100D08100D08100D084E4D4C3A3430231B1459585723201D0F
+          0D08100D08100D08100D08100D08110D08110D08110E08110E09110E09110E09
+          110E09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E
+          09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E0911
+          0E09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E09
+          110E09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E
+          09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E0911
+          0E09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E09
+          110E09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E
+          09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E0911
+          0E09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E09
+          110E09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E
+          09110E09110E09110E09110E09110E09110E09110E09110E09110E09110E0911
+          0E09110E09110E09110E09110E09110E09110E08110D08110D08100D08100D08
+          100D08100D080F0D08221F1C595858231B1421191235302B52525114110D0F0C
+          080F0D080F0D080F0D08100D08100D08100D08100D08100D08100D08110D0811
+          0D08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D08
+          110D08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D
+          08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D0811
+          0D08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D08
+          110D08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D
+          08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D0811
+          0D08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D08
+          110D08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D
+          08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D0811
+          0D08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D08
+          110D08110D08110D08110D08110D08110D08110D08110D08110D08110D08110D
+          08110D08100D08100D08100D08100D08100D08100D080F0D080F0D080F0D080F
+          0C0814110D52515035302B211912211912211912413D3A49484713100D0F0C08
+          0F0C080F0C080F0C080F0C080F0D080F0D080F0D080F0D080F0D080F0D080F0D
+          080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F
+          0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D08
+          0F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D
+          080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F
+          0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D08
+          0F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D
+          080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F
+          0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D08
+          0F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D
+          080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F
+          0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D080F0D08
+          0F0D080F0D080F0D080F0D080F0C080F0C080F0C080F0C080F0C0813100C4948
+          47413D3A211912211912211912211912221A13403C394E4D4D221F1C0F0C080F
+          0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C08
+          0F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C
+          080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F
+          0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C08
+          0F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C
+          080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F
+          0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C08
+          0F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C
+          080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F
+          0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C08
+          0F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C
+          080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F
+          0C080F0C080F0C080F0C080F0C080F0C080F0C08221F1C4E4D4D403C39221A13
+          211912211912211912211912211912211912332D2951504F4645442D2B281916
+          13100D0A0F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F
+          0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C08
+          0F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C
+          080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F
+          0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C08
+          0F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C
+          080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F
+          0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C08
+          0F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C
+          080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F
+          0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C08
+          0F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C080F0C
+          080F0C08100D0A1916132D2B2846454451504F332E2921191221191221191221
+          1912211912211912211912211912211912221B14342F2A454340525150585757
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          5959595959595959595959595959595959595959595959595959595959595959
+          565656504F4E454340342E2A221B14211912211912211912211912211912}
+        Bitmaps.TransparentColor = clOlive
+        Bitmaps.Up.Data = {
+          BA510000424DBA510000000000003600000028000000940000002F0000000100
+          18000000000084510000120B0000120B00000000000000000000211912221A13
+          221A13221A13221A13241C153F393458545152504C45433E3C38323A362F3C37
+          303C38303F3A313F3A31413B32433D33433D32453E324840334A42334B42324D
+          44324E443150453052473054482F57492E584A2D5A4C2C5D4D2B5F4E29614F28
+          6351286552286855276A56286D5829705B2B725C2D76602E7862317A64337F67
+          36836A39856E3D8871418C7445917949947C4C977F509B83559E875BA38C5FA9
+          9066AC956AB29A70B49E75B8A27ABDA781C1AC87C5B28EC9B793CCB99AD2BFA2
+          D5C5A8D9CBAFDECEB6E1D4BEE4D9C5E8DDCBEADFD0EDE4D5EDE4D6EDE4D6ECE2
+          D4E9E0D0E6DCCAE5D9C4E1D4BFDECFB8DBCBB1D6C5A9D2C1A3CFBD9DCBB897C7
+          B391C2AE8ABFAA85B9A47DB59F78B39C73AD966DA99269A68F63A28A5E9C8659
+          998254967E50927A4C8F76488B7243876F3F836C3B7F68387C65357A63327760
+          30735D2D715B2B6D59296B5728695527665327645227625028604F285D4D2A5B
+          4C2B594B2C57492D55482E5347305246305045314D44324B42324A4133484032
+          463F32443D32423C32413B32403B323E39313D39313C37303E3A3447443E524F
+          4A56524E39322C251D16241B14231B14221A1321191221191221191221191221
+          1912352F2A57545234312D16120C16120C17130D18140D19140E19150F1A160F
+          1B17101D18111E19121F1B13201B13221D14231D14251F162821172922172A23
+          182C24182D26182F2718312818332918342B18372C19392D183B2E183C2F173F
+          31174133164234154536154736144837144C3A144E3C144F3D14523E14544014
+          5642155843155B46165D47185F4A18624B1A654E1C67501E69511F6C54216F56
+          23715825745B28755C2A775E2B7A612E7C64317E6532816734836937866D3986
+          6D3A886F3C89703E8A72408C73418F74428F7543907644907745917746917846
+          9178479076459077469077469076448E75438C73428C724089713F876E3C866D
+          3A856C398268367F66337D64317B622E785F2C765D2A745B287158256D56236B
+          542169511F674F1C634C1B614A195E48175C4616584315574215544014523F13
+          503D134E3B134C3A144938144737144535154334164133163F32173C30173B2F
+          18382D18382D19342A19342A193128192F27182D25182B24172A231728211726
+          2016251F15231D15221D14211C141F1B131F1A121E19121C18111A160F1A1611
+          3D3B3755514D28201A231B14221A13221A132119122119122119124945414543
+          3F15110B15110B15110B15110B15110B15110B15110B15110B15110B15110B15
+          110B15110B16120C17130D17130D17130D18140D19140E19140E1A160F1A160F
+          1B17101D18111E19121F1A12201B131F1A13211C14231D15241E152620162721
+          162821172A23172B24182C24182D26182F271830271831281832291833291734
+          2A17372C17372C17382D173B2E173B2F163C2F163D30163E3116403215403215
+          4133154334154233144434154535154535144636144838154838144938144A39
+          144B39144B3A144B3A144D3B144C3A144D3B154E3B144F3C154F3C154F3D144F
+          3C154F3D154F3D144F3D144F3D154E3C144F3C154E3C154C3A144C3B144B3A14
+          4C3A154B39144938144938144838144837144535144535144434154435154334
+          154132154032163E31163E31163C2F173B2E173A2E17382D17372C18352B1834
+          2B183229183128183027182E26182D26182C24182B2418282217272116262016
+          252016241E15231D15211C14211C141F1A121E19121D18111C18111A160F1A16
+          0F19140E19140E19140E17130D17130D17130D16120C15110B15110B15110B1E
+          1A145654512C241E2119122119122119122119124E4A47312E2A15110B15110B
+          15110B15110B16110B16110B16120B16120B16120B16120B16120B16120B1612
+          0B16120B16120B16120B16120B16120B16120B16120B16120B16120B16120B16
+          120B16120B16120B16120B16120B16120B16120B17130C17130C17130C17130C
+          18140C18140C18140C19140D19140D1A150E1A150E1A160E1A160E1B170F1C18
+          101D18111D18111D18101E19111E19111F1A12201B121F1B12201B12211C1321
+          1C13221D13221D13231D14231D14241E14241E14241F14241F14262015262015
+          2620152620152721152721152821162821162821162922162922162922162922
+          1629221629221629231629221629221628211628211628211628211628211627
+          2115272116272116262015262016252015251F15241E14241E14231D14231E14
+          231E14211C13211C13201B13201C131F1A121F1A121E19111D18101D18111C18
+          101C18101B170F1B170F1B170F1A160F19150E19140D19140D19140D17130C17
+          130C17130C17130C17130C17130C16120B16120B16120B16120B16120B16120B
+          16120B16120B16120B16120B16120B16110B16110B15110B15110B15110B1814
+          0E5B5957272019211912211912443E3A39363116110B16110B16110B16120B16
+          120B16120B17120C17130C17130C17130C17130C18130C18130C18130C18130C
+          18130C18130C18130C18130C18130C18130C18130C18130C18130C18130C1813
+          0C18130C18130C18130C18130C18130C18130C18130C18130C18130C18130C18
+          130C18130C18130C18130C18130C18130C18130C18130C18130C18130C18130C
+          18130C18130C18130C18130C18130C18130C18130C18130C18130C18130C1813
+          0C18130C18130C18130C18130C18130C18130C18130C18130C18130C18130C18
+          130C18130C18130C18130C18130C18130C18130C18130C18130C18130C18130C
+          18130C18130C18130C18130C18130C18130C18130C18130C18130C18130C1813
+          0C18130C18130C18130C18130C18130C18130C18130C18130C18130C18130C18
+          130C18130C18130C18130C18130C18130C18130C18130C18130C18130C18130C
+          18130C18130C18130C18130C18130C18130C18130C18130C18130C18130C1813
+          0C18130C18130C18130C18130C18130C18130C18130C18130C18130C17130C17
+          130C17130C17130C17120C17120C16120B16120B16120B16120B16110B1F1B15
+          56534F21191228211B53514D16120B16120B16120B17120C17120C17130C1813
+          0C18130C18140C19140D19140D19140D19140D19140D19140D19140D19140D19
+          140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D
+          19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D1914
+          0D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19
+          140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D
+          19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D1914
+          0D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19
+          140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D
+          19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D1914
+          0D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19
+          140D19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D
+          19140D19140D19140D19140D19140D19140D19140D19140D19140D19140D1914
+          0D18140D18130C18130C17130C17130C17120C17120C17120C16120B413E3A37
+          302B56514E221E1817130C17130C17130C18130C18130C18140D19140D19140D
+          1A150D1A150E1B150E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B16
+          0E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B
+          160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E
+          1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B16
+          0E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B
+          160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E
+          1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B16
+          0E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B
+          160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E
+          1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B16
+          0E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B
+          160E1B160E1B160E1B160E1B160E1B160E1B160E1B160E1B150E1A150E1A150D
+          1A150D19140D19140D18140C18130C18130C17130C17130C19140E5B58555F5D
+          5A18130C18130C18130C18140D19140D19140D1A150D1B150E1B160E1C160E1C
+          170E1D170F1D170F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F
+          1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D18
+          0F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D
+          180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F
+          1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D18
+          0F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D
+          180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F
+          1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D18
+          0F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D
+          180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F
+          1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D180F1D18
+          0F1D180F1D180F1D180F1D180F1D180F1D170F1D170F1C170F1C170E1B160E1B
+          160E1A150D1A150D19140D19140D18140D18140C18140C5A58544E4C4719140D
+          19140D19140D1A150D1A150D1B160E1C160E1C170F1D180F1E180F1F19101F19
+          10201910201A10201A10201A10201A10201A10201A10201A10201A10201A1020
+          1A10201A10201A10201A10201A10201A10201A10201A10201A10201A10201A10
+          201A10201A10201A10201A10201A10201A10201A10201A10201A10201A10201A
+          10201A10201A10201A10201A10201A10201A10201A10201A10201A10201A1020
+          1A10201A10201A10201A10201A10201A10201A10201A10201A10201A10201A10
+          201A10201A10201A10201A10201A10201A10201A10201A10201A10201A10201A
+          10201A10201A10201A10201A10201A10201A10201A10201A10201A10201A1020
+          1A10201A10201A10201A10201A10201A10201A10201A10201A10201A10201A10
+          201A10201A10201A10201A10201A10201A10201A10201A10201A10201A10201A
+          10201A10201A10201A10201A10201A10201A10201A10201A10201A10201A1020
+          1A10201A10201A10201A10201A10201A10201A10201A10201A10201A10201A10
+          201A10201A10201A10201A102019101F19101F19101E180F1E180F1D170F1C17
+          0E1B160E1B150E1A150D1A150D1A150D19140D4F4C48413D381A150D1A150E1B
+          150E1B160E1C160E1D170F1D180F1E18101F1910201A10211A11211B11221B11
+          221B11221C12221C12221C12221C12221C12221C122C271D8D887FBEB295BEB2
+          95BEB295BEB295BEB295BEB295BEB295A0998B4C4840221C12221C12221C1222
+          1C12221C12221C12221C12221C12221C12221C12221C12221C12221C12221C12
+          221C12221C12221C12221C12221C12221C12221C12221C12221C12221C12221C
+          12221C12221C12221C12221C12221C12221C12221C12221C12221C12221C1222
+          1C12221C12221C12221C12221C12221C12221C12221C12221C12221C12221C12
+          221C12221C12221C12221C12221C12221C12221C12221C12221C12221C12221C
+          12221C12221C12221C12221C12221C12221C12221C12221C12221C12221C1222
+          1C12221C12221C12221C12221C12221C12221C12221C12221C12221C12221C12
+          221C12221C12221C12221C12221C12221C12221C12221C12221C12221C12221C
+          12221C12221C12221C12221C12221C12221C12221C12221C12221C12221C1222
+          1C12221C12221B11221B11211B11211B11201A112019101F19101E180F1D170F
+          1C170E1B160E1B160E1B150E1B150E45413C3D39331B160E1C160E1C170E1C17
+          0F1D180F1E180F1F1910201A10211B11221B11231C12231C12241D12241D1224
+          1D13241D13241D13241D13241D135E5952DAC799E4B33FE1AA27E1AA27E1AA27
+          E1AA27E1AA27E1AA27E1AA27E2AC2BEBC876ACA391302920241D13241D13241D
+          13241D13241D13241D13241D13241D13241D13241D13241D13241D13241D1324
+          1D13241D13241D13241D13241D13241D13241D13241D13241D13241D13241D13
+          241D13241D13241D13241D13241D13241D13241D13241D13241D13241D13241D
+          13241D13241D13241D13241D13241D13241D13241D13241D13241D13241D1324
+          1D13241D13241D13241D13241D13241D13241D13241D13241D13241D13241D13
+          241D13241D13241D13241D13241D13241D13241D13241D13241D13241D13241D
+          13241D13241D13241D13241D13241D13241D13241D13241D13241D13241D1324
+          1D13241D13241D13241D13241D13241D13241D13241D13241D13241D13241D13
+          241D13241D13241D13241D13241D13241D13241D13241D13241D13241D13241D
+          13241D12241D12231C12231C12221B11211B11201A111F19101E18101D180F1D
+          170F1C170E1C160E1C160E3D39333E3A341C170E1D170F1D170F1E180F1E1810
+          1F1910201A11221B11231C12241D12241D13251E13251E13261E13261E13261E
+          13261E13261E138C867BEAC774E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1
+          AA27E1AA27E1AA27E1AA27E1AA27E3B037D0C19F332B21261E13261E13261E13
+          261E13261E13261E13261E13261E13261E13261E13261E13261E13261E13261E
+          13261E13261E13261E13261E13261E13261E13261E13261E13261E13261E1326
+          1E13261E13261E13261E13261E13261E13261E13261E13261E13261E13261E13
+          261E13261E13261E13261E13261E13261E13261E13261E13261E13261E13261E
+          13261E13261E13261E13261E13261E13261E13261E13261E13261E13261E1326
+          1E13261E13261E13261E13261E13261E13261E13261E13261E13261E13261E13
+          261E13261E13261E13261E13261E13261E13261E13261E13261E13261E13261E
+          13261E13261E13261E13261E13261E13261E13261E13261E13261E13261E1326
+          1E13261E13261E13261E13261E13261E13261E13261E13261E13261E13261E13
+          251E13251E13241D13241D12231C12221B11211A112019101F19101E180F1D18
+          0F1D170F1D170F3F3B35403C361D170F1D180F1E180F1F1910201910201A1122
+          1B11231C12241D12251E13261E13261F14271F14271F14271F14271F14271F14
+          9B9589E8BE5AE1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA
+          27E1AA27E1AA27E1AA27E1AA27E3AF34BAB09B271F14271F14271F14271F1427
+          1F14271F14271F14271F14271F14271F14271F14271F14271F14271F14271F14
+          271F14271F14271F14271F14271F14271F14271F14271F14271F14271F14271F
+          14271F14271F14271F14271F14271F14271F14271F14271F14271F14271F1427
+          1F14271F14271F14271F14271F14271F14271F14271F14271F14271F14271F14
+          271F14271F14271F14271F14271F14271F14271F14271F14271F14271F14271F
+          14271F14271F14271F14271F14271F14271F14271F14271F14271F14271F1427
+          1F14271F14271F14271F14271F14271F14271F14271F14271F14271F14271F14
+          271F14271F14271F14271F14271F14271F14271F14271F14271F14271F14271F
+          14271F14271F14271F14271F14271F14271F14271F14271F14271F14271F1426
+          1F14261E13251E13241D12231C12221B11211A112019101F19101E180F1E180F
+          1D180F413C36423D371E180F1E180F1F19101F1910201A11211B11231C12241D
+          12251E13261E13271F14272014282014282014282015282015837D74E9C05EE1
+          AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27
+          E1AA27E1AA27E1AA27E1AA27EBC56C5B544C2820152820152820152820152820
+          1528201528201528201528201528201528201528201528201528201528201528
+          2015282015282015282015282015282015282015282015282015282015282015
+          2820152820152820152820152820152820152820152820152820152820152820
+          1528201528201528201528201528201528201528201528201528201528201528
+          2015282015282015282015282015282015282015282015282015282015282015
+          2820152820152820152820152820152820152820152820152820152820152820
+          1528201528201528201528201528201528201528201528201528201528201528
+          2015282015282015282015282015282015282015282015282015282015282015
+          282015282015282015282015282015282015282015282014282014272014271F
+          14261F13251E13241D12231C12211B11201A112019101F19101E180F1E180F42
+          3E37423E371E180F1F19101F1910201A10211B11221B11231C12241D13261E13
+          271F142720142820142820152921152921154C463CE9CA82E1AA27E1AA27E1AA
+          27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1
+          AA27E1AA27E1AA27E2AC2DA29B90292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115282015282014272014271F14
+          261E13251E13231C12221B11211B11201A101F19101F19101E180F433E38433F
+          381F19101F1910201910201A11211B11221C12241D12251E13261F13271F1428
+          2014282015292115292115292115B4A88EE1AB2AE1AA27E1AA27E1AA27E1AA27
+          E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA
+          27E1AA27E1AA27BAAF9429211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          15292115292115292115292115292115292115282015282014271F14261F1425
+          1E13241D12221C12211B11201A112019101F19101F1910433F38433F381F1910
+          1F1910201A10201A11211B11231C12241D12251E13261F14271F142820142820
+          152921152921154C463CEBC876E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1
+          AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27
+          E1AA27BAAF942921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          292115292115292115292115292115282015282014271F14261F14251E13241D
+          12231C12211B11211A11201A101F19101F1910433F38433F381F19101F191020
+          1A10211A11221B11231C12241D12251E13261F14271F14282014282015292115
+          292115958F85E2AE30E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA
+          27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27BA
+          AF94292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115282015282014271F14261F14251E13241D12231C12
+          221B11211A11201A101F19101F1910433F38433F381F19101F1910201A10211A
+          11221B11231C12241D12251E13261F14271F14282014282015292115292115BF
+          B18FE1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27
+          E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27BAAF942921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          21152921152921152921153E30162921152921152921152921152921153E3016
+          2921152921152921152921152921153E30162921153E30162921152921152921
+          152921153E301629211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          15292115292115282015282014271F14261F14251E13241D12231C12221B1121
+          1A11201A101F19101F1910433F38433F381F19101F1910201A10211A11221B11
+          231C12241D12251E13261F14271F14282014282015292115292115D8C290E1AA
+          27E1AA27E8CE93E9C162E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1
+          AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27BAAF94292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          152921159D771FE1AA279D771F2921152921152921156D521AE1AA27B2872229
+          2115292115292115D8A326CF9C259D771FE1AA279D771F2921153E3016CF9C25
+          E1AA277A5C1C2921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          292115282015282014271F14261F14251E13241D12231C12221B11211A11201A
+          101F19101F1910433F38433F381F19101F1910201A10211A11221B11231C1224
+          1D12251E13261F14271F14282014282015292115292115D9C28CE1AA27E1AA27
+          C7BBA2EDCD80E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA
+          27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27BAAF9429211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          9D771FE1AA279D771F292115292115292115292115CF9C25D8A326C69524C695
+          24C69524E1AA27A87F209D771FE1AA279D771F292115A87F20E1AA27E1AA277A
+          5C1C292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211528
+          2015282014271F14261F14251E13241D12231C12221B11211A11201A101F1910
+          1F1910433F38433F381F19101F1910201A10211A11221B11231C12241D12251E
+          13261F14271F14282014282015292115292115C3B490E1AA27E1AA27C7BBA2ED
+          CD80E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27
+          E1AA27E1AA27E1AA27E1AA27E1AA27BAAF942921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          152921152921152921152921152921152921152921152921152921159D771FE1
+          AA27BC8E23926E1E7A5C1C2921152921159D771FE1AA27CF9C25C69524D8A326
+          E1AA276D521A9D771FE1AA279D771F7A5C1CE1AA27E1AA27E1AA277A5C1C2921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152820152820
+          14271F14261F14251E13241D12231C12221B11211A11201A101F19101F191043
+          3F38433F381F19101F1910201A10211A11221B11231C12241D12251E13261F14
+          271F142820142820152921152921158B857CE4B23BE1AA27CABFA5EDCD80E1AA
+          27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1
+          AA27E1AA27E1AA27E1AA27BAAF94292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921159D771FE1AA27E1AA
+          27E1AA27E1AA27A87F202921155E4819E1AA27B28722292115D8A326C6952429
+          21159D771FE1AA279D771FCF9C25D8A326A87F20E1AA277A5C1C292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115282015282014271F14
+          261F14251E13241D12231C12221B11211A11201A101F19101F1910433F38433F
+          381F19101F1910201A10211A11221B11231C12241D12251E13261F14271F1428
+          2014282015292115292115352D22DDC99BE1AA27D4C9AFEDCD80E1AA27E1AA27
+          E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA
+          27E1AA27E1AA27BAAF9429211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          21152921152921152921152921152921152921159D771FE1AA279D771F4F3C18
+          BC8E23E1AA276D521A292115C69524D8A326926E1EE1AA27926E1E2921159D77
+          1FE1AA27D8A326E1AA2786651D9D771FE1AA277A5C1C29211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          15292115292115292115292115292115292115282015282014271F14261F1425
+          1E13241D12231C12221B11211A11201A101F19101F1910433F38433F381F1910
+          1F1910201A10211A11221B11231C12241D12251E13261F14271F142820142820
+          15292115292115292115554E45DFCA98D5CBB6EDCD80E1AA27E1AA27E1AA27E1
+          AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27
+          E1AA27BAAF942921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          152921152921152921152921152921159D771FE1AA279D771F3E3016BC8E23E1
+          AA276D521A292115926E1EE1AA27D8A326E1AA274F3C182921159D771FE1AA27
+          E1AA27B287222921159D771FE1AA277A5C1C2921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          292115292115292115292115292115282015282014271F14261F14251E13241D
+          12231C12221B11211A11201A101F19101F1910433F38433F381F19101F191020
+          1A10211A11221B11231C12241D12251E13261F14271F14282014282015292115
+          2921152921152921153F382D94908AEDCD80E1AA27E1AA27E1AA27E5CC91E6C9
+          83E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27BA
+          AF94292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921159D771FE1AA27E1AA27E1AA27E1AA27C695242921
+          152921154F3C18E1AA27E1AA27BC8E232921152921159D771FE1AA27D8A3264F
+          3C182921159D771FE1AA277A5C1C292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115282015282014271F14261F14251E13241D12231C12
+          221B11211A11201A101F19101F1910433F38433F381F19101F1910201A10211A
+          11221B11231C12241D12251E13261F14271F1428201428201529211529211529
+          2115292115292115423B31ECC977E1AA27E1AA27E1AA27CFBA8AD9C28AE1AA27
+          E1AA27E3B138EBD8ADE3B138E1AA27E1AA27E1AA27E1AA27E1AA27BAAF942921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          21152921152921157A5C1C9D771F9D771F9D771F926E1E3E3016292115292115
+          292115926E1E9D771F7A5C1C2921152921157A5C1C9D771F86651D2921152921
+          157A5C1C9D771F4F3C1829211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          15292115292115282015282014271F14261F14251E13241D12231C12221B1121
+          1A11201A101F19101F1910433F38433F381F19101F1910201A10211A11221B11
+          231C12241D12251E13261F14271F142820142820152921152921152921152921
+          15292115423B31ECC873E1AA27E1AA27E1AA27CFBA8AD9C28AE1AA27E1AA27E5
+          B440CDCBC8E5B440E1AA27E1AA27F7E9C8E1AA27E1AA27BAAF94292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          292115282015282014271F14261F14251E13241D12231C12221B11211A11201A
+          101F19101F1910433F38433F381F19101F1910201A10211A11221B11231C1224
+          1D12251E13261F14271F14282014282015292115292115292115292115292115
+          423B31ECC873E1AA27E1AA27E1AA27CFBA8AD9C28AE1AA27E1AA27E5B440CDCB
+          C8E5B440E1AA27E1AA27F7F6F6E1AA27E1AA27BAAF9429211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211528
+          2015282014271F14261F14251E13241D12231C12221B11211A11201A101F1910
+          1F1910433F38433F381F19101F1910201A10211A11221B11231C12241D12251E
+          13261F14271F14282014282015292115292115292115292115292115463F35EC
+          C873E1AA27E1AA27E1AA27CFBA8AD9C28AE1AA27E1AA27E5B440CDCBC8E5B440
+          E1AA27E1AA27F2F2F1E2AC2BE1AA27B5AB932921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152820152820
+          14271F14261F14251E13241D12231C12221B11211A11201A101F19101F191043
+          3F38443F391F19101F1910201A10211A11221B11231C12241D12251E13261F14
+          271F142820142820152921152921152921152921152921154F483EECC873E1AA
+          27E1AA27E1AA27CFBA8AD9C28AE1AA27E1AA27E5B440CDCBC8E5B440E1AA27E1
+          AA27C5C3C0EDCB7CE9C060827D75292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115282015282014271F14
+          261F14251E13241D12231C12221B11211A11201A101F19101F1910443F394440
+          391F1910201910201A10211A11221B11231C12241D13251E13261F1427201428
+          20142820152921152921152921152921152921154F483EECC873E1AA27E1AA27
+          E1AA27CFBA8AD9C28AE1AA27E1AA27E5B440C7C5C2E7BA51E1AA27E2AE308A85
+          7F605A526B665D2A221629211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          15292115292115292115292115292115292115282015282014272014261F1425
+          1E13241D13231C12221B11211A11201A101F19101F1910443F3945403A1F1910
+          201A10201A11211B11221C12231C12251E13261E13271F142820142820152921
+          152921152921152921152921152921154F483EECC873E1AA27E1AA27E1AA27CF
+          BA8ACFBC91E1AA27E1AA27E7BA4F7B766FCDC0A2EDCB7BE1CEA4423B31292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          2921152921152921152921152921152921152921152921152921152921152921
+          1529211529211529211529211529211529211529211529211529211529211529
+          2115292115292115292115292115292115292115292115292115292115292115
+          292115292115292115292115292115292115282015282014271F14261E13241D
+          13231C12221B11211B11201A112019101F191045403946413A201A10201A1121
+          1B11221B11231C12241D13251E13261F142720142820152921152921152A2216
+          2A22162A22162A22162A221650493FEAC468E1AA27E1AA27E1AA27CFBA8A6F6A
+          61EBCF8DEAC265D3C4A3332C202C2418463F3430281C2A22162A22162A22162A
+          22162A22162A22162A22162A22162A22162A22162A22162A22162A22162A2216
+          2A22162A22162A22162A22162A22162A22162A22162A22162A22162A22162A22
+          162A22162A22162A22162A22162A22162A22162A22162A22162A22162A22162A
+          22162A22162A22162A22162A22162A22162A22162A22162A22162A22162A2216
+          2A22162A22162A22162A22162A22162A22162A22162A22162A22162A22162A22
+          162A22162A22162A22162A22162A22162A22162A22162A22162A22162A22162A
+          22162A22162A22162A22162A22162A22162A22162A22162A22162A22162A2216
+          2A22162A22162A22162A22162A22162A22162A22162A22162A22162A22162A22
+          162A22162A22162A22162A22162A22162A22162A22162A22162A22162A22162A
+          22162A22162A22162A2216292115292115282015272014261F14251E13241D12
+          231C12221B11211B11201A1020191046413A48433C211A11211B11221B11231C
+          12241D12251E13261F142820142921152921152A22162B23172B23172B23172B
+          23172B23172B2317504A40EAC367E1AA27E1AA27E1AA27CFBB8A2B23173F382D
+          5A534A30281C2B23172B23172B23172B23172B23172B23172B23172B23172B23
+          172B23172B23172B23172B23172B23172B23172B23172B23172B23172B23172B
+          23172B23172B23172B23172B23172B23172B23172B23172B23172B23172B2317
+          2B23172B23172B23172B23172B23172B23172B23172B23172B23172B23172B23
+          172B23172B23172B23172B23172B23172B23172B23172B23172B23172B23172B
+          23172B23172B23172B23172B23172B23172B23172B23172B23172B23172B2317
+          2B23172B23172B23172B23172B23172B23172B23172B23172B23172B23172B23
+          172B23172B23172B23172B23172B23172B23172B23172B23172B23172B23172B
+          23172B23172B23172B23172B23172B23172B23172B23172B23172B23172B2317
+          2B23172B23172B23172B23172B23172B23172B23172B23172B23172B23172B23
+          172B23172B23172B23172A2216292115282015272014261F14251E13241D1223
+          1C12221B11211B11201A1147423B4A453E221B11231C12231C12241D13251E13
+          271F142820142921152A22162B23172C24182C24182C24192C24192C24192C24
+          192C2419514B42EAC367E1AA27E1AA27E1AA27CFBB8B2C24192C24192C24192C
+          24192C24192C24192C24192C24192C24192C24192C24192C24192C24192C2419
+          2C24192C24192C24192C24192C24192C24192C24192C24192C24192C24192C24
+          192C24192C24192C24192C24192C24192C24192C24192C24192C24192C24192C
+          24192C24192C24192C24192C24192C24192C24192C24192C24192C24192C2419
+          2C24192C24192C24192C24192C24192C24192C24192C24192C24192C24192C24
+          192C24192C24192C24192C24192C24192C24192C24192C24192C24192C24192C
+          24192C24192C24192C24192C24192C24192C24192C24192C24192C24192C2419
+          2C24192C24192C24192C24192C24192C24192C24192C24192C24192C24192C24
+          192C24192C24192C24192C24192C24192C24192C24192C24192C24192C24192C
+          24192C24192C24192C24192C24192C24192C24192C24192C24192C24192C2419
+          2C24192C24182C24182B23172A2216292115272014261F14251E13241D12231C
+          12221B11211B1149443D4D4840231C12241D12251E13261F13271F142820152A
+          22162B23172C24182C24192D251A2D251A2E261B2E261B2E261B2E261B2E261B
+          585149EAC367E1AA27E1AA27E1AA27CFBB8B2E261B2E261B2E261B2E261B2E26
+          1B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E
+          261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B
+          2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E26
+          1B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E
+          261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B
+          2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E26
+          1B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E
+          261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B
+          2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E26
+          1B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2E261B2D
+          251A2D251A2C24192C24182B2317292115282014271F14251E13241D13241D12
+          231C124C473F59554D251E13261E13271F142820142921152B23172C24182D25
+          1A2E261B2F271B2F271B30281C30281C30281C30281C30281C30281C615B51EA
+          C367E1AA27E1AA27E1AA27D0BB8B30281C30281C30281C30281C30281C30281C
+          30281C30281C30281C30281C30281C30281C30281C30281C30281C30281C3028
+          1C30281C30281C30281C30281C30281C30281C30281C30281C30281C30281C30
+          281C30281C30281C30281C30281C30281C30281C30281C30281C30281C30281C
+          30281C30281C30281C30281C30281C30281C30281C30281C30281C30281C3028
+          1C30281C30281C30281C30281C30281C30281C30281C30281C30281C30281C30
+          281C30281C30281C30281C30281C30281C30281C30281C30281C30281C30281C
+          30281C30281C30281C30281C30281C30281C30281C30281C30281C30281C3028
+          1C30281C30281C30281C30281C30281C30281C30281C30281C30281C30281C30
+          281C30281C30281C30281C30281C30281C30281C30281C30281C30281C30281C
+          30281C30281C30281C30281C30281C30281C30281C30281C30281C30281C2F27
+          1B2E261B2D251A2C24192C24182A2216292115272014261F14251E13241D1357
+          514A77736C271F142820142921152B23172C24182D251A2E261B30281C31291D
+          31291D312A1E322B1F322B1F322B1F322B1F322B1F322B1F575147EBC770E1AA
+          27E1AA27E1AA27CDBB8F322B1F322B1F322B1F322B1F322B1F322B1F322B1F32
+          2B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F
+          322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B
+          1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F32
+          2B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F
+          322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B
+          1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F32
+          2B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F
+          322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B
+          1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F32
+          2B1F322B1F322B1F322B1F322B1F322B1F322B1F322B1F312A1E312A1E31291D
+          30281C2F271B2E261B2C24192B23172A2216282015272014261F146F6A649C9A
+          952921152B23172C24182D251A2E261B30281C31291D322B1F332B20342C2134
+          2C21352D22352D22352D22352D22352D22352D22372F24D2C3A1E3AF33E1AA27
+          E7BA51968F82352D22352D22352D22352D22352D22352D22352D22352D22352D
+          22352D22352D22352D22352D22352D22352D22352D22352D22352D22352D2235
+          2D22352D22352D22352D22352D22352D22352D22352D22352D22352D22352D22
+          352D22352D22352D22352D22352D22352D22352D22352D22352D22352D22352D
+          22352D22352D22352D22352D22352D22352D22352D22352D22352D22352D2235
+          2D22352D22352D22352D22352D22352D22352D22352D22352D22352D22352D22
+          352D22352D22352D22352D22352D22352D22352D22352D22352D22352D22352D
+          22352D22352D22352D22352D22352D22352D22352D22352D22352D22352D2235
+          2D22352D22352D22352D22352D22352D22352D22352D22352D22352D22352D22
+          352D22352D22352D22352D22352D22352D22352D22352D22352D22352D22352D
+          22352D22352D22352D22352D22352D22352D22352D22342C21332B20322B1F31
+          2A1E31291D2F271B2D251A2C24192B2317292115282015908D878A85823E372D
+          2C24192E261B30281C31291D322B1F332B20352D22362E23362E23362F243730
+          253730253730253730253730253730253730254740369B968CB0A69388847C39
+          3228373025373025373025373025373025373025373025373025373025373025
+          3730253730253730253730253730253730253730253730253730253730253730
+          2537302537302537302537302537302537302537302537302537302537302537
+          3025373025373025373025373025373025373025373025373025373025373025
+          3730253730253730253730253730253730253730253730253730253730253730
+          2537302537302537302537302537302537302537302537302537302537302537
+          3025373025373025373025373025373025373025373025373025373025373025
+          3730253730253730253730253730253730253730253730253730253730253730
+          2537302537302537302537302537302537302537302537302537302537302537
+          3025373025373025373025373025373025373025373025373025373025373025
+          373025373025373025373025373025362F24362F24362E23352D22342C21332B
+          20312A1E30281C2F271B2D251A2C24182E261B96938F3129239A96912F271B31
+          291D312A1E332B20342C21362E23362F24373025383126393226393226393226
+          3932263932263932263932263932263932263932263932263932263932263932
+          2639322639322639322639322639322639322639322639322639322639322639
+          3226393226393226393226393226393226393226393226393226393226393226
+          3932263932263932263932263932263932263932263932263932263932263932
+          2639322639322639322639322639322639322639322639322639322639322639
+          3226393226393226393226393226393226393226393226393226393226393226
+          3932263932263932263932263932263932263932263932263932263932263932
+          2639322639322639322639322639322639322639322639322639322639322639
+          3226393226393226393226393226393226393226393226393226393226393226
+          3932263932263932263932263932263932263932263932263932263932263932
+          2639322639322639322639322639322639322639322639322639322639322639
+          3226393226393226393226393226393226383126373025362F24352D22342C21
+          322B1F31291D30281C2E261B79746C4D47412119126C6662716C64322B1F342C
+          21352D22362F243730253831263932263A32273B33283B33283B33283B34293B
+          34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B3429
+          3B34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B34
+          293B34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B
+          34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B3429
+          3B34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B34
+          293B34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B
+          34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B3429
+          3B34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B34
+          293B34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B
+          34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B3429
+          3B34293B34293B34293B34293B34293B34293B34293B34293B34293B34293B34
+          293B34293B33283B33283B33283A3227393226383126373025362E23352D2233
+          2B20312A1E423A309793902119122119122119128A868268625B362E23362F24
+          3831263932263A32273B33283B34293B34293C352A3C352A3C352A3C352A3C35
+          2A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3D
+          362B3D362B3D362B3D362B3D362B3D362B3D362B3E372C3E372C3E372C3F382C
+          3F382C40382D40382D40382D413A2E413A2E413A2E423A2F423A2F433B2F433B
+          2F433C30433C2F433C2F443C30453D30443C30453D30453D31453D30453D3046
+          3E31463E31463E31463E31463E31463E31463E31463E31473F31463E31463E31
+          453D30453D30463E31453D30453D30463E31453D30443C30453D30443C30443C
+          30443C30433B2F433B2F423B2F423B2F423A2E423A2E423A2E413A2E413A2E40
+          392D40392D40382D40382D40382D3F382C3F382C3E372C3E372C3E372C3D362B
+          3D362B3D362B3D362B3D362B3D362B3D362B3C352A3C352A3C352A3C352A3C35
+          2A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3C
+          352A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3C352A3C352A
+          3C352A3C352A3B34293B34293B33283A3227393226383126362F24352D223931
+          27B0ADA92E27202119122119122119122119127F7A76918D863A33273932263B
+          33283B34293D362B3C352A3D362B3E372C3E372C3E372C3E372C413A2F413A2E
+          413A2E423B30433C30443C31443C31453E32463E32463E32473F334840334941
+          344A42344B42344C43354D44354E45354F453550463551463552473653483654
+          4935544935554935564A34574B34584B33594B33594C335A4C325B4D325B4D31
+          5D4E315D4D315E4F305E4E305F4F3060502F60503060502F60502F61502F6150
+          2E62512E62512E62512E63512E63512E62512E62512E62512E62512E63512E63
+          512E62512E62512E62512E62502E61502E61502E61502F60502E604F2F5F4F2F
+          6050305E4E305E4E305C4E305C4E315C4D315B4D315A4C315A4C32594C32584B
+          32574B33574A33574A345549345549345448345348345146345147355046354E
+          45344E44344D44344D43344C43344B43344B4335494133484033484033473F32
+          473F32463E32453E31443C30433C30423B2F423A2F423A2F413A2E40392E3F38
+          2D3F382D3F382D3F382D3F382D3F382D3E372C3E372C3E372C3D362B3D362B3D
+          362B3D362B3C352A3C352A3B34293B3328393226383126474136A8A4A139322C
+          211912211912211912211912211912221A13504A44A9A5A177716A3E372C3F38
+          2D41392E423B2F443C31453E32453E31473F324840334940334A41344B43344D
+          44354E45354F4535514635524735534835554935564A35574B35594B345A4C33
+          5B4D335D4E325F4F3161503162513064522F65532E66542D68552C6A562B6B57
+          2B6C572B6F592B705A2A725C2B745D2B765E2B775F2C79612D7B632E7C642F7E
+          6530806731816732836933846B34866C35886E37886E388A70398B713B8D723C
+          8E733D8E733E90753E90753F9176409176409277409277409176409176409075
+          3F90753F90753F8F743E8E743D8E733C8C723C8C723B8B703A8B7039896F3888
+          6E38866D36856B35846A358268338067327E66317F65307C642F7A622F7A622D
+          78602D765E2C745D2C735C2C715B2B705A2B6E592B6C572B6A562B69552C6854
+          2C66542D65522D63512E62512F6151305F4F315D4E325B4D325A4D33594C3457
+          4B34564A355549355448355248355046355046354E45354D44354C43354B4234
+          494033494033473F32473F32453E32443C31443C31423B30423A2F413A2F4039
+          2E3E372C3E372C3D362B3C352A3D362C88847D95928E2B241D21191221191221
+          1912211912221A13221A13231B14241B14261E17635D57A29D9AA6A29C908B83
+          7F786F7872687973687A74697B75697C75697D76697F76697F77688077688278
+          67837966847965857964867A62877A61887A5F8A7B5E8B7B5C8C7C5A8D7C588E
+          7D56907E54917E52937F52947F519681509781509982519B84529C85539E8755
+          A08957A28A58A58C5AA78E5CA9915FAC9362AE9564B19867B39A6AB59D6DB89F
+          70BAA274BDA577C0A77CC2AA80C5AD84C7B186CAB48BCDB78FCFBA93D3BD99D5
+          C19CD7C3A0DAC7A5DBC9AADFCCADE0CEB2E2D2B6E3D3B9E3D5BCE4D6BDE4D7BF
+          E4D7BFE4D6BDE3D5BBE2D2B6DFCFB2DECCAEDBC8A9DAC6A4D6C3A0D4BF9AD1BC
+          96CFB891CCB58DCAB38AC7AF85C4AD81C1A97DBFA779BDA475B9A171B79E6EB5
+          9B6BB29968AF9664AD9462AB925FA9905DA78E5BA58C58A28957A088559E8654
+          9D85529B84529A8351978151968151947F52937F52917E53907D558E7D568D7C
+          588C7C5A8B7B5C897B5E887A60877A61867A6285796484796583786682786781
+          77678077687F76687D76697C75697C75697B74697A7469797368777168767167
+          7C776E8F8B839F9B959A95914B443E231B14241C14221A13221A13211912}
+        Color = clPurple
+        ButtonSize = bszStretchToButton
+        Spacing = 1
+        TabOrder = 11
+        OnClick = btnSelectClick
       end
     end
   end

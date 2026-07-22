@@ -6116,18 +6116,23 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               Color = 2695445
               ExplicitWidth = 359
               inherited SpeedButton2: TSpeedButton
+                Height = 30
                 OnClick = fmPlatformGuidance1SpeedButton2Click
+                ExplicitHeight = 30
               end
             end
             inherited PanelPlatformGuidance: TPanel
               Width = 359
               Height = 1951
+              BevelOuter = bvNone
               Color = 2695445
               ExplicitWidth = 359
               ExplicitHeight = 1951
               inherited grbOutrun: TGroupBox [0]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label310: TLabel
@@ -6175,8 +6180,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grbReturnToBase: TGroupBox [1]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label327: TLabel
@@ -6253,8 +6260,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grbShadow: TGroupBox [2]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label173: TLabel
@@ -6315,8 +6324,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grbSinuation: TGroupBox [3]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label206: TLabel
@@ -6385,8 +6396,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grbZigZag: TGroupBox [4]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label145: TLabel
@@ -6455,8 +6468,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grpStation: TGroupBox [5]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label154: TLabel
@@ -6498,8 +6513,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited gbWaypoint: TGroupBox [6]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label97: TLabel
@@ -6615,8 +6632,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grbEvasion: TGroupBox [7]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label318: TLabel
@@ -6664,8 +6683,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grbEngagement: TGroupBox [8]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label300: TLabel
@@ -6737,8 +6758,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grbFormation: TGroupBox [9]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label323: TLabel
@@ -6807,13 +6830,15 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grpCircle: TGroupBox
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited ScrollBox1: TScrollBox
-                  Width = 355
-                  Height = 1931
+                  Width = 357
+                  Height = 1933
                   ExplicitWidth = 355
                   ExplicitHeight = 1931
                   inherited Label3: TLabel
@@ -6904,8 +6929,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grbHelm: TGroupBox [11]
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited Label120: TLabel
@@ -7038,8 +7065,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grpPersonelGuidance: TGroupBox
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited whHeadingPersonel: TVrWheel
@@ -7069,15 +7098,19 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 end
               end
               inherited grbStraightLine: TGroupBox
-                Width = 357
-                Height = 1949
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
                 Color = 2695445
                 ParentColor = False
                 ExplicitWidth = 357
                 ExplicitHeight = 1949
                 inherited ScrollBox5: TScrollBox
-                  Width = 355
-                  Height = 1931
+                  Width = 357
+                  Height = 1933
+                  BevelInner = bvNone
+                  BevelOuter = bvNone
                   Color = 2695445
                   ParentColor = False
                   ExplicitWidth = 355

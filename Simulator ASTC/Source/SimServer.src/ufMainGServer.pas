@@ -439,8 +439,6 @@ begin
     6: pnlDataLink.BringToFront;
     7: pnlData.BringToFront;
     8: pnlVersion.BringToFront;
-
-
   end;
 end;
 

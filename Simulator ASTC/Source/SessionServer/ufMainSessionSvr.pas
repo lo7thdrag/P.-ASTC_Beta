@@ -11,15 +11,7 @@ type
   TfrmMainSessionSvr = class(TForm)
     imgBackground: TImage;
     pnlMainBackground: TPanel;
-    pnlBottom: TPanel;
-    PageControl1: TPageControl;
-    tsClients: TTabSheet;
-    lvConnection: TListView;
-    tsLogs: TTabSheet;
-    mmLogs: TMemo;
-    tsNetLog: TTabSheet;
-    tvClientLogs: TTreeView;
-    pnlSession: TPanel;
+    pnlClient: TPanel;
     Label3: TLabel;
     Label4: TLabel;
     lblSession: TLabel;
@@ -27,10 +19,23 @@ type
     edExerciseName: TEdit;
     edScenarioID: TEdit;
     sBar: TStatusBar;
+    imgClients: TImage;
+    imgLogs: TImage;
+    imgNetLogs: TImage;
+    lvConnection: TListView;
+    pnlNetLogs: TPanel;
+    pnlLogs: TPanel;
+    mmoLogs: TMemo;
+    tvClientLogs: TTreeView;
+    imgClose: TImage;
+    imgMinimize: TImage;
 
     procedure spbOnlineClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure lvConnectionCompare(Sender: TObject; Item1, Item2: TListItem; Data: Integer; var Compare: Integer);
+    procedure imgClientsClick(Sender: TObject);
+    procedure imgCloseClick(Sender: TObject);
+    procedure imgMinimizeClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -41,6 +46,8 @@ type
 
     procedure UpdateToConnectionList(const sIp: string; const aConnect: Boolean);
     procedure AddToLogs(const s: string);
+
+    procedure updateTabSheet;
 
   public
     { Public declarations }
@@ -136,7 +143,7 @@ end;
 
 procedure TfrmMainSessionSvr.AddToLogs(const s: string);
 begin
-  mmLogs.Lines.Add(s);
+  mmoLogs.Lines.Add(s);
 end;
 
 function TfrmMainSessionSvr.FindClientNode(const ip: string): TTreeNode;
@@ -172,6 +179,31 @@ begin
    Application.OnMessage := AppMessage;
 end;
 
+procedure TfrmMainSessionSvr.imgClientsClick(Sender: TObject);
+begin
+  updateTabSheet;
+
+  TImage(sender).Height := 73;
+  TImage(sender).top := 170;
+  TImage(sender).Picture.LoadFromFile('data\\Image Simulator\SessionServer\' +TImage(sender).Name + '_Select.png');
+
+  case TImage(sender).Tag of
+    1: pnlClient.BringToFront;
+    2: pnlLogs.BringToFront;
+    3: pnlNetLogs.BringToFront;
+  end;
+end;
+
+procedure TfrmMainSessionSvr.imgCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmMainSessionSvr.imgMinimizeClick(Sender: TObject);
+begin
+  Self.WindowState := wsMinimized;
+end;
+
 procedure TfrmMainSessionSvr.lvConnectionCompare(Sender: TObject; Item1, Item2: TListItem; Data: Integer; var Compare: Integer);
 begin
  Compare  := StrComp(PChar(item1.Caption), PChar(Item2.Caption));
@@ -201,7 +233,7 @@ begin
 
   end;
 
-  mmLogs.Lines.Add(TimeStr +' :  Server Status is ' + s );
+  mmoLogs.Lines.Add(TimeStr +' :  Server Status is ' + s );
   sBar.Panels[0].Text := s;
 end;
 
@@ -215,7 +247,6 @@ begin
   UpdateToConnectionList(sClientIp, False);
 end;
 
-
 procedure TfrmMainSessionSvr.spbOnlineClick(Sender: TObject);
 var
   s: string;
@@ -225,9 +256,9 @@ begin
 
   GetHostandIPList(s, ss);
 
-  mmLogs.Lines.Add('Available IPAddress');
-  mmLogs.Lines.Add(s);
-  mmLogs.Lines.AddStrings(ss);
+  mmoLogs.Lines.Add('Available IPAddress');
+  mmoLogs.Lines.Add(s);
+  mmoLogs.Lines.AddStrings(ss);
 
   if spbOnline.Down then
   begin
@@ -242,6 +273,21 @@ begin
 
   ss.Free;
 
+end;
+
+procedure TfrmMainSessionSvr.updateTabSheet;
+begin
+  imgClients.Height := 32;
+  imgClients.Top := 174;
+  imgClients.Picture.LoadFromFile('data\\Image Simulator\SessionServer\imgClients.png');
+
+  imgLogs.Height := 32;
+  imgLogs.Top := 174;
+  imgLogs.Picture.LoadFromFile('data\\Image Simulator\SessionServer\imgLogs.png');
+
+  imgNetLogs.Height := 32;
+  imgNetLogs.Top := 174;
+  imgNetLogs.Picture.LoadFromFile('data\\Image Simulator\SessionServer\imgNetLogs.png');
 end;
 
 procedure TfrmMainSessionSvr.SessionStateChange(const st: TSessionVar);

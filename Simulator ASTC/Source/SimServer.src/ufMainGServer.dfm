@@ -16354,6 +16354,7 @@ object fMainGServer: TfMainGServer
       Top = 3
       Width = 25
       Height = 25
+      Cursor = crHandPoint
       OnClick = imgCloseClick
     end
     object imgMinimize: TImage
@@ -16361,6 +16362,7 @@ object fMainGServer: TfMainGServer
       Top = 3
       Width = 25
       Height = 25
+      Cursor = crHandPoint
       OnClick = imgMinimizeClick
     end
     object btnPercepatan: TBitBtn

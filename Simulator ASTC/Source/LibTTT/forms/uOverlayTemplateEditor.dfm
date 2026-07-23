@@ -54654,1130 +54654,6 @@ object fmOverlayEditor: TfmOverlayEditor
           Font.Style = []
           ParentFont = False
         end
-        object grpPolygonD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 4
-          object Label30: TLabel
-            Left = 16
-            Top = 21
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label31: TLabel
-            Left = 104
-            Top = 21
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label33: TLabel
-            Left = 104
-            Top = 43
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label37: TLabel
-            Left = 16
-            Top = 43
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object AddPolyD: TSpeedButton
-            Tag = 1
-            Left = 158
-            Top = 16
-            Width = 43
-            Height = 43
-            Cursor = crHandPoint
-            Hint = 'Add'
-            ParentCustomHint = False
-            AllowAllUp = True
-            Glyph.Data = {
-              E6040000424DE604000000000000360000002800000014000000140000000100
-              180000000000B0040000120B0000120B00000000000000000000FFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303000000030303FFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
-              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
-              030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303030303
-              0303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              0303030303030303030303030303030303030303030303030303030303030303
-              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
-              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
-              030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303030303
-              0303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFF}
-            OnClick = AddPolyDClick
-          end
-          object btnAddPointD: TSpeedButton
-            Tag = 1
-            Left = 14
-            Top = 240
-            Width = 45
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Add'
-            AllowAllUp = True
-            Caption = 'Insert'
-            OnClick = btnAddPointDClick
-          end
-          object btnEditPointD: TSpeedButton
-            Tag = 2
-            Left = 62
-            Top = 240
-            Width = 45
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Edit'
-            AllowAllUp = True
-            Caption = 'Edit'
-            Enabled = False
-            OnClick = btnEditPointDClick
-          end
-          object btnDeletePointD: TSpeedButton
-            Tag = 3
-            Left = 107
-            Top = 240
-            Width = 45
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Delete'
-            AllowAllUp = True
-            Caption = 'Delete'
-            Enabled = False
-            OnClick = btnDeletePointDClick
-          end
-          object btnClearPointD: TSpeedButton
-            Tag = 4
-            Left = 156
-            Top = 240
-            Width = 45
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Clear'
-            AllowAllUp = True
-            Caption = 'Clear'
-            OnClick = btnClearPointDClick
-          end
-          object edtPolygonRange: TEdit
-            Left = 64
-            Top = 17
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtPolygonBearing: TEdit
-            Left = 64
-            Top = 39
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object lvPolyVertexD: TListView
-            AlignWithMargins = True
-            Left = 14
-            Top = 65
-            Width = 187
-            Height = 169
-            Columns = <
-              item
-                Caption = '+'
-                Width = 25
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Range'
-                Width = 79
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Bearing'
-                Width = 79
-              end>
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            GridLines = True
-            RowSelect = True
-            ParentFont = False
-            TabOrder = 2
-            ViewStyle = vsReport
-            OnSelectItem = lvPolyVertexDSelectItem
-          end
-        end
-        object grpLineD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 9
-          object lbl20: TLabel
-            Left = 14
-            Top = 33
-            Width = 31
-            Height = 13
-            Caption = 'Start :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl21: TLabel
-            Left = 14
-            Top = 136
-            Width = 25
-            Height = 13
-            Caption = 'End :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl22: TLabel
-            Left = 31
-            Top = 55
-            Width = 38
-            Height = 13
-            Caption = 'Range :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl85: TLabel
-            Left = 112
-            Top = 77
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl23: TLabel
-            Left = 31
-            Top = 158
-            Width = 38
-            Height = 13
-            Caption = 'Range :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl25: TLabel
-            Left = 112
-            Top = 180
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label40: TLabel
-            Left = 112
-            Top = 55
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label41: TLabel
-            Left = 31
-            Top = 77
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label42: TLabel
-            Left = 31
-            Top = 180
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label43: TLabel
-            Left = 112
-            Top = 158
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtLineStartRange: TEdit
-            Left = 72
-            Top = 51
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtLineStartBearing: TEdit
-            Left = 72
-            Top = 73
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object edtLineEndRange: TEdit
-            Left = 72
-            Top = 154
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtLineEndBearing: TEdit
-            Left = 72
-            Top = 176
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-          end
-        end
-        object grpNoneD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 6
-        end
-        object grpRectangleD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 8
-          object lbl26: TLabel
-            Left = 14
-            Top = 33
-            Width = 54
-            Height = 13
-            Caption = 'Top - Left :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl27: TLabel
-            Left = 14
-            Top = 136
-            Width = 76
-            Height = 13
-            Caption = 'Bottom - Right :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl28: TLabel
-            Left = 31
-            Top = 55
-            Width = 38
-            Height = 13
-            Caption = 'Range :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl29: TLabel
-            Left = 112
-            Top = 55
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl30: TLabel
-            Left = 112
-            Top = 77
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl31: TLabel
-            Left = 31
-            Top = 158
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl32: TLabel
-            Left = 31
-            Top = 180
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl33: TLabel
-            Left = 112
-            Top = 180
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label38: TLabel
-            Left = 31
-            Top = 77
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label39: TLabel
-            Left = 112
-            Top = 158
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtRecStartRange: TEdit
-            Left = 72
-            Top = 51
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtRecStartBearing: TEdit
-            Left = 72
-            Top = 73
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object edtRecEndRange: TEdit
-            Left = 72
-            Top = 154
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtRecEndBearing: TEdit
-            Left = 72
-            Top = 176
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-          end
-        end
-        object grpSectorD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 0
-          object lbl64: TLabel
-            Left = 14
-            Top = 24
-            Width = 40
-            Height = 13
-            Caption = 'Centre :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl65: TLabel
-            Left = 31
-            Top = 132
-            Width = 26
-            Height = 13
-            Caption = 'Inner'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl66: TLabel
-            Left = 31
-            Top = 154
-            Width = 28
-            Height = 13
-            Caption = 'Outer'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl67: TLabel
-            Left = 31
-            Top = 203
-            Width = 31
-            Height = 13
-            Caption = 'Start :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl68: TLabel
-            Left = 31
-            Top = 225
-            Width = 25
-            Height = 13
-            Caption = 'End :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl69: TLabel
-            Left = 115
-            Top = 132
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl70: TLabel
-            Left = 115
-            Top = 154
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl71: TLabel
-            Left = 110
-            Top = 203
-            Width = 22
-            Height = 13
-            Caption = 'deg.'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl72: TLabel
-            Left = 110
-            Top = 225
-            Width = 22
-            Height = 13
-            Caption = 'deg.'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object bvl7: TBevel
-            Left = 59
-            Top = 114
-            Width = 140
-            Height = 3
-          end
-          object bvl8: TBevel
-            Left = 59
-            Top = 185
-            Width = 140
-            Height = 3
-          end
-          object lbl73: TLabel
-            Left = 14
-            Top = 110
-            Width = 35
-            Height = 13
-            Caption = ' Radius'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Transparent = False
-          end
-          object lbl74: TLabel
-            Left = 14
-            Top = 181
-            Width = 38
-            Height = 13
-            Caption = ' Angles '
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Transparent = False
-          end
-          object lbl63: TLabel
-            Left = 31
-            Top = 46
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl89: TLabel
-            Left = 31
-            Top = 68
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl90: TLabel
-            Left = 112
-            Top = 68
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label46: TLabel
-            Left = 112
-            Top = 46
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtSectorRange: TEdit
-            Left = 72
-            Top = 42
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtSectorInnerD: TEdit
-            Left = 75
-            Top = 128
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 2
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtSectorOuterD: TEdit
-            Left = 75
-            Top = 150
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 3
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtSectorStartAngleD: TEdit
-            Left = 75
-            Top = 199
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 4
-            Text = '0'
-          end
-          object edtSectorEndAngleD: TEdit
-            Left = 75
-            Top = 221
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 5
-            Text = '0'
-          end
-          object edtSectorBearing: TEdit
-            Left = 72
-            Top = 64
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-        end
-        object grpTextD: TGroupBox
-          Left = 7
-          Top = 7
-          Width = 214
-          Height = 270
-          TabOrder = 5
-          object lbl17: TLabel
-            Left = 14
-            Top = 107
-            Width = 29
-            Height = 13
-            Caption = 'Text :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl18: TLabel
-            Left = 14
-            Top = 168
-            Width = 26
-            Height = 13
-            Caption = 'Size :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl91: TLabel
-            Left = 31
-            Top = 43
-            Width = 31
-            Height = 13
-            Caption = 'Range'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbl93: TLabel
-            Left = 112
-            Top = 65
-            Width = 18
-            Height = 13
-            Caption = 'deg'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label49: TLabel
-            Left = 31
-            Top = 65
-            Width = 36
-            Height = 13
-            Caption = 'Bearing'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label50: TLabel
-            Left = 112
-            Top = 43
-            Width = 14
-            Height = 13
-            Caption = 'nm'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label51: TLabel
-            Left = 14
-            Top = 21
-            Width = 31
-            Height = 13
-            Caption = 'Start :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object edtTextRange: TEdit
-            Left = 72
-            Top = 39
-            Width = 35
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 4
-            ParentFont = False
-            TabOrder = 0
-            Text = '0'
-            OnKeyPress = OnKeyPress
-          end
-          object edtTextFieldD: TEdit
-            Left = 31
-            Top = 125
-            Width = 162
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 30
-            ParentFont = False
-            TabOrder = 2
-            Text = 'None'
-          end
-          object edtTextBearing: TEdit
-            Left = 72
-            Top = 61
-            Width = 30
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MaxLength = 3
-            NumbersOnly = True
-            ParentFont = False
-            TabOrder = 1
-            Text = '0'
-          end
-          object cbbTextSizeD: TComboBox
-            Left = 31
-            Top = 186
-            Width = 82
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 3
-            Text = '11'
-            Items.Strings = (
-              '8'
-              '9'
-              '10'
-              '11'
-              '12'
-              '14'
-              '16'
-              '18'
-              '20'
-              '22'
-              '24'
-              '26'
-              '28'
-              '36'
-              '48'
-              '72')
-          end
-        end
         object grpCircleD: TGroupBox
           Left = 1
           Top = 7
@@ -56583,8 +55459,8 @@ object fmOverlayEditor: TfmOverlayEditor
           Height = 270
           TabOrder = 2
           object lbl53: TLabel
-            Left = 12
-            Top = 17
+            Left = 15
+            Top = 16
             Width = 33
             Height = 13
             Caption = 'Centre'
@@ -56609,9 +55485,9 @@ object fmOverlayEditor: TfmOverlayEditor
             ParentFont = False
           end
           object lbl55: TLabel
-            Left = 101
+            Left = 99
             Top = 128
-            Width = 18
+            Width = 16
             Height = 13
             Caption = 'nm'
             Font.Charset = ANSI_CHARSET
@@ -56648,7 +55524,7 @@ object fmOverlayEditor: TfmOverlayEditor
             ParentFont = False
           end
           object lbl58: TLabel
-            Left = 102
+            Left = 99
             Top = 190
             Width = 16
             Height = 13
@@ -56675,7 +55551,7 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           object bvl5: TBevel
             Left = 87
-            Top = 104
+            Top = 102
             Width = 110
             Height = 3
           end
@@ -56696,9 +55572,9 @@ object fmOverlayEditor: TfmOverlayEditor
             Transparent = False
           end
           object bvl6: TBevel
-            Left = 92
+            Left = 63
             Top = 222
-            Width = 100
+            Width = 128
             Height = 3
           end
           object lbl61: TLabel
@@ -56716,7 +55592,7 @@ object fmOverlayEditor: TfmOverlayEditor
             Transparent = False
           end
           object lbl62: TLabel
-            Left = 101
+            Left = 98
             Top = 240
             Width = 19
             Height = 13
@@ -56785,7 +55661,7 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           object Bevel12: TBevel
             Left = 92
-            Top = 166
+            Top = 165
             Width = 100
             Height = 3
           end
@@ -56831,7 +55707,7 @@ object fmOverlayEditor: TfmOverlayEditor
           object Label139: TLabel
             Left = 52
             Top = 128
-            Width = 5
+            Width = 3
             Height = 13
             Caption = ':'
             Font.Charset = ANSI_CHARSET
@@ -56956,9 +55832,9 @@ object fmOverlayEditor: TfmOverlayEditor
             OnKeyPress = OnKeyPress
           end
           object edtTableWidthD: TEdit
-            Left = 60
+            Left = 59
             Top = 186
-            Width = 35
+            Width = 37
             Height = 21
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clBlack
@@ -57018,6 +55894,1388 @@ object fmOverlayEditor: TfmOverlayEditor
             ParentFont = False
             TabOrder = 6
             Text = '0'
+          end
+        end
+        object grpNoneD: TGroupBox
+          Left = 1
+          Top = 7
+          Width = 220
+          Height = 270
+          TabOrder = 6
+        end
+        object grpPolygonD: TGroupBox
+          Left = 1
+          Top = 7
+          Width = 220
+          Height = 270
+          TabOrder = 4
+          object Label30: TLabel
+            Left = 16
+            Top = 17
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label31: TLabel
+            Left = 104
+            Top = 17
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label33: TLabel
+            Left = 103
+            Top = 39
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label37: TLabel
+            Left = 16
+            Top = 39
+            Width = 38
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object AddPolyD: TSpeedButton
+            Tag = 1
+            Left = 158
+            Top = 16
+            Width = 43
+            Height = 43
+            Cursor = crHandPoint
+            Hint = 'Add'
+            ParentCustomHint = False
+            AllowAllUp = True
+            Glyph.Data = {
+              E6040000424DE604000000000000360000002800000014000000140000000100
+              180000000000B0040000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303000000030303FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
+              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
+              030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303030303
+              0303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              0303030303030303030303030303030303030303030303030303030303030303
+              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
+              03030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303
+              030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303030303
+              0303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFF030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFF}
+            OnClick = AddPolyDClick
+          end
+          object btnAddPointD: TSpeedButton
+            Tag = 1
+            Left = 14
+            Top = 240
+            Width = 45
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Add'
+            AllowAllUp = True
+            Caption = 'Insert'
+            OnClick = btnAddPointDClick
+          end
+          object btnEditPointD: TSpeedButton
+            Tag = 2
+            Left = 62
+            Top = 240
+            Width = 45
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Edit'
+            AllowAllUp = True
+            Caption = 'Edit'
+            Enabled = False
+            OnClick = btnEditPointDClick
+          end
+          object btnDeletePointD: TSpeedButton
+            Tag = 3
+            Left = 107
+            Top = 240
+            Width = 45
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Delete'
+            AllowAllUp = True
+            Caption = 'Delete'
+            Enabled = False
+            OnClick = btnDeletePointDClick
+          end
+          object btnClearPointD: TSpeedButton
+            Tag = 4
+            Left = 156
+            Top = 240
+            Width = 45
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Clear'
+            AllowAllUp = True
+            Caption = 'Clear'
+            OnClick = btnClearPointDClick
+          end
+          object Label149: TLabel
+            Left = 56
+            Top = 17
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label150: TLabel
+            Left = 56
+            Top = 39
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edtPolygonRange: TEdit
+            Left = 64
+            Top = 13
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtPolygonBearing: TEdit
+            Left = 64
+            Top = 35
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object lvPolyVertexD: TListView
+            AlignWithMargins = True
+            Left = 14
+            Top = 65
+            Width = 187
+            Height = 169
+            Columns = <
+              item
+                Caption = '+'
+                Width = 25
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Range'
+                Width = 79
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Bearing'
+                Width = 79
+              end>
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            GridLines = True
+            RowSelect = True
+            ParentFont = False
+            TabOrder = 2
+            ViewStyle = vsReport
+            OnSelectItem = lvPolyVertexDSelectItem
+          end
+        end
+        object grpLineD: TGroupBox
+          Left = 1
+          Top = 7
+          Width = 220
+          Height = 270
+          TabOrder = 9
+          object lbl20: TLabel
+            Left = 14
+            Top = 17
+            Width = 25
+            Height = 13
+            Caption = 'Start'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl21: TLabel
+            Left = 14
+            Top = 100
+            Width = 19
+            Height = 13
+            Caption = 'End'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl22: TLabel
+            Left = 22
+            Top = 43
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl85: TLabel
+            Left = 119
+            Top = 65
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl23: TLabel
+            Left = 22
+            Top = 126
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl25: TLabel
+            Left = 119
+            Top = 148
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label40: TLabel
+            Left = 120
+            Top = 43
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label41: TLabel
+            Left = 22
+            Top = 65
+            Width = 38
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label42: TLabel
+            Left = 22
+            Top = 148
+            Width = 38
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label43: TLabel
+            Left = 120
+            Top = 126
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label145: TLabel
+            Left = 67
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label146: TLabel
+            Left = 67
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label147: TLabel
+            Left = 67
+            Top = 126
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label148: TLabel
+            Left = 67
+            Top = 148
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Bevel22: TBevel
+            Left = 39
+            Top = 105
+            Width = 128
+            Height = 3
+          end
+          object edtLineStartRange: TEdit
+            Left = 78
+            Top = 39
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtLineStartBearing: TEdit
+            Left = 78
+            Top = 61
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object edtLineEndRange: TEdit
+            Left = 78
+            Top = 122
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtLineEndBearing: TEdit
+            Left = 78
+            Top = 144
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+          end
+        end
+        object grpRectangleD: TGroupBox
+          Left = 1
+          Top = 7
+          Width = 220
+          Height = 270
+          TabOrder = 8
+          object lbl26: TLabel
+            Left = 14
+            Top = 17
+            Width = 50
+            Height = 13
+            Caption = 'Top - Left'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl27: TLabel
+            Left = 14
+            Top = 111
+            Width = 73
+            Height = 13
+            Caption = 'Bottom - Right'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl28: TLabel
+            Left = 22
+            Top = 43
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl29: TLabel
+            Left = 118
+            Top = 43
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl30: TLabel
+            Left = 117
+            Top = 65
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl31: TLabel
+            Left = 22
+            Top = 140
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl32: TLabel
+            Left = 22
+            Top = 162
+            Width = 38
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl33: TLabel
+            Left = 117
+            Top = 162
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label38: TLabel
+            Left = 22
+            Top = 65
+            Width = 38
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label39: TLabel
+            Left = 118
+            Top = 140
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label151: TLabel
+            Left = 68
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label152: TLabel
+            Left = 68
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Bevel23: TBevel
+            Left = 93
+            Top = 116
+            Width = 108
+            Height = 3
+          end
+          object Label153: TLabel
+            Left = 68
+            Top = 140
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label154: TLabel
+            Left = 69
+            Top = 162
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edtRecStartRange: TEdit
+            Left = 78
+            Top = 39
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtRecStartBearing: TEdit
+            Left = 78
+            Top = 61
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object edtRecEndRange: TEdit
+            Left = 78
+            Top = 136
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtRecEndBearing: TEdit
+            Left = 78
+            Top = 158
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+          end
+        end
+        object grpSectorD: TGroupBox
+          Left = 7
+          Top = 7
+          Width = 214
+          Height = 270
+          TabOrder = 0
+          object lbl64: TLabel
+            Left = 9
+            Top = 17
+            Width = 33
+            Height = 13
+            Caption = 'Centre'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl65: TLabel
+            Left = 22
+            Top = 125
+            Width = 25
+            Height = 13
+            Caption = 'Inner'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl66: TLabel
+            Left = 22
+            Top = 147
+            Width = 30
+            Height = 13
+            Caption = 'Outer'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl67: TLabel
+            Left = 22
+            Top = 196
+            Width = 25
+            Height = 13
+            Caption = 'Start'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl68: TLabel
+            Left = 22
+            Top = 218
+            Width = 19
+            Height = 13
+            Caption = 'End'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl69: TLabel
+            Left = 114
+            Top = 125
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl70: TLabel
+            Left = 114
+            Top = 147
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl71: TLabel
+            Left = 112
+            Top = 196
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl72: TLabel
+            Left = 112
+            Top = 218
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object bvl7: TBevel
+            Left = 54
+            Top = 107
+            Width = 140
+            Height = 3
+          end
+          object bvl8: TBevel
+            Left = 54
+            Top = 178
+            Width = 140
+            Height = 3
+          end
+          object lbl73: TLabel
+            Left = 9
+            Top = 102
+            Width = 37
+            Height = 13
+            Caption = ' Radius'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object lbl74: TLabel
+            Left = 9
+            Top = 173
+            Width = 38
+            Height = 13
+            Caption = ' Angles '
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+            Transparent = False
+          end
+          object lbl63: TLabel
+            Left = 22
+            Top = 43
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl89: TLabel
+            Left = 22
+            Top = 65
+            Width = 38
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl90: TLabel
+            Left = 113
+            Top = 65
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label46: TLabel
+            Left = 114
+            Top = 43
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label155: TLabel
+            Left = 64
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label156: TLabel
+            Left = 64
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label157: TLabel
+            Left = 64
+            Top = 125
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label158: TLabel
+            Left = 64
+            Top = 147
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label159: TLabel
+            Left = 64
+            Top = 196
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label160: TLabel
+            Left = 64
+            Top = 218
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edtSectorRange: TEdit
+            Left = 73
+            Top = 39
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtSectorInnerD: TEdit
+            Left = 73
+            Top = 121
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtSectorOuterD: TEdit
+            Left = 73
+            Top = 143
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 3
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtSectorStartAngleD: TEdit
+            Left = 73
+            Top = 192
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 4
+            Text = '0'
+          end
+          object edtSectorEndAngleD: TEdit
+            Left = 73
+            Top = 214
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 5
+            Text = '0'
+          end
+          object edtSectorBearing: TEdit
+            Left = 73
+            Top = 61
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+        end
+        object grpTextD: TGroupBox
+          Left = 1
+          Top = 7
+          Width = 220
+          Height = 270
+          TabOrder = 5
+          object lbl17: TLabel
+            Left = 11
+            Top = 107
+            Width = 22
+            Height = 13
+            Caption = 'Text'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl18: TLabel
+            Left = 11
+            Top = 168
+            Width = 19
+            Height = 13
+            Caption = 'Size'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl91: TLabel
+            Left = 22
+            Top = 43
+            Width = 32
+            Height = 13
+            Caption = 'Range'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbl93: TLabel
+            Left = 115
+            Top = 65
+            Width = 19
+            Height = 13
+            Caption = 'deg'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label49: TLabel
+            Left = 22
+            Top = 65
+            Width = 38
+            Height = 13
+            Caption = 'Bearing'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label50: TLabel
+            Left = 116
+            Top = 43
+            Width = 16
+            Height = 13
+            Caption = 'nm'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label51: TLabel
+            Left = 11
+            Top = 17
+            Width = 25
+            Height = 13
+            Caption = 'Start'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label161: TLabel
+            Left = 64
+            Top = 43
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label162: TLabel
+            Left = 65
+            Top = 65
+            Width = 3
+            Height = 13
+            Caption = ':'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Bevel24: TBevel
+            Left = 42
+            Top = 112
+            Width = 140
+            Height = 3
+          end
+          object Bevel25: TBevel
+            Left = 42
+            Top = 173
+            Width = 140
+            Height = 3
+          end
+          object edtTextRange: TEdit
+            Left = 75
+            Top = 39
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 4
+            ParentFont = False
+            TabOrder = 0
+            Text = '0'
+            OnKeyPress = OnKeyPress
+          end
+          object edtTextFieldD: TEdit
+            Left = 31
+            Top = 125
+            Width = 162
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 30
+            ParentFont = False
+            TabOrder = 2
+            Text = 'None'
+          end
+          object edtTextBearing: TEdit
+            Left = 75
+            Top = 61
+            Width = 35
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            TabOrder = 1
+            Text = '0'
+          end
+          object cbbTextSizeD: TComboBox
+            Left = 31
+            Top = 186
+            Width = 82
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+            Text = '11'
+            Items.Strings = (
+              '8'
+              '9'
+              '10'
+              '11'
+              '12'
+              '14'
+              '16'
+              '18'
+              '20'
+              '22'
+              '24'
+              '26'
+              '28'
+              '36'
+              '48'
+              '72')
           end
         end
       end

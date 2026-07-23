@@ -3120,7 +3120,7 @@ begin
 
       FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
 //      VNetServer.SendAlmostBroadcastCommand(CPID_CMD_GAME_CTRL , apRec, FIP3DClient);
-      VNetServer.SendBroadcastCommand(CPID_CMD_GAME_CTRL , apRec);
+      VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
       {23}if Assigned(FWriter) then FWriter.WriteData(apRec, FMainVTime.GetMillisecond,GameSPEED,CPID_CMD_GAME_CTRL);
     end;
     CORD_ID_pause       : begin
@@ -3130,7 +3130,7 @@ begin
       GameSPEED           := 0.0;
 
       FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
-      VNetServer.SendBroadcastCommand(CPID_CMD_GAME_CTRL , apRec);
+      VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
       {23}if Assigned(FWriter) then FWriter.WriteData(apRec, FMainVTime.GetMillisecond,GameSPEED,CPID_CMD_GAME_CTRL);
     end;
     CORD_ID_game_speed  : begin;
@@ -3148,13 +3148,13 @@ begin
       end;
 
       FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
-      VNetServer.SendBroadcastCommand(CPID_CMD_GAME_CTRL , apRec);
+      VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
       {23}if Assigned(FWriter) then FWriter.WriteData(apRec, FMainVTime.GetMillisecond,GameSPEED,CPID_CMD_GAME_CTRL);
     end;
     CORD_ID_gototime   :
     begin
 
-      VNetServer.SendBroadcastCommand(CPID_CMD_GAME_CTRL , apRec);
+      VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
 
       if r^.GotoTime = 1000 then   // if specific time choosen
         FTimeToGo := r^.TimeTogo;

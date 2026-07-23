@@ -8641,6 +8641,8 @@ begin // ini procedure update yg dipanggil dari sim client
     {$REGION ' Navigasi '}
     frmTopNav.Refresh_OwnShipTab(pi);
     frmLeftNav.Refresh_OwnShipTab(pi);
+//    frmRightNav.Refresh_Controller(pi, i);
+    frmRightNav.UpdateTabHooked(focusedTrack);
     {$ENDREGION}
 
     { wasdal UI }
@@ -8654,6 +8656,9 @@ begin // ini procedure update yg dipanggil dari sim client
         frmSensor.fmSensor1.Refresh_VisibleTab;
       if Assigned(frmWeapon) then
         frmWeapon.fmWeapon1.Refresh_VisibleTab;
+
+//      if Assigned(frmRightNav) then
+//        frmWeapon.fmWeapon1.Refresh_VisibleTab;
     end;
   end;
 

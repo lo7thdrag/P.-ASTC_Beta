@@ -6133,8 +6133,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label310: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -6184,8 +6186,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label327: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -6264,8 +6268,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label173: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -6328,8 +6334,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label206: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -6400,8 +6408,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label145: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -6472,8 +6482,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label154: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -6517,8 +6529,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label97: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -6636,8 +6650,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label318: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -6687,8 +6703,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label300: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -6762,8 +6780,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label323: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -6834,13 +6854,15 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited ScrollBox1: TScrollBox
                   Width = 357
                   Height = 1933
-                  ExplicitWidth = 355
-                  ExplicitHeight = 1931
+                  ExplicitWidth = 357
+                  ExplicitHeight = 1933
                   inherited Label3: TLabel
                     Font.Color = clWhite
                     ParentFont = False
@@ -6933,8 +6955,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited Label120: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -7069,8 +7093,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Top = 0
                 Width = 359
                 Height = 1951
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited whHeadingPersonel: TVrWheel
                   OnChange = fmPlatformGuidance1whHeadingPersonelChange
                 end
@@ -7104,8 +7130,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Height = 1951
                 Color = 2695445
                 ParentColor = False
-                ExplicitWidth = 357
-                ExplicitHeight = 1949
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
                 inherited ScrollBox5: TScrollBox
                   Width = 357
                   Height = 1933
@@ -7113,8 +7141,8 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   BevelOuter = bvNone
                   Color = 2695445
                   ParentColor = False
-                  ExplicitWidth = 355
-                  ExplicitHeight = 1931
+                  ExplicitWidth = 357
+                  ExplicitHeight = 1933
                   inherited whHeading: TVrWheel
                     Top = 9
                     OnChange = fmPlatformGuidance1whHeadingChange

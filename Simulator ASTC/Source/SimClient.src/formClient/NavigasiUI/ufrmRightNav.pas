@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzBmpBtn, Vcl.StdCtrls, VrControls,
   VrWheel, Vcl.Buttons, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uSimObjects, ufmControlled, Vcl.ComCtrls;
+  uSimObjects, ufmControlled, Vcl.ComCtrls, ufmPlatformGuidance;
 
 type
   TfrmRightNav = class(TForm)
@@ -15,28 +15,6 @@ type
     imgMainBackgorund: TImage;
     Image2: TImage;
     Label10: TLabel;
-    gbWaypoint: TGroupBox;
-    whHeading: TVrWheel;
-    Label119: TLabel;
-    Label121: TLabel;
-    Label123: TLabel;
-    lblStraightLineActualGroundSpeed: TLabel;
-    lblStraightLineActuaCourse: TLabel;
-    lblStraightLineActualHeading: TLabel;
-    Label125: TLabel;
-    Label124: TLabel;
-    Label128: TLabel;
-    Label126: TLabel;
-    Label122: TLabel;
-    StaticText81: TStaticText;
-    StaticText82: TStaticText;
-    edtStraightLineOrderedGroundSpeed: TEdit;
-    edtStraightLineOrderedHeading: TEdit;
-    StaticText83: TStaticText;
-    StaticText84: TStaticText;
-    StaticText85: TStaticText;
-    StaticText87: TStaticText;
-    StaticText86: TStaticText;
     pnlHookContactInfoTraineeDisplay: TPanel;
     pnlTabDetails: TPanel;
     pnlTabDetection: TPanel;
@@ -171,8 +149,20 @@ type
     lb7: TStaticText;
     lb5: TStaticText;
     StatusBar1: TStatusBar;
+    pnlPlatformGuidance: TPanel;
+    fmPlatformGuidance1: TfmPlatformGuidance;
     procedure THButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure fmPlatformGuidance1SpeedButton2Click(aTrack: TSimObject; Sender: TObject);
+    procedure fmPlatformGuidance1whHeadingChange(Sender: TObject);
+    procedure fmPlatformGuidance1edtStraightLineOrderedHeadingKeyPress(
+      Sender: TObject; var Key: Char);
+    procedure fmPlatformGuidance1edtStraightLineOrderedGroundSpeedKeyPress(
+      Sender: TObject; var Key: Char);
+    procedure fmPlatformGuidance1edOrderAltitudeKeyPress(Sender: TObject;
+      var Key: Char);
+  protected
+    FControlled: TObject;
 
   private
     { Private declarations }
@@ -181,7 +171,9 @@ type
 
     procedure GetNameAndClass(const obj: TSimObject; var n, c: string);
     procedure UpdateFormData;
+    procedure Refresh_Controller(APlatform: TObject; AActiveTab: Integer);
     {HOOK-IFF}
+    procedure UpdateTabHooked(aTrack: TSimObject);
     procedure UpdateHookedInfo(Sender: TObject);
     procedure InitTabHookedInfo;
     procedure DisplayTabHooked(Sender: TObject);
@@ -200,7 +192,8 @@ implementation
 uses
   ufTacticalDisplay, ufToteDisplay, uT3Unit, uT3DetectedTrack, uSettingCoordinate, uT3Radar,
   uBaseCoordSystem, uSimMgr_Client, tttData, uT3Vehicle, uDBAsset_Vehicle, uT3Torpedo, uT3Missile,
-  uDBAsset_Weapon, uT3Sonobuoy, uT3Mine, uT3CounterMeasure, uMapXHandler, uT3Common, uT3OtherSensor;
+  uDBAsset_Weapon, uT3Sonobuoy, uT3Mine, uT3CounterMeasure, uMapXHandler, uT3Common, uT3OtherSensor, ufrmGuidance,
+  ufrmWeapon, ufrmRadar, uT3SimManager, ufrmTrackDetails;
 
 {$R *.dfm}
 Function DecToOct(Inp : String): String;
@@ -330,6 +323,18 @@ begin
 
   if pnlTabIFF.Tag = 1 then
     DisplayTabIFF(Sender);
+end;
+
+procedure TfrmRightNav.UpdateTabHooked(aTrack: TSimObject);
+begin
+  if Assigned(aTrack) then
+  begin
+    UpdateHookedInfo(aTrack);
+  end
+  else
+  begin
+    InitTabHookedInfo;
+  end;
 end;
 
 procedure TfrmRightNav.DisplayTabHooked(Sender: TObject);
@@ -1197,6 +1202,71 @@ begin
   end;
 end;
 
+procedure TfrmRightNav.fmPlatformGuidance1edOrderAltitudeKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Assigned(Sender)then
+  begin
+    fmPlatformGuidance1.edOrderAltitudeKeyPress(Sender, Key);
+  end;
+end;
+
+procedure TfrmRightNav.fmPlatformGuidance1edtStraightLineOrderedGroundSpeedKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Assigned(Sender)then
+  begin
+    fmPlatformGuidance1.edtStraightLineOrderedGroundSpeedKeyPress(Sender, Key);
+  end;
+end;
+
+procedure TfrmRightNav.fmPlatformGuidance1edtStraightLineOrderedHeadingKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Assigned(Sender)then
+  begin
+    fmPlatformGuidance1.edtStraightLineOrderedHeadingKeyPress(Sender, Key);
+  end;
+end;
+
+procedure TfrmRightNav.fmPlatformGuidance1SpeedButton2Click(aTrack: TSimObject; Sender: TObject);
+begin
+  if Assigned(Sender) then
+  begin
+    if Assigned(aTrack) then
+    begin
+      if aTrack is TT3DetectedTrack then
+      begin
+        if Assigned(TT3DetectedTrack(aTrack).TrackObject) and
+           (TT3DetectedTrack(aTrack).TrackObject is TT3PlatformInstance) then
+        begin
+          fmPlatformGuidance1.SetFocusedPlatform(TT3PlatformInstance(TT3DetectedTrack(aTrack).TrackObject));
+        end;
+      end
+
+      else if aTrack is TT3PlatformInstance then
+      begin
+        fmPlatformGuidance1.SetFocusedPlatform(TT3PlatformInstance(aTrack));
+      end;
+
+      fmPlatformGuidance1.PanelPlatformGuidance.Enabled := True;
+    end
+    else
+    begin
+      fmPlatformGuidance1.SetFocusedPlatform(nil);
+      fmPlatformGuidance1.PanelPlatformGuidance.Enabled := False;
+    end;
+  end;
+end;
+
+procedure TfrmRightNav.fmPlatformGuidance1whHeadingChange(Sender: TObject);
+begin
+  if Assigned(Sender)then
+  begin
+    fmPlatformGuidance1.whHeadingChange(Sender);
+  end;
+end;
+
 procedure TfrmRightNav.FormShow(Sender: TObject);
 begin
   if focusedTrack <> nil then
@@ -1252,7 +1322,7 @@ end;
 
 procedure TfrmRightNav.InitTabHookedInfo;
 begin
-  //?Hook
+  //Hook
   lbTrackHook.Caption := 'Unknown';
   lbNameHook.Caption := 'Unknown';
   lbClassHook.Caption := 'Unknown';
@@ -1282,6 +1352,24 @@ begin
   lbTrackIff.Caption := 'Unknown';
   lbNameIff.Caption  := 'Unknown';
   lbClassIff.Caption := 'Unknown';
+end;
+
+procedure TfrmRightNav.Refresh_Controller(APlatform: TObject; AActiveTab: Integer);
+var
+  pi: TT3PlatformInstance;
+begin
+//  if (APlatform = nil) or not (APlatform is TT3PlatformInstance) then Exit;
+//
+//  pi := TT3PlatformInstance(APlatform);
+//
+//  if pi is TT3Vehicle then
+//    TT3Vehicle(pi).Waypoints.IsOpenGuidanceTab := (AActiveTab = 1);
+//
+//  if AActiveTab = 1 then
+//  begin
+//    if Assigned(fmPlatformGuidance1) then
+//      fmPlatformGuidance1.Refresh_VisibleTab();
+//  end;
 end;
 
 end.

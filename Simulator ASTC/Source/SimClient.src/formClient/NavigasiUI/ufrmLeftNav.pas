@@ -109,11 +109,8 @@ begin
     lblWaterTemp.Caption                  := FormatFloat('00.0', Air_Temperature);
     lblOceanCurrentSpeed.Caption          := FormatFloat('00.0', Ocean_Current_Speed);
     lblOceanCurrentDirection.Caption      := FormatFloat('000.0', Ocean_Current_Direction);
-    {Kedalaman ikut Environment Status pada Tote Display}
-//    lblDepthNav.Caption                   := FormatFloat('0.0', Ave_Ocean_Depth) + ' Meter';
   end;
 
-  {Kedalaman ikut di ownship}
   if Assigned(FControlled) and TT3PlatformInstance(FControlled).Initialized then
   begin
     with TT3PlatformInstance(FControlled) do

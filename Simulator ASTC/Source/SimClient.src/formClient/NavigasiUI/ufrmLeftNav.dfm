@@ -120757,7 +120757,7 @@ object frmLeftNav: TfrmLeftNav
       end
       object Panel5: TPanel
         Left = 8
-        Top = 206
+        Top = 209
         Width = 337
         Height = 205
         BevelOuter = bvNone

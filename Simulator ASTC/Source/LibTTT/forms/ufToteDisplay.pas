@@ -1245,7 +1245,7 @@ type
     pnlSystemState: TPanel;
     Image2: TImage;
     Label85: TLabel;
-    ListView3: TListView;
+    lvSystemStateNav: TListView;
     pnlSMS: TPanel;
     Image8: TImage;
     Label86: TLabel;
@@ -1598,6 +1598,16 @@ type
     procedure btnWeaponsClick(Sender: TObject);
     procedure btnCountermeasuresClick(Sender: TObject);
     procedure btnPlatformClick(Sender: TObject);
+    procedure lvSensorMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure lvCountermeasuresNavMouseDown(Sender: TObject;
+      Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure lvWeaponNavMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure lvSystemStateNavMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure lvSensorNavMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
 
     {$ENDREGION}
 
@@ -2354,7 +2364,7 @@ end;
 
 procedure TfrmToteDisplay.btnPlatformClick(Sender: TObject);
 begin
-  lvPlatformNav.Items.Assign(lvPlatforms.Items);
+//  lvPlatformNav.Items.Assign(lvPlatforms.Items);
 end;
 
 procedure TfrmToteDisplay.btnPlatformRemovalClick(sender: TObject);
@@ -2423,7 +2433,7 @@ end;
 
 procedure TfrmToteDisplay.btnCountermeasuresClick(Sender: TObject);
 begin
-  lvCountermeasuresNav.Items.Assign(tvCountermeasures.Items);
+//  lvCountermeasuresNav.Items.Assign(tvCountermeasures.Items);
 end;
 
 procedure TfrmToteDisplay.btnCommInterfeceneClick(sender: TObject);
@@ -2585,7 +2595,7 @@ end;
 
 procedure TfrmToteDisplay.btnSensorsClick(Sender: TObject);
 begin
-  lvSensorNav.Items.Assign(lvPlatforms.Items);
+//  lvSensorNav.Items.Assign(lvPlatforms.Items);
 end;
 
 procedure TfrmToteDisplay.Label156Click(sender: TObject);
@@ -3345,6 +3355,19 @@ begin
 
   if f then
     Result := li;
+
+  {$REGION 'Navigasi'}
+  i := 0;
+  while not f and (i < lvSensorNav.Items.Count) do
+  begin
+    li := lvSensorNav.Items.Item[i];
+    f := SameText(li.SubItems[0], arg);
+    Inc(i);
+  end;
+
+  if f then
+    Result := li;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.fixed1Click(sender: TObject);
@@ -3361,6 +3384,21 @@ begin
   lvPlatforms.Selected.Focused := true;
   Invalidate;
   UpdateSensorVehicle(TT3Vehicle(lvPlatforms.Selected.Data));
+
+  {$REGION 'Navigasi'}
+  if (lvSensorNav.Selected = nil) or (lvSensorNav.ItemIndex = -1) then
+    Exit;
+
+  with simMgrClient do
+  begin
+     TT3Sensor(lvSensorNav.Selected.Data).OperationalStatus := sopOff;
+  end;
+
+  lvPlatformsSelectItem(lvSensorNav, lvSensorNav.Selected, True);
+  lvSensorNav.Selected.Focused := true;
+  Invalidate;
+  UpdateSensorVehicle(TT3Vehicle(lvSensorNav.Selected.Data));
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.UpdateTrackList(sender: TObject);
@@ -3828,7 +3866,7 @@ end;
 
 procedure TfrmToteDisplay.btnWeaponsClick(Sender: TObject);
 begin
-  lvWeaponNav.Items.Assign(tvWeapons.Items);
+//  lvWeaponNav.Items.Assign(tvWeapons.Items);
 end;
 
 procedure TfrmToteDisplay.btSetTimeApplyClick(sender: TObject);
@@ -4851,6 +4889,7 @@ procedure TfrmToteDisplay.FormCreate(sender: TObject);
 var
   i: Integer;
   obj : TSimObject;
+  Node: TTreeNode;
 begin
   // DoubleBuffered := True;
   StatusBar1.Color := RGB(43, 44, 47);
@@ -4925,12 +4964,19 @@ begin
   isSenderPersonel := False;
 
   PersonelOnBaseSelected := TPersonel.Create;
-  PersonelOnShipSelected := TPersonel.Create;
+  PersonelOnShipSelected := TPersonel.Create;                                              +
+
 
   LandingPlatformID := 160;
   LandingPlatformName := 'LCU';
   LastButton := 1;
 
+  {NAVIGASI}
+//  lvSensorNav.Items.Assign(lvPlatforms.Items);
+//  lvPlatformNav.Items.Assign(lvPlatforms.Items);
+//  lvWeaponNav.Items.Assign(tvWeapons.Items);
+//  lvCountermeasuresNav.Items.Assign(tvCountermeasures.Items);
+//  lvSystemStateNav.Items.Assign(lvSystemState.Items);
 end;
 
 procedure TfrmToteDisplay.Initialize;
@@ -5416,6 +5462,65 @@ begin
 //  btnembarkasi.Visible := True;
 end;
 
+procedure TfrmToteDisplay.lvSensorMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  pos: TPoint;
+begin
+  // klik kanan
+  if CategoryPanelStatusOp.Enabled then
+  begin
+    if (lvSensors.Selected = nil) or (lvSensors.ItemIndex = -1) then
+      Exit;
+
+    GetCursorPos(pos);
+    if (Button = mbRight) then
+    begin
+      if TT3Sensor(lvSensors.Selected.Data).OperationalStatus = sopDamage then
+        begin
+          damage1.Enabled := False;
+          fixed1.Enabled := True;
+        end
+        else
+        begin
+          damage1.Enabled := True;
+          fixed1.Enabled := False;
+        end;
+      pmSensor.Popup(pos.X, pos.Y);
+    end;
+  end;
+end;
+
+procedure TfrmToteDisplay.lvSensorNavMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  pos: TPoint;
+begin
+  // klik kanan
+  if CategoryPanelStatusOp.Enabled then
+  begin
+    if (lvSensorNav.Selected = nil) or (lvSensorNav.ItemIndex = -1) then
+      Exit;
+
+    GetCursorPos(pos);
+    if (Button = mbRight) then
+    begin
+      if TT3Sensor(lvSensorNav.Selected.Data).OperationalStatus = sopDamage then
+        begin
+          damage1.Enabled := False;
+          fixed1.Enabled := True;
+        end
+        else
+        begin
+          damage1.Enabled := True;
+          fixed1.Enabled := False;
+        end;
+      pmSensor.Popup(pos.X, pos.Y);
+    end;
+  end;
+
+end;
+
 procedure TfrmToteDisplay.lvSensorOverrideSelectItem(Sender: TObject;
   Item: TListItem; Selected: Boolean);
 begin
@@ -5476,6 +5581,7 @@ begin
       pmSensor.Popup(pos.X, pos.Y);
     end;
   end;
+
 end;
 
 procedure TfrmToteDisplay.OnStateValueChange(sender : TListView);
@@ -5852,6 +5958,176 @@ begin
   end;
 end;
 
+procedure TfrmToteDisplay.lvSystemStateNavMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  pos: TPoint;
+  Item: TMenuItem;
+  li: TListItem;
+  ve: TT3Vehicle;
+  u  : TT3Unit;
+begin
+  if CategoryPanelStatusOp.Enabled then
+  begin
+    if (lvSystemStateNav.Selected = nil) or (lvSystemStateNav.ItemIndex = -1) then
+      Exit;
+
+    GetCursorPos(pos);
+    pmState.Items.Clear;
+
+    // if percentage status
+    if (TListView(sender).Selected.Caption = 'Overall Damage')  then
+    begin
+      Item := TMenuItem.Create(self);
+      item.Tag := tagOverallDamage;
+      Item.Caption := 'Set ' + TListView(sender).Selected.Caption;
+      item.OnClick := Self.StatusClick;
+      pmState.Items.Add(Item);
+    end
+    else if (TListView(sender).Selected.Caption = 'Speed') then
+    begin
+      Item := TMenuItem.Create(self);
+      item.Tag := tagSpeed;
+      Item.Caption := 'Set ' + TListView(sender).Selected.Caption;
+      item.OnClick := Self.StatusClick;
+      pmState.Items.Add(Item);
+    end
+    else if (TListView(sender).Selected.Caption = 'Fuel Remaining') then
+    begin
+      Item := TMenuItem.Create(self);
+      item.Tag := tagFuelRemaining;
+      Item.Caption := 'Set ' + TListView(sender).Selected.Caption;
+      item.OnClick := Self.StatusClick;
+      pmState.Items.Add(Item);
+    end
+    // if operational status
+    else if (TListView(sender).Selected.Caption = 'Helm') or
+      (TListView(sender).Selected.Caption = 'Propulsion') or
+      (TListView(sender).Selected.Caption = 'Communications') then
+    begin
+      Item := TMenuItem.Create(self);
+      if TListView(sender).Selected.Caption = 'Helm' then
+        item.Tag := tagHelm
+      else if (TListView(sender).Selected.Caption = 'Propulsion') then
+        item.Tag := tagPropulsion
+      else if (TListView(sender).Selected.Caption = 'Communications') then
+        item.Tag := tagCommunications;
+
+      Item.Caption := 'Operational';
+      item.OnClick := Self.StatusClick;
+      pmState.Items.Add(Item);
+
+      Item := TMenuItem.Create(self);
+      if TListView(sender).Selected.Caption = 'Helm' then
+        item.Tag := tagHelm
+      else if (TListView(sender).Selected.Caption = 'Propulsion') then
+        item.Tag := tagPropulsion
+      else if (TListView(sender).Selected.Caption = 'Communications') then
+        item.Tag := tagCommunications;
+
+      Item.Caption := 'Pending';
+      item.OnClick := Self.StatusClick;
+      pmState.Items.Add(Item);
+
+      if lvPlatforms.Selected = nil then exit;
+
+      li := lvPlatforms.Selected;
+
+      u := li.Data;
+//      if sender <> u then
+//        exit;
+
+      if not (u is TT3Vehicle) then
+        exit;
+
+      ve := li.Data;
+
+      if TListView(sender).Selected.Caption = 'Helm' then
+      begin
+        if not ve.DamageHelm then
+        begin
+          pmState.Items[0].Enabled := False;
+          pmState.Items[1].Enabled := True;
+        end
+        else if ve.DamageHelm then
+        begin
+          pmState.Items[0].Enabled := True;
+          pmState.Items[1].Enabled := False;
+        end;
+      end
+      else if (TListView(sender).Selected.Caption = 'Propulsion') then
+      begin
+        if not ve.DamagePropulsion then
+        begin
+          pmState.Items[0].Enabled := False;
+          pmState.Items[1].Enabled := True;
+        end
+        else if ve.DamagePropulsion then
+        begin
+          pmState.Items[0].Enabled := True;
+          pmState.Items[1].Enabled := False;
+        end;
+      end
+      else if (TListView(sender).Selected.Caption = 'Communications') then
+      begin
+        if not ve.DamageComm then
+        begin
+          pmState.Items[0].Enabled := False;
+          pmState.Items[1].Enabled := True;
+        end
+        else if ve.DamageComm then
+        begin
+          pmState.Items[0].Enabled := True;
+          pmState.Items[1].Enabled := False;
+        end;
+      end;
+
+    end
+    // if enable/disable
+    else if (TListView(sender).Selected.Caption = 'Fuel Leakage') then
+    begin
+      Item := TMenuItem.Create(self);
+      item.Tag := tagFuelLeakage;
+      Item.Caption := 'Enable';
+      item.OnClick := Self.StatusClick;
+      pmState.Items.Add(Item);
+
+      Item := TMenuItem.Create(self);
+      item.Tag := tagFuelLeakage;
+      Item.Caption := 'Disable';
+      item.OnClick := Self.StatusClick;
+      pmState.Items.Add(Item);
+
+      if lvPlatforms.Selected = nil then exit;
+
+      li := lvPlatforms.Selected;
+
+      u := li.Data;
+
+      if not (u is TT3Vehicle) then
+        exit;
+
+      ve := li.Data;
+
+      if ve.FuelLeakage then
+      begin
+        pmState.Items[0].Enabled := False;
+        pmState.Items[1].Enabled := True;
+      end
+      else if not ve.FuelLeakage then
+      begin
+        pmState.Items[0].Enabled := True;
+        pmState.Items[1].Enabled := False;
+      end;
+    end;
+
+    if Button = mbRight then
+    begin
+      pmState.Popup(pos.X, pos.Y);
+    end;
+  end;
+end;
+
 procedure TfrmToteDisplay.pmCountermeasureChange(sender: TObject;
   Source: TMenuItem; Rebuild: Boolean);
 begin
@@ -6054,6 +6330,12 @@ begin
   w := lvSensors.Width;
   lvSensors.Column[0].Width := Round(0.6 * w);
   lvSensors.Column[1].Width := Round(0.3 * w);
+
+  {$REGION 'Navigasi'}
+  w := lvSensorNav.Width;
+  lvSensorNav.Column[0].Width := Round(0.6 * w);
+  lvSensorNav.Column[1].Width := Round(0.3 * w);
+  {$ENDREGION}
 
   // gbEnvironmentStatus.member
   // gbWeaponEngagementsSUmmary.member
@@ -8775,6 +9057,20 @@ begin
   lvPlatforms.Selected.Focused := true;
   Invalidate;
   UpdateSensorVehicle(TT3Vehicle(lvPlatforms.Selected.Data));
+
+  {$REGION 'Navigasi'}
+  if (lvSensorNav.Selected = nil) or (lvSensorNav.ItemIndex = -1) then
+    Exit;
+
+  with simMgrClient do
+  begin
+    TT3Sensor(lvSensorNav.Selected.Data).OperationalStatus := sopDamage;
+  end;
+  lvPlatformsSelectItem(lvPlatforms, lvPlatforms.Selected, True);
+  lvPlatforms.Selected.Focused := true;
+  Invalidate;
+  UpdateSensorVehicle(TT3Vehicle(lvPlatforms.Selected.Data));
+  {$ENDREGION}
 end;
 
 function TfrmToteDisplay.getValueNodeSettingItems(node: TTreeNode): String;
@@ -12513,6 +12809,54 @@ begin
     result.SubItems.add('');
 end;
 
+procedure TfrmToteDisplay.lvWeaponNavMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  pos: TPoint;
+begin
+  if CategoryPanelStatusOp.Enabled then
+  begin
+    if lvWeaponNav.Selected = nil then
+      Exit;
+
+    GetCursorPos(pos);
+
+    if Button = mbRight then
+    begin
+      lvWeaponNav.Selected := lvWeaponNav.GetNodeAt(x, y);
+
+      if lvWeaponNav.Selected <> nil then
+      begin
+        if lvWeaponNav.Selected.Parent <> nil then
+        begin
+          dam1.Enabled := False;
+          Repair1.Enabled := False;
+        end
+        else
+        begin
+          if TT3Weapon(lvWeaponNav.Selected.Data).WeaponStatus = wsDamaged then
+          begin
+            dam1.Enabled := False;
+            Repair1.Enabled := True;
+          end
+          else if TT3Weapon(lvWeaponNav.Selected.Data).WeaponStatus = wsUnavailable then
+          begin
+            dam1.Enabled := False;
+            Repair1.Enabled := False;
+          end
+          else
+          begin
+            dam1.Enabled := True;
+            Repair1.Enabled := False;
+          end;
+        end;
+
+        pmWeapon.Popup(pos.X, pos.Y);
+      end;
+    end;
+  end;
+end;
+
 procedure TfrmToteDisplay.UpdateMessageHandling(
   const MessageValue: TRecSendMessage);
 begin
@@ -12598,6 +12942,80 @@ begin
       end;
     end;
   end;
+
+  {$REGION 'Navigasi'}
+    if not Assigned(sender) then
+    Exit;
+
+  lvSensorNav.Items.Clear;
+
+  if Assigned(sender.Devices) then
+  begin
+    for i := 0 to sender.Devices.Count - 1 do
+    begin
+      du := sender.Devices.Items[i];
+
+      if du is TT3Sensor then
+      begin
+        sensor := TT3Sensor(du);
+
+        li := lvSensorNav.Items.Add;
+
+        if sensor is TT3Radar then
+          li.StateIndex := 1
+        else if sensor is TT3Sonar then
+          li.StateIndex := 0
+        else if sensor is TT3Visual then
+          li.StateIndex := 2
+        else if sensor is TT3MADSensor then
+          li.StateIndex := 4
+        else if sensor is TT3ESMSensor then
+          li.StateIndex := 3
+        else if sensor is TT3EOSensor then
+          li.StateIndex := 4
+        else if sensor is TT3IFFSensor then
+          li.StateIndex := 5
+        else
+          li.StateIndex := 0;
+
+        if sensor.EmconOperationalStatus = EmconOff then
+        begin
+          case sensor.OperationalStatus of
+            sopOff, sopOffIFF:
+              li.SubItems.Add('Off');
+            sopOn:
+              li.SubItems.Add('On');
+            sopDamage:
+              li.SubItems.Add('Damaged');
+            sopTooDeep:
+              li.SubItems.Add('Too Deep');
+            sopEMCON:
+              li.SubItems.Add('EMCON');
+            sopActive:
+              li.SubItems.Add('Active');
+            sopPassive:
+              li.SubItems.Add('Passive');
+            sopTooFast:
+              li.SubItems.Add('Too Fast');
+            sopDeploying:
+              li.SubItems.Add('Deploying');
+            sopDeployed:
+              li.SubItems.Add('Deployed');
+            sopStowing:
+              li.SubItems.Add('Stowing');
+            sopStowed:
+              li.SubItems.Add('Stowed');
+          end;
+        end
+        else
+          li.SubItems.Add('EMCON');
+
+        li.Caption := sensor.InstanceName;
+        li.Data := sensor;
+      end;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.UpdateStatusVehicle(sender: TT3Vehicle);
@@ -12772,6 +13190,7 @@ begin
   if lvPlatforms.Selected = nil then exit;
 
   li := lvPlatforms.Selected;
+  li := lvSensorNav.Selected;
   u := li.Data;
   if sender <> u then
     exit;
@@ -12960,6 +13379,188 @@ begin
       end;
     end;
   end;
+
+  {$REGION 'Navigasi'}
+  if lvPlatforms.Selected = nil then exit;
+
+  li := lvPlatforms.Selected;
+  li := lvSensorNav.Selected;
+  u := li.Data;
+  if sender <> u then
+    exit;
+
+  if not (u is TT3Vehicle) then
+    exit;
+
+  ve := u as TT3Vehicle;
+
+  // sensors
+  //lvSensors.Items.Clear;
+  tvCountermeasures.Items.Clear;
+  if Assigned(ve.Devices) then
+  begin
+    for i := 0 to ve.Devices.Count - 1 do
+    begin
+      with TT3Vehicle(ve) do
+      begin
+        if (TT3DeviceUnit(Devices[i]) is TT3Sensor) then
+        begin
+          li := findLVItem(lvSensorNav,TT3DeviceUnit(Devices[i]).InstanceName);
+
+          if (TT3DeviceUnit(Devices[i]) is TT3Radar) then
+          begin
+            li.StateIndex := 1;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3Sonar) then
+          begin
+            li.StateIndex := 0;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3Visual) then
+          begin
+            li.StateIndex := 2;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3MADSensor) then
+          begin
+            li.StateIndex := 4;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3ESMSensor) then
+          begin
+            li.StateIndex := 3;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3EOSensor) then
+          begin
+            li.StateIndex := 4;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3IFFSensor) then
+          begin
+            li.StateIndex := 5;
+          end
+          else
+          begin
+            li.StateIndex := 0;
+          end;
+
+          case TT3Sensor(Devices[i]).OperationalStatus of
+            sopOff, sopOffIFF:
+              li.SubItems[0] := 'Off';
+              //li.SubItems.Add('Off');
+            sopOn:
+              li.SubItems[0] := 'On';
+              //li.SubItems.Add('On');
+            sopDamage:
+              li.SubItems[0] := 'Damaged';
+              //li.SubItems.Add('Damaged');
+            sopTooDeep:
+              li.SubItems[0] := 'Too Deep';
+              //li.SubItems.Add('Too Deep');
+            sopEMCON:
+              li.SubItems[0] := 'EMCON';
+              //li.SubItems.Add('EMCON');
+            sopActive:
+              li.SubItems[0] := 'Active';
+              //li.SubItems.Add('Active');
+            sopPassive:
+              li.SubItems[0] := 'Passive';
+              //li.SubItems.Add('Passive');
+            sopTooFast:
+              li.SubItems[0] := 'Too Fast';
+              //li.SubItems.Add('Too Fast');
+            //------------------------------  //17042012 mk
+            sopDeploying:
+              li.SubItems[0] := 'Deploying';
+              //li.SubItems.Add('Deploying');
+            sopDeployed:
+              li.SubItems[0] := 'Deployed';
+              //li.SubItems.Add('Deployed');
+            sopStowing:
+              li.SubItems[0] := 'Stowing';
+              //li.SubItems.Add('Stowing');
+            sopStowed:
+              li.SubItems[0] := 'Stowed';
+              //li.SubItems.Add('Stowed');
+            //------------------------------  //17042012 mk
+          end;
+          li.Data := TT3Sensor(TT3Sensor(Devices[I]));
+        end
+        //countermeasure
+        else if (TT3DeviceUnit(Devices[i]) is TT3CounterMeasure) then
+        begin
+          tn := TTreeNode.Create(tvCountermeasures.Items);
+
+          if (TT3CounterMeasure(Devices.Items[i]) is TT3ChaffOnVehicle) then
+            tn.StateIndex := 1
+          else if (TT3CounterMeasure(Devices.Items[i])
+              is TT3AcousticDecoyOnVehicle) then
+            tn.StateIndex := 2
+          else
+            tn.StateIndex := 0;
+
+          case TT3CounterMeasure(Devices.Items[i]).Status of
+            esAvailable:
+              ecmStatus := 'Available';
+            esUnavailable:
+              ecmStatus := 'Unavailable';
+            esLaunchingChaff:
+              ecmStatus := 'Launching Chaff';
+            esDamaged:
+              ecmStatus := 'Damage';
+            esOn:
+              ecmStatus := 'On';
+            esOff:
+              ecmStatus := 'Off';
+            esEMCON:
+              ecmStatus := 'EMCON';
+            esAutomatic:
+              ecmStatus := 'Automatic';
+            esManual:
+              ecmStatus := 'Manual';
+            esDeployed:
+              ecmStatus := 'Deployed';
+            esStowed:
+              ecmStatus := 'Stowed';
+          end;
+
+          tn.Text := TT3CounterMeasure(Devices.Items[I]).InstanceName + ' : ' + ecmStatus;
+          tn.Data := TT3CounterMeasure(Devices.Items[i]);
+
+          tvCountermeasures.Items.AddObject(nil, tn.Text, tn.Data);
+          temp := FindText(tvCountermeasures, tn.Text);
+
+          tvCountermeasures.Items.AddChild(temp, ecmStatus);
+        end;
+      end;
+    end;
+  end;
+
+  // weapons
+  UpdateWeaponVehicle(ve);
+
+  // embark platform
+  tvEmbarkedPlatforms.Items.Clear;
+  if Assigned(ve.EmbarkedVehicles) then
+  begin
+    for i := 0 to ve.EmbarkedVehicles.Count - 1 do
+    begin
+      with ve do
+      begin
+        temp := TTreeNode.Create(tvEmbarkedPlatforms.Items);
+        temp.Text := (TT3EmbarkedVehicle(EmbarkedVehicles[i])
+            .EmbarkedIdentifier);
+        temp.StateIndex := 0;
+        tvEmbarkedPlatforms.Items.InsertNode(temp, nil, temp.Text,
+          TT3EmbarkedVehicle(EmbarkedVehicles[i]));
+        temp := FindText(tvEmbarkedPlatforms,
+          TT3EmbarkedVehicle(EmbarkedVehicles[i]).EmbarkedIdentifier);
+        tvEmbarkedPlatforms.Items.AddChildFirst(temp,
+          'Quantity : ' + IntToStr
+            (TT3EmbarkedVehicle(EmbarkedVehicles[i]).Quantity)
+          );
+        tvEmbarkedPlatforms.Items.AddChild(temp, 'Readying Time : ' + '2');
+      end;
+    end;
+  end;
+  {$ENDREGION}
+
 end;
 
 procedure TfrmToteDisplay.updateInfoTree(PropID: TPropsID; IntVal: integer;
@@ -13842,6 +14443,28 @@ begin
     end;
   end;
 
+  {$REGION 'Navigasi'}
+  if (Sender is TT3Sensor) and (Assigned(TT3Sensor(Sender).Parent)) and
+    TT3PlatformInstance(TT3Sensor(Sender).Parent).Equals(ToteSelectedPlatform) then
+  begin
+    li := findLVItem(lvSensorNav,TT3Sensor(Sender).InstanceName);
+    case TSensorOperationalStatus(Value) of
+      sopOff, sopOffIFF      : li.SubItems[0] := 'Off';
+      sopOn                  : li.SubItems[0] := 'On';
+      sopDamage              : li.SubItems[0] := 'Damaged';
+      sopTooDeep             : li.SubItems[0] := 'Too Deep';
+      sopEMCON               : li.SubItems[0] := 'EMCON';
+      sopActive              : li.SubItems[0] := 'Active';
+      sopPassive             : li.SubItems[0] := 'Passive';
+      sopTooFast             : li.SubItems[0] := 'Too Fast';
+      sopDeploying           : li.SubItems[0] := 'Deploying';
+      sopDeployed            : li.SubItems[0] := 'Deployed';
+      sopStowing             : li.SubItems[0] := 'Stowing';
+      sopStowed              : li.SubItems[0] := 'Stowed';
+    end;
+  end;
+  {$ENDREGION}
+
   //======= ini untuk mengupdate item tree view ecm ===============
   if (Sender is TT3CounterMeasure) and (Assigned(TT3CounterMeasure(Sender).Parent)) and
     TT3PlatformInstance(TT3CounterMeasure(Sender).Parent).Equals(ToteSelectedPlatform) then
@@ -14100,6 +14723,46 @@ begin
       btnTransferBase.Visible := Selected;
       btnStopBase.Visible := Selected;
       btnDetailBase.Visible := Selected;
+    end;
+  end;
+end;
+
+procedure TfrmToteDisplay.lvCountermeasuresNavMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  pos: TPoint;
+begin
+  if CategoryPanelStatusOp.Enabled then
+  begin
+    if lvCountermeasuresNav.Selected = nil then
+      Exit;
+
+    GetCursorPos(pos);
+
+    if Button = mbRight then
+    begin
+      lvCountermeasuresNav.Selected := lvCountermeasuresNav.GetNodeAt(x, y);
+
+      if lvCountermeasuresNav.Selected <> nil then
+      begin
+        if TT3CounterMeasure(lvCountermeasuresNav.Selected.Data).Status = esDamaged then
+          begin
+            Damage2.Enabled := False;
+            Repair2.Enabled := True;
+          end
+        else if TT3CounterMeasure(lvCountermeasuresNav.Selected.Data).Status = esUnavailable then
+          begin
+            Damage2.Enabled := False;
+            Repair2.Enabled := False;
+          end
+        else
+          begin
+            Damage2.Enabled := True;
+            Repair2.Enabled := False;
+          end;
+      end;
+
+      pmCountermeasure.Popup(pos.X, pos.Y);
     end;
   end;
 end;

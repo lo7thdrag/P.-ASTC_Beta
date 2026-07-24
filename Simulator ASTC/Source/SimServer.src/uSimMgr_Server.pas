@@ -3117,21 +3117,21 @@ begin
           TT3Vehicle(obj).CekLandanDepth(TT3Vehicle(obj).PosX, TT3Vehicle(obj).PosY);
         end;
       end;
-
-      FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
-//      VNetServer.SendAlmostBroadcastCommand(CPID_CMD_GAME_CTRL , apRec, FIP3DClient);
-      VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
-      {23}if Assigned(FWriter) then FWriter.WriteData(apRec, FMainVTime.GetMillisecond,GameSPEED,CPID_CMD_GAME_CTRL);
+//
+//      FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
+////      VNetServer.SendAlmostBroadcastCommand(CPID_CMD_GAME_CTRL , apRec, FIP3DClient);
+//      VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
+//      {23}if Assigned(FWriter) then FWriter.WriteData(apRec, FMainVTime.GetMillisecond,GameSPEED,CPID_CMD_GAME_CTRL);
     end;
     CORD_ID_pause       : begin
       FOnLogStr('TSimMgr_Server.netRecv_CmdGameControl', sip +  ' Game Pause' );
 
       GamePause;
       GameSPEED           := 0.0;
-
-      FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
-      VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
-      {23}if Assigned(FWriter) then FWriter.WriteData(apRec, FMainVTime.GetMillisecond,GameSPEED,CPID_CMD_GAME_CTRL);
+//
+//      FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
+//      VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
+//      {23}if Assigned(FWriter) then FWriter.WriteData(apRec, FMainVTime.GetMillisecond,GameSPEED,CPID_CMD_GAME_CTRL);
     end;
     CORD_ID_game_speed  : begin;
       FOnLogStr('TSimMgr_Server.netRecv_CmdGameControl', sip +  ' Game speed: ' + IntToStr(Round(r^.GameSpeed)) );
@@ -3146,10 +3146,10 @@ begin
           TT3Vehicle(obj).Connect3D := FIsConnected3D;
         end;
       end;
-
-      FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
-      VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
-      {23}if Assigned(FWriter) then FWriter.WriteData(apRec, FMainVTime.GetMillisecond,GameSPEED,CPID_CMD_GAME_CTRL);
+//
+//      FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
+//      VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
+//      {23}if Assigned(FWriter) then FWriter.WriteData(apRec, FMainVTime.GetMillisecond,GameSPEED,CPID_CMD_GAME_CTRL);
     end;
     CORD_ID_gototime   :
     begin
@@ -3160,10 +3160,11 @@ begin
         FTimeToGo := r^.TimeTogo;
       GotoTime(r^.GotoTime);
 
-      FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
     end;
   end;
-
+    FOnUpdateGameInfo(byte(FGameState) , GameSPEED);
+    if Assigned(FWriter) then FWriter.WriteData(apRec, FMainVTime.GetMillisecond,GameSPEED,CPID_CMD_GAME_CTRL);
+    VNetServer.SendBroadcast_UDP_Data(CPID_CMD_GAME_CTRL , apRec);
 end;
 
 procedure TSimMgr_Server.NetSendTCP_Sycnh_Platform();

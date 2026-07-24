@@ -25,6 +25,7 @@ type
 
     function GetTime: TDateTime;
     function GetMillisecond: LongWord;
+    function GetElapsedTime : TDateTime;
     procedure SetMilliSecond(const aMs: LongWord);
 
     property DateTimeOffset: TDateTime read FDateTimeOffset write FDateTimeOffset;
@@ -49,6 +50,21 @@ destructor TVirtualTime.Destroy;
 begin
 
   inherited;
+end;
+
+function TVirtualTime.GetElapsedTime: TDateTime;
+ var
+  totalSecond: Cardinal;
+  h, m, s, ms: Word;
+begin
+  totalSecond := FMilliSecond div 1000;
+
+  h := totalSecond div 3600;
+  m := (totalSecond div 60) mod 60;
+  s := totalSecond mod 60;
+  ms := FMilliSecond mod 1000;
+
+  Result := EncodeTime(h mod 24, m, s, ms);
 end;
 
 function TVirtualTime.GetMillisecond: LongWord;

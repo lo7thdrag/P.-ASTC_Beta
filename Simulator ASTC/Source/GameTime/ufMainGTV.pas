@@ -341,7 +341,7 @@ procedure TfrmMainGT.Timer1Timer(Sender: TObject);
 begin
   if not first then
   begin
-    SetGameTime(FVTime.GetTime);
+    SetGameTime(FVTime.GetElapsedTime);
     SetGameDate(FVTime.GetTime);
     SetDurasiPermainan(FDurasiPermainan.GetTime)
   end;

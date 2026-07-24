@@ -12,6 +12,8 @@ object frmLeftNav: TfrmLeftNav
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object pnlContent: TPanel
@@ -147537,15 +147539,16 @@ object frmLeftNav: TfrmLeftNav
         object lblActualHeading: TLabel
           Left = 241
           Top = 155
-          Width = 62
+          Width = 77
           Height = 37
-          Caption = '04.7'
+          Caption = '090.0'
           Font.Charset = ANSI_CHARSET
           Font.Color = clAqua
           Font.Height = -37
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
+          OnClick = lblActualHeadingClick
         end
         object Image14: TImage
           Left = 91
@@ -178751,20 +178754,6 @@ object frmLeftNav: TfrmLeftNav
           Font.Style = []
           ParentFont = False
         end
-        object Label21: TLabel
-          Left = 113
-          Top = 22
-          Width = 15
-          Height = 29
-          Caption = 'o'
-          FocusControl = Panel1
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clAqua
-          Font.Height = -24
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
         object Panel10: TPanel
           Left = 154
           Top = 24
@@ -178777,5 +178766,9 @@ object frmLeftNav: TfrmLeftNav
         end
       end
     end
+  end
+  object timerHeading: TTimer
+    OnTimer = timerHeadingTimer
+    Top = 394
   end
 end

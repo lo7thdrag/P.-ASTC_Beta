@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzBmpBtn, Vcl.StdCtrls, VrControls,
   VrWheel, Vcl.Buttons, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uSimObjects, ufmControlled, Vcl.ComCtrls, ufmPlatformGuidance;
+  uSimObjects, ufmControlled, Vcl.ComCtrls, ufmPlatformGuidance, ufmOwnShip;
 
 type
   TfrmRightNav = class(TForm)
@@ -148,9 +148,16 @@ type
     lb3: TStaticText;
     lb7: TStaticText;
     lb5: TStaticText;
-    StatusBar1: TStatusBar;
     pnlPlatformGuidance: TPanel;
     fmPlatformGuidance1: TfmPlatformGuidance;
+    pnlOwnShip: TPanel;
+    fmOwnShip1: TfmOwnShip;
+    txt1: TStaticText;
+    imgOwnShip: TImage;
+    imgPlatformGuidance: TImage;
+    pnlGameState: TPanel;
+    pnlStatusRed: TPanel;
+    pnlStatusYellow: TPanel;
     procedure THButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure fmPlatformGuidance1SpeedButton2Click(aTrack: TSimObject; Sender: TObject);
@@ -161,6 +168,12 @@ type
       Sender: TObject; var Key: Char);
     procedure fmPlatformGuidance1edOrderAltitudeKeyPress(Sender: TObject;
       var Key: Char);
+    procedure pnlGameStateClick(Sender: TObject);
+    procedure pnlStatusRedClick(Sender: TObject);
+    procedure pnlStatusYellowClick(Sender: TObject);
+    procedure TDCPButtonClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   protected
     FControlled: TObject;
 
@@ -168,10 +181,13 @@ type
     { Private declarations }
   public
   focusedTrack: TSimObject;
+  statusR_List,statusY_List : TList;
 
+    procedure updateStatus;
+    procedure updateStatus_Yellow;
     procedure GetNameAndClass(const obj: TSimObject; var n, c: string);
     procedure UpdateFormData;
-    procedure Refresh_Controller(APlatform: TObject; AActiveTab: Integer);
+    procedure Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);
     {HOOK-IFF}
     procedure UpdateTabHooked(aTrack: TSimObject);
     procedure UpdateHookedInfo(Sender: TObject);
@@ -180,6 +196,7 @@ type
     procedure DisplayTabDetail(Sender: TObject);
     procedure DisplayTabDetection(Sender: TObject);
     procedure DisplayTabIFF(Sender: TObject);
+
 
     { Public declarations }
   end;
@@ -193,7 +210,7 @@ uses
   ufTacticalDisplay, ufToteDisplay, uT3Unit, uT3DetectedTrack, uSettingCoordinate, uT3Radar,
   uBaseCoordSystem, uSimMgr_Client, tttData, uT3Vehicle, uDBAsset_Vehicle, uT3Torpedo, uT3Missile,
   uDBAsset_Weapon, uT3Sonobuoy, uT3Mine, uT3CounterMeasure, uMapXHandler, uT3Common, uT3OtherSensor, ufrmGuidance,
-  ufrmWeapon, ufrmRadar, uT3SimManager, ufrmTrackDetails;
+  ufrmWeapon, ufrmRadar, uT3SimManager, ufrmTrackDetails, uSimContainers;
 
 {$R *.dfm}
 Function DecToOct(Inp : String): String;
@@ -219,6 +236,35 @@ begin
   Oktal := Oktal+ Oct[i];
   End;
   Result:= Oktal;
+end;
+
+procedure TfrmRightNav.TDCPButtonClick(Sender: TObject);
+var
+  ImgTag: integer;
+  Image: Timage;
+begin
+  Image := Sender as Timage;
+  ImgTag := Image.Tag;
+
+  if Image = imgOwnShip then
+  begin
+    if ImgTag = 0 then
+    begin
+      pnlOwnShip.BringToFront;
+      imgOwnShip.Tag := 1;
+      imgPlatformGuidance.Tag := 0;
+    end;
+  end
+
+  else if Image = imgPlatformGuidance then
+  begin
+    if ImgTag = 0 then
+    begin
+      pnlPlatformGuidance.BringToFront;
+      imgPlatformGuidance.Tag := 1;
+      imgOwnShip.Tag := 0;
+    end
+  end;
 end;
 
 procedure TfrmRightNav.THButtonClick(Sender: TObject);
@@ -323,6 +369,33 @@ begin
 
   if pnlTabIFF.Tag = 1 then
     DisplayTabIFF(Sender);
+end;
+
+procedure TfrmRightNav.updateStatus;
+begin
+  if statusR_List.Count > 0 then
+  begin
+    pnlStatusRed.Visible := true;
+    pnlStatusYellow.Visible := true;
+    pnlStatusRed.Caption := TStatus(statusR_List[statusR_List.Count-1]).state;
+  end
+  else
+  begin
+    pnlStatusRed.Visible  := false;
+    if statusY_List.Count <= 0 then
+    pnlStatusYellow.Visible := false
+  end;
+end;
+
+procedure TfrmRightNav.updateStatus_Yellow;
+begin
+  if statusY_List.Count > 0 then
+  begin
+    pnlStatusYellow.Visible := true;
+    pnlStatusYellow.Caption := TStatus(statusY_List[statusY_List.Count-1]).state;
+  end
+  else
+    pnlStatusYellow.Visible := false;
 end;
 
 procedure TfrmRightNav.UpdateTabHooked(aTrack: TSimObject);
@@ -611,9 +684,6 @@ begin
       begin
         lbPositionHook1.Caption := formatDMS_long(v.getPositionX);
         lbPositionHook2.Caption := formatDMS_latt(v.getPositionY);
-        {Navigasi}
-//        frmTopNav.lblLong1.Caption := formatDMS_long(v.getPositionX);
-//        frmTopNav.lblLat1.Caption := formatDMS_latt(v.getPositionY);
       end;
     end;
     2:
@@ -1267,6 +1337,16 @@ begin
   end;
 end;
 
+procedure TfrmRightNav.FormCreate(Sender: TObject);
+begin
+  statusR_List := TList.Create;
+end;
+
+procedure TfrmRightNav.FormDestroy(Sender: TObject);
+begin
+  ClearAndFreeItems(statusR_List);
+end;
+
 procedure TfrmRightNav.FormShow(Sender: TObject);
 begin
   if focusedTrack <> nil then
@@ -1354,22 +1434,72 @@ begin
   lbClassIff.Caption := 'Unknown';
 end;
 
-procedure TfrmRightNav.Refresh_Controller(APlatform: TObject; AActiveTab: Integer);
+procedure TfrmRightNav.pnlGameStateClick(Sender: TObject);
 var
-  pi: TT3PlatformInstance;
+  CmdStatus : TStatus;
 begin
-//  if (APlatform = nil) or not (APlatform is TT3PlatformInstance) then Exit;
-//
-//  pi := TT3PlatformInstance(APlatform);
-//
-//  if pi is TT3Vehicle then
-//    TT3Vehicle(pi).Waypoints.IsOpenGuidanceTab := (AActiveTab = 1);
-//
-//  if AActiveTab = 1 then
-//  begin
-//    if Assigned(fmPlatformGuidance1) then
-//      fmPlatformGuidance1.Refresh_VisibleTab();
-//  end;
+  if statusR_List.Count > 0 then
+  begin
+    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
+    if LowerCase(CmdStatus.state) = 'receive message' then
+    begin
+      frmToteDisplay.gbMessageHandlingSystem.BringToFront;
+      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
+      frmToteDisplay.pnlContentReceived.BringToFront;
+      frmToteDisplay.pnlTabReceived.Tag := 1;
+      frmToteDisplay.pnlTabDraft.Tag := 0;
+      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
+      frmToteDisplay.pnlTabSent.Tag := 0;
+      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
+
+//      frmToteDisplay.pcReceived.ActivePageIndex := 0;
+    end;
+
+    statusR_List.Delete(statusR_List.Count-1);
+    updateStatus;
+  end;
+end;
+
+procedure TfrmRightNav.pnlStatusRedClick(Sender: TObject);
+var
+  CmdStatus : TStatus;
+begin
+  if statusR_List.Count > 0 then
+  begin
+    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
+    if LowerCase(CmdStatus.state) = 'receive message' then
+    begin
+      frmToteDisplay.gbMessageHandlingSystem.BringToFront;
+      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
+      frmToteDisplay.pnlContentReceived.BringToFront;
+      frmToteDisplay.pnlTabReceived.Tag := 1;
+      frmToteDisplay.pnlTabDraft.Tag := 0;
+      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
+      frmToteDisplay.pnlTabSent.Tag := 0;
+      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
+
+//      frmToteDisplay.pcReceived.ActivePageIndex := 0;
+    end;
+
+    statusR_List.Delete(statusR_List.Count-1);
+    updateStatus;
+  end;
+end;
+
+
+procedure TfrmRightNav.pnlStatusYellowClick(Sender: TObject);
+begin
+  if statusY_List.Count > 0 then
+  begin
+    statusY_List.Delete(statusY_List.Count-1);
+    updateStatus_Yellow;
+  end;
+end;
+
+procedure TfrmRightNav.Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);
+
+begin
+
 end;
 
 end.

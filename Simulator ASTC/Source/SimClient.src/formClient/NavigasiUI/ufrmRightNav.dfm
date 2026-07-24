@@ -12,6 +12,8 @@ object frmRightNav: TfrmRightNav
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -26786,8 +26788,7 @@ object frmRightNav: TfrmRightNav
           E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA
           27E1AA27E1AA27D8A326A77F21503E192921152921152921153D}
         Stretch = True
-        ExplicitTop = 3
-        ExplicitHeight = 356
+        ExplicitLeft = -1
       end
       object Image2: TImage
         Left = 10
@@ -26983,6 +26984,379 @@ object frmRightNav: TfrmRightNav
         Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
+      end
+      object imgOwnShip: TImage
+        Tag = 1
+        Left = 237
+        Top = 27
+        Width = 45
+        Height = 26
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D494844520000002D0000
+          001A08060000002365D58F000000097048597300000B1300000B1301009A9C18
+          000000017352474200AECE1CE90000000467414D410000B18F0BFC6105000000
+          F84944415478DAEDD4CD0DC220140770D8A037AF7513B879D409D4098C135827
+          314E623D78770093EA06DD80FE6949244652404921E125E4A57CB43FDA472949
+          30E8D4808C8E39323A69B410A2E96F4EE93C5A34900552A1755D54E6682DF0AD
+          692EC69E53A14F481BC3700D18D7E61E902A6DBCC4F82B281A0F655FBA258419
+          96DCD1F6DAF55A6D50F6CB2FB0D2BFC4DFD10097488DEB460DC180BDFA2C7445
+          CB5ADCA195C45C0E6351AB76F6A96767B48667E47DD85CA302F6E8B9D6113D1C
+          B63E6638FD0B42963E0F7CA0966F433D7F48E836045AFCF276C625D4DA92D119
+          9DD189A17DFFCBB6686E3D352824D4FEA6066474CC9124BA03E78B4E1BB585F9
+          0C0000000049454E44AE426082}
+        OnClick = TDCPButtonClick
+      end
+      object imgPlatformGuidance: TImage
+        Left = 282
+        Top = 27
+        Width = 45
+        Height = 26
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D494844520000002D0000
+          001A08060000002365D58F000000097048597300000B1300000B1301009A9C18
+          000000017352474200AECE1CE90000000467414D410000B18F0BFC6105000001
+          CD4944415478DAED97817582301086930D1C01376837C009D4098A1358261026
+          A89D409D403A817482DA094C377003FA9F9C368D89569068DFE3DEFB5F6212B8
+          8F18EE0E29FEA1C95B03B4D0975851141D344F50083D40014F29680D6552CAC5
+          DD4003788066C6707328E7962CE687E8739B5C03BE163480A70C1401E65D1B5F
+          ED6E2E654F1B0BD0D0F802E3C94DA001418E27D01410B13177047DEE9AC6A1E1
+          3C62E7738840527DF71C3B7D0086E848C598CF7C426FD0F4E054A13F31C14D68
+          0D98CE748ADF21FA4BA88BDFDBC6A17997FB7036D4C67E81EBD026B0F16F5054
+          79F501BD149610A6812BA8C3A27E6002BB1EBE49E80F3423385B5BE636E22746
+          EF4D616DD7B296D6AD6C734D401770241D737F863E77AF169AC142F8FAAA038D
+          B5942167987BF401ED7A1113514609C5E05B16F553330BFA7E11C768068EC4B1
+          8FC37AC83B8AE3A71EBE29680A65740C867098DBE2B025B998719C76BF52E4A8
+          04CD1094865FA037682CEC89C34CE307705196B1952BBE3A0513413F0B7BE270
+          154CCE6BBC406BBB1709AE434E4173BD41757756A7C2AB0DCD30044DF0BB2F14
+          E8539447876C24CAAF193A0E14E246552BBBAB421BF0F44110302099E287C945
+          59FC5F5CD1350AEDD35A685FF60DE52A2D2A8CB34A6C0000000049454E44AE42
+          6082}
+        OnClick = TDCPButtonClick
+      end
+      object pnlOwnShip: TPanel
+        Left = 5
+        Top = 50
+        Width = 322
+        Height = 405
+        Color = 16775920
+        ParentBackground = False
+        TabOrder = 1
+        inline fmOwnShip1: TfmOwnShip
+          Left = 1
+          Top = 1
+          Width = 320
+          Height = 403
+          Align = alClient
+          Color = 2695445
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentBackground = False
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 1
+          ExplicitWidth = 320
+          ExplicitHeight = 403
+          inherited ScrollBox4: TScrollBox
+            Width = 320
+            Height = 403
+            ParentColor = False
+            ExplicitWidth = 320
+            ExplicitHeight = 403
+            inherited lbOwnShipPosition1: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited Label22: TLabel
+              ParentFont = False
+            end
+            inherited lbOrderHeading: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited lbActualHeading: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited Label23: TLabel
+              ParentFont = False
+            end
+            inherited lbActualCourse: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited Label25: TLabel
+              ParentFont = False
+            end
+            inherited Label26: TLabel
+              Left = 218
+              ParentFont = False
+              ExplicitLeft = 218
+            end
+            inherited Label27: TLabel
+              Left = 17
+              ParentFont = False
+              ExplicitLeft = 17
+            end
+            inherited lbOwnShipOrderGround: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited Label28: TLabel
+              Top = 164
+              ParentFont = False
+              ExplicitTop = 164
+            end
+            inherited lbOrderedAltitude: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited lbOwnShipActualground: TLabel
+              Left = 172
+              Top = 204
+              ParentFont = False
+              ExplicitLeft = 172
+              ExplicitTop = 204
+            end
+            inherited Label29: TLabel
+              ParentFont = False
+            end
+            inherited lbGuidance: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited lbFuel: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited Label46: TLabel
+              ParentFont = False
+            end
+            inherited lbOwnShipPosition2: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited Label30: TLabel
+              Left = 218
+              ParentFont = False
+              ExplicitLeft = 218
+            end
+            inherited Label31: TLabel
+              Left = 218
+              ParentFont = False
+              ExplicitLeft = 218
+            end
+            inherited Label32: TLabel
+              Left = 218
+              ParentFont = False
+              ExplicitLeft = 218
+            end
+            inherited Label33: TLabel
+              Left = 218
+              Top = 204
+              ParentFont = False
+              ExplicitLeft = 218
+              ExplicitTop = 204
+            end
+            inherited lbActualAltitude: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited Label34: TLabel
+              Left = 218
+              Width = 22
+              Caption = 'feet'
+              ParentFont = False
+              ExplicitLeft = 218
+              ExplicitWidth = 22
+            end
+            inherited Label37: TLabel
+              Left = 218
+              Width = 22
+              Caption = 'feet'
+              ParentFont = False
+              ExplicitLeft = 218
+              ExplicitWidth = 22
+            end
+            inherited lbName: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited lbClass: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited lbl47: TLabel
+              ParentFont = False
+            end
+            inherited lblStatus: TLabel
+              Left = 172
+              ParentFont = False
+              ExplicitLeft = 172
+            end
+            inherited lblColision: TLabel
+              ParentFont = False
+            end
+            inherited lblDepth: TLabel
+              Left = 172
+              ExplicitLeft = 172
+            end
+            inherited StaticText22: TStaticText [32]
+            end
+            inherited StaticText21: TStaticText
+              Top = 202
+              ParentFont = False
+              ExplicitTop = 202
+            end
+            inherited StaticText16: TStaticText [34]
+              ParentFont = False
+            end
+            inherited StaticText58: TStaticText
+              Left = 157
+              ExplicitLeft = 157
+            end
+            inherited StaticText64: TStaticText
+              Left = 157
+              Top = 83
+              Visible = False
+              ExplicitLeft = 157
+              ExplicitTop = 83
+            end
+            inherited StaticText65: TStaticText
+              Left = 157
+              Top = 107
+              ExplicitLeft = 157
+              ExplicitTop = 107
+            end
+            inherited StaticText66: TStaticText
+              Left = 157
+              Top = 131
+              ExplicitLeft = 157
+              ExplicitTop = 131
+            end
+            inherited StaticText68: TStaticText
+              Left = 157
+              Top = 155
+              ExplicitLeft = 157
+              ExplicitTop = 155
+            end
+            inherited StaticText69: TStaticText
+              Left = 157
+              Top = 202
+              ExplicitLeft = 157
+              ExplicitTop = 202
+            end
+            inherited StaticText72: TStaticText
+              Left = 157
+              Top = 179
+              ExplicitLeft = 157
+              ExplicitTop = 179
+            end
+            inherited StaticText73: TStaticText
+              Left = 157
+              Top = 251
+              ExplicitLeft = 157
+              ExplicitTop = 251
+            end
+            inherited StaticText74: TStaticText
+              Left = 157
+              Top = 275
+              ExplicitLeft = 157
+              ExplicitTop = 275
+            end
+            inherited StaticText70: TStaticText
+              Left = 157
+              Top = 227
+              ExplicitLeft = 157
+              ExplicitTop = 227
+            end
+            inherited btnLaunch: TButton
+              Left = 17
+              Top = 551
+              Font.Color = clWindowText
+              ParentFont = False
+              Visible = False
+              ExplicitLeft = 17
+              ExplicitTop = 551
+            end
+            inherited lb1: TStaticText
+              ParentFont = False
+            end
+            inherited lb2: TStaticText
+              Left = 157
+              ParentFont = False
+              ExplicitLeft = 157
+            end
+            inherited lb4: TStaticText
+              ParentFont = False
+            end
+            inherited lb5: TStaticText
+              Left = 157
+              ParentFont = False
+              ExplicitLeft = 157
+            end
+            inherited btnLandPlatform: TButton
+              Left = 202
+              Top = 375
+              Width = 104
+              ExplicitLeft = 202
+              ExplicitTop = 375
+              ExplicitWidth = 104
+            end
+            inherited btnRangeLanding: TButton
+              Left = 206
+              Top = 581
+              ExplicitLeft = 206
+              ExplicitTop = 581
+            end
+            inherited btnReturntobase: TButton
+              Left = 15
+              Top = 375
+              Width = 104
+              Visible = False
+              ExplicitLeft = 15
+              ExplicitTop = 375
+              ExplicitWidth = 104
+            end
+            inherited txt1: TStaticText
+              Left = 157
+              Top = 299
+              ExplicitLeft = 157
+              ExplicitTop = 299
+            end
+            inherited txt2: TStaticText
+              Left = 157
+              ExplicitLeft = 157
+            end
+          end
+        end
+        object txt1: TStaticText
+          Left = 158
+          Top = 324
+          Width = 8
+          Height = 17
+          Caption = ':'
+          Color = 2695445
+          ParentColor = False
+          TabOrder = 1
+          Transparent = False
+        end
       end
       object pnlPlatformGuidance: TPanel
         Left = 5
@@ -29934,83 +30308,61 @@ object frmRightNav: TfrmRightNav
         end
       end
     end
-    object StatusBar1: TStatusBar
-      Left = 0
-      Top = 989
-      Width = 337
-      Height = 0
-      BiDiMode = bdLeftToRight
-      Color = 5524532
-      Panels = <
-        item
-          Alignment = taCenter
-          Text = 'Fly-by Help'
-          Width = 150
-        end
-        item
-          Alignment = taCenter
-          Text = 'Entities'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Text = 'Filter'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Text = 'Declutter'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Style = psOwnerDraw
-          Text = 'EMCON'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Style = psOwnerDraw
-          Text = 'Jamming'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Style = psOwnerDraw
-          Text = 'Gunfire'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Style = psOwnerDraw
-          Text = 'FCR LOCK'
-          Width = 70
-        end
-        item
-          Alignment = taCenter
-          Text = 'COMMS'
-          Width = 70
-        end
-        item
-          Style = psOwnerDraw
-          Text = 'FROZEN'
-          Width = 70
-        end
-        item
-          Text = ' DateTime'
-          Width = 150
-        end
-        item
-          Style = psOwnerDraw
-          Text = 'Elapsed Time'
-          Width = 175
-        end
-        item
-          Style = psOwnerDraw
-          Width = 50
-        end>
-      ParentBiDiMode = False
+    object pnlGameState: TPanel
+      Left = 99
+      Top = 940
+      Width = 138
+      Height = 38
+      BevelOuter = bvNone
+      Caption = 'FROZEN'
+      Color = clRed
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -17
+      Font.Name = 'System'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 2
+      OnClick = pnlGameStateClick
+    end
+    object pnlStatusRed: TPanel
+      Left = 4
+      Top = 738
+      Width = 331
+      Height = 17
+      Alignment = taLeftJustify
+      BevelOuter = bvNone
+      Color = clRed
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -17
+      Font.Name = 'System'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 3
       Visible = False
+      OnClick = pnlStatusRedClick
+    end
+    object pnlStatusYellow: TPanel
+      Left = 4
+      Top = 755
+      Width = 331
+      Height = 17
+      Alignment = taLeftJustify
+      BevelOuter = bvNone
+      Color = clYellow
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -17
+      Font.Name = 'System'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 4
+      Visible = False
+      OnClick = pnlStatusYellowClick
     end
   end
 end

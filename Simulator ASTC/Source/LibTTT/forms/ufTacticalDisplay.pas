@@ -6387,7 +6387,7 @@ procedure TfrmTacticalDisplay.SetUpNavigasiUI;
 begin
   pnl1ToolbarGeneral.Visible    := False;
   pnlBottom.Visible := False;
-  pnlLeft.Visible   := False;
+//  pnlLeft.Visible   := False;
   pnlContainerBottom.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
@@ -8643,6 +8643,13 @@ begin // ini procedure update yg dipanggil dari sim client
     frmLeftNav.Refresh_OwnShipTab(pi);
 //    frmRightNav.Refresh_Controller(pi, i);
     frmRightNav.UpdateTabHooked(focusedTrack);
+    if Assigned(frmLeftNav) then
+    begin
+      if Assigned(frmLeftNav.lblActualHeading) and Assigned(fmPlatformGuidance1.lblStraightLineActualHeading) then
+        frmLeftNav.lblActualHeading.Caption := fmPlatformGuidance1.lblStraightLineActualHeading.Caption;
+
+      frmLeftNav.FVTgtHeading := pi.Course;
+    end;
     {$ENDREGION}
 
     { wasdal UI }
@@ -8657,8 +8664,11 @@ begin // ini procedure update yg dipanggil dari sim client
       if Assigned(frmWeapon) then
         frmWeapon.fmWeapon1.Refresh_VisibleTab;
 
-//      if Assigned(frmRightNav) then
-//        frmWeapon.fmWeapon1.Refresh_VisibleTab;
+      if Assigned(frmRightNav) then
+      begin
+        frmRightNav.Refresh_Controller((i = 1), simMgrClient.ISWasdal);
+        frmRightNav.UpdateTabHooked(focusedTrack);
+      end;
     end;
   end;
 

@@ -6761,18 +6761,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 inherited pnlDepthEngagement: TPanel
                   Font.Color = clWhite
                   ParentFont = False
-                  inherited Edit2: TEdit
-                    Height = 21
-                    ExplicitHeight = 21
-                  end
                 end
                 inherited pnlAltitudeEngagement: TPanel
                   Font.Color = clWhite
                   ParentFont = False
-                  inherited edtAltitudeEngagement: TEdit
-                    Height = 21
-                    ExplicitHeight = 21
-                  end
                 end
               end
               inherited grbFormation: TGroupBox [9]

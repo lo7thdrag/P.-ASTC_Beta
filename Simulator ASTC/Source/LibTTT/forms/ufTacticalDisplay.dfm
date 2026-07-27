@@ -5759,330 +5759,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
           end
         end
-        object pnlOwnShip: TPanel
-          Left = 1
-          Top = 1
-          Width = 359
-          Height = 1992
-          Align = alClient
-          BevelOuter = bvNone
-          Color = 16775920
-          ParentBackground = False
-          TabOrder = 0
-          inline fmOwnShip1: TfmOwnShip
-            Left = 0
-            Top = 0
-            Width = 359
-            Height = 1992
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 0
-            ExplicitWidth = 359
-            ExplicitHeight = 1992
-            inherited ScrollBox4: TScrollBox
-              Width = 359
-              Height = 1992
-              ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1992
-              inherited lbOwnShipPosition1: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited Label22: TLabel
-                ParentFont = False
-              end
-              inherited lbOrderHeading: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited lbActualHeading: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited Label23: TLabel
-                ParentFont = False
-              end
-              inherited lbActualCourse: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited Label25: TLabel
-                ParentFont = False
-              end
-              inherited Label26: TLabel
-                Left = 218
-                ParentFont = False
-                ExplicitLeft = 218
-              end
-              inherited Label27: TLabel
-                Left = 17
-                ParentFont = False
-                ExplicitLeft = 17
-              end
-              inherited lbOwnShipOrderGround: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited Label28: TLabel
-                Top = 164
-                ParentFont = False
-                ExplicitTop = 164
-              end
-              inherited lbOrderedAltitude: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited lbOwnShipActualground: TLabel
-                Left = 172
-                Top = 204
-                ParentFont = False
-                ExplicitLeft = 172
-                ExplicitTop = 204
-              end
-              inherited Label29: TLabel
-                ParentFont = False
-              end
-              inherited lbGuidance: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited lbFuel: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited Label46: TLabel
-                ParentFont = False
-              end
-              inherited lbOwnShipPosition2: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited Label30: TLabel
-                Left = 218
-                ParentFont = False
-                ExplicitLeft = 218
-              end
-              inherited Label31: TLabel
-                Left = 218
-                ParentFont = False
-                ExplicitLeft = 218
-              end
-              inherited Label32: TLabel
-                Left = 218
-                ParentFont = False
-                ExplicitLeft = 218
-              end
-              inherited Label33: TLabel
-                Left = 218
-                Top = 204
-                ParentFont = False
-                ExplicitLeft = 218
-                ExplicitTop = 204
-              end
-              inherited lbActualAltitude: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited Label34: TLabel
-                Left = 218
-                Width = 22
-                Caption = 'feet'
-                ParentFont = False
-                ExplicitLeft = 218
-                ExplicitWidth = 22
-              end
-              inherited Label37: TLabel
-                Left = 218
-                Width = 22
-                Caption = 'feet'
-                ParentFont = False
-                ExplicitLeft = 218
-                ExplicitWidth = 22
-              end
-              inherited lbName: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited lbClass: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited lbl47: TLabel
-                ParentFont = False
-              end
-              inherited lblStatus: TLabel
-                Left = 172
-                ParentFont = False
-                ExplicitLeft = 172
-              end
-              inherited lblColision: TLabel
-                ParentFont = False
-              end
-              inherited lblDepth: TLabel
-                Left = 172
-                ExplicitLeft = 172
-              end
-              inherited StaticText22: TStaticText [32]
-              end
-              inherited StaticText21: TStaticText
-                Top = 202
-                ParentFont = False
-                ExplicitTop = 202
-              end
-              inherited StaticText16: TStaticText [34]
-                ParentFont = False
-              end
-              inherited StaticText58: TStaticText
-                Left = 157
-                ExplicitLeft = 157
-              end
-              inherited StaticText64: TStaticText
-                Left = 157
-                Top = 83
-                Visible = False
-                ExplicitLeft = 157
-                ExplicitTop = 83
-              end
-              inherited StaticText65: TStaticText
-                Left = 157
-                Top = 107
-                ExplicitLeft = 157
-                ExplicitTop = 107
-              end
-              inherited StaticText66: TStaticText
-                Left = 157
-                Top = 131
-                ExplicitLeft = 157
-                ExplicitTop = 131
-              end
-              inherited StaticText68: TStaticText
-                Left = 157
-                Top = 155
-                ExplicitLeft = 157
-                ExplicitTop = 155
-              end
-              inherited StaticText69: TStaticText
-                Left = 157
-                Top = 202
-                ExplicitLeft = 157
-                ExplicitTop = 202
-              end
-              inherited StaticText72: TStaticText
-                Left = 157
-                Top = 179
-                ExplicitLeft = 157
-                ExplicitTop = 179
-              end
-              inherited StaticText73: TStaticText
-                Left = 157
-                Top = 251
-                ExplicitLeft = 157
-                ExplicitTop = 251
-              end
-              inherited StaticText74: TStaticText
-                Left = 157
-                Top = 275
-                ExplicitLeft = 157
-                ExplicitTop = 275
-              end
-              inherited StaticText70: TStaticText
-                Left = 157
-                Top = 227
-                ExplicitLeft = 157
-                ExplicitTop = 227
-              end
-              inherited btnLaunch: TButton
-                Left = 17
-                Top = 551
-                Font.Color = clWindowText
-                ParentFont = False
-                Visible = False
-                OnClick = fmOwnShip1btnLaunchClick
-                ExplicitLeft = 17
-                ExplicitTop = 551
-              end
-              inherited lb1: TStaticText
-                ParentFont = False
-              end
-              inherited lb2: TStaticText
-                Left = 157
-                ParentFont = False
-                ExplicitLeft = 157
-              end
-              inherited lb4: TStaticText
-                ParentFont = False
-              end
-              inherited lb5: TStaticText
-                Left = 157
-                ParentFont = False
-                ExplicitLeft = 157
-              end
-              inherited btnLandPlatform: TButton
-                Left = 206
-                Top = 551
-                OnClick = fmOwnShip1btnLandPlatformClick
-                ExplicitLeft = 206
-                ExplicitTop = 551
-              end
-              inherited btnRangeLanding: TButton
-                Left = 206
-                Top = 581
-                OnClick = fmOwnShip1btnRangeLandingClick
-                ExplicitLeft = 206
-                ExplicitTop = 581
-              end
-              inherited btnReturntobase: TButton
-                Left = 17
-                Top = 551
-                Visible = False
-                ExplicitLeft = 17
-                ExplicitTop = 551
-              end
-              inherited txt1: TStaticText
-                Left = 157
-                Top = 299
-                ExplicitLeft = 157
-                ExplicitTop = 299
-              end
-              inherited txt2: TStaticText
-                Left = 157
-                ExplicitLeft = 157
-              end
-            end
-          end
-          object txt1: TStaticText
-            Left = 158
-            Top = 324
-            Width = 9
-            Height = 20
-            Caption = ':'
-            Color = 2695445
-            ParentColor = False
-            TabOrder = 1
-            Transparent = False
-          end
-        end
         object pnlPlatformGuidance: TPanel
           Left = 1
           Top = 1
@@ -7283,6 +6959,330 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 OnClick = fmPlatformGuidance1PersonelGudance1Click
               end
             end
+          end
+        end
+        object pnlOwnShip: TPanel
+          Left = 1
+          Top = 1
+          Width = 359
+          Height = 1992
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 16775920
+          ParentBackground = False
+          TabOrder = 0
+          inline fmOwnShip1: TfmOwnShip
+            Left = 0
+            Top = 0
+            Width = 359
+            Height = 1992
+            Align = alClient
+            Color = 2695445
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentBackground = False
+            ParentColor = False
+            ParentFont = False
+            TabOrder = 0
+            ExplicitWidth = 359
+            ExplicitHeight = 1992
+            inherited ScrollBox4: TScrollBox
+              Width = 359
+              Height = 1992
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1992
+              inherited lbOwnShipPosition1: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited Label22: TLabel
+                ParentFont = False
+              end
+              inherited lbOrderHeading: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited lbActualHeading: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited Label23: TLabel
+                ParentFont = False
+              end
+              inherited lbActualCourse: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited Label25: TLabel
+                ParentFont = False
+              end
+              inherited Label26: TLabel
+                Left = 218
+                ParentFont = False
+                ExplicitLeft = 218
+              end
+              inherited Label27: TLabel
+                Left = 17
+                ParentFont = False
+                ExplicitLeft = 17
+              end
+              inherited lbOwnShipOrderGround: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited Label28: TLabel
+                Top = 164
+                ParentFont = False
+                ExplicitTop = 164
+              end
+              inherited lbOrderedAltitude: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited lbOwnShipActualground: TLabel
+                Left = 172
+                Top = 204
+                ParentFont = False
+                ExplicitLeft = 172
+                ExplicitTop = 204
+              end
+              inherited Label29: TLabel
+                ParentFont = False
+              end
+              inherited lbGuidance: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited lbFuel: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited Label46: TLabel
+                ParentFont = False
+              end
+              inherited lbOwnShipPosition2: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited Label30: TLabel
+                Left = 218
+                ParentFont = False
+                ExplicitLeft = 218
+              end
+              inherited Label31: TLabel
+                Left = 218
+                ParentFont = False
+                ExplicitLeft = 218
+              end
+              inherited Label32: TLabel
+                Left = 218
+                ParentFont = False
+                ExplicitLeft = 218
+              end
+              inherited Label33: TLabel
+                Left = 218
+                Top = 204
+                ParentFont = False
+                ExplicitLeft = 218
+                ExplicitTop = 204
+              end
+              inherited lbActualAltitude: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited Label34: TLabel
+                Left = 218
+                Width = 22
+                Caption = 'feet'
+                ParentFont = False
+                ExplicitLeft = 218
+                ExplicitWidth = 22
+              end
+              inherited Label37: TLabel
+                Left = 218
+                Width = 22
+                Caption = 'feet'
+                ParentFont = False
+                ExplicitLeft = 218
+                ExplicitWidth = 22
+              end
+              inherited lbName: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited lbClass: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited lbl47: TLabel
+                ParentFont = False
+              end
+              inherited lblStatus: TLabel
+                Left = 172
+                ParentFont = False
+                ExplicitLeft = 172
+              end
+              inherited lblColision: TLabel
+                ParentFont = False
+              end
+              inherited lblDepth: TLabel
+                Left = 172
+                ExplicitLeft = 172
+              end
+              inherited StaticText22: TStaticText [32]
+              end
+              inherited StaticText21: TStaticText
+                Top = 202
+                ParentFont = False
+                ExplicitTop = 202
+              end
+              inherited StaticText16: TStaticText [34]
+                ParentFont = False
+              end
+              inherited StaticText58: TStaticText
+                Left = 157
+                ExplicitLeft = 157
+              end
+              inherited StaticText64: TStaticText
+                Left = 157
+                Top = 83
+                Visible = False
+                ExplicitLeft = 157
+                ExplicitTop = 83
+              end
+              inherited StaticText65: TStaticText
+                Left = 157
+                Top = 107
+                ExplicitLeft = 157
+                ExplicitTop = 107
+              end
+              inherited StaticText66: TStaticText
+                Left = 157
+                Top = 131
+                ExplicitLeft = 157
+                ExplicitTop = 131
+              end
+              inherited StaticText68: TStaticText
+                Left = 157
+                Top = 155
+                ExplicitLeft = 157
+                ExplicitTop = 155
+              end
+              inherited StaticText69: TStaticText
+                Left = 157
+                Top = 202
+                ExplicitLeft = 157
+                ExplicitTop = 202
+              end
+              inherited StaticText72: TStaticText
+                Left = 157
+                Top = 179
+                ExplicitLeft = 157
+                ExplicitTop = 179
+              end
+              inherited StaticText73: TStaticText
+                Left = 157
+                Top = 251
+                ExplicitLeft = 157
+                ExplicitTop = 251
+              end
+              inherited StaticText74: TStaticText
+                Left = 157
+                Top = 275
+                ExplicitLeft = 157
+                ExplicitTop = 275
+              end
+              inherited StaticText70: TStaticText
+                Left = 157
+                Top = 227
+                ExplicitLeft = 157
+                ExplicitTop = 227
+              end
+              inherited btnLaunch: TButton
+                Left = 17
+                Top = 551
+                Font.Color = clWindowText
+                ParentFont = False
+                Visible = False
+                OnClick = fmOwnShip1btnLaunchClick
+                ExplicitLeft = 17
+                ExplicitTop = 551
+              end
+              inherited lb1: TStaticText
+                ParentFont = False
+              end
+              inherited lb2: TStaticText
+                Left = 157
+                ParentFont = False
+                ExplicitLeft = 157
+              end
+              inherited lb4: TStaticText
+                ParentFont = False
+              end
+              inherited lb5: TStaticText
+                Left = 157
+                ParentFont = False
+                ExplicitLeft = 157
+              end
+              inherited btnLandPlatform: TButton
+                Left = 206
+                Top = 551
+                OnClick = fmOwnShip1btnLandPlatformClick
+                ExplicitLeft = 206
+                ExplicitTop = 551
+              end
+              inherited btnRangeLanding: TButton
+                Left = 206
+                Top = 581
+                OnClick = fmOwnShip1btnRangeLandingClick
+                ExplicitLeft = 206
+                ExplicitTop = 581
+              end
+              inherited btnReturntobase: TButton
+                Left = 17
+                Top = 551
+                Visible = False
+                ExplicitLeft = 17
+                ExplicitTop = 551
+              end
+              inherited txt1: TStaticText
+                Left = 157
+                Top = 299
+                ExplicitLeft = 157
+                ExplicitTop = 299
+              end
+              inherited txt2: TStaticText
+                Left = 157
+                ExplicitLeft = 157
+              end
+            end
+          end
+          object txt1: TStaticText
+            Left = 158
+            Top = 324
+            Width = 9
+            Height = 20
+            Caption = ':'
+            Color = 2695445
+            ParentColor = False
+            TabOrder = 1
+            Transparent = False
           end
         end
       end

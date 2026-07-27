@@ -42,12 +42,11 @@ type
     Panel9: TPanel;
     Image4: TImage;
     Label29: TLabel;
-    Bevel8: TBevel;
     lblWaterTemp: TLabel;
     lblRange: TLabel;
     Bevel5: TBevel;
     lblDepthNav: TLabel;
-    Panel2: TPanel;
+    pnlShipInformation: TPanel;
     lblShipName: TLabel;
     Panel5: TPanel;
     Image3: TImage;
@@ -71,23 +70,41 @@ type
     Panel10: TPanel;
     Image2: TImage;
     timerHeading: TTimer;
-    procedure Refresh_OwnShipTab(Sender: TObject);
+    pnlSparator1: TPanel;
+    pnlSparator2: TPanel;
+    pnlGameStatus: TPanel;
+    lbl1: TLabel;
+    img1: TImage;
+    pnlGameState: TPanel;
+    lbl2: TLabel;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    lbl5: TLabel;
+    pnl1: TPanel;
+    bvl1: TBevel;
+    lbl6: TLabel;
+    lbl7: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure timerHeadingTimer(Sender: TObject);
     procedure lblActualHeadingClick(Sender: TObject);
+
+
   protected
     FControlled: TObject;
   private
 
+    procedure Refresh_OwnShipTab;
+    procedure Refresh_EnvirontmentTab;
 
     procedure RotateAndDisplayFixedSize(TargetImage: TImage; SourcePng: TPngImage; Angle: Extended);
-    { Private declarations }
+
   public
     FOriginalPngTrainning : TPngImage;
     FVTgtHeading: Double;
     FVCurHeading: Double;
-    { Public declarations }
+
+    procedure UpdateFormData;
   end;
 
 var
@@ -116,9 +133,9 @@ end;
 procedure TfrmLeftNav.FormCreate(Sender: TObject);
 begin
   FOriginalPngTrainning := TPngImage.Create;
-  FOriginalPngTrainning.LoadFromFile('D:\Pekerjaan\Image\Button Left Navigasi\compass.png');
+  FOriginalPngTrainning.LoadFromFile('data\Image Simulator\Navigasi\compass.png');
 
-  EnableComposited(Self);
+  EnableComposited(pnlContent);
 end;
 
 procedure TfrmLeftNav.FormDestroy(Sender: TObject);
@@ -131,7 +148,7 @@ begin
   FVTgtHeading := StrToFloat(lblActualHeading.Caption);
 end;
 
-procedure TfrmLeftNav.Refresh_OwnShipTab(Sender: TObject);
+procedure TfrmLeftNav.Refresh_EnvirontmentTab;
 var
   ge: TGame_Environment_Definition;
   isOnlandTemp, isdeptAvailTemp : Boolean;
@@ -139,8 +156,10 @@ var
 
 begin
   {$REGION ' Evironment Bar '}
-  if not Assigned(simMgrClient) then Exit;
-  ge := (simMgrClient).GameEnvironment;
+  if not Assigned(simMgrClient) then
+    Exit;
+
+  ge := simMgrClient.GameEnvironment;
 
   with ge.FData do
   begin
@@ -151,15 +170,16 @@ begin
     lblOceanCurrentDirection.Caption      := FormatFloat('000.0', Ocean_Current_Direction);
   end;
 
-  if Assigned(FControlled) and TT3PlatformInstance(FControlled).Initialized then
+  if simMgrClient.ControlledPlatform <> nil then
   begin
-    with TT3PlatformInstance(FControlled) do
+
+    with TT3PlatformInstance(simMgrClient.ControlledPlatform) do
     begin
       isOnlandTemp := DepthLayerDB.GetMapLand(getPositionX, getPositionY, d1, d2);
 
       if isOnlandTemp then
       begin
-        lblDepthNav.Caption := FormatSpeed(d2) + ' Meter';
+        lblDepthNav.Caption := FormatSpeed(d2);
       end
       else
       begin
@@ -171,42 +191,36 @@ begin
 
         if isdeptAvailTemp then
         begin
-          lblDepthNav.Caption := FormatSpeed(d2) + ' Meter';
+          lblDepthNav.Caption := FormatSpeed(d2);
         end
         else
         begin
-          lblDepthNav.Caption := '0 Meter';
+          lblDepthNav.Caption := '0';
         end;
       end;
     end;
-
-    if Assigned(FControlled) then
-    begin
-      if TT3Vehicle(FControlled).Course = 0 then
-      begin
-        lblActualHeading.Caption := '0.00';
-      end
-      else
-      begin
-        lblActualHeading.Caption := FormatCourse(TT3Vehicle(FControlled).Heading);
-      end;
-    end
-    else
-    begin
-      lblActualHeading.Caption := '---';
-    end;
   end;
-  {$ENDREGION}
-
-  {$REGION ' Ship Information '}
-  //Kalau form right bisa ganti copy dari form right ini sementara pakai tactical display dulu
-  lblActualHeading.Caption :=  frmTacticalDisplay.fmPlatformGuidance1.lblStraightLineActualHeading.Caption;
-  lblCOG.Caption := frmTacticalDisplay.fmPlatformGuidance1.lblStraightLineActualHeading.Caption;
   {$ENDREGION}
 end;
 
-procedure TfrmLeftNav.RotateAndDisplayFixedSize(TargetImage: TImage;
-  SourcePng: TPngImage; Angle: Extended);
+procedure TfrmLeftNav.Refresh_OwnShipTab;
+begin
+  if simMgrClient.ControlledPlatform <> nil then
+  begin
+
+    with TT3PlatformInstance(simMgrClient.ControlledPlatform) do
+    begin
+      lblActualHeading.Caption := FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).Heading);
+      lblCOG.Caption := FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).Course);
+      lblSOG.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).Speed);
+      lblSWT.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).OrderedSpeed);
+
+      RotateAndDisplayFixedSize(image17, FOriginalPngTrainning, TT3Vehicle(simMgrClient.ControlledPlatform).Heading)
+    end;
+  end;
+end;
+
+procedure TfrmLeftNav.RotateAndDisplayFixedSize(TargetImage: TImage; SourcePng: TPngImage; Angle: Extended);
 var
   Dst: TPngImage;
   x, y: Integer;
@@ -299,6 +313,12 @@ begin
 
     RotateAndDisplayFixedSize(image17, FOriginalPngTrainning, FVCurHeading);
   end
+end;
+
+procedure TfrmLeftNav.UpdateFormData;
+begin
+  Refresh_EnvirontmentTab;
+  Refresh_OwnShipTab;
 end;
 
 end.

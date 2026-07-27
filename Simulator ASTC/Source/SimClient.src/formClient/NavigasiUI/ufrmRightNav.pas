@@ -6,12 +6,14 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzBmpBtn, Vcl.StdCtrls, VrControls,
   VrWheel, Vcl.Buttons, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uSimObjects, ufmControlled, Vcl.ComCtrls, ufmPlatformGuidance, ufmOwnShip;
+
+  uT3Unit, uSimObjects, ufmControlled, Vcl.ComCtrls, ufmPlatformGuidance, ufmOwnShip,
+  Vcl.Menus;
 
 type
   TfrmRightNav = class(TForm)
     pnlContainer: TPanel;
-    Panel1: TPanel;
+    pnlShipController: TPanel;
     imgMainBackgorund: TImage;
     Image2: TImage;
     Label10: TLabel;
@@ -150,14 +152,6 @@ type
     lb5: TStaticText;
     pnlPlatformGuidance: TPanel;
     fmPlatformGuidance1: TfmPlatformGuidance;
-    pnlOwnShip: TPanel;
-    fmOwnShip1: TfmOwnShip;
-    txt1: TStaticText;
-    imgOwnShip: TImage;
-    imgPlatformGuidance: TImage;
-    pnlGameState: TPanel;
-    pnlStatusRed: TPanel;
-    pnlStatusYellow: TPanel;
     procedure THButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure fmPlatformGuidance1SpeedButton2Click(aTrack: TSimObject; Sender: TObject);
@@ -171,7 +165,7 @@ type
     procedure pnlGameStateClick(Sender: TObject);
     procedure pnlStatusRedClick(Sender: TObject);
     procedure pnlStatusYellowClick(Sender: TObject);
-    procedure TDCPButtonClick(Sender: TObject);
+
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   protected
@@ -186,7 +180,7 @@ type
     procedure updateStatus;
     procedure updateStatus_Yellow;
     procedure GetNameAndClass(const obj: TSimObject; var n, c: string);
-    procedure UpdateFormData;
+
     procedure Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);
     {HOOK-IFF}
     procedure UpdateTabHooked(aTrack: TSimObject);
@@ -196,6 +190,10 @@ type
     procedure DisplayTabDetail(Sender: TObject);
     procedure DisplayTabDetection(Sender: TObject);
     procedure DisplayTabIFF(Sender: TObject);
+
+    procedure InitCreate(sender: TForm);
+    procedure UpdateFormData;
+    procedure SetControlledObject(pit : TT3PlatformInstance);
 
 
     { Public declarations }
@@ -207,7 +205,7 @@ var
 implementation
 
 uses
-  ufTacticalDisplay, ufToteDisplay, uT3Unit, uT3DetectedTrack, uSettingCoordinate, uT3Radar,
+  ufTacticalDisplay, ufToteDisplay, uT3DetectedTrack, uSettingCoordinate, uT3Radar,
   uBaseCoordSystem, uSimMgr_Client, tttData, uT3Vehicle, uDBAsset_Vehicle, uT3Torpedo, uT3Missile,
   uDBAsset_Weapon, uT3Sonobuoy, uT3Mine, uT3CounterMeasure, uMapXHandler, uT3Common, uT3OtherSensor, ufrmGuidance,
   ufrmWeapon, ufrmRadar, uT3SimManager, ufrmTrackDetails, uSimContainers;
@@ -236,35 +234,6 @@ begin
   Oktal := Oktal+ Oct[i];
   End;
   Result:= Oktal;
-end;
-
-procedure TfrmRightNav.TDCPButtonClick(Sender: TObject);
-var
-  ImgTag: integer;
-  Image: Timage;
-begin
-  Image := Sender as Timage;
-  ImgTag := Image.Tag;
-
-  if Image = imgOwnShip then
-  begin
-    if ImgTag = 0 then
-    begin
-      pnlOwnShip.BringToFront;
-      imgOwnShip.Tag := 1;
-      imgPlatformGuidance.Tag := 0;
-    end;
-  end
-
-  else if Image = imgPlatformGuidance then
-  begin
-    if ImgTag = 0 then
-    begin
-      pnlPlatformGuidance.BringToFront;
-      imgPlatformGuidance.Tag := 1;
-      imgOwnShip.Tag := 0;
-    end
-  end;
 end;
 
 procedure TfrmRightNav.THButtonClick(Sender: TObject);
@@ -342,7 +311,11 @@ end;
 
 procedure TfrmRightNav.UpdateFormData;
 begin
-  if focusedTrack <> nil then begin
+  {Update Guidance}
+  fmPlatformGuidance1.Refresh_VisibleTab();
+
+  if focusedTrack <> nil then
+  begin
     UpdateHookedInfo(focusedTrack);
   end
   else
@@ -1340,6 +1313,7 @@ end;
 procedure TfrmRightNav.FormCreate(Sender: TObject);
 begin
   statusR_List := TList.Create;
+  fmPlatformGuidance1.InitCreate(self);
 end;
 
 procedure TfrmRightNav.FormDestroy(Sender: TObject);
@@ -1398,6 +1372,11 @@ begin
       end;
     end;
   end;
+end;
+
+procedure TfrmRightNav.InitCreate(sender: TForm);
+begin
+  fmPlatformGuidance1.InitCreate(self);
 end;
 
 procedure TfrmRightNav.InitTabHookedInfo;
@@ -1498,6 +1477,11 @@ end;
 
 procedure TfrmRightNav.Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);
 
+begin
+
+end;
+
+procedure TfrmRightNav.SetControlledObject(pit: TT3PlatformInstance);
 begin
 
 end;

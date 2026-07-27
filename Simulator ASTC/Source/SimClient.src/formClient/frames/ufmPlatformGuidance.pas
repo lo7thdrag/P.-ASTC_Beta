@@ -4408,14 +4408,21 @@ begin
       v := FControlled as TT3Vehicle;
       TVehicle_Definition(v.UnitDefinition).GuidanceType := guideType;
 
+
+
+      {$REGION ' Waypoint '}
       if guideType = vgtWaypoint then
         v.Waypoints.Enabled := true
       else
         v.Waypoints.Enabled := false;
+      {$ENDREGION}
 
+      {$REGION ' Evasion '}
       if guideType = vgtEvasion then
         lblEvasionActualGroundSpeed.Caption := FormatSpeed(v.Speed);
+      {$ENDREGION}
 
+      {$REGION ' Zigzag '}
       if guideType = vgtZigzag then
       begin
         edtZigZagBaseCourse.Text            := IntToStr(round(v.OrderedZigzag));
@@ -4424,7 +4431,9 @@ begin
         edtZigZagPeriod.Text                := FormatFloat('0.00', v.PeriodZigzag);
         edtZigZagAmplitude.Text             := FormatFloat('0.00', v.AmplitudoZigzag);
       end;
+      {$ENDREGION}
 
+      {$REGION ' Sinuation '}
       if guideType = vgtSinuation then
       begin
         edtSinuationBaseCourse.Text          := IntToStr(round(v.OrderedSinuation));
@@ -4433,7 +4442,9 @@ begin
         edtSinuationBasePeriod.Text          := FormatFloat('0.00', v.PeriodSinuation);
         edtSinuationAmplitude.Text           := FormatFloat('0.00', v.AmplitudoSinuation);
       end;
+      {$ENDREGION}
 
+      {$REGION ' Circle '}
       if guideType = vgtCircle then
       begin
         case (v.Circle_mode) of
@@ -4483,7 +4494,9 @@ begin
 
         edtCircleOrderedGroundSpeed.Text := FloatToStr(v.OrderedSpeed);
       end;
+      {$ENDREGION}
 
+      {$REGION ' Station '}
       if guideType = vgtStation then
       begin
         case (v.StationMode) of
@@ -4532,7 +4545,9 @@ begin
         edtStationOrderedAltitude.Text  := FormatAltitude(v.OrderedAltitude / C_Feet_To_Meter);
         edtStationOrderedDepth.Text     := FormatAltitude(v.OrderedAltitude);
       end;
+      {$ENDREGION}
 
+      {$REGION ' Formation '}
       if guideType = vgtFormation then
       begin
         btnQuickFormation.Visible := False;
@@ -4565,6 +4580,8 @@ begin
         frmTacticalDisplay.fmPlatformGuidance1.lblRangeFormation
              .Caption := FormatFloat('0.00', v.FormationRange);
       end;
+      {$ENDREGION}
+
     end;
   end;
 end;

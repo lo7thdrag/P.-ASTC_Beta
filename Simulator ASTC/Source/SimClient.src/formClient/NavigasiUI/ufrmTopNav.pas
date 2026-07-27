@@ -43,13 +43,15 @@ type
     procedure Timer1Timer(Sender: TObject);
     procedure tmr2Timer(Sender: TObject);
     procedure tmrUTCTimer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   protected
     FControlled: TObject;
 
   private
     { Private declarations }
   public
-    procedure InitCreate(sender: TForm);
+//    procedure InitCreate(sender: TForm);
+    procedure UpdateFormData;
     procedure SetControlledObject(ctrlObj: TObject);
     procedure Refresh_OwnShipTab(Sender: TObject);
   end;
@@ -66,10 +68,15 @@ uses
 {$R *.dfm}
 
 
-procedure TfrmTopNav.InitCreate(sender: TForm);
+procedure TfrmTopNav.FormCreate(Sender: TObject);
 begin
-//  FControlled := nil;
+//
 end;
+
+//procedure TfrmTopNav.InitCreate(sender: TForm);
+//begin
+////  FControlled := nil;
+//end;
 
 procedure TfrmTopNav.Refresh_OwnShipTab(Sender: TObject);
 var
@@ -191,6 +198,11 @@ var
 begin
   WaktuUTC := TTimeZone.Local.ToUniversalTime(Now);
   lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
+end;
+
+procedure TfrmTopNav.UpdateFormData;
+begin
+  Refresh_OwnShipTab(FControlled);
 end;
 
 end.

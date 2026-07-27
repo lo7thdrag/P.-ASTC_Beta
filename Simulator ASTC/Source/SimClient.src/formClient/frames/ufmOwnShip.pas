@@ -328,7 +328,7 @@ begin
       if isOnlandTemp then
       begin
         lblDepth.Caption := FormatSpeed(d2);
-        frmleftNav.lblDepthNav.Caption := FormatSpeed(d2)+ ' Meter';
+//        frmleftNav.lblDepthNav.Caption := FormatSpeed(d2)+ ' Meter';
       end
       else
       begin
@@ -341,12 +341,12 @@ begin
         if isdeptAvailTemp then
         begin
           lblDepth.Caption := FormatSpeed(d2);
-          frmleftNav.lblDepthNav.Caption := FormatSpeed(d2)+ ' Meter';
+//          frmleftNav.lblDepthNav.Caption := FormatSpeed(d2)+ ' Meter';
         end
         else
         begin
           lblDepth.Caption := '0';
-          frmleftNav.lblDepthNav.Caption := '0'+ ' Meter';
+//          frmleftNav.lblDepthNav.Caption := '0'+ ' Meter';
         end;
       end;
 

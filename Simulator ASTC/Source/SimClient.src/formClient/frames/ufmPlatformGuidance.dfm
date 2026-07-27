@@ -613,7 +613,7 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
           Left = 180
           Top = 0
           Width = 73
-          Height = 21
+          Height = 24
           Ctl3D = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -697,7 +697,7 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
           Left = 180
           Top = 0
           Width = 73
-          Height = 21
+          Height = 24
           Ctl3D = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack

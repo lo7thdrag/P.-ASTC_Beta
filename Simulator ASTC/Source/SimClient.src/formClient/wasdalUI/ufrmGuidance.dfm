@@ -40,6 +40,7 @@ object frmGuidance: TfrmGuidance
     inherited PanelGuidanceControlChoices: TPanel
       Width = 394
       Color = 2695445
+      Font.Color = clWhite
       Font.Height = -16
       ParentFont = False
       ExplicitWidth = 394
@@ -53,6 +54,7 @@ object frmGuidance: TfrmGuidance
       end
       inherited edGuidance: TEdit
         Height = 27
+        Font.Color = clWhite
         Font.Height = -16
         ParentFont = False
         ExplicitHeight = 27
@@ -725,6 +727,7 @@ object frmGuidance: TfrmGuidance
         inherited Panel2: TPanel [34]
           Left = 9
           Top = 266
+          Font.Color = clWhite
           Font.Height = -16
           ParentFont = False
           ExplicitLeft = 9
@@ -2811,6 +2814,7 @@ object frmGuidance: TfrmGuidance
           inherited chkStationDrift: TCheckBox
             Top = 37
             Width = 146
+            Font.Color = clWhite
             ParentFont = False
             ExplicitTop = 37
             ExplicitWidth = 146
@@ -3414,6 +3418,7 @@ object frmGuidance: TfrmGuidance
         end
         inherited btnQuickFormation: TButton
           Height = 30
+          Font.Color = clWhite
           ParentFont = False
           ExplicitHeight = 30
         end
@@ -3492,469 +3497,7 @@ object frmGuidance: TfrmGuidance
           end
         end
       end
-      inherited grbStraightLine: TGroupBox [11]
-        Width = 392
-        Height = 329
-        Color = 2695445
-        ParentColor = False
-        ExplicitWidth = 392
-        ExplicitHeight = 329
-        inherited ScrollBox5: TScrollBox
-          Width = 390
-          Height = 311
-          Font.Height = -16
-          ParentFont = False
-          ExplicitWidth = 390
-          ExplicitHeight = 311
-          inherited lblStraightLineActualHeading: TLabel
-            Left = 195
-            Top = 133
-            Width = 18
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitLeft = 195
-            ExplicitTop = 133
-            ExplicitWidth = 18
-            ExplicitHeight = 19
-          end
-          inherited Label128: TLabel
-            Left = 256
-            Top = 159
-            Width = 70
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitLeft = 256
-            ExplicitTop = 159
-            ExplicitWidth = 70
-            ExplicitHeight = 19
-          end
-          inherited lblStraightLineActualGroundSpeed: TLabel
-            Left = 195
-            Top = 211
-            Width = 18
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitLeft = 195
-            ExplicitTop = 211
-            ExplicitWidth = 18
-            ExplicitHeight = 19
-          end
-          inherited Label126: TLabel
-            Left = 256
-            Top = 133
-            Width = 70
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitLeft = 256
-            ExplicitTop = 133
-            ExplicitWidth = 70
-            ExplicitHeight = 19
-          end
-          inherited Label125: TLabel
-            Left = 256
-            Top = 211
-            Width = 38
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitLeft = 256
-            ExplicitTop = 211
-            ExplicitWidth = 38
-            ExplicitHeight = 19
-          end
-          inherited Label124: TLabel
-            Left = 256
-            Top = 185
-            Width = 38
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitLeft = 256
-            ExplicitTop = 185
-            ExplicitWidth = 38
-            ExplicitHeight = 19
-          end
-          inherited Label123: TLabel
-            Top = 185
-            Width = 164
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitTop = 185
-            ExplicitWidth = 164
-            ExplicitHeight = 19
-          end
-          inherited Label122: TLabel
-            Left = 256
-            Top = 108
-            Width = 70
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitLeft = 256
-            ExplicitTop = 108
-            ExplicitWidth = 70
-            ExplicitHeight = 19
-          end
-          inherited Label121: TLabel
-            Top = 133
-            Width = 107
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitTop = 133
-            ExplicitWidth = 107
-            ExplicitHeight = 19
-          end
-          inherited lblStraightLineActuaCourse: TLabel
-            Left = 195
-            Top = 159
-            Width = 18
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitLeft = 195
-            ExplicitTop = 159
-            ExplicitWidth = 18
-            ExplicitHeight = 19
-          end
-          inherited Label119: TLabel
-            Top = 108
-            Width = 121
-            Height = 19
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitTop = 108
-            ExplicitWidth = 121
-            ExplicitHeight = 19
-          end
-          inherited edtStraightLineOrderedGroundSpeed: TEdit
-            Left = 195
-            Top = 182
-            Height = 22
-            BorderStyle = bsSingle
-            ExplicitLeft = 195
-            ExplicitTop = 182
-            ExplicitHeight = 22
-          end
-          inherited edtStraightLineOrderedHeading: TEdit
-            Left = 195
-            Top = 105
-            Height = 22
-            BorderStyle = bsSingle
-            ExplicitLeft = 195
-            ExplicitTop = 105
-            ExplicitHeight = 22
-          end
-          inherited StaticText87: TStaticText
-            Left = 181
-            Top = 183
-            Width = 10
-            Height = 23
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            Transparent = True
-            ExplicitLeft = 181
-            ExplicitTop = 183
-            ExplicitWidth = 10
-            ExplicitHeight = 23
-          end
-          inherited StaticText86: TStaticText
-            Left = 181
-            Top = 209
-            Width = 10
-            Height = 23
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            Transparent = True
-            ExplicitLeft = 181
-            ExplicitTop = 209
-            ExplicitWidth = 10
-            ExplicitHeight = 23
-          end
-          inherited StaticText85: TStaticText
-            Left = 181
-            Top = 157
-            Width = 10
-            Height = 23
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            Transparent = True
-            ExplicitLeft = 181
-            ExplicitTop = 157
-            ExplicitWidth = 10
-            ExplicitHeight = 23
-          end
-          inherited StaticText84: TStaticText
-            Left = 181
-            Top = 131
-            Width = 10
-            Height = 23
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            Transparent = True
-            ExplicitLeft = 181
-            ExplicitTop = 131
-            ExplicitWidth = 10
-            ExplicitHeight = 23
-          end
-          inherited StaticText83: TStaticText
-            Left = 181
-            Top = 106
-            Width = 10
-            Height = 23
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            Transparent = True
-            ExplicitLeft = 181
-            ExplicitTop = 106
-            ExplicitWidth = 10
-            ExplicitHeight = 23
-          end
-          inherited StaticText82: TStaticText
-            Top = 209
-            Width = 154
-            Height = 23
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            Transparent = True
-            ExplicitTop = 209
-            ExplicitWidth = 154
-            ExplicitHeight = 23
-          end
-          inherited StaticText81: TStaticText
-            Top = 157
-            Width = 102
-            Height = 23
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            Transparent = True
-            ExplicitTop = 157
-            ExplicitWidth = 102
-            ExplicitHeight = 23
-          end
-          inherited panDepth: TPanel
-            Left = 3
-            Top = 235
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitLeft = 3
-            ExplicitTop = 235
-            inherited lbl1: TLabel
-              Top = 3
-              Width = 105
-              Height = 19
-              Font.Height = -16
-              ParentFont = False
-              ExplicitTop = 3
-              ExplicitWidth = 105
-              ExplicitHeight = 19
-            end
-            inherited lbl2: TLabel
-              Left = 192
-              Top = 27
-              Width = 18
-              Height = 19
-              Font.Height = -16
-              ParentFont = False
-              ExplicitLeft = 192
-              ExplicitTop = 27
-              ExplicitWidth = 18
-              ExplicitHeight = 19
-            end
-            inherited lbl3: TLabel
-              Left = 253
-              Top = 3
-              Width = 14
-              Height = 19
-              Font.Height = -16
-              ParentFont = False
-              ExplicitLeft = 253
-              ExplicitTop = 3
-              ExplicitWidth = 14
-              ExplicitHeight = 19
-            end
-            inherited lbl4: TLabel
-              Left = 253
-              Top = 27
-              Width = 14
-              Height = 19
-              Font.Height = -16
-              ParentFont = False
-              ExplicitLeft = 253
-              ExplicitTop = 27
-              ExplicitWidth = 14
-              ExplicitHeight = 19
-            end
-            inherited txt1: TStaticText
-              Top = 25
-              Width = 95
-              Height = 23
-              Font.Height = -16
-              ParentColor = False
-              ParentFont = False
-              ExplicitTop = 25
-              ExplicitWidth = 95
-              ExplicitHeight = 23
-            end
-            inherited txt2: TStaticText
-              Left = 178
-              Top = 1
-              Width = 10
-              Height = 23
-              Font.Height = -16
-              ParentColor = False
-              ParentFont = False
-              ExplicitLeft = 178
-              ExplicitTop = 1
-              ExplicitWidth = 10
-              ExplicitHeight = 23
-            end
-            inherited txt3: TStaticText
-              Left = 178
-              Top = 25
-              Width = 10
-              Height = 23
-              Font.Height = -16
-              ParentColor = False
-              ParentFont = False
-              ExplicitLeft = 178
-              ExplicitTop = 25
-              ExplicitWidth = 10
-              ExplicitHeight = 23
-            end
-            inherited edt1: TEdit
-              Left = 192
-              ExplicitLeft = 192
-            end
-          end
-          inherited panAltitude: TPanel
-            Top = 235
-            Font.Color = clWhite
-            Font.Height = -16
-            ParentFont = False
-            ExplicitTop = 235
-            inherited Label57: TLabel
-              Top = 3
-              Width = 118
-              Height = 19
-              Font.Color = clWhite
-              Font.Height = -16
-              ParentFont = False
-              ExplicitTop = 3
-              ExplicitWidth = 118
-              ExplicitHeight = 19
-            end
-            inherited lblActualAltitude: TLabel
-              Left = 195
-              Top = 27
-              Width = 18
-              Height = 19
-              Font.Color = clWhite
-              Font.Height = -16
-              ParentFont = False
-              ExplicitLeft = 195
-              ExplicitTop = 27
-              ExplicitWidth = 18
-              ExplicitHeight = 19
-            end
-            inherited Label63: TLabel
-              Left = 256
-              Top = 3
-              Width = 26
-              Height = 19
-              Font.Color = clWhite
-              Font.Height = -16
-              ParentFont = False
-              ExplicitLeft = 256
-              ExplicitTop = 3
-              ExplicitWidth = 26
-              ExplicitHeight = 19
-            end
-            inherited Label65: TLabel
-              Left = 256
-              Top = 27
-              Width = 26
-              Height = 19
-              Font.Color = clWhite
-              Font.Height = -16
-              ParentFont = False
-              ExplicitLeft = 256
-              ExplicitTop = 27
-              ExplicitWidth = 26
-              ExplicitHeight = 19
-            end
-            inherited StaticText105: TStaticText
-              Top = 25
-              Width = 108
-              Height = 23
-              Font.Color = clWhite
-              Font.Height = -16
-              ParentFont = False
-              Transparent = True
-              ExplicitTop = 25
-              ExplicitWidth = 108
-              ExplicitHeight = 23
-            end
-            inherited StaticText107: TStaticText
-              Left = 181
-              Top = 1
-              Width = 10
-              Height = 23
-              Font.Color = clWhite
-              Font.Height = -16
-              ParentFont = False
-              Transparent = True
-              ExplicitLeft = 181
-              ExplicitTop = 1
-              ExplicitWidth = 10
-              ExplicitHeight = 23
-            end
-            inherited StaticText111: TStaticText
-              Left = 181
-              Top = 25
-              Width = 10
-              Height = 23
-              Font.Color = clWhite
-              Font.Height = -16
-              ParentFont = False
-              Transparent = True
-              ExplicitLeft = 181
-              ExplicitTop = 25
-              ExplicitWidth = 10
-              ExplicitHeight = 23
-            end
-            inherited edOrderAltitude: TEdit
-              Left = 195
-              ExplicitLeft = 195
-            end
-          end
-        end
-      end
-      inherited gbWaypoint: TGroupBox [12]
+      inherited gbWaypoint: TGroupBox [11]
         Width = 392
         Height = 329
         Color = 2695445
@@ -4096,6 +3639,7 @@ object frmGuidance: TfrmGuidance
           Left = 185
           Top = 192
           Height = 35
+          Font.Color = clWhite
           ParentFont = False
           OnClick = fmPlatformGuidance1btnWaypointClick
           ExplicitLeft = 185
@@ -4158,7 +3702,7 @@ object frmGuidance: TfrmGuidance
           ExplicitTop = 141
         end
       end
-      inherited grbEngagement: TGroupBox [13]
+      inherited grbEngagement: TGroupBox [12]
         Width = 392
         Height = 329
         Color = 2695445
@@ -4647,6 +4191,479 @@ object frmGuidance: TfrmGuidance
             Font.Height = -13
             ExplicitLeft = 193
             ExplicitTop = 4
+          end
+        end
+      end
+      inherited grbStraightLine: TGroupBox
+        Width = 392
+        Height = 329
+        Color = 2695445
+        ParentColor = False
+        ExplicitWidth = 392
+        ExplicitHeight = 329
+        inherited ScrollBox5: TScrollBox
+          Width = 390
+          Height = 311
+          Font.Color = clWhite
+          Font.Height = -16
+          ParentFont = False
+          ExplicitWidth = 390
+          ExplicitHeight = 311
+          inherited lblStraightLineActualHeading: TLabel
+            Left = 195
+            Top = 133
+            Width = 18
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitLeft = 195
+            ExplicitTop = 133
+            ExplicitWidth = 18
+            ExplicitHeight = 19
+          end
+          inherited Label128: TLabel
+            Left = 256
+            Top = 159
+            Width = 70
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitLeft = 256
+            ExplicitTop = 159
+            ExplicitWidth = 70
+            ExplicitHeight = 19
+          end
+          inherited lblStraightLineActualGroundSpeed: TLabel
+            Left = 195
+            Top = 211
+            Width = 18
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitLeft = 195
+            ExplicitTop = 211
+            ExplicitWidth = 18
+            ExplicitHeight = 19
+          end
+          inherited Label126: TLabel
+            Left = 256
+            Top = 133
+            Width = 70
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitLeft = 256
+            ExplicitTop = 133
+            ExplicitWidth = 70
+            ExplicitHeight = 19
+          end
+          inherited Label125: TLabel
+            Left = 256
+            Top = 211
+            Width = 38
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitLeft = 256
+            ExplicitTop = 211
+            ExplicitWidth = 38
+            ExplicitHeight = 19
+          end
+          inherited Label124: TLabel
+            Left = 256
+            Top = 185
+            Width = 38
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitLeft = 256
+            ExplicitTop = 185
+            ExplicitWidth = 38
+            ExplicitHeight = 19
+          end
+          inherited Label123: TLabel
+            Top = 185
+            Width = 164
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitTop = 185
+            ExplicitWidth = 164
+            ExplicitHeight = 19
+          end
+          inherited Label122: TLabel
+            Left = 256
+            Top = 108
+            Width = 70
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitLeft = 256
+            ExplicitTop = 108
+            ExplicitWidth = 70
+            ExplicitHeight = 19
+          end
+          inherited Label121: TLabel
+            Top = 133
+            Width = 107
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitTop = 133
+            ExplicitWidth = 107
+            ExplicitHeight = 19
+          end
+          inherited lblStraightLineActuaCourse: TLabel
+            Left = 195
+            Top = 159
+            Width = 18
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitLeft = 195
+            ExplicitTop = 159
+            ExplicitWidth = 18
+            ExplicitHeight = 19
+          end
+          inherited Label119: TLabel
+            Top = 108
+            Width = 121
+            Height = 19
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitTop = 108
+            ExplicitWidth = 121
+            ExplicitHeight = 19
+          end
+          inherited edtStraightLineOrderedGroundSpeed: TEdit
+            Left = 195
+            Top = 182
+            Height = 22
+            BorderStyle = bsSingle
+            ExplicitLeft = 195
+            ExplicitTop = 182
+            ExplicitHeight = 22
+          end
+          inherited edtStraightLineOrderedHeading: TEdit
+            Left = 195
+            Top = 105
+            Height = 22
+            BorderStyle = bsSingle
+            ExplicitLeft = 195
+            ExplicitTop = 105
+            ExplicitHeight = 22
+          end
+          inherited StaticText87: TStaticText
+            Left = 181
+            Top = 183
+            Width = 10
+            Height = 23
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            Transparent = True
+            ExplicitLeft = 181
+            ExplicitTop = 183
+            ExplicitWidth = 10
+            ExplicitHeight = 23
+          end
+          inherited StaticText86: TStaticText
+            Left = 181
+            Top = 209
+            Width = 10
+            Height = 23
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            Transparent = True
+            ExplicitLeft = 181
+            ExplicitTop = 209
+            ExplicitWidth = 10
+            ExplicitHeight = 23
+          end
+          inherited StaticText85: TStaticText
+            Left = 181
+            Top = 157
+            Width = 10
+            Height = 23
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            Transparent = True
+            ExplicitLeft = 181
+            ExplicitTop = 157
+            ExplicitWidth = 10
+            ExplicitHeight = 23
+          end
+          inherited StaticText84: TStaticText
+            Left = 181
+            Top = 131
+            Width = 10
+            Height = 23
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            Transparent = True
+            ExplicitLeft = 181
+            ExplicitTop = 131
+            ExplicitWidth = 10
+            ExplicitHeight = 23
+          end
+          inherited StaticText83: TStaticText
+            Left = 181
+            Top = 106
+            Width = 10
+            Height = 23
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            Transparent = True
+            ExplicitLeft = 181
+            ExplicitTop = 106
+            ExplicitWidth = 10
+            ExplicitHeight = 23
+          end
+          inherited StaticText82: TStaticText
+            Top = 209
+            Width = 154
+            Height = 23
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            Transparent = True
+            ExplicitTop = 209
+            ExplicitWidth = 154
+            ExplicitHeight = 23
+          end
+          inherited StaticText81: TStaticText
+            Top = 157
+            Width = 102
+            Height = 23
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            Transparent = True
+            ExplicitTop = 157
+            ExplicitWidth = 102
+            ExplicitHeight = 23
+          end
+          inherited panDepth: TPanel
+            Left = 3
+            Top = 235
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitLeft = 3
+            ExplicitTop = 235
+            inherited lbl1: TLabel
+              Top = 3
+              Width = 105
+              Height = 19
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              ExplicitTop = 3
+              ExplicitWidth = 105
+              ExplicitHeight = 19
+            end
+            inherited lbl2: TLabel
+              Left = 192
+              Top = 27
+              Width = 18
+              Height = 19
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              ExplicitLeft = 192
+              ExplicitTop = 27
+              ExplicitWidth = 18
+              ExplicitHeight = 19
+            end
+            inherited lbl3: TLabel
+              Left = 253
+              Top = 3
+              Width = 14
+              Height = 19
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              ExplicitLeft = 253
+              ExplicitTop = 3
+              ExplicitWidth = 14
+              ExplicitHeight = 19
+            end
+            inherited lbl4: TLabel
+              Left = 253
+              Top = 27
+              Width = 14
+              Height = 19
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              ExplicitLeft = 253
+              ExplicitTop = 27
+              ExplicitWidth = 14
+              ExplicitHeight = 19
+            end
+            inherited txt1: TStaticText
+              Top = 25
+              Width = 95
+              Height = 23
+              Color = 2695445
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentColor = False
+              ParentFont = False
+              ExplicitTop = 25
+              ExplicitWidth = 95
+              ExplicitHeight = 23
+            end
+            inherited txt2: TStaticText
+              Left = 178
+              Top = 1
+              Width = 10
+              Height = 23
+              Color = 2695445
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentColor = False
+              ParentFont = False
+              ExplicitLeft = 178
+              ExplicitTop = 1
+              ExplicitWidth = 10
+              ExplicitHeight = 23
+            end
+            inherited txt3: TStaticText
+              Left = 178
+              Top = 25
+              Width = 10
+              Height = 23
+              Color = 2695445
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentColor = False
+              ParentFont = False
+              ExplicitLeft = 178
+              ExplicitTop = 25
+              ExplicitWidth = 10
+              ExplicitHeight = 23
+            end
+            inherited edt1: TEdit
+              Left = 192
+              ExplicitLeft = 192
+            end
+          end
+          inherited panAltitude: TPanel
+            Top = 235
+            Font.Color = clWhite
+            Font.Height = -16
+            ParentFont = False
+            ExplicitTop = 235
+            inherited Label57: TLabel
+              Top = 3
+              Width = 118
+              Height = 19
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              ExplicitTop = 3
+              ExplicitWidth = 118
+              ExplicitHeight = 19
+            end
+            inherited lblActualAltitude: TLabel
+              Left = 195
+              Top = 27
+              Width = 18
+              Height = 19
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              ExplicitLeft = 195
+              ExplicitTop = 27
+              ExplicitWidth = 18
+              ExplicitHeight = 19
+            end
+            inherited Label63: TLabel
+              Left = 256
+              Top = 3
+              Width = 26
+              Height = 19
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              ExplicitLeft = 256
+              ExplicitTop = 3
+              ExplicitWidth = 26
+              ExplicitHeight = 19
+            end
+            inherited Label65: TLabel
+              Left = 256
+              Top = 27
+              Width = 26
+              Height = 19
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              ExplicitLeft = 256
+              ExplicitTop = 27
+              ExplicitWidth = 26
+              ExplicitHeight = 19
+            end
+            inherited StaticText105: TStaticText
+              Top = 25
+              Width = 108
+              Height = 23
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              Transparent = True
+              ExplicitTop = 25
+              ExplicitWidth = 108
+              ExplicitHeight = 23
+            end
+            inherited StaticText107: TStaticText
+              Left = 181
+              Top = 1
+              Width = 10
+              Height = 23
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              Transparent = True
+              ExplicitLeft = 181
+              ExplicitTop = 1
+              ExplicitWidth = 10
+              ExplicitHeight = 23
+            end
+            inherited StaticText111: TStaticText
+              Left = 181
+              Top = 25
+              Width = 10
+              Height = 23
+              Font.Color = clWhite
+              Font.Height = -16
+              ParentFont = False
+              Transparent = True
+              ExplicitLeft = 181
+              ExplicitTop = 25
+              ExplicitWidth = 10
+              ExplicitHeight = 23
+            end
+            inherited edOrderAltitude: TEdit
+              Left = 195
+              ExplicitLeft = 195
+            end
           end
         end
       end

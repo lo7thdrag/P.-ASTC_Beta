@@ -1897,6 +1897,8 @@ begin
 //    fmLogisticCalculation1.SetControlledObject(pit);
 
     {$REGION ' Navigasi '}
+    if True then
+
     frmTopNav.SetControlledObject(pit);
 
     {$ENDREGION}
@@ -2706,12 +2708,6 @@ begin
   fmCounterMeasure1.InitCreate(self);
   fmFireControl1.InitCreate(self);
   fmEMCON1.InitCreate(self);
-
-  {$REGION ' Navigasi '}
-  frmTopNav.InitCreate(Self);
-  {$ENDREGION}
-
-//  fmLogisticCalculation1.InitCreate(Self);
 
 //  FOnUpdateAsset := nil;
 //  FOnUpdateAsset := UpdateOwnShipData;
@@ -6060,15 +6056,56 @@ begin
 //    fmLogisticCalculation1.SetControlledObject(pit);
 
     {$REGION ' Navigasi '}
-    frmTopNav.SetControlledObject(pit);
+
 
     {$ENDREGION}
+
+    case vGameDataSetting.Role of
+      0:
+      begin
+        {$REGION ' Plotter '}
+        SetUpPlotterUI;
+        {$ENDREGION}
+      end;
+      1:
+      begin
+        {$REGION ' Navigasi '}
+        if Assigned(frmTopNav) then
+        begin
+          frmTopNav.SetControlledObject(pit);
+        end;
+
+        if Assigned(frmRightNav) then
+        begin
+          frmRightNav.fmPlatformGuidance1.SetControlledObject(pit);
+          frmRightNav.SetControlledObject(pit);
+        end;
+        {$ENDREGION}
+      end;
+      2:
+      begin
+        {$REGION ' Atas Air '}
+        {$ENDREGION}
+      end;
+      3:
+      begin
+        {$REGION ' BawahAir '}
+        {$ENDREGION}
+      end;
+      4:
+      begin
+        {$REGION ' General '}
+        {$ENDREGION}
+      end;
+    end;
 
     {Wasdal UI}
     if simMgrClient.ISWasdal then
     begin
+      {$REGION ' General '}
       if Assigned(frmPlatformInfo) then
         frmPlatformInfo.fmOwnShip1.SetControlledObject(pit);
+
       if Assigned(frmGuidance) then
       begin
         frmGuidance.fmPlatformGuidance1.SetControlledObject(pit);
@@ -6121,6 +6158,7 @@ begin
       end;
 
     end;
+    {$ENDREGION}
   end;
 
 
@@ -6145,96 +6183,105 @@ end;
 
 procedure TfrmTacticalDisplay.SetRoleClient(rc: Integer);
 begin
-    pnlContainerBottom.Visible := False;
-    case rc of
+  pnlContainerBottom.Visible := False;
+  case rc of
     crpInstruktur:
+    begin
+      {$REGION ' Instruktur Section '}
+      {untuk ASTC wasdal tidak digunakan}
+      if simMgrClient.ISWasdal then
       begin
-        if simMgrClient.ISWasdal then
+//        SetupWasdalUI;
+      end
+      else
+      begin
+        {untuk ASTC plotter hanya untuk client}
+//        if vMapSetting.FormPlotter then
+//          SetupPlotterUI;
+
+        {untuk ASTC viewer tidak digunakan}
+        if vMapSetting.FormViewer then
         begin
-          SetupWasdalUI;
+//          BorderStyle := bsNone;
+//          pnl1ToolbarGeneral.Hide;
+//          pnlLeft.Hide;
+//
+//          File1.Visible := False;
+//          Game1.Visible := False;
+//          View1.Visible := False;
+//          Map.Visible := False;
+//          Hook1.Visible := False;
+//          Tools1.Visible := False;
+//          Track1.Visible := False;
+//          Help1.Visible := False;
         end
         else
         begin
-          if vMapSetting.FormPlotter then
-            SetupPlotterUI;
-          if vMapSetting.FormViewer then
-          begin
-            BorderStyle := bsNone;
-            pnl1ToolbarGeneral.Hide;
-            pnlLeft.Hide;
-
-            File1.Visible := False;
-            Game1.Visible := False;
-            View1.Visible := False;
-            Map.Visible := False;
-            Hook1.Visible := False;
-            Tools1.Visible := False;
-            Track1.Visible := False;
-            Help1.Visible := False;
-          end
-          else
-          begin
-            {Button tidak kepake}
-            btnInfoTool.Hide;
-            btnSelectPlatform.Hide;
-            btnToolBtnSlide.Hide;
-            btnCom.Hide;
-            btn6.Hide;
-            btn7.Hide;
-            btnTransferSonobuoy.Hide;
-            btnRemoveSonobuoy.Hide;
-            btnContents.Hide;
-            btnAnnotate.Hide;
-            btnMerge.Hide;
-            btnSplit.Hide;
-            pnl2ToolbarViewer.Hide;
-            pnl3Menubar.Hide;
-          end;
+          {Button tidak kepake}
+          btnInfoTool.Hide;
+          btnSelectPlatform.Hide;
+          btnToolBtnSlide.Hide;
+          btnCom.Hide;
+          btn6.Hide;
+          btn7.Hide;
+          btnTransferSonobuoy.Hide;
+          btnRemoveSonobuoy.Hide;
+          btnContents.Hide;
+          btnAnnotate.Hide;
+          btnMerge.Hide;
+          btnSplit.Hide;
+          pnl2ToolbarViewer.Hide;
+          pnl3Menubar.Hide;
         end;
-
-        fmPlatformGuidance1.mnReturntoBase1.Enabled := True;
-
-        if simMgrClient.ISWasdal and Assigned(frmGuidance) then
-          frmGuidance.fmPlatformGuidance1.mnReturntoBase1.Enabled := True;
-
-        if not Assigned(fTransferSonobuoy) then
-          fTransferSonobuoy := TfTransferSonobuoy.Create(self);
-        fTransferSonobuoy.btnSonobuoyControlCombo.Enabled := True;
-
-        cbAssumeControl.Items.Clear;
-        GotoTime.Visible := True;
       end;
+
+      fmPlatformGuidance1.mnReturntoBase1.Enabled := True;
+
+      if simMgrClient.ISWasdal and Assigned(frmGuidance) then
+        frmGuidance.fmPlatformGuidance1.mnReturntoBase1.Enabled := True;
+
+      if not Assigned(fTransferSonobuoy) then
+        fTransferSonobuoy := TfTransferSonobuoy.Create(self);
+
+      fTransferSonobuoy.btnSonobuoyControlCombo.Enabled := True;
+
+      cbAssumeControl.Items.Clear;
+      GotoTime.Visible := True;
+
+      {$ENDREGION}
+    end;
     crpCubicle:
-       begin  {0:Poltter; 1:Navigasi; 2:Atas Air; 3:BawahAir; 4:General}
-        case vGameDataSetting.Role of
-          0:
-          begin
-            {$REGION ' Plotter '}
-            SetUpPlotterUI;
-            {$ENDREGION}
-          end;
-          1:
-          begin
-            {$REGION ' Navigasi '}
-            SetUpNavigasiUI;
-            {$ENDREGION}
-          end;
-          2:
-          begin
-            {$REGION ' Atas Air '}
-            {$ENDREGION}
-          end;
-          3:
-          begin
-            {$REGION ' BawahAir '}
-            {$ENDREGION}
-          end;
-          4:
-          begin
-            {$REGION ' General '}
-            {$ENDREGION}
-          end;
+    begin  {0:Poltter; 1:Navigasi; 2:Atas Air; 3:BawahAir; 4:General}
+      {$REGION ' Cubicle Section '}
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+          SetUpPlotterUI;
+          {$ENDREGION}
         end;
+        1:
+        begin
+          {$REGION ' Navigasi '}
+          SetUpNavigasiUI;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+          {$ENDREGION}
+        end;
+        4:
+        begin
+          {$REGION ' General '}
+          {$ENDREGION}
+        end;
+      end;
       begin
         {Hide Menu}
         File1.Visible := False;
@@ -6288,10 +6335,12 @@ begin
 
         if not Assigned(fTransferSonobuoy) then
           fTransferSonobuoy := TfTransferSonobuoy.Create(self);
+
         fTransferSonobuoy.btnSonobuoyControlCombo.Enabled := False;
       end;
+      {$ENDREGION}
+    end;
   end;
-end;
   Refresh_AssumeControl;
 end;
 
@@ -6394,14 +6443,14 @@ begin
   if not Assigned(frmLeftNav) then
     frmLeftNav := TfrmLeftNav.Create(Application);
 
-  frmRightNav.Parent := nil;
+  frmLeftNav.Parent := nil;
   frmLeftNav.Align  := alLeft;
   frmLeftNav.Parent := Self;
   frmLeftNav.Show;
   frmLeftNav.BringToFront;
 
   if not Assigned(frmTopNav) then
-  frmTopNav := TfrmTopNav.Create(Application);
+    frmTopNav := TfrmTopNav.Create(Application);
 
   frmTopNav.Parent := nil;
   frmTopNav.Align  := alTop;
@@ -8572,8 +8621,7 @@ begin // ini procedure update yg dipanggil dari sim client
 
   UpdateTrackListData;
 
-  if (simMgrClient.ControlledPlatform <> nil)
-    and(simMgrClient.ControlledPlatform is TT3PlatformInstance) then
+  if (simMgrClient.ControlledPlatform <> nil) and (simMgrClient.ControlledPlatform is TT3PlatformInstance) then
   begin
     if imgOwnShip.Tag = 1 then i := 0;
     if imgPlatformGuidance.Tag = 1 then i := 1;
@@ -8584,7 +8632,6 @@ begin // ini procedure update yg dipanggil dari sim client
     if imgFireControl.Tag = 1 then i := 5;
 
     pi := TT3PlatformInstance(simMgrClient.ControlledPlatform);
-//    i := TacticalDisplayControlPanel.ActivePageIndex;
 
     if i = 1 then
       TT3Vehicle(simMgrClient.ControlledPlatform).Waypoints.IsOpenGuidanceTab := True
@@ -8593,9 +8640,7 @@ begin // ini procedure update yg dipanggil dari sim client
 
     case i of
       0:
-      begin
         fmOwnShip1.Refresh_OwnShipTab(pi);
-      end;
       1:
         fmPlatformGuidance1.Refresh_VisibleTab();
       2:
@@ -8604,23 +8649,63 @@ begin // ini procedure update yg dipanggil dari sim client
         fmWeapon1.Refresh_VisibleTab;
     end;
 
-    {$REGION ' Navigasi '}
-    frmTopNav.Refresh_OwnShipTab(pi);
-    frmLeftNav.Refresh_OwnShipTab(pi);
-//    frmRightNav.Refresh_Controller(pi, i);
-    frmRightNav.UpdateTabHooked(focusedTrack);
-    if Assigned(frmLeftNav) then
-    begin
-      if Assigned(frmLeftNav.lblActualHeading) and Assigned(fmPlatformGuidance1.lblStraightLineActualHeading) then
-        frmLeftNav.lblActualHeading.Caption := fmPlatformGuidance1.lblStraightLineActualHeading.Caption;
+    case vGameDataSetting.Role of
+      0:
+      begin
+        {$REGION ' Plotter '}
+        SetUpPlotterUI;
+        {$ENDREGION}
+      end;
+      1:
+      begin
+        {$REGION ' Navigasi '}
 
-      frmLeftNav.FVTgtHeading := pi.Course;
+//        frmTopNav.Refresh_OwnShipTab(pi);
+//        frmLeftNav.Refresh_OwnShipTab(pi);
+//        frmRightNav.UpdateTabHooked(focusedTrack);
+
+        if Assigned(frmTopNav) then
+        begin
+          frmTopNav.UpdateFormData;
+        end;
+
+        if Assigned(frmRightNav) then
+        begin
+          frmRightNav.UpdateFormData;
+        end;
+
+        if Assigned(frmLeftNav) then
+        begin
+          frmLeftNav.UpdateFormData;
+
+//          if Assigned(frmLeftNav.lblActualHeading) and Assigned(fmPlatformGuidance1.lblStraightLineActualHeading) then
+//            frmLeftNav.lblActualHeading.Caption := fmPlatformGuidance1.lblStraightLineActualHeading.Caption;
+//
+//          frmLeftNav.FVTgtHeading := pi.Course;
+        end;
+        {$ENDREGION}
+      end;
+      2:
+      begin
+        {$REGION ' Atas Air '}
+        {$ENDREGION}
+      end;
+      3:
+      begin
+        {$REGION ' BawahAir '}
+        {$ENDREGION}
+      end;
+      4:
+      begin
+        {$REGION ' General '}
+        {$ENDREGION}
+      end;
     end;
-    {$ENDREGION}
 
-    { wasdal UI }
+    {$REGION ' Wasdal UI '}
     if simMgrClient.ISWasdal then
     begin
+
       if Assigned(frmPlatformInfo) then
         frmPlatformInfo.fmOwnShip1.Refresh_OwnShipTab(pi);
       if Assigned(frmGuidance) then
@@ -8636,6 +8721,7 @@ begin // ini procedure update yg dipanggil dari sim client
         frmRightNav.UpdateTabHooked(focusedTrack);
       end;
     end;
+    {$ENDREGION}
   end;
 
   if FAnchorFilterEnabled then
@@ -13688,6 +13774,35 @@ begin
 
     pnlGameState.Color := clRed;
     pnlGameState.Caption := 'FROZEN';
+
+    case vGameDataSetting.Role of
+      0:
+      begin
+        {$REGION ' Plotter '}
+        {$ENDREGION}
+      end;
+      1:
+      begin
+        {$REGION ' Navigasi '}
+        if Assigned(frmLeftNav) then
+        begin
+          frmLeftNav.pnlGameState.Color := clRed;
+          frmLeftNav.pnlGameState.Caption := 'FROZEN';
+          frmLeftNav.pnlGameState.Font.Color := clWhite;
+        end;
+        {$ENDREGION}
+      end;
+      2:
+      begin
+        {$REGION ' Atas Air '}
+        {$ENDREGION}
+      end;
+      3:
+      begin
+        {$REGION ' BawahAir '}
+        {$ENDREGION}
+      end;
+    end;
   end
   else
   begin
@@ -13698,13 +13813,71 @@ begin
 
       pnlGameState.Color := clLime;
       pnlGameState.Caption := '1/' + IntToStr(i) + ' X';
+
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+          {$ENDREGION}
+        end;
+        1:
+        begin
+          {$REGION ' Navigasi '}
+          if Assigned(frmLeftNav) then
+          begin
+            frmLeftNav.pnlGameState.Color := clLime;
+            frmLeftNav.pnlGameState.Caption := '1/' + IntToStr(i) + ' X';
+            frmLeftNav.pnlGameState.Font.Color := clBlack;
+          end;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+          {$ENDREGION}
+        end;
+      end;
     end
     else
     begin
       StatusBar1.Panels[9].Text := IntToStr(Round(gSpeed)) + ' X';
 
       pnlGameState.Color := clYellow;
-      pnlGameState.Caption := IntToStr(Round(gSpeed)) + ' X';
+      pnlGameState.Caption := 'Percepatan ' + IntToStr(Round(gSpeed)) + ' X';
+
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+          {$ENDREGION}
+        end;
+        1:
+        begin
+          {$REGION ' Navigasi '}
+          if Assigned(frmLeftNav) then
+          begin
+            frmLeftNav.pnlGameState.Color := clYellow;
+            frmLeftNav.pnlGameState.Caption := 'Percepatan ' + IntToStr(Round(gSpeed)) + ' X';
+            frmLeftNav.pnlGameState.Font.Color := clBlack;
+          end;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+          {$ENDREGION}
+        end;
+      end;
     end;
   end;
 

@@ -4,8 +4,8 @@ object frmRuler: TfrmRuler
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'Ruler'
-  ClientHeight = 231
-  ClientWidth = 256
+  ClientHeight = 315
+  ClientWidth = 307
   Color = 5980694
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,15 +21,14 @@ object frmRuler: TfrmRuler
   PixelsPerInch = 96
   TextHeight = 13
   object grpLine: TGroupBox
-    Left = 0
-    Top = 0
-    Width = 256
-    Height = 231
-    Align = alClient
+    Left = 13
+    Top = 17
+    Width = 281
+    Height = 280
     TabOrder = 0
     object btn1: TSpeedButton
       Tag = 1
-      Left = 201
+      Left = 222
       Top = 98
       Width = 45
       Height = 45
@@ -362,7 +361,7 @@ object frmRuler: TfrmRuler
     end
     object btn2: TSpeedButton
       Tag = 2
-      Left = 201
+      Left = 222
       Top = 174
       Width = 45
       Height = 45
@@ -754,7 +753,7 @@ object frmRuler: TfrmRuler
     object edtRulerStartPosLat: TEdit
       Left = 57
       Top = 98
-      Width = 138
+      Width = 155
       Height = 22
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -769,7 +768,7 @@ object frmRuler: TfrmRuler
     object edtRulerStartPosLong: TEdit
       Left = 57
       Top = 122
-      Width = 138
+      Width = 155
       Height = 22
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -784,7 +783,7 @@ object frmRuler: TfrmRuler
     object edtRulerEndPosLat: TEdit
       Left = 57
       Top = 174
-      Width = 138
+      Width = 155
       Height = 22
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -799,7 +798,7 @@ object frmRuler: TfrmRuler
     object edtRulerEndPosLong: TEdit
       Left = 57
       Top = 198
-      Width = 138
+      Width = 155
       Height = 22
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -812,7 +811,7 @@ object frmRuler: TfrmRuler
       OnKeyPress = edtRulerEndPosLongKeyPress
     end
     object cbbFormat: TComboBox
-      Left = 146
+      Left = 167
       Top = 12
       Width = 100
       Height = 23

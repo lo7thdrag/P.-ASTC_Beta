@@ -100,14 +100,16 @@ begin
         frmTacticalDisplay.Map1.CurrentTool := mtRuler;
         IsStart := True;
         IsEnd := False;
-        btn1.Down := True; btn2.Down := False;
+        btn1.Down := True;
+        btn2.Down := False;
       end;
       2 :
       begin
         frmTacticalDisplay.Map1.CurrentTool := mtRuler;
         IsEnd := True;
         IsStart := False;
-        btn1.Down := False; btn2.Down := True;
+        btn1.Down := False;
+        btn2.Down := True;
       end;
     end;
   end;

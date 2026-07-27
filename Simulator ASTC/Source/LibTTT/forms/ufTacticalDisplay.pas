@@ -6387,7 +6387,7 @@ procedure TfrmTacticalDisplay.SetUpNavigasiUI;
 begin
   pnl1ToolbarGeneral.Visible    := False;
   pnlBottom.Visible := False;
-//  pnlLeft.Visible   := False;
+  pnlLeft.Visible   := False;
   pnlContainerBottom.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
@@ -8046,42 +8046,8 @@ procedure TfrmTacticalDisplay.btnRulerClick(Sender: TObject);
 begin
   btnruler.Down := not btnruler.Down;
 
-//  if btnruler.Down then
-//  begin
-//    with frmRuler do
-//    begin
-//      IDForm := 2;
-//      frmRuler.Color := RGB (21, 33, 41);
-//      Show;
-//    end;
-//  end
-//  else
-//  begin
-//    frmRuler.Hide;
-//  end;
-
-
-  with frmTacticalDisplay do
-  begin
-    if btnRuler.Down then
-    begin
-      Map1.CurrentTool := miSelectTool;
-      StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
-
-      frmRuler.Color := RGB (21, 33, 41);
-      frmRuler.Show;
-
-      btnPan.Down := False;
-      Map1.IsPan := True;
-    end
-    else
-    begin
-      Map1.CurrentTool := mtSelectObject;
-      StatusBar1.Panels[0].Text := 'Select';
-
-    end;
-    btnRuler.Down := False;
-  end;
+  frmRuler.Color := RGB (21, 33, 41);
+  frmRuler.Show;
 end;
 
 procedure TfrmTacticalDisplay.btnRullerClick(Sender: TObject);

@@ -1,39 +1,42 @@
 inherited fmSensor: TfmSensor
-  Width = 323
+  Width = 376
   Height = 442
   Color = 2695445
   ParentBackground = False
   ParentColor = False
-  ExplicitWidth = 323
+  ExplicitWidth = 376
   ExplicitHeight = 442
   object PanelSpace: TPanel
     Left = 0
     Top = 115
-    Width = 323
+    Width = 376
     Height = 5
     Align = alTop
     BevelOuter = bvNone
     Color = 2695445
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 323
   end
   object PanelSensorChoices: TPanel
     Left = 0
     Top = 0
-    Width = 323
+    Width = 376
     Height = 115
     Align = alTop
     Color = 2695445
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 323
     object lstSensor: TListView
       Left = 1
       Top = 1
-      Width = 321
+      Width = 374
       Height = 113
       Align = alClient
       BevelInner = bvNone
       BevelOuter = bvNone
+      BorderStyle = bsNone
       Color = clWhite
       Columns = <
         item
@@ -57,12 +60,13 @@ inherited fmSensor: TfmSensor
       TabOrder = 0
       ViewStyle = vsReport
       OnSelectItem = lstSensorSelectItem
+      ExplicitWidth = 370
     end
   end
   object PanelALL: TPanel
     Left = 0
     Top = 120
-    Width = 323
+    Width = 376
     Height = 322
     Align = alClient
     BevelOuter = bvNone
@@ -75,10 +79,11 @@ inherited fmSensor: TfmSensor
     ParentBackground = False
     ParentFont = False
     TabOrder = 2
+    ExplicitWidth = 323
     object PanelSensorControl: TPanel
       Left = 0
       Top = 0
-      Width = 323
+      Width = 376
       Height = 322
       Align = alClient
       BevelOuter = bvNone
@@ -86,10 +91,11 @@ inherited fmSensor: TfmSensor
       Color = 2695445
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 323
       object grbElectroOpticalSensor: TGroupBox
         Left = 3
         Top = 3
-        Width = 317
+        Width = 370
         Height = 316
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -99,6 +105,7 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 4
+        ExplicitWidth = 317
         object btnElectroOpticalSensorExecuteSingleScan: TButton
           Left = 145
           Top = 367
@@ -110,13 +117,14 @@ inherited fmSensor: TfmSensor
         object ScrollBox3: TScrollBox
           Left = 2
           Top = 18
-          Width = 313
+          Width = 366
           Height = 296
           Align = alClient
           BevelInner = bvNone
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 1
+          ExplicitWidth = 313
           object Label1: TLabel
             Left = 5
             Top = 3
@@ -271,7 +279,7 @@ inherited fmSensor: TfmSensor
       object grbESMSensorControl: TGroupBox
         Left = 3
         Top = 3
-        Width = 317
+        Width = 370
         Height = 316
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -281,16 +289,18 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 2
+        ExplicitWidth = 317
         object ScrollBox4: TScrollBox
           Left = 2
           Top = 18
-          Width = 313
+          Width = 366
           Height = 296
           Align = alClient
           BevelInner = bvNone
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
+          ExplicitWidth = 313
           object Label6: TLabel
             Left = 5
             Top = 3
@@ -408,7 +418,7 @@ inherited fmSensor: TfmSensor
       object grbIFFTransponderControl: TGroupBox
         Left = 3
         Top = 3
-        Width = 317
+        Width = 370
         Height = 316
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -418,16 +428,18 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 8
+        ExplicitWidth = 317
         object ScrollBox6: TScrollBox
           Left = 2
           Top = 18
-          Width = 313
+          Width = 366
           Height = 296
           Align = alClient
           BevelInner = bvNone
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
+          ExplicitWidth = 313
           object Bevel8: TBevel
             Left = 55
             Top = 10
@@ -594,7 +606,7 @@ inherited fmSensor: TfmSensor
       object grbSearchRadarControl: TGroupBox
         Left = 3
         Top = 3
-        Width = 317
+        Width = 370
         Height = 316
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -604,16 +616,18 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 317
         object ScrollBox1: TScrollBox
           Left = 2
           Top = 18
-          Width = 313
+          Width = 366
           Height = 296
           Align = alClient
           BevelInner = bvNone
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
+          ExplicitWidth = 313
           object Label189: TLabel
             Left = 5
             Top = 0
@@ -1222,7 +1236,7 @@ inherited fmSensor: TfmSensor
       object grbVisualDetectorSensor: TGroupBox
         Left = 3
         Top = 3
-        Width = 317
+        Width = 370
         Height = 316
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -1232,6 +1246,7 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 6
+        ExplicitWidth = 317
         object Label257: TLabel
           Left = 5
           Top = 3
@@ -1335,10 +1350,11 @@ inherited fmSensor: TfmSensor
       object grbAnomalyDetectorSensor: TGroupBox
         Left = 3
         Top = 3
-        Width = 317
+        Width = 370
         Height = 316
         Align = alClient
         TabOrder = 3
+        ExplicitWidth = 317
         object Label225: TLabel
           Left = 5
           Top = 3
@@ -1409,7 +1425,7 @@ inherited fmSensor: TfmSensor
       object grbSonarControl: TGroupBox
         Left = 3
         Top = 3
-        Width = 317
+        Width = 370
         Height = 316
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -1419,16 +1435,18 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 1
+        ExplicitWidth = 317
         object ScrollBox2: TScrollBox
           Left = 2
           Top = 18
-          Width = 313
+          Width = 366
           Height = 296
           Align = alClient
           BevelInner = bvNone
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
+          ExplicitWidth = 313
           object Bevel37: TBevel
             Left = 55
             Top = 5
@@ -1817,7 +1835,7 @@ inherited fmSensor: TfmSensor
       object grbIFFInterrogatorControl: TGroupBox
         Left = 3
         Top = 3
-        Width = 317
+        Width = 370
         Height = 316
         Align = alClient
         Color = 2695445
@@ -1830,10 +1848,11 @@ inherited fmSensor: TfmSensor
         ParentColor = False
         ParentFont = False
         TabOrder = 7
+        ExplicitWidth = 317
         object ScrollBox5: TScrollBox
           Left = 2
           Top = 18
-          Width = 313
+          Width = 366
           Height = 296
           Align = alClient
           BevelInner = bvNone
@@ -1842,6 +1861,7 @@ inherited fmSensor: TfmSensor
           Color = 2695445
           ParentColor = False
           TabOrder = 0
+          ExplicitWidth = 313
           object Bevel5: TBevel
             Left = 55
             Top = 5
@@ -2155,7 +2175,7 @@ inherited fmSensor: TfmSensor
       object grbSonobuoyControl: TGroupBox
         Left = 3
         Top = 3
-        Width = 317
+        Width = 370
         Height = 316
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -2165,16 +2185,18 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 5
+        ExplicitWidth = 317
         object ScrollBox7: TScrollBox
           Left = 2
           Top = 18
-          Width = 313
+          Width = 366
           Height = 296
           Align = alClient
           BevelInner = bvNone
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
+          ExplicitWidth = 313
           object Bevel10: TBevel
             Left = 55
             Top = 10

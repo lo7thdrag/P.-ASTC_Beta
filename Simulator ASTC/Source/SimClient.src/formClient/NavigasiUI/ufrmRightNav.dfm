@@ -27014,7 +27014,7 @@ object frmRightNav: TfrmRightNav
           ParentFont = False
           TabOrder = 0
           ExplicitWidth = 322
-          ExplicitHeight = 406
+          ExplicitHeight = 330
           inherited PanelGuidanceControlChoices: TPanel
             Width = 322
             BevelOuter = bvRaised

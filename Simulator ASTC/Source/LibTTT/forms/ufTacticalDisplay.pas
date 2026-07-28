@@ -583,7 +583,6 @@ type
     pnlPlatform: TPanel;
     pnlPosition: TPanel;
     pnlMap: TPanel;
-    txt1: TStaticText;
     btnRuller: TToolButton;
     lbl2: TLabel;
     lbl3: TLabel;
@@ -617,7 +616,6 @@ type
     StaticText10: TStaticText;
     StaticText25: TStaticText;
     StaticText28: TStaticText;
-    StaticText29: TStaticText;
     StaticText30: TStaticText;
     StaticText31: TStaticText;
     StaticText32: TStaticText;
@@ -759,6 +757,8 @@ type
     bvl3: TBevel;
     bvl4: TBevel;
     pnlGameState: TPanel;
+    pnlContentNone: TPanel;
+    txt2: TStaticText;
 
 //    ToolBtnComm: TToolButton;
 

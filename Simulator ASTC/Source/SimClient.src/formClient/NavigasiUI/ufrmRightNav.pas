@@ -346,29 +346,29 @@ end;
 
 procedure TfrmRightNav.updateStatus;
 begin
-  if statusR_List.Count > 0 then
-  begin
-    pnlStatusRed.Visible := true;
-    pnlStatusYellow.Visible := true;
-    pnlStatusRed.Caption := TStatus(statusR_List[statusR_List.Count-1]).state;
-  end
-  else
-  begin
-    pnlStatusRed.Visible  := false;
-    if statusY_List.Count <= 0 then
-    pnlStatusYellow.Visible := false
-  end;
+//  if statusR_List.Count > 0 then
+//  begin
+////    pnlStatusRed.Visible := true;
+////    pnlStatusYellow.Visible := true;
+////    pnlStatusRed.Caption := TStatus(statusR_List[statusR_List.Count-1]).state;
+//  end
+//  else
+//  begin
+////    pnlStatusRed.Visible  := false;
+////    if statusY_List.Count <= 0 then
+////    pnlStatusYellow.Visible := false
+//  end;
 end;
 
 procedure TfrmRightNav.updateStatus_Yellow;
 begin
-  if statusY_List.Count > 0 then
-  begin
-    pnlStatusYellow.Visible := true;
-    pnlStatusYellow.Caption := TStatus(statusY_List[statusY_List.Count-1]).state;
-  end
-  else
-    pnlStatusYellow.Visible := false;
+//  if statusY_List.Count > 0 then
+//  begin
+//    pnlStatusYellow.Visible := true;
+//    pnlStatusYellow.Caption := TStatus(statusY_List[statusY_List.Count-1]).state;
+//  end
+//  else
+//    pnlStatusYellow.Visible := false;
 end;
 
 procedure TfrmRightNav.UpdateTabHooked(aTrack: TSimObject);

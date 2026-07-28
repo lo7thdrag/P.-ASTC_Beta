@@ -613,7 +613,7 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
           Left = 180
           Top = 0
           Width = 73
-          Height = 24
+          Height = 21
           Ctl3D = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -697,7 +697,7 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
           Left = 180
           Top = 0
           Width = 73
-          Height = 24
+          Height = 21
           Ctl3D = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -4893,8 +4893,8 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
           end
         end
         object panAltitude: TPanel
-          Left = 0
-          Top = 210
+          Left = 3
+          Top = 294
           Width = 319
           Height = 58
           BevelOuter = bvNone

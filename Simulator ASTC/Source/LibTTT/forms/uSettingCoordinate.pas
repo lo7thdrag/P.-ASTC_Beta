@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, Buttons;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, Buttons, Vcl.Imaging.pngimage;
 
 type
   TfSettingCoordinate = class(TForm)
@@ -39,6 +39,22 @@ type
     pnlContentTrackSymbols: TPanel;
     pnlContentTrackLabels: TPanel;
     pnlContentOther: TPanel;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure rbLongLatClick(Sender: TObject);

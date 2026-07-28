@@ -3707,6 +3707,7 @@ begin
   Self.Width := 338;
 
   grpTemplate.Left := 17;
+  grpObjectEditor.Visible := False;
 
   UpdateOverlayTemplateList;
 

@@ -45076,245 +45076,45 @@ object fmOverlayEditor: TfmOverlayEditor
       ParentBackground = False
       ParentColor = False
       TabOrder = 4
-      object pnlType: TPanel
-        Left = 8
-        Top = 467
-        Width = 282
-        Height = 164
-        BevelOuter = bvNone
-        ParentBackground = False
-        ParentColor = True
-        TabOrder = 1
-        object btnCloseTemplate: TSpeedButton
-          Tag = 3
-          Left = 212
-          Top = 139
-          Width = 59
-          Height = 25
-          Hint = 'Close'
-          Caption = 'Close'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnHandleTemplate
-        end
-        object btnDelete: TSpeedButton
-          Tag = 2
-          Left = 145
-          Top = 139
-          Width = 59
-          Height = 25
-          Hint = 'Delete Template'
-          Caption = 'Delete'
-          Enabled = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnHandleTemplate
-        end
-        object btnEdit: TSpeedButton
-          Tag = 1
-          Left = 79
-          Top = 139
-          Width = 59
-          Height = 25
-          Hint = 'Edit Templates'
-          Caption = 'Edit'
-          Enabled = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnHandleTemplate
-        end
-        object btnNew: TSpeedButton
-          Left = 12
-          Top = 139
-          Width = 59
-          Height = 25
-          Hint = 'Create New Templates'
-          Caption = 'New'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnHandleTemplate
-        end
-        object Bevel8: TBevel
-          Left = 12
-          Top = 128
-          Width = 259
-          Height = 3
-        end
-        object grpDynamic: TGroupBox
-          Left = 11
-          Top = 5
-          Width = 259
-          Height = 54
-          Caption = 'Dynamic '
-          Color = 3683636
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentBackground = False
-          ParentColor = False
-          ParentFont = False
-          TabOrder = 0
-          Visible = False
-          object btnAttach: TSpeedButton
-            Tag = 1
-            Left = 96
-            Top = 16
-            Width = 73
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Attack Track'
-            AllowAllUp = True
-            Caption = 'Attach'
-            OnClick = btnAttachClick
+      object lvTemplates: TListView
+        Left = 18
+        Top = 20
+        Width = 262
+        Height = 450
+        Columns = <
+          item
+            Caption = 'No'
+            Width = 0
           end
-          object btnDetach: TSpeedButton
-            Tag = 3
-            Left = 173
-            Top = 16
-            Width = 73
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Detach Track'
-            AllowAllUp = True
-            Caption = 'Detach'
-            Enabled = False
-            OnClick = btnDetachClick
+          item
+            Caption = 'Name'
+            Width = 110
           end
-          object lvTrack: TListView
-            Left = 13
-            Top = 45
-            Width = 233
-            Height = 123
-            Columns = <
-              item
-                Caption = 'No'
-                Width = 0
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Name'
-                Width = 79
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Brg'
-                Width = 40
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Rng'
-                Width = 40
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Rot'
-                Width = 40
-              end
-              item
-                Alignment = taCenter
-                Width = 30
-              end>
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            GridLines = True
-            ReadOnly = True
-            RowSelect = True
-            ParentFont = False
-            TabOrder = 0
-            ViewStyle = vsReport
-            OnSelectItem = lvTrackSelectItem
+          item
+            Alignment = taCenter
+            Caption = 'Type'
+            Width = 0
           end
-        end
-        object grpStatic: TGroupBox
-          Left = 11
-          Top = 9
-          Width = 259
-          Height = 54
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 1
-          object chkShowOverlayTemplate: TCheckBox
-            Tag = 1
-            Left = 22
-            Top = 22
-            Width = 68
-            Height = 17
-            Caption = 'Show'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            OnClick = TemplateShowHide
+          item
+            Alignment = taCenter
+            Caption = 'Force'
           end
-          object chkShowAllOverlayTemplate: TCheckBox
-            Tag = 2
-            Left = 96
-            Top = 22
-            Width = 97
-            Height = 17
-            Caption = 'Show All'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-            OnClick = TemplateShowHide
+          item
+            Alignment = taCenter
+            Caption = 'Role'
+            Width = 95
           end
-          object chkHideAllOverlayTemplate: TCheckBox
-            Tag = 3
-            Left = 175
-            Top = 22
-            Width = 75
-            Height = 17
-            Caption = 'Hide All'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 2
-            OnClick = TemplateShowHide
-          end
-        end
+          item
+            Caption = 'NoCubicle'
+            Width = 0
+          end>
+        GridLines = True
+        HideSelection = False
+        ReadOnly = True
+        RowSelect = True
+        TabOrder = 3
+        ViewStyle = vsReport
+        OnSelectItem = lvTemplatesSelectItem
       end
       object pnlCreateNew: TPanel
         Left = 13
@@ -45928,45 +45728,245 @@ object fmOverlayEditor: TfmOverlayEditor
           TabOrder = 5
         end
       end
-      object lvTemplates: TListView
-        Left = 19
-        Top = 20
-        Width = 259
-        Height = 450
-        Columns = <
-          item
-            Caption = 'No'
-            Width = 0
+      object pnlType: TPanel
+        Left = 8
+        Top = 467
+        Width = 282
+        Height = 164
+        BevelOuter = bvNone
+        ParentBackground = False
+        ParentColor = True
+        TabOrder = 1
+        object btnCloseTemplate: TSpeedButton
+          Tag = 3
+          Left = 212
+          Top = 141
+          Width = 59
+          Height = 25
+          Hint = 'Close'
+          Caption = 'Close'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = btnHandleTemplate
+        end
+        object btnDelete: TSpeedButton
+          Tag = 2
+          Left = 145
+          Top = 141
+          Width = 59
+          Height = 25
+          Hint = 'Delete Template'
+          Caption = 'Delete'
+          Enabled = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = btnHandleTemplate
+        end
+        object btnEdit: TSpeedButton
+          Tag = 1
+          Left = 79
+          Top = 141
+          Width = 59
+          Height = 25
+          Hint = 'Edit Templates'
+          Caption = 'Edit'
+          Enabled = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = btnHandleTemplate
+        end
+        object btnNew: TSpeedButton
+          Left = 12
+          Top = 141
+          Width = 59
+          Height = 25
+          Hint = 'Create New Templates'
+          Caption = 'New'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = btnHandleTemplate
+        end
+        object Bevel8: TBevel
+          Left = 12
+          Top = 128
+          Width = 259
+          Height = 3
+        end
+        object grpDynamic: TGroupBox
+          Left = 11
+          Top = 5
+          Width = 259
+          Height = 54
+          Caption = 'Dynamic '
+          Color = 3683636
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentBackground = False
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 0
+          Visible = False
+          object btnAttach: TSpeedButton
+            Tag = 1
+            Left = 96
+            Top = 16
+            Width = 73
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Attack Track'
+            AllowAllUp = True
+            Caption = 'Attach'
+            OnClick = btnAttachClick
           end
-          item
-            Caption = 'Name'
-            Width = 110
+          object btnDetach: TSpeedButton
+            Tag = 3
+            Left = 173
+            Top = 16
+            Width = 73
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Detach Track'
+            AllowAllUp = True
+            Caption = 'Detach'
+            Enabled = False
+            OnClick = btnDetachClick
           end
-          item
-            Alignment = taCenter
-            Caption = 'Type'
-            Width = 0
+          object lvTrack: TListView
+            Left = 13
+            Top = 45
+            Width = 233
+            Height = 123
+            Columns = <
+              item
+                Caption = 'No'
+                Width = 0
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Name'
+                Width = 79
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Brg'
+                Width = 40
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Rng'
+                Width = 40
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Rot'
+                Width = 40
+              end
+              item
+                Alignment = taCenter
+                Width = 30
+              end>
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            GridLines = True
+            ReadOnly = True
+            RowSelect = True
+            ParentFont = False
+            TabOrder = 0
+            ViewStyle = vsReport
+            OnSelectItem = lvTrackSelectItem
           end
-          item
-            Alignment = taCenter
-            Caption = 'Force'
+        end
+        object grpStatic: TGroupBox
+          Left = 11
+          Top = 9
+          Width = 259
+          Height = 54
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          object chkShowOverlayTemplate: TCheckBox
+            Tag = 1
+            Left = 22
+            Top = 22
+            Width = 68
+            Height = 17
+            Caption = 'Show'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            OnClick = TemplateShowHide
           end
-          item
-            Alignment = taCenter
-            Caption = 'Role'
-            Width = 95
+          object chkShowAllOverlayTemplate: TCheckBox
+            Tag = 2
+            Left = 96
+            Top = 22
+            Width = 97
+            Height = 17
+            Caption = 'Show All'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            OnClick = TemplateShowHide
           end
-          item
-            Caption = 'NoCubicle'
-            Width = 0
-          end>
-        GridLines = True
-        HideSelection = False
-        ReadOnly = True
-        RowSelect = True
-        TabOrder = 3
-        ViewStyle = vsReport
-        OnSelectItem = lvTemplatesSelectItem
+          object chkHideAllOverlayTemplate: TCheckBox
+            Tag = 3
+            Left = 175
+            Top = 22
+            Width = 75
+            Height = 17
+            Caption = 'Hide All'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            OnClick = TemplateShowHide
+          end
+        end
       end
     end
     object grpObjectEditor: TGroupBox

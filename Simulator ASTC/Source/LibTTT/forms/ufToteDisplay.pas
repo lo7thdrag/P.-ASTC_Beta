@@ -8707,7 +8707,7 @@ begin
       1:
       begin
         {$REGION ' Navigasi '}
-        SetUpToteNavigasiUI;
+//        SetUpToteNavigasiUI;
         {$ENDREGION}
       end;
       2:
@@ -8723,7 +8723,7 @@ begin
       4:
       begin
         {$REGION ' General '}
-        SetUpToteGeneralUI
+//        SetUpToteGeneralUI
         {$ENDREGION}
       end;
     end;
@@ -8769,14 +8769,14 @@ end;
 
 procedure TfrmToteDisplay.SetUpToteGeneralUI;
 begin
-  pnlMainGeneral.Visible := True;
-  pnlMainNavigasi.Visible := False;
+//  pnlMainGeneral.Visible := True;
+//  pnlMainNavigasi.Visible := False;
 end;
 
 procedure TfrmToteDisplay.SetUpToteNavigasiUI;
 begin
-  pnlMainGeneral.Visible := False;
-  pnlMainNavigasi.Visible := True;
+//  pnlMainGeneral.Visible := False;
+//  pnlMainNavigasi.Visible := True;
 end;
 
 procedure TfrmToteDisplay.cbSetEnDisClick(sender: TObject);

@@ -101048,7 +101048,6 @@ object frmLeftNav: TfrmLeftNav
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitWidth = 352
       object Image2: TImage
         Left = 0
         Top = 0
@@ -178783,7 +178782,7 @@ object frmLeftNav: TfrmLeftNav
           Top = 80
           Width = 23
           Height = 16
-          Caption = 'STW'
+          Caption = 'SWT'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
           Font.Height = -16
@@ -178881,7 +178880,6 @@ object frmLeftNav: TfrmLeftNav
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitTop = 948
     end
     object pnlGameStatus: TPanel
       Left = 0

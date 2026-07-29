@@ -13816,6 +13816,7 @@ begin
 
       pnlGameState.Color := clLime;
       pnlGameState.Caption := '1/' + IntToStr(i) + ' X';
+      pnlGameState.Font.Color := clBlack;
 
       case vGameDataSetting.Role of
         0:
@@ -13852,6 +13853,7 @@ begin
 
       pnlGameState.Color := clYellow;
       pnlGameState.Caption := 'Percepatan ' + IntToStr(Round(gSpeed)) + ' X';
+      pnlGameState.Font.Color := clBlack;
 
       case vGameDataSetting.Role of
         0:

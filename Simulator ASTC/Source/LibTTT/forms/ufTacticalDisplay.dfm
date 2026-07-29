@@ -2524,1561 +2524,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Align = alClient
         ParentColor = True
         TabOrder = 3
-        object pnlPlatformGuidance: TPanel
-          Left = 1
-          Top = 1
-          Width = 359
-          Height = 1992
-          Align = alClient
-          BevelOuter = bvNone
-          Color = 4012086
-          ParentBackground = False
-          TabOrder = 3
-          inline fmPlatformGuidance1: TfmPlatformGuidance
-            Left = 0
-            Top = 0
-            Width = 359
-            Height = 1992
-            Align = alClient
-            Color = clMedGray
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 0
-            ExplicitWidth = 359
-            ExplicitHeight = 1992
-            inherited PanelGuidanceControlChoices: TPanel
-              Width = 359
-              Color = 2695445
-              ExplicitWidth = 359
-              inherited SpeedButton2: TSpeedButton
-                Left = 326
-                Top = 6
-                Height = 30
-                OnClick = fmPlatformGuidance1SpeedButton2Click
-                ExplicitLeft = 326
-                ExplicitTop = 6
-                ExplicitHeight = 30
-              end
-              inherited edGuidance: TEdit
-                Width = 310
-                ExplicitWidth = 310
-              end
-            end
-            inherited PanelPlatformGuidance: TPanel
-              Width = 359
-              Height = 1951
-              BevelOuter = bvNone
-              Color = 2695445
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
-              inherited grbOutrun: TGroupBox [0]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label310: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label321: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label322: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblOutrunActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbTrackToOutrun: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbTrackToOutrunClick
-                end
-                inherited Label23: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblOutrunAltitudeDepth: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label29: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText150: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText153: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText21: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbReturnToBase: TGroupBox [1]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label327: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblReturnToBaseDestinationBase: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label329: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label334: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label382: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label397: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblReturnToBaseActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label406: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label419: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label437: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label451: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblReturnToBaseActualAltitude: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText158: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText159: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText160: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText161: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText162: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlCoverAltitudeReturnToBase: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbShadow: TGroupBox [2]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label173: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label180: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label196: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label290: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label298: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label299: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblShadowActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label301: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText128: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText143: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText144: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText145: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited panShadowDepth: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited panShadowAltitude: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbSinuation: TGroupBox [3]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label206: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label227: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label241: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label255: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label256: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label260: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label270: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label287: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblSinuationActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label293: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label297: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText138: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText139: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText140: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText141: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText142: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbZigZag: TGroupBox [4]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label145: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label146: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label147: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label148: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label149: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label197: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label198: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label199: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblZigZagActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label207: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label209: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText106: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText108: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText109: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText110: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText137: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grpStation: TGroupBox [5]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label154: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbOnTrackAnchorMode: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbOnTrackAnchorModeClick
-                end
-                inherited StaticText113: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText114: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlStationPosition: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                  inherited btnStationAnchorPosition: TSpeedButton
-                    OnClick = fmPlatformGuidance1btnStationAnchorPositionClick
-                  end
-                end
-                inherited pnlStationTrack: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                  inherited sbOnTrackAnchorTrack: TSpeedButton
-                    OnClick = fmPlatformGuidance1sbOnTrackAnchorTrackClick
-                  end
-                end
-                inherited pnlStationDepth: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlStationAltitude: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbEvasion: TGroupBox [6]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label318: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label319: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label320: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblEvasionActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbTrackToEvade: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbTrackToEvadeClick
-                end
-                inherited Label10: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblEvasionActualAltitudeDepth: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label16: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText151: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText152: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText20: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grbEngagement: TGroupBox [7]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label300: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label305: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label306: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label307: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label308: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label309: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblEngageActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label314: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbEngageTrackToEngage: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbEngageTrackToEngageClick
-                end
-                inherited StaticText146: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText147: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText148: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText149: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlDepthEngagement: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                  inherited Edit2: TEdit
-                    Height = 21
-                    ExplicitHeight = 21
-                  end
-                end
-                inherited pnlAltitudeEngagement: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                  inherited edtAltitudeEngagement: TEdit
-                    Height = 21
-                    ExplicitHeight = 21
-                  end
-                end
-              end
-              inherited grbFormation: TGroupBox [8]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label323: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label324: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblLeaderFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblNameFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label373: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label374: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label381: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblRangeFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblBearingFormation: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label399: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText154: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText155: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText156: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText157: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlDepth: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited pnlAltitude: TPanel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-              end
-              inherited grpCircle: TGroupBox [9]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited ScrollBox1: TScrollBox
-                  Width = 357
-                  Height = 1933
-                  ExplicitWidth = 357
-                  ExplicitHeight = 1933
-                  inherited Label3: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label4: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label5: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label6: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label7: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label8: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited Label9: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited lblCircleActualGroundSpeed: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited lb1: TLabel
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited btnCircleMode: TSpeedButton
-                    Top = 14
-                    OnClick = fmPlatformGuidance1btnCircleModeClick
-                    ExplicitTop = 14
-                  end
-                  inherited StaticText1: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited StaticText2: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited StaticText4: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited edtCircleRadius: TEdit
-                    Top = 145
-                    ExplicitTop = 145
-                  end
-                  inherited StaticText5: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited StaticText6: TStaticText
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                  inherited pnlTrack: TPanel [22]
-                    Font.Color = clWhite
-                    ParentFont = False
-                    inherited sbCircleOnTrackTrack: TSpeedButton
-                      OnClick = fmPlatformGuidance1sbCircleOnTrackTrackClick
-                    end
-                  end
-                  inherited pnlPosition: TPanel
-                    Font.Color = clWhite
-                    ParentFont = False
-                    inherited sbCircleOnPositionPosition: TSpeedButton
-                      Height = 27
-                      OnClick = fmPlatformGuidance1sbCircleOnPositionPositionClick
-                      ExplicitHeight = 27
-                    end
-                  end
-                  inherited StaticText7: TStaticText [24]
-                    Font.Color = clWhite
-                    ParentFont = False
-                  end
-                end
-              end
-              inherited grbHelm: TGroupBox [10]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label120: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblHelmActualTurnRate: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label127: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label129: TLabel
-                  Width = 46
-                  Caption = 'degrees'
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitWidth = 46
-                end
-                inherited Label131: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label132: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label133: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label134: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblHelmActualGroundSpeed: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label135: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbActualHelmAngle: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblHelmActualHeading: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label137: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblHelmActualCourse: TLabel
-                  Font.Color = clWhite
-                end
-                inherited Label139: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lblHelmActualDepth: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label24: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Label25: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText88: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText89: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText90: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText91: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText92: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText93: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText94: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText95: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText96: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText97: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited StaticText98: TStaticText
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Panel2: TPanel [32]
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited Panel1: TPanel [33]
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited edtHelmOrderedGroundSpeed: TEdit [34]
-                end
-              end
-              inherited grpPersonelGuidance: TGroupBox [11]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited whHeadingPersonel: TVrWheel
-                  OnChange = fmPlatformGuidance1whHeadingPersonelChange
-                end
-                inherited lbl6: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbl9: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited lbl11: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited sbPersonalGuidanceMode: TSpeedButton
-                  OnClick = fmPlatformGuidance1sbPersonalGuidanceModeClick
-                end
-                inherited lbl7: TLabel
-                  Font.Color = clWhite
-                  ParentFont = False
-                end
-                inherited edtPersonelGuidanceOrderedHeading: TEdit
-                  OnKeyPress = fmPlatformGuidance1edtPersonelGuidanceOrderedHeadingKeyPress
-                end
-              end
-              inherited gbWaypoint: TGroupBox [12]
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited Label97: TLabel
-                  Left = 29
-                  Top = 52
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 29
-                  ExplicitTop = 52
-                end
-                inherited lbName: TLabel
-                  Left = 194
-                  Top = 52
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 194
-                  ExplicitTop = 52
-                end
-                inherited lblLongitude: TLabel
-                  Left = 194
-                  Top = 72
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 194
-                  ExplicitTop = 72
-                end
-                inherited Label103: TLabel
-                  Left = 29
-                  Top = 72
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 29
-                  ExplicitTop = 72
-                end
-                inherited lbGroundSpeed: TLabel
-                  Left = 194
-                  Top = 92
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 194
-                  ExplicitTop = 92
-                end
-                inherited Label104: TLabel
-                  Left = 29
-                  Top = 92
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 29
-                  ExplicitTop = 92
-                end
-                inherited lbEta: TLabel
-                  Left = 194
-                  Top = 134
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 194
-                  ExplicitTop = 134
-                end
-                inherited Label105: TLabel
-                  Left = 29
-                  Top = 112
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 29
-                  ExplicitTop = 112
-                end
-                inherited Label106: TLabel
-                  Left = 274
-                  Top = 112
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 274
-                  ExplicitTop = 112
-                end
-                inherited Label107: TLabel
-                  Left = 29
-                  Top = 191
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 29
-                  ExplicitTop = 191
-                end
-                inherited lbDistance: TLabel
-                  Left = 194
-                  Top = 112
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 194
-                  ExplicitTop = 112
-                end
-                inherited Label177: TLabel
-                  Left = 274
-                  Top = 191
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 274
-                  ExplicitTop = 191
-                end
-                inherited Label179: TLabel
-                  Left = 274
-                  Top = 212
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 274
-                  ExplicitTop = 212
-                end
-                inherited Label184: TLabel
-                  Left = 274
-                  Top = 92
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 274
-                  ExplicitTop = 92
-                end
-                inherited lblLatitude: TLabel
-                  Left = 274
-                  Top = 72
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 274
-                  ExplicitTop = 72
-                end
-                inherited lbActualGroundWaypoint: TLabel
-                  Left = 194
-                  Top = 212
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 194
-                  ExplicitTop = 212
-                end
-                inherited Bevel19: TBevel
-                  Left = 114
-                  Top = 30
-                  ExplicitLeft = 114
-                  ExplicitTop = 30
-                end
-                inherited Bevel20: TBevel
-                  Left = 24
-                  Top = 175
-                  ExplicitLeft = 24
-                  ExplicitTop = 175
-                end
-                inherited StaticText24: TStaticText
-                  Left = 29
-                  Top = 132
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 29
-                  ExplicitTop = 132
-                end
-                inherited StaticText26: TStaticText
-                  Left = 24
-                  Top = 22
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 24
-                  ExplicitTop = 22
-                end
-                inherited StaticText27: TStaticText
-                  Left = 29
-                  Top = 210
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 29
-                  ExplicitTop = 210
-                end
-                inherited btnWaypoint: TButton
-                  Left = 211
-                  Top = 257
-                  OnClick = fmPlatformGuidance1btnWaypointClick
-                  ExplicitLeft = 211
-                  ExplicitTop = 257
-                end
-                inherited StaticText67: TStaticText
-                  Left = 174
-                  Top = 50
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 174
-                  ExplicitTop = 50
-                end
-                inherited StaticText71: TStaticText
-                  Left = 174
-                  Top = 70
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 174
-                  ExplicitTop = 70
-                end
-                inherited StaticText76: TStaticText
-                  Left = 174
-                  Top = 90
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 174
-                  ExplicitTop = 90
-                end
-                inherited StaticText77: TStaticText
-                  Left = 174
-                  Top = 110
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 174
-                  ExplicitTop = 110
-                end
-                inherited StaticText78: TStaticText
-                  Left = 174
-                  Top = 132
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 174
-                  ExplicitTop = 132
-                end
-                inherited StaticText79: TStaticText
-                  Left = 174
-                  Top = 210
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 174
-                  ExplicitTop = 210
-                end
-                inherited StaticText80: TStaticText
-                  Left = 174
-                  Top = 189
-                  Font.Color = clWhite
-                  ParentFont = False
-                  ExplicitLeft = 174
-                  ExplicitTop = 189
-                end
-                inherited edtWaypointOrderedGroundSpeed: TEdit
-                  Left = 194
-                  Top = 188
-                  ExplicitLeft = 194
-                  ExplicitTop = 188
-                end
-              end
-              inherited grbStraightLine: TGroupBox
-                Left = 0
-                Top = 0
-                Width = 359
-                Height = 1951
-                Color = 2695445
-                ParentColor = False
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 359
-                ExplicitHeight = 1951
-                inherited ScrollBox5: TScrollBox
-                  Width = 357
-                  Height = 1933
-                  BevelInner = bvNone
-                  BevelOuter = bvNone
-                  Color = 2695445
-                  ParentColor = False
-                  ExplicitWidth = 357
-                  ExplicitHeight = 1933
-                  inherited whHeading: TVrWheel
-                    Top = 17
-                    OnChange = fmPlatformGuidance1whHeadingChange
-                    ExplicitTop = 17
-                  end
-                  inherited lblStraightLineActualHeading: TLabel
-                    Left = 186
-                    Top = 153
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 186
-                    ExplicitTop = 153
-                  end
-                  inherited Label128: TLabel
-                    Left = 256
-                    Top = 176
-                    Width = 57
-                    Caption = 'degress T'
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 256
-                    ExplicitTop = 176
-                    ExplicitWidth = 57
-                  end
-                  inherited lblStraightLineActualGroundSpeed: TLabel
-                    Left = 186
-                    Top = 227
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 186
-                    ExplicitTop = 227
-                  end
-                  inherited Label126: TLabel
-                    Left = 256
-                    Top = 153
-                    Width = 57
-                    Caption = 'degress T'
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 256
-                    ExplicitTop = 153
-                    ExplicitWidth = 57
-                  end
-                  inherited Label125: TLabel
-                    Left = 256
-                    Top = 227
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 256
-                    ExplicitTop = 227
-                  end
-                  inherited Label124: TLabel
-                    Left = 256
-                    Top = 204
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 256
-                    ExplicitTop = 204
-                  end
-                  inherited Label123: TLabel
-                    Left = 29
-                    Top = 202
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 29
-                    ExplicitTop = 202
-                  end
-                  inherited Label122: TLabel
-                    Left = 256
-                    Top = 130
-                    Width = 57
-                    Caption = 'degress T'
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 256
-                    ExplicitTop = 130
-                    ExplicitWidth = 57
-                  end
-                  inherited Label121: TLabel
-                    Left = 29
-                    Top = 151
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 29
-                    ExplicitTop = 151
-                  end
-                  inherited lblStraightLineActuaCourse: TLabel
-                    Left = 186
-                    Top = 176
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 186
-                    ExplicitTop = 176
-                  end
-                  inherited Label119: TLabel
-                    Left = 29
-                    Top = 128
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 29
-                    ExplicitTop = 128
-                  end
-                  inherited edtStraightLineOrderedGroundSpeed: TEdit
-                    Left = 186
-                    Top = 202
-                    OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedGroundSpeedKeyPress
-                    ExplicitLeft = 186
-                    ExplicitTop = 202
-                  end
-                  inherited edtStraightLineOrderedHeading: TEdit
-                    Left = 186
-                    Top = 128
-                    OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedHeadingKeyPress
-                    ExplicitLeft = 186
-                    ExplicitTop = 128
-                  end
-                  inherited StaticText87: TStaticText
-                    Left = 169
-                    Top = 202
-                    ExplicitLeft = 169
-                    ExplicitTop = 202
-                  end
-                  inherited StaticText86: TStaticText
-                    Left = 169
-                    Top = 225
-                    ExplicitLeft = 169
-                    ExplicitTop = 225
-                  end
-                  inherited StaticText85: TStaticText
-                    Left = 169
-                    Top = 174
-                    ExplicitLeft = 169
-                    ExplicitTop = 174
-                  end
-                  inherited StaticText84: TStaticText
-                    Left = 169
-                    Top = 151
-                    ExplicitLeft = 169
-                    ExplicitTop = 151
-                  end
-                  inherited StaticText83: TStaticText
-                    Left = 169
-                    Top = 128
-                    ExplicitLeft = 169
-                    ExplicitTop = 128
-                  end
-                  inherited StaticText82: TStaticText
-                    Left = 29
-                    Top = 225
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 29
-                    ExplicitTop = 225
-                  end
-                  inherited StaticText81: TStaticText
-                    Left = 29
-                    Top = 174
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 29
-                    ExplicitTop = 174
-                  end
-                  inherited panDepth: TPanel
-                    Left = 26
-                    Top = 254
-                    Width = 259
-                    ExplicitLeft = 26
-                    ExplicitTop = 254
-                    ExplicitWidth = 259
-                    inherited lbl1: TLabel
-                      Left = 3
-                      Top = 0
-                      Font.Color = clWhite
-                      ParentFont = False
-                      ExplicitLeft = 3
-                      ExplicitTop = 0
-                    end
-                    inherited lbl2: TLabel
-                      Left = 160
-                      Top = 25
-                      Font.Color = clWhite
-                      ParentFont = False
-                      ExplicitLeft = 160
-                      ExplicitTop = 25
-                    end
-                    inherited lbl3: TLabel
-                      Left = 230
-                      Font.Color = clWhite
-                      ParentFont = False
-                      ExplicitLeft = 230
-                    end
-                    inherited lbl4: TLabel
-                      Left = 230
-                      Top = 25
-                      Font.Color = clWhite
-                      ParentFont = False
-                      ExplicitLeft = 230
-                      ExplicitTop = 25
-                    end
-                    inherited txt1: TStaticText
-                      Left = 3
-                      Top = 23
-                      Font.Color = clWhite
-                      ParentFont = False
-                      ExplicitLeft = 3
-                      ExplicitTop = 23
-                    end
-                    inherited txt2: TStaticText
-                      Left = 143
-                      Top = 0
-                      Font.Color = clWhite
-                      ParentFont = False
-                      ExplicitLeft = 143
-                      ExplicitTop = 0
-                    end
-                    inherited txt3: TStaticText
-                      Left = 143
-                      Top = 23
-                      Font.Color = clWhite
-                      ParentFont = False
-                      ExplicitLeft = 143
-                      ExplicitTop = 23
-                    end
-                    inherited edt1: TEdit
-                      Left = 160
-                      Top = -1
-                      ExplicitLeft = 160
-                      ExplicitTop = -1
-                    end
-                  end
-                  inherited panAltitude: TPanel
-                    Left = 26
-                    Top = 254
-                    Width = 259
-                    Font.Color = clWhite
-                    ParentFont = False
-                    ExplicitLeft = 26
-                    ExplicitTop = 254
-                    ExplicitWidth = 259
-                    inherited Label57: TLabel
-                      Left = 3
-                      Top = 0
-                      ExplicitLeft = 3
-                      ExplicitTop = 0
-                    end
-                    inherited lblActualAltitude: TLabel
-                      Left = 160
-                      Top = 25
-                      ExplicitLeft = 160
-                      ExplicitTop = 25
-                    end
-                    inherited Label63: TLabel
-                      Left = 230
-                      ExplicitLeft = 230
-                    end
-                    inherited Label65: TLabel
-                      Left = 230
-                      Top = 25
-                      ExplicitLeft = 230
-                      ExplicitTop = 25
-                    end
-                    inherited StaticText105: TStaticText
-                      Left = 3
-                      Top = 23
-                      ExplicitLeft = 3
-                      ExplicitTop = 23
-                    end
-                    inherited StaticText107: TStaticText
-                      Left = 143
-                      Top = 0
-                      ExplicitLeft = 143
-                      ExplicitTop = 0
-                    end
-                    inherited StaticText111: TStaticText
-                      Left = 143
-                      Top = 23
-                      ExplicitLeft = 143
-                      ExplicitTop = 23
-                    end
-                    inherited edOrderAltitude: TEdit
-                      Left = 160
-                      Top = -1
-                      OnKeyPress = fmPlatformGuidance1edOrderAltitudeKeyPress
-                      ExplicitLeft = 160
-                      ExplicitTop = -1
-                    end
-                  end
-                end
-              end
-            end
-            inherited pmGuidance: TPopupMenu
-              Left = 178
-              Top = 438
-              inherited mnStraightLine1: TMenuItem
-                OnClick = fmPlatformGuidance1mnStraightLine1Click
-              end
-              inherited mnHelm1: TMenuItem
-                Visible = False
-              end
-              inherited mnCircle: TMenuItem
-                Visible = False
-              end
-              inherited mnStation: TMenuItem
-                Visible = False
-              end
-              inherited mnZigzag1: TMenuItem
-                Visible = False
-                inherited Short1: TMenuItem
-                  OnClick = fmPlatformGuidance1Short1Click
-                end
-                inherited Long1: TMenuItem
-                  OnClick = fmPlatformGuidance1Long1Click
-                end
-                inherited VeryLong1: TMenuItem
-                  OnClick = fmPlatformGuidance1VeryLong1Click
-                end
-              end
-              inherited mnSinuation1: TMenuItem
-                Visible = False
-              end
-              inherited mnFormation2: TMenuItem
-                Visible = False
-              end
-              inherited mnEvasion1: TMenuItem
-                Visible = False
-              end
-              inherited mnOutrun1: TMenuItem
-                Visible = False
-                OnClick = fmPlatformGuidance1mnOutrun1Click
-              end
-              inherited mnEngagement1: TMenuItem
-                Visible = False
-              end
-              inherited mnShadow1: TMenuItem
-                Visible = False
-              end
-              inherited mnReturntoBase1: TMenuItem
-                Visible = False
-              end
-              inherited mnPersonelGudance1: TMenuItem
-                OnClick = fmPlatformGuidance1PersonelGudance1Click
-              end
-            end
-            inherited pmCircleMode: TPopupMenu
-              Left = 16
-              Top = 440
-            end
-            inherited pmCircleDirection: TPopupMenu
-              Left = 80
-              Top = 440
-            end
-            inherited pmCircleBearingDegree: TPopupMenu
-              Left = 48
-              Top = 440
-            end
-            inherited pmPersonalGuidance: TPopupMenu
-              Left = 112
-              Top = 440
-            end
-            inherited pmPersonalFormation: TPopupMenu
-              Left = 144
-              Top = 440
-            end
-          end
-        end
         object pnlWeapon: TPanel
           Left = 1
           Top = 1
@@ -11349,6 +9794,1563 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
           end
         end
+        object pnlPlatformGuidance: TPanel
+          Left = 1
+          Top = 1
+          Width = 359
+          Height = 1992
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 4012086
+          ParentBackground = False
+          TabOrder = 3
+          inline fmPlatformGuidance1: TfmPlatformGuidance
+            Left = 0
+            Top = 0
+            Width = 359
+            Height = 1992
+            Align = alClient
+            Color = clMedGray
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentBackground = False
+            ParentColor = False
+            ParentFont = False
+            TabOrder = 0
+            ExplicitWidth = 359
+            ExplicitHeight = 1992
+            inherited PanelGuidanceControlChoices: TPanel
+              Width = 359
+              Color = 2695445
+              ExplicitWidth = 359
+              inherited SpeedButton2: TSpeedButton
+                Left = 326
+                Top = 6
+                Height = 30
+                OnClick = fmPlatformGuidance1SpeedButton2Click
+                ExplicitLeft = 326
+                ExplicitTop = 6
+                ExplicitHeight = 30
+              end
+              inherited edGuidance: TEdit
+                Width = 310
+                ExplicitWidth = 310
+              end
+            end
+            inherited PanelPlatformGuidance: TPanel
+              Width = 359
+              Height = 1951
+              BevelOuter = bvNone
+              Color = 2695445
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited grbOutrun: TGroupBox [0]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label310: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label321: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label322: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblOutrunActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbTrackToOutrun: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbTrackToOutrunClick
+                end
+                inherited Label23: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblOutrunAltitudeDepth: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label29: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText150: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText153: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText21: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbReturnToBase: TGroupBox [1]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label327: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblReturnToBaseDestinationBase: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label329: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label334: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label382: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label397: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblReturnToBaseActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label406: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label419: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label437: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label451: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblReturnToBaseActualAltitude: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText158: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText159: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText160: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText161: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText162: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlCoverAltitudeReturnToBase: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbShadow: TGroupBox [2]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label173: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label180: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label196: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label290: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label298: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label299: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblShadowActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label301: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText128: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText143: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText144: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText145: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited panShadowDepth: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited panShadowAltitude: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbSinuation: TGroupBox [3]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label206: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label227: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label241: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label255: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label256: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label260: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label270: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label287: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblSinuationActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label293: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label297: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText138: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText139: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText140: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText141: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText142: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbZigZag: TGroupBox [4]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label145: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label146: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label147: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label148: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label149: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label197: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label198: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label199: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblZigZagActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label207: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label209: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText106: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText108: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText109: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText110: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText137: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grpStation: TGroupBox [5]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label154: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbOnTrackAnchorMode: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbOnTrackAnchorModeClick
+                end
+                inherited StaticText113: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText114: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlStationPosition: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                  inherited btnStationAnchorPosition: TSpeedButton
+                    OnClick = fmPlatformGuidance1btnStationAnchorPositionClick
+                  end
+                end
+                inherited pnlStationTrack: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                  inherited sbOnTrackAnchorTrack: TSpeedButton
+                    OnClick = fmPlatformGuidance1sbOnTrackAnchorTrackClick
+                  end
+                end
+                inherited pnlStationDepth: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlStationAltitude: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbEvasion: TGroupBox [6]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label318: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label319: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label320: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblEvasionActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbTrackToEvade: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbTrackToEvadeClick
+                end
+                inherited Label10: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblEvasionActualAltitudeDepth: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label16: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText151: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText152: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText20: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbEngagement: TGroupBox [7]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label300: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label305: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label306: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label307: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label308: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label309: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblEngageActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label314: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbEngageTrackToEngage: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbEngageTrackToEngageClick
+                end
+                inherited StaticText146: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText147: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText148: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText149: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlDepthEngagement: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlAltitudeEngagement: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grbFormation: TGroupBox [8]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label323: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label324: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblLeaderFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblNameFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label373: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label374: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label381: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblRangeFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblBearingFormation: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label399: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText154: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText155: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText156: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText157: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlDepth: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited pnlAltitude: TPanel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+              end
+              inherited grpCircle: TGroupBox [9]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited ScrollBox1: TScrollBox
+                  Width = 357
+                  Height = 1933
+                  ExplicitWidth = 357
+                  ExplicitHeight = 1933
+                  inherited Label3: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label4: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label5: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label6: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label7: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label8: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited Label9: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lblCircleActualGroundSpeed: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited lb1: TLabel
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited btnCircleMode: TSpeedButton
+                    Top = 14
+                    OnClick = fmPlatformGuidance1btnCircleModeClick
+                    ExplicitTop = 14
+                  end
+                  inherited StaticText1: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited StaticText2: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited StaticText4: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited edtCircleRadius: TEdit
+                    Top = 145
+                    ExplicitTop = 145
+                  end
+                  inherited StaticText5: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited StaticText6: TStaticText
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                  inherited pnlTrack: TPanel [22]
+                    Font.Color = clWhite
+                    ParentFont = False
+                    inherited sbCircleOnTrackTrack: TSpeedButton
+                      OnClick = fmPlatformGuidance1sbCircleOnTrackTrackClick
+                    end
+                  end
+                  inherited pnlPosition: TPanel
+                    Font.Color = clWhite
+                    ParentFont = False
+                    inherited sbCircleOnPositionPosition: TSpeedButton
+                      Height = 27
+                      OnClick = fmPlatformGuidance1sbCircleOnPositionPositionClick
+                      ExplicitHeight = 27
+                    end
+                  end
+                  inherited StaticText7: TStaticText [24]
+                    Font.Color = clWhite
+                    ParentFont = False
+                  end
+                end
+              end
+              inherited grbHelm: TGroupBox [10]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label120: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblHelmActualTurnRate: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label127: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label129: TLabel
+                  Width = 46
+                  Caption = 'degrees'
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitWidth = 46
+                end
+                inherited Label131: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label132: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label133: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label134: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblHelmActualGroundSpeed: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label135: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbActualHelmAngle: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblHelmActualHeading: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label137: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblHelmActualCourse: TLabel
+                  Font.Color = clWhite
+                end
+                inherited Label139: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lblHelmActualDepth: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label24: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Label25: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText88: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText89: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText90: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText91: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText92: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText93: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText94: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText95: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText96: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText97: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited StaticText98: TStaticText
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Panel2: TPanel [32]
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited Panel1: TPanel [33]
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited edtHelmOrderedGroundSpeed: TEdit [34]
+                end
+              end
+              inherited grpPersonelGuidance: TGroupBox [11]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited whHeadingPersonel: TVrWheel
+                  OnChange = fmPlatformGuidance1whHeadingPersonelChange
+                end
+                inherited lbl6: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbl9: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited lbl11: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited sbPersonalGuidanceMode: TSpeedButton
+                  OnClick = fmPlatformGuidance1sbPersonalGuidanceModeClick
+                end
+                inherited lbl7: TLabel
+                  Font.Color = clWhite
+                  ParentFont = False
+                end
+                inherited edtPersonelGuidanceOrderedHeading: TEdit
+                  OnKeyPress = fmPlatformGuidance1edtPersonelGuidanceOrderedHeadingKeyPress
+                end
+              end
+              inherited gbWaypoint: TGroupBox [12]
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited Label97: TLabel
+                  Left = 29
+                  Top = 52
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 29
+                  ExplicitTop = 52
+                end
+                inherited lbName: TLabel
+                  Left = 194
+                  Top = 52
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 194
+                  ExplicitTop = 52
+                end
+                inherited lblLongitude: TLabel
+                  Left = 194
+                  Top = 72
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 194
+                  ExplicitTop = 72
+                end
+                inherited Label103: TLabel
+                  Left = 29
+                  Top = 72
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 29
+                  ExplicitTop = 72
+                end
+                inherited lbGroundSpeed: TLabel
+                  Left = 194
+                  Top = 92
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 194
+                  ExplicitTop = 92
+                end
+                inherited Label104: TLabel
+                  Left = 29
+                  Top = 92
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 29
+                  ExplicitTop = 92
+                end
+                inherited lbEta: TLabel
+                  Left = 194
+                  Top = 134
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 194
+                  ExplicitTop = 134
+                end
+                inherited Label105: TLabel
+                  Left = 29
+                  Top = 112
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 29
+                  ExplicitTop = 112
+                end
+                inherited Label106: TLabel
+                  Left = 274
+                  Top = 112
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 274
+                  ExplicitTop = 112
+                end
+                inherited Label107: TLabel
+                  Left = 29
+                  Top = 191
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 29
+                  ExplicitTop = 191
+                end
+                inherited lbDistance: TLabel
+                  Left = 194
+                  Top = 112
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 194
+                  ExplicitTop = 112
+                end
+                inherited Label177: TLabel
+                  Left = 274
+                  Top = 191
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 274
+                  ExplicitTop = 191
+                end
+                inherited Label179: TLabel
+                  Left = 274
+                  Top = 212
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 274
+                  ExplicitTop = 212
+                end
+                inherited Label184: TLabel
+                  Left = 274
+                  Top = 92
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 274
+                  ExplicitTop = 92
+                end
+                inherited lblLatitude: TLabel
+                  Left = 274
+                  Top = 72
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 274
+                  ExplicitTop = 72
+                end
+                inherited lbActualGroundWaypoint: TLabel
+                  Left = 194
+                  Top = 212
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 194
+                  ExplicitTop = 212
+                end
+                inherited Bevel19: TBevel
+                  Left = 114
+                  Top = 30
+                  ExplicitLeft = 114
+                  ExplicitTop = 30
+                end
+                inherited Bevel20: TBevel
+                  Left = 24
+                  Top = 175
+                  ExplicitLeft = 24
+                  ExplicitTop = 175
+                end
+                inherited StaticText24: TStaticText
+                  Left = 29
+                  Top = 132
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 29
+                  ExplicitTop = 132
+                end
+                inherited StaticText26: TStaticText
+                  Left = 24
+                  Top = 22
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 24
+                  ExplicitTop = 22
+                end
+                inherited StaticText27: TStaticText
+                  Left = 29
+                  Top = 210
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 29
+                  ExplicitTop = 210
+                end
+                inherited btnWaypoint: TButton
+                  Left = 211
+                  Top = 257
+                  OnClick = fmPlatformGuidance1btnWaypointClick
+                  ExplicitLeft = 211
+                  ExplicitTop = 257
+                end
+                inherited StaticText67: TStaticText
+                  Left = 174
+                  Top = 50
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 174
+                  ExplicitTop = 50
+                end
+                inherited StaticText71: TStaticText
+                  Left = 174
+                  Top = 70
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 174
+                  ExplicitTop = 70
+                end
+                inherited StaticText76: TStaticText
+                  Left = 174
+                  Top = 90
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 174
+                  ExplicitTop = 90
+                end
+                inherited StaticText77: TStaticText
+                  Left = 174
+                  Top = 110
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 174
+                  ExplicitTop = 110
+                end
+                inherited StaticText78: TStaticText
+                  Left = 174
+                  Top = 132
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 174
+                  ExplicitTop = 132
+                end
+                inherited StaticText79: TStaticText
+                  Left = 174
+                  Top = 210
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 174
+                  ExplicitTop = 210
+                end
+                inherited StaticText80: TStaticText
+                  Left = 174
+                  Top = 189
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 174
+                  ExplicitTop = 189
+                end
+                inherited edtWaypointOrderedGroundSpeed: TEdit
+                  Left = 194
+                  Top = 188
+                  ExplicitLeft = 194
+                  ExplicitTop = 188
+                end
+              end
+              inherited grbStraightLine: TGroupBox
+                Left = 0
+                Top = 0
+                Width = 359
+                Height = 1951
+                Color = 2695445
+                ParentColor = False
+                ExplicitLeft = 0
+                ExplicitTop = 0
+                ExplicitWidth = 359
+                ExplicitHeight = 1951
+                inherited ScrollBox5: TScrollBox
+                  Width = 357
+                  Height = 1933
+                  BevelInner = bvNone
+                  BevelOuter = bvNone
+                  Color = 2695445
+                  ParentColor = False
+                  ExplicitWidth = 357
+                  ExplicitHeight = 1933
+                  inherited whHeading: TVrWheel
+                    Top = 17
+                    OnChange = fmPlatformGuidance1whHeadingChange
+                    ExplicitTop = 17
+                  end
+                  inherited lblStraightLineActualHeading: TLabel
+                    Left = 186
+                    Top = 153
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 186
+                    ExplicitTop = 153
+                  end
+                  inherited Label128: TLabel
+                    Left = 256
+                    Top = 176
+                    Width = 57
+                    Caption = 'degress T'
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 256
+                    ExplicitTop = 176
+                    ExplicitWidth = 57
+                  end
+                  inherited lblStraightLineActualGroundSpeed: TLabel
+                    Left = 186
+                    Top = 227
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 186
+                    ExplicitTop = 227
+                  end
+                  inherited Label126: TLabel
+                    Left = 256
+                    Top = 153
+                    Width = 57
+                    Caption = 'degress T'
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 256
+                    ExplicitTop = 153
+                    ExplicitWidth = 57
+                  end
+                  inherited Label125: TLabel
+                    Left = 256
+                    Top = 227
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 256
+                    ExplicitTop = 227
+                  end
+                  inherited Label124: TLabel
+                    Left = 256
+                    Top = 204
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 256
+                    ExplicitTop = 204
+                  end
+                  inherited Label123: TLabel
+                    Left = 29
+                    Top = 202
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 29
+                    ExplicitTop = 202
+                  end
+                  inherited Label122: TLabel
+                    Left = 256
+                    Top = 130
+                    Width = 57
+                    Caption = 'degress T'
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 256
+                    ExplicitTop = 130
+                    ExplicitWidth = 57
+                  end
+                  inherited Label121: TLabel
+                    Left = 29
+                    Top = 151
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 29
+                    ExplicitTop = 151
+                  end
+                  inherited lblStraightLineActuaCourse: TLabel
+                    Left = 186
+                    Top = 176
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 186
+                    ExplicitTop = 176
+                  end
+                  inherited Label119: TLabel
+                    Left = 29
+                    Top = 128
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 29
+                    ExplicitTop = 128
+                  end
+                  inherited edtStraightLineOrderedGroundSpeed: TEdit
+                    Left = 186
+                    Top = 202
+                    OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedGroundSpeedKeyPress
+                    ExplicitLeft = 186
+                    ExplicitTop = 202
+                  end
+                  inherited edtStraightLineOrderedHeading: TEdit
+                    Left = 186
+                    Top = 128
+                    OnKeyPress = fmPlatformGuidance1edtStraightLineOrderedHeadingKeyPress
+                    ExplicitLeft = 186
+                    ExplicitTop = 128
+                  end
+                  inherited StaticText87: TStaticText
+                    Left = 169
+                    Top = 202
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 169
+                    ExplicitTop = 202
+                  end
+                  inherited StaticText86: TStaticText
+                    Left = 169
+                    Top = 225
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 169
+                    ExplicitTop = 225
+                  end
+                  inherited StaticText85: TStaticText
+                    Left = 169
+                    Top = 174
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 169
+                    ExplicitTop = 174
+                  end
+                  inherited StaticText84: TStaticText
+                    Left = 169
+                    Top = 151
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 169
+                    ExplicitTop = 151
+                  end
+                  inherited StaticText83: TStaticText
+                    Left = 169
+                    Top = 128
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 169
+                    ExplicitTop = 128
+                  end
+                  inherited StaticText82: TStaticText
+                    Left = 29
+                    Top = 225
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 29
+                    ExplicitTop = 225
+                  end
+                  inherited StaticText81: TStaticText
+                    Left = 29
+                    Top = 174
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 29
+                    ExplicitTop = 174
+                  end
+                  inherited panDepth: TPanel
+                    Left = 26
+                    Top = 254
+                    Width = 259
+                    ExplicitLeft = 26
+                    ExplicitTop = 254
+                    ExplicitWidth = 259
+                    inherited lbl1: TLabel
+                      Left = 3
+                      Top = 0
+                      Font.Color = clWhite
+                      ParentFont = False
+                      ExplicitLeft = 3
+                      ExplicitTop = 0
+                    end
+                    inherited lbl2: TLabel
+                      Left = 160
+                      Top = 25
+                      Font.Color = clWhite
+                      ParentFont = False
+                      ExplicitLeft = 160
+                      ExplicitTop = 25
+                    end
+                    inherited lbl3: TLabel
+                      Left = 230
+                      Font.Color = clWhite
+                      ParentFont = False
+                      ExplicitLeft = 230
+                    end
+                    inherited lbl4: TLabel
+                      Left = 230
+                      Top = 25
+                      Font.Color = clWhite
+                      ParentFont = False
+                      ExplicitLeft = 230
+                      ExplicitTop = 25
+                    end
+                    inherited txt1: TStaticText
+                      Left = 3
+                      Top = 23
+                      Font.Color = clWhite
+                      ParentFont = False
+                      ExplicitLeft = 3
+                      ExplicitTop = 23
+                    end
+                    inherited txt2: TStaticText
+                      Left = 143
+                      Top = 0
+                      Font.Color = clWhite
+                      ParentFont = False
+                      ExplicitLeft = 143
+                      ExplicitTop = 0
+                    end
+                    inherited txt3: TStaticText
+                      Left = 143
+                      Top = 23
+                      Font.Color = clWhite
+                      ParentFont = False
+                      ExplicitLeft = 143
+                      ExplicitTop = 23
+                    end
+                    inherited edt1: TEdit
+                      Left = 160
+                      Top = -1
+                      ExplicitLeft = 160
+                      ExplicitTop = -1
+                    end
+                  end
+                  inherited panAltitude: TPanel
+                    Left = 26
+                    Top = 254
+                    Width = 259
+                    Font.Color = clWhite
+                    ParentFont = False
+                    ExplicitLeft = 26
+                    ExplicitTop = 254
+                    ExplicitWidth = 259
+                    inherited Label57: TLabel
+                      Left = 3
+                      Top = 0
+                      ExplicitLeft = 3
+                      ExplicitTop = 0
+                    end
+                    inherited lblActualAltitude: TLabel
+                      Left = 160
+                      Top = 25
+                      ExplicitLeft = 160
+                      ExplicitTop = 25
+                    end
+                    inherited Label63: TLabel
+                      Left = 230
+                      ExplicitLeft = 230
+                    end
+                    inherited Label65: TLabel
+                      Left = 230
+                      Top = 25
+                      ExplicitLeft = 230
+                      ExplicitTop = 25
+                    end
+                    inherited StaticText105: TStaticText
+                      Left = 3
+                      Top = 23
+                      ExplicitLeft = 3
+                      ExplicitTop = 23
+                    end
+                    inherited StaticText107: TStaticText
+                      Left = 143
+                      Top = 0
+                      ExplicitLeft = 143
+                      ExplicitTop = 0
+                    end
+                    inherited StaticText111: TStaticText
+                      Left = 143
+                      Top = 23
+                      ExplicitLeft = 143
+                      ExplicitTop = 23
+                    end
+                    inherited edOrderAltitude: TEdit
+                      Left = 160
+                      Top = -1
+                      OnKeyPress = fmPlatformGuidance1edOrderAltitudeKeyPress
+                      ExplicitLeft = 160
+                      ExplicitTop = -1
+                    end
+                  end
+                end
+              end
+            end
+            inherited pmGuidance: TPopupMenu
+              Left = 178
+              Top = 438
+              inherited mnStraightLine1: TMenuItem
+                OnClick = fmPlatformGuidance1mnStraightLine1Click
+              end
+              inherited mnHelm1: TMenuItem
+                Visible = False
+              end
+              inherited mnCircle: TMenuItem
+                Visible = False
+              end
+              inherited mnStation: TMenuItem
+                Visible = False
+              end
+              inherited mnZigzag1: TMenuItem
+                Visible = False
+                inherited Short1: TMenuItem
+                  OnClick = fmPlatformGuidance1Short1Click
+                end
+                inherited Long1: TMenuItem
+                  OnClick = fmPlatformGuidance1Long1Click
+                end
+                inherited VeryLong1: TMenuItem
+                  OnClick = fmPlatformGuidance1VeryLong1Click
+                end
+              end
+              inherited mnSinuation1: TMenuItem
+                Visible = False
+              end
+              inherited mnFormation2: TMenuItem
+                Visible = False
+              end
+              inherited mnEvasion1: TMenuItem
+                Visible = False
+              end
+              inherited mnOutrun1: TMenuItem
+                Visible = False
+                OnClick = fmPlatformGuidance1mnOutrun1Click
+              end
+              inherited mnEngagement1: TMenuItem
+                Visible = False
+              end
+              inherited mnShadow1: TMenuItem
+                Visible = False
+              end
+              inherited mnReturntoBase1: TMenuItem
+                Visible = False
+              end
+              inherited mnPersonelGudance1: TMenuItem
+                OnClick = fmPlatformGuidance1PersonelGudance1Click
+              end
+            end
+            inherited pmCircleMode: TPopupMenu
+              Left = 16
+              Top = 440
+            end
+            inherited pmCircleDirection: TPopupMenu
+              Left = 80
+              Top = 440
+            end
+            inherited pmCircleBearingDegree: TPopupMenu
+              Left = 48
+              Top = 440
+            end
+            inherited pmPersonalGuidance: TPopupMenu
+              Left = 112
+              Top = 440
+            end
+            inherited pmPersonalFormation: TPopupMenu
+              Left = 144
+              Top = 440
+            end
+          end
+        end
         object pnlShipInformationNone: TPanel
           Left = 1
           Top = 1
@@ -11878,7 +11880,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Caption = 'FROZEN'
         Color = clRed
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Height = -17
         Font.Name = 'System'
         Font.Style = [fsBold]

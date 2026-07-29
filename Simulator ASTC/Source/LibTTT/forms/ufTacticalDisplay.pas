@@ -3948,17 +3948,20 @@ begin
               begin
                 if frmRuler.IsStart then      {koordianat awal bukan object}
                 begin
+
                   frmRuler.StartPosX := mx;
                   frmRuler.StartPosY := my;
                   frmRuler.STempX := frmRuler.StartPosX;
-                  frmRuler.STempY := frmRuler.StartPosY
+                  frmRuler.STempY := frmRuler.StartPosY;
+
                 end
                 else if frmRuler.IsEnd then    {koordinat akhir bukan object}
                 begin
                   frmRuler.EndPosX := mx;
                   frmRuler.EndPosY := my;
                   frmRuler.ETempX := frmRuler.StartPosX;
-                  frmRuler.ETempY := frmRuler.StartPosY
+                  frmRuler.ETempY := frmRuler.StartPosY;
+
                 end;
               end;
 
@@ -3992,14 +3995,34 @@ begin
                 frmRuler.StartPosX := mx;
                 frmRuler.StartPosY := my;
                 frmRuler.STempX := frmRuler.StartPosX;
-                frmRuler.STempY := frmRuler.StartPosY
+                frmRuler.STempY := frmRuler.StartPosY;
+
+                if frmRuler.IsFirst then
+                begin
+                  frmRuler.EndPosX := mx;
+                  frmRuler.EndPosY := my;
+                  frmRuler.ETempX := frmRuler.StartPosX;
+                  frmRuler.ETempY := frmRuler.StartPosY;
+
+                  frmRuler.IsFirst := False;
+                end;
               end
               else if frmRuler.IsEnd then    {koordinat akhir bukan object}
               begin
                 frmRuler.EndPosX := mx;
                 frmRuler.EndPosY := my;
                 frmRuler.ETempX := frmRuler.StartPosX;
-                frmRuler.ETempY := frmRuler.StartPosY
+                frmRuler.ETempY := frmRuler.StartPosY;
+
+                if frmRuler.IsFirst then
+                begin
+                  frmRuler.StartPosX := mx;
+                  frmRuler.StartPosY := my;
+                  frmRuler.STempX := frmRuler.StartPosX;
+                  frmRuler.STempY := frmRuler.StartPosY;
+
+                  frmRuler.IsFirst := False;
+                end;
               end;
               frmRuler.FillEditText;
             end;
@@ -6279,11 +6302,11 @@ begin
           {$REGION ' BawahAir '}
           {$ENDREGION}
         end;
-        4:
-        begin
-          {$REGION ' General '}
-          {$ENDREGION}
-        end;
+//        4:
+//        begin
+//          {$REGION ' General '}
+//          {$ENDREGION}
+//        end;
       end;
       begin
         {Hide Menu}

@@ -39,6 +39,7 @@ type
     procedure edtRulerEndPosLatKeyPress(Sender: TObject; var Key: Char);
     procedure edtRulerEndPosLongKeyPress(Sender: TObject; var Key: Char);
     procedure FormActivate(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
 
   private
@@ -56,7 +57,7 @@ type
     { Public declarations }
 
     ruler : TDrawRuler;
-    IsSelected ,IsStart,IsEnd, IsSVisible,IsEVisible : Boolean;
+    IsSelected ,IsStart,IsEnd, IsSVisible,IsEVisible, IsFirst : Boolean;
     IdSRulerTrackIndex, IdERulerTrackIndex : Integer;
     STempX,STempY,ETempX,ETempY : Double;
 
@@ -276,6 +277,11 @@ procedure TfrmRuler.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   frmTacticalDisplay.Map1.CurrentTool := mtSelectObject;
   simMgrClient.DrawRuler.IsVisible := False;
+end;
+
+procedure TfrmRuler.FormCreate(Sender: TObject);
+begin
+  IsFirst := True;
 end;
 
 procedure TfrmRuler.FormShow(Sender: TObject);

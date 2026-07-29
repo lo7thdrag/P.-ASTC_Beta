@@ -17,6 +17,7 @@ object frmRuler: TfrmRuler
   Position = poScreenCenter
   OnActivate = FormActivate
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13

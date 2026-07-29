@@ -145,7 +145,7 @@ end;
 
 procedure TfrmLeftNav.lblActualHeadingClick(Sender: TObject);
 begin
-  FVTgtHeading := StrToFloat(lblActualHeading.Caption);
+//  FVTgtHeading := StrToFloat(lblActualHeading.Caption);
 end;
 
 procedure TfrmLeftNav.Refresh_EnvirontmentTab;
@@ -298,21 +298,21 @@ end;
 
 procedure TfrmLeftNav.timerHeadingTimer(Sender: TObject);
 begin
- if Round(FVTgtHeading) <> Round(FVCurHeading) then
-  begin
-    if ((FVTgtHeading - FVCurHeading) <= 180) and ((FVTgtHeading - FVCurHeading) > 0) then
-    begin
-      //rotate cw (r)
-      FVCurHeading := FVCurHeading + 1;
-    end
-    else
-    begin
-      //rotate ccw (l)
-      FVCurHeading := FVCurHeading - 1;
-    end;
-
-    RotateAndDisplayFixedSize(image17, FOriginalPngTrainning, FVCurHeading);
-  end
+// if Round(FVTgtHeading) <> Round(FVCurHeading) then
+//  begin
+//    if ((FVTgtHeading - FVCurHeading) <= 180) and ((FVTgtHeading - FVCurHeading) > 0) then
+//    begin
+//      //rotate cw (r)
+//      FVCurHeading := FVCurHeading + 1;
+//    end
+//    else
+//    begin
+//      //rotate ccw (l)
+//      FVCurHeading := FVCurHeading - 1;
+//    end;
+//
+//    RotateAndDisplayFixedSize(image17, FOriginalPngTrainning, FVCurHeading);
+//  end
 end;
 
 procedure TfrmLeftNav.UpdateFormData;

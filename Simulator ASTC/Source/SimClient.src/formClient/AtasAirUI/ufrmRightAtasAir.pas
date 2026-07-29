@@ -715,6 +715,48 @@ type
     lbl247: TLabel;
     lbl248: TLabel;
     lbl249: TLabel;
+    ScrollBox5: TScrollBox;
+    Bevel17: TBevel;
+    Bevel18: TBevel;
+    Bevel5: TBevel;
+    Bevel6: TBevel;
+    btnWakeHomingTargetTrack: TSpeedButton;
+    btnWHBlindHide: TSpeedButton;
+    btnWHBlindShow: TSpeedButton;
+    btnWHDefaultSeekerRange: TButton;
+    btnWHLaunch: TButton;
+    btnWHRangeHide: TSpeedButton;
+    btnWHRangeShow: TSpeedButton;
+    EdtWHLaunchBearing: TEdit;
+    EdtWHSalvo: TEdit;
+    EdtWHSeekerRange: TEdit;
+    EdtWHTargetTrack: TEdit;
+    Label23: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label30: TLabel;
+    Label31: TLabel;
+    Label32: TLabel;
+    Label33: TLabel;
+    Label34: TLabel;
+    Label35: TLabel;
+    Label37: TLabel;
+    Label43: TLabel;
+    Label44: TLabel;
+    Label45: TLabel;
+    Label46: TLabel;
+    Label47: TLabel;
+    Label48: TLabel;
+    Label53: TLabel;
+    Label55: TLabel;
+    lblWHQuantity: TLabel;
+    lblWHStatus: TLabel;
+    lblWHTargetBearing: TLabel;
+    lblWHTargetIdentity: TLabel;
+    Label21: TLabel;
   private
     { Private declarations }
   public

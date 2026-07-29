@@ -759,6 +759,9 @@ type
     pnlGameState: TPanel;
     pnlContentNone: TPanel;
     txt2: TStaticText;
+    lbl86: TLabel;
+    lbl17: TLabel;
+    pnlShipInformationNone: TPanel;
 
 //    ToolBtnComm: TToolButton;
 

@@ -120826,7 +120826,7 @@ object frmLeftNav: TfrmLeftNav
         Font.Style = []
         ParentFont = False
       end
-      object Panel5: TPanel
+      object pnlCompass: TPanel
         Left = 9
         Top = 205
         Width = 337
@@ -151144,12 +151144,13 @@ object frmLeftNav: TfrmLeftNav
             082429A4674E6D434C621949CE2C21C92D8BD923DB4F55F65F6756249357A573
             389CA0E6FF0170D486D5B982742D0000000049454E44AE426082}
           Stretch = True
+          Transparent = True
         end
         object Image17: TImage
-          Left = 206
-          Top = 69
-          Width = 65
-          Height = 65
+          Left = 188
+          Top = 52
+          Width = 100
+          Height = 100
           Transparent = True
         end
         object lbl3: TLabel

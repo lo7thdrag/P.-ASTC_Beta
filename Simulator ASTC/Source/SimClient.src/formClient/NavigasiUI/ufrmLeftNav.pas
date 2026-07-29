@@ -48,7 +48,7 @@ type
     lblDepthNav: TLabel;
     pnlShipInformation: TPanel;
     lblShipName: TLabel;
-    Panel5: TPanel;
+    pnlCompass: TPanel;
     Image3: TImage;
     Label4: TLabel;
     lblActualHeading: TLabel;
@@ -134,8 +134,11 @@ procedure TfrmLeftNav.FormCreate(Sender: TObject);
 begin
   FOriginalPngTrainning := TPngImage.Create;
   FOriginalPngTrainning.LoadFromFile('data\Image Simulator\Navigasi\compass.png');
+  FOriginalPngTrainning.Transparent := True;
 
   EnableComposited(pnlContent);
+  EnableComposited(pnlCompass);
+
 end;
 
 procedure TfrmLeftNav.FormDestroy(Sender: TObject);

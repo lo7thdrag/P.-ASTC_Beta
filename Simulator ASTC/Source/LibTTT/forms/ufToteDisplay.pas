@@ -2093,9 +2093,6 @@ begin
   gbEnvironmentStatus.BringToFront;
   ge := (simMgrClient).GameEnvironment;
 
-//  Label111.Caption := Char(176) + 'C';
-//  Label108.Caption := Char(176) + 'C';
-
   with ge.FData do
   begin
     lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);
@@ -2170,52 +2167,52 @@ begin
       0 :
       begin
         lblSeaStatDesc.Caption           := 'Calm (glassy)';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Sea.png');
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
       end;
       1 :
       begin
         lblSeaStatDesc.Caption           := 'Calm (rippled)';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Sea.png');
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
       end;
       2 :
       begin
         lblSeaStatDesc.Caption           := 'Smooth (wavelets)';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Sea.png');
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
       end;
       3 :
       begin
         lblSeaStatDesc.Caption           := 'Slight';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\4_Sea.png');
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
       end;
       4 :
       begin
         lblSeaStatDesc.Caption           := 'Moderate';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\5_Sea.png');
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
       end;
       5 :
       begin
         lblSeaStatDesc.Caption           := 'Rough';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\6_Sea.png');
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
       end;
       6 :
       begin
         lblSeaStatDesc.Caption           := 'Very rough';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\7_Sea.png');
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
       end;
       7 :
       begin
         lblSeaStatDesc.Caption           := 'High';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
       end;
       8 :
       begin
         lblSeaStatDesc.Caption           := 'Very high';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
       end;
       9,10 :
       begin
         lblSeaStatDesc.Caption        := 'Phenomenal';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
       end;
     end;
 
@@ -2223,7 +2220,7 @@ begin
       0 :
       begin
         lblRainRateDesc.Caption     := 'Sunny';
-        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Rain.png');
+        imgRainState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Rain.png');
         imgSunDisplay.Visible := True;
         pnlEnvironmentDisplay.Color := $00FFFDDD;
         pnlRainDisplay.Color := $00FFFDDD;
@@ -2232,7 +2229,7 @@ begin
       1 :
       begin
         lblRainRateDesc.Caption     := 'Light Rain';
-        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Rain.png');
+        imgRainState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Rain.png');
         imgSunDisplay.Visible := True;
         pnlEnvironmentDisplay.Color := $00BAB9A5;
         pnlRainDisplay.Color := $00BAB9A5;
@@ -2241,7 +2238,7 @@ begin
       2 :
       begin
         lblRainRateDesc.Caption     := 'Heavy Rain';
-        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Rain.png');
+        imgRainState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Rain.png');
         imgSunDisplay.Visible := False;
         pnlEnvironmentDisplay.Color := $00969585;
         pnlRainDisplay.Color := $00969585;
@@ -2253,7 +2250,7 @@ begin
       0 :
       begin
         lblCloudAttenDesc.Caption     := 'No Fog';
-        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Cloud.png');
+        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
         Fogstate:= 'FOG1';
         if Rain_Rate = 0 then
         begin
@@ -2274,7 +2271,7 @@ begin
       1 :
       begin
         lblCloudAttenDesc.Caption     := 'Slightly Foggy';
-        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Cloud.png');
+        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Cloud.png');
         Fogstate:= 'FOG2';
         if Rain_Rate = 0 then
         begin
@@ -2295,7 +2292,7 @@ begin
       2 :
       begin
         lblCloudAttenDesc.Caption     := 'Foggy';
-        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Cloud.png');
+        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Cloud.png');
         Fogstate:= 'FOG2';
         if Rain_Rate = 0 then
         begin
@@ -2316,7 +2313,7 @@ begin
       3 :
       begin
         lblCloudAttenDesc.Caption     := 'Very Foggy';
-        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\4_Cloud.png');
+        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Cloud.png');
         Fogstate:= 'FOG3';
         if Rain_Rate = 0 then
         begin
@@ -2340,10 +2337,10 @@ begin
     lblSurfaceTemp.Caption                := FormatFloat('0.0', Surface_Temperature);
 
     //lOAD FOR DISPLAY
-    imgRainStateDisplay.Picture.LoadFromFile('data\Image Interface\Tote\' + Fogstate + '\cloud\' + (Rain_Rate + 1).ToString + '.png');
-    imgSeaStateDisplay.Picture.LoadFromFile('data\Image Interface\Tote\' + Fogstate + '\wave\' + (Sea_State + 1).ToString + '.png');
-    imgRainDisplay.Picture.LoadFromFile('data\Image Interface\Tote\' + Fogstate + '\Rain\' + (Rain_Rate + 1).ToString + '.png');
-    imgSunDisplay.Picture.LoadFromFile('data\Image Interface\Tote\' + Fogstate + '\Sun\' + '1.png');
+    imgRainStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\cloud\' + (Rain_Rate + 1).ToString + '.png');
+    imgSeaStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\wave\' + (Sea_State + 1).ToString + '.png');
+    imgRainDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Rain\' + (Rain_Rate + 1).ToString + '.png');
+    imgSunDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Sun\' + '1.png');
   end;
 
 //  SetImageAlpha(img1,200);
@@ -19113,10 +19110,10 @@ begin
     lblSurfaceTemp.Caption                := FormatFloat('0.0', Surface_Temperature);
 
     //lOAD FOR DISPLAY
-    imgRainStateDisplay.Picture.LoadFromFile('data\Image Interface\Tote\' + Fogstate + '\cloud\' + (Rain_Rate + 1).ToString + '.png');
-    imgSeaStateDisplay.Picture.LoadFromFile('data\Image Interface\Tote\' + Fogstate + '\wave\' + (Sea_State + 1).ToString + '.png');
-    imgRainDisplay.Picture.LoadFromFile('data\Image Interface\Tote\' + Fogstate + '\Rain\' + (Rain_Rate + 1).ToString + '.png');
-    imgSunDisplay.Picture.LoadFromFile('data\Image Interface\Tote\' + Fogstate + '\Sun\' + '1.png');
+    imgRainStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\cloud\' + (Rain_Rate + 1).ToString + '.png');
+    imgSeaStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\wave\' + (Sea_State + 1).ToString + '.png');
+    imgRainDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Rain\' + (Rain_Rate + 1).ToString + '.png');
+    imgSunDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Sun\' + '1.png');
   end;
 
 //  SetImageAlpha(img1,200);

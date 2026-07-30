@@ -708,6 +708,8 @@ type
     function CekSyaratTransfer(id : integer; supplierShip : TT3Vehicle; TrfPerSecond: Double): Boolean;
     function cekCollision: Boolean;
     function cekDisembarkProses: Boolean;
+
+    function GetDraftInMeter: Double;
     // function QueryInterface(const IID: TGUID; out Obj): HRESULT; stdcall;
 
     procedure RepositionTo(const x, y: double); override;
@@ -1609,6 +1611,16 @@ begin
     dev := Devices.Items[i];
     if dev.ClassType = DevClass then
       result := result + 1;
+  end;
+end;
+
+function TT3Vehicle.GetDraftInMeter: Double;
+begin
+  Result := 0.0;
+
+  if (Self <> nil) and (UnitDefinition <> nil) and (UnitDefinition is TVehicle_Definition) then
+  begin
+    Result := TVehicle_Definition(UnitDefinition).FData.Draft * C_Feet_To_Meter;
   end;
 end;
 

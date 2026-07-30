@@ -15,7 +15,6 @@ type
   TfrmLeftNav = class(TForm)
     pnlContent: TPanel;
     pnlEnvironment: TPanel;
-    imgMainBackgorund: TImage;
     Label5: TLabel;
     pnlAboveWater: TPanel;
     Image1: TImage;
@@ -27,7 +26,6 @@ type
     lblDirectionWindTrue: TLabel;
     Panel4: TPanel;
     Panel1: TPanel;
-    Image5: TImage;
     Label3: TLabel;
     lblOceanCurrentSpeed: TLabel;
     Label15: TLabel;
@@ -64,10 +62,7 @@ type
     Label11: TLabel;
     Label20: TLabel;
     Panel10: TPanel;
-    Image2: TImage;
     timerHeading: TTimer;
-    pnlSparator1: TPanel;
-    pnlSparator2: TPanel;
     lbl2: TLabel;
     lbl3: TLabel;
     lbl4: TLabel;
@@ -83,12 +78,16 @@ type
     Label14: TLabel;
     Bevel7: TBevel;
     Label22: TLabel;
-    Edit1: TEdit;
     Image6: TImage;
     Image8: TImage;
     Image9: TImage;
     Image10: TImage;
     Image11: TImage;
+    pnlSparator2: TPanel;
+    Image5: TImage;
+    Image12: TImage;
+    Image2: TImage;
+    lblStatus: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure timerHeadingTimer(Sender: TObject);
@@ -101,6 +100,7 @@ type
 
     procedure Refresh_OwnShipTab;
     procedure Refresh_EnvirontmentTab;
+    procedure Refresh_Draft;
 
     procedure RotateAndDisplayFixedSize(TargetImage: TImage; SourcePng: TPngImage; Angle: Extended);
 
@@ -154,6 +154,35 @@ end;
 procedure TfrmLeftNav.lblActualHeadingClick(Sender: TObject);
 begin
 //  FVTgtHeading := StrToFloat(lblActualHeading.Caption);
+end;
+
+procedure TfrmLeftNav.Refresh_Draft;
+var
+  vVehicle: TT3Vehicle;
+begin
+  if (simMgrClient <> nil) and
+     (simMgrClient.ControlledPlatform <> nil) and
+     (simMgrClient.ControlledPlatform is TT3Vehicle) then
+  begin
+    vVehicle := TT3Vehicle(simMgrClient.ControlledPlatform);
+
+    lblDraft.Caption := Format('%.1f', [vVehicle.GetDraftInMeter]);
+
+    {$REGION ' Ground Status '}
+    if vVehicle.OnGrounded then
+      lblStatus.Caption := 'On Grounded'
+    else
+    if vVehicle.OnLand then
+      lblStatus.Caption := 'On Land'
+    else
+      lblStatus.Caption := 'On Sea';
+    {$ENDREGION}
+  end
+  else
+  begin
+    lblDraft.Caption := '-';
+    lblStatus.Caption := '-';
+  end;
 end;
 
 procedure TfrmLeftNav.Refresh_EnvirontmentTab;
@@ -212,6 +241,8 @@ begin
 end;
 
 procedure TfrmLeftNav.Refresh_OwnShipTab;
+var
+  vVehicle: TT3Vehicle;
 begin
   if simMgrClient.ControlledPlatform <> nil then
   begin
@@ -222,7 +253,6 @@ begin
       lblCOG.Caption := FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).Course);
       lblSOG.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).Speed);
       lblSWT.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).OrderedSpeed);
-//      lblDraft.Caption  := ;
 
       RotateAndDisplayFixedSize(image17, FOriginalPngTrainning, TT3Vehicle(simMgrClient.ControlledPlatform).Heading)
     end;
@@ -328,6 +358,7 @@ procedure TfrmLeftNav.UpdateFormData;
 begin
   Refresh_EnvirontmentTab;
   Refresh_OwnShipTab;
+  Refresh_Draft;
 end;
 
 end.

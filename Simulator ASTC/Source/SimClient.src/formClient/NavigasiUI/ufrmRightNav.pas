@@ -8,13 +8,12 @@ uses
   VrWheel, Vcl.Buttons, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
 
   uT3Unit, uSimObjects, ufmControlled, Vcl.ComCtrls, ufmPlatformGuidance, ufmOwnShip,
-  Vcl.Menus;
+  Vcl.Menus, ufmSensor;
 
 type
   TfrmRightNav = class(TForm)
     pnlContainer: TPanel;
     pnlShipController: TPanel;
-    imgMainBackgorund: TImage;
     Image2: TImage;
     Label10: TLabel;
     pnlHookContactInfoTraineeDisplay: TPanel;
@@ -153,9 +152,16 @@ type
     pnlPlatformGuidance: TPanel;
     fmPlatformGuidance1: TfmPlatformGuidance;
     pnlGameStatus: TPanel;
-    img1: TImage;
     lbl1: TLabel;
     pnlGameState: TPanel;
+    pnlSensor: TPanel;
+    fmSensor1: TfmSensor;
+    imgMainBackgorund: TImage;
+    pnlSparator2: TPanel;
+    Image4: TImage;
+    Label21: TLabel;
+    Image1: TImage;
+    Image3: TImage;
     procedure THButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure fmPlatformGuidance1SpeedButton2Click(aTrack: TSimObject; Sender: TObject);
@@ -172,6 +178,7 @@ type
 
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure fmPlatformGuidance1btnWaypointClick(Sender: TObject);
   protected
     FControlled: TObject;
 
@@ -1246,6 +1253,14 @@ begin
 //      end;
       {$ENDREGION}
     end;
+  end;
+end;
+
+procedure TfrmRightNav.fmPlatformGuidance1btnWaypointClick(Sender: TObject);
+begin
+  if Assigned(Sender)then
+  begin
+    fmPlatformGuidance1.btnWaypointClick(Sender);
   end;
 end;
 

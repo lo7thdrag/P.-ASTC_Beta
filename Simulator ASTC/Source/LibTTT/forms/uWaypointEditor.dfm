@@ -1,17 +1,18 @@
 object frmWaypointEditor: TfrmWaypointEditor
   Left = 0
   Top = 0
-  BorderStyle = bsToolWindow
+  BorderStyle = bsDialog
   Caption = 'Waypoint Editor'
-  ClientHeight = 251
+  ClientHeight = 298
   ClientWidth = 513
-  Color = 5980694
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   ShowHint = True
   OnActivate = FormActivate
   OnClose = FormClose
@@ -35,7 +36,7 @@ object frmWaypointEditor: TfrmWaypointEditor
   object Bevel1: TBevel
     Left = 268
     Top = 16
-    Width = 224
+    Width = 236
     Height = 3
   end
   object Label2: TLabel
@@ -52,7 +53,7 @@ object frmWaypointEditor: TfrmWaypointEditor
     ParentFont = False
   end
   object btnControlComboInterval: TSpeedButton
-    Left = 486
+    Left = 481
     Top = 25
     Width = 24
     Height = 22
@@ -145,7 +146,7 @@ object frmWaypointEditor: TfrmWaypointEditor
     ParentFont = False
   end
   object btnAction: TSpeedButton
-    Left = 485
+    Left = 481
     Top = 219
     Width = 24
     Height = 22
@@ -215,21 +216,33 @@ object frmWaypointEditor: TfrmWaypointEditor
     OnClick = btnHideClick
   end
   object btnApply: TSpeedButton
-    Left = 315
+    Left = 333
     Top = 260
-    Width = 86
+    Width = 80
     Height = 30
     Caption = 'Apply'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
     NumGlyphs = 2
+    ParentFont = False
     OnClick = btnApplyClick
   end
   object btnCancel: TSpeedButton
-    Left = 407
+    Left = 425
     Top = 260
-    Width = 88
+    Width = 80
     Height = 30
     Caption = 'Close'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
     NumGlyphs = 2
+    ParentFont = False
     OnClick = btnCancelClick
   end
   object Label9: TLabel
@@ -596,7 +609,7 @@ object frmWaypointEditor: TfrmWaypointEditor
     TabOrder = 5
   end
   object edtTermination: TEdit
-    Left = 302
+    Left = 300
     Top = 220
     Width = 177
     Height = 21

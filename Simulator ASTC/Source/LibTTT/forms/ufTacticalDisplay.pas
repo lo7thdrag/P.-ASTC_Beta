@@ -8715,11 +8715,6 @@ begin // ini procedure update yg dipanggil dari sim client
         if Assigned(frmLeftNav) then
         begin
           frmLeftNav.UpdateFormData;
-
-//          if Assigned(frmLeftNav.lblActualHeading) and Assigned(fmPlatformGuidance1.lblStraightLineActualHeading) then
-//            frmLeftNav.lblActualHeading.Caption := fmPlatformGuidance1.lblStraightLineActualHeading.Caption;
-//
-//          frmLeftNav.FVTgtHeading := pi.Course;
         end;
         {$ENDREGION}
       end;

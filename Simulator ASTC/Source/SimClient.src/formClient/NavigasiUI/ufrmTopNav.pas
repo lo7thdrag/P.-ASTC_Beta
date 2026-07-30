@@ -15,7 +15,6 @@ type
     Panel1: TPanel;
     Panel10: TPanel;
     pnlTop: TPanel;
-    Image1: TImage;
     Label1: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -27,7 +26,6 @@ type
     lblTime: TLabel;
     lblTrackID: TLabel;
     Image2: TImage;
-    btnPlatformOp: TSpeedButton;
     Label2: TLabel;
     lblLong1: TLabel;
     lbl1: TLabel;
@@ -40,6 +38,8 @@ type
     Panel6: TPanel;
     Panel5: TPanel;
     Panel7: TPanel;
+    Image1: TImage;
+    Image3: TImage;
     procedure Timer1Timer(Sender: TObject);
     procedure tmr2Timer(Sender: TObject);
     procedure tmrUTCTimer(Sender: TObject);

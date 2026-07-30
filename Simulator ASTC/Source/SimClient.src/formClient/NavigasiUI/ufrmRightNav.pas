@@ -152,6 +152,10 @@ type
     lb5: TStaticText;
     pnlPlatformGuidance: TPanel;
     fmPlatformGuidance1: TfmPlatformGuidance;
+    pnlGameStatus: TPanel;
+    img1: TImage;
+    lbl1: TLabel;
+    pnlGameState: TPanel;
     procedure THButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure fmPlatformGuidance1SpeedButton2Click(aTrack: TSimObject; Sender: TObject);

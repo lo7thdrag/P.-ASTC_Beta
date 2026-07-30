@@ -25,8 +25,6 @@ type
     Label1: TLabel;
     Label13: TLabel;
     lblDirectionWindTrue: TLabel;
-    btnPlatformOp: TSpeedButton;
-    SpeedButton2: TSpeedButton;
     Panel4: TPanel;
     Panel1: TPanel;
     Image5: TImage;
@@ -36,8 +34,6 @@ type
     Label16: TLabel;
     lblOceanCurrentDirection: TLabel;
     Label19: TLabel;
-    SpeedButton1: TSpeedButton;
-    SpeedButton3: TSpeedButton;
     Panel8: TPanel;
     Panel9: TPanel;
     Image4: TImage;
@@ -72,10 +68,6 @@ type
     timerHeading: TTimer;
     pnlSparator1: TPanel;
     pnlSparator2: TPanel;
-    pnlGameStatus: TPanel;
-    lbl1: TLabel;
-    img1: TImage;
-    pnlGameState: TPanel;
     lbl2: TLabel;
     lbl3: TLabel;
     lbl4: TLabel;
@@ -84,6 +76,19 @@ type
     bvl1: TBevel;
     lbl6: TLabel;
     lbl7: TLabel;
+    Panel2: TPanel;
+    Label2: TLabel;
+    Bevel2: TBevel;
+    lblDraft: TLabel;
+    Label14: TLabel;
+    Bevel7: TBevel;
+    Label22: TLabel;
+    Edit1: TEdit;
+    Image6: TImage;
+    Image8: TImage;
+    Image9: TImage;
+    Image10: TImage;
+    Image11: TImage;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure timerHeadingTimer(Sender: TObject);
@@ -217,6 +222,7 @@ begin
       lblCOG.Caption := FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).Course);
       lblSOG.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).Speed);
       lblSWT.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).OrderedSpeed);
+//      lblDraft.Caption  := ;
 
       RotateAndDisplayFixedSize(image17, FOriginalPngTrainning, TT3Vehicle(simMgrClient.ControlledPlatform).Heading)
     end;

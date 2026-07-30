@@ -1225,6 +1225,7 @@ type
     procedure btnRulerClick(Sender: TObject);
     procedure btnMapToolsClick(Sender: TObject);
     procedure btnSelectClick(Sender: TObject);
+    procedure btnZoomIn1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -8277,6 +8278,17 @@ begin
   end;
 end;
 
+procedure TfrmTacticalDisplay.btnZoomIn1Click(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnZoom.Down := True;
+
+  Map1.CurrentTool := miZoomInTool;
+  Map1.MousePointer := miZoomInCursor;
+
+  FMapRulerCursor := mcSelect;
+end;
+
 procedure TfrmTacticalDisplay.btnZoomInClick(Sender: TObject);
 begin
   if cbbSetScale.Text = '25' then
@@ -13810,11 +13822,11 @@ begin
       1:
       begin
         {$REGION ' Navigasi '}
-        if Assigned(frmLeftNav) then
+        if Assigned(frmRightNav) then
         begin
-          frmLeftNav.pnlGameState.Color := clRed;
-          frmLeftNav.pnlGameState.Caption := 'FROZEN';
-          frmLeftNav.pnlGameState.Font.Color := clWhite;
+          frmRightNav.pnlGameState.Color := clRed;
+          frmRightNav.pnlGameState.Caption := 'FROZEN';
+          frmRightNav.pnlGameState.Font.Color := clWhite;
         end;
         {$ENDREGION}
       end;
@@ -13850,11 +13862,11 @@ begin
         1:
         begin
           {$REGION ' Navigasi '}
-          if Assigned(frmLeftNav) then
+          if Assigned(frmRightNav) then
           begin
-            frmLeftNav.pnlGameState.Color := clLime;
-            frmLeftNav.pnlGameState.Caption := '1/' + IntToStr(i) + ' X';
-            frmLeftNav.pnlGameState.Font.Color := clBlack;
+            frmRightNav.pnlGameState.Color := clLime;
+            frmRightNav.pnlGameState.Caption := '1/' + IntToStr(i) + ' X';
+            frmRightNav.pnlGameState.Font.Color := clBlack;
           end;
           {$ENDREGION}
         end;
@@ -13887,11 +13899,11 @@ begin
         1:
         begin
           {$REGION ' Navigasi '}
-          if Assigned(frmLeftNav) then
+          if Assigned(frmRightNav) then
           begin
-            frmLeftNav.pnlGameState.Color := clYellow;
-            frmLeftNav.pnlGameState.Caption := 'Percepatan ' + IntToStr(Round(gSpeed)) + ' X';
-            frmLeftNav.pnlGameState.Font.Color := clBlack;
+            frmRightNav.pnlGameState.Color := clYellow;
+            frmRightNav.pnlGameState.Caption := 'Percepatan ' + IntToStr(Round(gSpeed)) + ' X';
+            frmRightNav.pnlGameState.Font.Color := clBlack;
           end;
           {$ENDREGION}
         end;

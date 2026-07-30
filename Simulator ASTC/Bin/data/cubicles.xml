@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <t3groups>
   <controllers id="Controller" name="Controller Group">
-    <console ip="192.168.0.88" name="Instruktur 1" ></console>
+    <console ip="192.168.1.88" name="Instruktur 1" ></console>
     <console ip="192.168.1.20" name="Instruktur 2" ></console>
-    <console ip="192.168.1.30" name="Instruktur 3" ></console>
+    <console ip="192.168.97.203" name="Instruktur 3" ></console>
   </controllers>
   <cubicles>
     <cubicle id="CUBICLE_01" name="Cubicle 01">
-      <console ip="192.168.1.11" name="CUB 1 OPR 01"></console>
-      <console ip="192.168.1.12" name="CUB 1 OPR 02"></console>
+      <console ip="192.168.0.88" name="CUB 1 OPR 01"></console>
+      <console ip="192.168.16.203" name="CUB 1 OPR 02"></console>
       <console ip="192.168.1.13" name="CUB 1 OPR 03"></console>
       <console ip="192.168.1.14" name="CUB 1 OPR 04"></console>
       <console ip="192.168.1.15" name="WATCH 1"></console>

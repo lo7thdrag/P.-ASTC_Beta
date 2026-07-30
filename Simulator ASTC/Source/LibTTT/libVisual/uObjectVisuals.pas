@@ -2092,28 +2092,42 @@ begin
 end;
 
 procedure TTacticalSymbolVisual.Draw(aCanvas: TCanvas);
-var sz: TSize;
-    hw, hh: Integer;
-    pt: TPoint;
+var
+  sz: TSize;
+  hw, hh: Integer;
+  pt: TPoint;
 
+  qx, qy : Integer;
   lf : TLogFont;
   tf : TFont;
   q : TPoint;
   sinX, cosX : extended;
+
+  FRotation : integer;
+  FHeading   : double;
+
   rDraw : TRect;
 
 begin
   inherited;
 
-   with aCanvas do begin
+  with aCanvas do
+  begin
     Font.Name  :=  FontName;
     Font.Size  :=  Size;
     Font.Color :=  Color;
     Font.Style := [fsBold];
 
+    {$REGION ' Digunakan untuk memutar simbol platform '}
+
+    FRotation := Round( 10.0 * (90.0 - FDegr ));
+    FHeading := DegToRad(90.0 - FDegr);
     tf := TFont.Create;
     tf.Assign(Font);
     GetObject(tf.Handle, sizeof(lf), @lf);
+
+    lf.lfEscapement  :=  FRotation;
+    lf.lfOrientation :=  FRotation;
 
     tf.Handle := CreateFontIndirect(lf);
     Font.Assign(tf);
@@ -2122,20 +2136,18 @@ begin
     SetTextAlign(handle, TA_CENTER or VTA_CENTER);
     sz := TextExtent(CharSymbol);
 
-    hw := (sz.cx + 1) shr 1;
-    hh := (sz.cy + 2) shr 1;
-
-    pt.X := Center.X + 4;// - hw;
-    pt.Y := Center.Y - hh - 1;
-
     SetBkMode(Handle, TRANSPARENT);
+    SinCos(FHeading , sinX, cosX );
 
-    //Font.Orientation := FDegr * 10;
+    pt.X := Center.X - Floor( 0.5 * sz.cy * sinX);
+    pt.Y := Center.Y - Floor( 0.5 * sz.cy * cosX);
+
     TextOut(pt.X , pt.Y,  CharSymbol);
     Font.Style := [];
 
     Brush.Style := bsClear;
 
+    {$ENDREGION}
 
     FRectArea.Left := Center.X - ( sz.cy div 2 );
     FRectArea.Top  := Center.y - ( sz.cy div 2 );
@@ -2152,10 +2164,6 @@ begin
         Pen.Color := FColorSelected;
         Brush.Style := bsClear;
 
-//        Rectangle(
-//            FRectArea.Left - 2, FRectArea.Top - 2,
-//            FRectArea.Right + 2,FRectArea.Bottom + 2);
-
         rDraw := Rect(FRectArea.Left - 2, FRectArea.Top -2, FRectArea.Right +2, FRectArea.Bottom + 2);
 
         DrawRectFrameWithoutbsClear(aCanvas, rDraw);
@@ -2171,14 +2179,11 @@ begin
         Pen.Color := clWhite;
         Brush.Style := bsClear;
 
-//        Rectangle(FRectArea);
         rDraw := Rect(FRectArea.Left - 2, FRectArea.Top -2, FRectArea.Right +2, FRectArea.Bottom + 2);
 
         DrawRectFrameWithoutbsClear(aCanvas, rDraw);
-
       end;
     end;
-
   end;
 
 end;
@@ -2435,6 +2440,12 @@ end;
 procedure TPlatformInfoBalloon.Draw(aCanvas: TCanvas);
 var
   i : Integer;
+  qx, qy : Integer;
+  lf : TLogFont;
+  tf : TFont;
+  sz: TSize;
+  sinX, cosX : extended;
+
 begin
   inherited;
 
@@ -2446,8 +2457,23 @@ begin
     Brush.Style := bsSolid;
 
     Font.Name := 'Courier';
-    Font.Size := 7;
     Font.Color := Color;
+
+    {$REGION ' Digunakan untuk menstabilkan font agar tidak ikut berputar'}
+    tf := TFont.Create;
+    tf.Assign(Font);
+    GetObject(tf.Handle, sizeof(lf), @lf);
+
+    lf.lfEscapement  := 0;
+    lf.lfOrientation := 0;
+
+    tf.Handle := CreateFontIndirect(lf);
+    Font.Assign(tf);
+    tf.Free;
+    {$ENDREGION}
+
+    Font.Size := 7;
+
     SetBkMode(aCanvas.Handle, TRANSPARENT);
     SetTextAlign(Handle, TA_CENTER or VTA_CENTER);
 
@@ -2468,7 +2494,9 @@ begin
     Rectangle(FRect);
 
     for i := 0 to Length(FCallSigns) - 1 do
+    begin
       TextOut(FBalloonCenter.X, FRect.Top + (i * 14), FCallSigns[i]);
+    end;
   end;
 end;
 

@@ -1549,16 +1549,16 @@ procedure TfrmTacticalDisplay.Be_A_FullMap(const full: Boolean);
 begin
   pnlLeft.Visible := NOT full;
 
-  if full then
-  begin
-    WindowState := wsMaximized;
-    BorderStyle := bsNone;
-  end
-  else
-  begin
-    WindowState := wsNormal;
-    BorderStyle := bsSingle;
-  end;
+//  if full then
+//  begin
+//    WindowState := wsMaximized;
+//    BorderStyle := bsNone;
+//  end
+//  else
+//  begin
+//    WindowState := wsNormal;
+//    BorderStyle := bsSingle;
+//  end;
 end;
 
 procedure TfrmTacticalDisplay.ClearforAllTracks1Click(Sender: TObject);

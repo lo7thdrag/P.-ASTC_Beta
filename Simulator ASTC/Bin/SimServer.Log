@@ -1,0 +1,26 @@
+<30 Jul 2026 14:33:02> [TT3Unit.SetInstanceIndex] InstanceName : Ahmad Yani - 351 ; InstanceIndex : 30740
+<30 Jul 2026 14:33:02> [TT3Unit.SetInstanceIndex] InstanceName : Karel Satsuitubun - 356 ; InstanceIndex : 30741
+-------------------------------------------------
+<15 Jul 2026 10:29:33> [TSimMgr_Server.LoadScenarioID] Load Peta
+-------------------------------------------------
+<15 Jul 2026 10:29:33> [TSimMgr_Server.LoadScenarioID] D:\Map\GST_GAME\NOTC\Game Area Percobaan\Game Area Percobaan.gst
+-------------------------------------------------
+<15 Jul 2026 10:29:33> [TSimMgr_Server.FNetServerOnClientConnect] 192.168.38.203: _ONLINE_ 
+-------------------------------------------------
+<15 Jul 2026 10:29:33> [TSimMgr_Server.netRecv_TCPRequest] 192.168.38.203: CPID_TCP_REQUEST                  :  Cubicle Assignment
+<15 Jul 2026 10:29:33> [TSimMgr_Server.netSend_CubicleAssignInfo] Cubicle Count : 0
+-------------------------------------------------
+<15 Jul 2026 10:29:33> [TSimMgr_Server.netRecv_TCPRequest] 192.168.38.203: CPID_TCP_REQUEST                  :  Synch Game Ctrl Info
+-------------------------------------------------
+<15 Jul 2026 10:29:33> [TSimMgr_Server.netRecv_TCPRequest] 192.168.38.203: CPID_TCP_REQUEST                  :  Synch Missed Packet
+-------------------------------------------------
+<15 Jul 2026 10:30:45> [TSimMgr_Server.FNetServerOnClientDisConnect] 192.168.38.203: _OFFLINE_ 
+-------------------------------------------------
+<15 Jul 2026 10:32:17> [TSimMgr_Server.FNetServerOnClientConnect] 192.168.38.203: _ONLINE_ 
+-------------------------------------------------
+<15 Jul 2026 10:32:18> [TSimMgr_Server.netRecv_TCPRequest] 192.168.38.203: CPID_TCP_REQUEST                  :  Cubicle Assignment
+<15 Jul 2026 10:32:18> [TSimMgr_Server.netSend_CubicleAssignInfo] Cubicle Count : 0
+-------------------------------------------------
+<15 Jul 2026 10:32:18> [TSimMgr_Server.netRecv_TCPRequest] 192.168.38.203: CPID_TCP_REQUEST                  :  Synch Game Ctrl Info
+-------------------------------------------------
+<15 Jul 2026 10:32:18> [TSimMgr_Server.netRecv_TCPRequest] 192.168.38.203: CPID_TCP_REQUEST                  :  Synch Missed Packet

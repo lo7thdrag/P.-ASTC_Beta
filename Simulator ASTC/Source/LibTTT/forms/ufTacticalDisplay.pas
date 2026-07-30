@@ -6091,7 +6091,7 @@ begin
       0:
       begin
         {$REGION ' Plotter '}
-        SetUpPlotterUI;
+
         {$ENDREGION}
       end;
       1:
@@ -8691,17 +8691,12 @@ begin // ini procedure update yg dipanggil dari sim client
       0:
       begin
         {$REGION ' Plotter '}
-        SetUpPlotterUI;
+
         {$ENDREGION}
       end;
       1:
       begin
         {$REGION ' Navigasi '}
-
-//        frmTopNav.Refresh_OwnShipTab(pi);
-//        frmLeftNav.Refresh_OwnShipTab(pi);
-//        frmRightNav.UpdateTabHooked(focusedTrack);
-
         if Assigned(frmTopNav) then
         begin
           frmTopNav.UpdateFormData;

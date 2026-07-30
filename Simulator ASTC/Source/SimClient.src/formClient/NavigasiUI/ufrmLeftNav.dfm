@@ -15330,6 +15330,7 @@ object frmLeftNav: TfrmLeftNav
           Top = 80
           Width = 57
           Height = 37
+          Alignment = taRightJustify
           Caption = '18.4'
           Color = 16504612
           FocusControl = Panel1
@@ -15374,6 +15375,7 @@ object frmLeftNav: TfrmLeftNav
           Top = 80
           Width = 77
           Height = 37
+          Alignment = taRightJustify
           Caption = '090.0'
           Color = 16504612
           FocusControl = Panel1
@@ -20114,6 +20116,7 @@ object frmLeftNav: TfrmLeftNav
           Top = 80
           Width = 57
           Height = 37
+          Alignment = taRightJustify
           Caption = '18.4'
           Color = 16504612
           FocusControl = Panel1
@@ -20154,11 +20157,12 @@ object frmLeftNav: TfrmLeftNav
           ParentFont = False
         end
         object lblOceanCurrentDirection: TLabel
-          Left = 205
+          Left = 226
           Top = 80
-          Width = 77
+          Width = 56
           Height = 37
-          Caption = '090.0'
+          Alignment = taRightJustify
+          Caption = '10.0'
           Color = 16504612
           FocusControl = Panel1
           Font.Charset = ANSI_CHARSET
@@ -24557,11 +24561,12 @@ object frmLeftNav: TfrmLeftNav
           ParentFont = False
         end
         object lblWaterTemp: TLabel
-          Left = 29
+          Left = 52
           Top = 57
-          Width = 79
+          Width = 56
           Height = 37
-          Caption = '047.0'
+          Alignment = taRightJustify
+          Caption = '10.0'
           Font.Charset = ANSI_CHARSET
           Font.Color = clAqua
           Font.Height = -37
@@ -24589,11 +24594,12 @@ object frmLeftNav: TfrmLeftNav
           Height = 2
         end
         object lblDepthNav: TLabel
-          Left = 197
+          Left = 219
           Top = 57
-          Width = 79
+          Width = 57
           Height = 37
-          Caption = '047.0'
+          Alignment = taRightJustify
+          Caption = '14.0'
           Font.Charset = ANSI_CHARSET
           Font.Color = clAqua
           Font.Height = -37
@@ -69496,6 +69502,7 @@ object frmLeftNav: TfrmLeftNav
           Top = 80
           Width = 77
           Height = 37
+          Alignment = taRightJustify
           Caption = '090.0'
           Font.Charset = ANSI_CHARSET
           Font.Color = clAqua
@@ -99839,11 +99846,12 @@ object frmLeftNav: TfrmLeftNav
           Height = 2
         end
         object lblCOG: TLabel
-          Left = 33
+          Left = 50
           Top = 37
-          Width = 73
+          Width = 56
           Height = 37
-          Caption = '180.0'
+          Alignment = taRightJustify
+          Caption = '10.0'
           Font.Charset = ANSI_CHARSET
           Font.Color = clAqua
           Font.Height = -37
@@ -99865,11 +99873,12 @@ object frmLeftNav: TfrmLeftNav
           ParentFont = False
         end
         object lblSOG: TLabel
-          Left = 201
+          Left = 224
           Top = 37
-          Width = 79
+          Width = 56
           Height = 37
-          Caption = '047.0'
+          Alignment = taRightJustify
+          Caption = '10.0'
           Font.Charset = ANSI_CHARSET
           Font.Color = clAqua
           Font.Height = -37
@@ -99907,6 +99916,7 @@ object frmLeftNav: TfrmLeftNav
           Top = 105
           Width = 79
           Height = 37
+          Alignment = taRightJustify
           Caption = '047.0'
           Font.Charset = ANSI_CHARSET
           Font.Color = clAqua

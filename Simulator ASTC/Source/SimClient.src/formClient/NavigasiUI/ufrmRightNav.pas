@@ -1309,6 +1309,7 @@ begin
       else if aTrack is TT3PlatformInstance then
       begin
         fmPlatformGuidance1.SetFocusedPlatform(TT3PlatformInstance(aTrack));
+//        pnlNone.Visible := False;
       end;
 
       fmPlatformGuidance1.PanelPlatformGuidance.Enabled := True;

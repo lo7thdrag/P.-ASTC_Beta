@@ -762,6 +762,7 @@ type
     lbl86: TLabel;
     lbl17: TLabel;
     pnlShipInformationNone: TPanel;
+    btnDymensi: TRzBmpButton;
 
 //    ToolBtnComm: TToolButton;
 

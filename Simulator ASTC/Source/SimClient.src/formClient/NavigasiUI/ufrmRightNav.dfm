@@ -11486,77 +11486,7 @@ object frmRightNav: TfrmRightNav
                 ParentFont = False
               end
             end
-            inherited grbFormation: TGroupBox [6]
-              Width = 320
-              Height = 240
-              ExplicitWidth = 320
-              ExplicitHeight = 240
-              inherited Label323: TLabel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited Label324: TLabel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited lblLeaderFormation: TLabel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited lblNameFormation: TLabel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited Label373: TLabel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited Label374: TLabel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited Label381: TLabel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited lblRangeFormation: TLabel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited lblBearingFormation: TLabel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited Label399: TLabel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited StaticText154: TStaticText
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited StaticText155: TStaticText
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited StaticText156: TStaticText
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited StaticText157: TStaticText
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited pnlDepth: TPanel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-              inherited pnlAltitude: TPanel
-                Font.Color = clWhite
-                ParentFont = False
-              end
-            end
-            inherited grpCircle: TGroupBox [7]
+            inherited grpCircle: TGroupBox [6]
               Width = 320
               Height = 240
               ExplicitWidth = 320
@@ -11648,7 +11578,7 @@ object frmRightNav: TfrmRightNav
                 end
               end
             end
-            inherited grbHelm: TGroupBox [8]
+            inherited grbHelm: TGroupBox [7]
               Width = 320
               Height = 240
               ExplicitWidth = 320
@@ -11782,7 +11712,7 @@ object frmRightNav: TfrmRightNav
               inherited edtHelmOrderedGroundSpeed: TEdit [34]
               end
             end
-            inherited grpPersonelGuidance: TGroupBox [9]
+            inherited grpPersonelGuidance: TGroupBox [8]
               Width = 320
               Height = 240
               ExplicitWidth = 320
@@ -12522,7 +12452,7 @@ object frmRightNav: TfrmRightNav
                 ExplicitTop = 170
               end
             end
-            inherited grbEngagement: TGroupBox [10]
+            inherited grbEngagement: TGroupBox [9]
               Width = 320
               Height = 240
               ExplicitWidth = 320
@@ -12584,7 +12514,7 @@ object frmRightNav: TfrmRightNav
                 ParentFont = False
               end
             end
-            inherited grpStation: TGroupBox
+            inherited grpStation: TGroupBox [10]
               Width = 320
               Height = 240
               ExplicitWidth = 320
@@ -12618,7 +12548,7 @@ object frmRightNav: TfrmRightNav
                 ParentFont = False
               end
             end
-            inherited grbStraightLine: TGroupBox [12]
+            inherited grbStraightLine: TGroupBox [11]
               Width = 320
               Height = 240
               Color = 2695445
@@ -13414,7 +13344,7 @@ object frmRightNav: TfrmRightNav
                 end
               end
             end
-            inherited gbWaypoint: TGroupBox [13]
+            inherited gbWaypoint: TGroupBox [12]
               Width = 320
               Height = 240
               ExplicitWidth = 320
@@ -13533,6 +13463,76 @@ object frmRightNav: TfrmRightNav
                 ParentFont = False
               end
               inherited StaticText80: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+            end
+            inherited grbFormation: TGroupBox [13]
+              Width = 320
+              Height = 240
+              ExplicitWidth = 320
+              ExplicitHeight = 240
+              inherited Label323: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label324: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblLeaderFormation: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblNameFormation: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label373: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label374: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label381: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblRangeFormation: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited lblBearingFormation: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited Label399: TLabel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText154: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText155: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText156: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited StaticText157: TStaticText
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited pnlDepth: TPanel
+                Font.Color = clWhite
+                ParentFont = False
+              end
+              inherited pnlAltitude: TPanel
                 Font.Color = clWhite
                 ParentFont = False
               end
@@ -18280,7 +18280,7 @@ object frmRightNav: TfrmRightNav
       end
       object pnlGameState: TPanel
         Left = 9
-        Top = 40
+        Top = 44
         Width = 318
         Height = 33
         BevelOuter = bvNone
@@ -36349,9 +36349,9 @@ object frmRightNav: TfrmRightNav
       object Label21: TLabel
         Left = 52
         Top = 18
-        Width = 188
+        Width = 178
         Height = 27
-        Caption = 'Sensors Controller'
+        Caption = 'Sensor Controller'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -27
@@ -36532,7 +36532,7 @@ object frmRightNav: TfrmRightNav
           Width = 327
           ExplicitWidth = 327
           inherited lstSensor: TListView
-            Width = 324
+            Width = 325
             BorderStyle = bsSingle
             ExplicitWidth = 333
             ExplicitHeight = 109

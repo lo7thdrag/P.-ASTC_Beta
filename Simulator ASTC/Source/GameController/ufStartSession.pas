@@ -65,7 +65,8 @@ end;
 procedure TfrmStartSession.btnOKClick(Sender: TObject);
 //var
 begin
-  if lvScenario.ItemIndex > -1 then begin
+  if lvScenario.ItemIndex > -1 then
+  begin
     Close;
     ModalResult := mrOK;
   end

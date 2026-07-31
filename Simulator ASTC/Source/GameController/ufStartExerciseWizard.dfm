@@ -4312,284 +4312,21 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
     Width = 792
     Height = 619
     Align = alClient
+    BevelOuter = bvNone
     TabOrder = 0
-    object pnlExerciseName: TPanel
-      Left = 1
-      Top = 1
-      Width = 790
-      Height = 617
-      Align = alClient
-      BevelOuter = bvNone
-      TabOrder = 1
-      object Label1: TLabel
-        Left = 139
-        Top = 153
-        Width = 347
-        Height = 56
-        Caption = 
-          'Type a name for your exercise. '#13#10'The name can contain up to 60 c' +
-          'haracters ( including space ), '#13#10'but cannot contain any of the f' +
-          'ollowing characters: '#13#10'\/ . " : * ? < > | .'
-      end
-      object Label2: TLabel
-        Left = 139
-        Top = 243
-        Width = 31
-        Height = 14
-        Caption = 'Name'
-      end
-      object edExerciseName: TEdit
-        Left = 192
-        Top = 240
-        Width = 443
-        Height = 22
-        MaxLength = 60
-        TabOrder = 0
-        Text = 'Exercise Name'
-      end
-      object Panel2: TPanel
-        Left = 0
-        Top = 560
-        Width = 790
-        Height = 57
-        Align = alBottom
-        BevelOuter = bvNone
-        TabOrder = 1
-        DesignSize = (
-          790
-          57)
-        object Bevel2: TBevel
-          Left = 0
-          Top = 0
-          Width = 790
-          Height = 2
-          Align = alTop
-          ExplicitWidth = 782
-        end
-        object btnExcName_Cancel: TButton
-          Left = 694
-          Top = 17
-          Width = 80
-          Height = 30
-          Anchors = [akTop, akRight]
-          Caption = '&Cancel'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-          OnClick = btnExcName_CancelClick
-        end
-        object btnExcName_Next: TButton
-          Left = 571
-          Top = 17
-          Width = 80
-          Height = 30
-          Align = alCustom
-          Anchors = [akTop, akRight]
-          Caption = '&Next >'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 1
-          OnClick = btnExcName_NextClick
-        end
-        object btnExcName_Back: TButton
-          Left = 488
-          Top = 17
-          Width = 80
-          Height = 30
-          Align = alCustom
-          Anchors = [akTop, akRight]
-          Caption = '< &Back'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 2
-          OnClick = btnExcName_BackClick
-        end
-      end
-    end
-    object pnlRecordOption: TPanel
-      Left = 1
-      Top = 1
-      Width = 790
-      Height = 617
-      Align = alClient
-      BevelOuter = bvNone
-      TabOrder = 0
-      object Label3: TLabel
-        Left = 24
-        Top = 16
-        Width = 216
-        Height = 14
-        Caption = 'Would you like to record this exercise ?'
-      end
-      object rbtnRecordYes: TRadioButton
-        Left = 24
-        Top = 35
-        Width = 74
-        Height = 17
-        Caption = 'Yes'
-        TabOrder = 0
-        OnClick = rbtnRecordYesClick
-      end
-      object rbtnRecordNo: TRadioButton
-        Left = 24
-        Top = 58
-        Width = 74
-        Height = 17
-        Caption = 'No'
-        Checked = True
-        TabOrder = 1
-        TabStop = True
-        OnClick = rbtnRecordNoClick
-      end
-      object gbAudioOption: TGroupBox
-        Left = 24
-        Top = 81
-        Width = 746
-        Height = 461
-        Align = alCustom
-        Anchors = [akLeft, akTop, akRight, akBottom]
-        Caption = 'Audio Track Settings'
-        TabOrder = 2
-        Visible = False
-        DesignSize = (
-          746
-          461)
-        object btnAddAudio: TButton
-          Left = 16
-          Top = 404
-          Width = 104
-          Height = 45
-          Anchors = [akLeft, akBottom]
-          Caption = '&Add Audio  Track Pair'
-          TabOrder = 0
-          WordWrap = True
-          OnClick = btnAddAudioClick
-        end
-        object btnRemoveAudio: TButton
-          Left = 136
-          Top = 404
-          Width = 104
-          Height = 45
-          Anchors = [akLeft, akBottom]
-          Caption = '&Remove Audio Track Pair'
-          TabOrder = 1
-          WordWrap = True
-          OnClick = btnRemoveAudioClick
-        end
-        object btnClearAudio: TButton
-          Left = 600
-          Top = 401
-          Width = 133
-          Height = 45
-          Anchors = [akRight, akBottom]
-          Caption = '&Clear Audio Track Reservation'
-          TabOrder = 2
-          WordWrap = True
-          OnClick = btnClearAudioClick
-        end
-        object tvAudioOption: TTreeView
-          Left = 16
-          Top = 20
-          Width = 717
-          Height = 375
-          Align = alCustom
-          Anchors = [akLeft, akTop, akRight, akBottom]
-          Indent = 19
-          TabOrder = 3
-        end
-      end
-      object Panel3: TPanel
-        Left = 0
-        Top = 560
-        Width = 790
-        Height = 57
-        Align = alBottom
-        BevelOuter = bvNone
-        TabOrder = 3
-        DesignSize = (
-          790
-          57)
-        object Bevel3: TBevel
-          Left = 0
-          Top = 0
-          Width = 790
-          Height = 2
-          Align = alTop
-          ExplicitWidth = 782
-        end
-        object btnAudio_Next: TButton
-          Left = 571
-          Top = 17
-          Width = 80
-          Height = 30
-          Align = alCustom
-          Anchors = [akTop, akRight]
-          Caption = '&Next >'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-          OnClick = btnAudio_NextClick
-        end
-        object btnAudio_Cancel: TButton
-          Left = 694
-          Top = 17
-          Width = 80
-          Height = 30
-          Anchors = [akTop, akRight]
-          Caption = '&Cancel'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 1
-          OnClick = btnExcName_CancelClick
-        end
-        object btnAudio_Back: TButton
-          Left = 488
-          Top = 17
-          Width = 80
-          Height = 30
-          Align = alCustom
-          Anchors = [akTop, akRight]
-          Caption = '< &Back'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 2
-          OnClick = btnAudio_BackClick
-        end
-      end
-    end
     object pnlDevPreplay: TPanel
-      Left = 1
-      Top = 1
-      Width = 790
-      Height = 617
+      Left = 0
+      Top = 0
+      Width = 792
+      Height = 619
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
       OnClick = pnlDevPreplayClick
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 790
+      ExplicitHeight = 617
       object lblHeader: TLabel
         Left = 17
         Top = 12
@@ -4605,25 +4342,27 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
       end
       object Panel6: TPanel
         Left = 0
-        Top = 560
-        Width = 790
+        Top = 562
+        Width = 792
         Height = 57
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitTop = 560
+        ExplicitWidth = 790
         DesignSize = (
-          790
+          792
           57)
         object Bevel5: TBevel
           Left = 0
           Top = 0
-          Width = 790
+          Width = 792
           Height = 2
           Align = alTop
           ExplicitWidth = 782
         end
         object Button1: TButton
-          Left = 694
+          Left = 696
           Top = 14
           Width = 80
           Height = 30
@@ -4637,9 +4376,10 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 0
           OnClick = btnExcName_CancelClick
+          ExplicitLeft = 694
         end
         object btnDevPreplay: TButton
-          Left = 610
+          Left = 612
           Top = 14
           Width = 80
           Height = 30
@@ -4654,6 +4394,7 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 1
           OnClick = btnDevPreplayClick
+          ExplicitLeft = 610
         end
       end
       object pnlButtomDev: TPanel
@@ -4688,35 +4429,410 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
         end
       end
     end
+    object pnlRecordOption: TPanel
+      Left = 0
+      Top = 0
+      Width = 792
+      Height = 619
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 0
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 790
+      ExplicitHeight = 617
+      object Label3: TLabel
+        Left = 24
+        Top = 16
+        Width = 216
+        Height = 14
+        Caption = 'Would you like to record this exercise ?'
+      end
+      object rbtnRecordYes: TRadioButton
+        Left = 24
+        Top = 35
+        Width = 74
+        Height = 17
+        Caption = 'Yes'
+        TabOrder = 0
+        OnClick = rbtnRecordYesClick
+      end
+      object rbtnRecordNo: TRadioButton
+        Left = 24
+        Top = 58
+        Width = 74
+        Height = 17
+        Caption = 'No'
+        Checked = True
+        TabOrder = 1
+        TabStop = True
+        OnClick = rbtnRecordNoClick
+      end
+      object gbAudioOption: TGroupBox
+        Left = 24
+        Top = 81
+        Width = 748
+        Height = 463
+        Align = alCustom
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        Caption = 'Audio Track Settings'
+        TabOrder = 2
+        Visible = False
+        ExplicitWidth = 746
+        ExplicitHeight = 461
+        DesignSize = (
+          748
+          463)
+        object btnAddAudio: TButton
+          Left = 16
+          Top = 406
+          Width = 104
+          Height = 45
+          Anchors = [akLeft, akBottom]
+          Caption = '&Add Audio  Track Pair'
+          TabOrder = 0
+          WordWrap = True
+          OnClick = btnAddAudioClick
+          ExplicitTop = 404
+        end
+        object btnRemoveAudio: TButton
+          Left = 136
+          Top = 406
+          Width = 104
+          Height = 45
+          Anchors = [akLeft, akBottom]
+          Caption = '&Remove Audio Track Pair'
+          TabOrder = 1
+          WordWrap = True
+          OnClick = btnRemoveAudioClick
+          ExplicitTop = 404
+        end
+        object btnClearAudio: TButton
+          Left = 602
+          Top = 403
+          Width = 133
+          Height = 45
+          Anchors = [akRight, akBottom]
+          Caption = '&Clear Audio Track Reservation'
+          TabOrder = 2
+          WordWrap = True
+          OnClick = btnClearAudioClick
+          ExplicitLeft = 600
+          ExplicitTop = 401
+        end
+        object tvAudioOption: TTreeView
+          Left = 16
+          Top = 20
+          Width = 719
+          Height = 377
+          Align = alCustom
+          Anchors = [akLeft, akTop, akRight, akBottom]
+          Indent = 19
+          TabOrder = 3
+          ExplicitWidth = 717
+          ExplicitHeight = 375
+        end
+      end
+      object Panel3: TPanel
+        Left = 0
+        Top = 562
+        Width = 792
+        Height = 57
+        Align = alBottom
+        BevelOuter = bvNone
+        TabOrder = 3
+        ExplicitTop = 560
+        ExplicitWidth = 790
+        DesignSize = (
+          792
+          57)
+        object Bevel3: TBevel
+          Left = 0
+          Top = 0
+          Width = 792
+          Height = 2
+          Align = alTop
+          ExplicitWidth = 782
+        end
+        object btnAudio_Next: TButton
+          Left = 573
+          Top = 17
+          Width = 80
+          Height = 30
+          Align = alCustom
+          Anchors = [akTop, akRight]
+          Caption = '&Next >'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+          OnClick = btnAudio_NextClick
+          ExplicitLeft = 571
+        end
+        object btnAudio_Cancel: TButton
+          Left = 696
+          Top = 17
+          Width = 80
+          Height = 30
+          Anchors = [akTop, akRight]
+          Caption = '&Cancel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 1
+          OnClick = btnExcName_CancelClick
+          ExplicitLeft = 694
+        end
+        object btnAudio_Back: TButton
+          Left = 490
+          Top = 17
+          Width = 80
+          Height = 30
+          Align = alCustom
+          Anchors = [akTop, akRight]
+          Caption = '< &Back'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 2
+          OnClick = btnAudio_BackClick
+          ExplicitLeft = 488
+        end
+      end
+    end
+    object pnlExerciseName: TPanel
+      Left = 0
+      Top = 0
+      Width = 792
+      Height = 619
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 1
+      ExplicitLeft = 2
+      ExplicitTop = 6
+      ExplicitWidth = 790
+      ExplicitHeight = 617
+      object Label1: TLabel
+        Left = 16
+        Top = 81
+        Width = 740
+        Height = 42
+        Caption = 
+          'Type a name for your exercise. '#13#10#13#10'The name can contain up to 60' +
+          ' characters ( including space ), but cannot contain any of the f' +
+          'ollowing characters : \ / . " : * ? < > | .'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 19
+        Top = 163
+        Width = 31
+        Height = 14
+        Caption = 'Name'
+      end
+      object lbl1: TLabel
+        Left = 16
+        Top = 251
+        Width = 216
+        Height = 14
+        Caption = 'Would you like to record this exercise ?'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lblrb1: TLabel
+        Left = 30
+        Top = 270
+        Width = 20
+        Height = 14
+        Caption = 'Yes'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lblrb2: TLabel
+        Left = 30
+        Top = 289
+        Width = 15
+        Height = 14
+        Caption = 'No'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object edExerciseName: TEdit
+        Left = 72
+        Top = 160
+        Width = 443
+        Height = 22
+        MaxLength = 60
+        TabOrder = 0
+        Text = 'Exercise Name'
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 562
+        Width = 792
+        Height = 57
+        Align = alBottom
+        BevelOuter = bvNone
+        TabOrder = 1
+        ExplicitTop = 560
+        ExplicitWidth = 790
+        DesignSize = (
+          792
+          57)
+        object bvl1: TBevel
+          Left = 0
+          Top = 0
+          Width = 792
+          Height = 2
+          Align = alTop
+          ExplicitWidth = 782
+        end
+        object btnExcName_Cancel: TButton
+          Left = 696
+          Top = 17
+          Width = 80
+          Height = 30
+          Anchors = [akTop, akRight]
+          Caption = '&Cancel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+          OnClick = btnExcName_CancelClick
+          ExplicitLeft = 694
+        end
+        object btnExcName_Next: TButton
+          Left = 573
+          Top = 17
+          Width = 80
+          Height = 30
+          Align = alCustom
+          Anchors = [akTop, akRight]
+          Caption = '&Next >'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 1
+          OnClick = btnExcName_NextClick
+          ExplicitLeft = 571
+        end
+        object btnExcName_Back: TButton
+          Left = 490
+          Top = 17
+          Width = 80
+          Height = 30
+          Align = alCustom
+          Anchors = [akTop, akRight]
+          Caption = '< &Back'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 2
+          OnClick = btnExcName_BackClick
+          ExplicitLeft = 488
+        end
+      end
+      object rb1: TRadioButton
+        Left = 16
+        Top = 269
+        Width = 74
+        Height = 17
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        OnClick = rbtnRecordYesClick
+      end
+      object rb2: TRadioButton
+        Left = 16
+        Top = 288
+        Width = 74
+        Height = 17
+        Checked = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+        TabStop = True
+        OnClick = rbtnRecordNoClick
+      end
+    end
     object pnlCubicleMapping: TPanel
-      Left = 1
-      Top = 1
-      Width = 790
-      Height = 617
+      Left = 0
+      Top = 0
+      Width = 792
+      Height = 619
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 3
+      ExplicitLeft = 247
+      ExplicitTop = -354
+      ExplicitWidth = 790
+      ExplicitHeight = 617
       object Panel4: TPanel
         Left = 0
-        Top = 560
-        Width = 790
+        Top = 562
+        Width = 792
         Height = 57
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitTop = 560
+        ExplicitWidth = 790
         DesignSize = (
-          790
+          792
           57)
         object Bevel4: TBevel
           Left = 0
           Top = 0
-          Width = 790
+          Width = 792
           Height = 2
           Align = alTop
           ExplicitWidth = 782
         end
         object btnMapping_Finish: TButton
-          Left = 571
+          Left = 573
           Top = 17
           Width = 80
           Height = 30
@@ -4731,9 +4847,10 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 0
           OnClick = btnMapping_FinishClick
+          ExplicitLeft = 571
         end
         object btnMapping_Cancel: TButton
-          Left = 694
+          Left = 696
           Top = 17
           Width = 80
           Height = 30
@@ -4747,9 +4864,10 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 1
           OnClick = btnExcName_CancelClick
+          ExplicitLeft = 694
         end
         object btnMapping_Back: TButton
-          Left = 488
+          Left = 490
           Top = 17
           Width = 80
           Height = 30
@@ -4764,13 +4882,14 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 2
           OnClick = btnMapping_BackClick
+          ExplicitLeft = 488
         end
       end
       object tvMapping: TTreeView
         Left = 16
         Top = 16
         Width = 748
-        Height = 442
+        Height = 444
         Align = alCustom
         Anchors = [akLeft, akTop, akBottom]
         Indent = 19
@@ -4778,10 +4897,11 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
         TabOrder = 1
         OnChange = tvMappingChange
         OnContextPopup = tvMappingContextPopup
+        ExplicitHeight = 442
       end
       object btnMapToControllers: TButton
         Left = 45
-        Top = 482
+        Top = 484
         Width = 123
         Height = 60
         Align = alCustom
@@ -4790,10 +4910,11 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
         TabOrder = 2
         WordWrap = True
         OnClick = btnMapToControllersClick
+        ExplicitTop = 482
       end
       object btnClearAllConfig: TButton
         Left = 206
-        Top = 482
+        Top = 484
         Width = 124
         Height = 60
         Align = alCustom
@@ -4802,12 +4923,13 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
         TabOrder = 3
         WordWrap = True
         OnClick = btnClearAllConfigClick
+        ExplicitTop = 482
       end
     end
   end
   object pmAssignt: TPopupMenu
-    Left = 200
-    Top = 120
+    Left = 744
+    Top = 16
     object mnAssign1: TMenuItem
       Caption = 'Assign'
     end

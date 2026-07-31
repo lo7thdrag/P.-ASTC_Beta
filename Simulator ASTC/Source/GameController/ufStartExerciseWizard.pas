@@ -27,7 +27,6 @@ type
     Label3: TLabel;
     gbAudioOption: TGroupBox;
     Panel2: TPanel;
-    Bevel2: TBevel;
     btnAddAudio: TButton;
     btnRemoveAudio: TButton;
     btnClearAudio: TButton;
@@ -61,6 +60,12 @@ type
     pnlMainBackground: TPanel;
     imgBackground: TImage;
     lblHeader: TLabel;
+    lbl1: TLabel;
+    rb1: TRadioButton;
+    rb2: TRadioButton;
+    lblrb1: TLabel;
+    lblrb2: TLabel;
+    bvl1: TBevel;
     procedure btnExcName_CancelClick(Sender: TObject);
     procedure btnExcName_NextClick(Sender: TObject);
     procedure btnAudio_BackClick(Sender: TObject);
@@ -212,6 +217,12 @@ procedure TfrmStartExerciseWizard.btnExcName_NextClick(Sender: TObject);
 var i, j: integer;
     s: string;
 begin
+  if (edExerciseName.Text='') then
+  begin
+    ShowMessage('Game name must be Filled');
+    Exit;
+  end;
+
   s := edExerciseName.Text;
   j := 0;
   for i := 1 to Length(s) do
@@ -228,12 +239,17 @@ begin
        Close;
     end
     else if isSnapshot then
-       pnlRecordOption.BringToFront ;
     begin
-       pnlRecordOption.BringToFront ;
+       pnlCubicleMapping.BringToFront ;
+    end
+    else
+    begin
+      PrepareAssignment;
+      pnlCubicleMapping.BringToFront ;
     end;
   end
-  else begin
+  else
+  begin
     edExerciseName.Text := DefExcName;
     edExerciseName.SelectAll;
     edExerciseName.SetFocus;
@@ -589,8 +605,8 @@ begin
     //FCubicleList.Clear;
   end;
 
-//  pnlExerciseName.BringToFront;
-  pnlDevPreplay.BringToFront;
+  pnlExerciseName.BringToFront;
+//  pnlDevPreplay.BringToFront;
   btnExcName_Next.Caption := 'Next';
 
   ShowModal;

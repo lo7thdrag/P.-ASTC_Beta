@@ -88,7 +88,7 @@ implementation
 uses
   uNetSessionClient, ufStartSession, ufConnectTerminate, ufStartExerciseWizard,
   uLibSettingTTT , ufStartReplayRecorded, uGamePlayType, uSRRFunction, uSnapshotGCRec,
-  uGameData_TTT, ufrmRoleSetting;
+  uGameData_TTT, ufrmRoleSetting, uDMGC;
 
 {$R *.dfm}
 procedure EnableComposited(WinControl:TWinControl);
@@ -109,6 +109,17 @@ var
    mr: integer;
    mapData : TRec_MapData;
 begin
+
+  if dmGC.GetStatusGC and (theClient.GameSessionExist) then
+  begin
+    ShowMessage('Game is running !!!! ');
+    btnTerminate.Visible := True;
+    btnStart.Visible := False;
+    Exit;
+  end
+  else
+    dmGC.ClearGC;
+
   FIsStartingSession := false;
   frmStartSession.DisplaySenarioList;
 
@@ -321,30 +332,18 @@ begin
     mnContent1.Visible := False;
     mnAbout.Visible := False;
   {$ENDREGION}
-//  if theClient.IsController then begin
-//    Left    := Screen.Monitors[0].Left;
-//    Width   := Screen.Monitors[0].Width div 2;
-//
-//    Top     := Screen.Monitors[0].Top;
-//    Height  := Screen.Monitors[0].Height;
-//  end
-//  else begin
-//    if Screen.MonitorCount > 1 then
-//      i := 1
-//    else
-//      i := 0;
-//    Left    := Screen.Monitors[i].Left;
-//    Height  := Screen.Monitors[i].Height div 2;
-//    Top     := Screen.Monitors[i].BoundsRect.Bottom - Height;
-//    Width   := Screen.Monitors[i].Width;
-//  end;
 
   btnStart.Visible := False;
   btnConnect.Visible := True;
   btnEditor.Visible := False;
   imgSetting.Visible := True;
-  lblRole.Visible := True;
-//  btnTerminate.Visible := False;
+
+
+  case vGameDataSetting.Role of
+    0, 1, 2, 3, 4 : lblRole.Visible := True;
+    else
+    lblRole.Visible := False;
+  end;
 
   if theClient.IsController then
   begin
@@ -353,7 +352,6 @@ begin
     btnEditor.Visible := True;
     imgSetting.Visible := False;
     lblRole.Visible := False;
-//    btnTerminate.Visible := True;
   end;
 end;
 
@@ -489,11 +487,11 @@ begin
   if LoadFF_GameSetting(FileName, vGameDataSetting) then
   begin
     case vGameDataSetting.Role of
-        0: lblrole.Caption := 'Plotter';
-        1: lblrole.Caption := 'Navigasi';
-        2: lblrole.Caption := 'Atas Air';
-        3: lblrole.Caption := 'BawahAir';
-        4: lblrole.Caption := 'General';
+      0: lblrole.Caption := 'Plotter';
+      1: lblrole.Caption := 'Navigasi';
+      2: lblrole.Caption := 'Atas Air';
+      3: lblrole.Caption := 'BawahAir';
+      4: lblrole.Caption := 'General';
     end;
   end;
 end;

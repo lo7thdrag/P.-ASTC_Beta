@@ -4302,9 +4302,6 @@ object frmStartSession: TfrmStartSession
     Height = 457
     Align = alClient
     TabOrder = 0
-    ExplicitTop = 8
-    ExplicitWidth = 619
-    ExplicitHeight = 61
     object lvScenario: TListView
       Left = 16
       Top = 16
@@ -4355,7 +4352,6 @@ object frmStartSession: TfrmStartSession
         ParentFont = False
         TabOrder = 0
         OnClick = btnCancelClick
-        ExplicitTop = 19
       end
       object btnOK: TButton
         Left = 480
@@ -4373,7 +4369,6 @@ object frmStartSession: TfrmStartSession
         ParentFont = False
         TabOrder = 1
         OnClick = btnOKClick
-        ExplicitTop = 19
       end
     end
   end

@@ -58,17 +58,16 @@ end;
 
 procedure TfrmRoleSetting.btnOKClick(Sender: TObject);
 begin
-//   if cbTacticalSreen.ItemIndex =
-//     cbToteScreen.ItemIndex then
-//  begin
-//    ShowMessage(
-//      'Tactical Screen dan Tote Screen tidak boleh menggunakan monitor yang sama');
-//    Exit;
-//  end;
 
   {Set Nilai Role}
   vGameDataSetting.Role := cbbRole.ItemIndex;
   frmMainGC.lblrole.Caption := cbbRole.Text;
+
+  case vGameDataSetting.Role of
+    0, 1, 2, 3, 4 : frmMainGC.lblrole.Visible := True;
+    else
+    frmMainGC.lblrole.Visible := False;
+  end;
 
   {Set Nilai Monitor Screen}
   vGameDataSetting.TacticalScreen := cbTacticalSreen.ItemIndex;

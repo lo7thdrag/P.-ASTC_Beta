@@ -59,13 +59,17 @@ type
     { Private declarations }
   public
     { Public declarations }
-    {GC}
+    function InitZDB(const zDbServer, zDBProto, zDBname, zDBuser, zDBPass: string): boolean;
+
     function SelectGameReport(const id : Integer; var recList : TList): Boolean;
     function UpdateGameReport(const id : integer; aRec : TRecGameReport): Integer;
 
-    function InitZDB(const zDbServer, zDBProto, zDBname,
-      zDBuser, zDBPass: string): boolean;
+    function InsertGameReport(aRec : TRecGameReport) : integer;
+    function SelectGameReportBySceID(const SceID : Integer; var recList : TList): Boolean;
+    function CancelGame : Boolean;
+    function ClearGC : Boolean;
 
+    function GetStatusGC : Boolean;
     procedure GetScenarioListFromDB(var l: TList);
     procedure GetScenarioInfo(const scID: integer; var scInfo: TScenarioInfo);
     procedure GetRecordListFromDB(var l : TList);
@@ -123,6 +127,26 @@ begin
   ZQ.Connection := ZConn;
 end;
 
+function TDMGC.InsertGameReport(aRec: TRecGameReport): integer;
+begin
+  Result := -1;
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('INSERT INTO Game_Report');
+    SQL.Add('(Scenario_Index, Game_Name, TimeStart, TimeEnd, Description, Status)');
+    SQL.Add('VALUES(');
+    SQL.Add(IntToStr(aRec.Scenario_index)+',');
+    SQL.Add(QuotedStr(aRec.Game_Name)+',') ;
+    SQL.Add(FloatToStr(aRec.Start_Time)+',') ;
+    SQL.Add(FloatToStr(aRec.End_Time)+',') ;
+    SQL.Add(QuotedStr(aRec.Description)+',');
+    SQL.Add(IntToStr(aRec.Status)+ ')');
+    ExecSQL;
+  end;
+end;
+
 function TDMGC.SelectGameReport(const id: Integer; var recList: TList): Boolean;
 var
   rec : TGameReport;
@@ -163,6 +187,52 @@ begin
           Description := FieldByName('Description').AsString;
           Scenario_Name := FieldByName('Scenario_Identifier').AsString;
 
+        end;
+        recList.Add(rec);
+        ZQ.Next;
+      end;
+
+    end;
+  end;
+end;
+
+function TDMGC.SelectGameReportBySceID(const SceID: Integer; var recList: TList): Boolean;
+var
+  rec : TGameReport;
+begin
+  result := false;
+  if not ZConn.Connected then
+    exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * ');
+    SQL.Add('FROM  Game_Report a');
+    SQL.Add('WHERE (a.Scenario_Index  = ' + IntToStr(SceID) + ')');
+    //ShowMessage(SQL.Text);
+    Open;
+
+    result := RecordCount > 0;
+    if not IsEmpty then
+    begin
+      First;
+
+      if not Assigned(recList) then
+        recList := TList.Create
+      else
+        recList.Clear;
+
+      while not ZQ.Eof do
+      begin
+        rec := TGameReport.create;
+        with rec.fdata do
+        begin
+          Scenario_index := FieldByName('Scenario_Index').asinteger;
+          Game_Name  := FieldByName('Game_Name').AsString;
+          Start_Time   := FieldByName('TimeStart').AsFloat;
+          Description := FieldByName('Description').AsString;
         end;
         recList.Add(rec);
         ZQ.Next;
@@ -253,6 +323,23 @@ begin
 
 end;
 
+function TDMGC.GetStatusGC: Boolean;
+begin
+  Result := False;
+  if not zConn.Connected then
+    Exit;
+  with zQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * from Game_Report');
+    SQL.Add('WHERE Status = '+ IntToStr(1));
+    Open;
+
+    Result :=  RecordCount > 0;
+  end;
+end;
+
 procedure TDMGC.GetScenarioInfo(const scID: integer; var scInfo: TScenarioInfo);
 var bResult : Boolean;
 begin
@@ -328,6 +415,52 @@ begin
       mResource_Alloc_Index    := ZQ.Fields[2].AsInteger;
   end;
 
+end;
+
+function TDMGC.CancelGame: Boolean;
+begin
+  Result := False;
+  if not zConn.Connected then
+    Exit;
+  with zQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT Id_Game_Report from Game_Report');
+    SQL.Add('WHERE Status = '+ IntToStr(1));
+    Open;
+
+    Result :=  RecordCount > 0;
+    if Result then
+    begin
+      with ZQ do
+      begin
+        Close;
+        SQL.Clear;
+        SQL.Add('UPDATE Game_Report ');
+        SQL.Add('SET ');
+        SQL.Add('Status = '+ IntToStr(0));
+        SQL.Add('WHERE Status = ' + IntToStr(1));
+        ExecSQL;
+      end;
+    end;
+  end;
+end;
+
+function TDMGC.ClearGC: Boolean;
+begin
+  if not zConn.Connected then
+      Exit;
+   with ZQ do
+   begin
+     Close;
+     SQL.Clear;
+     SQL.Add('UPDATE Game_Report ');
+     SQL.Add('SET ');
+     SQL.Add('Status = '+ IntToStr(0));
+     SQL.Add('WHERE Status = ' + IntToStr(1));
+     ExecSQL;
+   end;
 end;
 
 procedure TDMGC.GetGroupList(const scId: Integer; var l: TList);

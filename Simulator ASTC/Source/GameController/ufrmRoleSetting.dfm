@@ -24,8 +24,6 @@ object frmRoleSetting: TfrmRoleSetting
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 360
-    ExplicitHeight = 244
     object imgBackground: TImage
       Left = 0
       Top = 0
@@ -4350,7 +4348,6 @@ object frmRoleSetting: TfrmRoleSetting
       Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = []
-      ItemIndex = 0
       ParentFont = False
       TabOrder = 0
       Text = 'Plotter'
@@ -4359,7 +4356,8 @@ object frmRoleSetting: TfrmRoleSetting
         'Navigasi'
         'Atas Air'
         'Bawah Air'
-        'General')
+        'General'
+        'Watch')
     end
     object btnOK: TButton
       Left = 213
@@ -4378,8 +4376,6 @@ object frmRoleSetting: TfrmRoleSetting
       ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
-      ExplicitLeft = 184
-      ExplicitTop = 202
     end
     object btnCancel: TButton
       Left = 296
@@ -4398,8 +4394,6 @@ object frmRoleSetting: TfrmRoleSetting
       ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
-      ExplicitLeft = 267
-      ExplicitTop = 202
     end
     object cbTacticalSreen: TComboBox
       Left = 59

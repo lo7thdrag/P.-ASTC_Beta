@@ -4392,9 +4392,10 @@ begin
       Envi_Type := 0;
   end;
 
-  //---------------set envi wind direction--------------------//
-  if TryStrToFloat(edtWindDir.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Wind_Direction <> ValueData) then
+  {$REGION ' Wind Section '}
+
+  {$REGION ' Wind Direction '}
+  if TryStrToFloat(edtWindDir.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Wind_Direction <> ValueData) then
   begin
     with rec do
     begin
@@ -4404,138 +4405,157 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
-  //---------------set envi wind speed--------------------//
-  if TryStrToFloat(edtWindSpeed.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Wind_Speed <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Wind_Speed;
-      Value := ValueData;
-    end;
+  {$ENDREGION}
+//
+//  {$REGION ' Wind Speed '}
+//  if TryStrToFloat(edtWindSpeed.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Wind_Speed <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Wind_Speed;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
+//
+//  {$ENDREGION}
+//
+//  {$REGION ' Visibility Factor Section '}
+//
+//  {$REGION ' Day Time Visual '}
+//  if TryStrToFloat(edtDayVis.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Daytime_Visual_Modifier <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Daytime_Visual_Modifier;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
+//
+//  {$REGION ' Night Time Visual '}
+//  if TryStrToFloat(edtNightVis.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Nighttime_Visual_Modifier <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Nighttime_Visual_Modifier;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
+//
+//  {$REGION ' Day Time Infrared '}
+//  if TryStrToFloat(edtDayInfra.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Daytime_Infrared_Modifier <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Daytime_Infrared_Modifier;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
+//
+//  {$REGION ' Night Time Infrared '}
+//  if TryStrToFloat(edtNightInfra.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Nighttime_Infrared_Modifier <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Nighttime_Infrared_Modifier;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
+//
+//  {$ENDREGION}
+//
+//  {$REGION ' Rain Intensity Section '}
+//  if TryStrToFloat(edtAttenRainRate.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Rain_Rate <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Rain_Rate;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
+//
+//  {$REGION ' Cloud Attenuation Section '}
+//  if TryStrToFloat(edtAttenCloud.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Cloud_Attenuation <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Cloud_Attenuation;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
+//
+//  {$REGION ' Barometric Preasure Section '}
+//  if TryStrToFloat(edtBarometricPressure.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Barometric_Pressure <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Barometric_Pressure;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
+//
+//  {$REGION ' Air Temperature Section '}
+//  if TryStrToFloat(edtAirTemp.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Air_Temperature <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Air_Temperature;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
+//
+//  {$REGION ' Cloud Base Height Section '}
+//  if TryStrToFloat(edtCloudBaseHeight.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Cloud_Base_Height <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Cloud_Base_Height;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
+//
+//  {$REGION ' Atmospheric Refraction Section '}
+//  if TryStrToFloat(edtAtmRefract.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Atmospheric_Refract_Modifier <> ValueData) then
+//  begin
+//    with rec do
+//    begin
+//      Envi_Chance := E_Atmospheric_Refract_Modifier;
+//      Value := ValueData;
+//    end;
+//
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
+//  end;
+//  {$ENDREGION}
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
-  //---------------set envi day time visual--------------------//
-  if TryStrToFloat(edtDayVis.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Daytime_Visual_Modifier <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Daytime_Visual_Modifier;
-      Value := ValueData;
-    end;
-
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
-  //---------------set envi night time visual--------------------//
-  if TryStrToFloat(edtNightVis.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Nighttime_Visual_Modifier <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Nighttime_Visual_Modifier;
-      Value := ValueData;
-    end;
-
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
-  //---------------set envi day time infrared--------------------//
-  if TryStrToFloat(edtDayInfra.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Daytime_Infrared_Modifier <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Daytime_Infrared_Modifier;
-      Value := ValueData;
-    end;
-
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
-  //---------------set envi night time infrared--------------------//
-  if TryStrToFloat(edtNightInfra.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Nighttime_Infrared_Modifier <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Nighttime_Infrared_Modifier;
-      Value := ValueData;
-    end;
-
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
-  //---------------set envi rain rate--------------------//
-  if TryStrToFloat(edtAttenRainRate.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Rain_Rate <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Rain_Rate;
-      Value := ValueData;
-    end;
-
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
-  //---------------set envi cloud attenuation--------------------//
-  if TryStrToFloat(edtAttenCloud.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Cloud_Attenuation <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Cloud_Attenuation;
-      Value := ValueData;
-    end;
-
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
-  //---------------set envi Barometric preasure--------------------//
-  if TryStrToFloat(edtBarometricPressure.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Barometric_Pressure <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Barometric_Pressure;
-      Value := ValueData;
-    end;
-
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
-  //---------------set envi Air Temperature--------------------//
-  if TryStrToFloat(edtAirTemp.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Air_Temperature <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Air_Temperature;
-      Value := ValueData;
-    end;
-
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
-  //---------------set envvi cloud base height--------------------//
-  if TryStrToFloat(edtCloudBaseHeight.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Cloud_Base_Height <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Cloud_Base_Height;
-      Value := ValueData;
-    end;
-
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
-  //---------------set envi atmospheric refraction--------------------//
-  if TryStrToFloat(edtAtmRefract.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Atmospheric_Refract_Modifier <> ValueData) then
-  begin
-    with rec do
-    begin
-      Envi_Chance := E_Atmospheric_Refract_Modifier;
-      Value := ValueData;
-    end;
-
-    simMgrClient.netSend_CmdSyncEnvi(rec);
-  end;
 end;
 
 procedure TfrmToteDisplay.SendAllEnviDataSurfaceSubsurface;
@@ -4563,21 +4583,24 @@ begin
       Envi_Type := 0;
   end;
 
-  //---------------set envi ocean current direction--------------------//
-  if TryStrToFloat(edtOceanCurrentDirection.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Ocean_Current_Direction <> ValueData) then
+
+  {$REGION ' Ocean Section '}
+
+  {$REGION ' Ocean Direction '}
+  if TryStrToFloat(edtOceanCurrentDirection.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Ocean_Current_Direction <> ValueData) then
   begin
     with rec do
     begin
       Envi_Chance := E_Ocean_Current_Direction;
-      Value := ValueData;
+      Value := Round(rw.Degree);
     end;
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
-  //---------------set envi ocean current speed--------------------//
-  if TryStrToFloat(edtOceanCurrentSpeed.Text, ValueData) and
-    (simMgrClient.GameEnvironment.FData.Ocean_Current_Speed <> ValueData) then
+  {$ENDREGION}
+
+  {$REGION ' Ocean Speed '}
+  if TryStrToFloat(edtOceanCurrentSpeed.Text, ValueData) and (simMgrClient.GameEnvironment.FData.Ocean_Current_Speed <> ValueData) then
   begin
     with rec do
     begin
@@ -4587,6 +4610,10 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+  {$ENDREGION}
+
+  {$ENDREGION}
+
   //---------------set envi shiping rate--------------------//
   if simMgrClient.GameEnvironment.FData.Shipping_Rate <> cbxShippingRate.ItemIndex then
   begin
@@ -4598,6 +4625,7 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+
   //---------------set envi depht of thermal layer--------------------//
   if TryStrToFloat(edtDepthTermalLayer.Text, ValueData) and
     (simMgrClient.GameEnvironment.FData.Thermal_Layer_Depth <> ValueData) then
@@ -4610,6 +4638,7 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+
   //---------------set envi speed of sound surface--------------------//
   if TryStrToFloat(edtSpeedOfSoundSurface.Text, ValueData) and
     (simMgrClient.GameEnvironment.FData.Surface_Sound_Speed <> ValueData) then
@@ -4622,6 +4651,7 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+
   //---------------set envi speed of sound layer--------------------//
   if TryStrToFloat(edtSpeedOfSoundlayer.Text, ValueData) and
     (simMgrClient.GameEnvironment.FData.Layer_Sound_Speed <> ValueData) then
@@ -4634,6 +4664,7 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+
   //---------------set envi speed of sound bottom--------------------//
   if TryStrToFloat(edtSpeedOfSoundBottom.Text, ValueData) and
     (simMgrClient.GameEnvironment.FData.Bottom_Sound_Speed <> ValueData) then
@@ -4646,6 +4677,7 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+
   //---------------set envi upper limit surface ducting--------------------//
   if TryStrToFloat(edtSurfaceDuctUp.Text, ValueData) and
     (simMgrClient.GameEnvironment.FData.Upper_Limit_Surface_Duct_Depth <> ValueData) then
@@ -4658,6 +4690,7 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+
   //---------------set envi lower limit surface ducting--------------------//
   if TryStrToFloat(edtSurfaceDuctLow.Text, ValueData) and
     (simMgrClient.GameEnvironment.FData.Lower_Limit_Surface_Duct_Depth <> ValueData) then
@@ -4670,6 +4703,7 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+
   //---------------set envi upper limit subsurface ducting--------------------//
   if TryStrToFloat(edtSubSurfaceDuctUp.Text, ValueData) and
     (simMgrClient.GameEnvironment.FData.Upper_Limit_Sub_Duct_Depth <> ValueData) then
@@ -4682,6 +4716,7 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+
   //---------------set envi lower limit subsurface ducting--------------------//
   if TryStrToFloat(edtSubSurfaceDuctLow.Text, ValueData) and
     (simMgrClient.GameEnvironment.FData.Lower_Limit_Sub_Duct_Depth <> ValueData) then
@@ -4694,6 +4729,7 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+
   //---------------set envi sea state--------------------//
   if TryStrToInt(edtSeaState.Text, ValueInt) and
     (simMgrClient.GameEnvironment.FData.Sea_State <> ValueInt) then
@@ -4706,6 +4742,7 @@ begin
 
     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
+
   //---------------set envi bottom loss coefficient--------------------//
   if TryStrToFloat(edtBottomLost.Text, ValueData) and
     (simMgrClient.GameEnvironment.FData.Bottomloss_Coefficient <> ValueData) then
@@ -4769,7 +4806,7 @@ end;
 procedure TfrmToteDisplay.btnApplyEnviClick(Sender: TObject);
 begin
   applyEnviAboveWater;
-  applyEnviSurfaceSubsurface;
+//  applyEnviSurfaceSubsurface;
 end;
 
 procedure TfrmToteDisplay.btSelectHookedPlatformClick(sender: TObject);

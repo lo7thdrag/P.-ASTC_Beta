@@ -416,26 +416,26 @@ begin
 
   if index = 1 then
   begin
-     frmToteDisplay.edtWindSpeed.Text := FloatToStr(Value);
-
-     frmToteDisplay.lblWindRelativeSpeed.Caption := FormatSpeed(Value);
-     frmToteDisplay.lblSpeedWIndTrue.Caption := FormatSpeed(Value);
-     frmTacticalDisplay.Label21.Caption := FormatSpeed(Value * C_MS_To_KNOTS);
-
-     if Value > 50 then    //add wahyu 6-03-2012
-     begin
-      frmToteDisplay.edtWindSpeed.Text := FloatToStr(0);
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-        frmTacticalDisplay.addStatus('The value Input wind speed Is To High');
-     end;
+//     frmToteDisplay.edtWindSpeed.Text := FloatToStr(Value);
+//
+//     frmToteDisplay.lblWindRelativeSpeed.Caption := FormatSpeed(Value);
+//     frmToteDisplay.lblSpeedWIndTrue.Caption := FormatSpeed(Value);
+//     frmTacticalDisplay.Label21.Caption := FormatSpeed(Value * C_MS_To_KNOTS);
+//
+//     if Value > 50 then    //add wahyu 6-03-2012
+//     begin
+//      frmToteDisplay.edtWindSpeed.Text := FloatToStr(0);
+//      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+//        frmTacticalDisplay.addStatus('The value Input wind speed Is To High');
+//     end;
   end
   else if index = 2 then
   begin
-     frmToteDisplay.edtWindDir.Text := FloatToStr(Value);
-     frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
-     frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
-     frmToteDisplay.rw.degree := ValidateDegree(Value);
-     frmTacticalDisplay.Label10.Caption := FloatToStr(Value);
+//     frmToteDisplay.edtWindDir.Text := FloatToStr(Value);
+//     frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
+//     frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
+//     frmToteDisplay.rw.degree := ValidateDegree(Value);
+//     frmTacticalDisplay.Label10.Caption := FloatToStr(Value);
   end
   else if index = 3 then
   begin
@@ -467,48 +467,47 @@ begin
   end;
 
   case index of
-    E_Wind_Speed                      :
-                                      begin
-                                         frmToteDisplay.edtWindSpeed.Text := FormatFloat('0.00', Value);
+    E_Wind_Speed :
+    begin
+      frmToteDisplay.edtWindSpeed.Text := FormatFloat('0.00', Value);
 
-                                         frmToteDisplay.lblWindRelativeSpeed.Caption := FormatSpeed(Value);
-                                         frmToteDisplay.lblSpeedWIndTrue.Caption := FormatSpeed(Value);
-                                         frmTacticalDisplay.Label21.Caption := FormatSpeed(Value * C_MS_To_KNOTS);
+      frmToteDisplay.lblWindRelativeSpeed.Caption := FormatSpeed(Value);
+      frmToteDisplay.lblSpeedWIndTrue.Caption := FormatSpeed(Value);
+      frmTacticalDisplay.Label21.Caption := FormatSpeed(Value * C_MS_To_KNOTS);
 
-                                         if Value > 50 then    //add wahyu 6-03-2012
-                                         begin
-                                          frmToteDisplay.edtWindSpeed.Text := FloatToStr(0);
-                                          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                                            frmTacticalDisplay.addStatus('The value Input wind speed Is To High');
-                                         end;
-                                      end;
-    E_Wind_Direction                  :
-                                      begin
-                                         frmToteDisplay.edtWindDir.Text := FormatFloat('0.00', Value);
-                                         frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
-                                         frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
-                                         frmToteDisplay.rw.degree := ValidateDegree(Value);
-                                         frmTacticalDisplay.Label10.Caption := FormatFloat('0.00', Value);
-                                      end;
+      if Value > 50 then    //add wahyu 6-03-2012
+      begin
+        frmToteDisplay.edtWindSpeed.Text := FloatToStr(0);
+
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          frmTacticalDisplay.addStatus('The value Input wind speed Is To High');
+      end;
+    end;
+    E_Wind_Direction :
+    begin
+      frmToteDisplay.edtWindDir.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
+      frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
+      frmToteDisplay.rw.degree := ValidateDegree(Value);
+      frmTacticalDisplay.Label10.Caption := FormatFloat('0.00', Value);
+    end;
     E_Daytime_Visual_Modifier         :
-                                      begin
-                                         frmToteDisplay.edtDayVis.Text := FormatFloat('0.00', Value);
-                                         frmToteDisplay.trbDaytimeVisual.Position := Round(Value);
+    begin
+       frmToteDisplay.edtDayVis.Text := FormatFloat('0.00', Value);
+       frmToteDisplay.trbDaytimeVisual.Position := Round(Value);
 
-                                        StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
-                                        SecondTime := TimeStringToSecond(StrTime);
+      StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
+      SecondTime := TimeStringToSecond(StrTime);
 
-                                        if (SecondTime >= GameEnvironment.FData.Sunrise) and
-                                          (SecondTime <= GameEnvironment.FData.Sunset) then
-                                        begin
-                                          with frmToteDisplay do
-                                          begin
-                                            lblVisibilityactorsTime.Caption := 'DayTime';
-                                            lblVisibilityFactorsElectroOptical.Caption :=
-                                              FormatFloat('0.00', Value) + '%';
-                                          end;
-                                        end;
-                                      end;
+      if (SecondTime >= GameEnvironment.FData.Sunrise) and (SecondTime <= GameEnvironment.FData.Sunset) then
+      begin
+        with frmToteDisplay do
+        begin
+          lblVisibilityactorsTime.Caption := 'DayTime';
+          lblVisibilityFactorsElectroOptical.Caption := FormatFloat('0.00', Value) + '%';
+        end;
+      end;
+    end;
     E_Nighttime_Visual_Modifier       :
                                       begin
                                          frmToteDisplay.edtNightVis.Text := FormatFloat('0.00', Value);

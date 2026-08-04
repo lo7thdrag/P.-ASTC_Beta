@@ -1646,7 +1646,9 @@ begin
     2: {Cancel}
     begin
       Canceled;
-      btnHandleShape(btnSelect);
+      grpTemplate.Left := 17;
+      grpObjectEditor.Visible := False;
+//      btnHandleShape(btnSelect);
     end;
     3: {Close}
     begin
@@ -1880,7 +1882,6 @@ begin
       end;
     end;
   end;
-  grpObjectEditor.Visible := False;
 end;
 
 procedure TfmOverlayEditor.cbbDashesPenSelect(Sender: TObject);

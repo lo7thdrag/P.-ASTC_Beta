@@ -490,7 +490,7 @@ begin
       0: lblrole.Caption := 'Plotter';
       1: lblrole.Caption := 'Navigasi';
       2: lblrole.Caption := 'Atas Air';
-      3: lblrole.Caption := 'BawahAir';
+      3: lblrole.Caption := 'Bawah Air';
       4: lblrole.Caption := 'General';
     end;
   end;

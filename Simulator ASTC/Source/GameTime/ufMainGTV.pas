@@ -53,6 +53,7 @@ type
     procedure SetServerTime(const gt: tDateTime);
     procedure SetDurasiPermainan(const gt: tDateTime);
     procedure SetGameSpeed(const i: Integer);
+    procedure SetGameFreeze;
 
   end;
 
@@ -131,7 +132,7 @@ end;
 procedure TfrmMainGT.FormCreate(Sender: TObject);
 begin
 //
-  GameSPEED := 1.0;
+  GameSPEED := 0.0;
   SetServerTime(Now);
 
   first := true;
@@ -262,8 +263,9 @@ begin
       if first then
       begin
         ufRealTime.lblJamStart.Caption := FormatDateTime(' hh : nn : ss ', now);
-        SetGameSpeed(Round(GameSPEED))
       end;
+
+      SetGameSpeed(Round(GameSPEED))
     end;
     CORD_ID_pause :
     begin
@@ -272,6 +274,9 @@ begin
 
 //      GamePause;
       GameSPEED := 0.0;
+      SetGameSpeed(Round(GameSPEED));
+//      SetGameFreeze;
+
     end;
     CORD_ID_game_speed :
     begin;
@@ -322,9 +327,23 @@ begin
    lblGameDate.Caption := FormatDateTime('dd mmmm yyyy', gt);
 end;
 
+procedure TfrmMainGT.SetGameFreeze;
+begin
+
+end;
+
 procedure TfrmMainGT.SetGameSpeed(const i: Integer);
 begin
-  lblGameSpeed.Caption := IntToStr(i)+ 'x'
+  if i = 0 then
+  begin
+    lblGameSpeed.Font.Color := clRed;
+    lblGameSpeed.Caption := 'Frozen';
+  end
+  else
+  begin
+    lblGameSpeed.Font.Color := $00FFFFC0;
+    lblGameSpeed.Caption := IntToStr(i)+ 'x'
+  end;
 end;
 
 procedure TfrmMainGT.SetGameTime(const gt: tDateTime);

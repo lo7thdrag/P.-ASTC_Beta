@@ -3,8 +3,8 @@ object frmMainGT: TfrmMainGT
   Top = 0
   BorderStyle = bsNone
   BorderWidth = 12
-  ClientHeight = 744
-  ClientWidth = 1342
+  ClientHeight = 696
+  ClientWidth = 1294
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -98456,15 +98456,15 @@ object frmMainGT: TfrmMainGT
       ParentFont = False
     end
     object Label2: TLabel
-      Left = 222
-      Top = 556
-      Width = 171
-      Height = 47
+      Left = 194
+      Top = 557
+      Width = 267
+      Height = 44
       Alignment = taCenter
-      Caption = 'Percepatan'
+      Caption = 'Status Permainan'
       Font.Charset = ANSI_CHARSET
       Font.Color = clAqua
-      Font.Height = -47
+      Font.Height = -44
       Font.Name = 'Deusex'
       Font.Style = []
       ParentFont = False
@@ -98498,15 +98498,15 @@ object frmMainGT: TfrmMainGT
       ParentFont = False
     end
     object lblGameSpeed: TLabel
-      Left = 272
-      Top = 618
-      Width = 72
-      Height = 47
+      Left = 216
+      Top = 615
+      Width = 177
+      Height = 45
       Alignment = taCenter
       AutoSize = False
-      Caption = '0'
+      Caption = 'Frozen'
       Font.Charset = ANSI_CHARSET
-      Font.Color = 16777152
+      Font.Color = clRed
       Font.Height = -47
       Font.Name = 'Deusex'
       Font.Style = []

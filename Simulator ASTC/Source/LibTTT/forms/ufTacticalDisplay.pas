@@ -763,6 +763,7 @@ type
     lbl17: TLabel;
     pnlShipInformationNone: TPanel;
     btnDymensi: TRzBmpButton;
+    btnShipInfo: TRzBmpButton;
 
 //    ToolBtnComm: TToolButton;
 
@@ -8748,6 +8749,7 @@ begin // ini procedure update yg dipanggil dari sim client
       begin
         frmRightNav.Refresh_Controller((i = 1), simMgrClient.ISWasdal);
         frmRightNav.UpdateTabHooked(focusedTrack);
+//        frmSensor.fmSensor1.UpdateSensorForm;
       end;
     end;
     {$ENDREGION}

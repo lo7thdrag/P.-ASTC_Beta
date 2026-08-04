@@ -431,41 +431,41 @@ type
     Label98: TLabel;
     Label99: TLabel;
     Label100: TLabel;
-    Image1: TImage;
-    Image2: TImage;
+    btnCopyEllipse: TImage;
+    btnPasteEllipse: TImage;
     Label101: TLabel;
     Label102: TLabel;
     Label103: TLabel;
     Label104: TLabel;
-    img1: TImage;
-    img2: TImage;
+    btnCopyGrid: TImage;
+    btnPasteGrid: TImage;
     Label105: TLabel;
     Label106: TLabel;
     Label107: TLabel;
     Label108: TLabel;
-    img3: TImage;
-    img4: TImage;
-    img5: TImage;
-    img6: TImage;
+    btnCopyStartLine: TImage;
+    btnPasteStartLine: TImage;
+    btnCopyEndLine: TImage;
+    btnPasteEndLine: TImage;
     Bevel15: TBevel;
     Label109: TLabel;
     Label110: TLabel;
-    img7: TImage;
-    img8: TImage;
+    btnCopyPolygon: TImage;
+    btnPastePolygon: TImage;
     Label111: TLabel;
     Label112: TLabel;
     Label113: TLabel;
     lbl19: TLabel;
-    img9: TImage;
-    img10: TImage;
-    img11: TImage;
-    img12: TImage;
+    imgCopyStartRec: TImage;
+    imgPasteStartRec: TImage;
+    imgCopyEndRec: TImage;
+    imgPasteEndRec: TImage;
     lbl94: TLabel;
     Bevel16: TBevel;
     Label114: TLabel;
     Label115: TLabel;
-    img13: TImage;
-    img14: TImage;
+    imgCopySector: TImage;
+    imgPasteSector: TImage;
     Label116: TLabel;
     Label117: TLabel;
     Label118: TLabel;
@@ -524,6 +524,11 @@ type
     Label162: TLabel;
     Bevel24: TBevel;
     Bevel25: TBevel;
+    imgCopyText: TImage;
+    imgPasteText: TImage;
+    lblShow: TLabel;
+    Label163: TLabel;
+    Label164: TLabel;
 
     procedure FormShow(Sender: TObject);
 
@@ -568,6 +573,28 @@ type
     procedure templateShowHide(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btnNoFillClick(Sender: TObject);
+    procedure imgCopyTextClick(Sender: TObject);
+    procedure imgCopyArcClick(Sender: TObject);
+    procedure imgPasteArcClick(Sender: TObject);
+    procedure btnCopyCircleClick(Sender: TObject);
+    procedure btnPasteCircleClick(Sender: TObject);
+    procedure btnCopyEllipseClick(Sender: TObject);
+    procedure btnPasteEllipseClick(Sender: TObject);
+    procedure btnCopyGridClick(Sender: TObject);
+    procedure btnPasteGridClick(Sender: TObject);
+    procedure btnCopyStartLineClick(Sender: TObject);
+    procedure btnPasteStartLineClick(Sender: TObject);
+    procedure btnCopyEndLineClick(Sender: TObject);
+    procedure btnPasteEndLineClick(Sender: TObject);
+    procedure btnCopyPolygonClick(Sender: TObject);
+    procedure btnPastePolygonClick(Sender: TObject);
+    procedure imgCopyStartRecClick(Sender: TObject);
+    procedure imgPasteStartRecClick(Sender: TObject);
+    procedure imgCopyEndRecClick(Sender: TObject);
+    procedure imgPasteEndRecClick(Sender: TObject);
+    procedure imgCopySectorClick(Sender: TObject);
+    procedure imgPasteSectorClick(Sender: TObject);
+    procedure imgPasteTextClick(Sender: TObject);
 
   private
     FTagTombolPosition : Integer;
@@ -583,6 +610,9 @@ type
     FControlled: TObject;
 
   public
+    Flatt : string;
+    Flong : string;
+
     Action : Byte;
 
     FisNoFill : Boolean;
@@ -1437,6 +1467,12 @@ begin
   lvPolyVertexD.Clear;
 end;
 
+procedure TfmOverlayEditor.btnCopyCircleClick(Sender: TObject);
+begin
+  Flatt := edtCirclePosLat.Text;
+  Flong := edtCirclePosLong.Text;
+end;
+
 procedure TfmOverlayEditor.btnDeletePointClick(Sender: TObject);
 begin
   lvPolyVertex.Items.Delete(IdSelectedPoint);
@@ -1551,6 +1587,42 @@ begin
   btnFill.Picture.LoadFromFile('data\Image Interface\Instruktur\btnFill_Normal.PNG');
 
   FShapeColor := scOutline;
+end;
+
+procedure TfmOverlayEditor.btnPasteCircleClick(Sender: TObject);
+begin
+  edtCirclePosLat.Text   := Flatt;
+  edtCirclePosLong.Text  := Flong;
+end;
+
+procedure TfmOverlayEditor.btnPasteEllipseClick(Sender: TObject);
+begin
+  edtEllipsePosLat.Text   := Flatt;
+  edtEllipsePosLong.Text  := Flong;
+end;
+
+procedure TfmOverlayEditor.btnPasteEndLineClick(Sender: TObject);
+begin
+  Flatt := edtLineEndPosLat.Text;
+  Flong := edtLineEndPosLong.Text;
+end;
+
+procedure TfmOverlayEditor.btnPasteGridClick(Sender: TObject);
+begin
+  edtTablePosLat.Text   := Flatt;
+  edtTablePosLong.Text  := Flong;
+end;
+
+procedure TfmOverlayEditor.btnPastePolygonClick(Sender: TObject);
+begin
+  edtPolyPosLat.Text  := Flatt;
+  edtPolyPosLong.Text := Flong;
+end;
+
+procedure TfmOverlayEditor.btnPasteStartLineClick(Sender: TObject);
+begin
+  edtLineStartPosLat.Text   := Flatt;
+  edtLineStartPosLong.Text  := Flong;
 end;
 
 procedure TfmOverlayEditor.btnHandleObjectEditor(Sender: TObject);
@@ -1808,6 +1880,7 @@ begin
       end;
     end;
   end;
+  grpObjectEditor.Visible := False;
 end;
 
 procedure TfmOverlayEditor.cbbDashesPenSelect(Sender: TObject);
@@ -2484,13 +2557,13 @@ begin
 
   if Result then
   begin
-    pnlWarning.Visible := True;
-    lbl86.Visible := True;
-    lblWarning.Visible := True;
-    lbl86.Font.Color := clRed;
-    lbl86.Font.Style := [fsBold];
-    lblWarning.Font.Color := clRed;
-    isInputProblem := True;
+//    pnlWarning.Visible := True;
+//    lbl86.Visible := True;
+//    lblWarning.Visible := True;
+//    lbl86.Font.Color := clRed;
+//    lbl86.Font.Style := [fsBold];
+//    lblWarning.Font.Color := clRed;
+//    isInputProblem := True;
   end;
 end;
 
@@ -2781,6 +2854,7 @@ begin
 
       pnlPenEditing.Visible := True;
       grbColour.Visible := True;
+      grpObjectEditor.Visible := True;
 
       {Selain overlay yg diedit, semuanya di hiden}
       for i := 0 to simMgrClient.SimOverlayTemplate.FList.Count - 1 do
@@ -3734,6 +3808,96 @@ begin
 
   if a > 0 then
     Result := True;
+end;
+
+procedure TfmOverlayEditor.btnCopyEllipseClick(Sender: TObject);
+begin
+  Flatt := edtEllipsePosLat.Text;
+  Flong := edtEllipsePosLong.Text;
+end;
+
+procedure TfmOverlayEditor.btnCopyEndLineClick(Sender: TObject);
+begin
+  Flatt := edtLineEndPosLat.Text;
+  Flong := edtLineEndPosLong.Text;
+end;
+
+procedure TfmOverlayEditor.btnCopyGridClick(Sender: TObject);
+begin
+  Flatt := edtTablePosLat.Text;
+  Flong := edtTablePosLong.Text;
+end;
+
+procedure TfmOverlayEditor.btnCopyPolygonClick(Sender: TObject);
+begin
+  Flatt := edtPolyPosLat.Text;
+  Flong := edtPolyPosLong.Text;
+end;
+
+procedure TfmOverlayEditor.btnCopyStartLineClick(Sender: TObject);
+begin
+  Flatt := edtLineStartPosLat.Text;
+  Flong := edtLineStartPosLong.Text;
+end;
+
+procedure TfmOverlayEditor.imgCopyArcClick(Sender: TObject);
+begin
+  Flatt := edtArcPosLat.Text;
+  Flong := edtArcPosLong.Text;
+end;
+
+procedure TfmOverlayEditor.imgCopyEndRecClick(Sender: TObject);
+begin
+  Flatt := edtRectEndPosLat.Text;
+  Flong := edtRectEndPosLong.Text;
+end;
+
+procedure TfmOverlayEditor.imgCopySectorClick(Sender: TObject);
+begin
+  Flatt := edtSectorPosLat.Text;
+  Flong := edtSectorPosLong.Text;
+end;
+
+procedure TfmOverlayEditor.imgCopyStartRecClick(Sender: TObject);
+begin
+  Flatt := edtRectStartPosLat.Text;
+  Flong := edtRectStartPosLong.Text;
+end;
+
+procedure TfmOverlayEditor.imgCopyTextClick(Sender: TObject);
+begin
+  Flatt := edtTextPosLat.Text;
+  Flong := edtTextPosLong.Text;
+end;
+
+procedure TfmOverlayEditor.imgPasteArcClick(Sender: TObject);
+begin
+  edtArcPosLat.Text   := Flatt;
+  edtArcPosLong.Text  := Flong;
+end;
+
+procedure TfmOverlayEditor.imgPasteEndRecClick(Sender: TObject);
+begin
+  edtRectEndPosLat.Text   := Flatt;
+  edtRectEndPosLong.Text  := Flong;
+end;
+
+procedure TfmOverlayEditor.imgPasteSectorClick(Sender: TObject);
+begin
+  edtSectorPosLat.Text   := Flatt;
+  edtSectorPosLong.Text  := Flong;
+end;
+
+procedure TfmOverlayEditor.imgPasteStartRecClick(Sender: TObject);
+begin
+  edtRectStartPosLat.Text   := Flatt;
+  edtRectStartPosLong.Text  := Flong;
+end;
+
+procedure TfmOverlayEditor.imgPasteTextClick(Sender: TObject);
+begin
+  edtTextPosLat.Text   := Flatt;
+  edtTextPosLong.Text  := Flong;
 end;
 
 function TfmOverlayEditor.lineTypeChoice(linetype: TPenStyle): String;

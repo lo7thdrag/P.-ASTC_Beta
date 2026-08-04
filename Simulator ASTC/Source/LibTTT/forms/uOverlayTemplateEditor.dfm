@@ -46560,7 +46560,7 @@ object fmOverlayEditor: TfmOverlayEditor
       object btnText: TRzBmpButton
         Tag = 1
         Left = 17
-        Top = 107
+        Top = 140
         Width = 30
         Cursor = crHandPoint
         Hint = 'Text Overlay'
@@ -46844,7 +46844,7 @@ object fmOverlayEditor: TfmOverlayEditor
       object btnLine: TRzBmpButton
         Tag = 2
         Left = 17
-        Top = 137
+        Top = 171
         Width = 30
         Cursor = crHandPoint
         Hint = 'Line Overlay'
@@ -47038,7 +47038,7 @@ object fmOverlayEditor: TfmOverlayEditor
       object btnRectangle: TRzBmpButton
         Tag = 3
         Left = 17
-        Top = 168
+        Top = 202
         Width = 30
         Cursor = crHandPoint
         Hint = 'Rectangle Overlay'
@@ -47232,7 +47232,7 @@ object fmOverlayEditor: TfmOverlayEditor
       object btnArc: TRzBmpButton
         Tag = 6
         Left = 17
-        Top = 260
+        Top = 295
         Width = 30
         Cursor = crHandPoint
         Hint = 'Arc Overlay'
@@ -47426,7 +47426,7 @@ object fmOverlayEditor: TfmOverlayEditor
       object btnPolygon: TRzBmpButton
         Tag = 9
         Left = 17
-        Top = 352
+        Top = 388
         Width = 30
         Cursor = crHandPoint
         Bitmaps.Hot.Data = {
@@ -47619,7 +47619,7 @@ object fmOverlayEditor: TfmOverlayEditor
       object btnGrid: TRzBmpButton
         Tag = 8
         Left = 17
-        Top = 321
+        Top = 357
         Width = 30
         Cursor = crHandPoint
         Hint = 'Grid Overlay'
@@ -47811,7 +47811,7 @@ object fmOverlayEditor: TfmOverlayEditor
       object btnSector: TRzBmpButton
         Tag = 7
         Left = 17
-        Top = 291
+        Top = 326
         Width = 30
         Cursor = crHandPoint
         Hint = 'Sector Overlay'
@@ -48003,7 +48003,7 @@ object fmOverlayEditor: TfmOverlayEditor
       object btnEllipse: TRzBmpButton
         Tag = 5
         Left = 17
-        Top = 229
+        Top = 264
         Width = 30
         Cursor = crHandPoint
         Hint = 'Ellipse Overlay'
@@ -48197,7 +48197,7 @@ object fmOverlayEditor: TfmOverlayEditor
       object btnCircle: TRzBmpButton
         Tag = 4
         Left = 17
-        Top = 199
+        Top = 233
         Width = 30
         Cursor = crHandPoint
         Hint = 'Circle Overlay'
@@ -48387,8 +48387,8 @@ object fmOverlayEditor: TfmOverlayEditor
         OnClick = btnHandleShape
       end
       object btnMove: TRzBmpButton
-        Left = 20
-        Top = 12
+        Left = 17
+        Top = 107
         Width = 32
         Height = 32
         Cursor = crHandPoint
@@ -48686,7 +48686,6 @@ object fmOverlayEditor: TfmOverlayEditor
         ParentShowHint = False
         ShowHint = True
         TabOrder = 18
-        Visible = False
         OnClick = btnHandleShape
       end
       object pnlWarning: TPanel

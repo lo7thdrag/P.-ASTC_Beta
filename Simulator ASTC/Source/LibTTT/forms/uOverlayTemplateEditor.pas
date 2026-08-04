@@ -1648,7 +1648,7 @@ begin
       Canceled;
       grpTemplate.Left := 17;
       grpObjectEditor.Visible := False;
-//      btnHandleShape(btnSelect);
+      btnHandleShape(btnSelect);
     end;
     3: {Close}
     begin

@@ -154295,7 +154295,7 @@ object frmUserMainForm: TfrmUserMainForm
         object lblUsername: TLabel
           Left = 135
           Top = 55
-          Width = 131
+          Width = 20
           Height = 19
           Caption = '-----'
           Font.Charset = ANSI_CHARSET
@@ -154308,7 +154308,7 @@ object frmUserMainForm: TfrmUserMainForm
         object lblStatus: TLabel
           Left = 135
           Top = 80
-          Width = 131
+          Width = 20
           Height = 19
           Caption = '-----'
           Font.Charset = ANSI_CHARSET

@@ -175,6 +175,8 @@ type
     isFold : boolean;
     pnlActive : Integer;
 
+    IsLogin: Boolean;
+
     iconName : string;
     filePath, imgChoice : string;
 
@@ -241,6 +243,8 @@ procedure TfrmUserMainForm.FormCreate(Sender: TObject);
 begin
   CurrentUser := TUser_Login.Create;
 
+  IsLogin := False;
+
   EnableComposited(pnlMainBackground);
   EnableComposited(pnlLeft);
 
@@ -279,6 +283,8 @@ end;
 
 procedure TfrmUserMainForm.btnLogOutClick(Sender: TObject);
 begin
+  IsLogin := False;
+
   edtUsername.Clear;
   edtPasword.Clear;
 
@@ -301,8 +307,24 @@ end;
 
 procedure TfrmUserMainForm.btnUserLoginClick(Sender: TObject);
 begin
+  if Trim(edtUsername.Text) = '' then
+  begin
+    ShowMessage('Username harus diisi.');
+    edtUsername.SetFocus;
+    Exit;
+  end;
+
+  if Trim(edtPasword.Text) = '' then
+  begin
+    ShowMessage('Password harus diisi.');
+    edtPasword.SetFocus;
+    Exit;
+  end;
+
   if dmTTT.GetValidasiUserLogin(edtUsername.Text,edtPasword.Text,CurrentUser) then
   begin
+    IsLogin := True;
+
     pnlLogin.BringToFront;
 
     lblUsername.Caption := CurrentUser.FData.Username;
@@ -331,6 +353,13 @@ begin
     pnlActive := TImage(sender).Tag
   else
     Exit;
+
+  if (pnlActive in [1,2,3,4]) and (not IsLogin) then
+  begin
+    ShowMessage('Silakan login terlebih dahulu.');
+    pnlUserLogin.BringToFront;
+    Exit;
+  end;
 
 //  LoadImageVariasi(1);
   FormFactory(E_FormType(pnlActive),True);

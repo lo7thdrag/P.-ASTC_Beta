@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Imaging.jpeg,
 
-  tttData;
+  tttData,uDBAsset_UserLogin, uDataModuleTTT ;
 
 type
   TfrmUserMainForm = class(TForm)
@@ -122,6 +122,27 @@ type
     mnTransport: TLabel;
     img6: TImage;
     mnLogistic: TLabel;
+    pnlUserLogin: TPanel;
+    lbl1: TLabel;
+    lbl2: TLabel;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    btnUserLogin: TImage;
+    btnRegister: TImage;
+    edtUsername: TEdit;
+    edtPasword: TEdit;
+    btnShowPassword: TImage;
+    lbl5: TLabel;
+    pnlLogin: TPanel;
+    lbl6: TLabel;
+    lbl7: TLabel;
+    lbl8: TLabel;
+    lbl9: TLabel;
+    btnEdit: TImage;
+    btnLogOut: TImage;
+    lbl10: TLabel;
+    lblUsername: TLabel;
+    lblStatus: TLabel;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -140,6 +161,12 @@ type
     procedure SubMenuMouseEnter(Sender: TObject);
     procedure SuMenuMouseLeave(Sender: TObject);
     procedure ShutdownDatabaseEditor1Click(Sender: TObject);
+    procedure btnRegisterClick(Sender: TObject);
+    procedure btnShowPasswordClick(Sender: TObject);
+    procedure btnUserLoginClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure btnLogOutClick(Sender: TObject);
+
 
     {$ENDREGION}
 
@@ -153,10 +180,15 @@ type
 
     FDockedForm : TForm;
 
+    CurrentUser : TUser_Login;
+
     procedure IconLoad;
     procedure DockForm(aForm: TForm);
+    procedure Privilege;
+
 
   public
+     UserLogin : TUser_Login;
 
 //    procedure LoadImageVariasi(i : byte);
     procedure FormFactory(aFormType: E_FormType; aDocked: Boolean = False);
@@ -186,7 +218,7 @@ uses
 
   ufrmAvailableRuntimePlatformLibrary, ufrmAvailableOverlay, ufrmAvailableLogistic,
   ufrmAvailableTransport, ufrmAvailableWaypoint, ufrmAvailableGameArea, ufrmAvailableMotion,
-  ufrmAvailableGameDefault, ufrmAvailableSNRvsPOD;
+  ufrmAvailableGameDefault, ufrmAvailableSNRvsPOD, uUserLogin;
 
 {$R *.dfm}
 
@@ -207,6 +239,8 @@ end;
 
 procedure TfrmUserMainForm.FormCreate(Sender: TObject);
 begin
+  CurrentUser := TUser_Login.Create;
+
   EnableComposited(pnlMainBackground);
   EnableComposited(pnlLeft);
 
@@ -217,6 +251,12 @@ begin
   pnl5CountermeasuresBody.Height := 0;
   pnl6OtherBody.Height := 0;
   pnl8ShutdownBody.Height := 0;
+
+end;
+
+procedure TfrmUserMainForm.FormDestroy(Sender: TObject);
+begin
+   CurrentUser.Free;
 end;
 
 procedure TfrmUserMainForm.FormShow(Sender: TObject);
@@ -235,6 +275,45 @@ begin
   imgChoice := '.PNG';
 
   IconLoad;
+end;
+
+procedure TfrmUserMainForm.btnLogOutClick(Sender: TObject);
+begin
+  edtUsername.Clear;
+  edtPasword.Clear;
+
+  lblUsername.Caption := '';
+  lblStatus.Caption := '';
+
+  pnlUserLogin.BringToFront;
+end;
+
+procedure TfrmUserMainForm.btnRegisterClick(Sender: TObject);
+begin
+  frmUserLogin := TfrmUserLogin.Create(nil);
+  try
+    frmUserLogin.isNew := True;
+    frmUserLogin.ShowModal;
+  finally
+    FreeAndNil(frmUserLogin);
+  end;
+end;
+
+procedure TfrmUserMainForm.btnUserLoginClick(Sender: TObject);
+begin
+  if dmTTT.GetValidasiUserLogin(edtUsername.Text,edtPasword.Text,CurrentUser) then
+  begin
+    pnlLogin.BringToFront;
+
+    lblUsername.Caption := CurrentUser.FData.Username;
+    lblStatus.Caption := CurrentUser.FData.Privilege;
+    ShowMessage('Login berhasil');
+  end
+  else
+  begin
+
+    ShowMessage('Username atau password salah');
+  end;
 end;
 
 procedure TfrmUserMainForm.IconMouseEnter(Sender: TObject);
@@ -257,6 +336,36 @@ begin
   FormFactory(E_FormType(pnlActive),True);
 
   CollapseMenuClick(Sender);
+end;
+
+procedure TfrmUserMainForm.Privilege;
+//var
+//  i : Integer;
+begin
+//  if aNamePrivilege = 'Admin System' then
+//  begin
+//     for I := 0 to frmAdminMainForm.MainMenu1.Items.Count - 1 do
+//    begin
+//      frmAdminMainForm.MainMenu1.Items[i].Enabled := True;
+//    end;
+//    fVehicleSelect.btnNew.Enabled := True;
+//    fVehicleSelect.btnCopy.Enabled := True;
+//    fVehicleSelect.btnEdit.Enabled := True;
+
+//  end
+//  else if aNamePrivilege = 'Scenario Builder' then
+//  begin
+////    for I := 0 to frmAdminMainForm.MainMenu1.Items.Count - 1 do
+////    begin
+////      frmAdminMainForm.MainMenu1.Items[i].Enabled := False;
+////    end;
+//
+////    frmAdminMainForm.MainMenu1.Items[9].Enabled := True;
+//    fVehicleSelect.btnNew.Enabled := False;
+//    fVehicleSelect.btnCopy.Enabled := False;
+//    fVehicleSelect.btnEdit.Enabled := False;
+//
+//  end
 end;
 
 procedure TfrmUserMainForm.SuMenuMouseLeave(Sender: TObject);
@@ -662,6 +771,20 @@ begin
   else if iconName = 'imgShutdown' then
   begin
     imgShutdown.Picture.LoadFromFile(filePath + 'imgShutdown' + imgChoice);
+  end;
+end;
+
+procedure TfrmUserMainForm.btnShowPasswordClick(Sender: TObject);
+begin
+    if (edtPasword.PasswordChar = '*') then
+  begin
+    btnShowPassword.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\btnShowPassword.png');
+    edtPasword.PasswordChar := #0;
+  end
+  else
+  begin
+    btnShowPassword.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\btnHidePassword.png');
+    edtPasword.PasswordChar := '*';
   end;
 end;
 

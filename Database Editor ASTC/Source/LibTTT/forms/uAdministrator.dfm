@@ -17,11 +17,86 @@ object frmAdministrator: TfrmAdministrator
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 474
+    Height = 277
+    Align = alClient
+    Color = 2499101
+    ParentBackground = False
+    TabOrder = 5
+    ExplicitLeft = 152
+    ExplicitTop = 136
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+  end
+  object btnClose: TButton
+    Left = 390
+    Top = 247
+    Width = 75
+    Height = 25
+    Caption = 'Close'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    OnClick = btnCloseClick
+  end
+  object btnEdit: TButton
+    Left = 309
+    Top = 247
+    Width = 75
+    Height = 25
+    Caption = 'Edit'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    OnClick = btnEditClick
+  end
+  object btnNew: TButton
+    Left = 228
+    Top = 247
+    Width = 75
+    Height = 25
+    Caption = 'New'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    OnClick = btnNewClick
+  end
+  object btnRemove: TButton
+    Left = 147
+    Top = 247
+    Width = 75
+    Height = 25
+    Caption = 'Remove'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+    OnClick = btnRemoveClick
+  end
   object lvUserLogin: TListView
     Left = 8
     Top = 8
     Width = 457
     Height = 233
+    Color = clWhite
     Columns = <
       item
         Caption = 'Name'
@@ -39,7 +114,7 @@ object frmAdministrator: TfrmAdministrator
         Caption = 'Privilege'
         Width = 100
       end>
-    Font.Charset = DEFAULT_CHARSET
+    Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
@@ -49,41 +124,5 @@ object frmAdministrator: TfrmAdministrator
     ParentFont = False
     TabOrder = 0
     ViewStyle = vsReport
-  end
-  object btnEdit: TButton
-    Left = 309
-    Top = 247
-    Width = 75
-    Height = 25
-    Caption = 'Edit'
-    TabOrder = 1
-    OnClick = btnEditClick
-  end
-  object btnClose: TButton
-    Left = 390
-    Top = 247
-    Width = 75
-    Height = 25
-    Caption = 'Close'
-    TabOrder = 2
-    OnClick = btnCloseClick
-  end
-  object btnNew: TButton
-    Left = 228
-    Top = 247
-    Width = 75
-    Height = 25
-    Caption = 'New'
-    TabOrder = 3
-    OnClick = btnNewClick
-  end
-  object btnRemove: TButton
-    Left = 147
-    Top = 247
-    Width = 75
-    Height = 25
-    Caption = 'Remove'
-    TabOrder = 4
-    OnClick = btnRemoveClick
   end
 end

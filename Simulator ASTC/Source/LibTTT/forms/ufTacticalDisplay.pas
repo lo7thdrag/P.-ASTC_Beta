@@ -1251,6 +1251,9 @@ type
 
   private
 
+    {u/ Navigasi}
+    isFilterRangeRing : Boolean;
+
     isFirstUpdate: Boolean; // ini sementara untuk update data platform pertama kali
     isOnAnchorLine: Boolean;
     isOnESMLine: Boolean;
@@ -2602,7 +2605,7 @@ begin
     lblRangeRings.Caption := '1 : ' + FloatToStr(z/4);
 
     // Set Range Ring
-    rrVis := btnFilterRings.down;
+//    rrVis := btnFilterRings.down;
     if rrVis then
     begin
       z := FixMapZoom(VSimMap.FMap.Zoom);
@@ -7353,6 +7356,10 @@ begin
   cbSetScale2D.ItemIndex := i;
   cbSetScale2DChange(cbSetScale2D);
 
+  {u/ navigasi}
+  cbbSetScale.ItemIndex := i;
+  cbbSetScaleChange(cbbSetScale);
+
   if Sender is TToolButton then
     StatusBar1.Panels[0].Text := TToolButton(Sender).Hint
   else if Sender is TMenuItem then
@@ -7382,6 +7389,10 @@ begin
 
   cbSetScale2D.ItemIndex := i;
   cbSetScale2DChange(cbSetScale2D);
+
+  {u/ navigasi}
+  cbbSetScale.ItemIndex := i;
+  cbbSetScaleChange(cbbSetScale);
 
   if Sender is TToolButton then
     StatusBar1.Panels[0].Text := TToolButton(Sender).Hint
@@ -7444,6 +7455,8 @@ begin
 
   if TToolButton(Sender).Name = 'btnFilterRangeRings' then
     rrVis := btnFilterRangeRings.Down
+  else if TRzBmpButton(Sender).Name = 'btnFilterRings' then
+    rrVis := isFilterRangeRing
   else if TToolButton(Sender).Name = 'btnFilterRangeRings2D' then
     rrVis := btnFilterRangeRings2D.Down
   else if TToolButton(Sender).Name = 'FilterRange1' then
@@ -7482,28 +7495,32 @@ var
   rrVis: Boolean;
   z: double;
 begin
-  rrVis := btnFilterRings.Down;
+  isFilterRangeRing := not isFilterRangeRing;
 
-  // toolBtnFilterRangeRings.Down := FRangeRingVisible;
-  if rrVis then
-  begin
-    z := FixMapZoom(VSimMap.FMap.Zoom);
-    i := FindClosestZoomIndex(z);
-    z := ZoomIndexToScale(i);
-    simMgrClient.RangeRing.Interval := 0.125 * z;
-  end;
+  btnFilterRangeRingsClick(Sender);
 
-  if Assigned(frmTacticalDisplay.focusedTrack) then
-    simMgrClient.MyRingHookedPlatfom := frmTacticalDisplay.focusedTrack;
-
-  if Assigned(simMgrClient.MyRingHookedPlatfom)then
-  begin
-    simMgrClient.RangeRing.mX := simMgrClient.MyRingHookedPlatfom.getPositionX;
-    simMgrClient.RangeRing.mY := simMgrClient.MyRingHookedPlatfom.getPositionY;
-    simMgrClient.RangeRing.Visible := rrVis;
-  end;
-
-  frmTacticalDisplay.StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
+//  rrVis := btnFilterRings.Down;
+//
+//  // toolBtnFilterRangeRings.Down := FRangeRingVisible;
+//  if rrVis then
+//  begin
+//    z := FixMapZoom(VSimMap.FMap.Zoom);
+//    i := FindClosestZoomIndex(z);
+//    z := ZoomIndexToScale(i);
+//    simMgrClient.RangeRing.Interval := 0.125 * z;
+//  end;
+//
+//  if Assigned(frmTacticalDisplay.focusedTrack) then
+//    simMgrClient.MyRingHookedPlatfom := frmTacticalDisplay.focusedTrack;
+//
+//  if Assigned(simMgrClient.MyRingHookedPlatfom)then
+//  begin
+//    simMgrClient.RangeRing.mX := simMgrClient.MyRingHookedPlatfom.getPositionX;
+//    simMgrClient.RangeRing.mY := simMgrClient.MyRingHookedPlatfom.getPositionY;
+//    simMgrClient.RangeRing.Visible := rrVis;
+//  end;
+//
+//  frmTacticalDisplay.StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
 end;
 
 procedure TfrmTacticalDisplay.btnStartGameClick(Sender: TObject);
@@ -7932,8 +7949,11 @@ end;
 
 procedure TfrmTacticalDisplay.btnPanNavClick(Sender: TObject);
 begin
-  UpAllToolbarButton;
-  btnPan.Down := True;
+//  UpAllToolbarButton;
+
+  btnZoomIn1.Down := False;
+  btnSelect.Down := False;
+  btnPanNav.Down := True;
 
   Map1.CurrentTool := miPanTool;
   Map1.MousePointer := miPanCursor;
@@ -8149,7 +8169,11 @@ end;
 
 procedure TfrmTacticalDisplay.btnSelectClick(Sender: TObject);
 begin
-  UpAllToolbarButton;
+//  UpAllToolbarButton;
+
+  btnZoomIn1.Down := False;
+  btnSelect.Down := False;
+  btnPanNav.Down := True;
   btnSelect.Down := True;
 
   Map1.CurrentTool := miSelectTool;

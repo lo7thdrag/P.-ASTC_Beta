@@ -9916,7 +9916,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Caption = 'Status'
                     Width = 90
                   end>
-                ExplicitLeft = 1
                 ExplicitWidth = 357
                 ExplicitHeight = 109
               end
@@ -15022,6 +15021,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Layout = blGlyphTop
         Spacing = 1
         TabOrder = 1
+        Visible = False
         OnClick = CentreOnGameCentreClick
       end
       object btnCenterHook: TRzBmpButton
@@ -15791,7 +15791,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Width = 84
         Height = 47
         Hint = 'Filter Range Rings'
-        AllowAllUp = True
         GroupIndex = 2
         Bitmaps.Down.Data = {
           7A2E0000424D7A2E0000000000003600000028000000540000002F0000000100
@@ -16545,7 +16544,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Layout = blGlyphTop
         Spacing = 1
         TabOrder = 3
-        OnClick = btnFilterRangeRingsClick
+        OnClick = btnFilterRingsClick
       end
       object btnRuler: TRzBmpButton
         Left = 869
@@ -20362,7 +20361,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Width = 84
         Height = 47
         Hint = 'Filter Range Rings'
-        AllowAllUp = True
         GroupIndex = 2
         Bitmaps.Down.Data = {
           7A2E0000424D7A2E0000000000003600000028000000540000002F0000000100
@@ -21116,6 +21114,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Layout = blGlyphTop
         Spacing = 1
         TabOrder = 9
+        Visible = False
         OnClick = btnRangeRingsOnHookClick
       end
       object cbbSetScale: TComboBox
@@ -23419,6 +23418,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Layout = blGlyphTop
         Spacing = 1
         TabOrder = 13
+        Visible = False
         OnClick = acticalInfoSet1Click
       end
     end

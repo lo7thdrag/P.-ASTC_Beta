@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ComCtrls;
+  Dialogs, StdCtrls, ComCtrls, Vcl.ExtCtrls;
 
 type
   TfrmAdministrator = class(TForm)
@@ -13,6 +13,7 @@ type
     btnClose: TButton;
     btnNew: TButton;
     btnRemove: TButton;
+    Panel1: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
@@ -22,6 +23,7 @@ type
   private
     { Private declarations }
     UserLoginList : TList;
+    procedure ClearUserList;
 
   public
     { Public declarations }
@@ -44,10 +46,25 @@ end;
 
 procedure TfrmAdministrator.btnEditClick(Sender: TObject);
 begin
-  frmUserLogin.UserLogin := TUser_Login.Create;
-  frmUserLogin.UserLogin := TUser_Login(lvUserLogin.Selected.Data);
-  frmUserLogin.isNew := False;
-  frmUserLogin.ShowModal;
+    if lvUserLogin.Selected = nil then
+  begin
+    ShowMessage('Pilih user terlebih dahulu.');
+    Exit;
+  end;
+
+  frmUserLogin := TfrmUserLogin.Create(nil);
+  try
+    frmUserLogin.UserLogin := TUser_Login(lvUserLogin.Selected.Data);
+    frmUserLogin.isNew := False;
+
+    if frmUserLogin.ShowModal = mrOK then
+    begin
+      refresh;
+    end;
+
+  finally
+    frmUserLogin.Free;
+  end;
 end;
 
 procedure TfrmAdministrator.btnNewClick(Sender: TObject);
@@ -66,6 +83,16 @@ begin
   refresh;
 end;
 
+procedure TfrmAdministrator.ClearUserList;
+var
+    i: Integer;
+begin
+  for i := 0 to UserLoginList.Count - 1 do
+    TUser_Login(UserLoginList[i]).Free;
+
+  UserLoginList.Clear;
+end;
+
 procedure TfrmAdministrator.FormCreate(Sender: TObject);
 begin
   UserLoginList := TList.Create;
@@ -82,6 +109,7 @@ var
   aUserLogin : TUser_Login;
 begin
   lvUserLogin.Items.Clear;
+  ClearUserList;
 
   dmTTT.GetAllUserLogin(UserLoginList);
 

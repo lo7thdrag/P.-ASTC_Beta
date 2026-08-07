@@ -143,11 +143,16 @@ type
     lbl10: TLabel;
     lblUsername: TLabel;
     lblStatus: TLabel;
+    img7: TImage;
+    img8: TImage;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 
     procedure SubMenuClick(Sender: TObject);
+
+    procedure LoginImageMouseEnter(sender : TObject);
+    procedure LoginImageMouseLeave(sender : TObject);
 
     {$REGION ' Navbar Section '}
 
@@ -166,6 +171,7 @@ type
     procedure btnUserLoginClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnLogOutClick(Sender: TObject);
+    procedure btnEditClick(Sender: TObject);
 
 
     {$ENDREGION}
@@ -220,7 +226,7 @@ uses
 
   ufrmAvailableRuntimePlatformLibrary, ufrmAvailableOverlay, ufrmAvailableLogistic,
   ufrmAvailableTransport, ufrmAvailableWaypoint, ufrmAvailableGameArea, ufrmAvailableMotion,
-  ufrmAvailableGameDefault, ufrmAvailableSNRvsPOD, uUserLogin;
+  ufrmAvailableGameDefault, ufrmAvailableSNRvsPOD, uUserLogin, uSession;
 
 {$R *.dfm}
 
@@ -265,7 +271,8 @@ end;
 
 procedure TfrmUserMainForm.FormShow(Sender: TObject);
 begin
-
+ pnlUserLogin.Top := 745;
+ pnlLogin.Top := 745;
 end;
 
 {$ENDREGION}
@@ -281,9 +288,62 @@ begin
   IconLoad;
 end;
 
+procedure TfrmUserMainForm.LoginImageMouseEnter(sender: TObject);
+begin
+  if Sender = btnRegister then
+    btnRegister.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\rgstr2.png')
+  else if Sender = btnEdit then
+    btnEdit.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\edt6.png')
+  else if sender = btnUserLogin then
+    btnUserLogin.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgn2.png')
+  else if sender = btnLogOut then
+    btnLogOut.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgt2.png');
+end;
+
+procedure TfrmUserMainForm.LoginImageMouseLeave(sender: TObject);
+begin
+   if Sender = btnRegister then
+    btnRegister.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\rgstr (1).png')
+   else if Sender = btnEdit then
+    btnEdit.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\edt5 (1).png')
+   else if sender = btnUserLogin then
+    btnUserLogin.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgn (1).png')
+    else if sender = btnLogOut then
+    btnLogOut.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgt (1).png');
+end;
+
+procedure TfrmUserMainForm.btnEditClick(Sender: TObject);
+begin
+  frmUserLogin := TfrmUserLogin.Create(nil);
+  try
+    frmUserLogin.isNew := False;
+
+    with frmUserLogin.UserLogin.FData do
+    begin
+      Login_Index := CurrentUser.FData.Login_Index;
+      Name := CurrentUser.FData.Name;
+      Username := CurrentUser.FData.Username;
+      Password := CurrentUser.FData.Password;
+      Privilege := CurrentUser.FData.Privilege;
+    end;
+
+    if frmUserLogin.ShowModal = mrOK then
+    begin
+      CurrentUser.FData := frmUserLogin.UserLogin.FData;
+
+      lblUsername.Caption := CurrentUser.FData.Username;
+      lblStatus.Caption := CurrentUser.FData.Privilege;
+    end;
+  finally
+    FreeAndNil(frmUserLogin);
+  end;
+end;
+
 procedure TfrmUserMainForm.btnLogOutClick(Sender: TObject);
 begin
   IsLogin := False;
+
+  uSession.CurrentUser := '';
 
   edtUsername.Clear;
   edtPasword.Clear;
@@ -309,14 +369,14 @@ procedure TfrmUserMainForm.btnUserLoginClick(Sender: TObject);
 begin
   if Trim(edtUsername.Text) = '' then
   begin
-    ShowMessage('Username harus diisi.');
+    ShowMessage('Silahkan masukkan username.');
     edtUsername.SetFocus;
     Exit;
   end;
 
   if Trim(edtPasword.Text) = '' then
   begin
-    ShowMessage('Password harus diisi.');
+    ShowMessage('Silahkan masukkan Password.');
     edtPasword.SetFocus;
     Exit;
   end;
@@ -325,15 +385,15 @@ begin
   begin
     IsLogin := True;
 
+    uSession.CurrentUser := CurrentUser.FData.Username;
+
     pnlLogin.BringToFront;
 
     lblUsername.Caption := CurrentUser.FData.Username;
     lblStatus.Caption := CurrentUser.FData.Privilege;
-    ShowMessage('Login berhasil');
   end
   else
   begin
-
     ShowMessage('Username atau password salah');
   end;
 end;
@@ -349,11 +409,15 @@ end;
 
 procedure TfrmUserMainForm.MainMenuClick(Sender: TObject);
 begin
-  if Sender is TImage then
-    pnlActive := TImage(sender).Tag
+   if Sender is TImage then
+    pnlActive := TImage(Sender).Tag
+  else if Sender is TPanel then
+    pnlActive := TPanel(Sender).Tag
   else
     Exit;
 
+
+  // CEK LOGIN DULU
   if (pnlActive in [1,2,3,4]) and (not IsLogin) then
   begin
     ShowMessage('Silakan login terlebih dahulu.');
@@ -361,7 +425,8 @@ begin
     Exit;
   end;
 
-//  LoadImageVariasi(1);
+
+  // BARU BUKA FORM
   FormFactory(E_FormType(pnlActive),True);
 
   CollapseMenuClick(Sender);

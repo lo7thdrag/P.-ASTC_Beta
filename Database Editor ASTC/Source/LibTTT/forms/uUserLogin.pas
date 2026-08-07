@@ -17,8 +17,8 @@ type
     bvl1: TBevel;
     lbl8: TLabel;
     bvl2: TBevel;
-    btnCancel: TButton;
-    btnOK: TButton;
+    btnCancelL: TButton;
+    btnOKK: TButton;
     cbbPrivilege: TComboBox;
     edtConfirmPassword: TEdit;
     edtPassword: TEdit;
@@ -32,13 +32,22 @@ type
     lbl11: TLabel;
     btnShowPassword: TImage;
     btnShowPassword2: TImage;
+    img1: TImage;
+    btnOK: TImage;
+    btnCancel: TImage;
     procedure FormShow(Sender: TObject);
-    procedure btnOKClick(Sender: TObject);
+    procedure btnOKKClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure btnCancelClick(Sender: TObject);
+    procedure btnCancelLClick(Sender: TObject);
     procedure btnShowPasswordClick(Sender: TObject);
     procedure btnShowPassword2Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure btnOKClick(Sender: TObject);
+    procedure btnCancelClick(Sender: TObject);
+    procedure btnOKMouseEnter(Sender: TObject);
+    procedure btnOKMouseLeave(Sender: TObject);
+    procedure btnCancelMouseEnter(Sender: TObject);
+    procedure btnCancelMouseLeave(Sender: TObject);
   private
     { Private declarations }
     procedure getData;
@@ -61,14 +70,40 @@ uses uDataModuleTTT;
 
 procedure TfrmUserLogin.btnCancelClick(Sender: TObject);
 begin
-  Close;
+   Close;
+end;
+
+procedure TfrmUserLogin.btnCancelLClick(Sender: TObject);
+begin
+//  Close;
+end;
+
+procedure TfrmUserLogin.btnCancelMouseEnter(Sender: TObject);
+begin
+  if Sender = btnCancel then
+    btnCancel.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\cncl2.png');
+end;
+
+procedure TfrmUserLogin.btnCancelMouseLeave(Sender: TObject);
+begin
+   if Sender = btnCancel then
+    btnCancel.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\cncl (1).png');
 end;
 
 procedure TfrmUserLogin.btnOKClick(Sender: TObject);
 begin
-  if not (edtPassword.Text = edtConfirmPassword.Text) then
+  // Validasi semua field wajib
+  if (Trim(edtUser.Text) = '') or (Trim(edtPassword.Text) = '') or
+     (Trim(edtConfirmPassword.Text) = '') then
   begin
-    ShowMessage('confirm password invalid!!');
+    ShowMessage('Data belum lengkap!');
+    Exit;
+  end;
+
+  // Validasi password
+  if edtPassword.Text <> edtConfirmPassword.Text then
+  begin
+    ShowMessage('Konfirmasi kata sandi tidak valid!!');
     Exit;
   end;
 
@@ -78,21 +113,64 @@ begin
   begin
     if dmTTT.CekUserLoginNameAlreadyExist(edtUser.Text) then
     begin
-      ShowMessage('Already exist username!!');
+      ShowMessage('Nama pengguna sudah ada!');
       Exit;
     end;
     dmTTT.InsertUserLogin(UserLogin);
     isNew := False;
-    ShowMessage('Successfully saved.');
+    ShowMessage('Berhasil disimpan.');
   end
   else
   begin
     dmTTT.UpdateUserLogin(UserLogin);
+    ShowMessage('Data berhasil diupdate.');
   end;
 
   ModalResult := mrOK;
+//  frmAdministrator.refresh;
+end;
+
+procedure TfrmUserLogin.btnOKKClick(Sender: TObject);
+begin
+//  if not (edtPassword.Text = edtConfirmPassword.Text) then
+//  begin
+//    ShowMessage('confirm password invalid!!');
+//    Exit;
+//  end;
+//
+//  getData;
+//
+//  if isNew then
+//  begin
+//    if dmTTT.CekUserLoginNameAlreadyExist(edtUser.Text) then
+//    begin
+//      ShowMessage('Already exist username!!');
+//      Exit;
+//    end;
+//    dmTTT.InsertUserLogin(UserLogin);
+//    isNew := False;
+//    ShowMessage('Successfully saved.');
+//  end
+//  else
+//  begin
+//    dmTTT.UpdateUserLogin(UserLogin);
+//  end;
+//
+//  ModalResult := mrOK;
 //  Exit;
 //  frmAdministrator.refresh;
+end;
+
+procedure TfrmUserLogin.btnOKMouseEnter(Sender: TObject);
+begin
+   if Sender = btnOK then
+    btnOK.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\ok2.png');
+end;
+
+procedure TfrmUserLogin.btnOKMouseLeave(Sender: TObject);
+begin
+   if Sender = btnOK then
+    btnOK.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\ok (1).png');
 end;
 
 procedure TfrmUserLogin.FormCreate(Sender: TObject);

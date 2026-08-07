@@ -366,7 +366,8 @@ uses
   ufrmExercise in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmExercise.pas' {frmExercise},
   ufrmElectroOpticalMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmElectroOpticalMount.pas' {frmElectroOpticalMount},
   ufrmAvailableRuntimePlatformLibrary in '..\LibTTT\forms\Admin Interface\Other\ufrmAvailableRuntimePlatformLibrary.pas' {frmAvailableRuntimePlatformLibrary},
-  ufrmAcousticDecoyProb in '..\LibTTT\forms\Admin Interface\ProbabylityGraphic\ufrmAcousticDecoyProb.pas' {frmAcousticDecoyProb};
+  ufrmAcousticDecoyProb in '..\LibTTT\forms\Admin Interface\ProbabylityGraphic\ufrmAcousticDecoyProb.pas' {frmAcousticDecoyProb},
+  uSession in 'uSession.pas';
 
 {$R *.res}
 

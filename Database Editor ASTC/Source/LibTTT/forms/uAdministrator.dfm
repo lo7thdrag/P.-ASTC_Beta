@@ -26,10 +26,6 @@ object frmAdministrator: TfrmAdministrator
     Color = 2499101
     ParentBackground = False
     TabOrder = 5
-    ExplicitLeft = 152
-    ExplicitTop = 136
-    ExplicitWidth = 185
-    ExplicitHeight = 41
   end
   object btnClose: TButton
     Left = 390

@@ -264,7 +264,8 @@ uses
   ufrmTopNav in 'formClient\NavigasiUI\ufrmTopNav.pas' {frmTopNav},
   ufrmRightNav in 'formClient\NavigasiUI\ufrmRightNav.pas' {frmRightNav},
   uMapLayerDB in '..\AOPRSupportMap\uMapLayerDB.pas',
-  ufrmRightAtasAir in 'formClient\AtasAirUI\ufrmRightAtasAir.pas' {frmRightAtasAir};
+  ufrmRightAtasAir in 'formClient\AtasAirUI\ufrmRightAtasAir.pas' {frmRightAtasAir},
+  ufrmLeftAtasAir in 'formClient\AtasAirUI\ufrmLeftAtasAir.pas' {frmLeftAtasAir};
 
 {$R *.res}
 
@@ -323,6 +324,7 @@ begin
   Application.CreateForm(TfrmTopNav, frmTopNav);
   Application.CreateForm(TfrmRightNav, frmRightNav);
   Application.CreateForm(TfrmRightAtasAir, frmRightAtasAir);
+  Application.CreateForm(TfrmLeftAtasAir, frmLeftAtasAir);
   frmLog.LogFile.FileName := ChangeFileExt(Application.ExeName, '.log');
   frmLog.LogFile.Init;
 

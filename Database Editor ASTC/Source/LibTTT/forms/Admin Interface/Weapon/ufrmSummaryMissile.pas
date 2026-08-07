@@ -326,7 +326,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmTorpedoPickList, ufrmMotionPickList;
+  uDataModuleTTT, ufrmTorpedoPickList, ufrmMotionPickList, uSession;
 
 {$R *.dfm}
 
@@ -372,6 +372,14 @@ begin
   AfterClose := True;
   btnCancel.Enabled := True;
 
+  if Trim(uSession.CurrentUser) <> '' then
+  begin
+  if mmoNotes.Lines.Count > 0 then
+    mmoNotes.Lines.Add('');
+
+   mmoNotes.Lines.Add(Format('Opened by : %s (%s)',[uSession.CurrentUser,FormatDateTime('dd-mm-yyyy hh:nn', Now)]));
+
+  end;
 end;
 
 {$ENDREGION}

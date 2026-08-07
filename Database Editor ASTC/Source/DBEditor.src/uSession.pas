@@ -7,6 +7,7 @@ uses
 
 var
   CurrentUser: string;
+  CurrentName: string;
 
 implementation
 

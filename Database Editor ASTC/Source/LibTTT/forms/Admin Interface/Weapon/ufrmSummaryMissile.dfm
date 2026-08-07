@@ -47512,6 +47512,7 @@ object frmSummaryMissile: TfrmSummaryMissile
             Width = 766
             Height = 405
             Align = alClient
+            Enabled = False
             ReadOnly = True
             TabOrder = 0
             OnChange = edtChange

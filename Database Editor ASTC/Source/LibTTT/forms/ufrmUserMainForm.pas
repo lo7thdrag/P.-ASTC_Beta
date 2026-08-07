@@ -208,7 +208,7 @@ var
 implementation
 
 uses
-  ufrmExercise, ufrmPlatforms, ufrmSensors, ufrmWeapons, ufrmCountermeasure, ufrmOther,
+  ufrmExercise, ufrmPlatforms, ufrmSensors, ufrmWeapons, ufrmCountermeasure, ufrmOther, ufrmShutDown,
 
   ufrmAvailableScenario, ufrmAvailableResourceAllocation, {ufrmAvailableEnvironments,}
 
@@ -341,9 +341,12 @@ end;
 
 procedure TfrmUserMainForm.btnLogOutClick(Sender: TObject);
 begin
+  MainMenuClick(imgShutdown);
+
   IsLogin := False;
 
   uSession.CurrentUser := '';
+  uSession.CurrentName := '';
 
   edtUsername.Clear;
   edtPasword.Clear;
@@ -386,6 +389,7 @@ begin
     IsLogin := True;
 
     uSession.CurrentUser := CurrentUser.FData.Username;
+    uSession.CurrentName := CurrentUser.FData.Name;
 
     pnlLogin.BringToFront;
 
@@ -584,7 +588,12 @@ begin
     end;
     ftShutdown :
     begin
-      Exit
+      if not Assigned(frmShutDown) then
+          frmShutDown := TfrmShutDown.Create(self);
+
+      aForm := frmShutDown;
+//      frmShutDown.BringToFront;
+//      Exit
     end;
     {$ENDREGION}
 

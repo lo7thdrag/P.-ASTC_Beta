@@ -1139,6 +1139,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uSession.pas"/>
+        <DCCReference Include="..\LibTTT\forms\Admin Interface\MainMenu\ufrmShutDown.pas">
+            <Form>frmShutDown</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -377,7 +377,9 @@ begin
   if mmoNotes.Lines.Count > 0 then
     mmoNotes.Lines.Add('');
 
-   mmoNotes.Lines.Add(Format('Opened by : %s (%s)',[uSession.CurrentUser,FormatDateTime('dd-mm-yyyy hh:nn', Now)]));
+  mmoNotes.Lines.Add('Last Update');
+  mmoNotes.Lines.Add('User : ' + uSession.CurrentName);
+  mmoNotes.Lines.Add('Date : ' + FormatDateTime('dd mmm yyyy hh:nn', Now));
 
   end;
 end;

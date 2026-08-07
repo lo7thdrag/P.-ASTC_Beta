@@ -367,7 +367,8 @@ uses
   ufrmElectroOpticalMount in '..\LibTTT\forms\Admin Interface\Platform\Mount\ufrmElectroOpticalMount.pas' {frmElectroOpticalMount},
   ufrmAvailableRuntimePlatformLibrary in '..\LibTTT\forms\Admin Interface\Other\ufrmAvailableRuntimePlatformLibrary.pas' {frmAvailableRuntimePlatformLibrary},
   ufrmAcousticDecoyProb in '..\LibTTT\forms\Admin Interface\ProbabylityGraphic\ufrmAcousticDecoyProb.pas' {frmAcousticDecoyProb},
-  uSession in 'uSession.pas';
+  uSession in 'uSession.pas',
+  ufrmShutDown in '..\LibTTT\forms\Admin Interface\MainMenu\ufrmShutDown.pas' {frmShutDown};
 
 {$R *.res}
 
@@ -379,6 +380,7 @@ begin
   Application.CreateForm(TfrmUserMainForm, frmUserMainForm);
   Application.CreateForm(TdmTTT, dmTTT);
   Application.CreateForm(TfrmRuler, frmRuler);
+  Application.CreateForm(TfrmShutDown, frmShutDown);
   //  Application.CreateForm(TfrmExercise, frmExercise);
 //  Application.CreateForm(TfrmCountermeasure, frmCountermeasure);
 //  Application.CreateForm(TfrmOther, frmOther);

@@ -155519,7 +155519,7 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object lbl6: TLabel
-          Left = 66
+          Left = 68
           Top = 54
           Width = 60
           Height = 19
@@ -155532,7 +155532,7 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object lbl7: TLabel
-          Left = 66
+          Left = 68
           Top = 79
           Width = 41
           Height = 19
@@ -155545,7 +155545,7 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object lbl8: TLabel
-          Left = 132
+          Left = 134
           Top = 54
           Width = 4
           Height = 19
@@ -155558,7 +155558,7 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object lbl9: TLabel
-          Left = 132
+          Left = 134
           Top = 79
           Width = 4
           Height = 19
@@ -155571,7 +155571,7 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object lblStatus: TLabel
-          Left = 147
+          Left = 149
           Top = 79
           Width = 20
           Height = 19
@@ -155584,7 +155584,7 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object lblUsername: TLabel
-          Left = 147
+          Left = 149
           Top = 54
           Width = 20
           Height = 19
@@ -157386,7 +157386,7 @@ object frmUserMainForm: TfrmUserMainForm
           Left = 148
           Top = 78
           Width = 105
-          Height = 20
+          Height = 21
           PasswordChar = '*'
           TabOrder = 0
         end
@@ -157394,7 +157394,7 @@ object frmUserMainForm: TfrmUserMainForm
           Left = 148
           Top = 53
           Width = 105
-          Height = 20
+          Height = 21
           TabOrder = 1
         end
       end

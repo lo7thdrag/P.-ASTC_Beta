@@ -33,49 +33,30 @@ type
     lblOceanCurrentDirection: TLabel;
     Label19: TLabel;
     Panel8: TPanel;
-    Panel9: TPanel;
-    Image4: TImage;
-    Label29: TLabel;
-    lblWaterTemp: TLabel;
-    lblRange: TLabel;
-    Bevel5: TBevel;
-    lblDepthNav: TLabel;
     pnlShipInformation: TPanel;
     lblShipName: TLabel;
-    pnlCompass: TPanel;
+    pnlHeading: TPanel;
     Image3: TImage;
     Label4: TLabel;
     lblActualHeading: TLabel;
     Image14: TImage;
-    Image17: TImage;
-    Panel6: TPanel;
+    imgBackJarumHeading: TImage;
+    pnlSTWnSOG: TPanel;
     Image7: TImage;
-    Label8: TLabel;
-    Bevel3: TBevel;
-    lblCOG: TLabel;
     Label10: TLabel;
     lblSOG: TLabel;
-    Bevel4: TBevel;
     Label9: TLabel;
-    Bevel1: TBevel;
     lblSWT: TLabel;
     Label11: TLabel;
     Label20: TLabel;
     Panel10: TPanel;
     timerHeading: TTimer;
-    lbl2: TLabel;
     lbl3: TLabel;
     lbl4: TLabel;
     lbl5: TLabel;
-    pnl1: TPanel;
-    bvl1: TBevel;
-    lbl6: TLabel;
-    lbl7: TLabel;
     Panel2: TPanel;
     Label2: TLabel;
-    Bevel2: TBevel;
     lblDraft: TLabel;
-    Label14: TLabel;
     Bevel7: TBevel;
     Label22: TLabel;
     Image6: TImage;
@@ -87,12 +68,29 @@ type
     Image5: TImage;
     Image12: TImage;
     Image2: TImage;
+    img1: TImage;
+    img2: TImage;
+    lblDepthNav: TLabel;
+    lbl7: TLabel;
+    lblRange: TLabel;
+    img4: TImage;
+    bvl1: TBevel;
+    pnlCOG: TPanel;
+    img6: TImage;
+    imgBackJarumCOG: TImage;
+    lbl9: TLabel;
+    lbl11: TLabel;
+    img10: TImage;
+    bvl3: TBevel;
+    lblCOG: TLabel;
+    img3: TImage;
+    img5: TImage;
+    img7: TImage;
+    pnl1: TPanel;
+    pnlState: TPanel;
     lblStatus: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure timerHeadingTimer(Sender: TObject);
-    procedure lblActualHeadingClick(Sender: TObject);
-
 
   protected
     FControlled: TObject;
@@ -105,7 +103,8 @@ type
     procedure RotateAndDisplayFixedSize(TargetImage: TImage; SourcePng: TPngImage; Angle: Extended);
 
   public
-    FOriginalPngTrainning : TPngImage;
+    imgJarumHeading : TPngImage;
+    imgJarumCOG : TPngImage;
     FVTgtHeading: Double;
     FVCurHeading: Double;
 
@@ -137,31 +136,32 @@ end;
 
 procedure TfrmLeftNav.FormCreate(Sender: TObject);
 begin
-  FOriginalPngTrainning := TPngImage.Create;
-  FOriginalPngTrainning.LoadFromFile('data\Image Simulator\Navigasi\compass.png');
-  FOriginalPngTrainning.Transparent := True;
 
   EnableComposited(pnlContent);
-  EnableComposited(pnlCompass);
+  EnableComposited(pnlHeading);
+  EnableComposited(pnlCOG);
+
+  imgJarumHeading := TPngImage.Create;
+  imgJarumHeading.LoadFromFile('data\Image Simulator\Navigasi\compass.png');
+//  imgJarumHeading.Transparent := True;
+
+  imgJarumCOG := TPngImage.Create;
+  imgJarumCOG.LoadFromFile('data\Image Simulator\Navigasi\compass.png');
+//  imgJarumCOG.Transparent := True;
 
 end;
 
 procedure TfrmLeftNav.FormDestroy(Sender: TObject);
 begin
-  FOriginalPngTrainning.Free;
-end;
-
-procedure TfrmLeftNav.lblActualHeadingClick(Sender: TObject);
-begin
-//  FVTgtHeading := StrToFloat(lblActualHeading.Caption);
+  imgJarumHeading.Free;
+  imgJarumCOG.Free;
 end;
 
 procedure TfrmLeftNav.Refresh_Draft;
 var
   vVehicle: TT3Vehicle;
 begin
-  if (simMgrClient <> nil) and
-     (simMgrClient.ControlledPlatform <> nil) and
+  if (simMgrClient <> nil) and (simMgrClient.ControlledPlatform <> nil) and
      (simMgrClient.ControlledPlatform is TT3Vehicle) then
   begin
     vVehicle := TT3Vehicle(simMgrClient.ControlledPlatform);
@@ -170,12 +170,20 @@ begin
 
     {$REGION ' Ground Status '}
     if vVehicle.OnGrounded then
-      lblStatus.Caption := 'On Grounded'
+    begin
+      lblStatus.Caption := 'On Grounded';
+      pnlState.Color := clRed;
+    end
+    else if vVehicle.OnLand then
+    begin
+      lblStatus.Caption := 'On Land';
+      pnlState.Color := clRed;
+    end
     else
-    if vVehicle.OnLand then
-      lblStatus.Caption := 'On Land'
-    else
+    begin
       lblStatus.Caption := 'On Sea';
+      pnlState.Color := clAqua;
+    end;
     {$ENDREGION}
   end
   else
@@ -202,7 +210,7 @@ begin
   begin
     lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);
     lblDirectionWindTrue.Caption          := FormatCourse(Wind_Direction);
-    lblWaterTemp.Caption                  := FormatFloat('00.0', Air_Temperature);
+//    lblWaterTemp.Caption                  := FormatFloat('00.0', Air_Temperature);
     lblOceanCurrentSpeed.Caption          := FormatFloat('00.0', Ocean_Current_Speed);
     lblOceanCurrentDirection.Caption      := FormatFloat('000.0', Ocean_Current_Direction);
   end;
@@ -241,10 +249,9 @@ begin
 end;
 
 procedure TfrmLeftNav.Refresh_OwnShipTab;
-var
-  vVehicle: TT3Vehicle;
 begin
-  if simMgrClient.ControlledPlatform <> nil then
+  if (simMgrClient <> nil) and (simMgrClient.ControlledPlatform <> nil) and
+     (simMgrClient.ControlledPlatform is TT3Vehicle) then
   begin
 
     with TT3PlatformInstance(simMgrClient.ControlledPlatform) do
@@ -254,9 +261,17 @@ begin
       lblSOG.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).Speed);
       lblSWT.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).OrderedSpeed);
 
-      RotateAndDisplayFixedSize(image17, FOriginalPngTrainning, TT3Vehicle(simMgrClient.ControlledPlatform).Heading)
+      RotateAndDisplayFixedSize(imgBackJarumHeading, imgJarumHeading, TT3Vehicle(simMgrClient.ControlledPlatform).Heading);
+      RotateAndDisplayFixedSize(imgBackJarumCOG, imgJarumCOG, TT3Vehicle(simMgrClient.ControlledPlatform).Course);
     end;
   end;
+end;
+
+procedure TfrmLeftNav.UpdateFormData;
+begin
+  Refresh_EnvirontmentTab;
+  Refresh_OwnShipTab;
+  Refresh_Draft;
 end;
 
 procedure TfrmLeftNav.RotateAndDisplayFixedSize(TargetImage: TImage; SourcePng: TPngImage; Angle: Extended);
@@ -333,32 +348,6 @@ begin
     BufferBmp.Free;
     Dst.Free;
   end;
-end;
-
-procedure TfrmLeftNav.timerHeadingTimer(Sender: TObject);
-begin
-// if Round(FVTgtHeading) <> Round(FVCurHeading) then
-//  begin
-//    if ((FVTgtHeading - FVCurHeading) <= 180) and ((FVTgtHeading - FVCurHeading) > 0) then
-//    begin
-//      //rotate cw (r)
-//      FVCurHeading := FVCurHeading + 1;
-//    end
-//    else
-//    begin
-//      //rotate ccw (l)
-//      FVCurHeading := FVCurHeading - 1;
-//    end;
-//
-//    RotateAndDisplayFixedSize(image17, FOriginalPngTrainning, FVCurHeading);
-//  end
-end;
-
-procedure TfrmLeftNav.UpdateFormData;
-begin
-  Refresh_EnvirontmentTab;
-  Refresh_OwnShipTab;
-  Refresh_Draft;
 end;
 
 end.

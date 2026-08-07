@@ -44907,7 +44907,7 @@ object frmSummaryMissile: TfrmSummaryMissile
         Top = 10
         Width = 794
         Height = 465
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         MultiLine = True
         TabHeight = 30
@@ -47512,6 +47512,7 @@ object frmSummaryMissile: TfrmSummaryMissile
             Width = 766
             Height = 405
             Align = alClient
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

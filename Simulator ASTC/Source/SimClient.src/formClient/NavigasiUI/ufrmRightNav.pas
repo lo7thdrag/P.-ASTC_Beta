@@ -20,11 +20,10 @@ type
     pnlGameState: TPanel;
     pnlSensor: TPanel;
     fmSensor1: TfmSensor;
-    pnlSparator2: TPanel;
     Image4: TImage;
     pnlController: TPanel;
     imgMainBackgorundController: TImage;
-    pnlShipInformationNone: TPanel;
+    pnlControllerNone: TPanel;
     pnlShipSheet: TPanel;
     pnlTabPlatformGuidance: TPanel;
     imgPlatformGuidance: TImage;
@@ -167,7 +166,6 @@ type
     txt2: TStaticText;
     pnlContentNone: TPanel;
     imgMainBackgorundContact: TImage;
-    pnlSparator1: TPanel;
     lblShipName: TLabel;
     pnlControllerBody: TPanel;
     lbl26: TLabel;

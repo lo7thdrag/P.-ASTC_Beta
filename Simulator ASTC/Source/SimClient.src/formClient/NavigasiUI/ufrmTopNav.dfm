@@ -10137,10 +10137,10 @@ object frmTopNav: TfrmTopNav
         27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27D29F26AE84225D481A29211529
         2115}
       Stretch = True
-      ExplicitTop = -6
+      ExplicitLeft = 1
     end
     object Label1: TLabel
-      Left = 1191
+      Left = 1611
       Top = 5
       Width = 18
       Height = 19
@@ -10166,7 +10166,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 909
+      Left = 1310
       Top = 5
       Width = 32
       Height = 19
@@ -10179,7 +10179,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object Label7: TLabel
-      Left = 1345
+      Left = 1770
       Top = 5
       Width = 31
       Height = 19
@@ -10205,7 +10205,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblDate: TLabel
-      Left = 909
+      Left = 1324
       Top = 27
       Width = 255
       Height = 19
@@ -10218,7 +10218,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblLMT: TLabel
-      Left = 1216
+      Left = 1636
       Top = 27
       Width = 86
       Height = 23
@@ -10244,7 +10244,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblTime: TLabel
-      Left = 1377
+      Left = 1802
       Top = 27
       Width = 86
       Height = 23
@@ -10968,7 +10968,7 @@ object frmTopNav: TfrmTopNav
       Stretch = True
     end
     object Label2: TLabel
-      Left = 1502
+      Left = 909
       Top = 5
       Width = 56
       Height = 19
@@ -10981,7 +10981,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblLong1: TLabel
-      Left = 1604
+      Left = 1003
       Top = 27
       Width = 119
       Height = 19
@@ -10994,7 +10994,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lbl1: TLabel
-      Left = 1727
+      Left = 1126
       Top = 27
       Width = 6
       Height = 19
@@ -11007,7 +11007,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblLat1: TLabel
-      Left = 1779
+      Left = 1178
       Top = 27
       Width = 90
       Height = 19
@@ -11020,7 +11020,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 1740
+      Left = 1139
       Top = 27
       Width = 32
       Height = 19
@@ -11033,7 +11033,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 1551
+      Left = 950
       Top = 27
       Width = 46
       Height = 19
@@ -11174,7 +11174,7 @@ object frmTopNav: TfrmTopNav
       TabOrder = 1
     end
     object Panel4: TPanel
-      Left = 1182
+      Left = 1602
       Top = 6
       Width = 1
       Height = 44
@@ -11184,7 +11184,7 @@ object frmTopNav: TfrmTopNav
       TabOrder = 2
     end
     object Panel6: TPanel
-      Left = 1337
+      Left = 1293
       Top = 6
       Width = 1
       Height = 44
@@ -11194,7 +11194,7 @@ object frmTopNav: TfrmTopNav
       TabOrder = 3
     end
     object Panel5: TPanel
-      Left = 1492
+      Left = 1758
       Top = 6
       Width = 1
       Height = 44
@@ -11216,17 +11216,17 @@ object frmTopNav: TfrmTopNav
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
-    Left = 1060
-    Top = 4
+    Left = 44
+    Top = 12
   end
   object tmr2: TTimer
     OnTimer = tmr2Timer
-    Left = 1026
-    Top = 4
+    Left = 10
+    Top = 12
   end
   object tmrUTC: TTimer
     OnTimer = tmrUTCTimer
-    Left = 1094
-    Top = 4
+    Left = 78
+    Top = 12
   end
 end

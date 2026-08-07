@@ -194,10 +194,10 @@ type
     { Private declarations }
   public
   focusedTrack: TSimObject;
-  statusR_List,statusY_List : TList;
+//  statusR_List,statusY_List : TList;
 
-    procedure updateStatus;
-    procedure updateStatus_Yellow;
+//    procedure updateStatus;
+//    procedure updateStatus_Yellow;
     procedure GetNameAndClass(const obj: TSimObject; var n, c: string);
 
     procedure Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);
@@ -258,35 +258,71 @@ end;
 
 procedure TfrmRightNav.TDCPButtonClick(Sender: TObject);
 var
-  ImgTag: integer;
-  Image: Timage;
+  senderTag: integer;
+  imageTemp: Timage;
+  panelTemp : TPanel;
 begin
-  Image := Sender as Timage;
-  ImgTag := Image.Tag;
-
-  if Image = imgPlatformGuidance then
+  if Sender is TImage then
   begin
-    if ImgTag = 0 then
-    begin
-      pnlTabPlatformGuidance.Color := RGB(29, 81, 103);
-      pnlPlatformGuidance.BringToFront;
-      imgPlatformGuidance.Tag := 1;
-      imgSensor.Tag := 0;
-      pnlTabSensor.Color := RGB(16, 46, 58);
-    end;
-  end
+    imageTemp := Sender as Timage;
+    senderTag := imageTemp.Tag;
 
-  else if Image = imgSensor then
-  begin
-    if ImgTag = 0 then
+    if imageTemp = imgPlatformGuidance then
     begin
-      pnlTabSensor.Color := RGB(29, 81, 103);
-      pnlSensor.BringToFront;
-      imgSensor.Tag := 1;
-      imgPlatformGuidance.Tag := 0;
-      pnlTabPlatformGuidance.Color := RGB(16, 46, 58);
-    end;
+      if senderTag = 0 then
+      begin
+        pnlTabPlatformGuidance.Color := RGB(29, 81, 103);
+        pnlPlatformGuidance.BringToFront;
+        imgPlatformGuidance.Tag := 1;
+        imgSensor.Tag := 0;
+        pnlTabSensor.Color := RGB(16, 46, 58);
+      end;
+    end
+
+    else if imageTemp = imgSensor then
+    begin
+      if senderTag = 0 then
+      begin
+        pnlTabSensor.Color := RGB(29, 81, 103);
+        pnlSensor.BringToFront;
+        imgSensor.Tag := 1;
+        imgPlatformGuidance.Tag := 0;
+        pnlTabPlatformGuidance.Color := RGB(16, 46, 58);
+      end;
+    end
   end
+  else if Sender is TPanel then
+  begin
+    panelTemp := Sender as TPanel;
+    senderTag := panelTemp.Tag;
+
+    if panelTemp = pnlTabPlatformGuidance then
+    begin
+      if senderTag = 0 then
+      begin
+        pnlTabPlatformGuidance.Color := RGB(29, 81, 103);
+        pnlPlatformGuidance.BringToFront;
+        imgPlatformGuidance.Tag := 1;
+        imgSensor.Tag := 0;
+        pnlTabSensor.Color := RGB(16, 46, 58);
+      end;
+    end
+
+    else if panelTemp = pnlTabSensor then
+    begin
+      if senderTag = 0 then
+      begin
+        pnlTabSensor.Color := RGB(29, 81, 103);
+        pnlSensor.BringToFront;
+        imgSensor.Tag := 1;
+        imgPlatformGuidance.Tag := 0;
+        pnlTabPlatformGuidance.Color := RGB(16, 46, 58);
+      end;
+    end
+  end;
+
+
+
 end;
 
 procedure TfrmRightNav.THButtonClick(Sender: TObject);
@@ -397,33 +433,6 @@ begin
     DisplayTabIFF(Sender);
 end;
 
-procedure TfrmRightNav.updateStatus;
-begin
-//  if statusR_List.Count > 0 then
-//  begin
-////    pnlStatusRed.Visible := true;
-////    pnlStatusYellow.Visible := true;
-////    pnlStatusRed.Caption := TStatus(statusR_List[statusR_List.Count-1]).state;
-//  end
-//  else
-//  begin
-////    pnlStatusRed.Visible  := false;
-////    if statusY_List.Count <= 0 then
-////    pnlStatusYellow.Visible := false
-//  end;
-end;
-
-procedure TfrmRightNav.updateStatus_Yellow;
-begin
-//  if statusY_List.Count > 0 then
-//  begin
-//    pnlStatusYellow.Visible := true;
-//    pnlStatusYellow.Caption := TStatus(statusY_List[statusY_List.Count-1]).state;
-//  end
-//  else
-//    pnlStatusYellow.Visible := false;
-end;
-
 procedure TfrmRightNav.UpdateTabHooked(aTrack: TSimObject);
 begin
   if Assigned(aTrack) then
@@ -452,45 +461,51 @@ begin
 //  det := nil;
 //  idCoordinat := fSettingCoordinate.IdCoordinat;
 //
-//  if Assigned(sender) then     //mk
+//  if Assigned(sender) then
 //  begin
 //    if Sender is TT3PlatformInstance then
-//      v := TT3PlatformInstance(Sender)
-//    else
-//    if Sender is TT3DetectedTrack then
 //    begin
+//      v := TT3PlatformInstance(Sender)
+//    end
+//    else if Sender is TT3DetectedTrack then
+//    begin
+//      {$REGION ' TT3DetectedTrack '}
+//
 //      det := TT3DetectedTrack(Sender);
 //
 //      if Assigned(det.MergedESM) then
 //      begin
-//        lbTrackHook.Caption:= (det.MergedESM.TrackNumber);
-//        lbNameHook.Caption := TT3PlatformInstance(det.MergedESM.TrackObject).InstanceName;
-//        lbClassHook.Caption:= TT3Radar(det.MergedESM.TrackObject).
+//        lblTrackHook.Caption:= (det.MergedESM.TrackNumber);
+//        lblNameHook.Caption := TT3PlatformInstance(det.MergedESM.TrackObject).InstanceName;
+//        lblClassHook.Caption:= TT3Radar(det.MergedESM.TrackObject).
 //                               RadarDefinition.FDef.Radar_Emitter;
-//        lbBearingHook.Caption := FormatFloat('000.0', det.MergedESM.Bearing);
+//        lblBearingHook.Caption := FormatFloat('000.0', det.MergedESM.Bearing);
 //
 //        StaticText6.Caption := 'Origin';
-//        lbPositionHook1.Caption := formatDMS_long(det.MergedESM.DetectBy.PosX);
-//        lbPositionHook2.Caption := formatDMS_latt(det.MergedESM.DetectBy.PosY);
+//        lblPositionHook1.Caption := formatDMS_long(det.MergedESM.DetectBy.PosX);
+//        lblPositionHook2.Caption := formatDMS_latt(det.MergedESM.DetectBy.PosY);
 //
 //        Exit;
 //      end;
 //
 //      v := TT3PlatformInstance(det.TrackObject);
+//      {$ENDREGION}
 //    end
 //    else if Sender is TT3ESMTrack then
 //    begin
+//      {$REGION ' TT3ESMTrack '}
+//
 //      esm := TT3ESMTrack(Sender);
 //
 //      if esm.DetailedDetectionShowedESM.Track_ID then
-//        lbTrackHook.Caption      := esm.TrackNumber
+//        lblTrackHook.Caption      := esm.TrackNumber
 //      else
-//        lbTrackHook.Caption      := 'Unknown';
+//        lblTrackHook.Caption      := 'Unknown';
 //
 //      if esm.DetailedDetectionShowedESM.Name_Data_Capability then
-//        lbNameHook.Caption      := TT3PlatformInstance(esm.TrackObject).InstanceName
+//        lblNameHook.Caption      := TT3PlatformInstance(esm.TrackObject).InstanceName
 //      else
-//        lbNameHook.Caption      := 'Unknown';
+//        lblNameHook.Caption      := 'Unknown';
 //
 //      if esm.DetailedDetectionShowedESM.Class_Data_Capability then
 //        lbClassHook.Caption      := TT3Radar(esm.TrackObject).RadarDefinition.FDef.Radar_Emitter
@@ -507,6 +522,7 @@ begin
 //      lbPositionHook2.Caption := formatDMS_latt(TT3ESMTrack(sender).DetectBy.PosY);
 //
 //      Exit;
+//      {$ENDREGION}
 //    end;
 //  end;
 //
@@ -518,10 +534,8 @@ begin
 //    if simMgrClient.ControlledPlatform <> nil then
 //    begin
 //      ct := TT3PlatformInstance(simMgrClient.ControlledPlatform);
-//      b := CalcBearing(ct.getPositionX, ct.getPositionY, v.getPositionX,
-//           v.getPositionY);
-//      d := CalcRange(ct.getPositionX, ct.getPositionY, v.getPositionX,
-//           v.getPositionY);
+//      b := CalcBearing(ct.getPositionX, ct.getPositionY, v.getPositionX, v.getPositionY);
+//      d := CalcRange(ct.getPositionX, ct.getPositionY, v.getPositionX, v.getPositionY);
 //    end;
 //  end;
 //
@@ -538,8 +552,8 @@ begin
 //
 //    if (det.TrackDomain = vhdSubsurface) then
 //    begin
-//      lb5.Caption := 'Depth';
-//      lb4.Caption := 'meter';
+//      lbl5.Caption := 'Depth';
+//      lbl4.Caption := 'meter';
 //
 //      if v.Altitude <> 0 then
 //        lbAltitude.Caption    := FormatAltitude(v.Altitude)
@@ -649,16 +663,13 @@ begin
 //      lbNameHook.Caption := v.InstanceName;
 //
 //      if v is TT3Vehicle then
-//        lbClassHook.Caption := TVehicle_Definition(v.UnitDefinition)
-//          .FData.Vehicle_Identifier;
+//        lbClassHook.Caption := TVehicle_Definition(v.UnitDefinition).FData.Vehicle_Identifier;
 //
 //      if v is TT3Missile then
-//        lbClassHook.Caption := TMissile_On_Board(v.UnitDefinition)
-//          .FDef.Class_Identifier;
+//        lbClassHook.Caption := TMissile_On_Board(v.UnitDefinition).FDef.Class_Identifier;
 //
 //      if v is TT3Torpedo then
-//        lbClassHook.Caption := TTorpedo_On_Board(v.UnitDefinition)
-//          .FDef.Class_Identifier;
+//        lbClassHook.Caption := TTorpedo_On_Board(v.UnitDefinition).FDef.Class_Identifier;
 //
 //      if v is TT3Chaff then lbClassHook.Caption := 'Chaff';
 //
@@ -1374,13 +1385,13 @@ end;
 
 procedure TfrmRightNav.FormCreate(Sender: TObject);
 begin
-  statusR_List := TList.Create;
   fmPlatformGuidance1.InitCreate(self);
+  fmSensor1.InitCreate(self);
 end;
 
 procedure TfrmRightNav.FormDestroy(Sender: TObject);
 begin
-  ClearAndFreeItems(statusR_List);
+//  ClearAndFreeItems(statusR_List);
 end;
 
 procedure TfrmRightNav.FormShow(Sender: TObject);
@@ -1479,62 +1490,62 @@ procedure TfrmRightNav.pnlGameStateClick(Sender: TObject);
 var
   CmdStatus : TStatus;
 begin
-  if statusR_List.Count > 0 then
-  begin
-    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
-    if LowerCase(CmdStatus.state) = 'receive message' then
-    begin
-      frmToteDisplay.gbMessageHandlingSystem.BringToFront;
-      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
-      frmToteDisplay.pnlContentReceived.BringToFront;
-      frmToteDisplay.pnlTabReceived.Tag := 1;
-      frmToteDisplay.pnlTabDraft.Tag := 0;
-      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
-      frmToteDisplay.pnlTabSent.Tag := 0;
-      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
-
-//      frmToteDisplay.pcReceived.ActivePageIndex := 0;
-    end;
-
-    statusR_List.Delete(statusR_List.Count-1);
-    updateStatus;
-  end;
+//  if statusR_List.Count > 0 then
+//  begin
+//    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
+//    if LowerCase(CmdStatus.state) = 'receive message' then
+//    begin
+//      frmToteDisplay.gbMessageHandlingSystem.BringToFront;
+//      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
+//      frmToteDisplay.pnlContentReceived.BringToFront;
+//      frmToteDisplay.pnlTabReceived.Tag := 1;
+//      frmToteDisplay.pnlTabDraft.Tag := 0;
+//      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
+//      frmToteDisplay.pnlTabSent.Tag := 0;
+//      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
+//
+////      frmToteDisplay.pcReceived.ActivePageIndex := 0;
+//    end;
+//
+//    statusR_List.Delete(statusR_List.Count-1);
+//    updateStatus;
+//  end;
 end;
 
 procedure TfrmRightNav.pnlStatusRedClick(Sender: TObject);
 var
   CmdStatus : TStatus;
 begin
-  if statusR_List.Count > 0 then
-  begin
-    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
-    if LowerCase(CmdStatus.state) = 'receive message' then
-    begin
-      frmToteDisplay.gbMessageHandlingSystem.BringToFront;
-      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
-      frmToteDisplay.pnlContentReceived.BringToFront;
-      frmToteDisplay.pnlTabReceived.Tag := 1;
-      frmToteDisplay.pnlTabDraft.Tag := 0;
-      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
-      frmToteDisplay.pnlTabSent.Tag := 0;
-      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
-
-//      frmToteDisplay.pcReceived.ActivePageIndex := 0;
-    end;
-
-    statusR_List.Delete(statusR_List.Count-1);
-    updateStatus;
-  end;
+//  if statusR_List.Count > 0 then
+//  begin
+//    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
+//    if LowerCase(CmdStatus.state) = 'receive message' then
+//    begin
+//      frmToteDisplay.gbMessageHandlingSystem.BringToFront;
+//      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
+//      frmToteDisplay.pnlContentReceived.BringToFront;
+//      frmToteDisplay.pnlTabReceived.Tag := 1;
+//      frmToteDisplay.pnlTabDraft.Tag := 0;
+//      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
+//      frmToteDisplay.pnlTabSent.Tag := 0;
+//      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
+//
+////      frmToteDisplay.pcReceived.ActivePageIndex := 0;
+//    end;
+//
+//    statusR_List.Delete(statusR_List.Count-1);
+//    updateStatus;
+//  end;
 end;
 
 
 procedure TfrmRightNav.pnlStatusYellowClick(Sender: TObject);
 begin
-  if statusY_List.Count > 0 then
-  begin
-    statusY_List.Delete(statusY_List.Count-1);
-    updateStatus_Yellow;
-  end;
+//  if statusY_List.Count > 0 then
+//  begin
+//    statusY_List.Delete(statusY_List.Count-1);
+//    updateStatus_Yellow;
+//  end;
 end;
 
 procedure TfrmRightNav.Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);

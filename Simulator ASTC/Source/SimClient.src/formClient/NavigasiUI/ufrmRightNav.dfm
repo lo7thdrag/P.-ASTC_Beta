@@ -13840,6 +13840,7 @@ object frmRightNav: TfrmRightNav
               E8539447876C24CAAF193A0E14E246552BBBAB421BF0F44110302099E287C945
               59FC5F5CD1350AEDD35A685FF60DE52A2D2A8CB34A6C0000000049454E44AE42
               6082}
+            Stretch = True
             OnClick = TDCPButtonClick
           end
         end
@@ -13893,16 +13894,6 @@ object frmRightNav: TfrmRightNav
         ParentBackground = False
         ParentFont = False
         TabOrder = 1
-        object pnlControllerNone: TPanel
-          Left = 1
-          Top = 1
-          Width = 333
-          Height = 474
-          Align = alClient
-          BevelOuter = bvNone
-          TabOrder = 1
-          ExplicitHeight = 485
-        end
         object pnlPlatformGuidance: TPanel
           Left = 1
           Top = 1
@@ -16459,6 +16450,16 @@ object frmRightNav: TfrmRightNav
               inherited lstSensor: TListView
                 Width = 331
                 BorderStyle = bsSingle
+                Columns = <
+                  item
+                    Caption = 'Name'
+                    Width = 210
+                  end
+                  item
+                    Alignment = taCenter
+                    Caption = 'Status'
+                    Width = 90
+                  end>
                 ExplicitWidth = 331
               end
             end
@@ -17613,6 +17614,16 @@ object frmRightNav: TfrmRightNav
               Top = 496
             end
           end
+        end
+        object pnlControllerNone: TPanel
+          Left = 1
+          Top = 1
+          Width = 333
+          Height = 474
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 1
+          ExplicitHeight = 485
         end
       end
     end
@@ -29806,6 +29817,17 @@ object frmRightNav: TfrmRightNav
             end
           end
         end
+        object pnlContentNone: TPanel
+          Left = 1
+          Top = 1
+          Width = 331
+          Height = 244
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 2695445
+          ParentBackground = False
+          TabOrder = 4
+        end
         object pnlContentHook: TPanel
           Left = 1
           Top = 1
@@ -30380,17 +30402,6 @@ object frmRightNav: TfrmRightNav
               Transparent = False
             end
           end
-        end
-        object pnlContentNone: TPanel
-          Left = 1
-          Top = 1
-          Width = 331
-          Height = 244
-          Align = alClient
-          BevelOuter = bvNone
-          Color = 2695445
-          ParentBackground = False
-          TabOrder = 4
         end
       end
     end

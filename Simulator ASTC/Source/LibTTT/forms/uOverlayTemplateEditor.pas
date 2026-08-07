@@ -1654,6 +1654,7 @@ begin
     begin
       Canceled;
       grpTemplate.Left := 17;
+      grpObjectEditor.SendToBack;
 
       UpdateOverlayTemplateList;
     end;

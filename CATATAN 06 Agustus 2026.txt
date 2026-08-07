@@ -1,0 +1,14 @@
+CATATAN 06 Agustus 2026
+
+DB EDITOR
+1. Overlay tidak bisa tersimpan saat aplikasi dishutdown
+2. OwnShip tidak mau mengikuti arah Waypoint yang sudah dibuat
+3. Rectangle sama Arc masih belum bisa diwarna fillnya (Masalah dulu)
+4. Titik center Polygon tidak terlihat
+5. RPL belum bisa
+
+SIMULATOR
+1. Tambahkan button Move pada Instruktur
+2. Nilai Bearing dan Range belum dapat (katanya ini nilai kapal)
+3. Pada taampilan overlay Dynamic minta dijelaskan position sama grid apakah digunakan
+4. Klik kanan belum bisa digunakan

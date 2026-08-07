@@ -4,9 +4,9 @@ object frmTacticalInfoSet: TfrmTacticalInfoSet
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = ' Symbol Text Info Setting'
-  ClientHeight = 151
+  ClientHeight = 175
   ClientWidth = 264
-  Color = 5980694
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -47,7 +47,7 @@ object frmTacticalInfoSet: TfrmTacticalInfoSet
   end
   object Label3: TLabel
     Left = 30
-    Top = 60
+    Top = 65
     Width = 71
     Height = 16
     Caption = 'Text Info 2 :'
@@ -60,7 +60,7 @@ object frmTacticalInfoSet: TfrmTacticalInfoSet
   end
   object Label4: TLabel
     Left = 30
-    Top = 84
+    Top = 94
     Width = 71
     Height = 16
     Caption = 'Text Info 3 :'
@@ -72,31 +72,31 @@ object frmTacticalInfoSet: TfrmTacticalInfoSet
     ParentFont = False
   end
   object btnApply: TButton
-    Left = 50
-    Top = 115
-    Width = 75
-    Height = 25
+    Left = 45
+    Top = 131
+    Width = 80
+    Height = 30
     Caption = 'Apply'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 3
     OnClick = btnApplyClick
   end
   object btnCancel: TButton
-    Left = 145
-    Top = 115
-    Width = 75
-    Height = 25
+    Left = 140
+    Top = 131
+    Width = 80
+    Height = 30
     Caption = 'Cancel'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 4
     OnClick = btnCancelClick
@@ -117,7 +117,7 @@ object frmTacticalInfoSet: TfrmTacticalInfoSet
   end
   object cbCallSign2: TComboBox
     Left = 105
-    Top = 56
+    Top = 61
     Width = 145
     Height = 24
     Style = csDropDownList
@@ -131,7 +131,7 @@ object frmTacticalInfoSet: TfrmTacticalInfoSet
   end
   object cbCallSign3: TComboBox
     Left = 105
-    Top = 80
+    Top = 90
     Width = 145
     Height = 24
     Style = csDropDownList

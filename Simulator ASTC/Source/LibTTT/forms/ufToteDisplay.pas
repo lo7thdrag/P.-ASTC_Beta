@@ -39,6 +39,12 @@ type
     launcherIndex : Integer;
   end;
 
+   TButtonImage = record
+    Normal : TBitmap;
+    Hover  : TBitmap;
+   end;
+
+
   TfrmToteDisplay = class(TForm)
     pnlMainGeneral: TPanel;
     CategoryPanelGroup1: TCategoryPanelGroup;
@@ -1292,6 +1298,28 @@ type
     Image7: TImage;
     Label90: TLabel;
     lvPlatformNav: TListView;
+    Panel119: TPanel;
+    Label91: TLabel;
+    SpeedButton4: TSpeedButton;
+    Panel120: TPanel;
+    pnlPlatformNew: TPanel;
+    pnlTransportNew: TPanel;
+    btnTransportNew: TSpeedButton;
+    pnlLogisticNew: TPanel;
+    pnlEventNew: TPanel;
+    btnEventNew: TSpeedButton;
+    pnlEnviNew: TPanel;
+    btnEnviNew: TSpeedButton;
+    pnlCubicleNew: TPanel;
+    btnCubicleNew: TSpeedButton;
+    pnlEnviControlNew: TPanel;
+    btnEnviControlNew: TSpeedButton;
+    pnlTacticalNew: TPanel;
+    btnTacticalNew: TSpeedButton;
+    btnPlatformNew: TImage;
+    btnLogisticNew: TImage;
+
+
 
 
     // pnlRightUp: TPanel;
@@ -1608,6 +1636,14 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure lvSensorNavMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+//    procedure FormMouseEnter(Sender: TObject);
+//    procedure btnPlatformnewMouseEnter(Sender: TObject);
+//    procedure btnPlatformnewMouseLeave(Sender: TObject);
+//    procedure Panel119MouseEnter(Sender: TObject);
+//    procedure Panel119MouseLeave(Sender: TObject);
+
+    procedure btnMouseEnter (sender : TObject);
+    procedure btnMouseLeave (sender : TObject);
 
     {$ENDREGION}
 
@@ -1626,6 +1662,11 @@ type
     //Copy Pop Up For Group
     CpPopUpMenu : TPopupMenu;
     CpItemPopUp : TMenuItem;
+
+    FButtonImage : array[0..8] of TButtonImage;
+    FSidePanels: array[0..7] of TPanel;
+
+
 
     FLastPlatform : TT3PlatformInstance;
     //FFlagIn: Boolean;
@@ -1689,6 +1730,9 @@ type
 
     procedure SetPanelLeftToteDisplayForWasdal;
     procedure refreshShipTransfer(trackShipSelected: String);
+
+    procedure SetSidebarCubicle;
+    procedure SetSidebarInstructor;
 
     //NAVIGASI
     procedure SetUpToteNavigasiUI;
@@ -1958,6 +2002,14 @@ public
     procedure SmoothResizeFormTo(const ToSize: integer);
     procedure DisablePrevious;
     procedure RefreshEnvironment;
+
+    procedure LoadButtonImages;
+    procedure sidebarPanelMouseEnter(Sender: TObject);
+    procedure sidebarPanelMouseLeave(Sender: TObject);
+    procedure HideAllSidebar;
+    procedure ArrangeSidebar;
+    procedure SetUpSidebar (rc: Integer);
+
 
     public
       LastButton : Integer;
@@ -2413,6 +2465,30 @@ procedure TfrmToteDisplay.btnMessageHandlingClick(sender: TObject);
 begin
   gbMessageHandlingSystem.BringToFront;
   tmrEnviDisplay.Enabled := False;
+end;
+
+procedure TfrmToteDisplay.btnMouseEnter(sender: TObject);
+begin
+   if Sender = btnPlatformNew then
+    btnPlatformNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\0a.bmp')
+  else if Sender = btnLogisticNew then
+    btnLogisticNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\1a.bmp');
+//  else if sender = btnTransportNew then
+//    btnTransportNew.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgn2.png')
+//  else if sender = btnEnviNew then
+//    btnEnviNew.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgt2.png');
+end;
+
+procedure TfrmToteDisplay.btnMouseLeave(sender: TObject);
+begin
+    if Sender = btnPlatformNew then
+    btnPlatformNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\0b.bmp')
+   else if Sender = btnLogisticNew then
+    btnLogisticNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\1b.bmp');
+//   else if sender = btnUserLogin then
+//    btnUserLogin.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgn (1).png')
+//    else if sender = btnLogOut then
+//    btnLogOut.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgt (1).png');
 end;
 
 procedure TfrmToteDisplay.btnCommDefinitionClick(sender: TObject);
@@ -4144,6 +4220,46 @@ begin
   end;
 end;
 
+procedure TfrmToteDisplay.sidebarPanelMouseEnter(Sender: TObject);
+var
+ Ctrl: TControl;
+begin
+  Ctrl := Sender as TControl;
+
+
+  case Ctrl.Tag of
+    1: btnPlatformNew.Assign(FButtonImage[0].Hover);
+    2: btnLogisticNew.Assign(FButtonImage[1].Hover);
+    3: btnTransportNew.Glyph.Assign(FButtonImage[2].Hover);
+    4: btnEnviNew.Glyph.Assign(FButtonImage[3].Hover);
+    5: btnEventNew.Glyph.Assign(FButtonImage[4].Hover);
+    7: btnCubicleNew.Glyph.Assign(FButtonImage[5].Hover);
+    8: btnEnviControlNew.Glyph.Assign(FButtonImage[6].Hover);
+    9: btnTacticalNew.Glyph.Assign(FButtonImage[7].Hover);
+  end;
+end;
+
+procedure TfrmToteDisplay.sidebarPanelMouseLeave(Sender: TObject);
+//var
+//  Ctrl: TControl;
+begin
+//  Ctrl := Sender as TControl;
+//
+//  if Ctrl.Tag = LastButton then
+//    Exit;
+//
+//  case Ctrl.Tag of
+//    1: btnPlatformnew.Assign(FButtonImage[0].Normal);
+//    2: btnLogisticNew.Assign(FButtonImage[1].Normal);
+//    3: btnTransportNew.Glyph.Assign(FButtonImage[2].Normal);
+//    4: btnEnviNew.Glyph.Assign(FButtonImage[3].Normal);
+//    5: btnEventNew.Glyph.Assign(FButtonImage[4].Normal);
+//    7: btnCubicle.Glyph.Assign(FButtonImage[5].Normal);
+//    8: btnEnviControlNew.Glyph.Assign(FButtonImage[6].Normal);
+//    9: btnTacticalNew.Glyph.Assign(FButtonImage[7].Normal);
+//  end;
+end;
+
 procedure TfrmToteDisplay.countCurrentEffect;
 {var
   v : TT3Vehicle;  }
@@ -5022,6 +5138,17 @@ begin
   LandingPlatformName := 'LCU';
   LastButton := 1;
 
+  LoadButtonImages;
+
+//  btnPlatformnew.Assign(FButtonImage[0].Normal);
+//  btnLogisticNew.Assign(FButtonImage[1].Normal);
+//  btnTransportNew.Glyph.Assign(FButtonImage[2].Normal);
+//  btnEnviNew.Glyph.Assign(FButtonImage[3].Normal);
+//  btnEventNew.Glyph.Assign(FButtonImage[4].Normal);
+//  btnCubicleNew.Glyph.Assign(FButtonImage[5].Normal);
+//  btnEnviControlNew.Glyph.Assign(FButtonImage[6].Normal);
+//  btnTacticalNew.Glyph.Assign(FButtonImage[7].Normal);
+
   {NAVIGASI}
 //  lvSensorNav.Items.Assign(lvPlatforms.Items);
 //  lvPlatformNav.Items.Assign(lvPlatforms.Items);
@@ -5076,8 +5203,8 @@ begin
   end;
 
   // responsive for wasdal samping
-  if not ContainsText(simMgrClient.ConsoleName, 'Wasdal') then pnlSideBar.Width := 302
-  else if ContainsText(simMgrClient.ConsoleName, 'Tengah') then pnlSideBar.Width := 302
+  if not ContainsText(simMgrClient.ConsoleName, 'Wasdal') then pnlSideBar.Width := 125
+  else if ContainsText(simMgrClient.ConsoleName, 'Tengah') then pnlSideBar.Width := 125
   else begin
     pnlEnvironmentDisplay.Height := pnlEnvironmentDisplay.Height - 85;
     pnlEnvironmentDisplay.Width := 1332;
@@ -5117,14 +5244,32 @@ begin
     pnlOtherIndicator.Left := 310;
     pnlPlatSensor.Height := 320;
     imgBgState.Picture.LoadFromFile('data\Image Interface\Tote\State\Small.png');
+
+  FSidePanels[0] := pnlPlatformNew;
+  FSidePanels[1] := pnlLogisticNew;
+  FSidePanels[2] := pnlTransportNew;
+  FSidePanels[3] := pnlEnviNew;
+  FSidePanels[4] := pnlEventNew;
+  FSidePanels[5] := pnlCubicleNew;
+  FSidePanels[6] := pnlEnviControlNew;
+  FSidePanels[7] := pnlTacticalNew;
   end;
 end;
 
 procedure TfrmToteDisplay.FormDestroy(sender: TObject);
+var
+  i : Integer;
 begin
   ObjectCommunicationDestroy;
   if Assigned (ToteSelectedPlatform) then
     RemoveAssetListener(ToteSelectedPlatform);
+
+//  for i := Low(FButtonImage) to High(FButtonImage) do
+//  begin
+//    FButtonImage[i].Normal.Free;
+//    FButtonImage[i].Hover.Free;
+//  end;
+
 //  FAssetListenerList.Free;
 end;
 
@@ -6716,6 +6861,60 @@ begin
       lvPlatforms.Items[I].Selected := True;
     end;
   end;
+end;
+
+procedure TfrmToteDisplay.SetSidebarCubicle;
+var
+  Y: Integer;
+begin
+  Y := pnlPlatformNew.Top;
+
+  pnlPlatformNew.Top := Y;
+  Inc(Y, pnlPlatformNew.Height + 35);
+
+  pnlLogisticNew.Top := Y;
+  Inc(Y, pnlLogisticNew.Height + 35);
+
+  pnlTransportNew.Top := Y;
+  Inc(Y, pnlTransportNew.Height + 35);
+
+  pnlEnviNew.Top := Y;
+  Inc(Y, pnlEnviNew.Height + 35);
+
+  pnlTacticalNew.Top := Y;
+
+  Panel119.Visible := True;
+
+  // Sembunyikan semua menu terlebih dahulu
+  pnlPlatformNew.Visible    := False;
+  pnlLogisticNew.Visible    := False;
+  pnlTransportNew.Visible   := False;
+  pnlEnviNew.Visible        := False;
+  pnlEventNew.Visible       := False;
+  pnlCubicleNew.Visible     := False;
+  pnlEnviControlNew.Visible := False;
+  pnlTacticalNew.Visible    := False;
+
+  // Tampilkan hanya yang diperlukan
+  pnlPlatformNew.Visible    := True;
+  pnlLogisticNew.Visible    := True;
+  pnlTransportNew.Visible   := True;
+  pnlEnviNew.Visible        := True;
+  pnlTacticalNew.Visible    := True;
+end;
+
+procedure TfrmToteDisplay.SetSidebarInstructor;
+begin
+  Panel119.Visible := True;
+
+  pnlPlatformNew.Visible    := True;
+  pnlLogisticNew.Visible    := True;
+  pnlTransportNew.Visible   := True;
+  pnlEnviNew.Visible        := True;
+  pnlEventNew.Visible       := True;
+  pnlCubicleNew.Visible     := True;
+  pnlEnviControlNew.Visible := True;
+  pnlTacticalNew.Visible    := True;
 end;
 
 procedure TfrmToteDisplay.DisplayEnvironMentControl;
@@ -8789,6 +8988,7 @@ begin
   // instruktur
   if rc = crpInstruktur then
   begin
+    SetSidebarInstructor;
     SetUpToteGeneralUI;
 	  CategoryPanelStatusOp.Enabled := true;
     CategoryPanelStatusOp.Visible := true;
@@ -8843,6 +9043,7 @@ begin
   else if rc = crpCubicle then
   begin
   begin  {0:Poltter; 1:Navigasi; 2:Atas Air; 3:BawahAir; 4:General}
+    SetSidebarCubicle;
     case vGameDataSetting.Role of
       0:
       begin
@@ -8912,6 +9113,39 @@ procedure TfrmToteDisplay.SetTimerMissileLauch(veh : TT3Vehicle);
 begin
 
 end;
+
+procedure TfrmToteDisplay.SetUpSidebar(rc: Integer);
+begin
+  HideAllSidebar;
+
+  case rc of
+
+    crpInstruktur:
+      begin
+        pnlPlatformNew.Visible   := True;
+        pnlLogisticNew.Visible   := True;
+        pnlTransportNew.Visible  := True;
+        pnlEnviNew.Visible       := True;
+        pnlEventNew.Visible      := True;
+        pnlCubicleNew.Visible    := True;
+        pnlEnviControlNew.Visible:= True;
+        pnlTacticalNew.Visible   := True;
+      end;
+
+    crpCubicle:
+      begin
+        pnlPlatformNew.Visible   := True;
+        pnlLogisticNew.Visible   := True;
+        pnlTransportNew.Visible  := True;
+        pnlEnviNew.Visible       := True;
+        pnlTacticalNew.Visible   := True;
+      end;
+
+  end;
+
+  ArrangeSidebar;
+end;
+
 
 procedure TfrmToteDisplay.SetUpToteGeneralUI;
 begin
@@ -9280,6 +9514,15 @@ begin
 
   rec.OrderDL := odlBand;
   simMgrClient.netSend_Cmd_DataLink(rec);
+end;
+
+procedure TfrmToteDisplay.HideAllSidebar;
+var
+  I: Integer;
+begin
+  for I := Low(FSidePanels) to High(FSidePanels) do
+    FSidePanels[I].Visible := False;
+
 end;
 
 procedure TfrmToteDisplay.Inactive1Click(Sender: TObject);
@@ -15613,6 +15856,40 @@ begin
 end;
 
 // NEW UI Procedure
+procedure TfrmToteDisplay.LoadButtonImages;
+const
+  FileName : array[0..7] of string =
+  (
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7'
+  );
+
+var
+  i : Integer;
+  Path : string;
+begin
+
+  Path := IncludeTrailingPathDelimiter(
+            ExtractFilePath(Application.ExeName)) +
+            'data\Image Simulator\Tote\left\';
+
+  for i := Low(FileName) to High(FileName) do
+  begin
+    FButtonImage[i].Normal := TBitmap.Create;
+    FButtonImage[i].Hover := TBitmap.Create;
+
+    FButtonImage[i].Normal.LoadFromFile(Path + FileName[i] + 'b.bmp');
+    FButtonImage[i].Hover.LoadFromFile(Path + FileName[i] + 'a.bmp');
+  end;
+
+end;
+
 procedure TfrmToteDisplay.LogisticTabClick(Sender: TObject);
 var
   PanelTag: integer;
@@ -15750,6 +16027,7 @@ begin
   pnlSideBar.Width := 202;
   pnlBottomSep.Width := 198;
   pnlBottomSep2.Width := 198;
+  Panel119.Width :=202;
 end;
 
 procedure TfrmToteDisplay.pnlSideBarMouseLeave(Sender: TObject);
@@ -15757,6 +16035,24 @@ begin
   pnlSideBar.Width := 52;
   pnlBottomSep.Width := 48;
   pnlBottomSep2.Width := 48;
+end;
+
+procedure TfrmToteDisplay.ArrangeSidebar;
+var
+  I: Integer;
+  TopPos: Integer;
+begin
+  TopPos := 10;
+
+  for I := Low(FSidePanels) to High(FSidePanels) do
+  begin
+    if FSidePanels[I].Visible then
+    begin
+      FSidePanels[I].Top := TopPos;
+      Inc(TopPos, FSidePanels[I].Height + 8);
+    end;
+  end;
+
 end;
 
 procedure TfrmToteDisplay.AudioTabClick(Sender: TObject);
@@ -18861,12 +19157,12 @@ end;
 procedure TfrmToteDisplay.SidebarButtonClick(Sender: TObject);
 var
   Tag : Integer;
-  button : TSpeedButton;
+  button : TImage;
   Labels : TLabel;
 begin
-  if Sender is TSpeedButton then
+  if Sender is TImage then
   begin
-    button := sender as TSpeedButton;
+    button := sender as TImage;
     Tag := button.Tag;
   end
   else if Sender is TLabel then
@@ -18878,7 +19174,8 @@ begin
   case Tag of
     1:
     begin
-      DisablePrevious;
+//      DisablePrevious;
+//      btnPlatformnew.Assign(FButtonImage[0].Hover);
       lblPlatformOp.Font.Color := $00FAFAFA;
       lblPlatformCub.Font.Color := $00FAFAFA;
 //    gbPlatformStatus.BringToFront;
@@ -18888,6 +19185,7 @@ begin
     2:
     begin
       DisablePrevious;
+      btnLogisticNew.Assign(FButtonImage[1].Hover);
       lblLogisticOp.Font.Color := $00FAFAFA;
       lblLogisticCub.Font.Color := $00FAFAFA;
 //      gbLogisticStatus.BringToFront;
@@ -18897,6 +19195,7 @@ begin
     3:
     begin
       DisablePrevious;
+      btnTransportNew.Glyph.Assign(FButtonImage[2].Hover);
       lblTransportOp.Font.Color := $00FAFAFA;
       lblTransportCub.Font.Color := $00FAFAFA;
 //      gbTransport.BringToFront;
@@ -18906,6 +19205,7 @@ begin
     4:
     begin
       DisablePrevious;
+      btnEnviNew.Glyph.Assign(FButtonImage[3].Hover);
       lblEnviOp.Font.Color := $00FAFAFA;
       lblEnviCub.Font.Color := $00FAFAFA;
 //      gbEnvironmentStatus.BringToFront;
@@ -18915,6 +19215,7 @@ begin
     5:
     begin
       DisablePrevious;
+      btnEventNew.Glyph.Assign(FButtonImage[4].Hover);
       lblEventOp.Font.Color := $00FAFAFA;
 //      gbEventSummary.BringToFront;
       btnEventSummary.Click;
@@ -18931,6 +19232,7 @@ begin
     7:
     begin
       DisablePrevious;
+      btnCubicleNew.Glyph.Assign(FButtonImage[5].Hover);
       lblCubicle.Font.Color := $00FAFAFA;
 //      gbCubicleGroups.BringToFront;
       btnCubicleGroups.Click;
@@ -18939,6 +19241,7 @@ begin
     8:
     begin
       DisablePrevious;
+      btnEnviControlNew.Glyph.Assign(FButtonImage[6].Hover);
       lblEnviControl.Font.Color := $00FAFAFA;
 //      gbEnvironmentControl.BringToFront;
       btnEnviroControl.Click;
@@ -18947,6 +19250,7 @@ begin
     9:
     begin
       DisablePrevious;
+      btnTacticalNew.Glyph.Assign(FButtonImage[7].Hover);
       VSlidingTrans.ShowHideBtnProc;
       lblView.Font.Color := $00FAFAFA;
       LastButton := 9;
@@ -18956,48 +19260,56 @@ end;
 
 procedure TfrmToteDisplay.DisablePrevious;
 begin
-  case LastButton of
-    1:
-    begin
-      lblPlatformOp.Font.Color := $00C3B8A3;
-      lblPlatformCub.Font.Color := $00C3B8A3;
-    end;
-    2:
-    begin
-      lblLogisticOp.Font.Color := $00C3B8A3;
-      lblLogisticCub.Font.Color := $00C3B8A3;
-    end;
-    3:
-    begin
-      lblTransportOp.Font.Color := $00C3B8A3;
-      lblTransportCub.Font.Color := $00C3B8A3;
-    end;
-    4:
-    begin
-      lblEnviOp.Font.Color := $00C3B8A3;
-      lblEnviCub.Font.Color := $00C3B8A3;
-    end;
-    5:
-    begin
-      lblEventOp.Font.Color := $00C3B8A3;
-    end;
-    6:
-    begin
-      lblEmitterCub.Font.Color := $00C3B8A3;
-    end;
-    7:
-    begin
-      lblCubicle.Font.Color := $00C3B8A3;
-    end;
-    8:
-    begin
-      lblEnviControl.Font.Color := $00C3B8A3;
-    end;
-    9:
-    begin
-      lblView.Font.Color := $00C3B8A3;
-    end;
-  end;
+//  case LastButton of
+//    1: btnPlatformnew.Assign(FButtonImage[0].Normal);
+//    2: btnLogisticNew.Assign(FButtonImage[1].Normal);
+//    3: btnTransportNew.Glyph.Assign(FButtonImage[2].Normal);
+//    4: btnEnviNew.Glyph.Assign(FButtonImage[3].Normal);
+//    5: btnEventNew.Glyph.Assign(FButtonImage[4].Normal);
+//    7: btnCubicleNew.Glyph.Assign(FButtonImage[5].Normal);
+//    8: btnEnviControlNew.Glyph.Assign(FButtonImage[6].Normal);
+//    9: btnTacticalNew.Glyph.Assign(FButtonImage[7].Normal);
+//    1:
+//    begin
+//      lblPlatformOp.Font.Color := $00C3B8A3;
+//      lblPlatformCub.Font.Color := $00C3B8A3;
+//    end;
+//    2:
+//    begin
+//      lblLogisticOp.Font.Color := $00C3B8A3;
+//      lblLogisticCub.Font.Color := $00C3B8A3;
+//    end;
+//    3:
+//    begin
+//      lblTransportOp.Font.Color := $00C3B8A3;
+//      lblTransportCub.Font.Color := $00C3B8A3;
+//    end;
+//    4:
+//    begin
+//      lblEnviOp.Font.Color := $00C3B8A3;
+//      lblEnviCub.Font.Color := $00C3B8A3;
+//    end;
+//    5:
+//    begin
+//      lblEventOp.Font.Color := $00C3B8A3;
+//    end;
+//    6:
+//    begin
+//      lblEmitterCub.Font.Color := $00C3B8A3;
+//    end;
+//    7:
+//    begin
+//      lblCubicle.Font.Color := $00C3B8A3;
+//    end;
+//    8:
+//    begin
+//      lblEnviControl.Font.Color := $00C3B8A3;
+//    end;
+//    9:
+//    begin
+//      lblView.Font.Color := $00C3B8A3;
+//    end;
+//  end;
 end;
 
 procedure TfrmToteDisplay.RefreshEnvironment;
@@ -19273,16 +19585,16 @@ end;
 
 procedure TfrmToteDisplay.SidebarToggleClick(Sender: TObject);
 begin
-  if pnlSideBar.Tag = 0 then
-  begin
-    pnlSideBar.Width := 302;
-    pnlSideBar.Tag := 1;
-  end
-  else if pnlSideBar.Tag = 1 then
-  begin
-    pnlSideBar.Width := 52;
-    pnlSideBar.Tag := 0;
-  end
+//  if pnlSideBar.Tag = 0 then
+//  begin
+//    pnlSideBar.Width := 125;
+//    pnlSideBar.Tag := 1;
+//  end
+//  else if pnlSideBar.Tag = 1 then
+//  begin
+//    pnlSideBar.Width := 52;
+//    pnlSideBar.Tag := 0;
+//  end
 end;
 
 procedure TfrmToteDisplay.SmoothResizeFormTo(const ToSize: integer);

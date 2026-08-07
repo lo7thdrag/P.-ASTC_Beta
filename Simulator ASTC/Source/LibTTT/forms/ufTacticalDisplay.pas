@@ -1245,8 +1245,14 @@ type
 
   private
 
-    {u/ Navigasi}
+    {$REGION ' u/ Navigasi '}
+
     isFilterRangeRing : Boolean;
+    isSelectButton : Boolean;
+    isPanButton : Boolean;
+    isZoomButton : Boolean;
+
+    {$ENDREGION}
 
     isFirstUpdate: Boolean; // ini sementara untuk update data platform pertama kali
     isOnAnchorLine: Boolean;
@@ -2936,18 +2942,36 @@ begin
   end;
 end;
 
+procedure TfrmTacticalDisplay.btnSelectClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Select.bmp');
+
+  {Set cursor}
+  Map1.CurrentTool := mtSelectObject;
+  Map1.MousePointer := miDefaultCursor;
+
+//  isSelectButton : Boolean;
+//    isPanButton : Boolean;
+//    isZoomButton : Boolean;
+end;
+
 procedure TfrmTacticalDisplay.imgPanClick(Sender: TObject);
 begin
   UpAllToolbarButton;
   imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Select.bmp');
+
   Map1.CurrentTool := miPanTool;
   Map1.MousePointer := miPanCursor;
+
   FMapRulerCursor := mcSelect;
 end;
 
 procedure TfrmTacticalDisplay.imgZoomClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
   btnZoom.Down := not btnZoom.Down;
+
   btnZoomClick(btnZoom);
 
   if btnZoom.Down then
@@ -6125,6 +6149,7 @@ begin
         if Assigned(frmRightNav) then
         begin
           frmRightNav.fmPlatformGuidance1.SetControlledObject(pit);
+          frmRightNav.fmSensor1.SetControlledObject(pit);
           frmRightNav.SetControlledObject(pit);
         end;
         {$ENDREGION}
@@ -7342,19 +7367,19 @@ begin
   cbSetScale2DChange(cbSetScale2D);
 
   {u/ navigasi}
-  if Sender = imgIncrease then
-  begin
-    imgIncrease.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Increase_Select.bmp');
-    imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Normal.bmp');
-    imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
+//  if Sender = imgIncrease then
+//  begin
+//    imgIncrease.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Increase_Select.bmp');
+//    imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Normal.bmp');
+//    imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
 
-  end;
-  try
+//  end;
+//  try
     cbbSetScale.ItemIndex := i;
     cbSetScaleChange(cbbSetScale);
-  finally
-
-  end;
+//  finally
+//
+//  end;
 
 
   if Sender is TToolButton then
@@ -7388,18 +7413,18 @@ begin
   cbSetScale2DChange(cbSetScale2D);
 
   {u/ navigasi}
-  if Sender = imgDecrease then
-  begin
-    imgDecrease.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Decrease_Select.bmp');
-    imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Normal.bmp');
-    imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
-  end;
-  try
+//  if Sender = imgDecrease then
+//  begin
+//    imgDecrease.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Decrease_Select.bmp');
+//    imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Normal.bmp');
+//    imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
+//  end;
+//  try
     cbbSetScale.ItemIndex := i;
     cbSetScaleChange(cbSetScale);
-  finally
-
-  end;
+//  finally
+//
+//  end;
 
   if Sender is TToolButton then
     StatusBar1.Panels[0].Text := TToolButton(Sender).Hint
@@ -8129,14 +8154,6 @@ begin
 //  end;
 end;
 
-procedure TfrmTacticalDisplay.btnSelectClick(Sender: TObject);
-begin
-  UpAllToolbarButton;
-  imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Select.bmp');
-  Map1.CurrentTool := miSelectTool;
-  Map1.MousePointer := miDefaultCursor;
-end;
-
 procedure TfrmTacticalDisplay.btnSelectPlatformClick(Sender: TObject);
 begin
   if btnSelectPlatform.Down then
@@ -8663,6 +8680,9 @@ begin // ini procedure update yg dipanggil dari sim client
 
         if Assigned(frmRightNav) then
         begin
+          if focusedTrack <> nil then
+            frmRightNav.focusedTrack := focusedTrack;
+
           frmRightNav.UpdateFormData;
         end;
 
@@ -8738,18 +8758,18 @@ begin // ini procedure update yg dipanggil dari sim client
   begin
     // Tambahan : Prince
     if pi.PlatformDomain = vhdAir then
-      begin
-        Label10.Caption := FormatCourse(pi.Course);
-        Label21.Caption := FormatSpeed(pi.Speed);
+    begin
+      Label10.Caption := FormatCourse(pi.Course);
+      Label21.Caption := FormatSpeed(pi.Speed);
 
-        frmToteDisplay.lblWindRelativeSpeed.Caption :=
-          FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).SpeedEnvi * C_KnotsToMeterPerSecond);
-        frmToteDisplay.lblWindRelativeDirection.Caption :=
-          FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).CourseEnvi);
+      frmToteDisplay.lblWindRelativeSpeed.Caption :=
+        FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).SpeedEnvi * C_KnotsToMeterPerSecond);
+      frmToteDisplay.lblWindRelativeDirection.Caption :=
+        FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).CourseEnvi);
 
-        lbCourseHooked.Caption := FormatCourse(pi.Course);;
-        lbSpeedHooked.Caption := FormatCourse(pi.Course);;
-      end
+      lbCourseHooked.Caption := FormatCourse(pi.Course);;
+      lbSpeedHooked.Caption := FormatCourse(pi.Course);;
+    end
     else if (pi.PlatformDomain = vhdSubsurface) and (pi.Altitude <> 0) then
       begin
         lbCourseHooked.Caption := FormatCourse(pi.Course);
@@ -8784,7 +8804,8 @@ begin // ini procedure update yg dipanggil dari sim client
     lbSpeedHooked.Caption := '---';
   end;
 
-  if focusedTrack <> nil then begin
+  if focusedTrack <> nil then
+  begin
     UpdateHookedInfo(focusedTrack);
     UpdatePanelTop(focusedTrack); //refresh btn merge di top panel
 
@@ -9132,9 +9153,7 @@ procedure TfrmTacticalDisplay.UpAllToolbarButton;
 begin
   imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
   imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Normal.bmp');
-
-  Map1.CurrentTool  := miArrowTool;
-  Map1.MousePointer := miDefaultCursor;
+  imgZoom.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Zoom_Normal.bmp');
 end;
 
 procedure TfrmTacticalDisplay.UpdateCenter(Sender: TObject);

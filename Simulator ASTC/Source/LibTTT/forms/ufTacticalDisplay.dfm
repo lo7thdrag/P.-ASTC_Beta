@@ -1622,6 +1622,17 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
           end
         end
+        object pnlContentNone: TPanel
+          Left = 1
+          Top = 1
+          Width = 359
+          Height = 244
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 2695445
+          ParentBackground = False
+          TabOrder = 4
+        end
         object pnlContentHook: TPanel
           Left = 1
           Top = 1
@@ -2196,17 +2207,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               Transparent = False
             end
           end
-        end
-        object pnlContentNone: TPanel
-          Left = 1
-          Top = 1
-          Width = 359
-          Height = 244
-          Align = alClient
-          BevelOuter = bvNone
-          Color = 2695445
-          ParentBackground = False
-          TabOrder = 4
         end
       end
     end
@@ -9916,7 +9916,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Caption = 'Status'
                     Width = 90
                   end>
-                ExplicitLeft = 1
                 ExplicitWidth = 357
                 ExplicitHeight = 109
               end

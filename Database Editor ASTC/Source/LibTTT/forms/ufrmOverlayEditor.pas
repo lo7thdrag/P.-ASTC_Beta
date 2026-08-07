@@ -527,6 +527,7 @@ type
     procedure btnHandleShapePosition(Sender: TObject);
     procedure btnSave(Sender: TObject);
     procedure OnKeyPress(Sender: TObject; var Key: Char);
+    procedure ResetImageOverlay;
 
     procedure cbSetScaleChange(Sender: TObject);
     procedure btnDecreaseScaleClick(Sender: TObject);
@@ -593,8 +594,8 @@ type
     FTagTombolPosition: Integer;
     FSelectedOverlay: TOverlay_Definition;
     FConverter: TCoordConverter;
-
     FTipeOverlay: Integer; { tipe overlay utk kebutuhan tampilan }
+
 
     FMapRulerCursor: E_RulerMapCursor;
     FShapeColor: E_ShapeColor;
@@ -612,6 +613,7 @@ type
   public
     Flatt : string;
     Flong : string;
+
 
     isOK : Boolean; { Penanda jika gagal cek input, btn OK tidak langsung close }
     AfterClose : Boolean; { Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
@@ -795,6 +797,7 @@ begin
     osDynamic :
     begin
       {$REGION ' Setting toolbar '}
+      pnlCursorPosition.Visible := False;
       btnZoom.Visible := False;
       btnPan.Visible := False;
       btnCenterOnGame.Visible := False;
@@ -818,6 +821,7 @@ begin
     osStatic :
     begin
       {$REGION ' Setting toolbar '}
+      pnlCursorPosition.Visible := True;
       btnZoom.Visible := True;
       btnPan.Visible := True;
       btnCenterOnGame.Visible := True;
@@ -854,27 +858,27 @@ end;
 
 procedure TOverlayEditorForm.Apply;
 begin
-case ShapeType of
-    ovText:
-      GbrText;
-    ovLine:
-      GbrLine;
-    ovRectangle:
-      GbrRectangle;
-    ovCircle:
-      GbrCircle;
-    ovEllipse:
-      GbrEllipse;
-    ovArc:
-      GbrArc;
-    ovSector:
-      GbrSector;
-    ovGrid:
-      GbrGrid;
-    ovPolygon:
-      GbrPolygon;
-end;
-
+  case ShapeType of
+      ovText:
+        GbrText;
+      ovLine:
+        GbrLine;
+      ovRectangle:
+        GbrRectangle;
+      ovCircle:
+        GbrCircle;
+      ovEllipse:
+        GbrEllipse;
+      ovArc:
+        GbrArc;
+      ovSector:
+        GbrSector;
+      ovGrid:
+        GbrGrid;
+      ovPolygon:
+        GbrPolygon;
+  end;
+  ResetImageOverlay;
 //  btnSelect.OnClick(btnSelect);
 //  btnOk.Enabled := True;
 
@@ -995,6 +999,13 @@ begin
       LoadPanelGrid;
     ovPolygon:
       LoadPanelPolygon
+  end;
+
+  ResetImageOverlay;
+
+  if Sender is TRzBmpButton then
+  begin
+    TRzBmpButton(Sender).Down := True;
   end;
 end;
 
@@ -2759,6 +2770,29 @@ begin
 //    ('data\Image DBEditor\Interface\Button\btnPolygon_Normal.PNG');
 
   FisNoFill := True;
+end;
+
+procedure TOverlayEditorForm.ResetImageOverlay;
+var
+  i: Integer;
+begin
+  for i := 0 to ComponentCount - 1 do
+  begin
+    if Components[i] is TRzBmpButton then
+      TRzBmpButton(Components[i]).Down := False;
+  end;
+
+  btnSelect.Down      := False;
+  btnText.Down        := False;
+  btnLine.Down        := False;
+  btnRectangle.Down   := False;
+  btnCircle.Down      := False;
+  btnLine.Down        := False;
+  btnEllipse.Down     := False;
+  btnArc.Down         := False;
+  btnSector.Down      := False;
+  btnGrid.Down        := False;
+  btnPolygon.Down     := False;
 end;
 
 procedure TOverlayEditorForm.GetPosition;

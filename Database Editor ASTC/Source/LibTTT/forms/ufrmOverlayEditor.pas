@@ -528,6 +528,7 @@ type
     procedure btnSave(Sender: TObject);
     procedure OnKeyPress(Sender: TObject; var Key: Char);
     procedure ResetImageOverlay;
+    procedure HandleCursor(Sender: TObject);
 
     procedure cbSetScaleChange(Sender: TObject);
     procedure btnDecreaseScaleClick(Sender: TObject);
@@ -797,7 +798,20 @@ begin
     osDynamic :
     begin
       {$REGION ' Setting toolbar '}
-      pnlCursorPosition.Visible := False;
+      lbl22.Visible := False;
+      lblPosLat.Visible := False;
+      lblPosLong.Visible := False;
+      lbl28.Visible := False;
+      lblGridLat.Visible := False;
+      lblGridLong.Visible := False;
+
+      lbl13.Left := 500;
+      lblBearingFCenter.Left := 638;
+      lbl29.Left := 685;
+      lbl19.Left := 840;
+      lblDistanceFCenter.Left := 981;
+      lbl30.Left := 1030;
+
       btnZoom.Visible := False;
       btnPan.Visible := False;
       btnCenterOnGame.Visible := False;
@@ -821,7 +835,6 @@ begin
     osStatic :
     begin
       {$REGION ' Setting toolbar '}
-      pnlCursorPosition.Visible := True;
       btnZoom.Visible := True;
       btnPan.Visible := True;
       btnCenterOnGame.Visible := True;
@@ -2853,6 +2866,26 @@ begin
         edtPolyPosLat.Text := formatDMS_latt(my);
         edtPolyPosLong.Text := formatDMS_long(mx);
       end;
+  end;
+end;
+
+procedure TOverlayEditorForm.HandleCursor(Sender: TObject);
+begin
+  if (Sender is TSpeedButton) then
+  begin
+    FTagTombolPosition := TSpeedButton(Sender).Tag;
+
+    if FTagTombolPosition = 10 then
+    begin
+      if not SpeedButton10.Down then
+        Map1.CurrentTool := mtSelectObject
+      else
+        Map1.CurrentTool := mtAddOverlay;
+    end
+    else
+    begin
+      Map1.CurrentTool := mtAddOverlay;
+    end;
   end;
 end;
 

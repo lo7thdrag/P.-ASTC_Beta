@@ -2665,7 +2665,7 @@ begin
   //Disable All Floating Point Exceptions
   SetExceptionMask(exAllArithmeticExceptions);
 
-  FBlendHidden := False;
+  FBlendHidden := True;
 
   pnlMap.Align := alClient;
 

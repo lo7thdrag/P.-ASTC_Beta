@@ -1304,20 +1304,20 @@ type
     Panel120: TPanel;
     pnlPlatformNew: TPanel;
     pnlTransportNew: TPanel;
-    btnTransportNew: TSpeedButton;
     pnlLogisticNew: TPanel;
     pnlEventNew: TPanel;
-    btnEventNew: TSpeedButton;
     pnlEnviNew: TPanel;
-    btnEnviNew: TSpeedButton;
     pnlCubicleNew: TPanel;
-    btnCubicleNew: TSpeedButton;
     pnlEnviControlNew: TPanel;
-    btnEnviControlNew: TSpeedButton;
     pnlTacticalNew: TPanel;
-    btnTacticalNew: TSpeedButton;
     btnPlatformNew: TImage;
     btnLogisticNew: TImage;
+    btnTransportNew: TImage;
+    btnEnviNew: TImage;
+    btnEventNew: TImage;
+    btnCubicleNew: TImage;
+    btnEnviControlNew: TImage;
+    btnTacticalNew: TImage;
 
 
 
@@ -2472,23 +2472,63 @@ begin
    if Sender = btnPlatformNew then
     btnPlatformNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\0a.bmp')
   else if Sender = btnLogisticNew then
-    btnLogisticNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\1a.bmp');
-//  else if sender = btnTransportNew then
-//    btnTransportNew.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgn2.png')
-//  else if sender = btnEnviNew then
-//    btnEnviNew.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgt2.png');
+    btnLogisticNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\1a.bmp')
+  else if Sender = btnTransportNew then
+    btnTransportNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\2a.bmp')
+  else if Sender = btnEnviNew then
+    btnEnviNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\3a.bmp')
+  else if Sender = btnEventNew then
+    btnEventNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\4a.bmp')
+  else if Sender = btnCubicleNew then
+    btnCubicleNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\5a.bmp')
+  else if Sender = btnEnviControlNew then
+    btnEnviControlNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\6a.bmp')
+  else if Sender = btnTacticalNew then
+    btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\7a.bmp') ;
 end;
 
 procedure TfrmToteDisplay.btnMouseLeave(sender: TObject);
 begin
     if Sender = btnPlatformNew then
-    btnPlatformNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\0b.bmp')
+    begin
+      if LastButton <> 1 then
+      btnPlatformNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\0b.bmp') ;
+    end
    else if Sender = btnLogisticNew then
-    btnLogisticNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\1b.bmp');
-//   else if sender = btnUserLogin then
-//    btnUserLogin.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgn (1).png')
-//    else if sender = btnLogOut then
-//    btnLogOut.Picture.LoadFromFile('data\Image DBEditor\Interface\User Login\lgt (1).png');
+   begin
+      if LastButton <> 2 then
+      btnLogisticNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\1b.bmp') ;
+   end
+   else if Sender = btnTransportNew then
+   begin
+      if LastButton <> 3 then
+       btnTransportNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\2b.bmp')
+   end
+   else if Sender = btnEnviNew then
+   begin
+      if LastButton <> 4 then
+      btnEnviNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\3b.bmp')
+   end
+   else if Sender = btnEventNew then
+   begin
+       if LastButton <> 5 then
+       btnEventNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\4b.bmp')
+   end
+   else if Sender = btnCubicleNew then
+   begin
+       if LastButton <> 7 then
+       btnCubicleNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\5b.bmp')
+   end
+   else if Sender = btnEnviControlNew then
+   begin
+       if LastButton <> 8 then
+       btnEnviControlNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\6b.bmp')
+   end
+   else if Sender = btnTacticalNew then
+   begin
+       if LastButton <> 9 then
+       btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\7b.bmp') ;
+   end
 end;
 
 procedure TfrmToteDisplay.btnCommDefinitionClick(sender: TObject);
@@ -4230,34 +4270,34 @@ begin
   case Ctrl.Tag of
     1: btnPlatformNew.Assign(FButtonImage[0].Hover);
     2: btnLogisticNew.Assign(FButtonImage[1].Hover);
-    3: btnTransportNew.Glyph.Assign(FButtonImage[2].Hover);
-    4: btnEnviNew.Glyph.Assign(FButtonImage[3].Hover);
-    5: btnEventNew.Glyph.Assign(FButtonImage[4].Hover);
-    7: btnCubicleNew.Glyph.Assign(FButtonImage[5].Hover);
-    8: btnEnviControlNew.Glyph.Assign(FButtonImage[6].Hover);
-    9: btnTacticalNew.Glyph.Assign(FButtonImage[7].Hover);
+    3: btnTransportNew.Assign(FButtonImage[2].Hover);
+    4: btnEnviNew.Assign(FButtonImage[3].Hover);
+    5: btnEventNew.Assign(FButtonImage[4].Hover);
+    7: btnCubicleNew.Assign(FButtonImage[5].Hover);
+    8: btnEnviControlNew.Assign(FButtonImage[6].Hover);
+    9: btnTacticalNew.Assign(FButtonImage[7].Hover);
   end;
 end;
 
 procedure TfrmToteDisplay.sidebarPanelMouseLeave(Sender: TObject);
-//var
-//  Ctrl: TControl;
+var
+  Ctrl: TControl;
 begin
-//  Ctrl := Sender as TControl;
-//
-//  if Ctrl.Tag = LastButton then
-//    Exit;
-//
-//  case Ctrl.Tag of
-//    1: btnPlatformnew.Assign(FButtonImage[0].Normal);
-//    2: btnLogisticNew.Assign(FButtonImage[1].Normal);
-//    3: btnTransportNew.Glyph.Assign(FButtonImage[2].Normal);
-//    4: btnEnviNew.Glyph.Assign(FButtonImage[3].Normal);
-//    5: btnEventNew.Glyph.Assign(FButtonImage[4].Normal);
-//    7: btnCubicle.Glyph.Assign(FButtonImage[5].Normal);
-//    8: btnEnviControlNew.Glyph.Assign(FButtonImage[6].Normal);
-//    9: btnTacticalNew.Glyph.Assign(FButtonImage[7].Normal);
-//  end;
+  Ctrl := Sender as TControl;
+
+  if Ctrl.Tag = LastButton then
+    Exit;
+
+  case Ctrl.Tag of
+    1: btnPlatformnew.Assign(FButtonImage[0].Normal);
+    2: btnLogisticNew.Assign(FButtonImage[1].Normal);
+    3: btnTransportNew.Assign(FButtonImage[2].Normal);
+    4: btnEnviNew.Assign(FButtonImage[3].Normal);
+    5: btnEventNew.Assign(FButtonImage[4].Normal);
+    7: btnCubicle.Assign(FButtonImage[5].Normal);
+    8: btnEnviControlNew.Assign(FButtonImage[6].Normal);
+    9: btnTacticalNew.Assign(FButtonImage[7].Normal);
+  end;
 end;
 
 procedure TfrmToteDisplay.countCurrentEffect;
@@ -19174,8 +19214,8 @@ begin
   case Tag of
     1:
     begin
-//      DisablePrevious;
-//      btnPlatformnew.Assign(FButtonImage[0].Hover);
+      DisablePrevious;
+      btnPlatformNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\0a.bmp');
       lblPlatformOp.Font.Color := $00FAFAFA;
       lblPlatformCub.Font.Color := $00FAFAFA;
 //    gbPlatformStatus.BringToFront;
@@ -19185,7 +19225,7 @@ begin
     2:
     begin
       DisablePrevious;
-      btnLogisticNew.Assign(FButtonImage[1].Hover);
+      btnLogisticNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\1a.bmp');
       lblLogisticOp.Font.Color := $00FAFAFA;
       lblLogisticCub.Font.Color := $00FAFAFA;
 //      gbLogisticStatus.BringToFront;
@@ -19195,7 +19235,7 @@ begin
     3:
     begin
       DisablePrevious;
-      btnTransportNew.Glyph.Assign(FButtonImage[2].Hover);
+      btnTransportNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\2a.bmp');
       lblTransportOp.Font.Color := $00FAFAFA;
       lblTransportCub.Font.Color := $00FAFAFA;
 //      gbTransport.BringToFront;
@@ -19205,7 +19245,7 @@ begin
     4:
     begin
       DisablePrevious;
-      btnEnviNew.Glyph.Assign(FButtonImage[3].Hover);
+      btnEnviNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\3a.bmp');
       lblEnviOp.Font.Color := $00FAFAFA;
       lblEnviCub.Font.Color := $00FAFAFA;
 //      gbEnvironmentStatus.BringToFront;
@@ -19215,7 +19255,7 @@ begin
     5:
     begin
       DisablePrevious;
-      btnEventNew.Glyph.Assign(FButtonImage[4].Hover);
+      btnEventNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\4a.bmp') ;
       lblEventOp.Font.Color := $00FAFAFA;
 //      gbEventSummary.BringToFront;
       btnEventSummary.Click;
@@ -19224,6 +19264,7 @@ begin
     6:
     begin
       DisablePrevious;
+//      btnCubicleNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\5a.bmp')
       lblEmitterCub.Font.Color := $00FAFAFA;
 //      gbEmitterStatus.BringToFront;
       btEmitterStatus.Click;
@@ -19232,7 +19273,7 @@ begin
     7:
     begin
       DisablePrevious;
-      btnCubicleNew.Glyph.Assign(FButtonImage[5].Hover);
+       btnCubicleNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\5a.bmp');
       lblCubicle.Font.Color := $00FAFAFA;
 //      gbCubicleGroups.BringToFront;
       btnCubicleGroups.Click;
@@ -19241,7 +19282,7 @@ begin
     8:
     begin
       DisablePrevious;
-      btnEnviControlNew.Glyph.Assign(FButtonImage[6].Hover);
+      btnEnviControlNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\6a.bmp');
       lblEnviControl.Font.Color := $00FAFAFA;
 //      gbEnvironmentControl.BringToFront;
       btnEnviroControl.Click;
@@ -19250,26 +19291,60 @@ begin
     9:
     begin
       DisablePrevious;
-      btnTacticalNew.Glyph.Assign(FButtonImage[7].Hover);
-      VSlidingTrans.ShowHideBtnProc;
+      btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\7a.bmp') ;
+//      VSlidingTrans.ShowHideBtnProc;
       lblView.Font.Color := $00FAFAFA;
       LastButton := 9;
+
+      frmTacticalDisplay.Show;
+      frmTacticalDisplay.BringToFront;
     end;
   end;
 end;
 
 procedure TfrmToteDisplay.DisablePrevious;
 begin
-//  case LastButton of
-//    1: btnPlatformnew.Assign(FButtonImage[0].Normal);
-//    2: btnLogisticNew.Assign(FButtonImage[1].Normal);
-//    3: btnTransportNew.Glyph.Assign(FButtonImage[2].Normal);
-//    4: btnEnviNew.Glyph.Assign(FButtonImage[3].Normal);
-//    5: btnEventNew.Glyph.Assign(FButtonImage[4].Normal);
-//    7: btnCubicleNew.Glyph.Assign(FButtonImage[5].Normal);
-//    8: btnEnviControlNew.Glyph.Assign(FButtonImage[6].Normal);
-//    9: btnTacticalNew.Glyph.Assign(FButtonImage[7].Normal);
-//    1:
+  case LastButton of
+
+    1:
+    btnPlatformNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\0b.bmp');
+
+    2:
+    btnLogisticNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\1b.bmp');
+
+    3:
+    btnTransportNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\2b.bmp');
+
+    4:
+    btnEnviNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\3b.bmp');
+
+    5:
+    btnEventNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\4b.bmp');
+
+//    6:
+//    btnEmitterNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\5b.bmp');
+
+    7:
+    btnCubicleNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\5b.bmp');
+
+    8:
+    btnEnviControlNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\6b.bmp');
+
+    9:
+    btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\7b.bmp');
+
+//    btnEnviNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\3b.bmp');
+
+//    5:
+//    btnEventNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\4b.bmp');
+
+//    6:
+//    btnEmitterNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\5b.bmp');
+
+//    7:
+//    btnCubicleNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\6b.bmp');
+  end;
+
 //    begin
 //      lblPlatformOp.Font.Color := $00C3B8A3;
 //      lblPlatformCub.Font.Color := $00C3B8A3;

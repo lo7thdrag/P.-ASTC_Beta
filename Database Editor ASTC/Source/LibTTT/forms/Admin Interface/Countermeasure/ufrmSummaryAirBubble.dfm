@@ -44924,17 +44924,13 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
         Top = 10
         Width = 346
         Height = 193
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object lblMaxAcousticCross: TLabel
             Left = 19
             Top = 24
@@ -45039,16 +45035,13 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object mmoNotes: TMemo
             Left = 0
             Top = 0
             Width = 318
             Height = 133
             Align = alClient
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

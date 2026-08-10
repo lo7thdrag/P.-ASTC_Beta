@@ -44906,7 +44906,7 @@ object frmSummaryTowedJammerDecoy: TfrmSummaryTowedJammerDecoy
         Top = 10
         Width = 595
         Height = 450
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45429,6 +45429,7 @@ object frmSummaryTowedJammerDecoy: TfrmSummaryTowedJammerDecoy
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

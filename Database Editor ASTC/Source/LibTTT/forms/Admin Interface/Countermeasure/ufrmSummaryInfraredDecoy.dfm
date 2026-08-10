@@ -44910,7 +44910,7 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
         Top = 10
         Width = 356
         Height = 272
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45069,6 +45069,7 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
             Width = 328
             Height = 212
             Align = alClient
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

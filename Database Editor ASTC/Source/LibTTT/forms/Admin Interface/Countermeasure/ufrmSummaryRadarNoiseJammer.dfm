@@ -44906,7 +44906,7 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
         Top = 10
         Width = 373
         Height = 290
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -44914,10 +44914,6 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
         OnChange = edtChange
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object lblPowerDensity: TLabel
             Left = 15
             Top = 24
@@ -45132,10 +45128,6 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object mmoNotes: TMemo
             Left = 0
             Top = 0
@@ -45144,6 +45136,7 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
           end
         end

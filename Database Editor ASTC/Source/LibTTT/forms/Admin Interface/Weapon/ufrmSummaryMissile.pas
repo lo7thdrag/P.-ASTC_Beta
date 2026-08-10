@@ -372,16 +372,6 @@ begin
   AfterClose := True;
   btnCancel.Enabled := True;
 
-  if Trim(uSession.CurrentUser) <> '' then
-  begin
-  if mmoNotes.Lines.Count > 0 then
-    mmoNotes.Lines.Add('');
-
-  mmoNotes.Lines.Add('Last Update');
-  mmoNotes.Lines.Add('User : ' + uSession.CurrentName);
-  mmoNotes.Lines.Add('Date : ' + FormatDateTime('dd mmm yyyy hh:nn', Now));
-
-  end;
 end;
 
 {$ENDREGION}
@@ -530,6 +520,17 @@ begin
     {$ENDREGION}
 
     {$REGION ' Notes '}
+    if Trim(uSession.CurrentUser) <> '' then
+    begin
+      if mmoNotes.Lines.Count > 0 then
+        mmoNotes.Clear;
+
+      mmoNotes.Lines.Add('Last Update');
+      mmoNotes.Lines.Add('User : ' + uSession.CurrentName);
+      mmoNotes.Lines.Add('Date : ' + FormatDateTime('dd mmm yyyy hh:nn', Now));
+
+    end;
+
     FNote.Notes := mmoNotes.Text;
     {$ENDREGION}
 

@@ -44906,7 +44906,7 @@ object frmSummarySonar: TfrmSummarySonar
         Top = 10
         Width = 632
         Height = 406
-        ActivePage = tsCharacteristic
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45853,6 +45853,7 @@ object frmSummarySonar: TfrmSummarySonar
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

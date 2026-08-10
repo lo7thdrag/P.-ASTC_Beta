@@ -44916,18 +44916,16 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 72
       object PageControl1: TPageControl
         Left = 10
         Top = 10
         Width = 444
         Height = 256
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitTop = 14
         object tsGeneral: TTabSheet
           Caption = 'General'
           object grpDecoyNoise: TGroupBox
@@ -45010,6 +45008,7 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

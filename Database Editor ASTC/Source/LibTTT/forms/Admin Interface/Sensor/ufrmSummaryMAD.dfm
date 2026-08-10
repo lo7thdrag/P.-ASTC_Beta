@@ -44906,7 +44906,7 @@ object frmSummaryMAD: TfrmSummaryMAD
         Top = 10
         Width = 309
         Height = 154
-        ActivePage = tsGeneral
+        ActivePage = TabSheet2
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -44986,6 +44986,7 @@ object frmSummaryMAD: TfrmSummaryMAD
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

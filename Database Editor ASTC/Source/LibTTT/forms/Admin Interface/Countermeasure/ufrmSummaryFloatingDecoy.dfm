@@ -44907,7 +44907,7 @@ object frmSummaryFloatingDecoy: TfrmSummaryFloatingDecoy
         Top = 10
         Width = 426
         Height = 327
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45221,6 +45221,7 @@ object frmSummaryFloatingDecoy: TfrmSummaryFloatingDecoy
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

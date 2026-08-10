@@ -44907,7 +44907,7 @@ object frmSummaryGun: TfrmSummaryGun
         Top = 10
         Width = 705
         Height = 445
-        ActivePage = tsNGS
+        ActivePage = tsNotes
         Align = alClient
         MultiLine = True
         TabHeight = 30
@@ -45539,6 +45539,7 @@ object frmSummaryGun: TfrmSummaryGun
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

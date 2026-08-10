@@ -44906,7 +44906,7 @@ object frmSummaryChaff: TfrmSummaryChaff
         Top = 10
         Width = 591
         Height = 273
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45168,6 +45168,7 @@ object frmSummaryChaff: TfrmSummaryChaff
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

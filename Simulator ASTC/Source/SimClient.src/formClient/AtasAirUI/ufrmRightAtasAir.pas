@@ -6,19 +6,13 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, ufmControlled,
   ufmPlatformGuidance, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Buttons,
-  VrControls, VrBlinkLed, ufmSensor, Vcl.Menus;
+  VrControls, VrBlinkLed, ufmSensor, Vcl.Menus, Vcl.ComCtrls;
 
 type
   TfrmRightAtasAir = class(TForm)
     pnlContainer: TPanel;
     pnlWeaponController: TPanel;
-    imgMainBackgorund: TImage;
-    Image2: TImage;
     Label10: TLabel;
-    pnlSensor: TPanel;
-    img1: TImage;
-    lbl1: TLabel;
-    Image1: TImage;
     pnlWeaponChoices: TPanel;
     edtWeaponName: TEdit;
     btnWeapon: TSpeedButton;
@@ -624,12 +618,24 @@ type
     lblWHTargetBearing: TLabel;
     lblWHTargetIdentity: TLabel;
     Label21: TLabel;
-    pnlGameStatus: TPanel;
-    img2: TImage;
-    lbl250: TLabel;
-    pnlGameState: TPanel;
     pmModeSonobuoy: TPopupMenu;
-    fmsnsr1: TfmSensor;
+    pnlContact: TPanel;
+    lbl1: TLabel;
+    pnlTrackInformationBody: TPanel;
+    pnlTrackControl: TPanel;
+    lvTrackControl: TListView;
+    pnlTrackTable: TPanel;
+    lvTrackTable: TListView;
+    pnlTrackSheet: TPanel;
+    pnlTabTrackControl: TPanel;
+    pnlTabTrackTable: TPanel;
+    imgMainBackgorundContact: TImage;
+    imgMainBackgorundController: TImage;
+    pnlGameStatus: TPanel;
+    Image4: TImage;
+    Label1: TLabel;
+    pnlGameState: TPanel;
+    procedure TTButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -642,5 +648,38 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmRightAtasAir.TTButtonClick(Sender: TObject);
+var
+  PanelTag: integer;
+  Panel: Tpanel;
+begin
+  panel := Sender as Tpanel;
+  PanelTag := panel.Tag;
+
+  if panel = pnlTabTrackTable then
+  begin
+    if PanelTag = 0 then
+    begin
+      pnlTabTrackTable.Color := RGB(29, 81, 103);
+      pnlTrackTable.BringToFront;
+      pnlTabTrackTable.Tag := 1;
+      pnlTabTrackControl.Tag := 0;
+      pnlTabTrackControl.Color := RGB(16, 46, 58);
+    end;
+  end;
+
+  if panel = pnlTabTrackControl then
+  begin
+    if PanelTag = 0 then
+    begin
+      pnlTabTrackControl.Color := RGB(29, 81, 103);
+      pnlTrackControl.BringToFront;
+      pnlTabTrackControl.Tag := 1;
+      pnlTabTrackTable.Tag := 0;
+      pnlTabTrackTable.Color := RGB(16, 46, 58);
+    end;
+  end;
+end;
 
 end.

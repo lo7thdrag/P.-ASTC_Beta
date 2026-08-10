@@ -63,3 +63,6 @@ Database Editor ASTC/Source/SimFramework/LibBaseUtils/CoordSystem/uBaseCoordSyst
 /Simulator ASTC/Source/GameController/__history
 /Simulator ASTC/Source/LibTTT/libUnit/__history
 /Database Editor ASTC/Source/LibTTT/forms/Admin Interface/Sensor/__recovery
+*.~4~
+/Simulator ASTC/Source/GameTime/__history
+/Simulator ASTC/Source/SimClient.src/formClient/AtasAirUI/__history

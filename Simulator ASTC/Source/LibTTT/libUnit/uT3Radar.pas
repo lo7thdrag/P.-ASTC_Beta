@@ -278,31 +278,11 @@ var
 begin
   inherited;
 
-  range   := CalcRange(FPosition.X, FPosition.Y,
-           aObject.getPositionX, aObject.getPositionY);
+  range   := CalcRange(FPosition.X, FPosition.Y, aObject.getPositionX, aObject.getPositionY);
 
-  //tambahan sementara 310212012
 //  Result := (range <= DetectionRange);
   Result := (range <= DetailDetectionRange);
 
-  {if Result then
-  begin
-    if aObject is TT3PlatformInstance then
-    begin
-      with TT3PlatformInstance(aObject) do
-      begin
-        rec.IFF_Capability := RadarDefinition.FDef.IFF_Capability;
-        rec.Altitude_Data_Capability := RadarDefinition.FDef.Altitude_Data_Capability;
-        rec.Ground_Speed_Data_Capability := RadarDefinition.FDef.Ground_Speed_Data_Capability;
-        rec.Heading_Data_Capability := RadarDefinition.FDef.Heading_Data_Capability;
-        rec.Plat_Type_Recog_Capability := RadarDefinition.FDef.Plat_Type_Recog_Capability;
-        rec.Plat_Class_Recog_Capability := RadarDefinition.FDef.Plat_Class_Recog_Capability;
-        rec.Track_ID := True;
-
-        DetailedDetectionShowed := rec;
-      end;
-    end;
-  end; }
 end;
 
 function TT3Radar.InsideJammedEffect : Boolean;

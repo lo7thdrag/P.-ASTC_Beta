@@ -423,14 +423,14 @@ begin
   if pnlTabHook.Tag = 1 then
     DisplayTabHooked(Sender);
 
-  if pnlTabDetails.Tag = 1 then
-    DisplayTabDetail(Sender);
+//  if pnlTabDetails.Tag = 1 then
+//    DisplayTabDetail(Sender);
 
-  if pnlTabDetection.Tag = 1 then
-    DisplayTabDetection(Sender);
+//  if pnlTabDetection.Tag = 1 then
+//    DisplayTabDetection(Sender);
 
-  if pnlTabIFF.Tag = 1 then
-    DisplayTabIFF(Sender);
+//  if pnlTabIFF.Tag = 1 then
+//    DisplayTabIFF(Sender);
 end;
 
 procedure TfrmRightNav.UpdateTabHooked(aTrack: TSimObject);
@@ -459,13 +459,16 @@ var
 begin
   v := nil;
   det := nil;
-  idCoordinat := fSettingCoordinate.IdCoordinat;
 
   if Assigned(sender) then
   begin
     if Sender is TT3PlatformInstance then
     begin
+      {$REGION ' TT3PlatformInstance '}
+
       v := TT3PlatformInstance(Sender)
+
+      {$ENDREGION}
     end
     else if Sender is TT3DetectedTrack then
     begin
@@ -477,11 +480,10 @@ begin
       begin
         lblTrackHook.Caption:= (det.MergedESM.TrackNumber);
         lblNameHook.Caption := TT3PlatformInstance(det.MergedESM.TrackObject).InstanceName;
-        lblClassHook.Caption:= TT3Radar(det.MergedESM.TrackObject).
-                               RadarDefinition.FDef.Radar_Emitter;
+        lblClassHook.Caption:= TT3Radar(det.MergedESM.TrackObject).RadarDefinition.FDef.Radar_Emitter;
         lblBearingHook.Caption := FormatFloat('000.0', det.MergedESM.Bearing);
 
-//        StaticText6.Caption := 'Origin';
+        txt50.Caption := 'Origin';
         lblPositionHook1.Caption := formatDMS_long(det.MergedESM.DetectBy.PosX);
         lblPositionHook2.Caption := formatDMS_latt(det.MergedESM.DetectBy.PosY);
 
@@ -517,7 +519,7 @@ begin
       else
         lblBearingHook.Caption      := '---';
 
-//      StaticText6.Caption := 'Origin';
+      txt50.Caption := 'Origin';
       lblPositionHook1.Caption := formatDMS_long(TT3ESMTrack(sender).DetectBy.PosX);
       lblPositionHook2.Caption := formatDMS_latt(TT3ESMTrack(sender).DetectBy.PosY);
 
@@ -541,6 +543,7 @@ begin
 
   if det <> nil then
   begin
+    {$REGION ' det tidak sama dengan nil '}
     if det.TrackObject is TT3DeviceUnit then
     begin
       v := det.TrackObject.Parent as TT3PlatformInstance;
@@ -556,9 +559,9 @@ begin
       lbl4.Caption := 'meter';
 
       if v.Altitude <> 0 then
-        lblAltitude.Caption    := FormatAltitude(v.Altitude)
+        lblAltitude.Caption := FormatAltitude(v.Altitude)
       else
-        lblAltitude.Caption := '0'; // 05/ 04/ 2012
+        lblAltitude.Caption := '0';
     end
     else
     begin
@@ -568,13 +571,13 @@ begin
       if v.Altitude <> 0 then
        lblAltitude.Caption    := FormatAltitude(v.Altitude * C_Meter_To_Feet)
       else
-       lblAltitude.Caption := '0'; // 05/ 04/ 2012
+       lblAltitude.Caption := '0';
     end;
 
     if Assigned(v) then
     begin
-//      if det.IsDetailViewed then
-//      begin
+      if det.IsDetailViewed then
+      begin
         if det.DetailedDetectionShowed.Plat_Name_Recog_Capability then
         begin
 //          lbNameHook.Caption      := v.InstanceName;
@@ -588,8 +591,8 @@ begin
 
         if det.DetailedDetectionShowed.Plat_Class_Recog_Capability then
         begin
-//          lbClassHook.Caption     := v.InstanceClass;
-          lblClassHook.Caption      := det.TrackClass;
+          lblClassHook.Caption     := v.InstanceClass;
+//          lblClassHook.Caption      := det.TrackClass;
         end
         else
         begin
@@ -632,7 +635,7 @@ begin
         end
         else
           lblAltitude.Caption    := '---';
-//      end;
+      end;
 
       if det.DetailedDetectionShowed.Track_ID then
         lblTrackHook.Caption := FormatTrackNumber(det.trackNumber)
@@ -650,6 +653,7 @@ begin
     begin
       lblDamage.Caption        := IntToStr(100 - Round(v.HealthPercent)) + '%';
     end;
+    {$ENDREGION}
   end
   else
   begin
@@ -689,7 +693,7 @@ begin
         if v.Altitude <> 0 then
           lblAltitude.Caption    := FormatAltitude(v.Altitude)
         else
-          lblAltitude.Caption := '0'; // 05/ 04/ 2012
+          lblAltitude.Caption := '0';
       end
       else
       begin
@@ -699,7 +703,7 @@ begin
         if v.Altitude <> 0 then
          lblAltitude.Caption    := FormatAltitude(v.Altitude * C_Meter_To_Feet)
         else
-         lblAltitude.Caption := '0'; // 05/ 04/ 2012
+         lblAltitude.Caption := '0';
       end;
 
       lblCourseHook.Caption    := FormatCourse(v.Course);
@@ -710,9 +714,13 @@ begin
     end;
   end;
 
+  {$REGION ' Setting tampilan position sesuai option '}
+
   long := simMgrClient.GameEnvironment.FGameArea.Game_Centre_Long;
   lat := simMgrClient.GameEnvironment.FGameArea.Game_Centre_Lat;
-//  StaticText6.Caption := 'Position';
+  txt50.Caption := 'Position';
+
+  idCoordinat := fSettingCoordinate.IdCoordinat;
 
   case idCoordinat of
     1:
@@ -779,6 +787,7 @@ begin
       end;
     end;
   end;
+  {$ENDREGION}
 
   lblBearingHook.Caption   := FormatCourse(b); ;
   lblRangeHook.Caption     := FormatFloat('000.00', d);
@@ -1448,19 +1457,19 @@ end;
 
 procedure TfrmRightNav.InitTabHookedInfo;
 begin
-//  //Hook
-//  lbTrackHook.Caption := 'Unknown';
-//  lbNameHook.Caption := 'Unknown';
-//  lbClassHook.Caption := 'Unknown';
-//  lbPositionHook1.Caption := '---';
-//  lbPositionHook2.Caption := '---';
-//  lbCourseHook.Caption := '---';
-//  lbGround.Caption := '---';
-//  lbAltitude.Caption := '---';
-////  lbDepth.Caption := '---';
-//  lbBearingHook.Caption := '---';
-//  lbRangeHook.Caption := '---';
-//
+  //Hook
+  lblTrackHook.Caption := 'Unknown';
+  lblNameHook.Caption := 'Unknown';
+  lblClassHook.Caption := 'Unknown';
+  lblPositionHook1.Caption := '---';
+  lblPositionHook2.Caption := '---';
+  lblCourseHook.Caption := '---';
+  lblGround.Caption := '---';
+  lblAltitude.Caption := '---';
+//  lbDepth.Caption := '---';
+  lblBearingHook.Caption := '---';
+  lblRangeHook.Caption := '---';
+
 //  // Details
 //  lbTrackDetails.Caption := 'Unknown';
 //  lbNameDetails.Caption  := 'Unknown';

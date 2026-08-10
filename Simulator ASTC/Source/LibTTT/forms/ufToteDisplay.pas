@@ -11926,6 +11926,18 @@ begin
             forceColor := 'Blue';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlue;
           end;
+          fcGreen:
+          begin
+            lvPlatforms.Canvas.Brush.Color := clBlue;
+            forceColor := 'Green';
+            lvPlatformEmbarkDisembark.Canvas.Brush.Color := clGreen;
+          end;
+          fcAmber:
+          begin
+            lvPlatforms.Canvas.Brush.Color := clBlue;
+            forceColor := 'Yellow';
+            lvPlatformEmbarkDisembark.Canvas.Brush.Color := clYellow;
+          end;
           fcNoForce:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlack;

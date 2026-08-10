@@ -175,8 +175,10 @@ begin
 
   case rgForceDesignation.ItemIndex of
     0 : rSend.ForceDesignation  := fcRed;
-    1 : rSend.ForceDesignation  := fcBlue;
-    2 : rSend.ForceDesignation  := fcNoForce;
+    1 : rSend.ForceDesignation  := fcAmber;
+    2 : rSend.ForceDesignation  := fcBlue;
+    3 : rSend.ForceDesignation  := fcGreen;
+    4 : rSend.ForceDesignation  := fcNoForce;
   end;
 
   rSend.OrderID := CORD_ID_LAUNCH_SINGLE_RUNTIME_PLATFORM;
@@ -571,8 +573,10 @@ begin
 
   case rgForceDesignation.ItemIndex  of
     0: i := fcRed;
-    1: i := fcBlue;
-    2: i := fcNoForce;
+    1: i := fcAmber;
+    2: i := fcBlue;
+    3: i := fcGreen;
+    4: i := fcNoForce;
   end;
 
   if (i > 0) and (i < 6) then
@@ -641,7 +645,10 @@ begin
       f := 5;
     end;
 
-    FForceList[f].AddObject(grp.FData.Group_Identifier, grp);
+    if Pos('CONTROL', UpperCase(grp.FData.Group_Identifier)) > 0 then
+    begin
+      FForceList[f].AddObject(grp.FData.Group_Identifier, grp);
+    end;
   end;
 
 //  if not Assigned (VScenario) then
@@ -663,7 +670,6 @@ begin
 //
 //    FForceList[f].AddObject(grp.FData.Group_Identifier, grp);
 //  end
-
   rgForceDesignation.ItemIndex := 0;
 end;
 

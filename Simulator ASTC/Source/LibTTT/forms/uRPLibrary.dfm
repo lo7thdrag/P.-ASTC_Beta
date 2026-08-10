@@ -6,7 +6,7 @@ object frmRPLibrary: TfrmRPLibrary
   Caption = ' Runtime Platform Library'
   ClientHeight = 256
   ClientWidth = 370
-  Color = 5980694
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -590,7 +590,7 @@ object frmRPLibrary: TfrmRPLibrary
         TabOrder = 0
         object Label2: TLabel
           Left = 192
-          Top = 20
+          Top = 12
           Width = 43
           Height = 16
           Caption = 'Group :'
@@ -600,10 +600,11 @@ object frmRPLibrary: TfrmRPLibrary
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
+          Visible = False
         end
         object rgForceDesignation: TRadioGroup
-          Left = 12
-          Top = 20
+          Left = 106
+          Top = 17
           Width = 158
           Height = 166
           Caption = 'Force Designation  :  '
@@ -616,7 +617,9 @@ object frmRPLibrary: TfrmRPLibrary
           ItemIndex = 0
           Items.Strings = (
             'Red'
+            'Yellow'
             'Blue'
+            'Green'
             'Netral')
           ParentCtl3D = False
           ParentFont = False
@@ -625,7 +628,7 @@ object frmRPLibrary: TfrmRPLibrary
         end
         object lbxGroup: TListBox
           Left = 192
-          Top = 40
+          Top = 32
           Width = 168
           Height = 145
           Font.Charset = DEFAULT_CHARSET
@@ -635,6 +638,7 @@ object frmRPLibrary: TfrmRPLibrary
           Font.Style = []
           ParentFont = False
           TabOrder = 1
+          Visible = False
           OnClick = lbxGroupClick
         end
       end

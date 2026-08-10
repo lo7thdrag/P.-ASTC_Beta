@@ -44906,7 +44906,7 @@ object frmSummaryEOD: TfrmSummaryEOD
         Top = 10
         Width = 378
         Height = 221
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45070,6 +45070,7 @@ object frmSummaryEOD: TfrmSummaryEOD
             Width = 350
             Height = 161
             Align = alClient
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

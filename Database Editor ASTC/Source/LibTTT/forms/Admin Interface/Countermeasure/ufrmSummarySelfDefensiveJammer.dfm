@@ -44906,7 +44906,7 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
         Top = 10
         Width = 398
         Height = 354
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45110,6 +45110,7 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

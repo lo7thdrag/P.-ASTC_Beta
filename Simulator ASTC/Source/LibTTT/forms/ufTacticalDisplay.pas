@@ -9339,26 +9339,29 @@ var
 begin
   v := nil;
   det := nil;
-  idCoordinat := fSettingCoordinate.IdCoordinat;
 
-  if Assigned(sender) then     //mk
+  if Assigned(sender) then
   begin
     if Sender is TT3PlatformInstance then
+    begin
+      {$REGION ' TT3PlatformInstance '}
+
       v := TT3PlatformInstance(Sender)
+
+      {$ENDREGION}
+    end
     else
     if Sender is TT3DetectedTrack then
     begin
+      {$REGION ' TT3DetectedTrack '}
+
       det := TT3DetectedTrack(Sender);
 
       if Assigned(det.MergedESM) then
       begin
-        {Navigasi}
-//        frmTopNav.lblTrackID.Caption:= (det.MergedESM.TrackNumber);
-
         lbTrackHook.Caption:= (det.MergedESM.TrackNumber);
         lbNameHook.Caption := TT3PlatformInstance(det.MergedESM.TrackObject).InstanceName;
-        lbClassHook.Caption:= TT3Radar(det.MergedESM.TrackObject).
-                               RadarDefinition.FDef.Radar_Emitter;
+        lbClassHook.Caption:= TT3Radar(det.MergedESM.TrackObject).RadarDefinition.FDef.Radar_Emitter;
         lbBearingHook.Caption := FormatFloat('000.0', det.MergedESM.Bearing);
 
         StaticText6.Caption := 'Origin';
@@ -9369,16 +9372,13 @@ begin
       end;
 
       v := TT3PlatformInstance(det.TrackObject);
+      {$ENDREGION}
     end
     else if Sender is TT3ESMTrack then
     begin
-      esm := TT3ESMTrack(Sender);
+      {$REGION ' TT3ESMTrack '}
 
-      {NAVIGASI}
-//      if esm.DetailedDetectionShowedESM.Track_ID then
-//        frmTopNav.lblTrackID.Caption      := esm.TrackNumber
-//      else
-//        frmTopNav.lblTrackID.Caption      := 'Unknown';
+      esm := TT3ESMTrack(Sender);
 
       if esm.DetailedDetectionShowedESM.Track_ID then
         lbTrackHook.Caption      := esm.TrackNumber
@@ -9405,6 +9405,7 @@ begin
       lbPositionHook2.Caption := formatDMS_latt(TT3ESMTrack(sender).DetectBy.PosY);
 
       Exit;
+      {$ENDREGION}
     end;
   end;
 
@@ -9416,15 +9417,14 @@ begin
     if simMgrClient.ControlledPlatform <> nil then
     begin
       ct := TT3PlatformInstance(simMgrClient.ControlledPlatform);
-      b := CalcBearing(ct.getPositionX, ct.getPositionY, v.getPositionX,
-           v.getPositionY);
-      d := CalcRange(ct.getPositionX, ct.getPositionY, v.getPositionX,
-           v.getPositionY);
+      b := CalcBearing(ct.getPositionX, ct.getPositionY, v.getPositionX,v.getPositionY);
+      d := CalcRange(ct.getPositionX, ct.getPositionY, v.getPositionX,v.getPositionY);
     end;
   end;
 
   if det <> nil then
   begin
+    {$REGION ' det tidak sama dengan nil '}
     if det.TrackObject is TT3DeviceUnit then
     begin
       v := det.TrackObject.Parent as TT3PlatformInstance;
@@ -9452,13 +9452,13 @@ begin
       if v.Altitude <> 0 then
        lbAltitude.Caption    := FormatAltitude(v.Altitude * C_Meter_To_Feet)
       else
-       lbAltitude.Caption := '0'; // 05/ 04/ 2012
+       lbAltitude.Caption := '0';
     end;
 
     if Assigned(v) then
     begin
-//      if det.IsDetailViewed then
-//      begin
+      if det.IsDetailViewed then
+      begin
         if det.DetailedDetectionShowed.Plat_Name_Recog_Capability then
         begin
 //          lbNameHook.Caption      := v.InstanceName;
@@ -9472,8 +9472,8 @@ begin
 
         if det.DetailedDetectionShowed.Plat_Class_Recog_Capability then
         begin
-//          lbClassHook.Caption     := v.InstanceClass;
-          lbClassHook.Caption      := det.TrackClass;
+          lbClassHook.Caption     := v.InstanceClass;
+//          lbClassHook.Caption      := det.TrackClass;
         end
         else
         begin
@@ -9516,12 +9516,7 @@ begin
         end
         else
           lbAltitude.Caption    := '---';
-//      end;
-      {Navigasi}
-//      if det.DetailedDetectionShowed.Track_ID then
-//        frmTopNav.lblTrackID.Caption := FormatTrackNumber(det.trackNumber)
-//      else
-//        frmTopNav.lblTrackID.Caption   := 'Unknown';
+      end;
 
       if det.DetailedDetectionShowed.Track_ID then
         lbTrackHook.Caption := FormatTrackNumber(det.trackNumber)
@@ -9539,16 +9534,12 @@ begin
     begin
       lbDamage.Caption        := IntToStr(100 - Round(v.HealthPercent)) + '%';
     end;
+    {$ENDREGION}
   end
   else
   begin
     if Assigned(v) then
     begin
-      {Navigasi}
-//      if v is TT3NonRealVehicle then
-//        frmTopNav.lblTrackID.Caption := IntToStr(v.TrackNumber)
-//      else
-//        frmTopNav.lblTrackID.Caption := v.Track_ID;
 
       if v is TT3NonRealVehicle then
         lbTrackHook.Caption := IntToStr(v.TrackNumber)
@@ -9558,16 +9549,13 @@ begin
       lbNameHook.Caption := v.InstanceName;
 
       if v is TT3Vehicle then
-        lbClassHook.Caption := TVehicle_Definition(v.UnitDefinition)
-          .FData.Vehicle_Identifier;
+        lbClassHook.Caption := TVehicle_Definition(v.UnitDefinition).FData.Vehicle_Identifier;
 
       if v is TT3Missile then
-        lbClassHook.Caption := TMissile_On_Board(v.UnitDefinition)
-          .FDef.Class_Identifier;
+        lbClassHook.Caption := TMissile_On_Board(v.UnitDefinition).FDef.Class_Identifier;
 
       if v is TT3Torpedo then
-        lbClassHook.Caption := TTorpedo_On_Board(v.UnitDefinition)
-          .FDef.Class_Identifier;
+        lbClassHook.Caption := TTorpedo_On_Board(v.UnitDefinition).FDef.Class_Identifier;
 
       if v is TT3Chaff then lbClassHook.Caption := 'Chaff';
 
@@ -9587,7 +9575,7 @@ begin
         if v.Altitude <> 0 then
           lbAltitude.Caption    := FormatAltitude(v.Altitude)
         else
-          lbAltitude.Caption := '0'; // 05/ 04/ 2012
+          lbAltitude.Caption := '0';
       end
       else
       begin
@@ -9597,7 +9585,7 @@ begin
         if v.Altitude <> 0 then
          lbAltitude.Caption    := FormatAltitude(v.Altitude * C_Meter_To_Feet)
         else
-         lbAltitude.Caption := '0'; // 05/ 04/ 2012
+         lbAltitude.Caption := '0';
       end;
 
       lbCourseHook.Caption    := FormatCourse(v.Course);
@@ -9608,9 +9596,13 @@ begin
     end;
   end;
 
+  {$REGION ' Setting tampilan position sesuai option '}
+
   long := simMgrClient.GameEnvironment.FGameArea.Game_Centre_Long;
   lat := simMgrClient.GameEnvironment.FGameArea.Game_Centre_Lat;
   StaticText6.Caption := 'Position';
+
+  idCoordinat := fSettingCoordinate.IdCoordinat;
 
   case idCoordinat of
     1:
@@ -9619,9 +9611,6 @@ begin
       begin
         lbPositionHook1.Caption := formatDMS_long(v.getPositionX);
         lbPositionHook2.Caption := formatDMS_latt(v.getPositionY);
-        {Navigasi}
-//        frmTopNav.lblLong1.Caption := formatDMS_long(v.getPositionX);
-//        frmTopNav.lblLat1.Caption := formatDMS_latt(v.getPositionY);
       end;
     end;
     2:
@@ -9680,6 +9669,7 @@ begin
       end;
     end;
   end;
+  {$ENDREGION}
 
   lbBearingHook.Caption   := FormatCourse(b); ;
   lbRangeHook.Caption     := FormatFloat('000.00', d);
@@ -9714,7 +9704,6 @@ begin
         lbTypeDetails.Caption := 'Other';
         lbDoppler.Caption := '[None]';
         lbTrackType.Caption := 'Real Time Bearing Track';
-        {Navigasi}
 
         if TT3ESMTrack(Sender).IsMerged then
           lbMergeStatus.Caption := 'Merged'

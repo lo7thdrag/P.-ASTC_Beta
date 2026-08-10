@@ -44906,7 +44906,7 @@ object frmSummaryBomb: TfrmSummaryBomb
         Top = 10
         Width = 498
         Height = 392
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         MultiLine = True
         TabHeight = 30
@@ -45107,6 +45107,7 @@ object frmSummaryBomb: TfrmSummaryBomb
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

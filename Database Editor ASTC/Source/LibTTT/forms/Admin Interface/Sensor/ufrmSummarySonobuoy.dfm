@@ -44906,7 +44906,7 @@ object frmSummarySonobuoy: TfrmSummarySonobuoy
         Top = 10
         Width = 313
         Height = 183
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45151,6 +45151,7 @@ object frmSummarySonobuoy: TfrmSummarySonobuoy
             Align = alClient
             Lines.Strings = (
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

@@ -44906,7 +44906,7 @@ object frmSummaryESM: TfrmSummaryESM
         Top = 10
         Width = 623
         Height = 360
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45352,6 +45352,7 @@ object frmSummaryESM: TfrmSummaryESM
             Lines.Strings = (
               ''
               '')
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

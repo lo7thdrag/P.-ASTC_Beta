@@ -44906,7 +44906,7 @@ object frmSummaryMine: TfrmSummaryMine
         Top = 10
         Width = 793
         Height = 382
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45381,6 +45381,7 @@ object frmSummaryMine: TfrmSummaryMine
             Width = 765
             Height = 322
             Align = alClient
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

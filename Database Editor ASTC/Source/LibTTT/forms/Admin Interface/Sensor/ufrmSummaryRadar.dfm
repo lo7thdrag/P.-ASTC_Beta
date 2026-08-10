@@ -44924,7 +44924,7 @@ object frmSummaryRadar: TfrmSummaryRadar
         Top = 10
         Width = 742
         Height = 317
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45232,10 +45232,6 @@ object frmSummaryRadar: TfrmSummaryRadar
         object tsCharacteristic: TTabSheet
           Caption = 'Characteristics'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object lblFrequency: TLabel
             Left = 20
             Top = 20
@@ -45484,10 +45480,6 @@ object frmSummaryRadar: TfrmSummaryRadar
         object tsAntiJamming: TTabSheet
           Caption = 'Anti Jamming'
           ImageIndex = 2
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object grbBasicCapabilities: TGroupBox
             Left = 16
             Top = 20
@@ -45686,16 +45678,13 @@ object frmSummaryRadar: TfrmSummaryRadar
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 3
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object mmoNotes: TMemo
             Left = 0
             Top = 0
             Width = 714
             Height = 257
             Align = alClient
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

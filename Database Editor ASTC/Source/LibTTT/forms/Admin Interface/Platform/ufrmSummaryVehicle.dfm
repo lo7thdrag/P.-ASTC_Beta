@@ -44910,7 +44910,7 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         Top = 0
         Width = 873
         Height = 438
-        ActivePage = tsGeneral
+        ActivePage = tsNotes
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -112589,6 +112589,7 @@ object frmSummaryVehicle: TfrmSummaryVehicle
             Width = 845
             Height = 378
             Align = alClient
+            ReadOnly = True
             TabOrder = 0
             OnChange = edtChange
           end

@@ -528,7 +528,6 @@ type
     procedure btnSave(Sender: TObject);
     procedure OnKeyPress(Sender: TObject; var Key: Char);
     procedure ResetImageOverlay;
-    procedure HandleCursor(Sender: TObject);
 
     procedure cbSetScaleChange(Sender: TObject);
     procedure btnDecreaseScaleClick(Sender: TObject);
@@ -1315,7 +1314,7 @@ begin
 
   case FTipeOverlay of
 
-{$REGION ' Dynamic Section '}
+  {$REGION ' Dynamic Section '}
     osDynamic:
       begin
         if IdAction = 2 then
@@ -1336,8 +1335,9 @@ begin
         if IdAction <> 2 then
           DrawOverlay.DynamicList.Add(TextDynamic);
       end;
-{$ENDREGION}
-{$REGION ' Static Section '}
+  {$ENDREGION}
+
+  {$REGION ' Static Section '}
     osStatic:
       begin
         if IdAction = 2 then
@@ -1364,10 +1364,13 @@ begin
         TextStatic.Color := pnlOutline.Color;
         TextStatic.isSelected := false;
 
+        TextStatic.lineType := TPenStyle(cbbDashesPen.ItemIndex);
+        TextStatic.weight := StrToInt(cbbWeightPen.Text);
+
         if IdAction <> 2 then
           DrawOverlay.StaticList.Add(TextStatic);
       end;
-{$ENDREGION}
+  {$ENDREGION}
   end;
 end;
 
@@ -1989,7 +1992,7 @@ var
 begin
 
   case FTipeOverlay of
-{$REGION ' Dynamic Section '}
+  {$REGION ' Dynamic Section '}
     osDynamic:
       begin
         if IdAction = 2 then
@@ -2033,8 +2036,9 @@ begin
         if IdAction <> 2 then
           DrawOverlay.DynamicList.Add(PolygonDynamic);
       end;
-{$ENDREGION}
-{$REGION ' Static Section '}
+  {$ENDREGION}
+
+  {$REGION ' Static Section '}
     osStatic:
       begin
         if IdAction = 2 then
@@ -2076,7 +2080,7 @@ begin
           DrawOverlay.StaticList.Add(PolygonStatic);
         SpeedButton10.Down := false;
       end;
-{$ENDREGION}
+  {$ENDREGION}
   end;
 end;
 
@@ -2866,26 +2870,6 @@ begin
         edtPolyPosLat.Text := formatDMS_latt(my);
         edtPolyPosLong.Text := formatDMS_long(mx);
       end;
-  end;
-end;
-
-procedure TOverlayEditorForm.HandleCursor(Sender: TObject);
-begin
-  if (Sender is TSpeedButton) then
-  begin
-    FTagTombolPosition := TSpeedButton(Sender).Tag;
-
-    if FTagTombolPosition = 10 then
-    begin
-      if not SpeedButton10.Down then
-        Map1.CurrentTool := mtSelectObject
-      else
-        Map1.CurrentTool := mtAddOverlay;
-    end
-    else
-    begin
-      Map1.CurrentTool := mtAddOverlay;
-    end;
   end;
 end;
 

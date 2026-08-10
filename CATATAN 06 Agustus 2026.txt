@@ -1,14 +1,25 @@
-CATATAN 06 Agustus 2026
+CATATAN ASTC
+
+DB EDITOR
+1. OwnShip tidak mau mengikuti arah Waypoint yang sudah dibuat
+2. Rectangle sama Arc masih belum bisa diwarna fillnya (Masalah dulu)
+3. RPL belum bisa
+
+SIMULATOR
+1. Klik kanan belum bisa digunakan (Penggunaan menamai ownship)
+2. Tampilan RPL masih lama dan belum bisa digunakan
+3. Pada bagian Force Designation jangan dikasih pilihan karna itu milik instruktur
+4. Monitor Student masih belum  bisa digunakan dan Instruktur 1-3 tidak usah dalam list
+5. Penggunaan multiselect belum terdaftar pada tracktable dan track control
+
+
+YANG SUDAH
 
 DB EDITOR
 1. Overlay tidak bisa tersimpan saat aplikasi dishutdown
-2. OwnShip tidak mau mengikuti arah Waypoint yang sudah dibuat
-3. Rectangle sama Arc masih belum bisa diwarna fillnya (Masalah dulu)
-4. Titik center Polygon tidak terlihat
-5. RPL belum bisa
+2. Titik Polygon tidak terlihat
+3. Pada taampilan overlay Dynamic minta dijelaskan position sama grid apakah digunakan
+4. Panel Cursor Overlay Dynamic
 
 SIMULATOR
-1. Tambahkan button Move pada Instruktur
-2. Nilai Bearing dan Range belum dapat (katanya ini nilai kapal)
-3. Pada taampilan overlay Dynamic minta dijelaskan position sama grid apakah digunakan
-4. Klik kanan belum bisa digunakan
+1. Nilai Bearing dan Range belum dapat (katanya ini nilai kapal)

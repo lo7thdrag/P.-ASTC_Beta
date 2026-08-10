@@ -28566,6 +28566,7 @@ object frmRightNav: TfrmRightNav
           ParentBackground = False
           ParentFont = False
           TabOrder = 1
+          Visible = False
           OnClick = THButtonClick
         end
         object pnlTabDetection: TPanel
@@ -28584,6 +28585,7 @@ object frmRightNav: TfrmRightNav
           ParentBackground = False
           ParentFont = False
           TabOrder = 2
+          Visible = False
           OnClick = THButtonClick
         end
         object pnlTabIFF: TPanel
@@ -28602,6 +28604,7 @@ object frmRightNav: TfrmRightNav
           ParentBackground = False
           ParentFont = False
           TabOrder = 3
+          Visible = False
           OnClick = THButtonClick
         end
       end
@@ -29813,17 +29816,6 @@ object frmRightNav: TfrmRightNav
             end
           end
         end
-        object pnlContentNone: TPanel
-          Left = 1
-          Top = 1
-          Width = 331
-          Height = 244
-          Align = alClient
-          BevelOuter = bvNone
-          Color = 2695445
-          ParentBackground = False
-          TabOrder = 4
-        end
         object pnlContentHook: TPanel
           Left = 1
           Top = 1
@@ -30398,6 +30390,17 @@ object frmRightNav: TfrmRightNav
               Transparent = False
             end
           end
+        end
+        object pnlContentNone: TPanel
+          Left = 1
+          Top = 1
+          Width = 331
+          Height = 244
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 2695445
+          ParentBackground = False
+          TabOrder = 4
         end
       end
     end

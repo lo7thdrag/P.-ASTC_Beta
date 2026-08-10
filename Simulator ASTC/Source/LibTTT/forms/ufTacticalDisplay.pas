@@ -760,11 +760,12 @@ type
     imgRuler: TImage;
     imgSelect: TImage;
     imgZoom: TImage;
-    lblRangeRings: TLabel;
+    lblRangeRingScales: TLabel;
     lblLongitude1: TLabel;
     lblLatitude1: TLabel;
     Label25: TLabel;
     Label26: TLabel;
+    img1: TImage;
 
 //    ToolBtnComm: TToolButton;
 
@@ -1216,12 +1217,15 @@ type
     procedure fmWeapon1EdtWHSalvoKeyPress(Sender: TObject; var Key: Char);
     procedure fmWeapon1btnWHDefaultSeekerRangeClick(Sender: TObject);
     procedure fmWeapon1btnWGTargetTrackClick(Sender: TObject);
-    procedure UpAllToolbarButton;
+    procedure UpAllToolbarButton(tipeButton: Integer);
     procedure btnMapToolsClick(Sender: TObject);
     procedure btnSelectClick(Sender: TObject);
     procedure imgPanClick(Sender: TObject);
     procedure ResetImageTools;
     procedure imgZoomClick(Sender: TObject);
+    procedure imgCenterOnHookClick(Sender: TObject);
+    procedure imgFilterRangeRingsClick(Sender: TObject);
+    procedure cbbSetScaleChange(Sender: TObject);
 
   private
     { Private declarations }
@@ -1251,6 +1255,7 @@ type
     isSelectButton : Boolean;
     isPanButton : Boolean;
     isZoomButton : Boolean;
+    isCenterOnHook : Boolean;
 
     {$ENDREGION}
 
@@ -2609,6 +2614,46 @@ begin
   end;
 end;
 
+procedure TfrmTacticalDisplay.cbbSetScaleChange(Sender: TObject);
+var
+  z: double;
+  s: string;
+  i: Integer;
+  rrVis: Boolean;
+begin
+  if (cbbSetScale.ItemIndex < 0) then
+    exit;
+
+  s := cbbSetScale.Items[cbbSetScale.ItemIndex];
+  try
+    z := StrToFloat(s);
+    VSimMap.SetMapZoom(z * 2);
+//    lblRangeRingScales.Caption := cbbSetScale.Text;
+  finally
+
+  end;
+
+  {$REGION ' Untuk kebutuhan update range rings '}
+  if isFilterRangeRing then
+  begin
+    z := FixMapZoom(VSimMap.FMap.Zoom);
+    i := FindClosestZoomIndex(z);
+    z := ZoomIndexToScale(i);
+    simMgrClient.RangeRing.Interval := 0.125 * z;
+
+    if Assigned(focusedTrack) then
+    simMgrClient.MyRingHookedPlatfom := focusedTrack;
+
+    if Assigned(simMgrClient.MyRingHookedPlatfom)then
+    begin
+      simMgrClient.RangeRing.mX := Map1.CenterX;
+      simMgrClient.RangeRing.mY := Map1.CenterY;
+      simMgrClient.RangeRing.Visible := isFilterRangeRing;
+    end;
+  end;
+  {$ENDREGION}
+end;
+
 procedure TfrmTacticalDisplay.cbbTerrainChange(Sender: TObject);
 var
   rec : TRec_SwitchTerrain;
@@ -2648,20 +2693,6 @@ var
   subHelp : TMenuItem;
 
 begin
-  {Navigasi}
-  cbbSetScale.Items.Clear;
-
-  for i := CMin_Z to CMax_Z do
-  begin
-    z := ZoomIndexToScale(i);
-    cbbSetScale.Items.Add(FloatToStr(z));
-  end;
-
-//  cbbSetScale.ItemIndex := 8;
-  cbbSetScale.Text := '25';
-  lblRangeRings.Caption := '1 : 6.25';
-//  cbbSetScaleChange(nil);
-
   //Disable All Floating Point Exceptions
   SetExceptionMask(exAllArithmeticExceptions);
 
@@ -2735,6 +2766,9 @@ begin
 
   cbSetScale.Items.Clear;
   cbSetScale2D.Items.Clear;
+  cbbSetScale.Items.Clear;
+
+//  lblRangeRings.Caption := '1 : ---';
 
   toolbar4.OnMouseLeave := nil;
   pnl3Menubar.OnMouseMove := nil;
@@ -2744,6 +2778,7 @@ begin
     z := ZoomIndexToScale(i);
     cbSetScale.Items.Add(FloatToStr(z));
     cbSetScale2D.Items.Add(FloatToStr(z));
+    cbbSetScale.Items.Add(FloatToStr(z));
   end;
   // cbSetScale.ItemIndex := 8;
   // cbSetScaleChange(cbSetScale);
@@ -2944,44 +2979,31 @@ end;
 
 procedure TfrmTacticalDisplay.btnSelectClick(Sender: TObject);
 begin
-  UpAllToolbarButton;
-  imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Select.bmp');
-
-  {Set cursor}
-  Map1.CurrentTool := mtSelectObject;
-  Map1.MousePointer := miDefaultCursor;
-
-//  isSelectButton : Boolean;
-//    isPanButton : Boolean;
-//    isZoomButton : Boolean;
+  UpAllToolbarButton(0);
 end;
 
 procedure TfrmTacticalDisplay.imgPanClick(Sender: TObject);
 begin
-  UpAllToolbarButton;
-  imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Select.bmp');
-
-  Map1.CurrentTool := miPanTool;
-  Map1.MousePointer := miPanCursor;
+  UpAllToolbarButton(1);
 
   FMapRulerCursor := mcSelect;
 end;
 
 procedure TfrmTacticalDisplay.imgZoomClick(Sender: TObject);
 begin
-  UpAllToolbarButton;
-  btnZoom.Down := not btnZoom.Down;
+  UpAllToolbarButton(2);
+end;
 
-  btnZoomClick(btnZoom);
+procedure TfrmTacticalDisplay.imgCenterOnHookClick(Sender: TObject);
+begin
+  UpAllToolbarButton(3);
+end;
 
-  if btnZoom.Down then
-  begin
-    imgZoom.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Zoom_Select.bmp');
-  end
-  else
-  begin
-    imgZoom.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Zoom_Normal.bmp');
-  end;
+procedure TfrmTacticalDisplay.imgFilterRangeRingsClick(Sender: TObject);
+begin
+  UpAllToolbarButton(4);
+
+  btnFilterRangeRingsClick(Sender);
 end;
 
 procedure TfrmTacticalDisplay.updateStatus_Yellow;
@@ -7220,12 +7242,13 @@ begin
 end;
 
 procedure TfrmTacticalDisplay.btnCentreOnHookClick(Sender: TObject);
-var
-  AppDir, ImageNormal, ImageSelect : string;
 begin
-  AppDir := ExtractFilePath(ParamStr(0));
-  ImageNormal := AppDir + 'data\Image Simulator\Navigasi\Button\CenterOnHook_Normal.bmp';
-  ImageSelect := AppDir + 'data\Image Simulator\Navigasi\Button\CenterOnHook_Select.bmp';
+
+  {cek target jika tidak ada stop}
+  if focusedTrack = nil then
+  begin
+    Exit;
+  end;
 
   {jika diakses melalui menubar}
   if Sender is TMenuItem then
@@ -7236,14 +7259,6 @@ begin
       btnCentreOnHook.Down := True;
   end;
 
-  {cek target jika tidak ada stop}
-  if focusedTrack = nil then
-  begin
-    if Sender is TImage then
-        TImage(Sender).Picture.LoadFromFile(ImageSelect);
-    Exit;   //mk
-  end;
-
   {Set status target yang terpilih dan set pressed button}
   FHookOnPlatform := not FHookOnPlatform;
   btnCentreOnHook.Down := FHookOnPlatform;
@@ -7251,21 +7266,12 @@ begin
   {Set check menubar}
   OnHookedTrack2.Checked := FHookOnPlatform;
 
-  if Sender is TImage then
-  begin
-    if FHookOnPlatform then
-      TImage(Sender).Picture.LoadFromFile(ImageNormal)
-    else
-      TImage(Sender).Picture.LoadFromFile(ImageSelect);
-  end;
-
   if FHookOnPlatform then
   begin
     try
       simMgrClient.MyCenterHookedPlatfom := focusedTrack;
       {pindah pusat map ke posisi target}
-      VSimMap.SetMapCenter(simMgrClient.MyCenterHookedPlatfom.getPositionX,
-            simMgrClient.MyCenterHookedPlatfom.getPositionY);
+      VSimMap.SetMapCenter(simMgrClient.MyCenterHookedPlatfom.getPositionX,simMgrClient.MyCenterHookedPlatfom.getPositionY);
       {update posisi layar}
       FLastMapCenterY := simMgrClient.MyCenterHookedPlatfom.getPositionY;
       FLastMapCenterX := simMgrClient.MyCenterHookedPlatfom.getPositionX;
@@ -7285,9 +7291,6 @@ begin
     except
       focusedTrack := nil;
       simMgrClient.MyCenterHookedPlatfom := nil;
-
-      if Sender is TImage then
-        TImage(Sender).Picture.LoadFromFile(ImageSelect);
     end;
   end
   else
@@ -7303,8 +7306,8 @@ begin
     StatusBar1.Panels[0].Text := TMenuItem(Sender).Hint
   else if Sender is TToolButton then
     StatusBar1.Panels[0].Text := TToolButton(Sender).Hint
-  else if Sender is TImage then
-    StatusBar1.Panels[0].Text := TImage(Sender).Hint;
+//  else if Sender is TImage then
+//    StatusBar1.Panels[0].Text := TImage(Sender).Hint;
 end;
 
 //procedure TfrmTacticalDisplay.ToolBtnCommClick(Sender: TObject);
@@ -7367,20 +7370,8 @@ begin
   cbSetScale2DChange(cbSetScale2D);
 
   {u/ navigasi}
-//  if Sender = imgIncrease then
-//  begin
-//    imgIncrease.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Increase_Select.bmp');
-//    imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Normal.bmp');
-//    imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
-
-//  end;
-//  try
-    cbbSetScale.ItemIndex := i;
-    cbSetScaleChange(cbbSetScale);
-//  finally
-//
-//  end;
-
+  cbbSetScale.ItemIndex := i;
+  cbSetScaleChange(cbbSetScale);
 
   if Sender is TToolButton then
     StatusBar1.Panels[0].Text := TToolButton(Sender).Hint
@@ -7413,18 +7404,8 @@ begin
   cbSetScale2DChange(cbSetScale2D);
 
   {u/ navigasi}
-//  if Sender = imgDecrease then
-//  begin
-//    imgDecrease.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Decrease_Select.bmp');
-//    imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Normal.bmp');
-//    imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
-//  end;
-//  try
-    cbbSetScale.ItemIndex := i;
-    cbSetScaleChange(cbSetScale);
-//  finally
-//
-//  end;
+  cbbSetScale.ItemIndex := i;
+  cbSetScaleChange(cbSetScale);
 
   if Sender is TToolButton then
     StatusBar1.Panels[0].Text := TToolButton(Sender).Hint
@@ -7463,29 +7444,7 @@ var
   i: Integer;
   rrVis: Boolean;
   z: double;
-  Image, ImageNormal, ImageSelect : string;
 begin
-  if Sender = imgFilterRangeRings then
-  begin
-    {0 = Nama Path yang diambil jadinya ini}
-    Image := ExtractFilePath(ParamStr(0));
-    ImageSelect := Image + 'data\Image Simulator\Navigasi\Button\FilterRangeRings_Select.bmp';
-    ImageNormal := Image + 'data\Image Simulator\Navigasi\Button\FilterRangeRings_Normal.bmp';
-
-    if imgFilterRangeRings.Tag = 0 then
-    begin
-      imgFilterRangeRings.Tag := 1;
-      imgFilterRangeRings.Picture.LoadFromFile(ImageSelect);
-      btnFilterRangeRings.Down := True;
-    end
-    else
-    begin
-      imgFilterRangeRings.Tag := 0;
-      imgFilterRangeRings.Picture.LoadFromFile(ImageNormal);
-      btnFilterRangeRings.Down := False;
-    end;
-  end;
-
   {Set menubar item}
   if FilterRange1.Checked = True then
   begin
@@ -7517,9 +7476,8 @@ begin
     rrVis := FilterRange1.Checked
   else if TToolButton(Sender).Name = 'mniRangeRing1' then
     rrVis := mniRangeRing1.Checked
-  else if Sender = imgFilterRangeRings then
-    rrVis := (imgFilterRangeRings.Tag = 1);
-
+  else if TImage(Sender).Name = 'imgFilterRangeRings' then
+    rrVis := isFilterRangeRing;
 
   if rrVis then
   begin
@@ -7543,9 +7501,9 @@ begin
   if Sender is TToolButton then
     StatusBar1.Panels[0].Text := TToolButton(Sender).Hint
   else if Sender is TMenuItem then
-    StatusBar1.Panels[0].Text := TMenuItem(Sender).Hint
-  else if Sender is TImage then
-    StatusBar1.Panels[0].Text := TImage(Sender).Hint;
+    StatusBar1.Panels[0].Text := TMenuItem(Sender).Hint;
+//  else if Sender is TImage then
+//    StatusBar1.Panels[0].Text := TImage(Sender).Hint;
 end;
 
 procedure TfrmTacticalDisplay.btnStartGameClick(Sender: TObject);
@@ -9149,11 +9107,100 @@ begin
   end;
 end;
 
-procedure TfrmTacticalDisplay.UpAllToolbarButton;
+procedure TfrmTacticalDisplay.UpAllToolbarButton(tipeButton: Integer);
 begin
-  imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
-  imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Normal.bmp');
-  imgZoom.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Zoom_Normal.bmp');
+  case tipeButton of
+    0 :
+    begin
+      {$REGION ' Select '}
+      imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
+      imgZoom.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Zoom_Normal.bmp');
+
+      isPanButton := False;
+      isZoomButton := False;
+
+      isSelectButton := True;
+      imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Select.bmp');
+
+      {Set cursor}
+      Map1.CurrentTool := mtSelectObject;
+      Map1.MousePointer := miDefaultCursor;
+      {$ENDREGION}
+    end;
+    1 :
+    begin
+      {$REGION ' Pan '}
+      imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Normal.bmp');
+      imgZoom.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Zoom_Normal.bmp');
+      imgCenterOnHook.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\CenterOnHook_Normal.bmp');
+
+      isSelectButton := False;
+      isZoomButton := False;
+      isCenterOnHook := False;
+
+      {Digunakan untuk menetralkan Center onHook}
+      FHookOnPlatform := True;
+      btnCentreOnHookClick(nil);
+
+      isPanButton := True;
+      imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Select.bmp');
+
+      {Set cursor}
+      Map1.CurrentTool := miPanTool;
+      Map1.MousePointer := miPanCursor;
+      {$ENDREGION}
+    end;
+    2 :
+    begin
+      {$REGION ' Zoom '}
+      imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
+      imgSelect.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Select_Normal.bmp');
+
+      isSelectButton := False;
+      isPanButton := False;
+
+      isZoomButton := True;
+      imgZoom.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Zoom_Select.bmp');
+
+      {Set cursor}
+      Map1.CurrentTool := miZoomInTool;
+      Map1.MousePointer := miZoomInCursor;
+      {$ENDREGION}
+    end;
+    3 :
+    begin
+      {$REGION ' Center On Hook '}
+      imgPan.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Pan_Normal.bmp');
+
+      isPanButton := False;
+
+      isCenterOnHook := not isCenterOnHook;
+
+      btnCentreOnHookClick(nil);
+
+      if isCenterOnHook then
+        imgCenterOnHook.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\CenterOnHook_Select.bmp')
+      else
+        imgCenterOnHook.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\CenterOnHook_Normal.bmp');
+
+      {Set cursor}
+      Map1.CurrentTool := mtSelectObject;
+      Map1.MousePointer := miDefaultCursor;
+      {$ENDREGION}
+    end;
+    4 :
+    begin
+      {$REGION ' Filter Range Ring '}
+      isFilterRangeRing := not isFilterRangeRing;
+
+      if isFilterRangeRing then
+        imgFilterRangeRings.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\FilterRangeRings_Select.bmp')
+      else
+        imgFilterRangeRings.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\FilterRangeRings_Normal.bmp');
+      {$ENDREGION}
+    end;
+  end;
+
 end;
 
 procedure TfrmTacticalDisplay.UpdateCenter(Sender: TObject);
@@ -10469,6 +10516,7 @@ begin
   finally
 
   end;
+
 end;
 
 procedure TfrmTacticalDisplay.chkControlCamClick(Sender: TObject);
@@ -11817,9 +11865,18 @@ begin
   sY := 0;
 
   zCapt := 0.5 * z;
+
+  {u/ tampilan General}
   cbSetScale.Text := FloatToStr(zCapt);
+
+  {u/ tampilan Navigasi, AAWO, ASUWO}
+  cbbSetScale.Text := FloatToStr(zCapt);
+  lblRangeRingScales.Caption := cbbSetScale.Text;
+
+  {u/ tampilan Viewer}
   cbSetScale2D.Text := FloatToStr(zCapt);
 
+  {u/ tampilan Wasdal}
   if simMgrClient.iswasdal then
     if Assigned(frmTop) then
       frmTop.cbSetScale.Text := FloatToStr(zCapt);

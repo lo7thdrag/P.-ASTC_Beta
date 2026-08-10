@@ -1541,7 +1541,9 @@ begin
 
     sensor := TT3Sensor(device);
 
-    if sensor is TT3IFFSensor then begin
+    if sensor is TT3IFFSensor then
+    begin
+      {$REGION ' IFF Sensor '}
       li := lstSensor.Items.Add;
       li.Caption  := sensor.InstanceName + 'Transponder';
 
@@ -1572,7 +1574,6 @@ begin
             li.SubItems.Add('Passive');
           sopTooFast:
             li.SubItems.Add('Too Fast');
-          //------------------------------  //17042012 mk
           sopDeploying:
             li.SubItems.Add('Deploying');
           sopDeployed:
@@ -1581,7 +1582,6 @@ begin
             li.SubItems.Add('Stowing');
           sopStowed:
             li.SubItems.Add('Stowed');
-          //------------------------------  //17042012 mk
           sopOffIFF:
             li.SubItems.Add('Off');
         end;
@@ -1626,7 +1626,6 @@ begin
             li.SubItems.Add('Passive');
           sopTooFast:
             li.SubItems.Add('Too Fast');
-          //------------------------------ //17042012 mk
           sopDeploying:
             li.SubItems.Add('Deploying');
           sopDeployed:
@@ -1635,7 +1634,6 @@ begin
             li.SubItems.Add('Stowing');
           sopStowed:
             li.SubItems.Add('Stowed');
-          //------------------------------ //17042012 mk
           sopOffIFF:
             li.SubItems.Add('Off');
         end;
@@ -1649,6 +1647,7 @@ begin
               li.SubItems.Add('off');
         end;
       end;
+      {$ENDREGION}
     end
     else
     begin
@@ -1675,7 +1674,6 @@ begin
             li.SubItems.Add('Passive');
           sopTooFast:
             li.SubItems.Add('Too Fast');
-		      //------------------------------  //17042012 mk
           sopDeploying:
             li.SubItems.Add('Deploying');
           sopDeployed:
@@ -1684,7 +1682,6 @@ begin
             li.SubItems.Add('Stowing');
           sopStowed:
             li.SubItems.Add('Stowed');
-          //------------------------------  //17042012 mk
         end;
       end
       else

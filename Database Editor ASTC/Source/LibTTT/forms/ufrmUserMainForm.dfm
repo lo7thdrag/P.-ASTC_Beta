@@ -153829,16 +153829,16 @@ object frmUserMainForm: TfrmUserMainForm
       end
       object pnlLogin: TPanel
         Left = 20
-        Top = 681
+        Top = 605
         Width = 321
-        Height = 153
+        Height = 200
         BevelOuter = bvNone
         TabOrder = 22
         object img8: TImage
           Left = 0
           Top = 0
           Width = 321
-          Height = 153
+          Height = 200
           Align = alClient
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D49484452000001410000
@@ -155093,12 +155093,15 @@ object frmUserMainForm: TfrmUserMainForm
             F52B94436089E3DCC9350B7D76E1A671824001D8AC50ABFED57DA836C5A7A7A6
             7FFADDDB6EBE6CF7F66D0728377B8DFA238560FC5FF051D37777C2B6A9000000
             0049454E44AE426082}
-          ExplicitTop = -1
+          Stretch = True
+          ExplicitLeft = -14
+          ExplicitTop = -72
+          ExplicitHeight = 153
         end
         object btnEdit: TImage
-          Left = 119
-          Top = 112
-          Width = 83
+          Left = 113
+          Top = 154
+          Width = 96
           Height = 30
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000005A0000
@@ -155299,9 +155302,9 @@ object frmUserMainForm: TfrmUserMainForm
           OnMouseLeave = LoginImageMouseLeave
         end
         object btnLogOut: TImage
-          Left = 32
-          Top = 112
-          Width = 83
+          Left = 13
+          Top = 154
+          Width = 96
           Height = 30
           ParentCustomHint = False
           Picture.Data = {
@@ -155509,47 +155512,47 @@ object frmUserMainForm: TfrmUserMainForm
           OnMouseLeave = LoginImageMouseLeave
         end
         object lbl10: TLabel
-          Left = 122
-          Top = 17
-          Width = 77
-          Height = 20
+          Left = 117
+          Top = 23
+          Width = 88
+          Height = 23
           Caption = 'User Login'
           Font.Charset = ANSI_CHARSET
           Font.Color = clSilver
-          Font.Height = -20
+          Font.Height = -23
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
         end
         object lbl6: TLabel
-          Left = 68
-          Top = 54
-          Width = 60
-          Height = 19
+          Left = 35
+          Top = 68
+          Width = 64
+          Height = 21
           Caption = 'Username'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -19
+          Font.Height = -21
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
         end
         object lbl7: TLabel
-          Left = 68
-          Top = 79
-          Width = 41
-          Height = 19
+          Left = 35
+          Top = 111
+          Width = 44
+          Height = 21
           Caption = 'Status'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -19
+          Font.Height = -21
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
         end
         object lbl8: TLabel
-          Left = 134
-          Top = 54
+          Left = 116
+          Top = 69
           Width = 4
           Height = 19
           Caption = ':'
@@ -155561,8 +155564,8 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object lbl9: TLabel
-          Left = 134
-          Top = 79
+          Left = 116
+          Top = 112
           Width = 4
           Height = 19
           Caption = ':'
@@ -155574,8 +155577,8 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object lblStatus: TLabel
-          Left = 149
-          Top = 79
+          Left = 136
+          Top = 112
           Width = 20
           Height = 19
           Caption = '-----'
@@ -155587,8 +155590,8 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object lblUsername: TLabel
-          Left = 149
-          Top = 54
+          Left = 136
+          Top = 69
           Width = 20
           Height = 19
           Caption = '-----'
@@ -155600,9 +155603,9 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object btnRegister: TImage
-          Left = 206
-          Top = 112
-          Width = 83
+          Left = 213
+          Top = 154
+          Width = 96
           Height = 30
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000005A0000
@@ -155812,16 +155815,16 @@ object frmUserMainForm: TfrmUserMainForm
       end
       object pnlUserLogin: TPanel
         Left = 20
-        Top = 681
+        Top = 605
         Width = 321
-        Height = 153
+        Height = 200
         BevelOuter = bvNone
         TabOrder = 21
         object img7: TImage
           Left = 0
           Top = 0
           Width = 321
-          Height = 153
+          Height = 200
           Align = alClient
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D49484452000001410000
@@ -157076,13 +157079,11 @@ object frmUserMainForm: TfrmUserMainForm
             F52B94436089E3DCC9350B7D76E1A671824001D8AC50ABFED57DA836C5A7A7A6
             7FFADDDB6EBE6CF7F66D0728377B8DFA238560FC5FF051D37777C2B6A9000000
             0049454E44AE426082}
-          ExplicitTop = 1
-          ExplicitWidth = 319
-          ExplicitHeight = 151
+          Stretch = True
         end
         object btnShowPassword: TImage
-          Left = 258
-          Top = 82
+          Left = 265
+          Top = 116
           Width = 20
           Height = 12
           Cursor = crHandPoint
@@ -157117,9 +157118,9 @@ object frmUserMainForm: TfrmUserMainForm
           OnClick = btnShowPasswordClick
         end
         object btnUserLogin: TImage
-          Left = 115
-          Top = 112
-          Width = 90
+          Left = 111
+          Top = 154
+          Width = 100
           Height = 30
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000005A0000
@@ -157317,39 +157318,40 @@ object frmUserMainForm: TfrmUserMainForm
             09B85577AD1D832FC72C55D9D68FCB5A3DCB5DABA7AE29144BC96CAEB0ECEB9F
             F9F83B2E72BCFCA63B510517B195E87F017446CEA0FAAC5E610000000049454E
             44AE426082}
+          Stretch = True
           OnClick = btnUserLoginClick
           OnMouseEnter = LoginImageMouseEnter
           OnMouseLeave = LoginImageMouseLeave
         end
         object lbl1: TLabel
-          Left = 68
-          Top = 54
-          Width = 60
-          Height = 19
+          Left = 35
+          Top = 68
+          Width = 64
+          Height = 21
           Caption = 'Username'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -19
+          Font.Height = -21
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
         end
         object lbl2: TLabel
-          Left = 68
-          Top = 79
-          Width = 61
-          Height = 19
+          Left = 35
+          Top = 111
+          Width = 65
+          Height = 21
           Caption = 'Password'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -19
+          Font.Height = -21
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
         end
         object lbl3: TLabel
-          Left = 132
-          Top = 53
+          Left = 116
+          Top = 69
           Width = 4
           Height = 19
           Caption = ':'
@@ -157361,8 +157363,8 @@ object frmUserMainForm: TfrmUserMainForm
           ParentFont = False
         end
         object lbl4: TLabel
-          Left = 132
-          Top = 79
+          Left = 116
+          Top = 111
           Width = 4
           Height = 19
           Caption = ':'
@@ -157375,30 +157377,42 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object lbl5: TLabel
           Left = 122
-          Top = 17
-          Width = 77
-          Height = 20
+          Top = 23
+          Width = 88
+          Height = 23
           Caption = 'User Login'
           Font.Charset = ANSI_CHARSET
           Font.Color = clSilver
-          Font.Height = -20
+          Font.Height = -23
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
         end
         object edtPasword: TEdit
-          Left = 148
-          Top = 78
-          Width = 105
-          Height = 21
+          Left = 136
+          Top = 110
+          Width = 125
+          Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           PasswordChar = '*'
           TabOrder = 1
         end
         object edtUsername: TEdit
-          Left = 148
-          Top = 53
-          Width = 105
-          Height = 21
+          Left = 136
+          Top = 67
+          Width = 125
+          Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 0
         end
       end

@@ -271,8 +271,8 @@ end;
 
 procedure TfrmUserMainForm.FormShow(Sender: TObject);
 begin
- pnlUserLogin.Top := 745;
- pnlLogin.Top := 745;
+ pnlUserLogin.Top := 685;
+ pnlLogin.Top := 685;
 end;
 
 {$ENDREGION}
@@ -411,12 +411,14 @@ begin
 
     if CurrentUser.FData.Privilege = 'Admin' then
     begin
-      btnEdit.Left := 206;
+      btnEdit.Left    := 162;
+      btnLogOut.Left  := 62;
       btnRegister.Visible := False;
     end
     else
     begin
-      btnEdit.Left        := 119;
+      btnEdit.Left    := 113;
+      btnLogOut.Left  := 13;
       btnRegister.Visible := True;
     end;
 //    ShowMessage('Login Berhasil!');

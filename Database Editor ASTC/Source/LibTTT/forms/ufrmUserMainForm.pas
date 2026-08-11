@@ -128,7 +128,6 @@ type
     lbl3: TLabel;
     lbl4: TLabel;
     btnUserLogin: TImage;
-    btnRegister: TImage;
     edtUsername: TEdit;
     edtPasword: TEdit;
     btnShowPassword: TImage;
@@ -145,6 +144,7 @@ type
     lblStatus: TLabel;
     img7: TImage;
     img8: TImage;
+    btnRegister: TImage;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -327,8 +327,21 @@ begin
       Privilege := CurrentUser.FData.Privilege;
     end;
 
+    if CurrentUser.FData.Privilege = 'Admin' then
+    begin
+      frmUserLogin.cbbPrivilege.Items.Clear;
+      frmUserLogin.cbbPrivilege.Items.Add('Admin');
+      frmUserLogin.cbbPrivilege.ItemIndex := 0;
+      frmUserLogin.cbbPrivilege.Enabled := False;
+    end;
+
     if frmUserLogin.ShowModal = mrOK then
     begin
+      if CurrentUser.FData.Privilege = 'Admin System' then
+        frmUserLogin.UserLogin.FData.Privilege := 'Admin System'
+      else if CurrentUser.FData.Privilege = 'Admin' then
+        frmUserLogin.UserLogin.FData.Privilege := 'Admin';
+
       CurrentUser.FData := frmUserLogin.UserLogin.FData;
 
       lblUsername.Caption := CurrentUser.FData.Username;
@@ -395,11 +408,24 @@ begin
 
     lblUsername.Caption := CurrentUser.FData.Username;
     lblStatus.Caption := CurrentUser.FData.Privilege;
+
+    if CurrentUser.FData.Privilege = 'Admin' then
+    begin
+      btnEdit.Left := 206;
+      btnRegister.Visible := False;
+    end
+    else
+    begin
+      btnEdit.Left        := 119;
+      btnRegister.Visible := True;
+    end;
+//    ShowMessage('Login Berhasil!');
   end
   else
   begin
     ShowMessage('Username atau password salah');
   end;
+
 end;
 
 procedure TfrmUserMainForm.IconMouseEnter(Sender: TObject);

@@ -28,9 +28,6 @@ object frmUserLogin: TfrmUserLogin
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 1
-    ExplicitWidth = 359
-    ExplicitHeight = 351
     object img1: TImage
       Left = 0
       Top = 0
@@ -3229,7 +3226,7 @@ object frmUserLogin: TfrmUserLogin
     object lbl8: TLabel
       Left = 128
       Top = 19
-      Width = 96
+      Width = 102
       Height = 27
       Caption = 'New User '
       Font.Charset = ANSI_CHARSET
@@ -3660,8 +3657,8 @@ object frmUserLogin: TfrmUserLogin
       OnMouseLeave = btnOKMouseLeave
     end
     object btnCancelL: TButton
-      Left = 227
-      Top = 281
+      Left = 230
+      Top = 315
       Width = 75
       Height = 25
       Caption = 'Cancel'
@@ -3671,13 +3668,13 @@ object frmUserLogin: TfrmUserLogin
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 0
+      TabOrder = 2
       Visible = False
       OnClick = btnCancelLClick
     end
     object btnOKK: TButton
-      Left = 146
-      Top = 281
+      Left = 149
+      Top = 315
       Width = 75
       Height = 25
       Caption = 'OK'
@@ -3687,7 +3684,7 @@ object frmUserLogin: TfrmUserLogin
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 1
+      TabOrder = 6
       Visible = False
       OnClick = btnOKKClick
     end
@@ -3697,11 +3694,10 @@ object frmUserLogin: TfrmUserLogin
       Width = 145
       Height = 22
       Style = csOwnerDrawFixed
-      TabOrder = 2
+      TabOrder = 5
       Items.Strings = (
-        'Admin'
         'Admin System'
-        '')
+        'Admin')
     end
     object edtConfirmPassword: TEdit
       Left = 155
@@ -3709,7 +3705,7 @@ object frmUserLogin: TfrmUserLogin
       Width = 145
       Height = 21
       PasswordChar = '*'
-      TabOrder = 3
+      TabOrder = 4
     end
     object edtPassword: TEdit
       Left = 155
@@ -3717,21 +3713,21 @@ object frmUserLogin: TfrmUserLogin
       Width = 145
       Height = 21
       PasswordChar = '*'
-      TabOrder = 4
+      TabOrder = 3
     end
     object edtUser: TEdit
       Left = 155
       Top = 114
       Width = 145
       Height = 21
-      TabOrder = 5
+      TabOrder = 1
     end
     object edtName: TEdit
       Left = 155
       Top = 84
       Width = 145
       Height = 21
-      TabOrder = 6
+      TabOrder = 0
     end
   end
 end

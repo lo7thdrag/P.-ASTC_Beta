@@ -5,7 +5,7 @@ object frmGroupName1: TfrmGroupName1
   Caption = 'Group Name'
   ClientHeight = 390
   ClientWidth = 348
-  Color = 16775920
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -56,6 +56,9 @@ object frmGroupName1: TfrmGroupName1
     Width = 348
     Height = 390
     Align = alClient
+    Color = 2695445
+    ParentBackground = False
+    ParentColor = False
     TabOrder = 1
     object pnl1: TPanel
       Left = 2
@@ -64,6 +67,8 @@ object frmGroupName1: TfrmGroupName1
       Height = 339
       Align = alTop
       Caption = 'pnl1'
+      Color = 2695445
+      ParentBackground = False
       TabOrder = 0
       object lv1: TListView
         Left = 1
@@ -90,6 +95,8 @@ object frmGroupName1: TfrmGroupName1
       Width = 344
       Height = 41
       Align = alBottom
+      Color = 2695445
+      ParentBackground = False
       TabOrder = 1
       object btnOKList: TButton
         Left = 264

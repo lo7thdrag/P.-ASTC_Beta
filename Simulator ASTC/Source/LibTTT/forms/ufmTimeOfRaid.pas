@@ -31,7 +31,7 @@ var
 implementation
 
 uses
-  uSimMgr_Client,ufTacticalDisplay;
+  uSimMgr_Client,ufTacticalDisplay, ufrmTopNav;
 
 {$R *.dfm}
 

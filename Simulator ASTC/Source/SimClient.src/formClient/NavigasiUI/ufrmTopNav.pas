@@ -50,6 +50,7 @@ type
   private
     { Private declarations }
   public
+    gTime: TDateTime;
 //    procedure InitCreate(sender: TForm);
     procedure UpdateFormData;
     procedure SetControlledObject(ctrlObj: TObject);
@@ -184,19 +185,19 @@ end;
 
 procedure TfrmTopNav.Timer1Timer(Sender: TObject);
 begin
-  lblLMT.Caption := FormatDateTime('hh:nn:ss', Now);
+  lblLMT.Caption := FormatDateTime('hh:mm:ss', gTime);
 end;
 
 procedure TfrmTopNav.tmr2Timer(Sender: TObject);
 begin
-  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', Now);
+  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', gTime);
 end;
 
 procedure TfrmTopNav.tmrUTCTimer(Sender: TObject);
 var
   WaktuUTC: TDateTime;
 begin
-  WaktuUTC := TTimeZone.Local.ToUniversalTime(Now);
+  WaktuUTC := TTimeZone.Local.ToUniversalTime(gTime);
   lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
 end;
 

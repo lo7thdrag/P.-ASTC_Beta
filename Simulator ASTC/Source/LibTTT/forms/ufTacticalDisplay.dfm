@@ -9916,6 +9916,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     Caption = 'Status'
                     Width = 90
                   end>
+                ExplicitLeft = 1
                 ExplicitWidth = 357
                 ExplicitHeight = 109
               end
@@ -11546,10 +11547,94 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Height = 40
       end
       object bvl4: TBevel
-        Left = 1641
+        Left = 1730
         Top = 5
         Width = 3
         Height = 40
+      end
+      object Bevel5: TBevel
+        Left = 1910
+        Top = 5
+        Width = 3
+        Height = 40
+      end
+      object Label27: TLabel
+        Left = 1497
+        Top = 8
+        Width = 26
+        Height = 13
+        Caption = 'DATE'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lblDate: TLabel
+        Left = 1547
+        Top = 8
+        Width = 154
+        Height = 13
+        Caption = 'Wednesday, 26 Desember 2026'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label28: TLabel
+        Left = 1497
+        Top = 26
+        Width = 11
+        Height = 13
+        Caption = 'LT'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lblLMT: TLabel
+        Left = 1547
+        Top = 26
+        Width = 44
+        Height = 13
+        Caption = '18:55:69'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label29: TLabel
+        Left = 1619
+        Top = 26
+        Width = 20
+        Height = 13
+        Caption = 'UTC'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lblTime: TLabel
+        Left = 1657
+        Top = 26
+        Width = 44
+        Height = 13
+        Caption = '18:55:69'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object pnlStatusRed: TPanel
         Left = 1
@@ -11648,6 +11733,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         ParentBiDiMode = False
         Visible = False
         OnDrawPanel = StatusBar1DrawPanel
+        ExplicitTop = 19
       end
       object pnlStatusYellow: TPanel
         Left = 1
@@ -11669,9 +11755,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = pnlStatusYellowClick
       end
       object pnlGameState: TPanel
-        Left = 1497
+        Left = 1740
         Top = 5
-        Width = 138
+        Width = 163
         Height = 38
         BevelOuter = bvNone
         Caption = 'FROZEN'
@@ -12034,6 +12120,8 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     ParentBackground = False
     TabOrder = 3
     Visible = False
+    ExplicitLeft = 1707
+    ExplicitTop = 47
     object Label23: TLabel
       Left = 12
       Top = 9

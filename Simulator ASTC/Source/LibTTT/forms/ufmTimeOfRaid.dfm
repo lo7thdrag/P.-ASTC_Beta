@@ -4,8 +4,8 @@ object fmTimeOfRaid: TfmTimeOfRaid
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = ' D Day'
-  ClientHeight = 213
-  ClientWidth = 268
+  ClientHeight = 285
+  ClientWidth = 620
   Color = 5980694
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

@@ -766,6 +766,13 @@ type
     Label25: TLabel;
     Label26: TLabel;
     img1: TImage;
+    Bevel5: TBevel;
+    Label27: TLabel;
+    lblDate: TLabel;
+    Label28: TLabel;
+    lblLMT: TLabel;
+    Label29: TLabel;
+    lblTime: TLabel;
 
 //    ToolBtnComm: TToolButton;
 
@@ -13850,6 +13857,7 @@ var
   Selisih, AfterInvasionDay : TDateTime;
   Day,Hour,Min,Sec,MSec : Word;
   FScenario : TT3DBScenario;
+  WaktuUTC: TDateTime;
 begin
   if abs(gSpeed) < 0.000001 then
   begin
@@ -13980,6 +13988,15 @@ begin
 //  AfterInvasionDay := gTime - simMgrClient.RemainingDay;
   fmTimeOfRaid.updateTime(gTime, simMgrClient.RemainingDay);
   ShowPlottingOnTime(gTime);
+
+  {Panel Bawah}
+  lblLMT.Caption := FormatDateTime('hh:mm:ss', gTime);
+  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', gTime);
+  WaktuUTC := TTimeZone.Local.ToUniversalTime(gTime);
+  lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
+
+  {Cubicle}
+  frmTopNav.gTime := gTime;
   StatusBar1.Panels[11].Text := Format('%d Day %d Hour %d Minute %d Seconds',[Day,Hour,Min,Sec,MSec]);
 
   if simMgrClient.ISInstructor or simMgrClient.ISWasdal then

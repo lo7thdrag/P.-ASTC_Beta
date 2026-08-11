@@ -63,7 +63,7 @@ var
 
 implementation
 
-uses uDataModuleTTT;
+uses uDataModuleTTT, ufrmUserMainForm;
 
 
 {$R *.dfm}
@@ -193,10 +193,20 @@ begin
     edtUser.Text := '';
     edtPassword.Text := '';
     edtConfirmPassword.Text := '';
+
+    cbbPrivilege.Items.Clear;
+    cbbPrivilege.Items.Add('Admin');
     cbbPrivilege.ItemIndex := 0;
+    cbbPrivilege.Enabled := False;
+
   end
   else
   begin
+    cbbPrivilege.Items.Clear;
+    cbbPrivilege.Items.Add('Admin System');
+    cbbPrivilege.Items.Add('Admin');
+    cbbPrivilege.Enabled := False;
+
     with UserLogin.FData do
     begin
       edtName.Text := Name;
@@ -206,11 +216,8 @@ begin
 
       if Privilege = 'Admin System' then
        cbbPrivilege.ItemIndex := 0
-      else if Privilege = 'Scenario Builder'  then
-        cbbPrivilege.ItemIndex := 1
-      else if Privilege = 'Data Modifier'  then
-        cbbPrivilege.ItemIndex := 2
-
+      else if Privilege = 'Admin' then
+        cbbPrivilege.ItemIndex := 1;
     end;
   end;
 end;

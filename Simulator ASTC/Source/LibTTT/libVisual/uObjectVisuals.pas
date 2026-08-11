@@ -2118,36 +2118,69 @@ begin
     Font.Color :=  Color;
     Font.Style := [fsBold];
 
-    {$REGION ' Digunakan untuk memutar simbol platform '}
+    if Font.Name <> 'atct' then
+    begin
 
-    FRotation := Round( 10.0 * (90.0 - FDegr ));
-    FHeading := DegToRad(90.0 - FDegr);
-    tf := TFont.Create;
-    tf.Assign(Font);
-    GetObject(tf.Handle, sizeof(lf), @lf);
+      {$REGION ' Digunakan untuk memutar simbol platform '}
 
-    lf.lfEscapement  :=  FRotation;
-    lf.lfOrientation :=  FRotation;
+      FRotation := Round( 10.0 * (90.0 - FDegr ));
+      FHeading := DegToRad(90.0 - FDegr);
 
-    tf.Handle := CreateFontIndirect(lf);
-    Font.Assign(tf);
-    tf.Free;
+      tf := TFont.Create;
+      tf.Assign(Font);
+      GetObject(tf.Handle, sizeof(lf), @lf);
 
-    SetTextAlign(handle, TA_CENTER or VTA_CENTER);
-    sz := TextExtent(CharSymbol);
+      lf.lfEscapement  :=  FRotation;
+      lf.lfOrientation :=  FRotation;
 
-    SetBkMode(Handle, TRANSPARENT);
-    SinCos(FHeading , sinX, cosX );
+      tf.Handle := CreateFontIndirect(lf);
+      Font.Assign(tf);
+      tf.Free;
 
-    pt.X := Center.X - Floor( 0.5 * sz.cy * sinX);
-    pt.Y := Center.Y - Floor( 0.5 * sz.cy * cosX);
+      SetTextAlign(handle, TA_CENTER or VTA_CENTER);
+      sz := TextExtent(CharSymbol);
 
+      SetBkMode(Handle, TRANSPARENT);
+      SinCos(FHeading , sinX, cosX );
+
+      pt.X := Center.X - Floor( 0.5 * sz.cy * sinX);
+      pt.Y := Center.Y - Floor( 0.5 * sz.cy * cosX);
+
+      {$ENDREGION}
+
+    end
+    else
+    begin
+      {$REGION ' Digunakan untuk simbol platform yg di cubicle '}
+
+      tf := TFont.Create;
+      tf.Assign(Font);
+      GetObject(tf.Handle, sizeof(lf), @lf);
+
+      tf.Handle := CreateFontIndirect(lf);
+      Font.Assign(tf);
+      tf.Free;
+
+      SetTextAlign(handle, TA_CENTER or VTA_CENTER);
+      sz := TextExtent(CharSymbol);
+
+      hw := (sz.cx + 1) shr 1;
+      hh := (sz.cy + 2) shr 1;
+
+      pt.X := Center.X + 4;// - hw;
+      pt.Y := Center.Y - hh - 1;
+
+      SetBkMode(Handle, TRANSPARENT);
+
+      {$ENDREGION}
+
+    end;
+
+    {Menggambar simbol}
     TextOut(pt.X , pt.Y,  CharSymbol);
     Font.Style := [];
 
     Brush.Style := bsClear;
-
-    {$ENDREGION}
 
     FRectArea.Left := Center.X - ( sz.cy div 2 );
     FRectArea.Top  := Center.y - ( sz.cy div 2 );

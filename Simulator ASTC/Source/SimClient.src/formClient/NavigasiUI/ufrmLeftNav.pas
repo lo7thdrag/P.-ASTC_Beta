@@ -70,9 +70,9 @@ type
     Image2: TImage;
     img1: TImage;
     img2: TImage;
-    lblDepthNav: TLabel;
+    lblOceanDepth: TLabel;
     lbl7: TLabel;
-    lblRange: TLabel;
+    lblDepthCaption: TLabel;
     img4: TImage;
     bvl1: TBevel;
     pnlCOG: TPanel;
@@ -85,10 +85,14 @@ type
     lblCOG: TLabel;
     img3: TImage;
     img5: TImage;
-    img7: TImage;
     pnl1: TPanel;
     pnlState: TPanel;
     lblStatus: TLabel;
+    img8: TImage;
+    lbl1: TLabel;
+    img7: TImage;
+    lblDepth: TLabel;
+    lbl6: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
 
@@ -224,7 +228,7 @@ begin
 
       if isOnlandTemp then
       begin
-        lblDepthNav.Caption := FormatSpeed(d2);
+        lblOceanDepth.Caption := FormatSpeed(d2);
       end
       else
       begin
@@ -236,11 +240,11 @@ begin
 
         if isdeptAvailTemp then
         begin
-          lblDepthNav.Caption := FormatSpeed(d2);
+          lblOceanDepth.Caption := FormatSpeed(d2);
         end
         else
         begin
-          lblDepthNav.Caption := '0';
+          lblOceanDepth.Caption := '0';
         end;
       end;
     end;
@@ -260,6 +264,21 @@ begin
       lblCOG.Caption := FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).Course);
       lblSOG.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).Speed);
       lblSWT.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).OrderedSpeed);
+
+      {$REGION ' Ordered & Actual Depth/Altitude Status '}
+      if (TT3Vehicle(simMgrClient.ControlledPlatform).PlatformDomain = vhdSubsurface) then
+      begin
+        lblDepthCaption.Caption := 'Depth';
+        lbl6.Caption := 'Meters';
+        lblDepth.Caption := FormatSpeed (TT3Vehicle(simMgrClient.ControlledPlatform).Altitude);
+      end
+      else
+      begin
+        lblDepthCaption.Caption := 'Altitude';
+        lbl6.Caption := 'Feets';
+        lblDepth.Caption := FormatAltitude (TT3Vehicle(simMgrClient.ControlledPlatform).Altitude * C_Meter_To_Feet);
+      end;
+      {$ENDREGION}
 
       RotateAndDisplayFixedSize(imgBackJarumHeading, imgJarumHeading, TT3Vehicle(simMgrClient.ControlledPlatform).Heading);
       RotateAndDisplayFixedSize(imgBackJarumCOG, imgJarumCOG, TT3Vehicle(simMgrClient.ControlledPlatform).Course);

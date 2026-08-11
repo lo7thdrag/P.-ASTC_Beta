@@ -13,7 +13,8 @@ uses
   ,uT3MissileDetail, uT3DetectedTrack, uEventSummary, uDBAsset_Embark_Library,
   uBrigadePersonel,
   uSlidingTrans, ufrmWeapon, uDataModuleTTT,uMainLogisticTemplate,ufmLogisticCalculation,
-  System.ImageList, RzBmpBtn, Vcl.Imaging.pngimage, Vcl.Imaging.jpeg{,
+  System.ImageList, RzBmpBtn, Vcl.Imaging.pngimage, Vcl.Imaging.jpeg,
+  VrControls, VrTrackBar{,
   frxClass};
 
 type
@@ -922,7 +923,6 @@ type
     edtNightInfra: TEdit;
     edtNightVis: TEdit;
     trbDaytimeInfra: TTrackBar;
-    trbDaytimeVisual: TTrackBar;
     trbNighttimeInfra: TTrackBar;
     trbNighttimeVisual: TTrackBar;
     pnlWind: TPanel;
@@ -1318,6 +1318,7 @@ type
     btnCubicleNew: TImage;
     btnEnviControlNew: TImage;
     btnTacticalNew: TImage;
+    trbDaytimeVisual: TVrTrackBar;
 
 
 
@@ -1644,6 +1645,8 @@ type
 
     procedure btnMouseEnter (sender : TObject);
     procedure btnMouseLeave (sender : TObject);
+    procedure trbDaytimeVisualMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
 
     {$ENDREGION}
 
@@ -4356,7 +4359,7 @@ begin
       rec.Sub_EnviID := 0;
    end;
 
-   simMgrClient.netSend_CmdSyncEnvi(rec);
+//   simMgrClient.netSend_CmdSyncEnvi(rec);
 end;
 
 procedure TfrmToteDisplay.sendWindSpeed;
@@ -4389,7 +4392,7 @@ begin
       rec.Sub_EnviID := 0;
    end;
 
-   simMgrClient.netSend_CmdSyncEnvi(rec);
+//   simMgrClient.netSend_CmdSyncEnvi(rec);
 end;
 
 procedure TfrmToteDisplay.sendDayTimeVis;
@@ -4421,7 +4424,7 @@ begin
       rec.Sub_EnviID := 0;
    end;
 
-   simMgrClient.netSend_CmdSyncEnvi(rec);
+//   simMgrClient.netSend_CmdSyncEnvi(rec);
 end;
 
 procedure TfrmToteDisplay.sendNightTimeVis;
@@ -4454,7 +4457,7 @@ begin
       rec.Sub_EnviID := 0;
    end;
 
-   simMgrClient.netSend_CmdSyncEnvi(rec);
+//   simMgrClient.netSend_CmdSyncEnvi(rec);
 end;
 
 procedure TfrmToteDisplay.sendOceanCurDir;
@@ -4487,7 +4490,7 @@ begin
       rec.Sub_EnviID := 0;
    end;
 
-   simMgrClient.netSend_CmdSyncEnvi(rec);
+//   simMgrClient.netSend_CmdSyncEnvi(rec);
 end;
 
 procedure TfrmToteDisplay.sendOceanCurSpeed;
@@ -4521,7 +4524,7 @@ begin
       rec.Sub_EnviID := 0;
    end;
 
-   simMgrClient.netSend_CmdSyncEnvi(rec);
+//   simMgrClient.netSend_CmdSyncEnvi(rec);
 end;
 
 procedure TfrmToteDisplay.SendAllEnviAboveWater;
@@ -4559,7 +4562,7 @@ begin
       Value := Round(rw.Degree);
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 //
@@ -4751,7 +4754,7 @@ begin
       Value := Round(rw.Degree);
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4764,7 +4767,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4779,7 +4782,7 @@ begin
       Value := cbxShippingRate.ItemIndex;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4793,7 +4796,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4807,7 +4810,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4821,7 +4824,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4835,7 +4838,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4849,7 +4852,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4863,7 +4866,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4877,7 +4880,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4891,7 +4894,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4905,7 +4908,7 @@ begin
       Value := ValueInt;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4919,7 +4922,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
    {$ENDREGION}
 
@@ -4933,7 +4936,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 
@@ -4947,7 +4950,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
    {$ENDREGION}
 
@@ -4961,7 +4964,7 @@ begin
       Value := ValueData;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
   {$ENDREGION}
 end;
@@ -5522,7 +5525,7 @@ begin
             rec.Sub_EnviID := 0;
         end;
 
-        simMgrClient.netSend_CmdSyncEnvi(rec);
+//        simMgrClient.netSend_CmdSyncEnvi(rec);
       end;
     1 :
       begin
@@ -5552,7 +5555,7 @@ begin
             rec.Sub_EnviID := 0;
         end;
 
-        simMgrClient.netSend_CmdSyncEnvi(rec);
+//        simMgrClient.netSend_CmdSyncEnvi(rec);
       end;
     2 :
       begin
@@ -5582,7 +5585,7 @@ begin
             rec.Sub_EnviID := 0;
         end;
 
-        simMgrClient.netSend_CmdSyncEnvi(rec);
+//        simMgrClient.netSend_CmdSyncEnvi(rec);
       end;
     3 :
       begin
@@ -5612,7 +5615,7 @@ begin
             rec.Sub_EnviID := 0;
         end;
 
-        simMgrClient.netSend_CmdSyncEnvi(rec);
+//        simMgrClient.netSend_CmdSyncEnvi(rec);
       end;
   end;
 
@@ -6800,7 +6803,7 @@ end;
 
 procedure TfrmToteDisplay.trbAtmRefractChange(sender: TObject);
 begin
-  edtAtmRefract.Text := IntToStr((sender as TTrackBar).Position);
+//  edtAtmRefract.Text := IntToStr((sender as TTrackBar).Position);
 end;
 
 procedure TfrmToteDisplay.trbAttenCloudChange(sender: TObject);
@@ -6826,22 +6829,55 @@ end;
 
 procedure TfrmToteDisplay.trbDaytimeInfraChange(sender: TObject);
 begin
-  edtDayInfra.Text := IntToStr((sender as TTrackBar).Position);
+//  edtDayInfra.Text := IntToStr((sender as TTrackBar).Position);
 end;
 
 procedure TfrmToteDisplay.trbDaytimeVisualChange(sender: TObject);
 begin
-  edtDayVis.Text := IntToStr((sender as TTrackBar).Position);
+//  edtDayVis.Text := IntToStr((sender as TTrackBar).Position);
+end;
+
+procedure TfrmToteDisplay.trbDaytimeVisualMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+//  ValKey : set of AnsiChar;
+//  dayVis : Double;
+  rec: TrecSinc_Envi;
+  env : TEnvi;
+begin
+  with rec do
+  begin
+    rec.Envi_Chance := 3;
+
+    if lvEnviroArea.ItemIndex <> -1 then
+      rec.Envi_Type := lvEnviroArea.ItemIndex
+    else
+      rec.Envi_Type := 0;
+
+    rec.Value       := trbDaytimeVisual.Position;
+  end;
+
+  if Assigned(lvEnviroArea.Selected) then
+  begin
+    env := lvEnviroArea.Selected.Data;
+
+    if env is TSubArea_Enviro_Definition then
+      rec.Sub_EnviID := TSubArea_Enviro_Definition(env).FData.Enviro_Index
+    else
+      rec.Sub_EnviID := 0;
+  end;
+
+  simMgrClient.netSend_CmdSyncEnvi(rec);
 end;
 
 procedure TfrmToteDisplay.trbNighttimeInfraChange(sender: TObject);
 begin
-  edtNightInfra.Text := IntToStr((sender as TTrackBar).Position);
+//  edtNightInfra.Text := IntToStr((sender as TTrackBar).Position);
 end;
 
 procedure TfrmToteDisplay.trbNighttimeVisualChange(sender: TObject);
 begin
-  edtNightVis.Text := IntToStr((sender as TTrackBar).Position);
+//  edtNightVis.Text := IntToStr((sender as TTrackBar).Position);
 end;
 
 procedure TfrmToteDisplay.trbSeaStateChange(Sender: TObject);
@@ -8112,13 +8148,13 @@ procedure TfrmToteDisplay.edtDayVisExit(Sender: TObject);
 var
   value : Integer;
 begin
-  if not TryStrToInt(edtDayVis.Text, value) then
-    Exit;
-
-  if value > trbDaytimeVisual.Max then
-    value := trbDaytimeVisual.Max;
-
-  trbDaytimeVisual.Position := value;
+//  if not TryStrToInt(edtDayVis.Text, value) then
+//    Exit;
+//
+//  if value > trbDaytimeVisual.Max then
+//    value := trbDaytimeVisual.Max;
+//
+//  trbDaytimeVisual.Position := value;
 end;
 
 procedure TfrmToteDisplay.edtDayVisKeyPress(Sender: TObject; var Key: Char);
@@ -8333,7 +8369,7 @@ begin
         rec.Sub_EnviID := 0;
     end;
 
-    simMgrClient.netSend_CmdSyncEnvi(rec);
+//    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
 end;
 
@@ -8375,7 +8411,7 @@ begin
           rec.Sub_EnviID := 0;
      end;
 
-     simMgrClient.netSend_CmdSyncEnvi(rec);
+//     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
 end;
 
@@ -8591,7 +8627,7 @@ begin
         rec.Sub_EnviID := 0;
      end;
 
-     simMgrClient.netSend_CmdSyncEnvi(rec);
+//     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
 end;
 
@@ -8643,7 +8679,7 @@ begin
          rec.Sub_EnviID := 0;
      end;
 
-     simMgrClient.netSend_CmdSyncEnvi(rec);
+//     simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
 end;
 
@@ -9245,7 +9281,7 @@ begin
       rec.Sub_EnviID := 0;
    end;
 
-   simMgrClient.netSend_CmdSyncEnvi(rec);
+//   simMgrClient.netSend_CmdSyncEnvi(rec);
 end;
 
 function TfrmToteDisplay.CekMaxCapacity(var flag: integer): Boolean;
@@ -19484,184 +19520,184 @@ begin
     lblSoundVelocityLayer.Caption         := FormatFloat('0.0', Thermal_Layer_Depth);
     lblSoundVelocityAverageBottom.Caption := FormatFloat('0.0', Ave_Ocean_Depth);
 
-    case Sea_State of
-      0 :
-      begin
-        lblSeaStatDesc.Caption           := 'Calm (glassy)';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Sea.png');
-      end;
-      1 :
-      begin
-        lblSeaStatDesc.Caption           := 'Calm (rippled)';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Sea.png');
-      end;
-      2 :
-      begin
-        lblSeaStatDesc.Caption           := 'Smooth (wavelets)';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Sea.png');
-      end;
-      3 :
-      begin
-        lblSeaStatDesc.Caption           := 'Slight';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\4_Sea.png');
-      end;
-      4 :
-      begin
-        lblSeaStatDesc.Caption           := 'Moderate';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\5_Sea.png');
-      end;
-      5 :
-      begin
-        lblSeaStatDesc.Caption           := 'Rough';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\6_Sea.png');
-      end;
-      6 :
-      begin
-        lblSeaStatDesc.Caption           := 'Very rough';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\7_Sea.png');
-      end;
-      7 :
-      begin
-        lblSeaStatDesc.Caption           := 'High';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
-      end;
-      8 :
-      begin
-        lblSeaStatDesc.Caption           := 'Very high';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
-      end;
-      9,10 :
-      begin
-        lblSeaStatDesc.Caption        := 'Phenomenal';
-        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
-      end;
-    end;
+//    case Sea_State of
+//      0 :
+//      begin
+//        lblSeaStatDesc.Caption           := 'Calm (glassy)';
+//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Sea.png');
+//      end;
+//      1 :
+//      begin
+//        lblSeaStatDesc.Caption           := 'Calm (rippled)';
+//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Sea.png');
+//      end;
+//      2 :
+//      begin
+//        lblSeaStatDesc.Caption           := 'Smooth (wavelets)';
+//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Sea.png');
+//      end;
+//      3 :
+//      begin
+//        lblSeaStatDesc.Caption           := 'Slight';
+//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\4_Sea.png');
+//      end;
+//      4 :
+//      begin
+//        lblSeaStatDesc.Caption           := 'Moderate';
+//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\5_Sea.png');
+//      end;
+//      5 :
+//      begin
+//        lblSeaStatDesc.Caption           := 'Rough';
+//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\6_Sea.png');
+//      end;
+//      6 :
+//      begin
+//        lblSeaStatDesc.Caption           := 'Very rough';
+//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\7_Sea.png');
+//      end;
+//      7 :
+//      begin
+//        lblSeaStatDesc.Caption           := 'High';
+//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
+//      end;
+//      8 :
+//      begin
+//        lblSeaStatDesc.Caption           := 'Very high';
+//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
+//      end;
+//      9,10 :
+//      begin
+//        lblSeaStatDesc.Caption        := 'Phenomenal';
+//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
+//      end;
+//    end;
 
-    case Rain_Rate of
-      0 :
-      begin
-        lblRainRateDesc.Caption     := 'Sunny';
-        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Rain.png');
-        imgSunDisplay.Visible := True;
-        pnlEnvironmentDisplay.Color := $00FFFDDD;
-        pnlRainDisplay.Color := $00FFFDDD;
-        imgRainDisplay.Visible := False;
-      end;
-      1 :
-      begin
-        lblRainRateDesc.Caption     := 'Light Rain';
-        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Rain.png');
-        imgSunDisplay.Visible := True;
-        pnlEnvironmentDisplay.Color := $00BAB9A5;
-        pnlRainDisplay.Color := $00BAB9A5;
-        imgRainDisplay.Visible := True;
-      end;
-      2 :
-      begin
-        lblRainRateDesc.Caption     := 'Heavy Rain';
-        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Rain.png');
-        imgSunDisplay.Visible := False;
-        pnlEnvironmentDisplay.Color := $00969585;
-        pnlRainDisplay.Color := $00969585;
-        imgRainDisplay.Visible := True;
-      end;
-    end;
+//    case Rain_Rate of
+//      0 :
+//      begin
+//        lblRainRateDesc.Caption     := 'Sunny';
+//        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Rain.png');
+//        imgSunDisplay.Visible := True;
+//        pnlEnvironmentDisplay.Color := $00FFFDDD;
+//        pnlRainDisplay.Color := $00FFFDDD;
+//        imgRainDisplay.Visible := False;
+//      end;
+//      1 :
+//      begin
+//        lblRainRateDesc.Caption     := 'Light Rain';
+//        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Rain.png');
+//        imgSunDisplay.Visible := True;
+//        pnlEnvironmentDisplay.Color := $00BAB9A5;
+//        pnlRainDisplay.Color := $00BAB9A5;
+//        imgRainDisplay.Visible := True;
+//      end;
+//      2 :
+//      begin
+//        lblRainRateDesc.Caption     := 'Heavy Rain';
+//        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Rain.png');
+//        imgSunDisplay.Visible := False;
+//        pnlEnvironmentDisplay.Color := $00969585;
+//        pnlRainDisplay.Color := $00969585;
+//        imgRainDisplay.Visible := True;
+//      end;
+//    end;
 
-    case Cloud_Attenuation of
-      0 :
-      begin
-        lblCloudAttenDesc.Caption     := 'No Fog';
-        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Cloud.png');
-        Fogstate:= 'FOG1';
-        if Rain_Rate = 0 then
-        begin
-          pnlEnvironmentDisplay.Color := $00FFFDDD;
-          pnlRainDisplay.Color := $00FFFDDD;
-        end
-        else if Rain_Rate = 1 then
-        begin
-          pnlEnvironmentDisplay.Color := $00BAB9A5;
-          pnlRainDisplay.Color := $00BAB9A5;
-        end
-        else if Rain_Rate = 2 then
-        begin
-          pnlEnvironmentDisplay.Color := $00969585;
-          pnlRainDisplay.Color := $00969585;
-        end;
-      end;
-      1 :
-      begin
-        lblCloudAttenDesc.Caption     := 'Slightly Foggy';
-        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Cloud.png');
-        Fogstate:= 'FOG2';
-        if Rain_Rate = 0 then
-        begin
-          pnlEnvironmentDisplay.Color := $00F2F1DC;
-          pnlRainDisplay.Color := $00F2F1DC;
-        end
-        else if Rain_Rate = 1 then
-        begin
-          pnlEnvironmentDisplay.Color := $00C5C4B7;
-          pnlRainDisplay.Color := $00C5C4B7;
-        end
-        else if Rain_Rate = 2 then
-        begin
-          pnlEnvironmentDisplay.Color := $00AEADA3;
-          pnlRainDisplay.Color := $00AEADA3;
-        end;
-      end;
-      2 :
-      begin
-        lblCloudAttenDesc.Caption     := 'Foggy';
-        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Cloud.png');
-        Fogstate:= 'FOG2';
-        if Rain_Rate = 0 then
-        begin
-          pnlEnvironmentDisplay.Color := $00E8E7DA;
-          pnlRainDisplay.Color := $00E8E7DA;
-        end
-        else if Rain_Rate = 1 then
-        begin
-          pnlEnvironmentDisplay.Color := $00CCCCC4;
-          pnlRainDisplay.Color := $00CCCCC4;
-        end
-        else if Rain_Rate = 2 then
-        begin
-          pnlEnvironmentDisplay.Color := $00BEBEB7;
-          pnlRainDisplay.Color := $00BEBEB7;
-        end;
-      end;
-      3 :
-      begin
-        lblCloudAttenDesc.Caption     := 'Very Foggy';
-        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\4_Cloud.png');
-        Fogstate:= 'FOG3';
-        if Rain_Rate = 0 then
-        begin
-          pnlEnvironmentDisplay.Color := $00DEDED9;
-          pnlRainDisplay.Color := $00DEDED9;
-        end
-        else if Rain_Rate = 1 then
-        begin
-          pnlEnvironmentDisplay.Color := $00D4D4D1;
-          pnlRainDisplay.Color := $00D4D4D1;
-        end
-        else if Rain_Rate = 2 then
-        begin
-          pnlEnvironmentDisplay.Color := $00CECECC;
-          pnlRainDisplay.Color := $00CECECC;
-        end;
-      end;
-    end;
+//    case Cloud_Attenuation of
+//      0 :
+//      begin
+//        lblCloudAttenDesc.Caption     := 'No Fog';
+//        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Cloud.png');
+//        Fogstate:= 'FOG1';
+//        if Rain_Rate = 0 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00FFFDDD;
+//          pnlRainDisplay.Color := $00FFFDDD;
+//        end
+//        else if Rain_Rate = 1 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00BAB9A5;
+//          pnlRainDisplay.Color := $00BAB9A5;
+//        end
+//        else if Rain_Rate = 2 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00969585;
+//          pnlRainDisplay.Color := $00969585;
+//        end;
+//      end;
+//      1 :
+//      begin
+//        lblCloudAttenDesc.Caption     := 'Slightly Foggy';
+//        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Cloud.png');
+//        Fogstate:= 'FOG2';
+//        if Rain_Rate = 0 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00F2F1DC;
+//          pnlRainDisplay.Color := $00F2F1DC;
+//        end
+//        else if Rain_Rate = 1 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00C5C4B7;
+//          pnlRainDisplay.Color := $00C5C4B7;
+//        end
+//        else if Rain_Rate = 2 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00AEADA3;
+//          pnlRainDisplay.Color := $00AEADA3;
+//        end;
+//      end;
+//      2 :
+//      begin
+//        lblCloudAttenDesc.Caption     := 'Foggy';
+//        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Cloud.png');
+//        Fogstate:= 'FOG2';
+//        if Rain_Rate = 0 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00E8E7DA;
+//          pnlRainDisplay.Color := $00E8E7DA;
+//        end
+//        else if Rain_Rate = 1 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00CCCCC4;
+//          pnlRainDisplay.Color := $00CCCCC4;
+//        end
+//        else if Rain_Rate = 2 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00BEBEB7;
+//          pnlRainDisplay.Color := $00BEBEB7;
+//        end;
+//      end;
+//      3 :
+//      begin
+//        lblCloudAttenDesc.Caption     := 'Very Foggy';
+//        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\4_Cloud.png');
+//        Fogstate:= 'FOG3';
+//        if Rain_Rate = 0 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00DEDED9;
+//          pnlRainDisplay.Color := $00DEDED9;
+//        end
+//        else if Rain_Rate = 1 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00D4D4D1;
+//          pnlRainDisplay.Color := $00D4D4D1;
+//        end
+//        else if Rain_Rate = 2 then
+//        begin
+//          pnlEnvironmentDisplay.Color := $00CECECC;
+//          pnlRainDisplay.Color := $00CECECC;
+//        end;
+//      end;
+//    end;
 
 //    lblSeaState.Caption                   := IntToStr(Sea_State);
     lblSurfaceTemp.Caption                := FormatFloat('0.0', Surface_Temperature);
 
     //lOAD FOR DISPLAY
-    imgRainStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\cloud\' + (Rain_Rate + 1).ToString + '.png');
-    imgSeaStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\wave\' + (Sea_State + 1).ToString + '.png');
-    imgRainDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Rain\' + (Rain_Rate + 1).ToString + '.png');
-    imgSunDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Sun\' + '1.png');
+//    imgRainStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\cloud\' + (Rain_Rate + 1).ToString + '.png');
+//    imgSeaStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\wave\' + (Sea_State + 1).ToString + '.png');
+//    imgRainDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Rain\' + (Rain_Rate + 1).ToString + '.png');
+//    imgSunDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Sun\' + '1.png');
   end;
 
 //  SetImageAlpha(img1,200);

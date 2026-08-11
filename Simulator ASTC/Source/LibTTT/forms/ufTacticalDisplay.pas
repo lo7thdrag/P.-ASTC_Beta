@@ -6188,6 +6188,28 @@ begin
       2:
       begin
         {$REGION ' Atas Air '}
+        if Assigned(frmTopNav) then
+        begin
+          frmTopNav.SetControlledObject(pit);
+        end;
+
+        if Assigned(frmLeftAtasAir) then
+        begin
+          frmLeftAtasAir.fmCounterMeasure1.SetControlledObject(pit);
+          frmLeftAtasAir.fmSensor1.SetControlledObject(pit);
+          frmLeftAtasAir.SetControlledObject(pit);
+        end;
+
+        if Assigned(frmRightAtasAir) then
+        begin
+          frmRightAtasAir.fmWeapon1.SetControlledObject(pit);
+//          frmRightAtasAir.AddTrackPlatform(pit);
+//          frmRightAtasAir.UpdateTrackListData;
+         end;
+
+
+
+
         {$ENDREGION}
       end;
       3:

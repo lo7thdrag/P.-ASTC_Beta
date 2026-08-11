@@ -1290,6 +1290,7 @@ type
     procedure SetupPlotterUI;
     //    procedure SetUpPlotterUI;
     procedure SetUpNavigasiUI;
+    procedure setUpAAWOUI;
   public
     // move to public, use by wasdal UI
     FLastMapCenterX, FLastMapCenterY : double;
@@ -1433,7 +1434,8 @@ uses
   uBrowseMap, uRuler, uObjectVisuals, uDrawStrategi, uMainPlottingShape, uSaveAsPlotting, newClassASTT,
   uDBAsset_Deploy, uDBAsset_Cubicle, uSaveAsOverlay,
 
-  ufrmLeftNav, ufrmRightNav, ufrmTopNav;
+  ufrmLeftNav, ufrmRightNav, ufrmTopNav,
+  ufrmLeftAtasAir, ufrmRightAtasAir ;
 
 {$R *.dfm}
 
@@ -6363,6 +6365,7 @@ begin
         2:
         begin
           {$REGION ' Atas Air '}
+          setUpAAWOUI;
           {$ENDREGION}
         end;
         3:
@@ -6524,6 +6527,42 @@ begin
 
   fPictureCentreSettings.FormStyle := fsStayOnTop;
   fPictureCentreSettings.Show;
+end;
+
+procedure TfrmTacticalDisplay.setUpAAWOUI;
+begin
+  pnl1ToolbarGeneral.Visible    := False;
+  pnlBottom.Visible := False;
+  pnlLeft.Visible   := False;
+  pnlContainerBottom.Visible := True;
+  Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
+
+  if not Assigned(frmLeftAtasAir) then
+    frmLeftAtasAir := TfrmLeftAtasAir.Create(Application);
+
+  frmLeftAtasAir.Parent := nil;
+  frmLeftAtasAir.Align  := alLeft;
+  frmLeftAtasAir.Parent := Self;
+  frmLeftAtasAir.Show;
+  frmLeftAtasAir.BringToFront;
+
+  if not Assigned(frmTopNav) then
+    frmTopNav := TfrmTopNav.Create(Application);
+
+  frmTopNav.Parent := nil;
+  frmTopNav.Align  := alTop;
+  frmTopNav.Parent := Self;
+  frmTopNav.Show;
+  frmTopNav.BringToFront;
+//
+  if not Assigned(frmRightAtasAir) then
+    frmRightAtasAir := TfrmRightAtasAir.Create(Application);
+
+  frmRightAtasAir.Parent := nil;
+  frmRightAtasAir.Align  := alRight;
+  frmRightAtasAir.Parent := Self;
+  frmRightAtasAir.Show;
+  frmRightAtasAir.BringToFront;
 end;
 
 procedure TfrmTacticalDisplay.SetUpNavigasiUI;

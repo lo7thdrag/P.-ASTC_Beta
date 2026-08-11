@@ -24,8 +24,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
     Color = 2695445
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 339
-    ExplicitHeight = 650
     object pnlController: TPanel
       Left = 0
       Top = 357
@@ -11013,17 +11011,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
         ParentBackground = False
         ParentFont = False
         TabOrder = 1
-        object pnlControllerNone: TPanel
-          Left = 1
-          Top = 1
-          Width = 331
-          Height = 578
-          Align = alClient
-          BevelOuter = bvNone
-          TabOrder = 1
-          ExplicitWidth = 333
-          ExplicitHeight = 474
-        end
         object pnlCounterMeasure: TPanel
           Left = 1
           Top = 1
@@ -11034,10 +11021,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
           Color = 4012086
           ParentBackground = False
           TabOrder = 2
-          ExplicitLeft = 2
-          ExplicitTop = 2
-          ExplicitWidth = 333
-          ExplicitHeight = 474
           inline fmCounterMeasure1: TfmCounterMeasure
             Left = 0
             Top = 0
@@ -11048,26 +11031,26 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             ParentBackground = False
             ParentColor = False
             TabOrder = 0
-            ExplicitWidth = 333
-            ExplicitHeight = 474
+            ExplicitWidth = 331
+            ExplicitHeight = 578
             inherited PanelALL: TPanel
               Top = 250
               Width = 331
               Height = 328
-              ExplicitTop = 100
-              ExplicitWidth = 333
-              ExplicitHeight = 374
+              ExplicitTop = 250
+              ExplicitWidth = 331
+              ExplicitHeight = 328
               inherited PanelCounterMeasure: TPanel
                 Width = 331
                 Height = 328
                 ParentColor = False
-                ExplicitWidth = 333
-                ExplicitHeight = 242
+                ExplicitWidth = 331
+                ExplicitHeight = 328
                 inherited grbAirborneChaff: TGroupBox [0]
                   Width = 331
                   Height = 328
-                  ExplicitWidth = 333
-                  ExplicitHeight = 374
+                  ExplicitWidth = 331
+                  ExplicitHeight = 328
                   inherited Label510: TLabel
                     Left = 26
                     Top = 21
@@ -11132,8 +11115,8 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                 inherited grbFloatingDecoy: TGroupBox
                   Width = 331
                   Height = 328
-                  ExplicitWidth = 333
-                  ExplicitHeight = 374
+                  ExplicitWidth = 331
+                  ExplicitHeight = 328
                   inherited Label502: TLabel
                     Left = 29
                     Top = 20
@@ -11173,13 +11156,13 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                 inherited grbOnBoardSelfDefenseJammer: TGroupBox
                   Width = 331
                   Height = 328
-                  ExplicitWidth = 333
-                  ExplicitHeight = 374
+                  ExplicitWidth = 331
+                  ExplicitHeight = 328
                   inherited ScrollBox5: TScrollBox
                     Width = 327
                     Height = 308
-                    ExplicitWidth = 329
-                    ExplicitHeight = 354
+                    ExplicitWidth = 327
+                    ExplicitHeight = 308
                     inherited Bevel112: TBevel
                       Left = 82
                       ExplicitLeft = 82
@@ -11243,14 +11226,14 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                   Height = 328
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 333
-                  ExplicitHeight = 374
+                  ExplicitWidth = 331
+                  ExplicitHeight = 328
                   inherited ScrollBox3: TScrollBox
                     Width = 327
                     Height = 308
                     ParentColor = False
-                    ExplicitWidth = 329
-                    ExplicitHeight = 354
+                    ExplicitWidth = 327
+                    ExplicitHeight = 308
                     inherited Bevel117: TBevel
                       Left = 79
                       Top = 13
@@ -11449,19 +11432,266 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grbSurfaceChaffDeployment: TGroupBox
+                inherited grbTowedJammerDecoy: TGroupBox [4]
                   Width = 331
                   Height = 328
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 333
-                  ExplicitHeight = 374
+                  ExplicitWidth = 331
+                  ExplicitHeight = 328
+                  inherited ScrollBox4: TScrollBox
+                    Width = 327
+                    Height = 308
+                    ParentColor = False
+                    ExplicitWidth = 327
+                    ExplicitHeight = 308
+                    inherited Bevel109: TBevel
+                      Left = 232
+                      Top = 260
+                      ExplicitLeft = 232
+                      ExplicitTop = 260
+                    end
+                    inherited Bevel111: TBevel
+                      Left = 82
+                      ExplicitLeft = 82
+                    end
+                    inherited Bevel118: TBevel
+                      Left = 107
+                      Top = 206
+                      ExplicitLeft = 107
+                      ExplicitTop = 206
+                    end
+                    inherited Label501: TLabel
+                      Left = 27
+                      ParentFont = False
+                      ExplicitLeft = 27
+                    end
+                    inherited Label503: TLabel
+                      Left = 103
+                      ParentFont = False
+                      ExplicitLeft = 103
+                    end
+                    inherited Label504: TLabel
+                      Left = 37
+                      Top = 163
+                      ParentFont = False
+                      ExplicitLeft = 37
+                      ExplicitTop = 163
+                    end
+                    inherited Label505: TLabel
+                      Left = 208
+                      ParentFont = False
+                      ExplicitLeft = 208
+                    end
+                    inherited Label506: TLabel
+                      Left = 37
+                      Top = 138
+                      ParentFont = False
+                      ExplicitLeft = 37
+                      ExplicitTop = 138
+                    end
+                    inherited Label507: TLabel
+                      Left = 227
+                      Top = 138
+                      ParentFont = False
+                      ExplicitLeft = 227
+                      ExplicitTop = 138
+                    end
+                    inherited Label508: TLabel
+                      Left = 58
+                      Top = 224
+                      ParentFont = False
+                      ExplicitLeft = 58
+                      ExplicitTop = 224
+                    end
+                    inherited Label509: TLabel
+                      Left = 147
+                      Top = 224
+                      ParentFont = False
+                      ExplicitLeft = 147
+                      ExplicitTop = 224
+                    end
+                    inherited Label512: TLabel
+                      Left = 147
+                      Top = 253
+                      ParentFont = False
+                      ExplicitLeft = 147
+                      ExplicitTop = 253
+                    end
+                    inherited Label559: TLabel
+                      Left = 27
+                      Top = 199
+                      ParentFont = False
+                      ExplicitLeft = 27
+                      ExplicitTop = 199
+                    end
+                    inherited Label560: TLabel
+                      Left = 162
+                      Top = 273
+                      ParentFont = False
+                      ExplicitLeft = 162
+                      ExplicitTop = 273
+                    end
+                    inherited Label561: TLabel
+                      Left = 162
+                      Top = 299
+                      ParentFont = False
+                      ExplicitLeft = 162
+                      ExplicitTop = 299
+                    end
+                    inherited Label563: TLabel
+                      Left = 282
+                      Top = 299
+                      ParentFont = False
+                      ExplicitLeft = 282
+                      ExplicitTop = 299
+                    end
+                    inherited Label564: TLabel
+                      Left = 282
+                      Top = 273
+                      ParentFont = False
+                      ExplicitLeft = 282
+                      ExplicitTop = 273
+                    end
+                    inherited lblTowedJammerDecoyActual: TLabel
+                      Left = 232
+                      Top = 290
+                      ParentFont = False
+                      ExplicitLeft = 232
+                      ExplicitTop = 290
+                    end
+                    inherited lblTowedJammerDecoyQuantity: TLabel
+                      Top = 224
+                      ParentFont = False
+                      ExplicitTop = 224
+                    end
+                    inherited sbTowedJammerDecoyActionDeploy: TSpeedButton
+                      Left = 37
+                      Top = 244
+                      ExplicitLeft = 37
+                      ExplicitTop = 244
+                    end
+                    inherited sbTowedJammerDecoyActionStow: TSpeedButton
+                      Left = 37
+                      Top = 271
+                      ExplicitLeft = 37
+                      ExplicitTop = 271
+                    end
+                    inherited sbTowedJammerDecoyModeAuto: TSpeedButton
+                      Left = 78
+                      ExplicitLeft = 78
+                    end
+                    inherited sbTowedJammerDecoyModeManual: TSpeedButton
+                      Left = 78
+                      ExplicitLeft = 78
+                    end
+                    inherited sbTowedJammerDecoyModeOff: TSpeedButton
+                      Left = 78
+                      ExplicitLeft = 78
+                    end
+                    inherited sbTowedJammerDecoyTargetingSpot: TSpeedButton
+                      Left = 196
+                      ExplicitLeft = 196
+                    end
+                    inherited sbTowedJammerDecoyTargetingTrack: TSpeedButton
+                      Left = 196
+                      ExplicitLeft = 196
+                    end
+                    inherited editTowedJammerDecoyOrdered: TEdit
+                      Left = 232
+                      Top = 269
+                      ExplicitLeft = 232
+                      ExplicitTop = 269
+                    end
+                    inherited edtTowedJammerDecoyBearing: TEdit
+                      Left = 127
+                      Top = 134
+                      ExplicitLeft = 127
+                      ExplicitTop = 134
+                    end
+                    inherited edtTowedJammerDecoySpotNumb: TEdit
+                      Left = 127
+                      Top = 160
+                      ExplicitLeft = 127
+                      ExplicitTop = 160
+                    end
+                  end
+                end
+                inherited grpAirBubble: TGroupBox
+                  Width = 331
+                  Height = 328
+                  ExplicitWidth = 331
+                  ExplicitHeight = 328
+                  inherited lblDeploy: TLabel
+                    Left = 29
+                    Top = 25
+                    ExplicitLeft = 29
+                    ExplicitTop = 25
+                  end
+                  inherited lblQuant: TLabel
+                    Left = 39
+                    Top = 80
+                    ExplicitLeft = 39
+                    ExplicitTop = 80
+                  end
+                  inherited lblType: TLabel
+                    Left = 39
+                    Top = 55
+                    ExplicitLeft = 39
+                    ExplicitTop = 55
+                  end
+                  inherited bvl1: TBevel
+                    Left = 109
+                    Top = 32
+                    ExplicitLeft = 109
+                    ExplicitTop = 32
+                  end
+                  inherited lblBubblelQuantity: TLabel
+                    Left = 116
+                    Top = 80
+                    ExplicitLeft = 116
+                    ExplicitTop = 80
+                  end
+                  inherited btnType: TSpeedButton
+                    Left = 297
+                    Top = 52
+                    Width = 29
+                    Height = 23
+                    ExplicitLeft = 297
+                    ExplicitTop = 52
+                    ExplicitWidth = 29
+                    ExplicitHeight = 23
+                  end
+                  inherited edtBubble: TEdit
+                    Left = 116
+                    Top = 51
+                    ExplicitLeft = 116
+                    ExplicitTop = 51
+                  end
+                  inherited btnAirBubbleDeploy: TButton
+                    Left = 241
+                    Top = 133
+                    Width = 89
+                    Height = 24
+                    ExplicitLeft = 241
+                    ExplicitTop = 133
+                    ExplicitWidth = 89
+                    ExplicitHeight = 24
+                  end
+                end
+                inherited grbSurfaceChaffDeployment: TGroupBox [6]
+                  Width = 331
+                  Height = 328
+                  ParentBackground = False
+                  ParentColor = False
+                  ExplicitWidth = 331
+                  ExplicitHeight = 328
                   inherited ScrollBox2: TScrollBox
                     Width = 327
                     Height = 308
                     ParentColor = False
-                    ExplicitWidth = 329
-                    ExplicitHeight = 354
+                    ExplicitWidth = 327
+                    ExplicitHeight = 308
                     inherited Bevel3: TBevel
                       Left = 98
                       Top = 4
@@ -11653,263 +11883,16 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grbTowedJammerDecoy: TGroupBox [5]
-                  Width = 331
-                  Height = 328
-                  ParentBackground = False
-                  ParentColor = False
-                  ExplicitWidth = 333
-                  ExplicitHeight = 374
-                  inherited ScrollBox4: TScrollBox
-                    Width = 327
-                    Height = 308
-                    ParentColor = False
-                    ExplicitWidth = 329
-                    ExplicitHeight = 354
-                    inherited Bevel109: TBevel
-                      Left = 232
-                      Top = 260
-                      ExplicitLeft = 232
-                      ExplicitTop = 260
-                    end
-                    inherited Bevel111: TBevel
-                      Left = 82
-                      ExplicitLeft = 82
-                    end
-                    inherited Bevel118: TBevel
-                      Left = 107
-                      Top = 206
-                      ExplicitLeft = 107
-                      ExplicitTop = 206
-                    end
-                    inherited Label501: TLabel
-                      Left = 27
-                      ParentFont = False
-                      ExplicitLeft = 27
-                    end
-                    inherited Label503: TLabel
-                      Left = 103
-                      ParentFont = False
-                      ExplicitLeft = 103
-                    end
-                    inherited Label504: TLabel
-                      Left = 37
-                      Top = 163
-                      ParentFont = False
-                      ExplicitLeft = 37
-                      ExplicitTop = 163
-                    end
-                    inherited Label505: TLabel
-                      Left = 208
-                      ParentFont = False
-                      ExplicitLeft = 208
-                    end
-                    inherited Label506: TLabel
-                      Left = 37
-                      Top = 138
-                      ParentFont = False
-                      ExplicitLeft = 37
-                      ExplicitTop = 138
-                    end
-                    inherited Label507: TLabel
-                      Left = 227
-                      Top = 138
-                      ParentFont = False
-                      ExplicitLeft = 227
-                      ExplicitTop = 138
-                    end
-                    inherited Label508: TLabel
-                      Left = 58
-                      Top = 224
-                      ParentFont = False
-                      ExplicitLeft = 58
-                      ExplicitTop = 224
-                    end
-                    inherited Label509: TLabel
-                      Left = 147
-                      Top = 224
-                      ParentFont = False
-                      ExplicitLeft = 147
-                      ExplicitTop = 224
-                    end
-                    inherited Label512: TLabel
-                      Left = 147
-                      Top = 253
-                      ParentFont = False
-                      ExplicitLeft = 147
-                      ExplicitTop = 253
-                    end
-                    inherited Label559: TLabel
-                      Left = 27
-                      Top = 199
-                      ParentFont = False
-                      ExplicitLeft = 27
-                      ExplicitTop = 199
-                    end
-                    inherited Label560: TLabel
-                      Left = 162
-                      Top = 273
-                      ParentFont = False
-                      ExplicitLeft = 162
-                      ExplicitTop = 273
-                    end
-                    inherited Label561: TLabel
-                      Left = 162
-                      Top = 299
-                      ParentFont = False
-                      ExplicitLeft = 162
-                      ExplicitTop = 299
-                    end
-                    inherited Label563: TLabel
-                      Left = 282
-                      Top = 299
-                      ParentFont = False
-                      ExplicitLeft = 282
-                      ExplicitTop = 299
-                    end
-                    inherited Label564: TLabel
-                      Left = 282
-                      Top = 273
-                      ParentFont = False
-                      ExplicitLeft = 282
-                      ExplicitTop = 273
-                    end
-                    inherited lblTowedJammerDecoyActual: TLabel
-                      Left = 232
-                      Top = 290
-                      ParentFont = False
-                      ExplicitLeft = 232
-                      ExplicitTop = 290
-                    end
-                    inherited lblTowedJammerDecoyQuantity: TLabel
-                      Top = 224
-                      ParentFont = False
-                      ExplicitTop = 224
-                    end
-                    inherited sbTowedJammerDecoyActionDeploy: TSpeedButton
-                      Left = 37
-                      Top = 244
-                      ExplicitLeft = 37
-                      ExplicitTop = 244
-                    end
-                    inherited sbTowedJammerDecoyActionStow: TSpeedButton
-                      Left = 37
-                      Top = 271
-                      ExplicitLeft = 37
-                      ExplicitTop = 271
-                    end
-                    inherited sbTowedJammerDecoyModeAuto: TSpeedButton
-                      Left = 78
-                      ExplicitLeft = 78
-                    end
-                    inherited sbTowedJammerDecoyModeManual: TSpeedButton
-                      Left = 78
-                      ExplicitLeft = 78
-                    end
-                    inherited sbTowedJammerDecoyModeOff: TSpeedButton
-                      Left = 78
-                      ExplicitLeft = 78
-                    end
-                    inherited sbTowedJammerDecoyTargetingSpot: TSpeedButton
-                      Left = 196
-                      ExplicitLeft = 196
-                    end
-                    inherited sbTowedJammerDecoyTargetingTrack: TSpeedButton
-                      Left = 196
-                      ExplicitLeft = 196
-                    end
-                    inherited editTowedJammerDecoyOrdered: TEdit
-                      Left = 232
-                      Top = 269
-                      ExplicitLeft = 232
-                      ExplicitTop = 269
-                    end
-                    inherited edtTowedJammerDecoyBearing: TEdit
-                      Left = 127
-                      Top = 134
-                      ExplicitLeft = 127
-                      ExplicitTop = 134
-                    end
-                    inherited edtTowedJammerDecoySpotNumb: TEdit
-                      Left = 127
-                      Top = 160
-                      ExplicitLeft = 127
-                      ExplicitTop = 160
-                    end
-                  end
-                end
-                inherited grpAirBubble: TGroupBox [6]
-                  Width = 331
-                  Height = 328
-                  ExplicitWidth = 333
-                  ExplicitHeight = 374
-                  inherited lblDeploy: TLabel
-                    Left = 29
-                    Top = 25
-                    ExplicitLeft = 29
-                    ExplicitTop = 25
-                  end
-                  inherited lblQuant: TLabel
-                    Left = 39
-                    Top = 80
-                    ExplicitLeft = 39
-                    ExplicitTop = 80
-                  end
-                  inherited lblType: TLabel
-                    Left = 39
-                    Top = 55
-                    ExplicitLeft = 39
-                    ExplicitTop = 55
-                  end
-                  inherited bvl1: TBevel
-                    Left = 109
-                    Top = 32
-                    ExplicitLeft = 109
-                    ExplicitTop = 32
-                  end
-                  inherited lblBubblelQuantity: TLabel
-                    Left = 116
-                    Top = 80
-                    ExplicitLeft = 116
-                    ExplicitTop = 80
-                  end
-                  inherited btnType: TSpeedButton
-                    Left = 297
-                    Top = 52
-                    Width = 29
-                    Height = 23
-                    ExplicitLeft = 297
-                    ExplicitTop = 52
-                    ExplicitWidth = 29
-                    ExplicitHeight = 23
-                  end
-                  inherited edtBubble: TEdit
-                    Left = 116
-                    Top = 51
-                    ExplicitLeft = 116
-                    ExplicitTop = 51
-                  end
-                  inherited btnAirBubbleDeploy: TButton
-                    Left = 241
-                    Top = 133
-                    Width = 89
-                    Height = 24
-                    ExplicitLeft = 241
-                    ExplicitTop = 133
-                    ExplicitWidth = 89
-                    ExplicitHeight = 24
-                  end
-                end
                 inherited grbAcousticDecoy: TGroupBox [7]
                   Width = 331
                   Height = 328
-                  ExplicitWidth = 333
-                  ExplicitHeight = 374
+                  ExplicitWidth = 331
+                  ExplicitHeight = 328
                   inherited ScrollBox1: TScrollBox
                     Width = 327
                     Height = 308
-                    ExplicitWidth = 329
-                    ExplicitHeight = 354
+                    ExplicitWidth = 327
+                    ExplicitHeight = 308
                     inherited Label1: TLabel
                       Left = 24
                       Top = -1
@@ -12053,19 +12036,21 @@ object frmLeftAtasAir: TfrmLeftAtasAir
               Top = 250
               Width = 331
               Height = 0
-              ExplicitWidth = 333
+              ExplicitTop = 250
+              ExplicitWidth = 331
               ExplicitHeight = 0
             end
             inherited PanelCounterMeasureChoice: TPanel
               Width = 331
               Height = 250
-              ExplicitWidth = 333
+              ExplicitWidth = 331
               ExplicitHeight = 250
               inherited lvECM: TListView
                 Width = 327
                 Height = 246
                 BevelOuter = bvNone
-                ExplicitWidth = 329
+                ExplicitWidth = 327
+                ExplicitHeight = 246
               end
             end
             inherited pmChaffType: TPopupMenu
@@ -12090,9 +12075,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitTop = 2
-          ExplicitWidth = 333
-          ExplicitHeight = 474
           inline fmSensor1: TfmSensor
             Left = 0
             Top = 0
@@ -12103,52 +12085,53 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             ParentBackground = False
             ParentColor = False
             TabOrder = 0
-            ExplicitWidth = 333
-            ExplicitHeight = 474
+            ExplicitWidth = 331
+            ExplicitHeight = 578
             inherited PanelSpace: TPanel
               Top = 250
               Width = 331
               Height = 0
-              ExplicitWidth = 333
+              ExplicitTop = 250
+              ExplicitWidth = 331
               ExplicitHeight = 0
             end
             inherited PanelSensorChoices: TPanel
               Width = 331
               Height = 250
-              ExplicitWidth = 333
+              ExplicitWidth = 331
               ExplicitHeight = 250
               inherited lstSensor: TListView
                 Width = 329
                 Height = 248
                 BorderStyle = bsSingle
-                ExplicitWidth = 331
-                ExplicitHeight = 257
+                ExplicitWidth = 329
+                ExplicitHeight = 248
               end
             end
             inherited PanelALL: TPanel
               Top = 250
               Width = 331
               Height = 328
-              ExplicitTop = 115
-              ExplicitWidth = 333
-              ExplicitHeight = 359
+              ExplicitTop = 250
+              ExplicitWidth = 331
+              ExplicitHeight = 328
               inherited PanelSensorControl: TPanel
                 Width = 331
                 Height = 328
-                ExplicitWidth = 333
-                ExplicitHeight = 359
+                ExplicitWidth = 331
+                ExplicitHeight = 328
                 inherited grbSearchRadarControl: TGroupBox [0]
                   Width = 325
                   Height = 322
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 353
+                  ExplicitWidth = 325
+                  ExplicitHeight = 322
                   inherited ScrollBox1: TScrollBox
                     Width = 321
                     Height = 302
-                    ExplicitWidth = 323
-                    ExplicitHeight = 333
+                    ExplicitWidth = 321
+                    ExplicitHeight = 302
                     inherited Label189: TLabel
                       Left = 8
                       ParentFont = False
@@ -12483,13 +12466,13 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                 inherited grbIFFInterrogatorControl: TGroupBox [1]
                   Width = 325
                   Height = 322
-                  ExplicitWidth = 327
-                  ExplicitHeight = 353
+                  ExplicitWidth = 325
+                  ExplicitHeight = 322
                   inherited ScrollBox5: TScrollBox
                     Width = 321
                     Height = 302
-                    ExplicitWidth = 323
-                    ExplicitHeight = 333
+                    ExplicitWidth = 321
+                    ExplicitHeight = 302
                     inherited Bevel5: TBevel
                       Left = 54
                       ExplicitLeft = 54
@@ -12615,96 +12598,18 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grbIFFTransponderControl: TGroupBox
+                inherited grbSonobuoyControl: TGroupBox [2]
                   Width = 325
                   Height = 322
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 353
-                  inherited ScrollBox6: TScrollBox
-                    Width = 321
-                    Height = 302
-                    ExplicitWidth = 323
-                    ExplicitHeight = 333
-                    inherited Bevel8: TBevel
-                      Left = 54
-                      ExplicitLeft = 54
-                    end
-                    inherited Bevel9: TBevel
-                      Left = 134
-                      ExplicitLeft = 134
-                    end
-                    inherited Label14: TLabel
-                      Left = 8
-                      ParentFont = False
-                      ExplicitLeft = 8
-                    end
-                    inherited Label15: TLabel
-                      Left = 141
-                      ParentFont = False
-                      ExplicitLeft = 141
-                    end
-                    inherited Label16: TLabel
-                      Left = 8
-                      ParentFont = False
-                      ExplicitLeft = 8
-                    end
-                    inherited sbIFFTransponderControlModeOff: TSpeedButton
-                      Left = 120
-                      ExplicitLeft = 120
-                    end
-                    inherited sbIFFTransponderControlModeOn: TSpeedButton
-                      Left = 120
-                      ExplicitLeft = 120
-                    end
-                    inherited cbIFFTransponderControlMode1: TCheckBox
-                      Left = 32
-                      ExplicitLeft = 32
-                    end
-                    inherited cbIFFTransponderControlMode2: TCheckBox
-                      Left = 32
-                      ExplicitLeft = 32
-                    end
-                    inherited cbIFFTransponderControlMode3: TCheckBox
-                      Left = 32
-                      ExplicitLeft = 32
-                    end
-                    inherited cbIFFTransponderControlMode3C: TCheckBox
-                      Left = 32
-                      ExplicitLeft = 32
-                    end
-                    inherited cbIFFTransponderControlMode4: TCheckBox
-                      Left = 32
-                      ExplicitLeft = 32
-                    end
-                    inherited edtIFFTransponderControlMode1: TEdit
-                      Left = 122
-                      Text = '0000'
-                      ExplicitLeft = 122
-                    end
-                    inherited edtIFFTransponderControlMode2: TEdit
-                      Left = 122
-                      ExplicitLeft = 122
-                    end
-                    inherited edtIFFTransponderControlMode3: TEdit
-                      Left = 122
-                      ExplicitLeft = 122
-                    end
-                  end
-                end
-                inherited grbSonobuoyControl: TGroupBox [3]
-                  Width = 325
-                  Height = 322
-                  ParentBackground = False
-                  ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 353
+                  ExplicitWidth = 325
+                  ExplicitHeight = 322
                   inherited ScrollBox7: TScrollBox
                     Width = 321
                     Height = 302
-                    ExplicitWidth = 323
-                    ExplicitHeight = 333
+                    ExplicitWidth = 321
+                    ExplicitHeight = 302
                     inherited Bevel10: TBevel
                       Left = 49
                       ExplicitLeft = 49
@@ -12802,18 +12707,18 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grbSonarControl: TGroupBox [4]
+                inherited grbSonarControl: TGroupBox [3]
                   Width = 325
                   Height = 322
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 353
+                  ExplicitWidth = 325
+                  ExplicitHeight = 322
                   inherited ScrollBox2: TScrollBox
                     Width = 321
                     Height = 302
-                    ExplicitWidth = 323
-                    ExplicitHeight = 333
+                    ExplicitWidth = 321
+                    ExplicitHeight = 302
                     inherited Bevel37: TBevel
                       Left = 54
                       ExplicitLeft = 54
@@ -13064,13 +12969,13 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grbVisualDetectorSensor: TGroupBox [5]
+                inherited grbVisualDetectorSensor: TGroupBox
                   Width = 325
                   Height = 322
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 353
+                  ExplicitWidth = 325
+                  ExplicitHeight = 322
                   inherited Label257: TLabel
                     Left = 8
                     Top = 21
@@ -13111,11 +13016,11 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     ExplicitTop = 95
                   end
                 end
-                inherited grbAnomalyDetectorSensor: TGroupBox [6]
+                inherited grbAnomalyDetectorSensor: TGroupBox
                   Width = 325
                   Height = 322
-                  ExplicitWidth = 327
-                  ExplicitHeight = 353
+                  ExplicitWidth = 325
+                  ExplicitHeight = 322
                   inherited Label225: TLabel
                     Left = 8
                     Top = 22
@@ -13151,16 +13056,16 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     ExplicitWidth = 85
                   end
                 end
-                inherited grbESMSensorControl: TGroupBox [7]
+                inherited grbESMSensorControl: TGroupBox [6]
                   Width = 325
                   Height = 322
-                  ExplicitWidth = 327
-                  ExplicitHeight = 353
+                  ExplicitWidth = 325
+                  ExplicitHeight = 322
                   inherited ScrollBox4: TScrollBox
                     Width = 321
                     Height = 302
-                    ExplicitWidth = 323
-                    ExplicitHeight = 333
+                    ExplicitWidth = 321
+                    ExplicitHeight = 302
                     inherited Label6: TLabel
                       Left = 8
                       ExplicitLeft = 8
@@ -13205,16 +13110,94 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
+                inherited grbIFFTransponderControl: TGroupBox [7]
+                  Width = 325
+                  Height = 322
+                  ParentBackground = False
+                  ParentColor = False
+                  ExplicitWidth = 325
+                  ExplicitHeight = 322
+                  inherited ScrollBox6: TScrollBox
+                    Width = 321
+                    Height = 302
+                    ExplicitWidth = 321
+                    ExplicitHeight = 302
+                    inherited Bevel8: TBevel
+                      Left = 54
+                      ExplicitLeft = 54
+                    end
+                    inherited Bevel9: TBevel
+                      Left = 134
+                      ExplicitLeft = 134
+                    end
+                    inherited Label14: TLabel
+                      Left = 8
+                      ParentFont = False
+                      ExplicitLeft = 8
+                    end
+                    inherited Label15: TLabel
+                      Left = 141
+                      ParentFont = False
+                      ExplicitLeft = 141
+                    end
+                    inherited Label16: TLabel
+                      Left = 8
+                      ParentFont = False
+                      ExplicitLeft = 8
+                    end
+                    inherited sbIFFTransponderControlModeOff: TSpeedButton
+                      Left = 120
+                      ExplicitLeft = 120
+                    end
+                    inherited sbIFFTransponderControlModeOn: TSpeedButton
+                      Left = 120
+                      ExplicitLeft = 120
+                    end
+                    inherited cbIFFTransponderControlMode1: TCheckBox
+                      Left = 32
+                      ExplicitLeft = 32
+                    end
+                    inherited cbIFFTransponderControlMode2: TCheckBox
+                      Left = 32
+                      ExplicitLeft = 32
+                    end
+                    inherited cbIFFTransponderControlMode3: TCheckBox
+                      Left = 32
+                      ExplicitLeft = 32
+                    end
+                    inherited cbIFFTransponderControlMode3C: TCheckBox
+                      Left = 32
+                      ExplicitLeft = 32
+                    end
+                    inherited cbIFFTransponderControlMode4: TCheckBox
+                      Left = 32
+                      ExplicitLeft = 32
+                    end
+                    inherited edtIFFTransponderControlMode1: TEdit
+                      Left = 122
+                      Text = '0000'
+                      ExplicitLeft = 122
+                    end
+                    inherited edtIFFTransponderControlMode2: TEdit
+                      Left = 122
+                      ExplicitLeft = 122
+                    end
+                    inherited edtIFFTransponderControlMode3: TEdit
+                      Left = 122
+                      ExplicitLeft = 122
+                    end
+                  end
+                end
                 inherited grbElectroOpticalSensor: TGroupBox [8]
                   Width = 325
                   Height = 322
-                  ExplicitWidth = 327
-                  ExplicitHeight = 353
+                  ExplicitWidth = 325
+                  ExplicitHeight = 322
                   inherited ScrollBox3: TScrollBox
                     Width = 321
                     Height = 302
-                    ExplicitWidth = 323
-                    ExplicitHeight = 333
+                    ExplicitWidth = 321
+                    ExplicitHeight = 302
                     inherited Label1: TLabel
                       Left = 8
                       ExplicitLeft = 8
@@ -13277,6 +13260,15 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             end
           end
         end
+        object pnlControllerNone: TPanel
+          Left = 1
+          Top = 1
+          Width = 331
+          Height = 578
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 1
+        end
       end
     end
     object pnlContactInformation: TPanel
@@ -13296,7 +13288,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 350
       object imgMainBackgorundContact: TImage
         Left = 0
         Top = 0
@@ -24280,7 +24271,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
           Color = 2695445
           ParentBackground = False
           TabOrder = 2
-          ExplicitHeight = 254
           object pnlDetails: TPanel
             Left = 0
             Top = 0
@@ -24291,7 +24281,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             Color = 2695445
             ParentBackground = False
             TabOrder = 0
-            ExplicitHeight = 254
             object lblTrackDetails: TLabel
               Left = 145
               Top = 12
@@ -24784,7 +24773,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
           Color = 2695445
           ParentBackground = False
           TabOrder = 1
-          ExplicitHeight = 254
           object pnlDetection: TPanel
             Left = 0
             Top = 0
@@ -24795,7 +24783,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             ParentBackground = False
             ParentColor = True
             TabOrder = 0
-            ExplicitHeight = 254
             object lblDetectionDetectionType: TLabel
               Left = 155
               Top = 154
@@ -25113,7 +25100,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
           Color = 2695445
           ParentBackground = False
           TabOrder = 4
-          ExplicitHeight = 254
         end
         object pnlContentIFF: TPanel
           Left = 1
@@ -25125,7 +25111,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
           Color = 2695445
           ParentBackground = False
           TabOrder = 0
-          ExplicitHeight = 254
           object pnlIFF: TPanel
             Left = 0
             Top = 0
@@ -25136,7 +25121,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             Color = 2695445
             ParentBackground = False
             TabOrder = 0
-            ExplicitHeight = 254
             object lblTrackIff: TLabel
               Left = 110
               Top = 10
@@ -25497,7 +25481,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
           Color = 2695445
           ParentBackground = False
           TabOrder = 3
-          ExplicitHeight = 254
           object pnlHook: TPanel
             Left = 0
             Top = 0
@@ -25508,7 +25491,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             Color = 2695445
             ParentBackground = False
             TabOrder = 0
-            ExplicitHeight = 321
             object lblClassHook: TLabel
               Left = 125
               Top = 54

@@ -24,7 +24,6 @@ object frmRightAtasAir: TfrmRightAtasAir
     Color = 2695445
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 375
     object pnlContact: TPanel
       Left = 0
       Top = 0
@@ -10939,7 +10938,6 @@ object frmRightAtasAir: TfrmRightAtasAir
           ParentBackground = False
           ParentFont = False
           TabOrder = 0
-          ExplicitWidth = 358
           object lvTrackControl: TListView
             Left = 1
             Top = 1
@@ -10970,7 +10968,6 @@ object frmRightAtasAir: TfrmRightAtasAir
             ParentFont = False
             TabOrder = 0
             ViewStyle = vsReport
-            ExplicitWidth = 356
           end
         end
         object pnlTrackTable: TPanel
@@ -10982,7 +10979,6 @@ object frmRightAtasAir: TfrmRightAtasAir
           Color = 16775920
           ParentBackground = False
           TabOrder = 1
-          ExplicitWidth = 358
           object lvTrackTable: TListView
             Left = 1
             Top = 1
@@ -11025,7 +11021,6 @@ object frmRightAtasAir: TfrmRightAtasAir
             ParentFont = False
             TabOrder = 0
             ViewStyle = vsReport
-            ExplicitWidth = 356
           end
         end
       end
@@ -11090,14 +11085,14 @@ object frmRightAtasAir: TfrmRightAtasAir
       Left = 0
       Top = 309
       Width = 356
-      Height = 578
+      Height = 573
       BevelOuter = bvNone
       TabOrder = 1
       object imgMainBackgorundController: TImage
         Left = 0
         Top = 0
         Width = 356
-        Height = 578
+        Height = 573
         Align = alClient
         Picture.Data = {
           07544269746D6170224C0500424D224C05000000000036000000280000005101
@@ -21957,7 +21952,7 @@ object frmRightAtasAir: TfrmRightAtasAir
         ExplicitHeight = 23
       end
       object Label10: TLabel
-        Left = 13
+        Left = 12
         Top = 15
         Width = 182
         Height = 27
@@ -21969,9094 +21964,3760 @@ object frmRightAtasAir: TfrmRightAtasAir
         Font.Style = []
         ParentFont = False
       end
-      object pnlWeaponChoices: TPanel
-        Left = 9
-        Top = 55
-        Width = 311
-        Height = 27
-        AutoSize = True
-        BevelOuter = bvLowered
+      inline fmWeapon1: TfmWeapon
+        Left = 5
+        Top = 51
+        Width = 345
+        Height = 515
         Color = 2695445
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
         ParentBackground = False
-        ParentFont = False
+        ParentColor = False
         TabOrder = 0
-        object btnWeapon: TSpeedButton
-          Tag = 1
-          Left = 284
-          Top = 1
-          Width = 26
-          Height = 25
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          Glyph.Data = {
-            D6050000424DD605000000000000360000002800000017000000140000000100
-            180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-            000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-          ParentFont = False
-        end
-        object edtWeaponName: TEdit
-          Left = 1
-          Top = 2
-          Width = 273
-          Height = 24
-          Color = clWhite
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
+        ExplicitLeft = 5
+        ExplicitTop = 51
+        ExplicitWidth = 345
+        ExplicitHeight = 515
+        inherited PanelWeaponChoices: TPanel
+          Width = 345
+          Height = 41
+          AutoSize = False
+          Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
           ParentFont = False
-          ReadOnly = True
-          TabOrder = 0
+          ExplicitWidth = 359
+          ExplicitHeight = 41
+          inherited btnWeapon: TSpeedButton
+            Left = 315
+            Top = 7
+            OnClick = fmWeapon1btnWeaponClick
+            ExplicitLeft = 315
+            ExplicitTop = 7
+          end
+          inherited edtWeaponName: TEdit
+            Left = 5
+            Top = 8
+            Width = 304
+            ExplicitLeft = 5
+            ExplicitTop = 8
+            ExplicitWidth = 304
+          end
         end
-      end
-      object pnlALL: TPanel
-        Left = 9
-        Top = 82
-        Width = 338
-        Height = 485
-        BevelOuter = bvNone
-        BorderStyle = bsSingle
-        Color = 2695445
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 1
-        object pnlTacticalWeapons: TPanel
-          Left = 0
-          Top = 0
-          Width = 334
-          Height = 481
-          Align = alClient
-          BevelOuter = bvNone
-          ParentBackground = False
-          ParentColor = True
-          TabOrder = 0
-          ExplicitWidth = 341
-          ExplicitHeight = 466
-          object grpGunEngagementAutomaticManualMode: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            ParentBackground = False
-            ParentColor = False
-            TabOrder = 5
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-          end
-          object grpActivePasiveTorpedo: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            ParentBackground = False
-            ParentColor = False
-            TabOrder = 1
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object scrlbx2: TScrollBox
-              Left = 2
-              Top = 18
-              Width = 330
-              Height = 461
-              Align = alClient
-              BevelInner = bvNone
-              BevelOuter = bvNone
-              BorderStyle = bsNone
-              Color = 2695445
-              ParentColor = False
-              TabOrder = 0
-              ExplicitWidth = 337
-              ExplicitHeight = 446
-              object btnAPGBilndHide: TSpeedButton
-                Tag = 4
-                Left = 177
-                Top = 316
-                Width = 61
-                Height = 23
-                AllowAllUp = True
-                GroupIndex = 1
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnAPGBilndShow: TSpeedButton
-                Tag = 3
-                Left = 177
-                Top = 294
-                Width = 61
-                Height = 23
-                AllowAllUp = True
-                GroupIndex = 1
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnAPGRangeHide: TSpeedButton
-                Tag = 2
-                Left = 53
-                Top = 316
-                Width = 61
-                Height = 23
-                AllowAllUp = True
-                GroupIndex = 2
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnAPGRangeShow: TSpeedButton
-                Tag = 1
-                Left = 53
-                Top = 294
-                Width = 61
-                Height = 23
-                AllowAllUp = True
-                GroupIndex = 2
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnTargetTrackAPG: TSpeedButton
-                Tag = 5
-                Left = 129
-                Top = 81
-                Width = 23
-                Height = 23
-                Glyph.Data = {
-                  56080000424D560800000000000036000000280000001A0000001A0000000100
-                  18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                  70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                  8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                  8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                  2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                  2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                  D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                  E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                  8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                  8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                  A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                  6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                  D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                  D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                  000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                  7070737070737070737070737070737070737070737070737070737070737070
-                  737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-              end
-              object bvl1: TBevel
-                Left = 52
-                Top = 28
-                Width = 250
-                Height = 3
-              end
-              object bvl2: TBevel
-                Left = 52
-                Top = 68
-                Width = 250
-                Height = 3
-              end
-              object bvl3: TBevel
-                Left = 52
-                Top = 115
-                Width = 250
-                Height = 3
-              end
-              object bvl4: TBevel
-                Left = 52
-                Top = 261
-                Width = 250
-                Height = 3
-              end
-              object lbl9: TLabel
-                Left = 102
-                Top = 164
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl38: TLabel
-                Left = 102
-                Top = 190
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl39: TLabel
-                Left = 102
-                Top = 217
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl40: TLabel
-                Left = 59
-                Top = 84
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl41: TLabel
-                Left = 102
-                Top = 138
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl42: TLabel
-                Left = 5
-                Top = 21
-                Width = 32
-                Height = 15
-                Caption = 'Status'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl12: TLabel
-                Left = 25
-                Top = 138
-                Width = 73
-                Height = 15
-                Caption = 'Search Radius'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl13: TLabel
-                Left = 25
-                Top = 164
-                Width = 71
-                Height = 15
-                Caption = 'Search Depth'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl14: TLabel
-                Left = 25
-                Top = 190
-                Width = 70
-                Height = 15
-                Caption = 'Safety Ceiling'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl15: TLabel
-                Left = 25
-                Top = 217
-                Width = 73
-                Height = 15
-                Caption = 'Seeker Range'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl17: TLabel
-                Left = 175
-                Top = 138
-                Width = 28
-                Height = 15
-                Caption = 'yards'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl18: TLabel
-                Left = 175
-                Top = 164
-                Width = 34
-                Height = 15
-                Caption = 'metres'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl19: TLabel
-                Left = 175
-                Top = 190
-                Width = 34
-                Height = 15
-                Caption = 'meters'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl20: TLabel
-                Left = 175
-                Top = 217
-                Width = 28
-                Height = 15
-                Caption = 'yards'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl21: TLabel
-                Left = 67
-                Top = 275
-                Width = 35
-                Height = 15
-                Caption = 'Range'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl22: TLabel
-                Left = 177
-                Top = 274
-                Width = 60
-                Height = 15
-                Caption = 'Blind Zones'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl3: TLabel
-                Left = 117
-                Top = 41
-                Width = 52
-                Height = 15
-                Caption = 'Quantity :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl5: TLabel
-                Left = 5
-                Top = 61
-                Width = 35
-                Height = 15
-                Caption = 'Target'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl6: TLabel
-                Left = 25
-                Top = 84
-                Width = 30
-                Height = 15
-                Caption = 'Track'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl7: TLabel
-                Left = 5
-                Top = 108
-                Width = 39
-                Height = 15
-                Caption = 'Control'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl8: TLabel
-                Left = 5
-                Top = 254
-                Width = 37
-                Height = 15
-                Caption = 'Display'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblAPGQuantity: TLabel
-                Left = 180
-                Top = 41
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblAPGStatus: TLabel
-                Left = 25
-                Top = 41
-                Width = 48
-                Height = 15
-                Caption = 'Available'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btn4: TButton
-                Tag = 2
-                Left = 236
-                Top = 133
-                Width = 61
-                Height = 20
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 0
-              end
-              object btn5: TButton
-                Tag = 3
-                Left = 236
-                Top = 160
-                Width = 61
-                Height = 20
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 1
-              end
-              object btn6: TButton
-                Tag = 4
-                Left = 236
-                Top = 186
-                Width = 61
-                Height = 20
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 2
-              end
-              object btn7: TButton
-                Tag = 5
-                Left = 236
-                Top = 213
-                Width = 61
-                Height = 20
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 3
-              end
-              object btnAPGLaunch: TButton
-                Tag = 5
-                Left = 240
-                Top = 392
-                Width = 60
-                Height = 22
-                Caption = 'Launch'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 4
-              end
-              object edtEdtAPGSafetyCeiling: TEdit
-                Tag = 4
-                Left = 119
-                Top = 187
-                Width = 50
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 5
-              end
-              object edtEdtAPGSearchDepth: TEdit
-                Tag = 3
-                Left = 119
-                Top = 161
-                Width = 50
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 6
-              end
-              object edtEdtAPGSearchRadius: TEdit
-                Tag = 2
-                Left = 119
-                Top = 134
-                Width = 50
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 7
-              end
-              object edtEdtAPGSeekerRange: TEdit
-                Tag = 5
-                Left = 119
-                Top = 214
-                Width = 50
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 8
-              end
-              object edtEdtAPGTargetTrack: TEdit
-                Left = 75
-                Top = 82
-                Width = 50
-                Height = 21
-                Enabled = False
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 9
-                Text = '---'
-              end
-            end
-          end
-          object grpAirDroppedTorpedo: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 2
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object scrlbx3: TScrollBox
-              Left = 2
-              Top = 18
-              Width = 330
-              Height = 461
-              Align = alClient
-              BevelOuter = bvNone
-              BorderStyle = bsNone
-              TabOrder = 0
-              ExplicitWidth = 337
-              ExplicitHeight = 446
-              object btnADBilndHide: TSpeedButton
-                Tag = 4
-                Left = 164
-                Top = 358
-                Width = 61
-                Height = 22
-                AllowAllUp = True
-                GroupIndex = 1
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnADBilndShow: TSpeedButton
-                Tag = 3
-                Left = 164
-                Top = 337
-                Width = 61
-                Height = 22
-                AllowAllUp = True
-                GroupIndex = 1
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnADRangeHide: TSpeedButton
-                Tag = 2
-                Left = 47
-                Top = 358
-                Width = 61
-                Height = 22
-                AllowAllUp = True
-                GroupIndex = 2
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnADRangeShow: TSpeedButton
-                Tag = 1
-                Left = 47
-                Top = 337
-                Width = 61
-                Height = 22
-                AllowAllUp = True
-                GroupIndex = 2
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnADTargetTrack: TSpeedButton
-                Tag = 5
-                Left = 185
-                Top = 134
-                Width = 23
-                Height = 23
-                Glyph.Data = {
-                  56080000424D560800000000000036000000280000001A0000001A0000000100
-                  18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                  70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                  8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                  8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                  2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                  2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                  D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                  E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                  8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                  8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                  A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                  6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                  D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                  D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                  000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                  7070737070737070737070737070737070737070737070737070737070737070
-                  737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-              end
-              object bvl10: TBevel
-                Left = 52
-                Top = 309
-                Width = 250
-                Height = 3
-              end
-              object bvl11: TBevel
-                Left = 52
-                Top = 6
-                Width = 250
-                Height = 3
-              end
-              object bvl12: TBevel
-                Left = 52
-                Top = 125
-                Width = 250
-                Height = 3
-              end
-              object bvl13: TBevel
-                Left = 103
-                Top = 245
-                Width = 199
-                Height = 3
-              end
-              object bvl9: TBevel
-                Left = 52
-                Top = 40
-                Width = 250
-                Height = 3
-              end
-              object lbl62: TLabel
-                Left = 105
-                Top = 216
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl63: TLabel
-                Left = 105
-                Top = 196
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl64: TLabel
-                Left = 105
-                Top = 177
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl65: TLabel
-                Left = 105
-                Top = 138
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl66: TLabel
-                Left = 105
-                Top = 52
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl67: TLabel
-                Left = 105
-                Top = 75
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl68: TLabel
-                Left = 105
-                Top = 98
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl69: TLabel
-                Left = 105
-                Top = 157
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl70: TLabel
-                Left = 105
-                Top = 279
-                Width = 13
-                Height = 16
-                Caption = ' : '
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl71: TLabel
-                Left = 5
-                Top = -2
-                Width = 32
-                Height = 15
-                Caption = 'Status'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl72: TLabel
-                Left = 112
-                Top = 16
-                Width = 52
-                Height = 15
-                Caption = 'Quantity :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl73: TLabel
-                Left = 5
-                Top = 118
-                Width = 35
-                Height = 15
-                Caption = 'Target'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl74: TLabel
-                Left = 20
-                Top = 138
-                Width = 30
-                Height = 15
-                Caption = 'Track'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl75: TLabel
-                Left = 5
-                Top = 300
-                Width = 37
-                Height = 15
-                Caption = 'Display'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl43: TLabel
-                Left = 61
-                Top = 320
-                Width = 35
-                Height = 15
-                Caption = 'Range'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl44: TLabel
-                Left = 164
-                Top = 320
-                Width = 60
-                Height = 15
-                Caption = 'Blind Zones'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl45: TLabel
-                Left = 22
-                Top = 157
-                Width = 29
-                Height = 15
-                Caption = 'Force'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                Visible = False
-              end
-              object lbl46: TLabel
-                Left = 5
-                Top = 33
-                Width = 39
-                Height = 15
-                Caption = 'Control'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl47: TLabel
-                Left = 20
-                Top = 52
-                Width = 69
-                Height = 15
-                Caption = 'Search radius'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl48: TLabel
-                Left = 22
-                Top = 75
-                Width = 69
-                Height = 15
-                Caption = 'Search depth'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl49: TLabel
-                Left = 22
-                Top = 98
-                Width = 67
-                Height = 15
-                Caption = 'Safety ceiling'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl50: TLabel
-                Left = 185
-                Top = 52
-                Width = 28
-                Height = 15
-                Caption = 'yards'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl51: TLabel
-                Left = 185
-                Top = 75
-                Width = 34
-                Height = 15
-                Caption = 'metres'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl52: TLabel
-                Left = 185
-                Top = 98
-                Width = 34
-                Height = 15
-                Caption = 'metres'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl53: TLabel
-                Left = 22
-                Top = 177
-                Width = 36
-                Height = 15
-                Caption = 'Course'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl54: TLabel
-                Left = 22
-                Top = 196
-                Width = 75
-                Height = 15
-                Caption = 'Ground Speed'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl55: TLabel
-                Left = 22
-                Top = 216
-                Width = 33
-                Height = 15
-                Caption = 'Depth'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl56: TLabel
-                Left = 185
-                Top = 177
-                Width = 50
-                Height = 15
-                Caption = 'degrees T'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl57: TLabel
-                Left = 185
-                Top = 196
-                Width = 29
-                Height = 15
-                Caption = 'knots'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl58: TLabel
-                Left = 185
-                Top = 216
-                Width = 34
-                Height = 15
-                Caption = 'metres'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl59: TLabel
-                Left = 5
-                Top = 237
-                Width = 84
-                Height = 15
-                Caption = 'Launch Bearing'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl60: TLabel
-                Left = 22
-                Top = 279
-                Width = 41
-                Height = 15
-                Caption = 'Bearing'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl61: TLabel
-                Left = 187
-                Top = 279
-                Width = 50
-                Height = 15
-                Caption = 'degrees T'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl85: TLabel
-                Left = 221
-                Top = 157
-                Width = 76
-                Height = 15
-                Caption = 'without target'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblADQuantity: TLabel
-                Left = 172
-                Top = 16
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblADTargetCourse: TLabel
-                Left = 120
-                Top = 177
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblADTargetDepth: TLabel
-                Left = 120
-                Top = 216
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblADTargetForce: TLabel
-                Left = 120
-                Top = 157
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                Visible = False
-              end
-              object lblADTargetSpeed: TLabel
-                Left = 120
-                Top = 196
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblAirDroppedStatus: TLabel
-                Left = 22
-                Top = 16
-                Width = 48
-                Height = 15
-                Caption = 'Available'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl76: TLabel
-                Left = 43
-                Top = 256
-                Width = 150
-                Height = 15
-                Caption = 'Use launch platform heading'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl77: TLabel
-                Left = 235
-                Top = 138
-                Width = 40
-                Height = 15
-                Caption = 'Launch'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnADDefaultSafetyCeiling: TButton
-                Tag = 2
-                Left = 240
-                Top = 95
-                Width = 61
-                Height = 22
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 0
-              end
-              object btnADDefaultSearchDepth: TButton
-                Tag = 1
-                Left = 240
-                Top = 71
-                Width = 61
-                Height = 22
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 1
-              end
-              object btnADLaunch: TButton
-                Tag = 3
-                Left = 236
-                Top = 392
-                Width = 61
-                Height = 22
-                Caption = 'Drop'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 2
-              end
-              object chkADLaunchWhithoutTarget: TCheckBox
-                Left = 216
-                Top = 137
-                Width = 14
-                Height = 17
-                TabOrder = 3
-              end
-              object chkADUseLaunchPlatformHeading: TCheckBox
-                Left = 22
-                Top = 255
-                Width = 15
-                Height = 17
-                TabOrder = 4
-              end
-              object edtEdtADLaunchBearing: TEdit
-                Tag = 4
-                Left = 120
-                Top = 276
-                Width = 60
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 5
-              end
-              object edtEdtADSafetyCeiling: TEdit
-                Tag = 3
-                Left = 120
-                Top = 95
-                Width = 60
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 6
-              end
-              object edtEdtADSearchDepth: TEdit
-                Tag = 2
-                Left = 120
-                Top = 72
-                Width = 60
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 7
-              end
-              object edtEdtADSearchRadius: TEdit
-                Tag = 1
-                Left = 120
-                Top = 49
-                Width = 60
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 8
-              end
-              object edtEdtADTargetTrack: TEdit
-                Left = 120
-                Top = 135
-                Width = 60
-                Height = 21
-                Enabled = False
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 9
-                Text = '---'
-              end
-            end
-          end
-          object grpAirDroppedVECTAC: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 3
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object scrlbx4: TScrollBox
-              Left = 2
-              Top = 18
-              Width = 330
-              Height = 461
-              Align = alClient
-              BorderStyle = bsNone
-              TabOrder = 0
-              ExplicitWidth = 337
-              ExplicitHeight = 446
-              object bvl14: TBevel
-                Left = 51
-                Top = 7
-                Width = 250
-                Height = 3
-              end
-              object bvl15: TBevel
-                Left = 102
-                Top = 176
-                Width = 200
-                Height = 3
-              end
-              object bvl16: TBevel
-                Left = 61
-                Top = 312
-                Width = 240
-                Height = 3
-              end
-              object btnVectacTargetTrack: TSpeedButton
-                Tag = 1
-                Left = 191
-                Top = 18
-                Width = 23
-                Height = 21
-                Glyph.Data = {
-                  56080000424D560800000000000036000000280000001A0000001A0000000100
-                  18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                  70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                  8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                  8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                  2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                  2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                  D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                  E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                  8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                  8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                  A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                  6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                  D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                  D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                  000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                  7070737070737070737070737070737070737070737070737070737070737070
-                  737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-              end
-              object btnVectacWeaponCarrierName: TSpeedButton
-                Tag = 2
-                Left = 279
-                Top = 188
-                Width = 23
-                Height = 22
-                Glyph.Data = {
-                  D6050000424DD605000000000000360000002800000017000000140000000100
-                  180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-              end
-              object btnVectacWeaponName: TSpeedButton
-                Tag = 3
-                Left = 279
-                Top = 323
-                Width = 23
-                Height = 22
-                Glyph.Data = {
-                  D6050000424DD605000000000000360000002800000017000000140000000100
-                  180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-              end
-              object lbl78: TLabel
-                Left = 115
-                Top = 263
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl79: TLabel
-                Left = 115
-                Top = 240
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl80: TLabel
-                Left = 115
-                Top = 216
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl81: TLabel
-                Left = 115
-                Top = 191
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl82: TLabel
-                Left = 115
-                Top = 148
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl83: TLabel
-                Left = 115
-                Top = 350
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl84: TLabel
-                Left = 6
-                Top = 0
-                Width = 35
-                Height = 15
-                Caption = 'Target'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl86: TLabel
-                Left = 13
-                Top = 21
-                Width = 30
-                Height = 15
-                Caption = 'Track'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl87: TLabel
-                Left = 6
-                Top = 169
-                Width = 84
-                Height = 15
-                Caption = 'Weapon Carrier'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl88: TLabel
-                Left = 13
-                Top = 191
-                Width = 32
-                Height = 15
-                Caption = 'Name'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl89: TLabel
-                Left = 13
-                Top = 216
-                Width = 75
-                Height = 15
-                Caption = 'Ground Speed'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl90: TLabel
-                Left = 13
-                Top = 240
-                Width = 81
-                Height = 15
-                Caption = 'Adviced Course'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl91: TLabel
-                Left = 13
-                Top = 263
-                Width = 92
-                Height = 15
-                Caption = 'Drop Point Offset'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl92: TLabel
-                Left = 13
-                Top = 285
-                Width = 56
-                Height = 15
-                Caption = 'Time to go'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl93: TLabel
-                Left = 6
-                Top = 304
-                Width = 46
-                Height = 15
-                Caption = 'Weapon'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl94: TLabel
-                Left = 13
-                Top = 326
-                Width = 32
-                Height = 15
-                Caption = 'Name'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl95: TLabel
-                Left = 193
-                Top = 108
-                Width = 50
-                Height = 15
-                Caption = 'degrees T'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl96: TLabel
-                Left = 193
-                Top = 216
-                Width = 29
-                Height = 15
-                Caption = 'knots'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl97: TLabel
-                Left = 193
-                Top = 263
-                Width = 17
-                Height = 15
-                Caption = 'nm'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl98: TLabel
-                Left = 13
-                Top = 44
-                Width = 38
-                Height = 15
-                Caption = 'Identity'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl99: TLabel
-                Left = 13
-                Top = 66
-                Width = 84
-                Height = 15
-                Caption = 'Propulsion Type'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl100: TLabel
-                Left = 13
-                Top = 87
-                Width = 42
-                Height = 15
-                Caption = 'Doppler'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl101: TLabel
-                Left = 13
-                Top = 108
-                Width = 36
-                Height = 15
-                Caption = 'Course'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl102: TLabel
-                Left = 13
-                Top = 128
-                Width = 75
-                Height = 15
-                Caption = 'Ground Speed'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl103: TLabel
-                Left = 13
-                Top = 148
-                Width = 33
-                Height = 15
-                Caption = 'Depth'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl104: TLabel
-                Left = 193
-                Top = 128
-                Width = 29
-                Height = 15
-                Caption = 'knots'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl105: TLabel
-                Left = 193
-                Top = 148
-                Width = 34
-                Height = 15
-                Caption = 'metres'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl106: TLabel
-                Left = 193
-                Top = 240
-                Width = 50
-                Height = 15
-                Caption = 'degrees T'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl107: TLabel
-                Left = 193
-                Top = 285
-                Width = 31
-                Height = 15
-                Caption = 'mm:ss'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl108: TLabel
-                Left = 13
-                Top = 350
-                Width = 61
-                Height = 15
-                Caption = 'Expiry Time'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl109: TLabel
-                Left = 193
-                Top = 350
-                Width = 31
-                Height = 15
-                Caption = 'mm:ss'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl110: TLabel
-                Left = 115
-                Top = 21
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl111: TLabel
-                Left = 115
-                Top = 44
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl112: TLabel
-                Left = 115
-                Top = 66
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl113: TLabel
-                Left = 115
-                Top = 87
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl114: TLabel
-                Left = 115
-                Top = 128
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl115: TLabel
-                Left = 115
-                Top = 108
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl116: TLabel
-                Left = 115
-                Top = 326
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl117: TLabel
-                Left = 115
-                Top = 285
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblVectacTargetCourse: TLabel
-                Left = 138
-                Top = 108
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblVectacTargetDepth: TLabel
-                Left = 138
-                Top = 148
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblVectacTargetDoppler: TLabel
-                Left = 138
-                Top = 87
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblVectacTargetGround: TLabel
-                Left = 138
-                Top = 128
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblVectacTargetIdentity: TLabel
-                Left = 138
-                Top = 44
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblVectacTargetPropulsion: TLabel
-                Left = 138
-                Top = 66
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblVectacWeaponCarrierAdviced: TLabel
-                Left = 138
-                Top = 240
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblVectacWeaponCarrierTime: TLabel
-                Left = 138
-                Top = 285
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblVectacWeaponExpiry: TLabel
-                Left = 138
-                Top = 350
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnVectacCancel: TButton
-                Tag = 2
-                Left = 69
-                Top = 388
-                Width = 60
-                Height = 25
-                Caption = 'Cancel'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 0
-              end
-              object btnVectacConfirm: TButton
-                Tag = 3
-                Left = 163
-                Top = 388
-                Width = 138
-                Height = 25
-                Caption = 'Confirm Weapon Drop'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 1
-              end
-              object btnVectacPlan: TButton
-                Tag = 1
-                Left = 5
-                Top = 388
-                Width = 60
-                Height = 25
-                Caption = 'Plan'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 2
-                Visible = False
-              end
-              object btnVectacWeaponCarrierDrop: TButton
-                Left = 241
-                Top = 260
-                Width = 60
-                Height = 21
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 3
-              end
-              object btnVectacWeaponCarrierGround: TButton
-                Left = 241
-                Top = 213
-                Width = 60
-                Height = 21
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 4
-              end
-              object edtVectacTargetTrack: TEdit
-                Left = 127
-                Top = 18
-                Width = 60
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 5
-              end
-              object edtVectacWeaponCarrierDrop: TEdit
-                Tag = 1
-                Left = 127
-                Top = 260
-                Width = 60
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 6
-              end
-              object edtVectacWeaponCarrierGround: TEdit
-                Left = 127
-                Top = 213
-                Width = 60
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 7
-              end
-              object edtVectacWeaponCarrierName: TEdit
-                Left = 127
-                Top = 188
-                Width = 148
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 8
-              end
-              object edtVectacWeaponName: TEdit
-                Left = 127
-                Top = 323
-                Width = 148
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 9
-              end
-            end
-          end
-          object grpBombDepthCharge: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 4
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object btnBombDisplayRangeHide: TSpeedButton
-              Tag = 3
-              Left = 115
-              Top = 262
-              Width = 80
-              Height = 25
-              AllowAllUp = True
-              GroupIndex = 2
-              Down = True
-              Caption = 'Hide'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object btnBombDisplayRangeShow: TSpeedButton
-              Tag = 2
-              Left = 115
-              Top = 237
-              Width = 80
-              Height = 25
-              AllowAllUp = True
-              GroupIndex = 2
-              Caption = 'Show'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object btnBombTarget: TSpeedButton
-              Tag = 1
-              Left = 155
-              Top = 317
-              Width = 23
-              Height = 23
-              Glyph.Data = {
-                56080000424D560800000000000036000000280000001A0000001A0000000100
-                18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                7070737070737070737070737070737070737070737070737070737070737070
-                737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-              Visible = False
-            end
-            object btnPosition: TSpeedButton
-              Left = 264
-              Top = 166
-              Width = 31
-              Height = 24
-              Caption = '+'
-              Enabled = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object bvl17: TBevel
-              Left = 60
-              Top = 91
-              Width = 235
-              Height = 3
-            end
-            object bvl18: TBevel
-              Left = 60
-              Top = 299
-              Width = 235
-              Height = 3
-              Visible = False
-            end
-            object bvl19: TBevel
-              Left = 60
-              Top = 206
-              Width = 235
-              Height = 3
-            end
-            object bvl20: TBevel
-              Left = 60
-              Top = 35
-              Width = 235
-              Height = 3
-            end
-            object lbl119: TLabel
-              Left = 173
-              Top = 120
-              Width = 4
-              Height = 16
-              Enabled = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl121: TLabel
-              Left = 12
-              Top = 84
-              Width = 39
-              Height = 15
-              Caption = 'Control'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl122: TLabel
-              Left = 17
-              Top = 117
-              Width = 50
-              Height = 15
-              Caption = 'Salvo Size'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl123: TLabel
-              Left = 12
-              Top = 291
-              Width = 35
-              Height = 15
-              Caption = 'Target'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object lbl124: TLabel
-              Left = 12
-              Top = 198
-              Width = 37
-              Height = 15
-              Caption = 'Display'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl125: TLabel
-              Left = 134
-              Top = 217
-              Width = 35
-              Height = 15
-              Caption = 'Range'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl126: TLabel
-              Left = 17
-              Top = 321
-              Width = 30
-              Height = 15
-              Caption = 'Track'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object lbl127: TLabel
-              Left = 12
-              Top = 28
-              Width = 32
-              Height = 15
-              Caption = 'Status'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl128: TLabel
-              Left = 163
-              Top = 56
-              Width = 52
-              Height = 15
-              Caption = 'Quantity :'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl129: TLabel
-              Left = 219
-              Top = 334
-              Width = 76
-              Height = 15
-              Caption = 'without target'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object lblBombQuantity: TLabel
-              Left = 223
-              Top = 56
-              Width = 15
-              Height = 15
-              Caption = '---'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblBombStatus: TLabel
-              Left = 73
-              Top = 56
-              Width = 48
-              Height = 15
-              Caption = 'Available'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl130: TLabel
-              Left = 166
-              Top = 144
-              Width = 34
-              Height = 15
-              Caption = 'Meters'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl118: TLabel
-              Left = 17
-              Top = 144
-              Width = 36
-              Height = 15
-              Caption = 'Depth '
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl120: TLabel
-              Left = 17
-              Top = 170
-              Width = 41
-              Height = 15
-              Caption = 'Position'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl131: TLabel
-              Left = 82
-              Top = 144
-              Width = 5
-              Height = 16
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl132: TLabel
-              Left = 82
-              Top = 170
-              Width = 5
-              Height = 16
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl133: TLabel
-              Left = 82
-              Top = 117
-              Width = 5
-              Height = 16
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl134: TLabel
-              Left = 82
-              Top = 321
-              Width = 5
-              Height = 16
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl135: TLabel
-              Left = 219
-              Top = 321
-              Width = 27
-              Height = 15
-              Caption = 'Drop'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object btnBombDrop: TButton
-              Tag = 4
-              Left = 215
-              Top = 404
-              Width = 80
-              Height = 25
-              Caption = 'Drop'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
-              ParentFont = False
-              TabOrder = 0
-            end
-            object chkBombDropWhitoutTarget: TCheckBox
-              Left = 200
-              Top = 319
-              Width = 17
-              Height = 19
-              Checked = True
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              State = cbChecked
-              TabOrder = 1
-              Visible = False
-            end
-            object edtEdtBombControlSalvo: TEdit
-              Left = 94
-              Top = 113
-              Width = 60
-              Height = 23
-              Color = clWhite
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 2
-              Text = '1'
-            end
-            object edtBombDepth: TEdit
-              Left = 94
-              Top = 140
-              Width = 62
-              Height = 23
-              Enabled = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 3
-              Text = '0'
-            end
-            object edtEdtBombTargetTrack: TEdit
-              Left = 93
-              Top = 317
-              Width = 60
-              Height = 23
-              Color = clWhite
-              Enabled = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              ReadOnly = True
-              TabOrder = 4
-              Visible = False
-            end
-            object edtTargetPosition: TEdit
-              Left = 93
-              Top = 166
-              Width = 166
-              Height = 23
-              Color = clWhite
-              Enabled = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 5
-              Text = '0'
-            end
-          end
-          object grpGunEngagementCIWS: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            ParentBackground = False
-            ParentColor = False
-            TabOrder = 7
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-          end
-          object grpAcousticTorpedo: TGroupBox
-            Left = -2
-            Top = -2
-            Width = 311
-            Height = 442
-            Color = 2695445
-            ParentBackground = False
-            ParentColor = False
-            TabOrder = 0
-            object scrlbx1: TScrollBox
-              Left = 3
-              Top = 18
-              Width = 311
-              Height = 424
-              BevelOuter = bvNone
-              BorderStyle = bsNone
-              TabOrder = 0
-              object btnAccousticDisplayRangeHide: TSpeedButton
-                Tag = 2
-                Left = 67
-                Top = 350
-                Width = 60
-                Height = 22
-                AllowAllUp = True
-                GroupIndex = 2
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                Transparent = False
-              end
-              object btnAccousticDisplayRangeShow: TSpeedButton
-                Tag = 1
-                Left = 67
-                Top = 329
-                Width = 60
-                Height = 22
-                AllowAllUp = True
-                GroupIndex = 2
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnDisplayBlindZonesHide: TSpeedButton
-                Tag = 4
-                Left = 178
-                Top = 350
-                Width = 60
-                Height = 22
-                AllowAllUp = True
-                GroupIndex = 1
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnDisplayBlindZonesShow: TSpeedButton
-                Tag = 3
-                Left = 178
-                Top = 329
-                Width = 60
-                Height = 22
-                AllowAllUp = True
-                GroupIndex = 1
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnFiringModeAT: TSpeedButton
-                Left = 188
-                Top = 124
-                Width = 23
-                Height = 22
-                Glyph.Data = {
-                  D6050000424DD605000000000000360000002800000017000000140000000100
-                  180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-              end
-              object btnGyroAngleAT: TSpeedButton
-                Left = 188
-                Top = 268
-                Width = 23
-                Height = 22
-                Glyph.Data = {
-                  D6050000424DD605000000000000360000002800000017000000140000000100
-                  180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-              end
-              object btnRunOutAT: TSpeedButton
-                Left = 188
-                Top = 148
-                Width = 23
-                Height = 22
-                Glyph.Data = {
-                  D6050000424DD605000000000000360000002800000017000000140000000100
-                  180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-              end
-              object btnSearchTarget: TSpeedButton
-                Tag = 5
-                Left = 141
-                Top = 57
-                Width = 23
-                Height = 23
-                Glyph.Data = {
-                  56080000424D560800000000000036000000280000001A0000001A0000000100
-                  18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                  70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                  8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                  8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                  2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                  2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                  D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                  E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                  8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                  8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                  A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                  6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                  D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                  D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                  000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                  7070737070737070737070737070737070737070737070737070737070737070
-                  737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-              end
-              object bvl5: TBevel
-                Left = 57
-                Top = 12
-                Width = 245
-                Height = 3
-              end
-              object bvl6: TBevel
-                Left = 57
-                Top = 47
-                Width = 245
-                Height = 3
-              end
-              object bvl7: TBevel
-                Left = 57
-                Top = 88
-                Width = 245
-                Height = 3
-              end
-              object bvl8: TBevel
-                Left = 57
-                Top = 302
-                Width = 245
-                Height = 3
-              end
-              object lbl10: TLabel
-                Left = 163
-                Top = 21
-                Width = 52
-                Height = 15
-                Caption = 'Quantity :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl11: TLabel
-                Left = 12
-                Top = 40
-                Width = 35
-                Height = 15
-                Caption = 'Target'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl16: TLabel
-                Left = 25
-                Top = 61
-                Width = 36
-                Height = 15
-                Caption = 'Track :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl2: TLabel
-                Left = 79
-                Top = 310
-                Width = 35
-                Height = 15
-                Caption = 'Range'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl23: TLabel
-                Left = 12
-                Top = 81
-                Width = 39
-                Height = 15
-                Caption = 'Control'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl24: TLabel
-                Left = 12
-                Top = 294
-                Width = 37
-                Height = 15
-                Caption = 'Display'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl25: TLabel
-                Left = 25
-                Top = 103
-                Width = 33
-                Height = 15
-                Caption = 'Tube :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl26: TLabel
-                Left = 25
-                Top = 127
-                Width = 68
-                Height = 15
-                Caption = 'Firing Mode :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl27: TLabel
-                Left = 25
-                Top = 151
-                Width = 84
-                Height = 15
-                Caption = 'Run-out Mode :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl28: TLabel
-                Left = 25
-                Top = 175
-                Width = 79
-                Height = 15
-                Caption = 'Search Radius :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl29: TLabel
-                Left = 26
-                Top = 200
-                Width = 77
-                Height = 15
-                Caption = 'Search Depth :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl30: TLabel
-                Left = 26
-                Top = 221
-                Width = 76
-                Height = 15
-                Caption = 'Safety Ceiling :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl31: TLabel
-                Left = 25
-                Top = 247
-                Width = 79
-                Height = 15
-                Caption = 'Seeker Range :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl32: TLabel
-                Left = 25
-                Top = 271
-                Width = 65
-                Height = 15
-                Caption = 'Gyro Angle :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl33: TLabel
-                Left = 188
-                Top = 175
-                Width = 28
-                Height = 15
-                Caption = 'yards'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl34: TLabel
-                Left = 188
-                Top = 200
-                Width = 34
-                Height = 15
-                Caption = 'metres'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl35: TLabel
-                Left = 188
-                Top = 223
-                Width = 34
-                Height = 15
-                Caption = 'meters'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl36: TLabel
-                Left = 188
-                Top = 247
-                Width = 28
-                Height = 15
-                Caption = 'yards'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl37: TLabel
-                Left = 178
-                Top = 310
-                Width = 60
-                Height = 15
-                Caption = 'Blind Zones'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl4: TLabel
-                Left = 12
-                Top = 5
-                Width = 32
-                Height = 15
-                Caption = 'Status'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblAcousticTorpedoQuantity: TLabel
-                Left = 223
-                Top = 21
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblAcousticTorpedoStatus: TLabel
-                Left = 73
-                Top = 21
-                Width = 48
-                Height = 15
-                Caption = 'Available'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnCancelAT: TButton
-                Tag = 9
-                Left = 75
-                Top = 394
-                Width = 60
-                Height = 22
-                Caption = 'Cancel'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 0
-              end
-              object btnControlControlRunAdvised: TButton
-                Tag = 1
-                Left = 240
-                Top = 149
-                Width = 61
-                Height = 20
-                Caption = '< Advised'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 1
-              end
-              object btnControlSafety: TButton
-                Tag = 4
-                Left = 240
-                Top = 221
-                Width = 61
-                Height = 20
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 2
-              end
-              object btnControlSearchDepth: TButton
-                Tag = 3
-                Left = 240
-                Top = 197
-                Width = 61
-                Height = 20
-                Caption = '< Advised'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 3
-              end
-              object btnControlSearchRadius: TButton
-                Tag = 2
-                Left = 240
-                Top = 173
-                Width = 61
-                Height = 20
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 4
-              end
-              object btnControlSeeker: TButton
-                Tag = 5
-                Left = 240
-                Top = 245
-                Width = 61
-                Height = 20
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 5
-              end
-              object btnLaunchAT: TButton
-                Tag = 10
-                Left = 241
-                Top = 394
-                Width = 60
-                Height = 22
-                Caption = 'Launch'
-                Enabled = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 6
-              end
-              object btnPlanAT: TButton
-                Tag = 8
-                Left = 11
-                Top = 394
-                Width = 60
-                Height = 22
-                Caption = 'Plan'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 7
-              end
-              object btnTargetDetails: TButton
-                Tag = 7
-                Left = 240
-                Top = 60
-                Width = 61
-                Height = 20
-                Caption = 'Details...'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 8
-              end
-              object btntControlGyroAdvised: TButton
-                Tag = 6
-                Left = 240
-                Top = 269
-                Width = 61
-                Height = 20
-                Caption = '< Advised'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 9
-              end
-              object btnTube1AT: TButton
-                Tag = 11
-                Left = 120
-                Top = 99
-                Width = 24
-                Height = 24
-                Caption = '1'
-                TabOrder = 10
-              end
-              object btnTube2AT: TButton
-                Tag = 12
-                Left = 142
-                Top = 99
-                Width = 24
-                Height = 24
-                Caption = '2'
-                TabOrder = 11
-              end
-              object btnTube3AT: TButton
-                Tag = 13
-                Left = 164
-                Top = 99
-                Width = 24
-                Height = 24
-                Caption = '3'
-                TabOrder = 12
-              end
-              object btnTube4AT: TButton
-                Tag = 14
-                Left = 186
-                Top = 99
-                Width = 24
-                Height = 24
-                Caption = '4'
-                TabOrder = 13
-              end
-              object edtEdtATTargetTrack: TEdit
-                Left = 75
-                Top = 58
-                Width = 60
-                Height = 24
-                Enabled = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 14
-                Text = '---'
-              end
-              object edtEdtFiringModeAT: TEdit
-                Left = 120
-                Top = 124
-                Width = 60
-                Height = 24
-                Enabled = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 15
-              end
-              object edtEdtGyroAngleAT: TEdit
-                Left = 120
-                Top = 268
-                Width = 60
-                Height = 24
-                Enabled = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 16
-              end
-              object edtEdtRunOutAT: TEdit
-                Left = 120
-                Top = 148
-                Width = 60
-                Height = 24
-                Enabled = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 17
-              end
-              object edtEdtSafetyCeilingAT: TEdit
-                Tag = 3
-                Left = 120
-                Top = 220
-                Width = 60
-                Height = 24
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 18
-              end
-              object edtEdtSearchDepthAT: TEdit
-                Tag = 2
-                Left = 120
-                Top = 196
-                Width = 60
-                Height = 24
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 19
-              end
-              object edtEdtSearchRadiusAT: TEdit
-                Tag = 1
-                Left = 120
-                Top = 172
-                Width = 60
-                Height = 24
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 20
-              end
-              object edtEdtSeekerRangeAT: TEdit
-                Tag = 4
-                Left = 120
-                Top = 244
-                Width = 60
-                Height = 24
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 21
-              end
-            end
-          end
-          object grpGunEngagementChaffMode: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 6
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object scrlbx5: TScrollBox
-              Left = 2
-              Top = 18
-              Width = 330
-              Height = 461
-              Align = alClient
-              BevelInner = bvNone
-              BevelOuter = bvNone
-              BorderStyle = bsNone
-              TabOrder = 0
-              ExplicitWidth = 337
-              ExplicitHeight = 446
-              object bvl21: TBevel
-                Left = 60
-                Top = 13
-                Width = 235
-                Height = 3
-              end
-              object bvl22: TBevel
-                Left = 60
-                Top = 248
-                Width = 235
-                Height = 3
-              end
-              object lbl136: TLabel
-                Left = 11
-                Top = 6
-                Width = 39
-                Height = 15
-                Caption = 'Control'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl137: TLabel
-                Left = 138
-                Top = 25
-                Width = 30
-                Height = 15
-                Caption = 'Mode'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl143: TLabel
-                Left = 11
-                Top = 240
-                Width = 37
-                Height = 15
-                Caption = 'Display'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl144: TLabel
-                Left = 75
-                Top = 264
-                Width = 35
-                Height = 15
-                Caption = 'Range'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl145: TLabel
-                Left = 185
-                Top = 264
-                Width = 56
-                Height = 15
-                Caption = 'Blind Zone'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnChaffBlindZoneHide: TSpeedButton
-                Tag = 7
-                Left = 175
-                Top = 311
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 2
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnChaffBlindZoneShow: TSpeedButton
-                Tag = 6
-                Left = 175
-                Top = 286
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 2
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnChaffDisplayHide: TSpeedButton
-                Tag = 5
-                Left = 52
-                Top = 311
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 1
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnChaffDisplayShow: TSpeedButton
-                Tag = 4
-                Left = 52
-                Top = 286
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 1
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnGunEngagementChaffContolAuto: TSpeedButton
-                Tag = 1
-                Left = 113
-                Top = 47
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 4
-                Down = True
-                Caption = 'Automatic'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnGunEngagementChaffContolChaff: TSpeedButton
-                Tag = 3
-                Left = 113
-                Top = 99
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 4
-                Caption = 'Chaff'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnGunEngagementChaffContolManual: TSpeedButton
-                Tag = 2
-                Left = 113
-                Top = 73
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 4
-                Caption = 'Manual'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl138: TLabel
-                Left = 199
-                Top = 214
-                Width = 20
-                Height = 15
-                Caption = 'feet'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl139: TLabel
-                Left = 25
-                Top = 214
-                Width = 78
-                Height = 15
-                Caption = 'Bloom Altitude'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnChaffBloomPosition: TSpeedButton
-                Left = 222
-                Top = 186
-                Width = 23
-                Height = 22
-                Caption = '+'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl140: TLabel
-                Left = 25
-                Top = 190
-                Width = 78
-                Height = 15
-                Caption = 'Bloom Position'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblChaffControlQuantity: TLabel
-                Left = 135
-                Top = 164
-                Width = 15
-                Height = 16
-                Caption = '---'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl141: TLabel
-                Left = 25
-                Top = 164
-                Width = 46
-                Height = 15
-                Caption = 'Quantity'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnChaffType: TSpeedButton
-                Left = 222
-                Top = 137
-                Width = 23
-                Height = 22
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  D6050000424DD605000000000000360000002800000017000000140000000100
-                  180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                  0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                  B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-                ParentFont = False
-              end
-              object lbl142: TLabel
-                Left = 25
-                Top = 139
-                Width = 59
-                Height = 15
-                Caption = 'Chaff Type'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl146: TLabel
-                Left = 120
-                Top = 214
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl147: TLabel
-                Left = 120
-                Top = 190
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl148: TLabel
-                Left = 120
-                Top = 164
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl149: TLabel
-                Left = 120
-                Top = 139
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnChaffCeaseFire: TButton
-                Tag = 2
-                Left = 217
-                Top = 388
-                Width = 78
-                Height = 25
-                Caption = 'Cease Fire'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 0
-              end
-              object btnChaffFire: TButton
-                Tag = 1
-                Left = 146
-                Top = 388
-                Width = 65
-                Height = 25
-                Caption = 'Fire'
-                Enabled = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 1
-              end
-              object edtChaffControlBloomPosition: TEdit
-                Left = 135
-                Top = 187
-                Width = 82
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 2
-              end
-              object edtChaffControlBloomAltitude: TEdit
-                Left = 135
-                Top = 212
-                Width = 59
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 3
-              end
-              object edtChaffControlChaff: TEdit
-                Left = 135
-                Top = 137
-                Width = 82
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 4
-              end
-            end
-          end
-          object grpHybridMissile: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 8
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object scrlbx6: TScrollBox
-              Left = 2
-              Top = 18
-              Width = 330
-              Height = 461
-              Align = alClient
-              BorderStyle = bsNone
-              TabOrder = 0
-              ExplicitWidth = 337
-              ExplicitHeight = 446
-              object btnAddHybridMissileTargetAimpoint: TSpeedButton
-                Tag = 1
-                Left = 240
-                Top = 102
-                Width = 23
-                Height = 22
-                Caption = '+'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnHybridMissileDisplayBlindZonesHide: TSpeedButton
-                Tag = 6
-                Left = 188
-                Top = 345
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 1
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnHybridMissileDisplayBlindZonesShow: TSpeedButton
-                Tag = 5
-                Left = 188
-                Top = 320
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 1
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnHybridMissileDisplayRangeHide: TSpeedButton
-                Tag = 4
-                Left = 39
-                Top = 345
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 2
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnHybridMissileDisplayRangeShow: TSpeedButton
-                Tag = 3
-                Left = 39
-                Top = 320
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 2
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnSearchHybridMissileTargetTrack: TSpeedButton
-                Left = 172
-                Top = 77
-                Width = 23
-                Height = 22
-                Enabled = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  56080000424D560800000000000036000000280000001A0000001A0000000100
-                  18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                  70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                  8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                  8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                  2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                  2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                  D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                  E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                  8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                  8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                  A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                  6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                  D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                  D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                  000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                  7070737070737070737070737070737070737070737070737070737070737070
-                  737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-                ParentFont = False
-              end
-              object bvl25: TBevel
-                Left = 64
-                Top = 291
-                Width = 228
-                Height = 2
-              end
-              object bvl26: TBevel
-                Left = 64
-                Top = 180
-                Width = 228
-                Height = 2
-              end
-              object bvl23: TBevel
-                Left = 57
-                Top = 60
-                Width = 235
-                Height = 2
-              end
-              object bvl24: TBevel
-                Left = 57
-                Top = 10
-                Width = 235
-                Height = 2
-              end
-              object lbl150: TLabel
-                Left = 197
-                Top = 301
-                Width = 60
-                Height = 15
-                Caption = 'Blind Zones'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl151: TLabel
-                Left = 62
-                Top = 301
-                Width = 35
-                Height = 15
-                Caption = 'Range'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl152: TLabel
-                Left = 11
-                Top = 283
-                Width = 37
-                Height = 15
-                Caption = 'Display'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl153: TLabel
-                Left = 15
-                Top = 250
-                Width = 76
-                Height = 15
-                Caption = 'Seeker Range '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl154: TLabel
-                Left = 15
-                Top = 225
-                Width = 78
-                Height = 15
-                Caption = 'Cruise Altitude '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl155: TLabel
-                Left = 15
-                Top = 199
-                Width = 50
-                Height = 15
-                Caption = 'Salvo Size'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl156: TLabel
-                Left = 11
-                Top = 173
-                Width = 41
-                Height = 16
-                Caption = 'Control'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl157: TLabel
-                Left = 175
-                Top = 225
-                Width = 20
-                Height = 15
-                Caption = 'feet'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl158: TLabel
-                Left = 175
-                Top = 250
-                Width = 17
-                Height = 15
-                Caption = 'nm'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl159: TLabel
-                Left = 175
-                Top = 130
-                Width = 50
-                Height = 15
-                Caption = 'degrees T'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl160: TLabel
-                Left = 11
-                Top = 53
-                Width = 35
-                Height = 15
-                Caption = 'Target'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl161: TLabel
-                Left = 115
-                Top = 25
-                Width = 52
-                Height = 15
-                Caption = 'Quantity :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl162: TLabel
-                Left = 11
-                Top = 3
-                Width = 32
-                Height = 15
-                Caption = 'Status'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblHybridMissileQuantity: TLabel
-                Left = 175
-                Top = 25
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblHybridMissileStatus: TLabel
-                Left = 25
-                Top = 25
-                Width = 48
-                Height = 15
-                Caption = 'Available'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl163: TLabel
-                Left = 45
-                Top = 79
-                Width = 30
-                Height = 15
-                Caption = 'Track'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl164: TLabel
-                Left = 99
-                Top = 79
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl165: TLabel
-                Left = 45
-                Top = 105
-                Width = 48
-                Height = 15
-                Caption = 'Aimpoint'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl166: TLabel
-                Left = 45
-                Top = 130
-                Width = 41
-                Height = 15
-                Caption = 'Bearing'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl167: TLabel
-                Left = 99
-                Top = 105
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl168: TLabel
-                Left = 99
-                Top = 130
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl169: TLabel
-                Left = 99
-                Top = 198
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl170: TLabel
-                Left = 99
-                Top = 224
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl171: TLabel
-                Left = 99
-                Top = 249
-                Width = 5
-                Height = 16
-                Caption = ':'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnBringToHookHybridMissileTargetBearing: TButton
-                Left = 216
-                Top = 149
-                Width = 76
-                Height = 22
-                Caption = 'Brg to Hook'
-                Enabled = False
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 0
-              end
-              object btnDefaultHybridMissileControlCruiseAltitude: TButton
-                Tag = 2
-                Left = 217
-                Top = 222
-                Width = 75
-                Height = 22
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 1
-              end
-              object btnDefaultHybridMissileControlSeekerRange: TButton
-                Left = 217
-                Top = 247
-                Width = 75
-                Height = 22
-                Caption = '< Default'
-                Enabled = False
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 2
-              end
-              object btnHybridMissileLaunch: TButton
-                Tag = 7
-                Left = 217
-                Top = 388
-                Width = 80
-                Height = 25
-                Caption = 'Launch'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 3
-              end
-              object edtHybridMissileControlCruiseAltitude: TEdit
-                Left = 112
-                Top = 222
-                Width = 53
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 4
-              end
-              object edtHybridMissileControlSalvoSize: TEdit
-                Left = 112
-                Top = 197
-                Width = 53
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 5
-              end
-              object edtHybridMissileControlSeekerRange: TEdit
-                Left = 112
-                Top = 247
-                Width = 53
-                Height = 21
-                Enabled = False
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 6
-              end
-              object edtHybridMissiletargetAimpoint: TEdit
-                Left = 112
-                Top = 102
-                Width = 125
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 7
-              end
-              object edtHybridMissiletargetBearing: TEdit
-                Left = 112
-                Top = 127
-                Width = 57
-                Height = 21
-                Enabled = False
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 8
-              end
-              object edtHybridMissiletargetTrack: TEdit
-                Left = 112
-                Top = 77
-                Width = 57
-                Height = 21
-                Enabled = False
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 9
-              end
-              object rbHybridMissileTargetAimpoint: TRadioButton
-                Left = 24
-                Top = 104
-                Width = 16
-                Height = 17
-                Checked = True
-                TabOrder = 10
-                TabStop = True
-              end
-              object rbHybridMissileTargetBearing: TRadioButton
-                Left = 24
-                Top = 130
-                Width = 16
-                Height = 17
-                Enabled = False
-                TabOrder = 11
-              end
-              object rbHybridMissileTargetTrack: TRadioButton
-                Left = 24
-                Top = 79
-                Width = 16
-                Height = 17
-                Enabled = False
-                TabOrder = 12
-              end
-            end
-          end
-          object grpMines: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 9
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object bvl27: TBevel
-              Left = 60
-              Top = 92
-              Width = 235
-              Height = 3
-            end
-            object bvl28: TBevel
-              Left = 60
-              Top = 35
-              Width = 235
-              Height = 3
-            end
-            object lbl172: TLabel
-              Left = 16
-              Top = 28
-              Width = 32
-              Height = 15
-              Caption = 'Status'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl173: TLabel
-              Left = 115
-              Top = 56
-              Width = 52
-              Height = 15
-              Caption = 'Quantity :'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl174: TLabel
-              Left = 16
-              Top = 85
-              Width = 39
-              Height = 15
-              Caption = 'Control'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl175: TLabel
-              Left = 22
-              Top = 114
-              Width = 33
-              Height = 15
-              Caption = 'Depth'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl176: TLabel
-              Left = 22
-              Top = 199
-              Width = 62
-              Height = 15
-              Caption = 'Range area'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object lbl177: TLabel
-              Left = 169
-              Top = 114
-              Width = 34
-              Height = 15
-              Caption = 'metres'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl178: TLabel
-              Left = 23
-              Top = 224
-              Width = 33
-              Height = 15
-              Caption = 'Count'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object lbl179: TLabel
-              Left = 169
-              Top = 199
-              Width = 34
-              Height = 15
-              Caption = 'metres'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object lblStatusMines: TLabel
-              Left = 25
-              Top = 56
-              Width = 48
-              Height = 15
-              Caption = 'Available'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblMinesQuantity: TLabel
-              Left = 175
-              Top = 56
-              Width = 15
-              Height = 15
-              Caption = '---'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl180: TLabel
-              Left = 96
-              Top = 114
-              Width = 3
-              Height = 15
-              Caption = ':'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object lbl181: TLabel
-              Left = 96
-              Top = 199
-              Width = 5
-              Height = 16
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object lbl182: TLabel
-              Left = 96
-              Top = 224
-              Width = 5
-              Height = 16
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object btnMinesDeploy: TButton
-              Left = 209
-              Top = 152
-              Width = 80
-              Height = 25
-              Caption = 'Deploy'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -12
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 0
-            end
-            object edtCount: TEdit
-              Left = 109
-              Top = 222
-              Width = 53
-              Height = 21
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -12
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 1
-              Text = '1'
-              Visible = False
-            end
-            object edtEdtMinesDepth: TEdit
-              Left = 109
-              Top = 112
-              Width = 52
-              Height = 21
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -12
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 2
-              Text = '0'
-            end
-            object edtRange: TEdit
-              Left = 109
-              Top = 197
-              Width = 53
-              Height = 21
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -12
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 3
-              Text = '1'
-              Visible = False
-            end
-          end
-          object grpStraightRunningTorpedos: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 10
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object scrlbx7: TScrollBox
-              Left = 2
-              Top = 18
-              Width = 330
-              Height = 461
-              Align = alClient
-              BevelInner = bvNone
-              BevelOuter = bvNone
-              BorderStyle = bsNone
-              TabOrder = 0
-              ExplicitWidth = 337
-              ExplicitHeight = 446
-              object btnSRBlindHide: TSpeedButton
-                Tag = 4
-                Left = 171
-                Top = 288
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 1
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnSRBlindShow: TSpeedButton
-                Tag = 3
-                Left = 171
-                Top = 263
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 1
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnSRRangeHide: TSpeedButton
-                Tag = 2
-                Left = 55
-                Top = 288
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 2
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnSRRangeShow: TSpeedButton
-                Tag = 1
-                Left = 55
-                Top = 263
-                Width = 80
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 2
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnSRTargetTrack: TSpeedButton
-                Tag = 5
-                Left = 195
-                Top = 87
-                Width = 23
-                Height = 23
-                Glyph.Data = {
-                  56080000424D560800000000000036000000280000001A0000001A0000000100
-                  18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                  70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                  8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                  8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                  2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                  2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                  D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                  E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                  8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                  8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                  A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                  6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                  D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                  D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                  000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                  7070737070737070737070737070737070737070737070737070737070737070
-                  737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-              end
-              object bvl29: TBevel
-                Left = 56
-                Top = 70
-                Width = 240
-                Height = 3
-              end
-              object bvl30: TBevel
-                Left = 56
-                Top = 220
-                Width = 240
-                Height = 3
-              end
-              object bvl31: TBevel
-                Left = 56
-                Top = 17
-                Width = 240
-                Height = 3
-              end
-              object lbl183: TLabel
-                Left = 115
-                Top = 91
-                Width = 13
-                Height = 16
-                Caption = ' : '
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl184: TLabel
-                Left = 115
-                Top = 137
-                Width = 13
-                Height = 16
-                Caption = ' : '
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl185: TLabel
-                Left = 115
-                Top = 160
-                Width = 13
-                Height = 16
-                Caption = ' : '
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl186: TLabel
-                Left = 115
-                Top = 183
-                Width = 13
-                Height = 16
-                Caption = ' : '
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl187: TLabel
-                Left = 11
-                Top = 10
-                Width = 32
-                Height = 15
-                Caption = 'Status'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl188: TLabel
-                Left = 115
-                Top = 38
-                Width = 52
-                Height = 15
-                Caption = 'Quantity :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl189: TLabel
-                Left = 11
-                Top = 64
-                Width = 35
-                Height = 15
-                Caption = 'Target'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl190: TLabel
-                Left = 25
-                Top = 91
-                Width = 30
-                Height = 15
-                Caption = 'Track'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl191: TLabel
-                Left = 11
-                Top = 214
-                Width = 37
-                Height = 15
-                Caption = 'Display'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl192: TLabel
-                Left = 75
-                Top = 238
-                Width = 35
-                Height = 15
-                Caption = 'Range'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl193: TLabel
-                Left = 178
-                Top = 238
-                Width = 60
-                Height = 15
-                Caption = 'Blind Zones'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl194: TLabel
-                Left = 25
-                Top = 114
-                Width = 38
-                Height = 15
-                Caption = 'Identity'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                Visible = False
-              end
-              object lbl195: TLabel
-                Left = 25
-                Top = 137
-                Width = 36
-                Height = 15
-                Caption = 'Course'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl196: TLabel
-                Left = 25
-                Top = 160
-                Width = 75
-                Height = 15
-                Caption = 'Ground Speed'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl197: TLabel
-                Left = 25
-                Top = 183
-                Width = 33
-                Height = 15
-                Caption = 'Depth'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl198: TLabel
-                Left = 195
-                Top = 137
-                Width = 50
-                Height = 15
-                Caption = 'degrees T'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl199: TLabel
-                Left = 195
-                Top = 160
-                Width = 29
-                Height = 15
-                Caption = 'knots'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl200: TLabel
-                Left = 195
-                Top = 183
-                Width = 34
-                Height = 15
-                Caption = 'metres'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblSRQuantity: TLabel
-                Left = 175
-                Top = 38
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblSRStatus: TLabel
-                Left = 25
-                Top = 38
-                Width = 48
-                Height = 15
-                Caption = 'Available'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblSRTargetCourse: TLabel
-                Left = 143
-                Top = 137
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblSRTargetDepth: TLabel
-                Left = 143
-                Top = 183
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblSRTargetIdentity: TLabel
-                Left = 143
-                Top = 114
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                Visible = False
-              end
-              object lblSRTargetSpeed: TLabel
-                Left = 143
-                Top = 160
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl201: TLabel
-                Left = 115
-                Top = 113
-                Width = 13
-                Height = 16
-                Caption = ' : '
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnSRLaunch: TButton
-                Left = 216
-                Top = 388
-                Width = 80
-                Height = 25
-                Caption = 'Launch'
-                Enabled = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 0
-              end
-              object edtEdtSRTargetTrack: TEdit
-                Left = 135
-                Top = 87
-                Width = 53
-                Height = 21
-                Enabled = False
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 1
-              end
-            end
-          end
-          object grpSurfaceToAirMissile: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 11
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object scrlbx9: TScrollBox
-              Left = 2
-              Top = 18
-              Width = 330
-              Height = 461
-              Align = alClient
-              BevelInner = bvNone
-              BorderStyle = bsNone
-              TabOrder = 1
-              ExplicitWidth = 337
-              ExplicitHeight = 446
-            end
-            object grpSurfaceToSurfaceMissile: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 311
-              Height = 441
-              Color = 2695445
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
+        inherited PanelALL: TPanel
+          Top = 41
+          Width = 345
+          Height = 474
+          ExplicitTop = 41
+          ExplicitWidth = 345
+          ExplicitHeight = 463
+          inherited PanelTacticalWeapons: TPanel
+            Width = 345
+            Height = 474
+            ExplicitWidth = 345
+            ExplicitHeight = 463
+            inherited grbTacticalMissiles: TGroupBox [0]
+              Width = 345
+              Height = 474
               ParentBackground = False
               ParentColor = False
-              ParentFont = False
-              TabOrder = 0
-              object scrlbx8: TScrollBox
-                Left = 2
-                Top = 18
-                Width = 307
-                Height = 421
-                Align = alClient
-                BevelInner = bvNone
-                BevelOuter = bvNone
-                BorderStyle = bsNone
-                TabOrder = 0
-                object btnSurfaceToSurfaceMissileDisplayRangeHide: TSpeedButton
-                  Tag = 2
-                  Left = 84
-                  Top = 344
-                  Width = 60
-                  Height = 25
-                  AllowAllUp = True
-                  GroupIndex = 1
-                  Down = True
-                  Caption = 'Hide'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox7: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited Bevel107: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
                 end
-                object btnSurfaceToSurfaceMissileDisplayRangeShow: TSpeedButton
-                  Tag = 1
-                  Left = 20
-                  Top = 344
-                  Width = 60
-                  Height = 25
-                  AllowAllUp = True
-                  GroupIndex = 1
-                  Caption = 'Show'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited Bevel108: TBevel
+                  Left = 90
+                  ExplicitLeft = 90
                 end
-                object btnSurfaceToSurfaceMissileEngagement: TSpeedButton
-                  Left = 191
-                  Top = 186
-                  Width = 23
-                  Height = 21
-                  Glyph.Data = {
-                    D6050000424DD605000000000000360000002800000017000000140000000100
-                    180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                    000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                    0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
+                inherited Bevel59: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
                 end
-                object btnSurfaceToSurfaceMissileFiring: TSpeedButton
-                  Left = 191
-                  Top = 162
-                  Width = 23
-                  Height = 21
-                  Glyph.Data = {
-                    D6050000424DD605000000000000360000002800000017000000140000000100
-                    180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                    000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                    0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-                    0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-                    B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
+                inherited Bevel60: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
                 end
-                object btnSurfaceToSurfaceMissileTargetTrack: TSpeedButton
-                  Tag = 3
-                  Left = 154
-                  Top = 52
-                  Width = 23
+                inherited Bevel62: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited btnTacticalMissileTargetAimpoint: TSpeedButton
+                  Left = 255
                   Height = 23
-                  Glyph.Data = {
-                    56080000424D560800000000000036000000280000001A0000001A0000000100
-                    18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                    E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                    E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                    E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                    E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                    E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                    E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                    70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                    E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                    E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                    E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                    ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                    E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                    8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                    E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                    E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                    737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                    8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                    7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                    2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                    2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                    737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                    8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                    7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                    D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                    D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                    737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                    8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                    7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                    E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                    E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                    737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                    E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                    7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                    8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                    8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                    737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                    A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                    7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                    E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                    E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                    737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                    8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                    7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                    6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                    555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                    737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                    8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                    7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                    D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                    D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                    737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                    000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                    7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                    E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                    E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                    E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                    E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                    E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                    7070737070737070737070737070737070737070737070737070737070737070
-                    737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                    E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                    E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                    E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                    E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                    E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
+                  ExplicitLeft = 255
+                  ExplicitHeight = 23
                 end
-                object bvl32: TBevel
-                  Left = 60
-                  Top = 7
-                  Width = 235
-                  Height = 3
+                inherited btnTacticalMissileTargetTrack: TSpeedButton
+                  Left = 193
+                  ExplicitLeft = 193
                 end
-                object bvl33: TBevel
-                  Left = 60
-                  Top = 44
-                  Width = 235
-                  Height = 3
+                inherited Label289: TLabel
+                  Left = 20
+                  ExplicitLeft = 20
                 end
-                object bvl34: TBevel
-                  Left = 59
-                  Top = 82
-                  Width = 178
-                  Height = 3
-                  Visible = False
+                inherited Label294: TLabel
+                  Left = 125
+                  ExplicitLeft = 125
                 end
-                object bvl35: TBevel
-                  Left = 102
-                  Top = 328
-                  Width = 193
-                  Height = 3
+                inherited Label295: TLabel
+                  Left = 20
+                  ExplicitLeft = 20
                 end
-                object lbl202: TLabel
-                  Left = 31
-                  Top = 100
-                  Width = 56
-                  Height = 15
-                  Caption = 'Launcher :'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited Label296: TLabel
+                  Left = 20
+                  ExplicitLeft = 20
                 end
-                object lbl203: TLabel
-                  Left = 31
-                  Top = 165
-                  Width = 62
-                  Height = 15
-                  Caption = 'Firing Mode'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited Label302: TLabel
+                  Left = 34
+                  ExplicitLeft = 34
                 end
-                object lbl204: TLabel
-                  Left = 31
-                  Top = 189
-                  Width = 75
-                  Height = 15
-                  Caption = 'Engangement'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited Label303: TLabel
+                  Left = 193
+                  ExplicitLeft = 193
                 end
-                object lbl205: TLabel
-                  Left = 13
-                  Top = 0
-                  Width = 32
-                  Height = 15
-                  Caption = 'Status'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited Label304: TLabel
+                  Left = 20
+                  ExplicitLeft = 20
                 end
-                object lbl206: TLabel
-                  Left = 138
-                  Top = 18
-                  Width = 52
-                  Height = 15
-                  Caption = 'Quantity :'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited Label486: TLabel
+                  Left = 75
+                  ExplicitLeft = 75
                 end
-                object lbl207: TLabel
-                  Left = 13
-                  Top = 37
-                  Width = 35
-                  Height = 15
-                  Caption = 'Target'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited Label494: TLabel
+                  Left = 229
+                  ExplicitLeft = 229
                 end
-                object lbl208: TLabel
+                inherited Label496: TLabel
+                  Left = 34
+                  ExplicitLeft = 34
+                end
+                inherited Label497: TLabel
                   Left = 33
-                  Top = 56
-                  Width = 30
-                  Height = 15
-                  Caption = 'Track'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                  ExplicitLeft = 33
                 end
-                object lbl209: TLabel
-                  Left = 13
-                  Top = 75
-                  Width = 39
-                  Height = 15
-                  Caption = 'Control'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited Label498: TLabel
+                  Left = 193
+                  ExplicitLeft = 193
                 end
-                object lbl210: TLabel
-                  Left = 13
-                  Top = 321
-                  Width = 75
-                  Height = 15
-                  Caption = 'Display Range'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited Label499: TLabel
+                  Left = 193
+                  ExplicitLeft = 193
                 end
-                object lblCrossOverRange: TLabel
-                  Left = 31
-                  Top = 213
-                  Width = 90
-                  Height = 15
-                  Caption = 'CrossOver Range'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited Label500: TLabel
+                  Left = 20
+                  ExplicitLeft = 20
                 end
-                object lblDestruckRange: TLabel
-                  Left = 31
-                  Top = 237
-                  Width = 84
-                  Height = 15
-                  Caption = 'Destruck Range'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                inherited lblTacticalMissileStatus: TLabel
+                  Left = 35
+                  ExplicitLeft = 35
                 end
-                object lblNmCrossOverRange: TLabel
+                inherited lblTacticalMissileStatusQuantity: TLabel
                   Left = 185
-                  Top = 213
-                  Width = 19
-                  Height = 15
-                  Caption = 'Nm'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
+                  ExplicitLeft = 185
                 end
-                object lblNmDestruckRange: TLabel
-                  Left = 185
-                  Top = 237
-                  Width = 19
-                  Height = 15
-                  Caption = 'Nm'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                end
-                object lblSurfaceToSurfaceMissileQuantity: TLabel
-                  Left = 203
-                  Top = 18
-                  Width = 15
-                  Height = 15
-                  Caption = '---'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                end
-                object lblSurfaceToSurfaceMissileStatus: TLabel
-                  Left = 33
-                  Top = 18
-                  Width = 48
-                  Height = 15
-                  Caption = 'Available'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                end
-                object lbl212: TLabel
-                  Left = 84
-                  Top = 56
-                  Width = 3
-                  Height = 15
-                  Caption = ':'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                end
-                object lbl213: TLabel
-                  Left = 125
-                  Top = 165
-                  Width = 3
-                  Height = 15
-                  Caption = ':'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                end
-                object lbl214: TLabel
-                  Left = 125
-                  Top = 189
-                  Width = 3
-                  Height = 15
-                  Caption = ':'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                end
-                object lbl215: TLabel
-                  Left = 125
-                  Top = 213
-                  Width = 3
-                  Height = 15
-                  Caption = ':'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                end
-                object lbl216: TLabel
-                  Left = 125
-                  Top = 237
-                  Width = 3
-                  Height = 15
-                  Caption = ':'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                end
-                object btn1: TButton
-                  Left = 226
-                  Top = 162
-                  Width = 70
-                  Height = 21
-                  Caption = 'All Launch'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                  TabOrder = 0
-                  Visible = False
-                end
-                object btnSurfaceToSurfaceCancel: TButton
-                  Tag = 2
-                  Left = 235
-                  Top = 345
+                inherited sbTacticalMissileDisplayBlindHide: TSpeedButton
+                  Left = 263
+                  Top = 315
                   Width = 60
-                  Height = 25
-                  Caption = 'Cancel'
-                  Enabled = False
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                  TabOrder = 1
+                  ExplicitLeft = 263
+                  ExplicitTop = 315
+                  ExplicitWidth = 60
                 end
-                object btnSurfaceToSurfaceLaunch: TButton
-                  Tag = 3
-                  Left = 226
-                  Top = 390
-                  Width = 69
-                  Height = 25
-                  Caption = 'Launch'
-                  Enabled = False
-                  Font.Charset = DEFAULT_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -11
-                  Font.Name = 'Tahoma'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  TabOrder = 2
+                inherited sbTacticalMissileDisplayBlindShow: TSpeedButton
+                  Left = 199
+                  Width = 60
+                  ExplicitLeft = 199
+                  ExplicitWidth = 60
                 end
-                object btnSurfaceToSurfaceMissileLauncherMore: TButton
-                  Left = 226
-                  Top = 235
-                  Width = 70
-                  Height = 21
-                  Caption = 'More...'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                  TabOrder = 3
-                  Visible = False
+                inherited sbTacticalMissileDisplayRangeHide: TSpeedButton
+                  Left = 96
+                  Top = 315
+                  Width = 60
+                  ExplicitLeft = 96
+                  ExplicitTop = 315
+                  ExplicitWidth = 60
                 end
-                object btnSurfaceToSurfaceMissileTargetTrackDetails: TButton
+                inherited sbTacticalMissileDisplayRangeShow: TSpeedButton
+                  Left = 32
+                  Width = 60
+                  ExplicitLeft = 32
+                  ExplicitWidth = 60
+                end
+                inherited btnTacticalMissileControlCruise: TButton
+                  Left = 255
+                  ExplicitLeft = 255
+                end
+                inherited btnTacticalMissileControlSeeker: TButton
+                  Left = 255
+                  ExplicitLeft = 255
+                end
+                inherited btnTacticalMissileLaunch: TButton
+                  Left = 255
+                  ExplicitLeft = 255
+                end
+                inherited btnTacticalMissileTargetBearing: TButton
+                  Left = 255
+                  ExplicitLeft = 255
+                end
+                inherited btnTacticalMissileWaypointAdd: TButton
+                  Left = 137
+                  ExplicitLeft = 137
+                end
+                inherited btnTacticalMissileWaypointCancel: TButton
                   Left = 240
-                  Top = 68
-                  Width = 55
-                  Height = 25
-                  Caption = 'Details...'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                  TabOrder = 4
+                  ExplicitLeft = 240
                 end
-                object btnSurfaceToSurfacePlan: TButton
-                  Tag = 1
-                  Left = 172
-                  Top = 345
+                inherited btnTacticalMissileWaypointEdit: TButton
+                  Left = 35
+                  ExplicitLeft = 35
+                end
+                inherited editTacticalMissileControlCruise: TEdit
+                  Left = 130
+                  ExplicitLeft = 130
+                end
+                inherited editTacticalMissileControlSalvo: TEdit
+                  Left = 130
+                  ExplicitLeft = 130
+                end
+                inherited editTacticalMissileControlSeeker: TEdit
+                  Left = 130
+                  ExplicitLeft = 130
+                end
+                inherited rdoTacticalMissileTargetAimpoint: TRadioButton
+                  Left = 35
+                  ExplicitLeft = 35
+                end
+                inherited rdoTacticalMissileTargetBearing: TRadioButton
+                  Left = 35
+                  ExplicitLeft = 35
+                end
+                inherited rdoTacticalMissileTargetTrack: TRadioButton
+                  Left = 35
+                  ExplicitLeft = 35
+                end
+                inherited editTacticalMissileTargetAimpoint: TEdit
+                  Left = 130
+                  ExplicitLeft = 130
+                end
+                inherited editTacticalMissileTargetTrack: TEdit
+                  Left = 130
+                  ExplicitLeft = 130
+                end
+                inherited editTacticalMissileTargetBearing: TEdit
+                  Left = 130
+                  ExplicitLeft = 130
+                end
+              end
+            end
+            inherited grbTacticalAcousticTorpedos: TGroupBox [1]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited Label439: TLabel
+                Left = 23
+                ExplicitLeft = 23
+              end
+              inherited lblTacticalAcousticTorpedosStatus: TLabel
+                Left = 38
+                ExplicitLeft = 38
+              end
+              inherited Label455: TLabel
+                Left = 128
+                ExplicitLeft = 128
+              end
+              inherited lbTacticalAcousticTorpedosQuantity: TLabel
+                Left = 188
+                ExplicitLeft = 188
+              end
+              inherited Label460: TLabel
+                Left = 23
+                ExplicitLeft = 23
+              end
+              inherited Bevel91: TBevel
+                Left = 68
+                ExplicitLeft = 68
+              end
+              inherited Label461: TLabel
+                Left = 38
+                ExplicitLeft = 38
+              end
+              inherited Label462: TLabel
+                Left = 23
+                ExplicitLeft = 23
+              end
+              inherited Bevel92: TBevel
+                Left = 68
+                Top = 212
+                ExplicitLeft = 68
+                ExplicitTop = 212
+              end
+              inherited Label463: TLabel
+                Left = 87
+                ExplicitLeft = 87
+              end
+              inherited Label464: TLabel
+                Left = 221
+                ExplicitLeft = 221
+              end
+              inherited Label465: TLabel
+                Left = 38
+                ExplicitLeft = 38
+              end
+              inherited lbTacticalAcousticTorpedosTargetIdentity: TLabel
+                Left = 138
+                ExplicitLeft = 138
+              end
+              inherited Bevel93: TBevel
+                Left = 68
+                ExplicitLeft = 68
+              end
+              inherited Label459: TLabel
+                Left = 23
+                ExplicitLeft = 23
+              end
+              inherited Bevel94: TBevel
+                Left = 68
+                ExplicitLeft = 68
+              end
+              inherited Label476: TLabel
+                Left = 38
+                ExplicitLeft = 38
+              end
+              inherited btnTacticalAcousticTorpedosTargetTrack: TSpeedButton
+                Left = 198
+                ExplicitLeft = 198
+              end
+              inherited sbTacticalAcousticTorpedosDisplayRangeShow: TSpeedButton
+                Left = 43
+                Width = 60
+                ExplicitLeft = 43
+                ExplicitWidth = 60
+              end
+              inherited sbTacticalAcousticTorpedosDisplayRangeHide: TSpeedButton
+                Left = 107
+                Top = 250
+                Width = 60
+                ExplicitLeft = 107
+                ExplicitTop = 250
+                ExplicitWidth = 60
+              end
+              inherited sbTacticalAcousticTorpedosDisplayBlindShow: TSpeedButton
+                Left = 192
+                Width = 60
+                ExplicitLeft = 192
+                ExplicitWidth = 60
+              end
+              inherited sbTacticalAcousticTorpedosDisplayBlindHide: TSpeedButton
+                Left = 256
+                Top = 250
+                Width = 60
+                ExplicitLeft = 256
+                ExplicitTop = 250
+                ExplicitWidth = 60
+              end
+              inherited editTacticalAcousticTorpedosTargetTrack: TEdit
+                Left = 138
+                ExplicitLeft = 138
+              end
+              inherited btnTacticalAcousticTorpedosLaunch: TButton
+                Left = 255
+                ExplicitLeft = 255
+              end
+              inherited editTacticalAcousticTorpedosSalvo: TEdit
+                Left = 141
+                ExplicitLeft = 141
+              end
+            end
+            inherited grbSurfaceToSurfaceMissile: TGroupBox [2]
+              Width = 345
+              Height = 474
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox6: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited btnSurfaceToSurfaceMissileFiring: TSpeedButton
+                  Left = 213
+                  Top = 169
+                  ExplicitLeft = 213
+                  ExplicitTop = 169
+                end
+                inherited btnSurfaceToSurfaceMissileEngagement: TSpeedButton
+                  Left = 211
+                  Top = 193
+                  ExplicitLeft = 211
+                  ExplicitTop = 193
+                end
+                inherited Label67: TLabel
+                  Left = 20
+                  ExplicitLeft = 20
+                end
+                inherited Bevel29: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited lblSurfaceToSurfaceMissileStatus: TLabel
+                  Left = 35
+                  Top = 23
+                  ExplicitLeft = 35
+                  ExplicitTop = 23
+                end
+                inherited Label69: TLabel
+                  Left = 140
+                  Top = 23
+                  ExplicitLeft = 140
+                  ExplicitTop = 23
+                end
+                inherited lbSurfaceToSurfaceMissileQuantity: TLabel
+                  Left = 205
+                  Top = 23
+                  ExplicitLeft = 205
+                  ExplicitTop = 23
+                end
+                inherited Label75: TLabel
+                  Left = 20
+                  Top = 45
+                  ExplicitLeft = 20
+                  ExplicitTop = 45
+                end
+                inherited Bevel33: TBevel
+                  Left = 70
+                  Top = 52
+                  ExplicitLeft = 70
+                  ExplicitTop = 52
+                end
+                inherited Label76: TLabel
+                  Left = 35
+                  Top = 70
+                  ExplicitLeft = 35
+                  ExplicitTop = 70
+                end
+                inherited Label77: TLabel
+                  Left = 20
+                  Top = 95
+                  ExplicitLeft = 20
+                  ExplicitTop = 95
+                end
+                inherited Bevel74: TBevel
+                  Left = 70
+                  Top = 102
+                  ExplicitLeft = 70
+                  ExplicitTop = 102
+                end
+                inherited Label78: TLabel
+                  Left = 20
+                  Top = 311
+                  ExplicitLeft = 20
+                  ExplicitTop = 311
+                end
+                inherited Bevel77: TBevel
+                  Left = 110
+                  Top = 321
+                  ExplicitLeft = 110
+                  ExplicitTop = 321
+                end
+                inherited Label414: TLabel
+                  Left = 35
+                  Top = 120
+                  ExplicitLeft = 35
+                  ExplicitTop = 120
+                end
+                inherited Label415: TLabel
+                  Left = 36
+                  Top = 172
+                  ExplicitLeft = 36
+                  ExplicitTop = 172
+                end
+                inherited Label416: TLabel
+                  Left = 35
+                  Top = 196
+                  ExplicitLeft = 35
+                  ExplicitTop = 196
+                end
+                inherited btnSurfaceToSurfaceMissileTargetTrack: TSpeedButton
+                  Left = 191
+                  Top = 66
+                  ExplicitLeft = 191
+                  ExplicitTop = 66
+                end
+                inherited sbSurfaceToSurfaceMissileDisplayRangeShow: TSpeedButton
+                  Left = 32
+                  Top = 341
+                  Width = 50
+                  ExplicitLeft = 32
+                  ExplicitTop = 341
+                  ExplicitWidth = 50
+                end
+                inherited sbSurfaceToSurfaceMissileDisplayRangeHide: TSpeedButton
+                  Left = 86
+                  Top = 341
+                  Width = 50
+                  ExplicitLeft = 86
+                  ExplicitTop = 341
+                  ExplicitWidth = 50
+                end
+                inherited lblDestruckRange: TLabel
+                  Left = 35
+                  Top = 242
+                  ExplicitLeft = 35
+                  ExplicitTop = 242
+                end
+                inherited lblCrossOverRange: TLabel
+                  Left = 35
+                  Top = 218
+                  ExplicitLeft = 35
+                  ExplicitTop = 218
+                end
+                inherited lblNmCrossOverRange: TLabel
+                  Left = 201
+                  Top = 218
+                  ExplicitLeft = 201
+                  ExplicitTop = 218
+                end
+                inherited lblNmDestruckRange: TLabel
+                  Left = 201
+                  Top = 242
+                  ExplicitLeft = 201
+                  ExplicitTop = 242
+                end
+                inherited btn1: TButton
+                  Left = 253
+                  Top = 179
+                  ExplicitLeft = 253
+                  ExplicitTop = 179
+                end
+                inherited editSurfaceToSurfaceMissileFiring: TEdit
+                  Left = 150
+                  Top = 170
+                  ExplicitLeft = 150
+                  ExplicitTop = 170
+                end
+                inherited editSurfaceToSurfaceMissileEngangement: TEdit
+                  Left = 150
+                  Top = 193
+                  ExplicitLeft = 150
+                  ExplicitTop = 193
+                end
+                inherited editSurfaceToSurfaceMissileTargetTrack: TEdit
+                  Left = 123
+                  Top = 67
+                  ExplicitLeft = 123
+                  ExplicitTop = 67
+                end
+                inherited btnSurfaceToSurfacePlan: TButton
+                  Left = 189
+                  Top = 341
+                  Width = 65
+                  ExplicitLeft = 189
+                  ExplicitTop = 341
+                  ExplicitWidth = 65
+                end
+                inherited btnSurfaceToSurfaceLaunch: TButton
+                  Top = 374
+                  ExplicitTop = 374
+                end
+                inherited btnSurfaceToSurfaceCancel: TButton
+                  Left = 258
+                  Top = 341
+                  Width = 65
+                  ExplicitLeft = 258
+                  ExplicitTop = 341
+                  ExplicitWidth = 65
+                end
+                inherited btnSurfaceToSurfaceMissileTargetTrackDetails: TButton
+                  Left = 252
+                  Top = 87
+                  ExplicitLeft = 252
+                  ExplicitTop = 87
+                end
+                inherited panSurfaceToSurfaceWp: TPanel
+                  Left = 21
+                  Top = 260
+                  Width = 318
+                  Height = 51
+                  ExplicitLeft = 21
+                  ExplicitTop = 260
+                  ExplicitWidth = 318
+                  ExplicitHeight = 51
+                  inherited Bevel16: TBevel
+                    Left = 69
+                    Top = 12
+                    Width = 245
+                    ExplicitLeft = 69
+                    ExplicitTop = 12
+                    ExplicitWidth = 245
+                  end
+                  inherited Label54: TLabel
+                    Left = -1
+                    Top = 4
+                    ExplicitLeft = -1
+                    ExplicitTop = 4
+                  end
+                  inherited btnSurfaceToSurfaceMissileWaypointsEdit: TButton
+                    Top = 23
+                    ExplicitTop = 23
+                  end
+                  inherited btnSurfaceToSurfaceMissileWaypointsAdd: TButton
+                    Left = 64
+                    Top = 23
+                    ExplicitLeft = 64
+                    ExplicitTop = 23
+                  end
+                  inherited btnSurfaceToSurfaceMissileWaypointsDelete: TButton
+                    Left = 124
+                    Top = 23
+                    ExplicitLeft = 124
+                    ExplicitTop = 23
+                  end
+                  inherited btnSurfaceToSurfaceMissileWaypointsApply: TButton
+                    Left = 183
+                    Top = 23
+                    ExplicitLeft = 183
+                    ExplicitTop = 23
+                  end
+                  inherited btnSurfaceToSurfaceMissileWaypointsCancel: TButton
+                    Left = 243
+                    Top = 23
+                    ExplicitLeft = 243
+                    ExplicitTop = 23
+                  end
+                end
+                inherited btnSurfaceToSurfaceMissileLauncherMore: TButton
+                  Left = 242
+                  Top = 238
+                  ExplicitLeft = 242
+                  ExplicitTop = 238
+                end
+                inherited pnlLaunch1: TPanel
+                  Left = 122
+                  Top = 120
+                  Height = 40
+                  VerticalAlignment = taAlignBottom
+                  ExplicitLeft = 122
+                  ExplicitTop = 120
+                  ExplicitHeight = 40
+                end
+                inherited pnlLaunch2: TPanel
+                  Left = 147
+                  Top = 120
+                  Height = 40
+                  VerticalAlignment = taAlignBottom
+                  ExplicitLeft = 147
+                  ExplicitTop = 120
+                  ExplicitHeight = 40
+                end
+                inherited pnlLaunch3: TPanel
+                  Left = 173
+                  Top = 120
+                  Height = 40
+                  VerticalAlignment = taAlignBottom
+                  ExplicitLeft = 173
+                  ExplicitTop = 120
+                  ExplicitHeight = 40
+                end
+                inherited pnlLaunch4: TPanel
+                  Left = 199
+                  Top = 120
+                  Height = 40
+                  VerticalAlignment = taAlignBottom
+                  ExplicitLeft = 199
+                  ExplicitTop = 120
+                  ExplicitHeight = 40
+                end
+                inherited pnlLaunch5: TPanel
+                  Left = 225
+                  Top = 120
+                  Height = 40
+                  VerticalAlignment = taAlignBottom
+                  ExplicitLeft = 225
+                  ExplicitTop = 120
+                  ExplicitHeight = 40
+                end
+                inherited pnlLaunch6: TPanel
+                  Left = 251
+                  Top = 120
+                  Height = 40
+                  VerticalAlignment = taAlignBottom
+                  ExplicitLeft = 251
+                  ExplicitTop = 120
+                  ExplicitHeight = 40
+                end
+                inherited pnlLaunch7: TPanel
+                  Left = 277
+                  Top = 120
+                  Height = 40
+                  VerticalAlignment = taAlignBottom
+                  ExplicitLeft = 277
+                  ExplicitTop = 120
+                  ExplicitHeight = 40
+                end
+                inherited pnlLaunch8: TPanel
+                  Left = 303
+                  Top = 120
+                  Height = 40
+                  VerticalAlignment = taAlignBottom
+                  ExplicitLeft = 303
+                  ExplicitTop = 120
+                  ExplicitHeight = 40
+                end
+                inherited edtDestructRange: TEdit
+                  Left = 150
+                  Top = 239
+                  ExplicitLeft = 150
+                  ExplicitTop = 239
+                end
+                inherited edtCrossOverRange: TEdit
+                  Left = 150
+                  Top = 216
+                  ExplicitLeft = 150
+                  ExplicitTop = 216
+                end
+              end
+            end
+            inherited grbSurfaceToAirMissile: TGroupBox [3]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox1: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited Label1: TLabel
+                  Left = 20
+                  ParentFont = False
+                  ExplicitLeft = 20
+                end
+                inherited Bevel1: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited lblSurfaceToAirStatus: TLabel
+                  Left = 40
+                  ParentFont = False
+                  ExplicitLeft = 40
+                end
+                inherited Label2: TLabel
+                  Left = 130
+                  ParentFont = False
+                  ExplicitLeft = 130
+                end
+                inherited lbSurfaceToAirStatusQuantity: TLabel
+                  Left = 190
+                  ParentFont = False
+                  ExplicitLeft = 190
+                end
+                inherited Label3: TLabel
+                  Left = 20
+                  Top = 38
+                  ParentFont = False
+                  ExplicitLeft = 20
+                  ExplicitTop = 38
+                end
+                inherited Bevel2: TBevel
+                  Left = 70
+                  Top = 45
+                  Height = 3
+                  ExplicitLeft = 70
+                  ExplicitTop = 45
+                  ExplicitHeight = 3
+                end
+                inherited Label4: TLabel
+                  Left = 40
+                  Top = 61
+                  ParentFont = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 61
+                end
+                inherited Label5: TLabel
+                  Left = 20
+                  Top = 84
+                  ParentFont = False
+                  ExplicitLeft = 20
+                  ExplicitTop = 84
+                end
+                inherited Bevel3: TBevel
+                  Left = 70
+                  Top = 91
+                  ExplicitLeft = 70
+                  ExplicitTop = 91
+                end
+                inherited Label6: TLabel
+                  Left = 40
+                  Top = 108
+                  ParentFont = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 108
+                end
+                inherited Label7: TLabel
+                  Left = 40
+                  Top = 129
+                  ParentFont = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 129
+                end
+                inherited Label8: TLabel
+                  Left = 40
+                  Top = 150
+                  ParentFont = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 150
+                end
+                inherited Label9: TLabel
+                  Left = 40
+                  Top = 171
+                  ParentFont = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 171
+                end
+                inherited Label10: TLabel
+                  Left = 40
+                  Top = 192
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 192
+                end
+                inherited Label11: TLabel
+                  Left = 40
+                  Top = 213
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 213
+                end
+                inherited Label12: TLabel
+                  Left = 40
+                  Top = 234
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 234
+                end
+                inherited Label13: TLabel
+                  Left = 40
+                  Top = 255
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 255
+                end
+                inherited Label14: TLabel
+                  Left = 20
+                  Top = 279
+                  ParentFont = False
+                  ExplicitLeft = 20
+                  ExplicitTop = 279
+                end
+                inherited Bevel4: TBevel
+                  Left = 70
+                  Top = 287
+                  ExplicitLeft = 70
+                  ExplicitTop = 287
+                end
+                inherited Label15: TLabel
+                  Left = 99
+                  Top = 300
+                  ParentFont = False
+                  ExplicitLeft = 99
+                  ExplicitTop = 300
+                end
+                inherited Label16: TLabel
+                  Left = 205
+                  Top = 300
+                  ParentFont = False
+                  ExplicitLeft = 205
+                  ExplicitTop = 300
+                end
+                inherited lbSurfaceToAirCourse: TLabel
+                  Left = 170
+                  Top = 129
+                  ParentFont = False
+                  ExplicitLeft = 170
+                  ExplicitTop = 129
+                end
+                inherited lbSurfaceToAirGround: TLabel
+                  Left = 170
+                  Top = 150
+                  ParentFont = False
+                  ExplicitLeft = 170
+                  ExplicitTop = 150
+                end
+                inherited lbSurfaceToAirAltitude: TLabel
+                  Left = 170
+                  Top = 171
+                  ParentFont = False
+                  ExplicitLeft = 170
+                  ExplicitTop = 171
+                end
+                inherited lbSurfaceToAirStatus: TLabel
+                  Left = 170
+                  Top = 213
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 170
+                  ExplicitTop = 213
+                end
+                inherited lbSurfaceToAirTimeToWait: TLabel
+                  Left = 170
+                  Top = 234
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 170
+                  ExplicitTop = 234
+                end
+                inherited lbSurfaceToAirTimeToIntercept: TLabel
+                  Left = 170
+                  Top = 255
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 170
+                  ExplicitTop = 255
+                end
+                inherited Label17: TLabel
+                  Left = 220
+                  Top = 129
+                  ParentFont = False
+                  ExplicitLeft = 220
+                  ExplicitTop = 129
+                end
+                inherited Label18: TLabel
+                  Left = 220
+                  Top = 150
+                  ParentFont = False
+                  ExplicitLeft = 220
+                  ExplicitTop = 150
+                end
+                inherited Label19: TLabel
+                  Left = 220
+                  Top = 171
+                  ParentFont = False
+                  ExplicitLeft = 220
+                  ExplicitTop = 171
+                end
+                inherited Label20: TLabel
+                  Left = 220
+                  Top = 234
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 220
+                  ExplicitTop = 234
+                end
+                inherited Label22: TLabel
+                  Left = 220
+                  Top = 255
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 220
+                  ExplicitTop = 255
+                end
+                inherited btnSurfaceToAirTargetTrack: TSpeedButton
+                  Left = 220
+                  Top = 101
+                  ExplicitLeft = 220
+                  ExplicitTop = 101
+                end
+                inherited sbSurfaceToAirDisplayRangeShow: TSpeedButton
+                  Left = 66
+                  Top = 320
+                  Width = 50
+                  ExplicitLeft = 66
+                  ExplicitTop = 320
+                  ExplicitWidth = 50
+                end
+                inherited sbSurfaceToAirDisplayRangeHide: TSpeedButton
+                  Left = 118
+                  Width = 50
+                  ExplicitLeft = 118
+                  ExplicitWidth = 50
+                end
+                inherited sbSurfaceToAirDisplayBlindShow: TSpeedButton
+                  Left = 186
+                  Top = 320
+                  Width = 50
+                  ExplicitLeft = 186
+                  ExplicitTop = 320
+                  ExplicitWidth = 50
+                end
+                inherited sbSurfaceToAirDisplayBlindHide: TSpeedButton
+                  Left = 238
+                  Width = 50
+                  ExplicitLeft = 238
+                  ExplicitWidth = 50
+                end
+                inherited Label106: TLabel
+                  Left = 150
+                  Top = 108
+                  ParentFont = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 108
+                end
+                inherited Label107: TLabel
+                  Left = 150
+                  Top = 129
+                  ParentFont = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 129
+                end
+                inherited Label108: TLabel
+                  Left = 150
+                  Top = 150
+                  ParentFont = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 150
+                end
+                inherited Label109: TLabel
+                  Left = 150
+                  Top = 171
+                  ParentFont = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 171
+                end
+                inherited Label110: TLabel
+                  Left = 150
+                  Top = 192
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 192
+                end
+                inherited Label111: TLabel
+                  Left = 150
+                  Top = 213
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 213
+                end
+                inherited Label112: TLabel
+                  Left = 150
+                  Top = 234
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 234
+                end
+                inherited Label113: TLabel
+                  Left = 150
+                  Top = 255
+                  ParentFont = False
+                  Visible = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 255
+                end
+                inherited ediSurfaceToAirSalvo: TEdit
+                  Left = 170
+                  Top = 57
+                  Width = 67
+                  ExplicitLeft = 170
+                  ExplicitTop = 57
+                  ExplicitWidth = 67
+                end
+                inherited editSurfaceToAirTrack: TEdit
+                  Left = 170
+                  Top = 103
+                  ExplicitLeft = 170
+                  ExplicitTop = 103
+                end
+                inherited btSurfaceToAirPlan: TButton
+                  Left = 20
+                  Width = 65
+                  ExplicitLeft = 20
+                  ExplicitWidth = 65
+                end
+                inherited btSurfaceToAirLaunch: TButton
+                  Left = 253
+                  ExplicitLeft = 253
+                end
+                inherited btSurfaceToAirCancel: TButton
+                  Left = 89
+                  Width = 65
+                  ExplicitLeft = 89
+                  ExplicitWidth = 65
+                end
+              end
+            end
+            inherited grbWireGuidedTorpedo: TGroupBox [4]
+              Width = 345
+              Height = 474
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox10: TScrollBox
+                Width = 341
+                Height = 454
+                ParentBackground = True
+                ParentColor = False
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited Bevel19: TBevel
+                  Left = 72
+                  ExplicitLeft = 72
+                end
+                inherited Bevel20: TBevel
+                  Left = 72
+                  Top = 215
+                  Width = 263
+                  ExplicitLeft = 72
+                  ExplicitTop = 215
+                  ExplicitWidth = 263
+                end
+                inherited Bevel21: TBevel
+                  Left = 72
+                  ExplicitLeft = 72
+                end
+                inherited btnWGTargetTrack: TSpeedButton
+                  Left = 207
+                  Top = 85
+                  ExplicitLeft = 207
+                  ExplicitTop = 85
+                end
+                inherited Label84: TLabel
+                  Left = 17
+                  ParentFont = False
+                  ExplicitLeft = 17
+                end
+                inherited Label85: TLabel
+                  Left = 122
+                  ParentFont = False
+                  ExplicitLeft = 122
+                end
+                inherited Label86: TLabel
+                  Left = 17
+                  ParentFont = False
+                  ExplicitLeft = 17
+                end
+                inherited Label87: TLabel
+                  Left = 32
+                  Top = 88
+                  ParentFont = False
+                  ExplicitLeft = 32
+                  ExplicitTop = 88
+                end
+                inherited Label88: TLabel
+                  Left = 17
+                  Top = 207
+                  ParentFont = False
+                  ExplicitLeft = 17
+                  ExplicitTop = 207
+                end
+                inherited Label89: TLabel
+                  Left = 86
+                  Top = 230
+                  ParentFont = False
+                  ExplicitLeft = 86
+                  ExplicitTop = 230
+                end
+                inherited Label90: TLabel
+                  Left = 218
+                  Top = 230
+                  ParentFont = False
+                  ExplicitLeft = 218
+                  ExplicitTop = 230
+                end
+                inherited Label91: TLabel
+                  Left = 32
+                  Top = 111
+                  ParentFont = False
+                  ExplicitLeft = 32
+                  ExplicitTop = 111
+                end
+                inherited Label92: TLabel
+                  Left = 32
+                  Top = 133
+                  ParentFont = False
+                  ExplicitLeft = 32
+                  ExplicitTop = 133
+                end
+                inherited Label93: TLabel
+                  Left = 32
+                  Top = 155
+                  ParentFont = False
+                  ExplicitLeft = 32
+                  ExplicitTop = 155
+                end
+                inherited Label94: TLabel
+                  Left = 32
+                  Top = 177
+                  Width = 33
+                  Caption = 'Depth'
+                  ParentFont = False
+                  ExplicitLeft = 32
+                  ExplicitTop = 177
+                  ExplicitWidth = 33
+                end
+                inherited Label95: TLabel
+                  Left = 207
+                  Top = 133
+                  ParentFont = False
+                  ExplicitLeft = 207
+                  ExplicitTop = 133
+                end
+                inherited Label96: TLabel
+                  Left = 207
+                  Top = 155
+                  ParentFont = False
+                  ExplicitLeft = 207
+                  ExplicitTop = 155
+                end
+                inherited Label97: TLabel
+                  Left = 207
+                  Top = 177
+                  ParentFont = False
+                  ExplicitLeft = 207
+                  ExplicitTop = 177
+                end
+                inherited lblWGQuantity: TLabel
+                  Left = 182
+                  ParentFont = False
+                  ExplicitLeft = 182
+                end
+                inherited lblWGStatus: TLabel
+                  Left = 32
+                  ParentFont = False
+                  ExplicitLeft = 32
+                end
+                inherited lblWGTargetCourse: TLabel
+                  Left = 142
+                  Top = 133
+                  ParentFont = False
+                  ExplicitLeft = 142
+                  ExplicitTop = 133
+                end
+                inherited lblWGTargetDepth: TLabel
+                  Left = 142
+                  Top = 177
+                  ParentFont = False
+                  ExplicitLeft = 142
+                  ExplicitTop = 177
+                end
+                inherited lblWGTargetSpeed: TLabel
+                  Left = 142
+                  Top = 155
+                  ParentFont = False
+                  ExplicitLeft = 142
+                  ExplicitTop = 155
+                end
+                inherited lblWGTargetIdentity: TLabel
+                  Left = 142
+                  Top = 111
+                  ParentFont = False
+                  ExplicitLeft = 142
+                  ExplicitTop = 111
+                end
+                inherited btnWGRangeHide: TSpeedButton
+                  Left = 105
+                  Top = 250
+                  Width = 54
+                  Height = 23
+                  ExplicitLeft = 105
+                  ExplicitTop = 250
+                  ExplicitWidth = 54
+                  ExplicitHeight = 23
+                end
+                inherited btnWGBlindHide: TSpeedButton
+                  Left = 252
+                  Top = 250
+                  Width = 54
+                  Height = 23
+                  ExplicitLeft = 252
+                  ExplicitTop = 250
+                  ExplicitWidth = 54
+                  ExplicitHeight = 23
+                end
+                inherited btnWGBlindShow: TSpeedButton
+                  Left = 195
+                  Top = 250
+                  Width = 54
+                  Height = 23
+                  ExplicitLeft = 195
+                  ExplicitTop = 250
+                  ExplicitWidth = 54
+                  ExplicitHeight = 23
+                end
+                inherited btnWGRangeShow: TSpeedButton
+                  Left = 48
+                  Top = 250
+                  Width = 54
+                  Height = 23
+                  ExplicitLeft = 48
+                  ExplicitTop = 250
+                  ExplicitWidth = 54
+                  ExplicitHeight = 23
+                end
+                inherited Label39: TLabel
+                  Left = 122
+                  Top = 177
+                  ParentFont = False
+                  ExplicitLeft = 122
+                  ExplicitTop = 177
+                end
+                inherited Label40: TLabel
+                  Left = 122
+                  Top = 155
+                  ParentFont = False
+                  ExplicitLeft = 122
+                  ExplicitTop = 155
+                end
+                inherited Label41: TLabel
+                  Left = 122
+                  Top = 133
+                  ParentFont = False
+                  ExplicitLeft = 122
+                  ExplicitTop = 133
+                end
+                inherited Label42: TLabel
+                  Left = 122
+                  Top = 88
+                  ParentFont = False
+                  ExplicitLeft = 122
+                  ExplicitTop = 88
+                end
+                inherited btnWGLaunch: TButton
+                  Left = 255
+                  Top = 314
+                  ExplicitLeft = 255
+                  ExplicitTop = 314
+                end
+                inherited EdtWGTargetTrack: TEdit
+                  Left = 142
+                  Top = 86
                   Width = 60
-                  Height = 25
-                  Caption = 'Plan'
-                  Enabled = False
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                  TabOrder = 5
+                  Text = '---'
+                  ExplicitLeft = 142
+                  ExplicitTop = 86
+                  ExplicitWidth = 60
                 end
-                object edtCrossOverRange: TEdit
+              end
+            end
+            inherited grbWakeHomingTorpedos: TGroupBox [5]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox5: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited Bevel17: TBevel
+                  Left = 72
+                  ExplicitLeft = 72
+                end
+                inherited Bevel18: TBevel
+                  Left = 72
+                  ExplicitLeft = 72
+                end
+                inherited Bevel5: TBevel
+                  Left = 72
+                  ExplicitLeft = 72
+                end
+                inherited Bevel6: TBevel
+                  Left = 72
+                  ExplicitLeft = 72
+                end
+                inherited btnWakeHomingTargetTrack: TSpeedButton
+                  Left = 207
+                  Layout = blGlyphRight
+                  ExplicitLeft = 207
+                end
+                inherited Label23: TLabel
+                  Left = 17
+                  ExplicitLeft = 17
+                end
+                inherited Label25: TLabel
+                  Left = 122
+                  ExplicitLeft = 122
+                end
+                inherited Label26: TLabel
+                  Left = 17
+                  ExplicitLeft = 17
+                end
+                inherited Label27: TLabel
+                  Left = 32
+                  ExplicitLeft = 32
+                end
+                inherited Label28: TLabel
+                  Left = 17
+                  ExplicitLeft = 17
+                end
+                inherited Label29: TLabel
+                  Left = 69
+                  ExplicitLeft = 69
+                end
+                inherited Label30: TLabel
+                  Left = 237
+                  ExplicitLeft = 237
+                end
+                inherited Label31: TLabel
+                  Left = 32
+                  ExplicitLeft = 32
+                end
+                inherited Label32: TLabel
+                  Left = 32
+                  ExplicitLeft = 32
+                end
+                inherited Label33: TLabel
+                  Left = 32
+                  ExplicitLeft = 32
+                end
+                inherited Label34: TLabel
+                  Left = 32
+                  ExplicitLeft = 32
+                end
+                inherited Label35: TLabel
+                  Left = 207
+                  ExplicitLeft = 207
+                end
+                inherited Label37: TLabel
+                  Left = 207
+                  ExplicitLeft = 207
+                end
+                inherited Label46: TLabel
+                  Left = 207
+                  ExplicitLeft = 207
+                end
+                inherited Label47: TLabel
+                  Left = 17
+                  ExplicitLeft = 17
+                end
+                inherited Label55: TLabel
+                  Left = 32
+                  ExplicitLeft = 32
+                end
+                inherited lblWHStatus: TLabel
+                  Left = 32
+                  ExplicitLeft = 32
+                end
+                inherited lblWHTargetIdentity: TLabel
+                  Left = 147
+                  ExplicitLeft = 147
+                end
+                inherited lblWHQuantity: TLabel
+                  Left = 182
+                  ExplicitLeft = 182
+                end
+                inherited lblWHTargetBearing: TLabel
+                  Left = 147
+                  ExplicitLeft = 147
+                end
+                inherited btnWHBlindHide: TSpeedButton
+                  Left = 270
+                  Top = 297
+                  Width = 60
+                  ExplicitLeft = 270
+                  ExplicitTop = 297
+                  ExplicitWidth = 60
+                end
+                inherited btnWHBlindShow: TSpeedButton
+                  Left = 206
+                  Top = 297
+                  Width = 60
+                  ExplicitLeft = 206
+                  ExplicitTop = 297
+                  ExplicitWidth = 60
+                end
+                inherited btnWHRangeHide: TSpeedButton
+                  Left = 88
+                  Top = 295
+                  Width = 60
+                  ExplicitLeft = 88
+                  ExplicitTop = 295
+                  ExplicitWidth = 60
+                end
+                inherited btnWHRangeShow: TSpeedButton
+                  Left = 24
+                  Width = 60
+                  ExplicitLeft = 24
+                  ExplicitWidth = 60
+                end
+                inherited Label43: TLabel
+                  Left = 127
+                  ExplicitLeft = 127
+                end
+                inherited Label44: TLabel
+                  Left = 127
+                  ExplicitLeft = 127
+                end
+                inherited Label45: TLabel
+                  Left = 127
+                  ExplicitLeft = 127
+                end
+                inherited Label48: TLabel
+                  Left = 127
+                  ExplicitLeft = 127
+                end
+                inherited Label53: TLabel
+                  Left = 127
+                  ExplicitLeft = 127
+                end
+                inherited btnWHLaunch: TButton
+                  Left = 257
+                  Width = 75
+                  ExplicitLeft = 257
+                  ExplicitWidth = 75
+                end
+                inherited btnWHDefaultSeekerRange: TButton
+                  Left = 262
+                  ExplicitLeft = 262
+                end
+                inherited EdtWHLaunchBearing: TEdit
+                  Left = 147
+                  ExplicitLeft = 147
+                end
+                inherited EdtWHSalvo: TEdit
+                  Left = 147
+                  ExplicitLeft = 147
+                end
+                inherited EdtWHSeekerRange: TEdit
+                  Left = 147
+                  ExplicitLeft = 147
+                end
+                inherited EdtWHTargetTrack: TEdit
+                  Left = 147
+                  ExplicitLeft = 147
+                end
+              end
+            end
+            inherited grbStraightRunningTorpedos: TGroupBox [6]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox4: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited btnSRBlindHide: TSpeedButton
+                  Left = 195
+                  Top = 276
+                  ExplicitLeft = 195
+                  ExplicitTop = 276
+                end
+                inherited btnSRBlindShow: TSpeedButton
+                  Left = 195
+                  Top = 251
+                  ExplicitLeft = 195
+                  ExplicitTop = 251
+                end
+                inherited btnSRRangeHide: TSpeedButton
+                  Left = 79
+                  Top = 276
+                  ExplicitLeft = 79
+                  ExplicitTop = 276
+                end
+                inherited btnSRRangeShow: TSpeedButton
+                  Left = 79
+                  Top = 251
+                  ExplicitLeft = 79
+                  ExplicitTop = 251
+                end
+                inherited btnSRTargetTrack: TSpeedButton
+                  Left = 210
+                  Top = 79
+                  ExplicitLeft = 210
+                  ExplicitTop = 79
+                end
+                inherited bvl14: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited bvl15: TBevel
+                  Left = 70
+                  Top = 210
+                  ExplicitLeft = 70
+                  ExplicitTop = 210
+                end
+                inherited bvl16: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited lbl62: TLabel
+                  Left = 20
+                  ParentFont = False
+                  ExplicitLeft = 20
+                end
+                inherited lbl63: TLabel
+                  Left = 130
+                  ParentFont = False
+                  ExplicitLeft = 130
+                end
+                inherited lbl64: TLabel
+                  Left = 20
+                  ParentFont = False
+                  ExplicitLeft = 20
+                end
+                inherited lbl65: TLabel
+                  Left = 40
+                  ParentFont = False
+                  ExplicitLeft = 40
+                end
+                inherited lbl66: TLabel
+                  Left = 20
+                  Top = 203
+                  ParentFont = False
+                  ExplicitLeft = 20
+                  ExplicitTop = 203
+                end
+                inherited lbl67: TLabel
+                  Left = 99
+                  Top = 226
+                  ParentFont = False
+                  ExplicitLeft = 99
+                  ExplicitTop = 226
+                end
+                inherited lbl68: TLabel
+                  Left = 202
+                  Top = 226
+                  ParentFont = False
+                  ExplicitLeft = 202
+                  ExplicitTop = 226
+                end
+                inherited lbl69: TLabel
+                  Left = 40
+                  Top = 107
+                  ParentFont = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 107
+                end
+                inherited lbl70: TLabel
+                  Left = 40
+                  Top = 129
+                  ParentFont = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 129
+                end
+                inherited lbl71: TLabel
+                  Left = 40
+                  Top = 151
+                  ParentFont = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 151
+                end
+                inherited lbl72: TLabel
+                  Left = 40
+                  Top = 173
+                  ParentFont = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 173
+                end
+                inherited lbl73: TLabel
+                  Left = 210
+                  Top = 129
+                  ParentFont = False
+                  ExplicitLeft = 210
+                  ExplicitTop = 129
+                end
+                inherited lbl74: TLabel
+                  Left = 210
+                  Top = 151
+                  ParentFont = False
+                  ExplicitLeft = 210
+                  ExplicitTop = 151
+                end
+                inherited lbl75: TLabel
+                  Left = 210
+                  Top = 173
+                  ParentFont = False
+                  ExplicitLeft = 210
+                  ExplicitTop = 173
+                end
+                inherited lblSRQuantity: TLabel
+                  Left = 190
+                  ParentFont = False
+                  ExplicitLeft = 190
+                end
+                inherited lblSRStatus: TLabel
+                  Left = 40
+                  ParentFont = False
+                  ExplicitLeft = 40
+                end
+                inherited lblSRTargetCourse: TLabel
+                  Left = 150
+                  Top = 129
+                  ParentFont = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 129
+                end
+                inherited lblSRTargetDepth: TLabel
+                  Left = 150
+                  Top = 173
+                  ParentFont = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 173
+                end
+                inherited lblSRTargetSpeed: TLabel
+                  Left = 150
+                  Top = 151
+                  ParentFont = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 151
+                end
+                inherited lblSRTargetIdentity: TLabel
+                  Left = 150
+                  Top = 107
+                  ParentFont = False
+                  ExplicitLeft = 150
+                  ExplicitTop = 107
+                end
+                inherited Label21: TLabel
+                  Left = 130
+                  ParentFont = False
+                  ExplicitLeft = 130
+                end
+                inherited Label24: TLabel
+                  Left = 130
+                  Top = 129
+                  ParentFont = False
+                  ExplicitLeft = 130
+                  ExplicitTop = 129
+                end
+                inherited Label36: TLabel
+                  Left = 130
+                  Top = 151
+                  ParentFont = False
+                  ExplicitLeft = 130
+                  ExplicitTop = 151
+                end
+                inherited Label38: TLabel
+                  Left = 130
+                  Top = 173
+                  ParentFont = False
+                  ExplicitLeft = 130
+                  ExplicitTop = 173
+                end
+                inherited btnSRLaunch: TButton
+                  Left = 255
+                  Top = 334
+                  ExplicitLeft = 255
+                  ExplicitTop = 334
+                end
+                inherited EdtSRTargetTrack: TEdit
+                  Left = 150
+                  Top = 78
+                  ExplicitLeft = 150
+                  ExplicitTop = 78
+                end
+              end
+            end
+            inherited grbMines: TGroupBox [7]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited Label272: TLabel
+                Left = 23
+                Top = 20
+                ParentFont = False
+                ExplicitLeft = 23
+                ExplicitTop = 20
+              end
+              inherited lblStatusMines: TLabel
+                Left = 40
+                Top = 48
+                ParentFont = False
+                ExplicitLeft = 40
+                ExplicitTop = 48
+              end
+              inherited Label288: TLabel
+                Left = 130
+                Top = 48
+                ParentFont = False
+                ExplicitLeft = 130
+                ExplicitTop = 48
+              end
+              inherited lbMinesQuantity: TLabel
+                Left = 190
+                Top = 48
+                ParentFont = False
+                ExplicitLeft = 190
+                ExplicitTop = 48
+              end
+              inherited Label291: TLabel
+                Left = 23
+                Top = 77
+                ParentFont = False
+                ExplicitLeft = 23
+                ExplicitTop = 77
+              end
+              inherited Bevel58: TBevel
+                Left = 70
+                Top = 84
+                ExplicitLeft = 70
+                ExplicitTop = 84
+              end
+              inherited Label292: TLabel
+                Left = 40
+                Top = 120
+                ParentFont = False
+                ExplicitLeft = 40
+                ExplicitTop = 120
+              end
+              inherited Bevel61: TBevel
+                Left = 70
+                Top = 27
+                ExplicitLeft = 70
+                ExplicitTop = 27
+              end
+              inherited lbl84: TLabel
+                Left = 195
+                Top = 190
+                ParentFont = False
+                Visible = False
+                ExplicitLeft = 195
+                ExplicitTop = 190
+              end
+              inherited lbl104: TLabel
+                Left = 40
+                Top = 217
+                ParentFont = False
+                ExplicitLeft = 40
+                ExplicitTop = 217
+              end
+              inherited lbl101: TLabel
+                Left = 195
+                Top = 120
+                ParentFont = False
+                Visible = True
+                ExplicitLeft = 195
+                ExplicitTop = 120
+              end
+              inherited lbl100: TLabel
+                Left = 40
+                Top = 190
+                ParentFont = False
+                ExplicitLeft = 40
+                ExplicitTop = 190
+              end
+              inherited EdtMinesDepth: TEdit
+                Left = 135
+                Top = 118
+                Width = 52
+                ExplicitLeft = 135
+                ExplicitTop = 118
+                ExplicitWidth = 52
+              end
+              inherited btnMinesDeploy: TButton
+                Left = 255
+                Top = 150
+                ExplicitLeft = 255
+                ExplicitTop = 150
+              end
+              inherited edtCount: TEdit
+                Left = 135
+                Top = 214
+                OnKeyPress = nil
+                ExplicitLeft = 135
+                ExplicitTop = 214
+              end
+              inherited edtRange: TEdit
+                Left = 135
+                Top = 189
+                ExplicitLeft = 135
+                ExplicitTop = 189
+              end
+            end
+            inherited grbHybridMissile: TGroupBox [8]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited scrlbx1: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited btnHybridMissileDisplayBlindZonesHide: TSpeedButton
+                  Left = 237
+                  Top = 335
+                  Width = 50
+                  ExplicitLeft = 237
+                  ExplicitTop = 335
+                  ExplicitWidth = 50
+                end
+                inherited btnHybridMissileDisplayBlindZonesShow: TSpeedButton
+                  Left = 185
+                  Top = 335
+                  Width = 50
+                  ExplicitLeft = 185
+                  ExplicitTop = 335
+                  ExplicitWidth = 50
+                end
+                inherited lbl87: TLabel
+                  Left = 204
+                  Top = 315
+                  ParentFont = False
+                  ExplicitLeft = 204
+                  ExplicitTop = 315
+                end
+                inherited lbl88: TLabel
+                  Left = 74
+                  Top = 315
+                  ParentFont = False
+                  ExplicitLeft = 74
+                  ExplicitTop = 315
+                end
+                inherited btnHybridMissileDisplayRangeShow: TSpeedButton
+                  Left = 41
+                  Top = 335
+                  Width = 50
+                  ExplicitLeft = 41
+                  ExplicitTop = 335
+                  ExplicitWidth = 50
+                end
+                inherited btnHybridMissileDisplayRangeHide: TSpeedButton
+                  Left = 92
+                  Top = 335
+                  Width = 50
+                  ExplicitLeft = 92
+                  ExplicitTop = 335
+                  ExplicitWidth = 50
+                end
+                inherited lbl89: TLabel
+                  Left = 22
+                  ParentFont = False
+                  ExplicitLeft = 22
+                end
+                inherited bvl21: TBevel
+                  Left = 67
+                  ExplicitLeft = 67
+                end
+                inherited lbl90: TLabel
+                  Left = 37
+                  ParentFont = False
+                  ExplicitLeft = 37
+                end
+                inherited lbl91: TLabel
+                  Left = 37
+                  ParentFont = False
+                  ExplicitLeft = 37
+                end
+                inherited lbl92: TLabel
+                  Left = 37
+                  ParentFont = False
+                  ExplicitLeft = 37
+                end
+                inherited lbl93: TLabel
+                  Left = 22
+                  ParentFont = False
+                  ExplicitLeft = 22
+                end
+                inherited bvl22: TBevel
+                  Left = 67
+                  ExplicitLeft = 67
+                end
+                inherited lbl94: TLabel
+                  Left = 197
+                  ParentFont = False
+                  ExplicitLeft = 197
+                end
+                inherited lbl95: TLabel
+                  Left = 197
+                  ParentFont = False
+                  ExplicitLeft = 197
+                end
+                inherited lbl96: TLabel
+                  Left = 197
+                  Width = 33
+                  Caption = 'deg T'
+                  ParentFont = False
+                  ExplicitLeft = 197
+                  ExplicitWidth = 33
+                end
+                inherited btnSearchHybridMissileTargetTrack: TSpeedButton
+                  Left = 190
+                  ExplicitLeft = 190
+                end
+                inherited btnAddHybridMissileTargetAimpoint: TSpeedButton
+                  Left = 266
+                  ExplicitLeft = 266
+                end
+                inherited bvl23: TBevel
+                  Left = 67
+                  ExplicitLeft = 67
+                end
+                inherited lbl97: TLabel
+                  Left = 22
+                  ParentFont = False
+                  ExplicitLeft = 22
+                end
+                inherited lblHybridMissileStatus: TLabel
+                  Left = 37
+                  ParentFont = False
+                  ExplicitLeft = 37
+                end
+                inherited lbl98: TLabel
+                  Left = 127
+                  ParentFont = False
+                  ExplicitLeft = 127
+                end
+                inherited lblHybridMissileQuantity: TLabel
+                  Left = 187
+                  ParentFont = False
+                  ExplicitLeft = 187
+                end
+                inherited bvl24: TBevel
+                  Left = 67
+                  ExplicitLeft = 67
+                end
+                inherited lbl99: TLabel
+                  Left = 22
+                  ParentFont = False
+                  ExplicitLeft = 22
+                end
+                inherited btnHybridMissileLaunch: TButton
+                  Left = 247
+                  Top = 374
+                  ExplicitLeft = 247
+                  ExplicitTop = 374
+                end
+                inherited edtHybridMissileControlSalvoSize: TEdit
+                  Left = 137
+                  ExplicitLeft = 137
+                end
+                inherited edtHybridMissileControlCruiseAltitude: TEdit
+                  Left = 137
+                  ExplicitLeft = 137
+                end
+                inherited edtHybridMissileControlSeekerRange: TEdit
+                  Left = 137
+                  ExplicitLeft = 137
+                end
+                inherited btnDefaultHybridMissileControlSeekerRange: TButton
+                  Left = 247
+                  ExplicitLeft = 247
+                end
+                inherited btnDefaultHybridMissileControlCruiseAltitude: TButton
+                  Left = 247
+                  ExplicitLeft = 247
+                end
+                inherited edtHybridMissiletargetBearing: TEdit
+                  Left = 137
+                  ExplicitLeft = 137
+                end
+                inherited rbHybridMissileTargetBearing: TRadioButton
+                  Left = 36
+                  ExplicitLeft = 36
+                end
+                inherited rbHybridMissileTargetAimpoint: TRadioButton
+                  Left = 36
+                  ExplicitLeft = 36
+                end
+                inherited rbHybridMissileTargetTrack: TRadioButton
+                  Left = 36
+                  ExplicitLeft = 36
+                end
+                inherited edtHybridMissiletargetTrack: TEdit
+                  Left = 137
+                  ExplicitLeft = 137
+                end
+                inherited edtHybridMissiletargetAimpoint: TEdit
+                  Left = 137
+                  ExplicitLeft = 137
+                end
+                inherited btnBringToHookHybridMissileTargetBearing: TButton
+                  Left = 252
+                  ExplicitLeft = 252
+                end
+              end
+            end
+            inherited grbGunEngagementCIWS: TGroupBox [9]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+            end
+            inherited grbGunEngagementChaffMode: TGroupBox [10]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox9: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited Label348: TLabel
+                  Left = 20
+                  ParentFont = False
+                  ExplicitLeft = 20
+                end
+                inherited Bevel97: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited Label364: TLabel
+                  Left = 65
+                  ParentFont = False
+                  ExplicitLeft = 65
+                end
+                inherited Label365: TLabel
+                  Left = 40
+                  ParentFont = False
+                  ExplicitLeft = 40
+                end
+                inherited Label366: TLabel
+                  Left = 40
+                  ParentFont = False
+                  ExplicitLeft = 40
+                end
+                inherited Label466: TLabel
+                  Left = 40
+                  ParentFont = False
+                  ExplicitLeft = 40
+                end
+                inherited Label467: TLabel
+                  Left = 40
+                  ParentFont = False
+                  ExplicitLeft = 40
+                end
+                inherited lbChaffControlQuantity: TLabel
+                  Left = 160
+                  ParentFont = False
+                  ExplicitLeft = 160
+                end
+                inherited Label469: TLabel
+                  Left = 215
+                  ParentFont = False
+                  ExplicitLeft = 215
+                end
+                inherited Label470: TLabel
+                  Left = 20
+                  ParentFont = False
+                  ExplicitLeft = 20
+                end
+                inherited Bevel98: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited Label471: TLabel
+                  Left = 99
+                  ParentFont = False
+                  ExplicitLeft = 99
+                end
+                inherited Label472: TLabel
+                  Left = 209
+                  Top = 259
+                  ParentFont = False
+                  ExplicitLeft = 209
+                  ExplicitTop = 259
+                end
+                inherited btnChaffType: TSpeedButton
+                  Left = 242
+                  ExplicitLeft = 242
+                end
+                inherited btnChaffBloomPosition: TSpeedButton
+                  Left = 242
+                  ExplicitLeft = 242
+                end
+                inherited sbGunEngagementChaffContolAuto: TSpeedButton
+                  Left = 40
+                  ExplicitLeft = 40
+                end
+                inherited sbGunEngagementChaffContolManual: TSpeedButton
+                  Left = 40
+                  ExplicitLeft = 40
+                end
+                inherited sbChaffDisplayShow: TSpeedButton
+                  Left = 76
+                  ExplicitLeft = 76
+                end
+                inherited sbChaffDisplayHide: TSpeedButton
+                  Left = 76
+                  ExplicitLeft = 76
+                end
+                inherited sbChaffBlindZoneShow: TSpeedButton
+                  Left = 199
+                  ExplicitLeft = 199
+                end
+                inherited sbChaffBlindZoneHide: TSpeedButton
+                  Left = 199
+                  ExplicitLeft = 199
+                end
+                inherited sbGunEngagementChaffContolChaff: TSpeedButton
+                  Left = 40
+                  ExplicitLeft = 40
+                end
+                inherited editChaffControlChaff: TEdit
+                  Left = 160
+                  ExplicitLeft = 160
+                end
+                inherited editChaffControlBloomPosition: TEdit
+                  Left = 160
+                  ExplicitLeft = 160
+                end
+                inherited editChaffControlBloomAltitude: TEdit
+                  Left = 160
+                  ExplicitLeft = 160
+                end
+                inherited btnChaffFire: TButton
+                  Left = 167
+                  Top = 373
+                  ExplicitLeft = 167
+                  ExplicitTop = 373
+                end
+                inherited btnChaffCeaseFire: TButton
+                  Left = 250
+                  Top = 373
+                  ExplicitLeft = 250
+                  ExplicitTop = 373
+                end
+              end
+            end
+            inherited grbGunEngagementAutomaticManualMode: TGroupBox [11]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+            end
+            inherited grbBombDepthCharge: TGroupBox [12]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited bvl17: TBevel
+                Left = 72
+                Top = 82
+                ExplicitLeft = 72
+                ExplicitTop = 82
+              end
+              inherited bvl18: TBevel
+                Left = 72
+                Top = 295
+                ExplicitLeft = 72
+                ExplicitTop = 295
+              end
+              inherited bvl19: TBevel
+                Left = 72
+                Top = 195
+                ExplicitLeft = 72
+                ExplicitTop = 195
+              end
+              inherited bvl20: TBevel
+                Left = 72
+                Top = 26
+                ExplicitLeft = 72
+                ExplicitTop = 26
+              end
+              inherited btnBombTarget: TSpeedButton
+                Left = 197
+                Top = 314
+                ExplicitLeft = 197
+                ExplicitTop = 314
+              end
+              inherited lbl76: TLabel
+                Left = 22
+                Top = 75
+                ParentFont = False
+                ExplicitLeft = 22
+                ExplicitTop = 75
+              end
+              inherited lbl77: TLabel
+                Left = 42
+                Top = 108
+                ParentFont = False
+                ExplicitLeft = 42
+                ExplicitTop = 108
+              end
+              inherited lbl78: TLabel
+                Left = 22
+                Top = 287
+                ParentFont = False
+                ExplicitLeft = 22
+                ExplicitTop = 287
+              end
+              inherited lbl79: TLabel
+                Left = 22
+                Top = 187
+                ParentFont = False
+                ExplicitLeft = 22
+                ExplicitTop = 187
+              end
+              inherited lbl80: TLabel
+                Left = 158
+                Top = 209
+                ParentFont = False
+                ExplicitLeft = 158
+                ExplicitTop = 209
+              end
+              inherited lbl81: TLabel
+                Left = 42
+                Top = 317
+                ParentFont = False
+                ExplicitLeft = 42
+                ExplicitTop = 317
+              end
+              inherited lbl82: TLabel
+                Left = 22
+                Top = 19
+                ParentFont = False
+                ExplicitLeft = 22
+                ExplicitTop = 19
+              end
+              inherited lbl83: TLabel
+                Left = 132
+                Top = 47
+                ParentFont = False
+                ExplicitLeft = 132
+                ExplicitTop = 47
+              end
+              inherited lblBombQuantity: TLabel
+                Left = 192
+                Top = 47
+                ParentFont = False
+                ExplicitLeft = 192
+                ExplicitTop = 47
+              end
+              inherited lblBombStatus: TLabel
+                Left = 42
+                Top = 47
+                ParentFont = False
+                ExplicitLeft = 42
+                ExplicitTop = 47
+              end
+              inherited btnBombDisplayRangeHide: TSpeedButton
+                Left = 139
+                Top = 256
+                ExplicitLeft = 139
+                ExplicitTop = 256
+              end
+              inherited btnBombDisplayRangeShow: TSpeedButton
+                Left = 139
+                Top = 231
+                ExplicitLeft = 139
+                ExplicitTop = 231
+              end
+              inherited btnPosition: TSpeedButton [17]
+                Left = 303
+                Top = 155
+                Height = 29
+                ExplicitLeft = 303
+                ExplicitTop = 155
+                ExplicitHeight = 29
+              end
+              inherited lbl103: TLabel [18]
+                Left = 45
+                Top = 162
+                ParentFont = False
+                ExplicitLeft = 45
+                ExplicitTop = 162
+              end
+              inherited Label70: TLabel [19]
+                Left = 44
+                Top = 135
+                ParentFont = False
+                ExplicitLeft = 44
+                ExplicitTop = 135
+              end
+              inherited Label71: TLabel [20]
+                Left = 197
+                Top = 135
+                ParentFont = False
+                ExplicitLeft = 197
+                ExplicitTop = 135
+              end
+              inherited lbl86: TLabel [21]
+                Left = 254
+                Top = 314
+                ParentFont = False
+                ExplicitLeft = 254
+                ExplicitTop = 314
+              end
+              inherited btnBombDrop: TButton
+                Left = 252
+                Top = 367
+                ExplicitLeft = 252
+                ExplicitTop = 367
+              end
+              inherited EdtBombControlSalvo: TEdit
+                Left = 118
+                Top = 104
+                Width = 60
+                ExplicitLeft = 118
+                ExplicitTop = 104
+                ExplicitWidth = 60
+              end
+              inherited EdtBombTargetTrack: TEdit
+                Left = 133
+                Top = 313
+                Width = 60
+                ExplicitLeft = 133
+                ExplicitTop = 313
+                ExplicitWidth = 60
+              end
+              inherited chkBombDropWhitoutTarget: TCheckBox
+                Left = 237
+                Top = 314
+                Width = 18
+                ExplicitLeft = 237
+                ExplicitTop = 314
+                ExplicitWidth = 18
+              end
+              inherited edtTargetPosition: TEdit
+                Left = 118
+                Top = 158
+                Width = 179
+                ExplicitLeft = 118
+                ExplicitTop = 158
+                ExplicitWidth = 179
+              end
+              inherited edtBombDepth: TEdit
+                Left = 118
+                Top = 133
+                ExplicitLeft = 118
+                ExplicitTop = 133
+              end
+            end
+            inherited grbAirDroppedVECTAC: TGroupBox [13]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox13: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited Label367: TLabel
+                  ParentFont = False
+                end
+                inherited Label368: TLabel
+                  ParentFont = False
+                end
+                inherited Label369: TLabel
+                  ParentFont = False
+                end
+                inherited Label371: TLabel
+                  ParentFont = False
+                end
+                inherited Label375: TLabel
+                  ParentFont = False
+                end
+                inherited Label376: TLabel
+                  ParentFont = False
+                end
+                inherited Label377: TLabel
+                  ParentFont = False
+                end
+                inherited Label378: TLabel
+                  ParentFont = False
+                end
+                inherited Label379: TLabel
+                  ParentFont = False
+                end
+                inherited Label380: TLabel
+                  ParentFont = False
+                end
+                inherited Label383: TLabel
+                  ParentFont = False
+                end
+                inherited Label384: TLabel
+                  ParentFont = False
+                end
+                inherited Label385: TLabel
+                  ParentFont = False
+                end
+                inherited Label386: TLabel
+                  ParentFont = False
+                end
+                inherited Label387: TLabel
+                  ParentFont = False
+                end
+                inherited Label388: TLabel
+                  ParentFont = False
+                end
+                inherited Label389: TLabel
+                  ParentFont = False
+                end
+                inherited Label390: TLabel
+                  ParentFont = False
+                end
+                inherited Label391: TLabel
+                  ParentFont = False
+                end
+                inherited Label392: TLabel
+                  ParentFont = False
+                end
+                inherited Label393: TLabel
+                  ParentFont = False
+                end
+                inherited Label394: TLabel
+                  ParentFont = False
+                end
+                inherited Label395: TLabel
+                  ParentFont = False
+                end
+                inherited Label396: TLabel
+                  ParentFont = False
+                end
+                inherited Label398: TLabel
+                  Top = 351
+                  ParentFont = False
+                  ExplicitTop = 351
+                end
+                inherited lbVectacTargetCourse: TLabel
+                  ParentFont = False
+                end
+                inherited lbVectacTargetDepth: TLabel
+                  ParentFont = False
+                end
+                inherited lbVectacTargetDoppler: TLabel
+                  ParentFont = False
+                end
+                inherited lbVectacTargetGround: TLabel
+                  ParentFont = False
+                end
+                inherited lbVectacTargetIdentity: TLabel
+                  ParentFont = False
+                end
+                inherited lbVectacTargetPropulsion: TLabel
+                  ParentFont = False
+                end
+                inherited lbVectacWeaponCarrierAdviced: TLabel
+                  ParentFont = False
+                end
+                inherited lbVectacWeaponCarrierTime: TLabel
+                  ParentFont = False
+                end
+                inherited lbVectacWeaponExpiry: TLabel
+                  Top = 351
+                  ParentFont = False
+                  ExplicitTop = 351
+                end
+                inherited Label66: TLabel
+                  ParentFont = False
+                end
+                inherited Label68: TLabel
+                  ParentFont = False
+                end
+                inherited Label80: TLabel
+                  ParentFont = False
+                end
+                inherited Label81: TLabel
+                  ParentFont = False
+                end
+                inherited Label82: TLabel
+                  ParentFont = False
+                end
+                inherited Label83: TLabel
+                  ParentFont = False
+                end
+                inherited Label98: TLabel
+                  ParentFont = False
+                end
+                inherited Label99: TLabel
+                  ParentFont = False
+                end
+                inherited Label100: TLabel
+                  ParentFont = False
+                end
+                inherited Label101: TLabel
+                  ParentFont = False
+                end
+                inherited Label102: TLabel
+                  ParentFont = False
+                end
+                inherited Label103: TLabel
+                  ParentFont = False
+                end
+                inherited Label104: TLabel
+                  ParentFont = False
+                end
+                inherited Label105: TLabel
+                  ParentFont = False
+                end
+                inherited btnVectacWeaponCarrierDrop: TButton
+                  Left = 253
+                  ExplicitLeft = 253
+                end
+                inherited btnVectacWeaponCarrierGround: TButton
+                  Left = 253
+                  ExplicitLeft = 253
+                end
+                inherited editVectacTargetTrack: TEdit
+                  Enabled = True
+                  ReadOnly = True
+                end
+                inherited editVectacWeaponCarrierDrop: TEdit
+                  Enabled = True
+                  ReadOnly = True
+                end
+                inherited editVectacWeaponCarrierGround: TEdit
+                  Enabled = True
+                  ReadOnly = True
+                end
+                inherited editVectacWeaponCarrierName: TEdit
+                  Enabled = True
+                  ReadOnly = True
+                end
+                inherited editVectacWeaponName: TEdit
+                  Top = 321
+                  Enabled = True
+                  ReadOnly = True
+                  Text = ''
+                  ExplicitTop = 321
+                end
+              end
+            end
+            inherited grbAirDroppedTorpedo: TGroupBox [14]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox8: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited btnADBilndHide: TSpeedButton
+                  Left = 247
+                  Top = 349
+                  Width = 50
+                  ExplicitLeft = 247
+                  ExplicitTop = 349
+                  ExplicitWidth = 50
+                end
+                inherited btnADBilndShow: TSpeedButton
+                  Left = 193
+                  Top = 349
+                  Width = 50
+                  ExplicitLeft = 193
+                  ExplicitTop = 349
+                  ExplicitWidth = 50
+                end
+                inherited btnADRangeHide: TSpeedButton
+                  Left = 111
+                  Top = 349
+                  Width = 50
+                  ExplicitLeft = 111
+                  ExplicitTop = 349
+                  ExplicitWidth = 50
+                end
+                inherited btnADRangeShow: TSpeedButton
+                  Left = 57
+                  Top = 349
+                  Width = 50
+                  ExplicitLeft = 57
+                  ExplicitTop = 349
+                  ExplicitWidth = 50
+                end
+                inherited btnADTargetTrack: TSpeedButton
+                  Left = 200
+                  Top = 147
+                  ExplicitLeft = 200
+                  ExplicitTop = 147
+                end
+                inherited bvl10: TBevel
+                  Left = 70
+                  Top = 324
+                  ExplicitLeft = 70
+                  ExplicitTop = 324
+                end
+                inherited bvl11: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited bvl12: TBevel
+                  Left = 70
+                  Top = 135
+                  ExplicitLeft = 70
+                  ExplicitTop = 135
+                end
+                inherited bvl13: TBevel
+                  Left = 115
+                  Top = 262
+                  ExplicitLeft = 115
+                  ExplicitTop = 262
+                end
+                inherited bvl9: TBevel
+                  Left = 70
+                  Top = 46
+                  ExplicitLeft = 70
+                  ExplicitTop = 46
+                end
+                inherited lbl38: TLabel
+                  Left = 20
+                  ParentFont = False
+                  ExplicitLeft = 20
+                end
+                inherited lbl39: TLabel
+                  Left = 130
+                  Top = 18
+                  ParentFont = False
+                  ExplicitLeft = 130
+                  ExplicitTop = 18
+                end
+                inherited lbl40: TLabel
+                  Left = 20
+                  Top = 127
+                  ParentFont = False
+                  ExplicitLeft = 20
+                  ExplicitTop = 127
+                end
+                inherited lbl41: TLabel
+                  Left = 35
+                  Top = 152
+                  ParentFont = False
+                  ExplicitLeft = 35
+                  ExplicitTop = 152
+                end
+                inherited lbl42: TLabel
+                  Left = 20
+                  Top = 315
+                  ParentFont = False
+                  ExplicitLeft = 20
+                  ExplicitTop = 315
+                end
+                inherited lbl43: TLabel
+                  Left = 91
+                  Top = 332
+                  ParentFont = False
+                  ExplicitLeft = 91
+                  ExplicitTop = 332
+                end
+                inherited lbl44: TLabel
+                  Left = 213
+                  Top = 332
+                  ParentFont = False
+                  ExplicitLeft = 213
+                  ExplicitTop = 332
+                end
+                inherited lbl45: TLabel
+                  Left = 37
+                  Top = 171
+                  ParentFont = False
+                  ExplicitLeft = 37
+                  ExplicitTop = 171
+                end
+                inherited lbl46: TLabel
+                  Left = 20
+                  Top = 39
+                  ParentFont = False
+                  ExplicitLeft = 20
+                  ExplicitTop = 39
+                end
+                inherited lbl47: TLabel
+                  Left = 37
+                  Top = 60
+                  ParentFont = False
+                  ExplicitLeft = 37
+                  ExplicitTop = 60
+                end
+                inherited lbl48: TLabel
+                  Left = 37
+                  Top = 82
+                  ParentFont = False
+                  ExplicitLeft = 37
+                  ExplicitTop = 82
+                end
+                inherited lbl49: TLabel
+                  Left = 37
+                  Top = 104
+                  ParentFont = False
+                  ExplicitLeft = 37
+                  ExplicitTop = 104
+                end
+                inherited lbl50: TLabel
+                  Left = 200
+                  Top = 60
+                  ParentFont = False
+                  ExplicitLeft = 200
+                  ExplicitTop = 60
+                end
+                inherited lbl51: TLabel
+                  Left = 200
+                  Top = 82
+                  ParentFont = False
+                  ExplicitLeft = 200
+                  ExplicitTop = 82
+                end
+                inherited lbl52: TLabel
+                  Left = 200
+                  Top = 104
+                  ParentFont = False
+                  ExplicitLeft = 200
+                  ExplicitTop = 104
+                end
+                inherited lbl53: TLabel
+                  Left = 37
+                  Top = 191
+                  ParentFont = False
+                  ExplicitLeft = 37
+                  ExplicitTop = 191
+                end
+                inherited lbl54: TLabel
+                  Left = 37
+                  Top = 210
+                  ParentFont = False
+                  ExplicitLeft = 37
+                  ExplicitTop = 210
+                end
+                inherited lbl55: TLabel
+                  Left = 37
+                  Top = 230
+                  ParentFont = False
+                  ExplicitLeft = 37
+                  ExplicitTop = 230
+                end
+                inherited lbl56: TLabel
+                  Left = 200
+                  Top = 191
+                  ParentFont = False
+                  ExplicitLeft = 200
+                  ExplicitTop = 191
+                end
+                inherited lbl57: TLabel
+                  Left = 200
+                  Top = 210
+                  ParentFont = False
+                  ExplicitLeft = 200
+                  ExplicitTop = 210
+                end
+                inherited lbl58: TLabel
+                  Left = 200
+                  Top = 230
+                  ParentFont = False
+                  ExplicitLeft = 200
+                  ExplicitTop = 230
+                end
+                inherited lbl59: TLabel
+                  Left = 20
+                  Top = 253
+                  ParentFont = False
+                  ExplicitLeft = 20
+                  ExplicitTop = 253
+                end
+                inherited lbl60: TLabel
+                  Left = 37
+                  Top = 292
+                  ParentFont = False
+                  ExplicitLeft = 37
+                  ExplicitTop = 292
+                end
+                inherited lbl61: TLabel
+                  Left = 199
+                  Top = 292
+                  ParentFont = False
+                  ExplicitLeft = 199
+                  ExplicitTop = 292
+                end
+                inherited lbl85: TLabel
+                  Left = 251
+                  Top = 150
+                  Width = 92
+                  Height = 32
+                  ParentFont = False
+                  ExplicitLeft = 251
+                  ExplicitTop = 150
+                  ExplicitWidth = 92
+                  ExplicitHeight = 32
+                end
+                inherited lblADQuantity: TLabel
+                  Left = 190
+                  Top = 18
+                  ParentFont = False
+                  ExplicitLeft = 190
+                  ExplicitTop = 18
+                end
+                inherited lblADTargetCourse: TLabel
+                  Left = 135
+                  Top = 191
+                  ParentFont = False
+                  ExplicitLeft = 135
+                  ExplicitTop = 191
+                end
+                inherited lblADTargetDepth: TLabel
+                  Left = 135
+                  Top = 230
+                  ParentFont = False
+                  ExplicitLeft = 135
+                  ExplicitTop = 230
+                end
+                inherited lblADTargetForce: TLabel
+                  Left = 135
+                  Top = 171
+                  ParentFont = False
+                  ExplicitLeft = 135
+                  ExplicitTop = 171
+                end
+                inherited lblADTargetSpeed: TLabel
                   Left = 135
                   Top = 210
-                  Width = 45
-                  Height = 21
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
                   ParentFont = False
-                  TabOrder = 9
-                  Text = '0'
+                  ExplicitLeft = 135
+                  ExplicitTop = 210
                 end
-                object edtDestructRange: TEdit
+                inherited lblAirDroppedStatus: TLabel
+                  Left = 40
+                  Top = 18
+                  ParentFont = False
+                  ExplicitLeft = 40
+                  ExplicitTop = 18
+                end
+                inherited Label49: TLabel
+                  Left = 120
+                  Top = 230
+                  ParentFont = False
+                  ExplicitLeft = 120
+                  ExplicitTop = 230
+                end
+                inherited Label50: TLabel
+                  Left = 120
+                  Top = 210
+                  ParentFont = False
+                  ExplicitLeft = 120
+                  ExplicitTop = 210
+                end
+                inherited Label51: TLabel
+                  Left = 120
+                  Top = 191
+                  ParentFont = False
+                  ExplicitLeft = 120
+                  ExplicitTop = 191
+                end
+                inherited Label52: TLabel
+                  Left = 120
+                  Top = 152
+                  ParentFont = False
+                  ExplicitLeft = 120
+                  ExplicitTop = 152
+                end
+                inherited Label56: TLabel
+                  Left = 118
+                  Top = 60
+                  ParentFont = False
+                  ExplicitLeft = 118
+                  ExplicitTop = 60
+                end
+                inherited Label57: TLabel
+                  Left = 118
+                  Top = 82
+                  ParentFont = False
+                  ExplicitLeft = 118
+                  ExplicitTop = 82
+                end
+                inherited Label58: TLabel
+                  Left = 118
+                  Top = 104
+                  ParentFont = False
+                  ExplicitLeft = 118
+                  ExplicitTop = 104
+                end
+                inherited Label62: TLabel
+                  Left = 120
+                  Top = 171
+                  ParentFont = False
+                  ExplicitLeft = 120
+                  ExplicitTop = 171
+                end
+                inherited Label65: TLabel
+                  Left = 120
+                  Top = 292
+                  ParentFont = False
+                  ExplicitLeft = 120
+                  ExplicitTop = 292
+                end
+                inherited btnADDefaultSafetyCeiling: TButton
+                  Left = 255
+                  Top = 101
+                  ExplicitLeft = 255
+                  ExplicitTop = 101
+                end
+                inherited btnADDefaultSearchDepth: TButton
+                  Left = 255
+                  Top = 79
+                  ExplicitLeft = 255
+                  ExplicitTop = 79
+                end
+                inherited btnADLaunch: TButton
+                  Left = 263
+                  Top = 379
+                  ExplicitLeft = 263
+                  ExplicitTop = 379
+                end
+                inherited chkADLaunchWhithoutTarget: TCheckBox
+                  Left = 235
+                  Top = 150
+                  Width = 17
+                  ExplicitLeft = 235
+                  ExplicitTop = 150
+                  ExplicitWidth = 17
+                end
+                inherited chkADUseLaunchPlatformHeading: TCheckBox
+                  Left = 37
+                  Top = 272
+                  ExplicitLeft = 37
+                  ExplicitTop = 272
+                end
+                inherited EdtADTargetTrack: TEdit
                   Left = 135
-                  Top = 234
-                  Width = 45
-                  Height = 21
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                  TabOrder = 10
+                  Top = 148
+                  Text = '---'
+                  ExplicitLeft = 135
+                  ExplicitTop = 148
                 end
-                object edtSurfaceToSurfaceMissileEngangement: TEdit
+                inherited EdtADLaunchBearing: TEdit
                   Left = 135
-                  Top = 186
-                  Width = 52
-                  Height = 21
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                  ReadOnly = True
-                  TabOrder = 6
+                  Top = 291
+                  ExplicitLeft = 135
+                  ExplicitTop = 291
                 end
-                object edtSurfaceToSurfaceMissileFiring: TEdit
+                inherited EdtADSafetyCeiling: TEdit
                   Left = 135
-                  Top = 162
-                  Width = 52
-                  Height = 21
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                  ReadOnly = True
-                  TabOrder = 7
+                  Top = 102
+                  ExplicitLeft = 135
+                  ExplicitTop = 102
                 end
-                object edtSurfaceToSurfaceMissileTargetTrack: TEdit
+                inherited EdtADSearchDepth: TEdit
+                  Left = 135
+                  Top = 80
+                  ExplicitLeft = 135
+                  ExplicitTop = 80
+                end
+                inherited EdtADSearchRadius: TEdit
+                  Left = 135
+                  Top = 58
+                  ExplicitLeft = 135
+                  ExplicitTop = 58
+                end
+              end
+            end
+            inherited grbActivePasiveTorpedo: TGroupBox [15]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox3: TScrollBox
+                Width = 341
+                Height = 454
+                ParentColor = False
+                ExplicitWidth = 355
+                ExplicitHeight = 1931
+                inherited btnAPGBilndHide: TSpeedButton
+                  Left = 201
+                  Top = 307
+                  ExplicitLeft = 201
+                  ExplicitTop = 307
+                end
+                inherited btnAPGRangeHide: TSpeedButton
+                  Left = 73
+                  Top = 307
+                  ExplicitLeft = 73
+                  ExplicitTop = 307
+                end
+                inherited btnAPGBilndShow: TSpeedButton
+                  Left = 201
+                  Top = 283
+                  ExplicitLeft = 201
+                  ExplicitTop = 283
+                end
+                inherited btnAPGRangeShow: TSpeedButton
+                  Left = 73
+                  Top = 283
+                  ExplicitLeft = 73
+                  ExplicitTop = 283
+                end
+                inherited btnTargetTrackAPG: TSpeedButton
+                  Left = 187
+                  ExplicitLeft = 187
+                end
+                inherited bvl1: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited bvl2: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited bvl3: TBevel
+                  Left = 70
+                  Top = 105
+                  ExplicitLeft = 70
+                  ExplicitTop = 105
+                end
+                inherited bvl4: TBevel
+                  Left = 70
+                  Top = 243
+                  Height = 3
+                  ExplicitLeft = 70
+                  ExplicitTop = 243
+                  ExplicitHeight = 3
+                end
+                inherited lbl1: TLabel
+                  Left = 20
+                  ExplicitLeft = 20
+                end
+                inherited lbl12: TLabel
+                  Left = 40
+                  Top = 129
+                  ExplicitLeft = 40
+                  ExplicitTop = 129
+                end
+                inherited lbl13: TLabel
+                  Left = 40
+                  Top = 152
+                  ExplicitLeft = 40
+                  ExplicitTop = 152
+                end
+                inherited lbl14: TLabel
+                  Left = 40
+                  Top = 175
+                  ExplicitLeft = 40
+                  ExplicitTop = 175
+                end
+                inherited lbl15: TLabel
+                  Left = 40
+                  Top = 198
+                  ExplicitLeft = 40
+                  ExplicitTop = 198
+                end
+                inherited lbl17: TLabel
+                  Left = 205
+                  Top = 129
+                  ExplicitLeft = 205
+                  ExplicitTop = 129
+                end
+                inherited lbl18: TLabel
+                  Left = 205
+                  Top = 152
+                  ExplicitLeft = 205
+                  ExplicitTop = 152
+                end
+                inherited lbl19: TLabel
+                  Left = 205
+                  Top = 175
+                  ExplicitLeft = 205
+                  ExplicitTop = 175
+                end
+                inherited lbl20: TLabel
+                  Left = 205
+                  Top = 198
+                  ExplicitLeft = 205
+                  ExplicitTop = 198
+                end
+                inherited lbl21: TLabel
+                  Left = 95
+                  Top = 262
+                  ExplicitLeft = 95
+                  ExplicitTop = 262
+                end
+                inherited lbl22: TLabel
+                  Left = 208
+                  Top = 262
+                  ExplicitLeft = 208
+                  ExplicitTop = 262
+                end
+                inherited lbl3: TLabel
+                  Left = 132
+                  ExplicitLeft = 132
+                end
+                inherited lbl5: TLabel
+                  Left = 20
+                  ExplicitLeft = 20
+                end
+                inherited lbl6: TLabel
+                  Left = 40
+                  ExplicitLeft = 40
+                end
+                inherited lbl7: TLabel
+                  Left = 20
+                  Top = 98
+                  ExplicitLeft = 20
+                  ExplicitTop = 98
+                end
+                inherited lbl8: TLabel
+                  Left = 20
+                  Top = 236
+                  ExplicitLeft = 20
+                  ExplicitTop = 236
+                end
+                inherited lblAPGQuantity: TLabel
+                  Left = 195
+                  ExplicitLeft = 195
+                end
+                inherited lblAPGStatus: TLabel
+                  Left = 40
+                  ExplicitLeft = 40
+                end
+                inherited Label59: TLabel
+                  Left = 130
+                  Top = 152
+                  ExplicitLeft = 130
+                  ExplicitTop = 152
+                end
+                inherited Label60: TLabel
+                  Left = 130
+                  Top = 175
+                  ExplicitLeft = 130
+                  ExplicitTop = 175
+                end
+                inherited Label61: TLabel
+                  Left = 130
+                  Top = 198
+                  ExplicitLeft = 130
+                  ExplicitTop = 198
+                end
+                inherited Label63: TLabel
+                  Left = 112
+                  ExplicitLeft = 112
+                end
+                inherited Label64: TLabel
+                  Left = 130
+                  Top = 129
+                  ExplicitLeft = 130
+                  ExplicitTop = 129
+                end
+                inherited btn4: TButton
+                  Left = 255
+                  Top = 129
+                  Height = 22
+                  ExplicitLeft = 255
+                  ExplicitTop = 129
+                  ExplicitHeight = 22
+                end
+                inherited btn5: TButton
+                  Left = 255
+                  Top = 152
+                  Height = 22
+                  ExplicitLeft = 255
+                  ExplicitTop = 152
+                  ExplicitHeight = 22
+                end
+                inherited btn6: TButton
+                  Left = 255
+                  Top = 175
+                  Height = 22
+                  ExplicitLeft = 255
+                  ExplicitTop = 175
+                  ExplicitHeight = 22
+                end
+                inherited btn7: TButton
+                  Left = 255
+                  Top = 198
+                  Height = 22
+                  ExplicitLeft = 255
+                  ExplicitTop = 198
+                  ExplicitHeight = 22
+                end
+                inherited btnAPGLaunch: TButton
+                  Left = 250
+                  Top = 353
+                  ExplicitLeft = 250
+                  ExplicitTop = 353
+                end
+                inherited EdtAPGTargetTrack: TEdit
+                  Left = 128
+                  ExplicitLeft = 128
+                end
+                inherited EdtAPGSafetyCeiling: TEdit
+                  Left = 145
+                  Top = 175
+                  ExplicitLeft = 145
+                  ExplicitTop = 175
+                end
+                inherited EdtAPGSearchDepth: TEdit
+                  Left = 145
+                  Top = 152
+                  ExplicitLeft = 145
+                  ExplicitTop = 152
+                end
+                inherited EdtAPGSearchRadius: TEdit
+                  Left = 145
+                  ExplicitLeft = 145
+                end
+                inherited EdtAPGSeekerRange: TEdit
+                  Left = 145
+                  Top = 198
+                  ExplicitLeft = 145
+                  ExplicitTop = 198
+                end
+              end
+            end
+            inherited grbAcousticTorpedo: TGroupBox [16]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 359
+              ExplicitHeight = 1951
+              inherited ScrollBox2: TScrollBox
+                Width = 341
+                Height = 454
+                VertScrollBar.Position = 0
+                ExplicitWidth = 341
+                ExplicitHeight = 447
+                inherited lblAcousticTorpedoStatus: TLabel
+                  Left = 33
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 33
+                end
+                inherited lblAcousticTorpedoQuantity: TLabel
+                  Left = 183
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 183
+                end
+                inherited lbl4: TLabel
+                  Left = 13
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 13
+                end
+                inherited lbl37: TLabel
+                  Left = 204
+                  Top = 315
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 204
+                  ExplicitTop = 315
+                end
+                inherited lbl36: TLabel
+                  Left = 198
+                  Top = 244
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 198
+                  ExplicitTop = 244
+                end
+                inherited lbl35: TLabel
+                  Left = 198
+                  Top = 219
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 198
+                  ExplicitTop = 219
+                end
+                inherited lbl34: TLabel
+                  Left = 198
+                  Top = 194
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 198
+                  ExplicitTop = 194
+                end
+                inherited lbl33: TLabel
+                  Left = 198
+                  Top = 169
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 198
+                  ExplicitTop = 169
+                end
+                inherited lbl32: TLabel
+                  Left = 33
+                  Top = 269
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 269
+                end
+                inherited lbl31: TLabel
+                  Left = 33
+                  Top = 244
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 244
+                end
+                inherited lbl30: TLabel
+                  Left = 33
+                  Top = 219
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 219
+                end
+                inherited lbl29: TLabel
+                  Left = 33
+                  Top = 194
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 194
+                end
+                inherited lbl28: TLabel
+                  Left = 33
+                  Top = 169
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 169
+                end
+                inherited lbl27: TLabel
+                  Left = 33
+                  Top = 144
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 144
+                end
+                inherited lbl26: TLabel
+                  Left = 33
+                  Top = 119
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 119
+                end
+                inherited lbl25: TLabel
+                  Left = 33
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 33
+                end
+                inherited lbl24: TLabel
+                  Left = 13
+                  Top = 293
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 13
+                  ExplicitTop = 293
+                end
+                inherited lbl23: TLabel
+                  Left = 13
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 13
+                end
+                inherited lbl2: TLabel
+                  Left = 88
+                  Top = 315
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 88
+                  ExplicitTop = 315
+                end
+                inherited lbl16: TLabel
+                  Left = 33
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 33
+                end
+                inherited lbl11: TLabel
+                  Left = 13
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 13
+                end
+                inherited lbl10: TLabel
+                  Left = 123
+                  Font.Color = clWhite
+                  ParentFont = False
+                  ExplicitLeft = 123
+                end
+                inherited bvl8: TBevel
+                  Left = 63
+                  Top = 301
+                  ExplicitLeft = 63
+                  ExplicitTop = 301
+                end
+                inherited bvl7: TBevel
+                  Left = 63
+                  ExplicitLeft = 63
+                end
+                inherited bvl6: TBevel
+                  Left = 63
+                  ExplicitLeft = 63
+                end
+                inherited bvl5: TBevel
+                  Left = 63
+                  ExplicitLeft = 63
+                end
+                inherited btnSearchTarget: TSpeedButton
+                  Left = 151
+                  ExplicitLeft = 151
+                end
+                inherited btnRunOutAT: TSpeedButton
+                  Left = 198
+                  Top = 143
+                  ExplicitLeft = 198
+                  ExplicitTop = 143
+                end
+                inherited btnGyroAngleAT: TSpeedButton
+                  Left = 198
+                  Top = 268
+                  ExplicitLeft = 198
+                  ExplicitTop = 268
+                end
+                inherited btnFiringModeAT: TSpeedButton
+                  Left = 198
+                  Top = 118
+                  ExplicitLeft = 198
+                  ExplicitTop = 118
+                end
+                inherited btnDisplayBlindZonesShow: TSpeedButton
+                  Left = 186
+                  Top = 336
+                  Width = 50
+                  ExplicitLeft = 186
+                  ExplicitTop = 336
+                  ExplicitWidth = 50
+                end
+                inherited btnDisplayBlindZonesHide: TSpeedButton
+                  Left = 237
+                  Top = 335
+                  Width = 50
+                  ExplicitLeft = 237
+                  ExplicitTop = 335
+                  ExplicitWidth = 50
+                end
+                inherited btnAccousticDisplayRangeShow: TSpeedButton
+                  Left = 56
+                  Top = 336
+                  Width = 50
+                  ExplicitLeft = 56
+                  ExplicitTop = 336
+                  ExplicitWidth = 50
+                end
+                inherited btnAccousticDisplayRangeHide: TSpeedButton
+                  Left = 107
+                  Top = 336
+                  Width = 50
+                  Transparent = False
+                  ExplicitLeft = 107
+                  ExplicitTop = 336
+                  ExplicitWidth = 50
+                end
+                inherited btnTargetDetails: TButton
+                  Left = 248
+                  ExplicitLeft = 248
+                end
+                inherited EdtSeekerRangeAT: TEdit
+                  Left = 127
+                  Top = 242
+                  Width = 60
+                  ExplicitLeft = 127
+                  ExplicitTop = 242
+                  ExplicitWidth = 60
+                end
+                inherited EdtSearchRadiusAT: TEdit
+                  Left = 127
+                  Top = 167
+                  Width = 60
+                  ExplicitLeft = 127
+                  ExplicitTop = 167
+                  ExplicitWidth = 60
+                end
+                inherited EdtSearchDepthAT: TEdit
+                  Left = 127
+                  Top = 192
+                  Width = 60
+                  ExplicitLeft = 127
+                  ExplicitTop = 192
+                  ExplicitWidth = 60
+                end
+                inherited EdtSafetyCeilingAT: TEdit
+                  Left = 127
+                  Top = 217
+                  Width = 60
+                  ExplicitLeft = 127
+                  ExplicitTop = 217
+                  ExplicitWidth = 60
+                end
+                inherited EdtRunOutAT: TEdit
+                  Left = 127
+                  Top = 142
+                  Width = 60
+                  ExplicitLeft = 127
+                  ExplicitTop = 142
+                  ExplicitWidth = 60
+                end
+                inherited EdtGyroAngleAT: TEdit
+                  Left = 127
+                  Top = 267
+                  Width = 60
+                  ExplicitLeft = 127
+                  ExplicitTop = 267
+                  ExplicitWidth = 60
+                end
+                inherited EdtFiringModeAT: TEdit
+                  Left = 127
+                  Top = 117
+                  Width = 60
+                  ExplicitLeft = 127
+                  ExplicitTop = 117
+                  ExplicitWidth = 60
+                end
+                inherited EdtATTargetTrack: TEdit
+                  Left = 93
+                  ExplicitLeft = 93
+                end
+                inherited btnTube4AT: TButton
+                  Left = 202
+                  Top = 88
+                  ExplicitLeft = 202
+                  ExplicitTop = 88
+                end
+                inherited btnTube3AT: TButton
+                  Left = 177
+                  Top = 88
+                  ExplicitLeft = 177
+                  ExplicitTop = 88
+                end
+                inherited btnTube2AT: TButton
+                  Left = 152
+                  Top = 88
+                  ExplicitLeft = 152
+                  ExplicitTop = 88
+                end
+                inherited btnTube1AT: TButton
+                  Left = 127
+                  Top = 88
+                  ExplicitLeft = 127
+                  ExplicitTop = 88
+                end
+                inherited btntControlGyroAdvised: TButton
+                  Left = 248
+                  Top = 267
+                  ExplicitLeft = 248
+                  ExplicitTop = 267
+                end
+                inherited btnPlanAT: TButton
+                  Left = 11
+                  Top = 421
+                  Height = 22
+                  ExplicitLeft = 11
+                  ExplicitTop = 421
+                  ExplicitHeight = 22
+                end
+                inherited btnLaunchAT: TButton
+                  Left = 251
+                  Top = 421
+                  Height = 22
+                  ExplicitLeft = 251
+                  ExplicitTop = 421
+                  ExplicitHeight = 22
+                end
+                inherited btnControlSeeker: TButton
+                  Left = 248
+                  Top = 242
+                  ExplicitLeft = 248
+                  ExplicitTop = 242
+                end
+                inherited btnControlSearchRadius: TButton
+                  Left = 248
+                  Top = 167
+                  ExplicitLeft = 248
+                  ExplicitTop = 167
+                end
+                inherited btnControlSearchDepth: TButton
+                  Left = 248
+                  Top = 192
+                  ExplicitLeft = 248
+                  ExplicitTop = 192
+                end
+                inherited btnControlSafety: TButton
+                  Left = 248
+                  Top = 217
+                  ExplicitLeft = 248
+                  ExplicitTop = 217
+                end
+                inherited btnControlControlRunAdvised: TButton
+                  Left = 248
+                  Top = 142
+                  ExplicitLeft = 248
+                  ExplicitTop = 142
+                end
+                inherited btnCancelAT: TButton
                   Left = 97
-                  Top = 53
-                  Width = 51
-                  Height = 21
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -12
-                  Font.Name = 'Berlin Sans FB'
-                  Font.Style = []
-                  ParentFont = False
-                  ReadOnly = True
-                  TabOrder = 8
-                end
-                object pnlLaunch1: TPanel
-                  Tag = 1
-                  Left = 97
-                  Top = 100
-                  Width = 23
-                  Height = 52
-                  Caption = '1'
-                  Color = 2695445
-                  Font.Charset = DEFAULT_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Tahoma'
-                  Font.Style = []
-                  ParentBackground = False
-                  ParentFont = False
-                  TabOrder = 12
-                  object vrblnkldvbl1: TVrBlinkLed
-                    Tag = 1
-                    Left = 1
-                    Top = 1
-                    Width = 21
-                    Height = 20
-                    Palette1.Low = clRed
-                    Palette1.High = clLime
-                    Palette2.Low = clBlack
-                    Palette2.High = clAqua
-                    Palette3.Low = clBlack
-                    Palette3.High = clYellow
-                    Palette4.Low = clBlack
-                    Palette4.High = clLime
-                    BlinkLedType = ltLargeRect
-                    Margin = 2
-                    Spacing = 3
-                    Align = alTop
-                    Color = clMaroon
-                    Font.Charset = DEFAULT_CHARSET
-                    Font.Color = clWhite
-                    Font.Height = -11
-                    Font.Name = 'Tahoma'
-                    Font.Style = []
-                    ParentColor = False
-                    ParentFont = False
-                    BlinkSpeed = 250
-                    ExplicitLeft = 2
-                    ExplicitTop = 9
-                  end
-                end
-                object pnlLaunch2: TPanel
-                  Tag = 2
-                  Left = 122
-                  Top = 100
-                  Width = 23
-                  Height = 52
-                  Caption = '2'
-                  Color = 2695445
-                  Font.Charset = DEFAULT_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Tahoma'
-                  Font.Style = []
-                  ParentBackground = False
-                  ParentFont = False
-                  TabOrder = 13
-                  object vrblnkldvbl2: TVrBlinkLed
-                    Tag = 2
-                    Left = 1
-                    Top = 1
-                    Width = 21
-                    Height = 20
-                    Palette1.Low = clRed
-                    Palette1.High = clLime
-                    Palette2.Low = clBlack
-                    Palette2.High = clAqua
-                    Palette3.Low = clBlack
-                    Palette3.High = clYellow
-                    Palette4.Low = clBlack
-                    Palette4.High = clLime
-                    BlinkLedType = ltLargeRect
-                    Margin = 2
-                    Spacing = 3
-                    Align = alTop
-                    Color = clMaroon
-                    Font.Charset = DEFAULT_CHARSET
-                    Font.Color = clWhite
-                    Font.Height = -11
-                    Font.Name = 'Tahoma'
-                    Font.Style = []
-                    ParentColor = False
-                    ParentFont = False
-                    BlinkSpeed = 250
-                    ExplicitLeft = 2
-                    ExplicitTop = 9
-                  end
-                end
-                object pnlLaunch3: TPanel
-                  Tag = 3
-                  Left = 147
-                  Top = 100
-                  Width = 23
-                  Height = 52
-                  Caption = '3'
-                  Color = 2695445
-                  Font.Charset = DEFAULT_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Tahoma'
-                  Font.Style = []
-                  ParentBackground = False
-                  ParentFont = False
-                  TabOrder = 14
-                  object vrblnkldvbl3: TVrBlinkLed
-                    Tag = 3
-                    Left = 1
-                    Top = 1
-                    Width = 21
-                    Height = 20
-                    Palette1.Low = clRed
-                    Palette1.High = clLime
-                    Palette2.Low = clBlack
-                    Palette2.High = clAqua
-                    Palette3.Low = clBlack
-                    Palette3.High = clYellow
-                    Palette4.Low = clBlack
-                    Palette4.High = clLime
-                    BlinkLedType = ltLargeRect
-                    Margin = 2
-                    Spacing = 3
-                    Align = alTop
-                    Color = clMaroon
-                    Font.Charset = DEFAULT_CHARSET
-                    Font.Color = clWhite
-                    Font.Height = -11
-                    Font.Name = 'Tahoma'
-                    Font.Style = []
-                    ParentColor = False
-                    ParentFont = False
-                    BlinkSpeed = 250
-                    ExplicitLeft = 2
-                    ExplicitTop = 9
-                  end
-                end
-                object pnlLaunch4: TPanel
-                  Tag = 4
-                  Left = 172
-                  Top = 100
-                  Width = 23
-                  Height = 52
-                  Caption = '4'
-                  Color = 2695445
-                  Font.Charset = DEFAULT_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Tahoma'
-                  Font.Style = []
-                  ParentBackground = False
-                  ParentFont = False
-                  TabOrder = 15
-                  object vrblnkldvbl4: TVrBlinkLed
-                    Tag = 4
-                    Left = 1
-                    Top = 1
-                    Width = 21
-                    Height = 20
-                    Palette1.Low = clRed
-                    Palette1.High = clLime
-                    Palette2.Low = clBlack
-                    Palette2.High = clAqua
-                    Palette3.Low = clBlack
-                    Palette3.High = clYellow
-                    Palette4.Low = clBlack
-                    Palette4.High = clLime
-                    BlinkLedType = ltLargeRect
-                    Margin = 2
-                    Spacing = 3
-                    Align = alTop
-                    Color = clMaroon
-                    Font.Charset = DEFAULT_CHARSET
-                    Font.Color = clWhite
-                    Font.Height = -11
-                    Font.Name = 'Tahoma'
-                    Font.Style = []
-                    ParentColor = False
-                    ParentFont = False
-                    BlinkSpeed = 250
-                    ExplicitLeft = 2
-                    ExplicitTop = 9
-                  end
-                end
-                object pnlLaunch5: TPanel
-                  Tag = 5
-                  Left = 197
-                  Top = 100
-                  Width = 23
-                  Height = 52
-                  Caption = '5'
-                  Color = 2695445
-                  Font.Charset = DEFAULT_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Tahoma'
-                  Font.Style = []
-                  ParentBackground = False
-                  ParentFont = False
-                  TabOrder = 16
-                  object vrblnkldvbl5: TVrBlinkLed
-                    Tag = 5
-                    Left = 1
-                    Top = 1
-                    Width = 21
-                    Height = 20
-                    Palette1.Low = clRed
-                    Palette1.High = clLime
-                    Palette2.Low = clBlack
-                    Palette2.High = clAqua
-                    Palette3.Low = clBlack
-                    Palette3.High = clYellow
-                    Palette4.Low = clBlack
-                    Palette4.High = clLime
-                    BlinkLedType = ltLargeRect
-                    Margin = 2
-                    Spacing = 3
-                    Align = alTop
-                    Color = clMaroon
-                    Font.Charset = DEFAULT_CHARSET
-                    Font.Color = clWhite
-                    Font.Height = -11
-                    Font.Name = 'Tahoma'
-                    Font.Style = []
-                    ParentColor = False
-                    ParentFont = False
-                    BlinkSpeed = 250
-                    ExplicitLeft = 2
-                    ExplicitTop = 9
-                  end
-                end
-                object pnlLaunch6: TPanel
-                  Tag = 6
-                  Left = 222
-                  Top = 99
-                  Width = 23
-                  Height = 52
-                  Caption = '6'
-                  Color = 2695445
-                  Font.Charset = DEFAULT_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Tahoma'
-                  Font.Style = []
-                  ParentBackground = False
-                  ParentFont = False
-                  TabOrder = 17
-                  object vrblnkldvbl6: TVrBlinkLed
-                    Tag = 6
-                    Left = 1
-                    Top = 1
-                    Width = 21
-                    Height = 20
-                    Palette1.Low = clRed
-                    Palette1.High = clLime
-                    Palette2.Low = clBlack
-                    Palette2.High = clAqua
-                    Palette3.Low = clBlack
-                    Palette3.High = clYellow
-                    Palette4.Low = clBlack
-                    Palette4.High = clLime
-                    BlinkLedType = ltLargeRect
-                    Margin = 2
-                    Spacing = 3
-                    Align = alTop
-                    Color = clMaroon
-                    Font.Charset = DEFAULT_CHARSET
-                    Font.Color = clWhite
-                    Font.Height = -11
-                    Font.Name = 'Tahoma'
-                    Font.Style = []
-                    ParentColor = False
-                    ParentFont = False
-                    BlinkSpeed = 250
-                    ExplicitLeft = 2
-                    ExplicitTop = 9
-                  end
-                end
-                object pnlLaunch7: TPanel
-                  Tag = 7
-                  Left = 247
-                  Top = 100
-                  Width = 23
-                  Height = 52
-                  Caption = '7'
-                  Color = 2695445
-                  Font.Charset = DEFAULT_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Tahoma'
-                  Font.Style = []
-                  ParentBackground = False
-                  ParentFont = False
-                  TabOrder = 18
-                  object vrblnkldvbl7: TVrBlinkLed
-                    Tag = 7
-                    Left = 1
-                    Top = 1
-                    Width = 21
-                    Height = 20
-                    Palette1.Low = clRed
-                    Palette1.High = clLime
-                    Palette2.Low = clBlack
-                    Palette2.High = clAqua
-                    Palette3.Low = clBlack
-                    Palette3.High = clYellow
-                    Palette4.Low = clBlack
-                    Palette4.High = clLime
-                    BlinkLedType = ltLargeRect
-                    Margin = 2
-                    Spacing = 3
-                    Align = alTop
-                    Color = clMaroon
-                    Font.Charset = DEFAULT_CHARSET
-                    Font.Color = clWhite
-                    Font.Height = -11
-                    Font.Name = 'Tahoma'
-                    Font.Style = []
-                    ParentColor = False
-                    ParentFont = False
-                    BlinkSpeed = 250
-                    ExplicitLeft = 2
-                    ExplicitTop = 9
-                  end
-                end
-                object pnlLaunch8: TPanel
-                  Tag = 8
-                  Left = 272
-                  Top = 100
-                  Width = 23
-                  Height = 52
-                  Caption = '8'
-                  Color = 2695445
-                  Font.Charset = DEFAULT_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Tahoma'
-                  Font.Style = []
-                  ParentBackground = False
-                  ParentFont = False
-                  TabOrder = 19
-                  object vrblnkldvbl8: TVrBlinkLed
-                    Tag = 8
-                    Left = 1
-                    Top = 1
-                    Width = 21
-                    Height = 20
-                    Palette1.Low = clRed
-                    Palette1.High = clLime
-                    Palette2.Low = clBlack
-                    Palette2.High = clAqua
-                    Palette3.Low = clBlack
-                    Palette3.High = clYellow
-                    Palette4.Low = clBlack
-                    Palette4.High = clLime
-                    BlinkLedType = ltLargeRect
-                    Margin = 2
-                    Spacing = 3
-                    Align = alTop
-                    Color = clMaroon
-                    Font.Charset = DEFAULT_CHARSET
-                    Font.Color = clWhite
-                    Font.Height = -11
-                    Font.Name = 'Tahoma'
-                    Font.Style = []
-                    ParentColor = False
-                    ParentFont = False
-                    BlinkSpeed = 250
-                    ExplicitLeft = 2
-                    ExplicitTop = 9
-                  end
-                end
-                object pnlSurfaceToSurfaceWp: TPanel
-                  Left = -2
-                  Top = 259
-                  Width = 305
-                  Height = 55
-                  BevelOuter = bvNone
-                  Color = 2695445
-                  Font.Charset = DEFAULT_CHARSET
-                  Font.Color = clWhite
-                  Font.Height = -13
-                  Font.Name = 'Tahoma'
-                  Font.Style = []
-                  ParentBackground = False
-                  ParentFont = False
-                  TabOrder = 11
-                  object bvl36: TBevel
-                    Left = 80
-                    Top = 15
-                    Width = 218
-                    Height = 3
-                  end
-                  object lbl211: TLabel
-                    Left = 15
-                    Top = 7
-                    Width = 56
-                    Height = 15
-                    Caption = 'Waypoints'
-                    Font.Charset = ANSI_CHARSET
-                    Font.Color = clWhite
-                    Font.Height = -13
-                    Font.Name = 'Berlin Sans FB'
-                    Font.Style = []
-                    ParentFont = False
-                  end
-                  object btnSurfaceToSurfaceMissileWaypointsAdd: TButton
-                    Tag = 11
-                    Left = 74
-                    Top = 29
-                    Width = 51
-                    Height = 21
-                    Caption = 'Add'
-                    Font.Charset = ANSI_CHARSET
-                    Font.Color = clBlack
-                    Font.Height = -12
-                    Font.Name = 'Berlin Sans FB'
-                    Font.Style = []
-                    ParentFont = False
-                    TabOrder = 0
-                  end
-                  object btnSurfaceToSurfaceMissileWaypointsApply: TButton
-                    Tag = 13
-                    Left = 180
-                    Top = 29
-                    Width = 51
-                    Height = 21
-                    Caption = 'Apply'
-                    Font.Charset = ANSI_CHARSET
-                    Font.Color = clBlack
-                    Font.Height = -12
-                    Font.Name = 'Berlin Sans FB'
-                    Font.Style = []
-                    ParentFont = False
-                    TabOrder = 1
-                  end
-                  object btnSurfaceToSurfaceMissileWaypointsCancel: TButton
-                    Tag = 14
-                    Left = 233
-                    Top = 29
-                    Width = 51
-                    Height = 21
-                    Caption = 'Cancel'
-                    Font.Charset = ANSI_CHARSET
-                    Font.Color = clBlack
-                    Font.Height = -12
-                    Font.Name = 'Berlin Sans FB'
-                    Font.Style = []
-                    ParentFont = False
-                    TabOrder = 2
-                  end
-                  object btnSurfaceToSurfaceMissileWaypointsDelete: TButton
-                    Tag = 12
-                    Left = 127
-                    Top = 29
-                    Width = 51
-                    Height = 21
-                    Caption = 'Delete'
-                    Font.Charset = ANSI_CHARSET
-                    Font.Color = clBlack
-                    Font.Height = -12
-                    Font.Name = 'Berlin Sans FB'
-                    Font.Style = []
-                    ParentFont = False
-                    TabOrder = 3
-                  end
-                  object btnSurfaceToSurfaceMissileWaypointsEdit: TButton
-                    Tag = 10
-                    Left = 21
-                    Top = 29
-                    Width = 51
-                    Height = 21
-                    Caption = 'Edit'
-                    Font.Charset = ANSI_CHARSET
-                    Font.Color = clBlack
-                    Font.Height = -12
-                    Font.Name = 'Berlin Sans FB'
-                    Font.Style = []
-                    ParentFont = False
-                    TabOrder = 4
-                  end
+                  Top = 421
+                  Height = 22
+                  ExplicitLeft = 97
+                  ExplicitTop = 421
+                  ExplicitHeight = 22
                 end
               end
             end
           end
-          object grpWireGuidedTorpedo: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 15
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-          end
-          object grpTacticalAcousticTorpedos: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 12
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object bvl37: TBevel
-              Left = 61
-              Top = 144
-              Width = 235
-              Height = 3
-            end
-            object bvl38: TBevel
-              Left = 61
-              Top = 232
-              Width = 235
-              Height = 3
-            end
-            object bvl39: TBevel
-              Left = 61
-              Top = 38
-              Width = 235
-              Height = 3
-            end
-            object bvl40: TBevel
-              Left = 61
-              Top = 93
-              Width = 235
-              Height = 3
-            end
-            object btnTacticalAcousticTorpedosTargetTrack: TSpeedButton
-              Left = 164
-              Top = 161
-              Width = 23
-              Height = 23
-              Glyph.Data = {
-                56080000424D560800000000000036000000280000001A0000001A0000000100
-                18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                7070737070737070737070737070737070737070737070737070737070737070
-                737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-            end
-            object lbl217: TLabel
-              Left = 16
-              Top = 31
-              Width = 32
-              Height = 15
-              Caption = 'Status'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl218: TLabel
-              Left = 128
-              Top = 55
-              Width = 52
-              Height = 15
-              Caption = 'Quantity :'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl219: TLabel
-              Left = 16
-              Top = 85
-              Width = 39
-              Height = 15
-              Caption = 'Control'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl220: TLabel
-              Left = 16
-              Top = 136
-              Width = 35
-              Height = 15
-              Caption = 'Target'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl221: TLabel
-              Left = 38
-              Top = 165
-              Width = 30
-              Height = 15
-              Caption = 'Track'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl222: TLabel
-              Left = 16
-              Top = 225
-              Width = 37
-              Height = 15
-              Caption = 'Display'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl223: TLabel
-              Left = 66
-              Top = 250
-              Width = 35
-              Height = 15
-              Caption = 'Range'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl224: TLabel
-              Left = 200
-              Top = 250
-              Width = 60
-              Height = 15
-              Caption = 'Blind Zones'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl225: TLabel
-              Left = 38
-              Top = 195
-              Width = 38
-              Height = 15
-              Caption = 'Identity'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl226: TLabel
-              Left = 38
-              Top = 110
-              Width = 50
-              Height = 15
-              Caption = 'Salvo Size'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblTacticalAcousticTorpedosStatus: TLabel
-              Left = 38
-              Top = 55
-              Width = 48
-              Height = 15
-              Caption = 'Available'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblTacticalAcousticTorpedosQuantity: TLabel
-              Left = 188
-              Top = 55
-              Width = 15
-              Height = 15
-              Caption = '---'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblTacticalAcousticTorpedosTargetIdentity: TLabel
-              Left = 128
-              Top = 195
-              Width = 15
-              Height = 16
-              Caption = '---'
-            end
-            object btnTacticalAcousticTorpedosDisplayBlindHide: TSpeedButton
-              Left = 230
-              Top = 270
-              Width = 60
-              Height = 25
-              AllowAllUp = True
-              GroupIndex = 1
-              Down = True
-              Caption = 'Hide'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object btnTacticalAcousticTorpedosDisplayBlindShow: TSpeedButton
-              Left = 171
-              Top = 270
-              Width = 60
-              Height = 25
-              AllowAllUp = True
-              GroupIndex = 1
-              Caption = 'Show'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object btnTacticalAcousticTorpedosDisplayRangeHide: TSpeedButton
-              Left = 86
-              Top = 270
-              Width = 60
-              Height = 25
-              AllowAllUp = True
-              GroupIndex = 2
-              Down = True
-              Caption = 'Hide'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object btnTacticalAcousticTorpedosDisplayRangeShow: TSpeedButton
-              Left = 22
-              Top = 270
-              Width = 60
-              Height = 25
-              AllowAllUp = True
-              GroupIndex = 2
-              Caption = 'Show'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl227: TLabel
-              Left = 92
-              Top = 110
-              Width = 3
-              Height = 15
-              Caption = ':'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl228: TLabel
-              Left = 92
-              Top = 165
-              Width = 3
-              Height = 15
-              Caption = ':'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl229: TLabel
-              Left = 92
-              Top = 195
-              Width = 3
-              Height = 15
-              Caption = ':'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-            end
-            object btnTacticalAcousticTorpedosLaunch: TButton
-              Left = 216
-              Top = 403
-              Width = 80
-              Height = 25
-              Caption = 'Launch'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
-              ParentFont = False
-              TabOrder = 0
-            end
-            object edtTacticalAcousticTorpedosSalvo: TEdit
-              Left = 109
-              Top = 106
-              Width = 53
-              Height = 23
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 1
-            end
-            object edtTacticalAcousticTorpedosTargetTrack: TEdit
-              Left = 109
-              Top = 160
-              Width = 53
-              Height = 23
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Berlin Sans FB'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 2
-            end
-          end
-          object grpTacticalMissiles: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 13
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object scrlbx10: TScrollBox
-              Left = 2
-              Top = 18
-              Width = 330
-              Height = 461
-              Align = alClient
-              BorderStyle = bsNone
-              TabOrder = 0
-              ExplicitWidth = 337
-              ExplicitHeight = 446
-              object bvl41: TBevel
-                Left = 61
-                Top = 4
-                Width = 234
-                Height = 2
-              end
-              object bvl42: TBevel
-                Left = 81
-                Top = 238
-                Width = 234
-                Height = 2
-              end
-              object bvl43: TBevel
-                Left = 61
-                Top = 137
-                Width = 234
-                Height = 2
-              end
-              object bvl44: TBevel
-                Left = 61
-                Top = 39
-                Width = 234
-                Height = 2
-              end
-              object bvl45: TBevel
-                Left = 61
-                Top = 295
-                Width = 230
-                Height = 2
-              end
-              object btnTacticalMissileTargetAimpoint: TSpeedButton
-                Left = 238
-                Top = 74
-                Width = 23
-                Height = 23
-                Caption = '+'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnTacticalMissileTargetTrack: TSpeedButton
-                Left = 170
-                Top = 49
-                Width = 23
-                Height = 23
-                Glyph.Data = {
-                  56080000424D560800000000000036000000280000001A0000001A0000000100
-                  18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                  70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                  8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                  8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                  2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                  2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                  D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                  E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                  8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                  8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                  A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                  6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                  D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                  D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                  000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                  7070737070737070737070737070737070737070737070737070737070737070
-                  737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-              end
-              object lbl230: TLabel
-                Left = 16
-                Top = -3
-                Width = 32
-                Height = 15
-                Caption = 'Status'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl231: TLabel
-                Left = 125
-                Top = 13
-                Width = 52
-                Height = 15
-                Caption = 'Quantity :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl232: TLabel
-                Left = 16
-                Top = 31
-                Width = 35
-                Height = 15
-                Caption = 'Target'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl233: TLabel
-                Left = 16
-                Top = 131
-                Width = 39
-                Height = 15
-                Caption = 'Control'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl234: TLabel
-                Left = 25
-                Top = 153
-                Width = 74
-                Height = 15
-                Caption = 'Salvo Size       :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl235: TLabel
-                Left = 172
-                Top = 103
-                Width = 50
-                Height = 15
-                Caption = 'degrees T'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl236: TLabel
-                Left = 16
-                Top = 287
-                Width = 37
-                Height = 15
-                Caption = 'Display'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl237: TLabel
-                Left = 44
-                Top = 306
-                Width = 35
-                Height = 15
-                Caption = 'Range'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl238: TLabel
-                Left = 198
-                Top = 306
-                Width = 60
-                Height = 15
-                Caption = 'Blind Zones'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl239: TLabel
-                Left = 27
-                Top = 179
-                Width = 81
-                Height = 15
-                Caption = 'Cruise Altitude :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl240: TLabel
-                Left = 26
-                Top = 205
-                Width = 82
-                Height = 15
-                Caption = 'Seeker Range  :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl241: TLabel
-                Left = 186
-                Top = 179
-                Width = 20
-                Height = 15
-                Caption = 'feet'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl242: TLabel
-                Left = 186
-                Top = 205
-                Width = 17
-                Height = 15
-                Caption = 'nm'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl243: TLabel
-                Left = 16
-                Top = 230
-                Width = 56
-                Height = 15
-                Caption = 'Waypoints'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblTacticalMissileStatus: TLabel
-                Left = 35
-                Top = 13
-                Width = 48
-                Height = 15
-                Caption = 'Available'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblTacticalMissileStatusQuantity: TLabel
-                Left = 185
-                Top = 13
-                Width = 15
-                Height = 15
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnTacticalMissileDisplayBlindHide: TSpeedButton
-                Left = 231
-                Top = 325
-                Width = 60
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 1
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnTacticalMissileDisplayBlindShow: TSpeedButton
-                Left = 171
-                Top = 325
-                Width = 60
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 1
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnTacticalMissileDisplayRangeHide: TSpeedButton
-                Left = 76
-                Top = 325
-                Width = 60
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 2
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnTacticalMissileDisplayRangeShow: TSpeedButton
-                Left = 16
-                Top = 325
-                Width = 60
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 2
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl244: TLabel
-                Left = 45
-                Top = 53
-                Width = 30
-                Height = 15
-                Caption = 'Track'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl245: TLabel
-                Left = 45
-                Top = 77
-                Width = 48
-                Height = 15
-                Caption = 'Aimpoint'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl246: TLabel
-                Left = 45
-                Top = 102
-                Width = 41
-                Height = 15
-                Caption = 'Bearing'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl247: TLabel
-                Left = 99
-                Top = 52
-                Width = 3
-                Height = 15
-                Caption = ':'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl248: TLabel
-                Left = 99
-                Top = 77
-                Width = 3
-                Height = 15
-                Caption = ':'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lbl249: TLabel
-                Left = 99
-                Top = 102
-                Width = 3
-                Height = 15
-                Caption = ':'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnTacticalMissileControlCruise: TButton
-                Left = 230
-                Top = 176
-                Width = 65
-                Height = 21
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 0
-              end
-              object btnTacticalMissileControlSeeker: TButton
-                Left = 231
-                Top = 202
-                Width = 64
-                Height = 21
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 1
-              end
-              object btnTacticalMissileLaunch: TButton
-                Left = 213
-                Top = 388
-                Width = 80
-                Height = 25
-                Caption = 'Launch'
-                Enabled = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 2
-              end
-              object btnTacticalMissileTargetBearing: TButton
-                Left = 225
-                Top = 100
-                Width = 73
-                Height = 22
-                Caption = 'Brg to Hook'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 3
-              end
-              object btnTacticalMissileWaypointAdd: TButton
-                Left = 118
-                Top = 252
-                Width = 70
-                Height = 23
-                Caption = 'Add'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 4
-              end
-              object btnTacticalMissileWaypointCancel: TButton
-                Left = 192
-                Top = 252
-                Width = 70
-                Height = 23
-                Caption = 'Cancel'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 5
-              end
-              object btnTacticalMissileWaypointEdit: TButton
-                Left = 44
-                Top = 252
-                Width = 70
-                Height = 23
-                Caption = 'Edit'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 6
-              end
-              object edtTacticalMissileControlCruise: TEdit
-                Left = 123
-                Top = 175
-                Width = 53
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 7
-              end
-              object edtTacticalMissileControlSalvo: TEdit
-                Left = 123
-                Top = 149
-                Width = 53
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 8
-              end
-              object edtTacticalMissileControlSeeker: TEdit
-                Left = 123
-                Top = 201
-                Width = 53
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 9
-              end
-              object edtTacticalMissileTargetAimpoint: TEdit
-                Left = 110
-                Top = 74
-                Width = 125
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 10
-              end
-              object edtTacticalMissileTargetBearing: TEdit
-                Left = 110
-                Top = 99
-                Width = 57
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 11
-              end
-              object edtTacticalMissileTargetTrack: TEdit
-                Left = 110
-                Top = 49
-                Width = 57
-                Height = 23
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 12
-              end
-              object rbTacticalMissileTargetAimpoint: TRadioButton
-                Tag = 1
-                Left = 25
-                Top = 77
-                Width = 19
-                Height = 17
-                TabOrder = 13
-              end
-              object rbTacticalMissileTargetBearing: TRadioButton
-                Tag = 2
-                Left = 25
-                Top = 102
-                Width = 19
-                Height = 17
-                TabOrder = 14
-              end
-              object rbTacticalMissileTargetTrack: TRadioButton
-                Left = 25
-                Top = 52
-                Width = 19
-                Height = 17
-                TabOrder = 15
-              end
-            end
-          end
-          object grpWakeHomingTorpedos: TGroupBox
-            Left = 0
-            Top = 0
-            Width = 334
-            Height = 481
-            Align = alClient
-            Color = 2695445
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 14
-            ExplicitWidth = 341
-            ExplicitHeight = 466
-            object ScrollBox5: TScrollBox
-              Left = 2
-              Top = 18
-              Width = 330
-              Height = 461
-              Align = alClient
-              BevelInner = bvNone
-              BevelOuter = bvNone
-              BorderStyle = bsNone
-              TabOrder = 0
-              ExplicitWidth = 337
-              ExplicitHeight = 446
-              object Bevel17: TBevel
-                Left = 59
-                Top = 11
-                Width = 235
-                Height = 3
-              end
-              object Bevel18: TBevel
-                Left = 59
-                Top = 60
-                Width = 235
-                Height = 3
-              end
-              object Bevel5: TBevel
-                Left = 59
-                Top = 112
-                Width = 235
-                Height = 3
-              end
-              object Bevel6: TBevel
-                Left = 59
-                Top = 269
-                Width = 235
-                Height = 3
-              end
-              object btnWakeHomingTargetTrack: TSpeedButton
-                Tag = 5
-                Left = 190
-                Top = 125
-                Width = 23
-                Height = 23
-                Glyph.Data = {
-                  56080000424D560800000000000036000000280000001A0000001A0000000100
-                  18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-                  70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-                  8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-                  8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-                  2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-                  2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-                  D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-                  E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-                  8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-                  8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-                  A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-                  6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-                  555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-                  8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-                  D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-                  D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-                  737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-                  000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-                  7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-                  7070737070737070737070737070737070737070737070737070737070737070
-                  737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-                  E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-                  E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-                  E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-                Layout = blGlyphRight
-              end
-              object btnWHBlindHide: TSpeedButton
-                Tag = 4
-                Left = 233
-                Top = 306
-                Width = 60
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 1
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnWHBlindShow: TSpeedButton
-                Tag = 3
-                Left = 173
-                Top = 306
-                Width = 60
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 1
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnWHRangeHide: TSpeedButton
-                Tag = 2
-                Left = 74
-                Top = 304
-                Width = 60
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 2
-                Down = True
-                Caption = 'Hide'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnWHRangeShow: TSpeedButton
-                Tag = 1
-                Left = 14
-                Top = 304
-                Width = 60
-                Height = 25
-                AllowAllUp = True
-                GroupIndex = 2
-                Caption = 'Show'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label23: TLabel
-                Left = 14
-                Top = 4
-                Width = 32
-                Height = 15
-                Caption = 'Status'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label25: TLabel
-                Left = 114
-                Top = 28
-                Width = 52
-                Height = 15
-                Caption = 'Quantity :'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label26: TLabel
-                Left = 14
-                Top = 105
-                Width = 35
-                Height = 15
-                Caption = 'Target'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label27: TLabel
-                Left = 24
-                Top = 130
-                Width = 30
-                Height = 15
-                Caption = 'Track'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label28: TLabel
-                Left = 14
-                Top = 262
-                Width = 37
-                Height = 15
-                Caption = 'Display'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label29: TLabel
-                Left = 56
-                Top = 282
-                Width = 35
-                Height = 15
-                Caption = 'Range'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label30: TLabel
-                Left = 205
-                Top = 282
-                Width = 60
-                Height = 15
-                Caption = 'Blind Zones'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label31: TLabel
-                Left = 24
-                Top = 155
-                Width = 41
-                Height = 15
-                Caption = 'Identity '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                Visible = False
-              end
-              object Label32: TLabel
-                Left = 24
-                Top = 180
-                Width = 79
-                Height = 15
-                Caption = 'Target Bearing'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label33: TLabel
-                Left = 24
-                Top = 205
-                Width = 84
-                Height = 15
-                Caption = 'Launch Bearing'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label34: TLabel
-                Left = 24
-                Top = 230
-                Width = 73
-                Height = 15
-                Caption = 'Seeker Range'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label35: TLabel
-                Left = 194
-                Top = 180
-                Width = 50
-                Height = 15
-                Caption = 'degrees T'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label37: TLabel
-                Left = 194
-                Top = 205
-                Width = 50
-                Height = 15
-                Caption = 'degrees T'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label43: TLabel
-                Left = 114
-                Top = 230
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label44: TLabel
-                Left = 114
-                Top = 205
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label45: TLabel
-                Left = 114
-                Top = 180
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label46: TLabel
-                Left = 194
-                Top = 230
-                Width = 28
-                Height = 15
-                Caption = 'yards'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label47: TLabel
-                Left = 14
-                Top = 52
-                Width = 41
-                Height = 16
-                Caption = 'Control'
-              end
-              object Label48: TLabel
-                Left = 114
-                Top = 130
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label53: TLabel
-                Left = 114
-                Top = 76
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object Label55: TLabel
-                Left = 24
-                Top = 76
-                Width = 50
-                Height = 15
-                Caption = 'Salvo Size'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblWHQuantity: TLabel
-                Left = 174
-                Top = 28
-                Width = 15
-                Height = 16
-                Caption = '---'
-              end
-              object lblWHStatus: TLabel
-                Left = 24
-                Top = 28
-                Width = 48
-                Height = 15
-                Caption = 'Available'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblWHTargetBearing: TLabel
-                Left = 148
-                Top = 180
-                Width = 15
-                Height = 13
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object lblWHTargetIdentity: TLabel
-                Left = 148
-                Top = 155
-                Width = 15
-                Height = 13
-                Caption = '---'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                Visible = False
-              end
-              object Label21: TLabel
-                Left = 114
-                Top = 155
-                Width = 9
-                Height = 15
-                Caption = ' : '
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -13
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-              end
-              object btnWHDefaultSeekerRange: TButton
-                Tag = 1
-                Left = 233
-                Top = 227
-                Width = 65
-                Height = 21
-                Caption = '< Default'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 0
-              end
-              object btnWHLaunch: TButton
-                Tag = 2
-                Left = 219
-                Top = 388
-                Width = 75
-                Height = 25
-                Caption = 'Launch'
-                Enabled = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 1
-              end
-              object EdtWHLaunchBearing: TEdit
-                Tag = 2
-                Left = 134
-                Top = 201
-                Width = 53
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 2
-              end
-              object EdtWHSalvo: TEdit
-                Tag = 1
-                Left = 134
-                Top = 72
-                Width = 53
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                NumbersOnly = True
-                ParentFont = False
-                TabOrder = 3
-                Text = '1'
-              end
-              object EdtWHSeekerRange: TEdit
-                Tag = 3
-                Left = 134
-                Top = 226
-                Width = 53
-                Height = 21
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                TabOrder = 4
-              end
-              object EdtWHTargetTrack: TEdit
-                Left = 134
-                Top = 126
-                Width = 53
-                Height = 21
-                Enabled = False
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -12
-                Font.Name = 'Berlin Sans FB'
-                Font.Style = []
-                ParentFont = False
-                ReadOnly = True
-                TabOrder = 5
-              end
-            end
-          end
+        end
+        inherited pmenuWeapon: TPopupMenu
+          Left = 234
+          Top = 65529
+        end
+        inherited pmenuFiring: TPopupMenu
+          Left = 156
+          Top = 65527
+        end
+        inherited pmenuEngagement: TPopupMenu
+          Left = 204
+          Top = 65528
+        end
+        inherited TimerLaunch: TTimer
+          Left = 128
+          Top = 520
+        end
+        inherited TimerRipple: TTimer
+          Left = 96
+          Top = 520
+        end
+        inherited tmrSTOT: TTimer
+          OnTimer = nil
+          Left = 64
+          Top = 520
+        end
+        inherited tmrLaunchSTOT: TTimer
+          Left = 32
+          Top = 520
+        end
+        inherited pmenuWpnCarrier: TPopupMenu
+          Left = 176
+          Top = 65528
+        end
+        inherited pmenuWpn: TPopupMenu
+          Top = 0
+        end
+        inherited pmTorpedoFiring: TPopupMenu
+          Left = 168
+          Top = 520
+        end
+        inherited pmTorpedoRunOut: TPopupMenu
+          Left = 200
+          Top = 520
+        end
+        inherited pmTorpedoGyroAngle: TPopupMenu
+          Left = 232
+          Top = 520
+        end
+        inherited TmrAPG: TTimer
+          Left = 272
+          Top = 520
         end
       end
     end
@@ -31069,7 +25730,6 @@ object frmRightAtasAir: TfrmRightAtasAir
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitWidth = 351
       object Image4: TImage
         Left = 0
         Top = 0

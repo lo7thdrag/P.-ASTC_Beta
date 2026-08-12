@@ -776,7 +776,7 @@ begin
      IsDetailView := TT3Sensor(sensor).InsideDetailRange(aTrack);
 //    IsDetailView := True;
 
-    if IsDetailView then // edit aldy + andik 20032012
+    if IsDetailView then
       track.IsDetailViewed := True
     else
       track.IsDetailViewed := false;
@@ -815,7 +815,7 @@ begin
 
     track.addDetectBy(TT3DeviceUnit(sensor));
     track.NotifyScaleMap := NotifyScaleMap;
-    track.TrackIdent := piPending; // farid 20042012
+    track.TrackIdent := piPending;
 
     if IsIns then
       track.IsEnable := False
@@ -824,7 +824,7 @@ begin
 
     // check sensor detail viewed
 //     IsDetailView := TT3Sensor(sensor).InsideDetailRange(aTrack);
-    IsDetailView := True; // edit aldy + andik 20032012
+    IsDetailView := True;
 
 //    pi := nil;
     if aTrack is TT3PlatformInstance then
@@ -1668,28 +1668,16 @@ begin
   VNetClient.RegisterTCPPacket(CPID_REMOTE_CMD, SizeOf(TRecSendRemote),
     netRecv_CmdRemote);
 
-  // nando Waypoint
-  VNetClient.RegisterTCPPacket(CPID_SincWaypoint, SizeOf(TrecSinc_Waypoint),
-    netRecv_SincWaypoint);
+  VNetClient.RegisterTCPPacket(CPID_SincWaypoint, SizeOf(TrecSinc_Waypoint),netRecv_SincWaypoint);
+  VNetClient.RegisterTCPPacket(CPID_SincRBLW, SizeOf(TrecSinc_RBLW),netRecv_SincRBLWMissile);
+  VNetClient.RegisterTCPPacket(CPID_SincBOLW, SizeOf(TrecSinc_BOLW),netRecv_SincBOLWMissile);
+  VNetClient.RegisterTCPPacket(CPID_CMD_Missile_Envi, SizeOf(TrecMissile_Envi),netRecv_SincMissileEnvi);
 
-  // nando RBLW
-  VNetClient.RegisterTCPPacket(CPID_SincRBLW, SizeOf(TrecSinc_RBLW),
-    netRecv_SincRBLWMissile);
-  VNetClient.RegisterTCPPacket(CPID_SincBOLW, SizeOf(TrecSinc_BOLW),
-    netRecv_SincBOLWMissile);
-  VNetClient.RegisterTCPPacket(CPID_CMD_Missile_Envi, SizeOf(TrecMissile_Envi),
-    netRecv_SincMissileEnvi);
-
-  // farah
-  VNetClient.RegisterTCPPacket(CPID_CMD_ENVI, SizeOf(TrecSinc_Envi),
-    netRecv_cmd_environment);
-
-  VNetClient.RegisterTCPPacket(CPID_CMD_SNAPSHOT, SizeOf(TRecCommandSnapshot),
-    netRecv_cmd_snapshot);
+  VNetClient.RegisterTCPPacket(CPID_CMD_ENVI, SizeOf(TrecSinc_Envi),netRecv_cmd_environment);
+  VNetClient.RegisterTCPPacket(CPID_CMD_SNAPSHOT, SizeOf(TRecCommandSnapshot), netRecv_cmd_snapshot);
 
   // ------------------------------------------------------------------------------
-  VNetVoipCtrlServer.RegisterPacket(CPID_VOIP_PLATFORM_SELECT,
-    SizeOf(TRecVoip_SelectPlatform), nil);
+  VNetVoipCtrlServer.RegisterPacket(CPID_VOIP_PLATFORM_SELECT,SizeOf(TRecVoip_SelectPlatform), nil);
 
   VNetClient.RegisterTCPPacket(CPID_CMD_LAUNCH_CHAFF,
     SizeOf(TRecCmd_LaunchChaff), netRecv_CmdLaunchChaff);

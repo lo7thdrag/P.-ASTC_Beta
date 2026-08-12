@@ -145434,8 +145434,8 @@ object frmUserMainForm: TfrmUserMainForm
           6C574B87D36F1B7D75FF0082A8635D2A94EAB4E0FA6F6BDA7FB66923F47D9FAA
           3F647A7C23D3F547A7EB8F4F87E8FFD9}
         Stretch = True
-        ExplicitWidth = 3840
-        ExplicitHeight = 2160
+        ExplicitLeft = -7
+        ExplicitTop = 139
       end
     end
     object pnlLeft: TPanel
@@ -153829,16 +153829,16 @@ object frmUserMainForm: TfrmUserMainForm
       end
       object pnlLogin: TPanel
         Left = 20
-        Top = 605
+        Top = 620
         Width = 321
-        Height = 200
+        Height = 184
         BevelOuter = bvNone
         TabOrder = 22
         object img8: TImage
           Left = 0
           Top = 0
           Width = 321
-          Height = 200
+          Height = 184
           Align = alClient
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D49484452000001410000
@@ -155100,7 +155100,7 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object btnEdit: TImage
           Left = 113
-          Top = 154
+          Top = 132
           Width = 96
           Height = 30
           Picture.Data = {
@@ -155303,7 +155303,7 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object btnLogOut: TImage
           Left = 13
-          Top = 154
+          Top = 132
           Width = 96
           Height = 30
           ParentCustomHint = False
@@ -155539,7 +155539,7 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object lbl7: TLabel
           Left = 35
-          Top = 111
+          Top = 92
           Width = 44
           Height = 21
           Caption = 'Status'
@@ -155552,9 +155552,9 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object lbl8: TLabel
           Left = 116
-          Top = 69
+          Top = 68
           Width = 4
-          Height = 19
+          Height = 21
           Caption = ':'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
@@ -155565,7 +155565,7 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object lbl9: TLabel
           Left = 116
-          Top = 112
+          Top = 93
           Width = 4
           Height = 19
           Caption = ':'
@@ -155578,7 +155578,7 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object lblStatus: TLabel
           Left = 136
-          Top = 112
+          Top = 93
           Width = 20
           Height = 19
           Caption = '-----'
@@ -155591,9 +155591,9 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object lblUsername: TLabel
           Left = 136
-          Top = 69
+          Top = 68
           Width = 20
-          Height = 19
+          Height = 21
           Caption = '-----'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
@@ -155604,7 +155604,7 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object btnRegister: TImage
           Left = 213
-          Top = 154
+          Top = 132
           Width = 96
           Height = 30
           Picture.Data = {
@@ -155815,16 +155815,16 @@ object frmUserMainForm: TfrmUserMainForm
       end
       object pnlUserLogin: TPanel
         Left = 20
-        Top = 605
+        Top = 620
         Width = 321
-        Height = 200
+        Height = 184
         BevelOuter = bvNone
         TabOrder = 21
         object img7: TImage
           Left = 0
           Top = 0
           Width = 321
-          Height = 200
+          Height = 184
           Align = alClient
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D49484452000001410000
@@ -157080,10 +157080,12 @@ object frmUserMainForm: TfrmUserMainForm
             7FFADDDB6EBE6CF7F66D0728377B8DFA238560FC5FF051D37777C2B6A9000000
             0049454E44AE426082}
           Stretch = True
+          ExplicitTop = 24
+          ExplicitHeight = 176
         end
         object btnShowPassword: TImage
           Left = 265
-          Top = 116
+          Top = 101
           Width = 20
           Height = 12
           Cursor = crHandPoint
@@ -157119,7 +157121,7 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object btnUserLogin: TImage
           Left = 111
-          Top = 154
+          Top = 138
           Width = 100
           Height = 30
           Picture.Data = {
@@ -157338,7 +157340,7 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object lbl2: TLabel
           Left = 35
-          Top = 111
+          Top = 97
           Width = 65
           Height = 21
           Caption = 'Password'
@@ -157364,7 +157366,7 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object lbl4: TLabel
           Left = 116
-          Top = 111
+          Top = 98
           Width = 4
           Height = 19
           Caption = ':'
@@ -157390,7 +157392,7 @@ object frmUserMainForm: TfrmUserMainForm
         end
         object edtPasword: TEdit
           Left = 136
-          Top = 110
+          Top = 95
           Width = 125
           Height = 24
           Font.Charset = DEFAULT_CHARSET

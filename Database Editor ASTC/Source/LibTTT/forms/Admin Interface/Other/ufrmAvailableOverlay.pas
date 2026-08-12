@@ -280,6 +280,7 @@ procedure TfrmAvailableOverlay.UpdateOverlayList;
 var
   i : Integer;
   overlay : TOverlay_Definition;
+  tipeTemp : String;
 begin
   lstGrapicalOverlays.Items.Clear;
 
@@ -293,7 +294,13 @@ begin
   for i := 0 to FOverlayList.Count - 1 do
   begin
     overlay := FOverlayList.Items[i];
-    lstGrapicalOverlays.Items.AddObject(overlay.FData.Overlay_Identifier, overlay);
+
+    case overlay.FData.Tipe of
+      0 : tipeTemp := 'Dynamic';
+      1 : tipeTemp := 'Static';
+    end;
+
+    lstGrapicalOverlays.Items.AddObject(overlay.FData.Overlay_Identifier + #9 + tipeTemp, overlay);
     frmProgress.increase(overlay.FData.Overlay_Identifier);
   end;
   frmProgress.Free;

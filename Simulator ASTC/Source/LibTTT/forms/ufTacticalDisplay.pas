@@ -773,6 +773,8 @@ type
     lblLMT: TLabel;
     Label29: TLabel;
     lblTime: TLabel;
+    imgOverlay: TImage;
+    Image2: TImage;
 
 //    ToolBtnComm: TToolButton;
 
@@ -6402,11 +6404,12 @@ begin
           {$REGION ' BawahAir '}
           {$ENDREGION}
         end;
-//        4:
-//        begin
-//          {$REGION ' General '}
-//          {$ENDREGION}
-//        end;
+        4:
+        begin
+          {$REGION ' General '}
+          btnMultiMode.Visible := False;
+          {$ENDREGION}
+        end;
       end;
       begin
         {Hide Menu}
@@ -7941,7 +7944,18 @@ end;
 
 procedure TfrmTacticalDisplay.btnOverlayClick(Sender: TObject);
 begin
-  fmOverlayEditor.Show;
+  if Sender = imgOverlay then
+  begin
+    imgOverlay.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Overlay_Select.bmp');
+  end;
+  try
+    fmOverlayEditor.Show;
+  finally
+//     if Sender = imgOverlay then
+//    begin
+//      imgOverlay.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Overlay_Normal.bmp');
+//    end;
+  end;
 end;
 
 procedure TfrmTacticalDisplay.btnPanClick(Sender: TObject);

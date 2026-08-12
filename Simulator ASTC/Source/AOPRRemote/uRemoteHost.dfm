@@ -6,7 +6,7 @@ object frmRemoteHost: TfrmRemoteHost
   Caption = ' Monitor Student'
   ClientHeight = 90
   ClientWidth = 281
-  Color = 16775920
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -24,6 +24,12 @@ object frmRemoteHost: TfrmRemoteHost
     Width = 45
     Height = 13
     Caption = 'Console :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object rg1: TRadioGroup
     Left = 24
@@ -49,7 +55,13 @@ object frmRemoteHost: TfrmRemoteHost
     Height = 25
     Caption = '&Ok'
     Default = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
     ModalResult = 1
+    ParentFont = False
     TabOrder = 1
   end
   object btnCancel: TButton
@@ -59,7 +71,13 @@ object frmRemoteHost: TfrmRemoteHost
     Height = 25
     Cancel = True
     Caption = '&Cancel'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
     ModalResult = 2
+    ParentFont = False
     TabOrder = 2
   end
   object ComboBox1: TComboBox

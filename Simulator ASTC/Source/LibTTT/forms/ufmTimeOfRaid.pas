@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, DateUtils;
+  Dialogs, StdCtrls, DateUtils, Vcl.ExtCtrls;
 
 type
   TfmTimeOfRaid = class(TForm)
@@ -16,6 +16,9 @@ type
     lblJTime: TLabel;
     Label1: TLabel;
     btnClose: TButton;
+    imgBackground: TImage;
+    lblRTCaption: TLabel;
+    lblGTCaption: TLabel;
     procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }

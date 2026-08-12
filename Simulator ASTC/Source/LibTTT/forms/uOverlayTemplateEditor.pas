@@ -359,7 +359,6 @@ type
     Label61: TLabel;
     Label62: TLabel;
     btnNone: TSpeedButton;
-    lbl111: TLabel;
     pnlWarning: TPanel;
     lbl86: TLabel;
     lblWarning: TLabel;
@@ -1759,7 +1758,7 @@ begin
   pnlDynamic.Visible := False;
 
   if StateOverlay = 0 then
-    btnMove.Enabled := False
+    btnMove.Enabled := True
   else
     btnMove.Enabled := True;
 
@@ -1780,6 +1779,7 @@ begin
     3:{Close}
     begin
       Close;
+      frmTacticalDisplay.imgOverlay.Picture.LoadFromFile('data\Image Simulator\Navigasi\Button\Overlay_Normal.bmp');
     end;
     4:{Create}
     begin
@@ -2851,12 +2851,32 @@ begin
       grpTemplate.Left := 351;
       Self.Caption := FSelectedOverlay.Name;
 
-      lblState.Caption := 'STATIC';
-      pnlStatic.Visible := True;
+      FSelectedOverlay.isShow := True;
+      TipeOverlay := StateOverlay;
 
-      pnlPenEditing.Visible := True;
-      grbColour.Visible := True;
-      grpObjectEditor.Visible := True;
+      rbStatic.Checked  := (TipeOverlay = osStatic);
+      rbDynamic.Checked := (TipeOverlay = osDynamic);
+
+      if TipeOverlay = 1 then
+      begin
+        lblState.Caption := 'STATIC';
+        pnlStatic.Visible := True;
+        pnlDynamic.Visible := False;
+
+        pnlPenEditing.Visible := True;
+        grbColour.Visible := True;
+        grpObjectEditor.Visible := True;
+      end
+      else
+      begin
+        lblState.Caption := 'DYNAMIC';
+        pnlStatic.Visible := False;
+        pnlDynamic.Visible := True;
+
+        pnlPenEditing.Visible := True;
+        grbColour.Visible := True;
+        grpObjectEditor.Visible := True;
+      end;
 
       {Selain overlay yg diedit, semuanya di hiden}
       for i := 0 to simMgrClient.SimOverlayTemplate.FList.Count - 1 do

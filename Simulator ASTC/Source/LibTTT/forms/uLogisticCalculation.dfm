@@ -6,7 +6,7 @@ object fmLogisticTamplate: TfmLogisticTamplate
   Caption = 'Shipping Route'
   ClientHeight = 647
   ClientWidth = 687
-  Color = 5980694
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -22,7 +22,7 @@ object fmLogisticTamplate: TfmLogisticTamplate
   TextHeight = 13
   object grpLogisticTamplate: TGroupBox
     Left = 6
-    Top = 8
+    Top = 6
     Width = 330
     Height = 636
     Color = 16775920
@@ -188,7 +188,7 @@ object fmLogisticTamplate: TfmLogisticTamplate
   end
   object grpLogisticEditor: TGroupBox
     Left = 349
-    Top = 8
+    Top = 6
     Width = 330
     Height = 636
     Color = 16775920

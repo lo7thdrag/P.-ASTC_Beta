@@ -856,7 +856,6 @@ type
     Label190: TLabel;
     Label192: TLabel;
     edtAtmRefract: TEdit;
-    trbAtmRefract: TTrackBar;
     pnlCloud: TPanel;
     lblCloud: TLabel;
     lblnofog: TLabel;
@@ -922,9 +921,6 @@ type
     edtDayVis: TEdit;
     edtNightInfra: TEdit;
     edtNightVis: TEdit;
-    trbDaytimeInfra: TTrackBar;
-    trbNighttimeInfra: TTrackBar;
-    trbNighttimeVisual: TTrackBar;
     pnlWind: TPanel;
     lblWind: TLabel;
     GroupBox5: TGroupBox;
@@ -1319,6 +1315,22 @@ type
     btnEnviControlNew: TImage;
     btnTacticalNew: TImage;
     trbDaytimeVisual: TVrTrackBar;
+    trbNighttimeVisual: TVrTrackBar;
+    trbDaytimeInfra: TVrTrackBar;
+    trbNighttimeInfra: TVrTrackBar;
+    trbAtmRefract: TVrTrackBar;
+    Image10: TImage;
+    Image11: TImage;
+    Image12: TImage;
+    Panel121: TPanel;
+    Label92: TLabel;
+    Label94: TLabel;
+    dtpSunset: TDateTimePicker;
+    dtpSunrise: TDateTimePicker;
+    Image13: TImage;
+    Image14: TImage;
+    Image15: TImage;
+    Image16: TImage;
 
 
 
@@ -1647,7 +1659,6 @@ type
     procedure btnMouseLeave (sender : TObject);
     procedure trbDaytimeVisualMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure edtNightVisChange(Sender: TObject);
 
     {$ENDREGION}
 
@@ -18904,8 +18915,8 @@ begin
   if not TryStrToInt(edtAtmRefract.Text, value) then
     Exit;
 
-  if value > trbAtmRefract.Max then
-    value := trbAtmRefract.Max;
+//  if value > trbAtmRefract.Max then
+//    value := trbAtmRefract.Max;
 
   trbAtmRefract.Position := value;
 end;
@@ -19083,8 +19094,8 @@ begin
   if not TryStrToInt(edtNightInfra.Text, value) then
     Exit;
 
-  if value > trbNighttimeInfra.Max then
-    value := trbNighttimeInfra.Max;
+//  if value > trbNighttimeInfra.Max then
+//    value := trbNighttimeInfra.Max;
 
   trbNighttimeInfra.Position := value;
 end;
@@ -19145,8 +19156,8 @@ begin
   if not TryStrToInt(edtDayInfra.Text, value) then
     Exit;
 
-  if value > trbDaytimeInfra.Max then
-    value := trbDaytimeInfra.Max;
+//  if value > trbDaytimeInfra.Max then
+//    value := trbDaytimeInfra.Max;
 
   trbDaytimeInfra.Position := value;
 end;

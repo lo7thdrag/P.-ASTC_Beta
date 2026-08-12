@@ -21984,7 +21984,7 @@ object frmRightAtasAir: TfrmRightAtasAir
           Font.Color = clBlack
           Font.Height = -13
           ParentFont = False
-          ExplicitWidth = 359
+          ExplicitWidth = 345
           ExplicitHeight = 41
           inherited btnWeapon: TSpeedButton
             Left = 315
@@ -22008,24 +22008,24 @@ object frmRightAtasAir: TfrmRightAtasAir
           Height = 474
           ExplicitTop = 41
           ExplicitWidth = 345
-          ExplicitHeight = 463
+          ExplicitHeight = 474
           inherited PanelTacticalWeapons: TPanel
             Width = 345
             Height = 474
             ExplicitWidth = 345
-            ExplicitHeight = 463
+            ExplicitHeight = 474
             inherited grbTacticalMissiles: TGroupBox [0]
               Width = 345
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox7: TScrollBox
                 Width = 341
                 Height = 454
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited Bevel107: TBevel
                   Left = 70
                   ExplicitLeft = 70
@@ -22219,8 +22219,8 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited Label439: TLabel
                 Left = 23
                 ExplicitLeft = 23
@@ -22339,13 +22339,15 @@ object frmRightAtasAir: TfrmRightAtasAir
             inherited grbSurfaceToSurfaceMissile: TGroupBox [2]
               Width = 345
               Height = 474
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitLeft = 0
+              ExplicitTop = 0
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox6: TScrollBox
                 Width = 341
                 Height = 454
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited btnSurfaceToSurfaceMissileFiring: TSpeedButton
                   Left = 213
                   Top = 169
@@ -22689,13 +22691,13 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox1: TScrollBox
                 Width = 341
                 Height = 454
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited Label1: TLabel
                   Left = 20
                   ParentFont = False
@@ -23054,15 +23056,15 @@ object frmRightAtasAir: TfrmRightAtasAir
               Width = 345
               Height = 474
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox10: TScrollBox
                 Width = 341
                 Height = 454
                 ParentBackground = True
                 ParentColor = False
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited Bevel19: TBevel
                   Left = 72
                   ExplicitLeft = 72
@@ -23308,13 +23310,13 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox5: TScrollBox
                 Width = 341
                 Height = 454
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited Bevel17: TBevel
                   Left = 72
                   ExplicitLeft = 72
@@ -23499,13 +23501,13 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox4: TScrollBox
                 Width = 341
                 Height = 454
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited btnSRBlindHide: TSpeedButton
                   Left = 195
                   Top = 276
@@ -23723,8 +23725,8 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited Label272: TLabel
                 Left = 23
                 Top = 20
@@ -23842,13 +23844,13 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited scrlbx1: TScrollBox
                 Width = 341
                 Height = 454
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited btnHybridMissileDisplayBlindZonesHide: TSpeedButton
                   Left = 237
                   Top = 335
@@ -24048,21 +24050,21 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
             end
             inherited grbGunEngagementChaffMode: TGroupBox [10]
               Width = 345
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox9: TScrollBox
                 Width = 341
                 Height = 454
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited Label348: TLabel
                   Left = 20
                   ParentFont = False
@@ -24195,16 +24197,16 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
             end
             inherited grbBombDepthCharge: TGroupBox [12]
               Width = 345
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited bvl17: TBevel
                 Left = 72
                 Top = 82
@@ -24403,13 +24405,13 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox13: TScrollBox
                 Width = 341
                 Height = 454
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited Label367: TLabel
                   ParentFont = False
                 end
@@ -24596,13 +24598,13 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox8: TScrollBox
                 Width = 341
                 Height = 454
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited btnADBilndHide: TSpeedButton
                   Left = 247
                   Top = 349
@@ -25021,14 +25023,14 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox3: TScrollBox
                 Width = 341
                 Height = 454
                 ParentColor = False
-                ExplicitWidth = 355
-                ExplicitHeight = 1931
+                ExplicitWidth = 341
+                ExplicitHeight = 454
                 inherited btnAPGBilndHide: TSpeedButton
                   Left = 201
                   Top = 307
@@ -25274,14 +25276,14 @@ object frmRightAtasAir: TfrmRightAtasAir
               Height = 474
               ParentBackground = False
               ParentColor = False
-              ExplicitWidth = 359
-              ExplicitHeight = 1951
+              ExplicitWidth = 345
+              ExplicitHeight = 474
               inherited ScrollBox2: TScrollBox
                 Width = 341
                 Height = 454
                 VertScrollBar.Position = 0
                 ExplicitWidth = 341
-                ExplicitHeight = 447
+                ExplicitHeight = 454
                 inherited lblAcousticTorpedoStatus: TLabel
                   Left = 33
                   Font.Color = clWhite

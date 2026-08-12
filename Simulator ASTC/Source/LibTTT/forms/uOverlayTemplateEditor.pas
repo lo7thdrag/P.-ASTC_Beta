@@ -1900,6 +1900,8 @@ begin
 end;
 
 function TfmOverlayEditor.CekInput(IdObject: Integer): Boolean;
+var
+  InnerRadius, OuterRadius, InputHeading: Double;
 begin
   Result := False;
   lbl86.Visible := False;
@@ -1908,311 +1910,697 @@ begin
   case StateOverlay of
 
     {$REGION ' Dynamic Section '}
-    osDynamic :
-    begin
-      case IdObject of
-        ovText:{Text}
-        begin
-          if(edtTextRange.Text = '')or(edtTextBearing.Text = '')or(edtTextFieldD.Text = '')
-          or(cbbTextSizeD.Text = '')then
-          begin
-            lblWarning.Caption := 'Incomplete data input';
-            Result := True ;
-          end
-          else if (StrToInt(cbbTextSizeD.Text) > 72) or(StrToInt(cbbTextSizeD.Text) = 0) then
-          begin
-            lblWarning.Caption := 'Invalid size input';
-            Result := True;
-          end;
-        end;
-        ovLine:{Line}
-        begin
-          if (edtLineStartRange.Text = '')or(edtLineStartBearing.Text = '')or
-          (edtLineEndRange.Text = '')or(edtLineEndBearing.Text = '') then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtLineStartRange.Text = edtLineEndRange.Text ) and (edtLineEndRange.Text = edtLineEndBearing.Text )then
-          begin
-            lblWarning.Caption := 'Invalid input..., Start and End position can not be identical';
-            Result := True;
-          end;;
-        end;
-        ovRectangle:{Rectangle}
-        begin
-          if (edtRecStartRange.Text = '')or(edtRecStartBearing.Text = '')or
-          (edtRecEndRange.Text = '')or(edtRecEndBearing.Text = '') then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtRecStartRange.Text = edtRecEndRange.Text ) and (edtRecStartBearing.Text = edtRecEndBearing.Text )then
-          begin
-            lblWarning.Caption := 'Invalid input..., Top-Left and Bottom-Right position can not be identical';
-            Result := True;
-          end;;
-        end;
-        ovCircle:{Circle}
-        begin
-          if (edtCircleRange.Text = '')or(edtCircleBearing.Text = '') or
-          (edtCircleRadiusD.Text = '') then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtCircleRadiusD.Text = '0' ) then
-          begin
-            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
-            Result := True;
-          end;
-        end;
-        ovEllipse:{Ellipse}
-        begin
-          if (edtEllipseRange.Text = '')or(edtEllipseBearing.Text = '')or
-          (edtEllipseHorizontalD.Text = '')or(edtEllipseVerticalD.Text = '')then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtEllipseHorizontalD.Text = '0') or (edtEllipseVerticalD.Text = '0')then
-          begin
-            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
-            Result := True;
-          end;
-        end;
+    osDynamic:
+      begin
+        case ShapeType of
+          ovText: { Text }
+            begin
+              {$REGION ' Text '}
+              if (edtTextRange.Text = '') or (edtTextBearing.Text = '') or
+                (edtTextFieldD.Text = '') or (cbbTextSizeD.Text = '') then
+              begin
+                ShowMessage('Input data tidak lengkap');
+                Result := True;
+              end
+              else if (StrToInt(cbbTextSizeD.Text) > 72) or
+                (StrToInt(cbbTextSizeD.Text) = 0) then
+              begin
+                ShowMessage('Input ukuran tidak sesuai');
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovLine: { Line }
+            begin
+              {$REGION ' Line '}
+              if (edtLineStartRange.Text = '') or (edtLineStartBearing.Text = '') or
+                (edtLineEndRange.Text = '') or (edtLineEndBearing.Text = '') then
+              begin
+                ShowMessage('Input data tidak lengkap');
+                Result := True;
+              end
+              else if (edtLineStartRange.Text = edtLineEndRange.Text) and
+                (edtLineEndRange.Text = edtLineEndBearing.Text) then
+              begin
+                ShowMessage('Input data tidak sesuai, Start dan End position tidak boleh sama');
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovRectangle: { Rectangle }
+            begin
+              {$REGION ' Rectangle '}
+              if (edtRecStartRange.Text = '') or (edtRecStartBearing.Text = '')
+                or (edtRecEndRange.Text = '') or (edtRecEndBearing.Text = '')
+              then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (edtRecStartRange.Text = edtRecEndRange.Text) and
+                (edtRecStartBearing.Text = edtRecEndBearing.Text) then
+              begin
+                ShowMessage( 'Input data tidak sesuai, Top-Left dan Bottom-Right tidak boleh sama' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovCircle: { Circle }
+            begin
+              {$REGION ' Circle '}
+              if (edtCircleRange.Text = '') or (edtCircleBearing.Text = '') or
+                (edtCircleRadiusD.Text = '') then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (edtCircleRadiusD.Text = '0') then
+              begin
+                ShowMessage( 'Input data tidak sesuai, Radius tidak boleh bernilai 0.' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovEllipse: { Ellipse }
+            begin
+              {$REGION ' Ellipse '}
+              if (edtEllipseRange.Text = '') or (edtEllipseBearing.Text = '') or
+              (edtEllipseHorizontalD.Text = '') or (edtEllipseVerticalD.Text = '') then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (edtEllipseHorizontalD.Text = '0') or (edtEllipseVerticalD.Text = '0') then
+              begin
+                ShowMessage( 'Nilai Radius tidak sesuai, minimum radius > 0' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovArc: { Arc }
+            begin
+              {$REGION ' Arc '}
+              if (edtArcRange.Text = '') or (edtArcBearing.Text = '') or
+                (edtArcRadiusD.Text = '') or (edtArcStartAngleD.Text = '') or
+                (edtArcEndAngleD.Text = '') then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (edtArcRadiusD.Text = '0') then
+              begin
+                ShowMessage( 'Nilai Radius tidak sesuai, minimum radius > 0' );
+                Result := True;
+              end
+              else if (edtArcStartAngleD.Text = edtArcEndAngleD.Text) then
+              begin
+                ShowMessage( 'Input data tidak sesuai, Start dan End Angle tidak boleh sama' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovSector: { Sector }
+            begin
+              {$REGION ' Sector '}
+              InnerRadius := StrToFloat(edtSectorInnerD.Text);
+              OuterRadius := StrToFloat(edtSectorOuterD.Text);
 
-        ovArc:{Arc}
-        begin
-          if (edtArcRange.Text = '')or(edtArcBearing.Text = '')or
-          (edtArcRadiusD.Text = '')or(edtArcStartAngleD.Text = '')or
-          (edtArcEndAngleD.Text = '')or(edtArcPosLat.Text = '')or
-          (edtArcPosLong.Text ='')then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtArcRadiusD.Text = '0') then
-          begin
-            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
-            Result := True;
-          end
-          else if (edtArcStartAngleD.Text = edtArcEndAngleD.Text) then
-          begin
-            lblWarning.Caption := 'Invalid input..., Start and End Angle can not be identical';
-            Result := True;
-          end;
-        end;
-        ovSector:{Sector}
-        begin
-          if (edtSectorRange.Text = '')or(edtSectorBearing.Text = '')or
-          (edtSectorInnerD.Text = '')or(edtSectorOuterD.Text = '')or
-          (edtSectorStartAngleD.Text = '')or(edtSectorEndAngleD.Text = '')then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtSectorInnerD.Text = '0')or (edtSectorOuterD.Text = '0')then
-          begin
-            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
-            Result := True;
-          end
-          else if (edtSectorStartAngleD.Text = edtSectorEndAngleD.Text) then
-          begin
-            lblWarning.Caption := 'Invalid input..., Start and End Angle can not be identical';
-            Result := True;
-          end
-          else if (edtSectorInnerD.Text = edtSectorOuterD.Text) then
-          begin
+              if(edtSectorInnerD.Text = '') or (edtSectorOuterD.Text = '')or
+              (edtSectorStartAngleD.Text = '') or (edtSectorEndAngleD.Text = '')or
+              (edtSectorRange.Text = '')or (edtSectorBearing.Text = '')then
+              begin
+                ShowMessage ('Input data tidak lengkap');
+                Result := True;
+              end
+              else if (InnerRadius <= 0) or (OuterRadius <= 0) then
+              begin
+                ShowMessage ('Nilai Radius tidak sesuai. minimum radius > 0');
+                Result := True;
+              end
+              else if (edtSectorStartAngleD.Text = edtSectorEndAngleD.Text) then
+              begin
+                ShowMessage ('Input data tidak sesuai, Start dan End Angle tidak boleh sama');
+                Result := True;
+              end
+              else if (InnerRadius = OuterRadius) then
+              begin
+                ShowMessage ('Input data tidak lengkap, Inner Radius dan Outer Radius tidak boleh sama');
+                Result := True;
+              end
+              else if (InnerRadius > OuterRadius) then
+              begin
+                ShowMessage ('Input data tidak lengkap, Nilai Inner Radius tidak boleh melebihi nilai Outer Radius');
+                Result := True;
+              end
+              else if (OuterRadius < InnerRadius) then
+              begin
+                ShowMessage ('Input data tidak lengkap, Nilai Outer Radius tidak kurang melebihi nilai Inner Radius');
+                Result := True;
+              end;
+              {$ENDREGION}
 
-            lblWarning.Caption := 'Invalid input..., Inner and Outer Radius can not be identical';
-            Result := True;
-          end;
-        end;
-        ovGrid:{Grid}
-        begin
-          if (edtTableRange.Text = '')or(edtTableBearing.Text = '')or
-          (edtTableHeightD.Text = '')or(edtTableColumnD.Text = '')or
-          (edtTableWidthD.Text = '')or(edtTableRowD.Text = '')or
-          (edtRotationAngleD.Text = '')then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtTableHeightD.Text = '0') or (edtTableColumnD.Text = '0') or (edtTableWidthD.Text = '0')
-          or (edtTableRowD.Text = '0') then
-          begin
-            lblWarning.Caption := 'Invalid input, minimum Col, Row and height > 0';
-            Result := True;
-          end;
-        end;
-        ovPolygon:{Polygon}
-        begin
-          if lvPolyVertexD.Items.Count < 1 then
-          begin
-          lblWarning.Caption := 'Incomplete Data Input';
-          Result := True;
-          end;
+              {$REGION ' Sector - Lama '}
+//              if (edtSectorRange.Text = '') or (edtSectorBearing.Text = '') or
+//                (edtSectorInnerD.Text = '') or (edtSectorOuterD.Text = '') or
+//                (edtSectorStartAngleD.Text = '') or
+//                (edtSectorEndAngleD.Text = '') then
+//              begin
+//                lblWarning.Caption := 'Incomplete data input';
+//                Result := True;
+//              end
+//              else if (edtSectorInnerD.Text = '0') or
+//                (edtSectorOuterD.Text = '0') then
+//              begin
+//                lblWarning.Caption :=
+//                  'Invalid radius input, minimum radius > 0';
+//                Result := True;
+//              end
+//              else if (edtSectorStartAngleD.Text = edtSectorEndAngleD.Text) then
+//              begin
+//                lblWarning.Caption :=
+//                  'Invalid input..., Start and End Angle can not be identical';
+//                Result := True;
+//              end
+              {$ENDREGION}
+            end;
+          ovGrid: { Grid }
+            begin
+              {$REGION ' Grid '}
+              if (edtTableRange.Text = '') or (edtTableBearing.Text = '') or
+                (edtTableHeightD.Text = '') or (edtTableColumnD.Text = '') or
+                (edtTableWidthD.Text = '') or (edtTableRowD.Text = '') or
+                (edtRotationAngleD.Text = '') then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (edtTableHeightD.Text = '0') or (edtTableColumnD.Text = '0') or
+              (edtTableWidthD.Text = '0') or (edtTableRowD.Text = '0') then
+              begin
+                ShowMessage( 'Input data tidak lengkap, minimum Col, Row dan height > 0' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovPolygon: { Polygon }
+            begin
+              if lvPolyVertexD.Items.Count < 1 then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end;
+            end;
         end;
       end;
-
-    end;
     {$ENDREGION}
 
     {$REGION ' Static Section '}
-    osStatic  :
-    begin
-      case IdObject of
-        ovText:{Text}
-         begin
-          if(edtTextPosLong.Text = '') or (edtTextPosLAt.Text= '')or
-          (edtTextField.Text = '')or(cbbTextSize.Text = '')then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (StrToInt(cbbTextSize.Text) > 72 )or (StrToInt(cbbTextSize.Text) = 0 )then
-          begin
-            lblWarning.Caption := 'Invalid size input';
-            Result := True;
-          end;
-        end;
-        ovLine:{Line}
-        begin
-          if (edtLineStartPosLong.Text ='') or (edtLineStartPosLat.Text = '')or
-          (edtLineEndPosLong.Text = '') or (edtLineEndPosLat.Text = '')then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtLineStartPosLong.Text = edtLineEndPosLong.Text) and (edtLineStartPosLat.Text = edtLineEndPosLat.Text)then
-          begin
-            lblWarning.Caption := 'Invalid input..., Start and End position can not be identical';
-            Result := True;
-          end;;
-        end;
-        ovRectangle:{Rectangle}
-        begin
-          if (edtRectStartPosLong.Text = '')or(edtRectStartPosLat.Text = '')or
-          (edtRectEndPosLong.Text = '')or (edtRectEndPosLat.Text = '')or
-          (edtRectStartPosLong.Text= '')or (edtRectStartPosLat.Text= '')or
-          (edtRectEndPosLat.Text= '')or(edtRectEndPosLong.Text= '') then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtRectStartPosLong.Text = edtRectEndPosLong.Text ) and (edtRectStartPosLat.Text = edtRectEndPosLat.Text )then
-          begin
-            lblWarning.Caption := 'Invalid input..., Top-Left and Bottom-Right position can not be identical';
-            Result := True;;
-          end;
-        end;
-        ovCircle:{Circle}
-        begin
-          if (edtCirclePosLong.Text = '')or (edtCirclePosLat.Text = '') or
-          (edtCircleRadius.Text = '')or(edtCirclePosLong.text='')or
-          (edtCirclePosLat.Text= '') then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtCircleRadius.Text = '0' ) then
-          begin
-            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
-            Result := True;
-          end;
-        end;
-        ovEllipse:{Ellipse}
-        begin
-          if (edtEllipsePosLong.Text = '')or (edtEllipsePosLat.Text = '')
-          or(edtHorizontal.Text = '') or (edtVertical.Text = '')or
-          (edtEllipsePosLat.text= '')or
-          (edtEllipsePosLong.Text= '') then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtHorizontal.Text = '0') or (edtVertical.Text = '0')then
-          begin
-            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
-            Result := True;
-          end;
-        end;
-        ovArc:{Arc}
-        begin
-          if (edtArcPosLong.Text = '') or (edtArcPosLat.Text = '')or
-          (edtArcRadius.Text = '')or(edtArcStartAngle.Text = '')or
-          (edtArcEndAngle.Text = '')then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtArcRadius.Text = '0') then
-          begin
-            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
-            Result := True;
-          end
-          else if (edtArcEndAngle.Text = edtArcStartAngle.Text) then
-          begin
-            lblWarning.Caption := 'Invalid input..., Start and End Angle can not be identical';
-            Result := True;
-          end;
-        end;
-        ovSector:{Sector}
-        begin
-          if(edtSectorInner.Text = '') or (edtSectorOuter.Text = '')or
-          (edtSectorStartAngle.Text = '') or (edtSectorEndAngle.Text = '')or
-          (edtSectorPosLat.Text = '')or (edtSectorPosLong.Text = '')then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
-          else if (edtSectorInner.Text = '0')or (edtSectorOuter.Text = '0')then
-          begin
-            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
-            Result := True;
-          end
-          else if (edtSectorStartAngle.Text = edtSectorEndAngle.Text) then
-          begin
-            lblWarning.Caption := 'Invalid input..., Start and End Angle can not be identical';
-            Result := True;
-          end
-          else if (edtSectorInner.Text = edtSectorOuter.Text) then
-          begin
-            lblWarning.Caption := 'Invalid input..., Inner and Outer Radius can not be identical';
-            Result := True;
-          end;
-        end;
-        ovGrid:{Grid}
-        begin
-          if (edtTablePosLong.Text = '')or (edtTablePosLat.Text ='') or
-          (edtTableHeight.Text = '')or (edtTableColumn.Text = '') or
-          (edtTableWidth.Text = '') or (edtTableRow.Text = '')or
-          (edtTableRotationAngle.Text = '')or(edtTablePosLat.Text ='')
-          or(edtTablePosLong.Text='') then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end
+    osStatic:
+      begin
+        case ShapeType of
+          ovText: { Text }
+            begin
+              {$REGION ' Text '}
+              if (edtTextPosLong.Text = '') or (edtTextPosLAt.Text = '') or
+                (edtTextField.Text = '') or (cbbTextSize.Text = '') then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (StrToInt(cbbTextSize.Text) > 72) or
+                (StrToInt(cbbTextSize.Text) = 0) then
+              begin
+                ShowMessage( 'Input ukuran tidak boleh melebihi 72' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovLine: { Line }
+            begin
+              {$REGION ' Line '}
+              if (edtLineStartPosLong.Text = '') or (edtLineStartPosLat.Text = '') or
+              (edtLineEndPosLong.Text = '') or (edtLineEndPosLat.Text = '') then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (edtLineStartPosLong.Text = edtLineEndPosLong.Text) and
+                (edtLineStartPosLat.Text = edtLineEndPosLat.Text) then
+              begin
+                ShowMessage( 'Input data tidak sesuai, Start dan End position tidak boleh sama' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovRectangle: { Rectangle }
+            begin
+              {$REGION ' Rectangle '}
+              if (edtRectStartPosLong.Text = '') or (edtRectStartPosLat.Text = '') or
+              (edtRectEndPosLong.Text = '') or (edtRectEndPosLat.Text = '') then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (edtRectStartPosLong.Text = edtRectEndPosLong.Text) and
+                (edtRectStartPosLat.Text = edtRectEndPosLat.Text) then
+              begin
+                ShowMessage( 'Input data tidak sesuai, Top-Left dan Bottom-Right tidak boleh sama' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovCircle: { Circle }
+            begin
+              {$REGION ' Circle '}
+              if (edtCirclePosLong.Text = '') or (edtCirclePosLat.Text = '') or
+                (edtCircleRadius.Text = '') then
+              begin
+                ShowMessage('Input data tidak lengkap');
+                Result := True;
+              end
+              else if (edtCircleRadius.Text = '0') then
+              begin
+                ShowMessage('Input data tidak sesuai, Radius tidak boleh bernilai 0.');
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovEllipse: { Ellipse }
+            begin
+              {$REGION ' ELlipse '}
+              if (edtEllipsePosLong.Text = '') or (edtEllipsePosLat.Text = '')
+                or (edtHorizontal.Text = '') or (edtVertical.Text = '') then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (edtHorizontal.Text = '0') or (edtVertical.Text = '0')
+              then
+              begin
+                ShowMessage( 'Nilai Radius tidak sesuai, minimum radius > 0' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovArc: { Arc }
+            begin
+              {$REGION ' Arc '}
+              if (edtArcPosLong.Text = '') or (edtArcPosLat.Text = '') or
+                (edtArcRadius.Text = '') or (edtArcEndAngle.Text = '') or
+                (edtArcStartAngle.Text = '') then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (edtArcRadius.Text = '0') then
+              begin
+                ShowMessage( 'Nilai Radius tidak sesuai, minimum radius > 0' );
+                Result := True;
+              end
+              else if (edtArcEndAngle.Text = edtArcStartAngle.Text) then
+              begin
+                ShowMessage( 'Input data tidak sesuai, Start dan End Angle tidak boleh sama' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovSector: { Sector }
+            begin
+              {$REGION ' Sector '}
+              InnerRadius := StrToFloat(edtSectorInner.Text);
+              OuterRadius := StrToFloat(edtSectorOuter.Text);
 
-          else if (edtTableHeight.Text = '0') or (edtTableColumn.Text = '0') or (edtTableWidth.Text = '0')
-          or (edtTableRow.Text = '0') then
-          begin
-            lblWarning.Caption := 'Invalid input, minimum Col, Row and height > 0';
-            Result := True;
-          end;
-        end;
-        ovPolygon:{Polygon}
-        begin
-          if lvPolyVertex.Items.Count < 1 then
-          begin
-            lblWarning.Caption := 'Incomplete Data Input';
-            Result := True;
-          end;
+              if(edtSectorInner.Text = '') or (edtSectorOuter.Text = '')or
+              (edtSectorStartAngle.Text = '') or (edtSectorEndAngle.Text = '')or
+              (edtSectorPosLat.Text = '')or (edtSectorPosLong.Text = '')then
+              begin
+                ShowMessage ('Input data tidak lengkap');
+                Result := True;
+              end
+              else if (InnerRadius <= 0) or (OuterRadius <= 0) then
+              begin
+                ShowMessage ('Nilai Radius tidak sesuai. minimum radius > 0');
+                Result := True;
+              end
+              else if (edtSectorStartAngle.Text = edtSectorEndAngle.Text) then
+              begin
+                ShowMessage ('Input data tidak sesuai, Start dan End Angle tidak boleh sama');
+                Result := True;
+              end
+              else if (InnerRadius = OuterRadius) then
+              begin
+                ShowMessage ('Input data tidak lengkap, Inner Radius dan Outer Radius tidak boleh sama');
+                Result := True;
+              end
+              else if (InnerRadius > OuterRadius) then
+              begin
+                ShowMessage ('Input data tidak lengkap, Nilai Inner Radius tidak boleh melebihi nilai Outer Radius');
+                Result := True;
+              end
+              else if (OuterRadius < InnerRadius) then
+              begin
+                ShowMessage ('Input data tidak lengkap, Nilai Outer Radius tidak kurang melebihi nilai Inner Radius');
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovGrid: { Grid }
+            begin
+              {$REGION ' Grid '}
+              if (edtTablePosLong.Text = '') or (edtTablePosLat.Text = '') or
+                (edtTableHeight.Text = '') or (edtTableColumn.Text = '') or
+                (edtTableWidth.Text = '') or (edtTableRow.Text = '') or
+                (edtTableRotationAngle.Text = '') then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end
+              else if (edtTableHeight.Text = '0') or (edtTableColumn.Text = '0')
+                or (edtTableWidth.Text = '0') or (edtTableRow.Text = '0') then
+              begin
+                ShowMessage( 'Input data tidak lengkap, minimum Col, Row dan height > 0' );
+                Result := True;
+              end;
+              {$ENDREGION}
+            end;
+          ovPolygon: { Polygon }
+            begin
+              if lvPolyVertex.Items.Count < 1 then
+              begin
+                ShowMessage( 'Input data tidak lengkap' );
+                Result := True;
+              end;
+            end;
         end;
       end;
+    {$ENDREGION}
 
-    end;
+    {$REGION ' Dynamic Section LAMA '}
+//    osDynamic :
+//    begin
+//      case IdObject of
+//        ovText:{Text}
+//        begin
+//          if(edtTextRange.Text = '')or(edtTextBearing.Text = '')or(edtTextFieldD.Text = '')
+//          or(cbbTextSizeD.Text = '')then
+//          begin
+//            lblWarning.Caption := 'Incomplete data input';
+//            Result := True ;
+//          end
+//          else if (StrToInt(cbbTextSizeD.Text) > 72) or(StrToInt(cbbTextSizeD.Text) = 0) then
+//          begin
+//            lblWarning.Caption := 'Invalid size input';
+//            Result := True;
+//          end;
+//        end;
+//        ovLine:{Line}
+//        begin
+//          if (edtLineStartRange.Text = '')or(edtLineStartBearing.Text = '')or
+//          (edtLineEndRange.Text = '')or(edtLineEndBearing.Text = '') then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtLineStartRange.Text = edtLineEndRange.Text ) and (edtLineEndRange.Text = edtLineEndBearing.Text )then
+//          begin
+//            lblWarning.Caption := 'Invalid input..., Start and End position can not be identical';
+//            Result := True;
+//          end;;
+//        end;
+//        ovRectangle:{Rectangle}
+//        begin
+//          if (edtRecStartRange.Text = '')or(edtRecStartBearing.Text = '')or
+//          (edtRecEndRange.Text = '')or(edtRecEndBearing.Text = '') then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtRecStartRange.Text = edtRecEndRange.Text ) and (edtRecStartBearing.Text = edtRecEndBearing.Text )then
+//          begin
+//            lblWarning.Caption := 'Invalid input..., Top-Left and Bottom-Right position can not be identical';
+//            Result := True;
+//          end;;
+//        end;
+//        ovCircle:{Circle}
+//        begin
+//          if (edtCircleRange.Text = '')or(edtCircleBearing.Text = '') or
+//          (edtCircleRadiusD.Text = '') then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtCircleRadiusD.Text = '0' ) then
+//          begin
+//            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
+//            Result := True;
+//          end;
+//        end;
+//        ovEllipse:{Ellipse}
+//        begin
+//          if (edtEllipseRange.Text = '')or(edtEllipseBearing.Text = '')or
+//          (edtEllipseHorizontalD.Text = '')or(edtEllipseVerticalD.Text = '')then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtEllipseHorizontalD.Text = '0') or (edtEllipseVerticalD.Text = '0')then
+//          begin
+//            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
+//            Result := True;
+//          end;
+//        end;
+//
+//        ovArc:{Arc}
+//        begin
+//          if (edtArcRange.Text = '')or(edtArcBearing.Text = '')or
+//          (edtArcRadiusD.Text = '')or(edtArcStartAngleD.Text = '')or
+//          (edtArcEndAngleD.Text = '')or(edtArcPosLat.Text = '')or
+//          (edtArcPosLong.Text ='')then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtArcRadiusD.Text = '0') then
+//          begin
+//            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
+//            Result := True;
+//          end
+//          else if (edtArcStartAngleD.Text = edtArcEndAngleD.Text) then
+//          begin
+//            lblWarning.Caption := 'Invalid input..., Start and End Angle can not be identical';
+//            Result := True;
+//          end;
+//        end;
+//        ovSector:{Sector}
+//        begin
+//          if (edtSectorRange.Text = '')or(edtSectorBearing.Text = '')or
+//          (edtSectorInnerD.Text = '')or(edtSectorOuterD.Text = '')or
+//          (edtSectorStartAngleD.Text = '')or(edtSectorEndAngleD.Text = '')then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtSectorInnerD.Text = '0')or (edtSectorOuterD.Text = '0')then
+//          begin
+//            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
+//            Result := True;
+//          end
+//          else if (edtSectorStartAngleD.Text = edtSectorEndAngleD.Text) then
+//          begin
+//            lblWarning.Caption := 'Invalid input..., Start and End Angle can not be identical';
+//            Result := True;
+//          end
+//          else if (edtSectorInnerD.Text = edtSectorOuterD.Text) then
+//          begin
+//
+//            lblWarning.Caption := 'Invalid input..., Inner and Outer Radius can not be identical';
+//            Result := True;
+//          end;
+//        end;
+//        ovGrid:{Grid}
+//        begin
+//          if (edtTableRange.Text = '')or(edtTableBearing.Text = '')or
+//          (edtTableHeightD.Text = '')or(edtTableColumnD.Text = '')or
+//          (edtTableWidthD.Text = '')or(edtTableRowD.Text = '')or
+//          (edtRotationAngleD.Text = '')then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtTableHeightD.Text = '0') or (edtTableColumnD.Text = '0') or (edtTableWidthD.Text = '0')
+//          or (edtTableRowD.Text = '0') then
+//          begin
+//            lblWarning.Caption := 'Invalid input, minimum Col, Row and height > 0';
+//            Result := True;
+//          end;
+//        end;
+//        ovPolygon:{Polygon}
+//        begin
+//          if lvPolyVertexD.Items.Count < 1 then
+//          begin
+//          lblWarning.Caption := 'Incomplete Data Input';
+//          Result := True;
+//          end;
+//        end;
+//      end;
+//
+//    end;
+    {$ENDREGION}
+
+    {$REGION ' Static Section LAMA '}
+//    osStatic  :
+//    begin
+//      case IdObject of
+//        ovText:{Text}
+//         begin
+//          if(edtTextPosLong.Text = '') or (edtTextPosLAt.Text= '')or
+//          (edtTextField.Text = '')or(cbbTextSize.Text = '')then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (StrToInt(cbbTextSize.Text) > 72 )or (StrToInt(cbbTextSize.Text) = 0 )then
+//          begin
+//            lblWarning.Caption := 'Invalid size input';
+//            Result := True;
+//          end;
+//        end;
+//        ovLine:{Line}
+//        begin
+//          if (edtLineStartPosLong.Text ='') or (edtLineStartPosLat.Text = '')or
+//          (edtLineEndPosLong.Text = '') or (edtLineEndPosLat.Text = '')then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtLineStartPosLong.Text = edtLineEndPosLong.Text) and (edtLineStartPosLat.Text = edtLineEndPosLat.Text)then
+//          begin
+//            lblWarning.Caption := 'Invalid input..., Start and End position can not be identical';
+//            Result := True;
+//          end;;
+//        end;
+//        ovRectangle:{Rectangle}
+//        begin
+//          if (edtRectStartPosLong.Text = '')or(edtRectStartPosLat.Text = '')or
+//          (edtRectEndPosLong.Text = '')or (edtRectEndPosLat.Text = '')or
+//          (edtRectStartPosLong.Text= '')or (edtRectStartPosLat.Text= '')or
+//          (edtRectEndPosLat.Text= '')or(edtRectEndPosLong.Text= '') then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtRectStartPosLong.Text = edtRectEndPosLong.Text ) and (edtRectStartPosLat.Text = edtRectEndPosLat.Text )then
+//          begin
+//            lblWarning.Caption := 'Invalid input..., Top-Left and Bottom-Right position can not be identical';
+//            Result := True;;
+//          end;
+//        end;
+//        ovCircle:{Circle}
+//        begin
+//          if (edtCirclePosLong.Text = '')or (edtCirclePosLat.Text = '') or
+//          (edtCircleRadius.Text = '')or(edtCirclePosLong.text='')or
+//          (edtCirclePosLat.Text= '') then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtCircleRadius.Text = '0' ) then
+//          begin
+//            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
+//            Result := True;
+//          end;
+//        end;
+//        ovEllipse:{Ellipse}
+//        begin
+//          if (edtEllipsePosLong.Text = '')or (edtEllipsePosLat.Text = '')
+//          or(edtHorizontal.Text = '') or (edtVertical.Text = '')or
+//          (edtEllipsePosLat.text= '')or
+//          (edtEllipsePosLong.Text= '') then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtHorizontal.Text = '0') or (edtVertical.Text = '0')then
+//          begin
+//            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
+//            Result := True;
+//          end;
+//        end;
+//        ovArc:{Arc}
+//        begin
+//          if (edtArcPosLong.Text = '') or (edtArcPosLat.Text = '')or
+//          (edtArcRadius.Text = '')or(edtArcStartAngle.Text = '')or
+//          (edtArcEndAngle.Text = '')then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtArcRadius.Text = '0') then
+//          begin
+//            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
+//            Result := True;
+//          end
+//          else if (edtArcEndAngle.Text = edtArcStartAngle.Text) then
+//          begin
+//            lblWarning.Caption := 'Invalid input..., Start and End Angle can not be identical';
+//            Result := True;
+//          end;
+//        end;
+//        ovSector:{Sector}
+//        begin
+//          if(edtSectorInner.Text = '') or (edtSectorOuter.Text = '')or
+//          (edtSectorStartAngle.Text = '') or (edtSectorEndAngle.Text = '')or
+//          (edtSectorPosLat.Text = '')or (edtSectorPosLong.Text = '')then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//          else if (edtSectorInner.Text = '0')or (edtSectorOuter.Text = '0')then
+//          begin
+//            lblWarning.Caption := 'Invalid radius input, minimum radius > 0';
+//            Result := True;
+//          end
+//          else if (edtSectorStartAngle.Text = edtSectorEndAngle.Text) then
+//          begin
+//            lblWarning.Caption := 'Invalid input..., Start and End Angle can not be identical';
+//            Result := True;
+//          end
+//          else if (edtSectorInner.Text = edtSectorOuter.Text) then
+//          begin
+//            lblWarning.Caption := 'Invalid input..., Inner and Outer Radius can not be identical';
+//            Result := True;
+//          end;
+//        end;
+//        ovGrid:{Grid}
+//        begin
+//          if (edtTablePosLong.Text = '')or (edtTablePosLat.Text ='') or
+//          (edtTableHeight.Text = '')or (edtTableColumn.Text = '') or
+//          (edtTableWidth.Text = '') or (edtTableRow.Text = '')or
+//          (edtTableRotationAngle.Text = '')or(edtTablePosLat.Text ='')
+//          or(edtTablePosLong.Text='') then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end
+//
+//          else if (edtTableHeight.Text = '0') or (edtTableColumn.Text = '0') or (edtTableWidth.Text = '0')
+//          or (edtTableRow.Text = '0') then
+//          begin
+//            lblWarning.Caption := 'Invalid input, minimum Col, Row and height > 0';
+//            Result := True;
+//          end;
+//        end;
+//        ovPolygon:{Polygon}
+//        begin
+//          if lvPolyVertex.Items.Count < 1 then
+//          begin
+//            lblWarning.Caption := 'Incomplete Data Input';
+//            Result := True;
+//          end;
+//        end;
+//      end;
+//
+//    end;
     {$ENDREGION}
 
   end;

@@ -12,6 +12,7 @@ object frmLeftAtasAir: TfrmLeftAtasAir
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlContainer: TPanel
@@ -26,9 +27,9 @@ object frmLeftAtasAir: TfrmLeftAtasAir
     TabOrder = 0
     object pnlController: TPanel
       Left = 0
-      Top = 357
+      Top = 343
       Width = 356
-      Height = 667
+      Height = 681
       Align = alBottom
       BevelOuter = bvNone
       Color = 3812880
@@ -40,11 +41,12 @@ object frmLeftAtasAir: TfrmLeftAtasAir
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
+      ExplicitTop = 341
       object imgMainBackgorundController: TImage
         Left = 0
         Top = 0
         Width = 356
-        Height = 667
+        Height = 681
         Align = alClient
         Picture.Data = {
           07544269746D6170224C0500424D224C05000000000036000000280000005101
@@ -10997,10 +10999,10 @@ object frmLeftAtasAir: TfrmLeftAtasAir
       end
       object pnlControllerBody: TPanel
         Tag = 1
-        Left = 12
+        Left = 8
         Top = 75
-        Width = 333
-        Height = 580
+        Width = 340
+        Height = 593
         Alignment = taLeftJustify
         Color = 2695445
         Font.Charset = DEFAULT_CHARSET
@@ -11014,16 +11016,18 @@ object frmLeftAtasAir: TfrmLeftAtasAir
         object pnlSensor: TPanel
           Left = 1
           Top = 1
-          Width = 331
-          Height = 578
+          Width = 338
+          Height = 591
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitWidth = 331
+          ExplicitHeight = 578
           inline fmSensor1: TfmSensor
             Left = 0
             Top = 0
-            Width = 331
-            Height = 578
+            Width = 338
+            Height = 591
             Align = alClient
             Color = 2695445
             ParentBackground = False
@@ -11033,19 +11037,19 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             ExplicitHeight = 578
             inherited PanelSpace: TPanel
               Top = 250
-              Width = 331
+              Width = 338
               Height = 0
               ExplicitTop = 250
               ExplicitWidth = 331
               ExplicitHeight = 0
             end
             inherited PanelSensorChoices: TPanel
-              Width = 331
+              Width = 338
               Height = 250
               ExplicitWidth = 331
               ExplicitHeight = 250
               inherited lstSensor: TListView
-                Width = 329
+                Width = 336
                 Height = 248
                 BorderStyle = bsSingle
                 ExplicitWidth = 329
@@ -11054,26 +11058,26 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             end
             inherited PanelALL: TPanel
               Top = 250
-              Width = 331
-              Height = 328
+              Width = 338
+              Height = 341
               ExplicitTop = 250
               ExplicitWidth = 331
               ExplicitHeight = 328
               inherited PanelSensorControl: TPanel
-                Width = 331
-                Height = 328
+                Width = 338
+                Height = 341
                 ExplicitWidth = 331
                 ExplicitHeight = 328
                 inherited grbSearchRadarControl: TGroupBox [0]
-                  Width = 325
-                  Height = 322
+                  Width = 332
+                  Height = 335
                   ParentBackground = False
                   ParentColor = False
                   ExplicitWidth = 325
                   ExplicitHeight = 322
                   inherited ScrollBox1: TScrollBox
-                    Width = 321
-                    Height = 302
+                    Width = 328
+                    Height = 315
                     ExplicitWidth = 321
                     ExplicitHeight = 302
                     inherited Label189: TLabel
@@ -11408,13 +11412,13 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                   end
                 end
                 inherited grbIFFInterrogatorControl: TGroupBox [1]
-                  Width = 325
-                  Height = 322
+                  Width = 332
+                  Height = 335
                   ExplicitWidth = 325
                   ExplicitHeight = 322
                   inherited ScrollBox5: TScrollBox
-                    Width = 321
-                    Height = 302
+                    Width = 328
+                    Height = 315
                     ExplicitWidth = 321
                     ExplicitHeight = 302
                     inherited Bevel5: TBevel
@@ -11543,15 +11547,15 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                   end
                 end
                 inherited grbSonobuoyControl: TGroupBox [2]
-                  Width = 325
-                  Height = 322
+                  Width = 332
+                  Height = 335
                   ParentBackground = False
                   ParentColor = False
                   ExplicitWidth = 325
                   ExplicitHeight = 322
                   inherited ScrollBox7: TScrollBox
-                    Width = 321
-                    Height = 302
+                    Width = 328
+                    Height = 315
                     ExplicitWidth = 321
                     ExplicitHeight = 302
                     inherited Bevel10: TBevel
@@ -11652,15 +11656,15 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                   end
                 end
                 inherited grbSonarControl: TGroupBox [3]
-                  Width = 325
-                  Height = 322
+                  Width = 332
+                  Height = 335
                   ParentBackground = False
                   ParentColor = False
                   ExplicitWidth = 325
                   ExplicitHeight = 322
                   inherited ScrollBox2: TScrollBox
-                    Width = 321
-                    Height = 302
+                    Width = 328
+                    Height = 315
                     ExplicitWidth = 321
                     ExplicitHeight = 302
                     inherited Bevel37: TBevel
@@ -11914,13 +11918,13 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                   end
                 end
                 inherited grbESMSensorControl: TGroupBox [4]
-                  Width = 325
-                  Height = 322
+                  Width = 332
+                  Height = 335
                   ExplicitWidth = 325
                   ExplicitHeight = 322
                   inherited ScrollBox4: TScrollBox
-                    Width = 321
-                    Height = 302
+                    Width = 328
+                    Height = 315
                     ExplicitWidth = 321
                     ExplicitHeight = 302
                     inherited Label6: TLabel
@@ -11968,8 +11972,8 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                   end
                 end
                 inherited grbVisualDetectorSensor: TGroupBox [5]
-                  Width = 325
-                  Height = 322
+                  Width = 332
+                  Height = 335
                   ParentBackground = False
                   ParentColor = False
                   ExplicitWidth = 325
@@ -12015,15 +12019,15 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                   end
                 end
                 inherited grbIFFTransponderControl: TGroupBox [6]
-                  Width = 325
-                  Height = 322
+                  Width = 332
+                  Height = 335
                   ParentBackground = False
                   ParentColor = False
                   ExplicitWidth = 325
                   ExplicitHeight = 322
                   inherited ScrollBox6: TScrollBox
-                    Width = 321
-                    Height = 302
+                    Width = 328
+                    Height = 315
                     ExplicitWidth = 321
                     ExplicitHeight = 302
                     inherited Bevel8: TBevel
@@ -12093,8 +12097,8 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                   end
                 end
                 inherited grbAnomalyDetectorSensor: TGroupBox [7]
-                  Width = 325
-                  Height = 322
+                  Width = 332
+                  Height = 335
                   ExplicitWidth = 325
                   ExplicitHeight = 322
                   inherited Label225: TLabel
@@ -12133,13 +12137,13 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                   end
                 end
                 inherited grbElectroOpticalSensor: TGroupBox [8]
-                  Width = 325
-                  Height = 322
+                  Width = 332
+                  Height = 335
                   ExplicitWidth = 325
                   ExplicitHeight = 322
                   inherited ScrollBox3: TScrollBox
-                    Width = 321
-                    Height = 302
+                    Width = 328
+                    Height = 315
                     ExplicitWidth = 321
                     ExplicitHeight = 302
                     inherited Label1: TLabel
@@ -12207,27 +12211,31 @@ object frmLeftAtasAir: TfrmLeftAtasAir
         object pnlControllerNone: TPanel
           Left = 1
           Top = 1
-          Width = 331
-          Height = 578
+          Width = 338
+          Height = 591
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 331
+          ExplicitHeight = 578
         end
         object pnlCounterMeasure: TPanel
           Left = 1
           Top = 1
-          Width = 331
-          Height = 578
+          Width = 338
+          Height = 591
           Align = alClient
           BevelOuter = bvNone
           Color = 4012086
           ParentBackground = False
           TabOrder = 2
+          ExplicitWidth = 331
+          ExplicitHeight = 578
           inline fmCounterMeasure1: TfmCounterMeasure
             Left = 0
             Top = 0
-            Width = 331
-            Height = 578
+            Width = 338
+            Height = 591
             Align = alClient
             Color = 4012086
             ParentBackground = False
@@ -12237,20 +12245,20 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             ExplicitHeight = 578
             inherited PanelALL: TPanel
               Top = 250
-              Width = 331
-              Height = 328
+              Width = 338
+              Height = 341
               ExplicitTop = 250
               ExplicitWidth = 331
               ExplicitHeight = 328
               inherited PanelCounterMeasure: TPanel
-                Width = 331
-                Height = 328
+                Width = 338
+                Height = 341
                 ParentColor = False
                 ExplicitWidth = 331
                 ExplicitHeight = 328
                 inherited grbAirborneChaff: TGroupBox [0]
-                  Width = 331
-                  Height = 328
+                  Width = 338
+                  Height = 341
                   ExplicitWidth = 331
                   ExplicitHeight = 328
                   inherited Label510: TLabel
@@ -12315,8 +12323,8 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                   end
                 end
                 inherited grbFloatingDecoy: TGroupBox
-                  Width = 331
-                  Height = 328
+                  Width = 338
+                  Height = 341
                   ExplicitWidth = 331
                   ExplicitHeight = 328
                   inherited Label502: TLabel
@@ -12355,84 +12363,16 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     ExplicitHeight = 24
                   end
                 end
-                inherited grbOnBoardSelfDefenseJammer: TGroupBox
-                  Width = 331
-                  Height = 328
-                  ExplicitWidth = 331
-                  ExplicitHeight = 328
-                  inherited ScrollBox5: TScrollBox
-                    Width = 327
-                    Height = 308
-                    ExplicitWidth = 327
-                    ExplicitHeight = 308
-                    inherited Bevel112: TBevel
-                      Left = 82
-                      ExplicitLeft = 82
-                    end
-                    inherited Label542: TLabel
-                      Left = 27
-                      ParentFont = False
-                      ExplicitLeft = 27
-                    end
-                    inherited Label543: TLabel
-                      Left = 213
-                      ParentFont = False
-                      ExplicitLeft = 213
-                    end
-                    inherited Label544: TLabel
-                      Left = 100
-                      ParentFont = False
-                      ExplicitLeft = 100
-                    end
-                    inherited sbOnBoardSelfDefenseJammerControlModeAuto: TSpeedButton
-                      Left = 75
-                      ExplicitLeft = 75
-                    end
-                    inherited sbOnBoardSelfDefenseJammerControlModeManual: TSpeedButton
-                      Left = 75
-                      ExplicitLeft = 75
-                    end
-                    inherited sbOnBoardSelfDefenseJammerControlModeOff: TSpeedButton
-                      Left = 75
-                      ExplicitLeft = 75
-                    end
-                    inherited sbOnBoardSelfDefenseJammerControlTargetingSpot: TSpeedButton
-                      Left = 200
-                      ExplicitLeft = 200
-                    end
-                    inherited sbOnBoardSelfDefenseJammerControlTargetingTrack: TSpeedButton
-                      Left = 200
-                      ExplicitLeft = 200
-                    end
-                    inherited grbManualTrack: TGroupBox
-                      Left = 32
-                      ExplicitLeft = 32
-                    end
-                    inherited grbManualSpot: TGroupBox
-                      Left = 32
-                      ExplicitLeft = 32
-                      inherited Label547: TLabel
-                        ParentFont = False
-                      end
-                      inherited Label546: TLabel
-                        ParentFont = False
-                      end
-                      inherited Label549: TLabel
-                        ParentFont = False
-                      end
-                    end
-                  end
-                end
-                inherited grbTowedJammerDecoy: TGroupBox [3]
-                  Width = 331
-                  Height = 328
+                inherited grbTowedJammerDecoy: TGroupBox [2]
+                  Width = 338
+                  Height = 341
                   ParentBackground = False
                   ParentColor = False
                   ExplicitWidth = 331
                   ExplicitHeight = 328
                   inherited ScrollBox4: TScrollBox
-                    Width = 327
-                    Height = 308
+                    Width = 334
+                    Height = 321
                     ParentColor = False
                     ExplicitWidth = 327
                     ExplicitHeight = 308
@@ -12608,16 +12548,16 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grbRadarNoiseJammer: TGroupBox [4]
-                  Width = 331
-                  Height = 328
+                inherited grbRadarNoiseJammer: TGroupBox
+                  Width = 338
+                  Height = 341
                   ParentBackground = False
                   ParentColor = False
                   ExplicitWidth = 331
                   ExplicitHeight = 328
                   inherited ScrollBox3: TScrollBox
-                    Width = 327
-                    Height = 308
+                    Width = 334
+                    Height = 321
                     ParentColor = False
                     ExplicitWidth = 327
                     ExplicitHeight = 308
@@ -12819,16 +12759,16 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grbSurfaceChaffDeployment: TGroupBox [5]
-                  Width = 331
-                  Height = 328
+                inherited grbSurfaceChaffDeployment: TGroupBox
+                  Width = 338
+                  Height = 341
                   ParentBackground = False
                   ParentColor = False
                   ExplicitWidth = 331
                   ExplicitHeight = 328
                   inherited ScrollBox2: TScrollBox
-                    Width = 327
-                    Height = 308
+                    Width = 334
+                    Height = 321
                     ParentColor = False
                     ExplicitWidth = 327
                     ExplicitHeight = 308
@@ -13023,9 +12963,9 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grpAirBubble: TGroupBox [6]
-                  Width = 331
-                  Height = 328
+                inherited grpAirBubble: TGroupBox
+                  Width = 338
+                  Height = 341
                   ExplicitWidth = 331
                   ExplicitHeight = 328
                   inherited lblDeploy: TLabel
@@ -13085,14 +13025,82 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     ExplicitHeight = 24
                   end
                 end
+                inherited grbOnBoardSelfDefenseJammer: TGroupBox [6]
+                  Width = 338
+                  Height = 341
+                  ExplicitWidth = 331
+                  ExplicitHeight = 328
+                  inherited ScrollBox5: TScrollBox
+                    Width = 334
+                    Height = 321
+                    ExplicitWidth = 327
+                    ExplicitHeight = 308
+                    inherited Bevel112: TBevel
+                      Left = 82
+                      ExplicitLeft = 82
+                    end
+                    inherited Label542: TLabel
+                      Left = 27
+                      ParentFont = False
+                      ExplicitLeft = 27
+                    end
+                    inherited Label543: TLabel
+                      Left = 213
+                      ParentFont = False
+                      ExplicitLeft = 213
+                    end
+                    inherited Label544: TLabel
+                      Left = 100
+                      ParentFont = False
+                      ExplicitLeft = 100
+                    end
+                    inherited sbOnBoardSelfDefenseJammerControlModeAuto: TSpeedButton
+                      Left = 75
+                      ExplicitLeft = 75
+                    end
+                    inherited sbOnBoardSelfDefenseJammerControlModeManual: TSpeedButton
+                      Left = 75
+                      ExplicitLeft = 75
+                    end
+                    inherited sbOnBoardSelfDefenseJammerControlModeOff: TSpeedButton
+                      Left = 75
+                      ExplicitLeft = 75
+                    end
+                    inherited sbOnBoardSelfDefenseJammerControlTargetingSpot: TSpeedButton
+                      Left = 200
+                      ExplicitLeft = 200
+                    end
+                    inherited sbOnBoardSelfDefenseJammerControlTargetingTrack: TSpeedButton
+                      Left = 200
+                      ExplicitLeft = 200
+                    end
+                    inherited grbManualTrack: TGroupBox
+                      Left = 32
+                      ExplicitLeft = 32
+                    end
+                    inherited grbManualSpot: TGroupBox
+                      Left = 32
+                      ExplicitLeft = 32
+                      inherited Label547: TLabel
+                        ParentFont = False
+                      end
+                      inherited Label546: TLabel
+                        ParentFont = False
+                      end
+                      inherited Label549: TLabel
+                        ParentFont = False
+                      end
+                    end
+                  end
+                end
                 inherited grbAcousticDecoy: TGroupBox [7]
-                  Width = 331
-                  Height = 328
+                  Width = 338
+                  Height = 341
                   ExplicitWidth = 331
                   ExplicitHeight = 328
                   inherited ScrollBox1: TScrollBox
-                    Width = 327
-                    Height = 308
+                    Width = 334
+                    Height = 321
                     ExplicitWidth = 327
                     ExplicitHeight = 308
                     inherited Label1: TLabel
@@ -13236,19 +13244,19 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             end
             inherited PanelCounterMeasureSpace: TPanel
               Top = 250
-              Width = 331
+              Width = 338
               Height = 0
               ExplicitTop = 250
               ExplicitWidth = 331
               ExplicitHeight = 0
             end
             inherited PanelCounterMeasureChoice: TPanel
-              Width = 331
+              Width = 338
               Height = 250
               ExplicitWidth = 331
               ExplicitHeight = 250
               inherited lvECM: TListView
-                Width = 327
+                Width = 334
                 Height = 246
                 BevelOuter = bvNone
                 ExplicitWidth = 327
@@ -24164,7 +24172,7 @@ object frmLeftAtasAir: TfrmLeftAtasAir
       end
       object pnlContactSheet: TPanel
         Tag = 1
-        Left = 12
+        Left = 8
         Top = 49
         Width = 333
         Height = 25
@@ -24253,9 +24261,9 @@ object frmLeftAtasAir: TfrmLeftAtasAir
         end
       end
       object pnlContactInformationBody: TPanel
-        Left = 12
+        Left = 8
         Top = 74
-        Width = 333
+        Width = 340
         Height = 255
         Caption = 'pnlContactInformationBody'
         Color = 2695445
@@ -24264,23 +24272,25 @@ object frmLeftAtasAir: TfrmLeftAtasAir
         object pnlContentDetails: TPanel
           Left = 1
           Top = 1
-          Width = 331
+          Width = 338
           Height = 253
           Align = alClient
           BevelOuter = bvNone
           Color = 2695445
           ParentBackground = False
           TabOrder = 2
+          ExplicitWidth = 331
           object pnlDetails: TPanel
             Left = 0
             Top = 0
-            Width = 331
+            Width = 338
             Height = 253
             Align = alClient
             BevelOuter = bvNone
             Color = 2695445
             ParentBackground = False
             TabOrder = 0
+            ExplicitWidth = 331
             object lblTrackDetails: TLabel
               Left = 145
               Top = 12
@@ -24766,23 +24776,25 @@ object frmLeftAtasAir: TfrmLeftAtasAir
         object pnlContentDetection: TPanel
           Left = 1
           Top = 1
-          Width = 331
+          Width = 338
           Height = 253
           Align = alClient
           BevelOuter = bvNone
           Color = 2695445
           ParentBackground = False
           TabOrder = 1
+          ExplicitWidth = 331
           object pnlDetection: TPanel
             Left = 0
             Top = 0
-            Width = 331
+            Width = 338
             Height = 253
             Align = alClient
             BevelOuter = bvNone
             ParentBackground = False
             ParentColor = True
             TabOrder = 0
+            ExplicitWidth = 331
             object lblDetectionDetectionType: TLabel
               Left = 155
               Top = 154
@@ -25093,34 +25105,37 @@ object frmLeftAtasAir: TfrmLeftAtasAir
         object pnlContentNone: TPanel
           Left = 1
           Top = 1
-          Width = 331
+          Width = 338
           Height = 253
           Align = alClient
           BevelOuter = bvNone
           Color = 2695445
           ParentBackground = False
           TabOrder = 4
+          ExplicitWidth = 331
         end
         object pnlContentIFF: TPanel
           Left = 1
           Top = 1
-          Width = 331
+          Width = 338
           Height = 253
           Align = alClient
           BevelOuter = bvNone
           Color = 2695445
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 331
           object pnlIFF: TPanel
             Left = 0
             Top = 0
-            Width = 331
+            Width = 338
             Height = 253
             Align = alClient
             BevelOuter = bvNone
             Color = 2695445
             ParentBackground = False
             TabOrder = 0
+            ExplicitWidth = 331
             object lblTrackIff: TLabel
               Left = 110
               Top = 10
@@ -25474,23 +25489,25 @@ object frmLeftAtasAir: TfrmLeftAtasAir
         object pnlContentHook: TPanel
           Left = 1
           Top = 1
-          Width = 331
+          Width = 338
           Height = 253
           Align = alClient
           BevelOuter = bvNone
           Color = 2695445
           ParentBackground = False
           TabOrder = 3
+          ExplicitWidth = 331
           object pnlHook: TPanel
             Left = 0
             Top = 0
-            Width = 331
+            Width = 338
             Height = 253
             Align = alClient
             BevelOuter = bvNone
             Color = 2695445
             ParentBackground = False
             TabOrder = 0
+            ExplicitWidth = 331
             object lblClassHook: TLabel
               Left = 125
               Top = 54

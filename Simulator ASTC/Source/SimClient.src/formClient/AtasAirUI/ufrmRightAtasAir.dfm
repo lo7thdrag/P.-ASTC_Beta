@@ -21984,20 +21984,19 @@ object frmRightAtasAir: TfrmRightAtasAir
           Font.Color = clBlack
           Font.Height = -13
           ParentFont = False
+          ExplicitLeft = -1
           ExplicitWidth = 345
           ExplicitHeight = 41
           inherited btnWeapon: TSpeedButton
-            Left = 315
+            Left = 310
             Top = 7
             OnClick = fmWeapon1btnWeaponClick
-            ExplicitLeft = 315
+            ExplicitLeft = 310
             ExplicitTop = 7
           end
           inherited edtWeaponName: TEdit
-            Left = 5
             Top = 8
             Width = 304
-            ExplicitLeft = 5
             ExplicitTop = 8
             ExplicitWidth = 304
           end

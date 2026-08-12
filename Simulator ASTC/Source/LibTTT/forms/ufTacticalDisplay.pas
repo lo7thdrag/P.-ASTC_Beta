@@ -8735,6 +8735,26 @@ begin // ini procedure update yg dipanggil dari sim client
       2:
       begin
         {$REGION ' Atas Air '}
+        if Assigned(frmTopNav) then
+        begin
+          frmTopNav.UpdateFormData;
+        end;
+
+        if Assigned(frmRightAtasAir) then
+        begin
+//          if focusedTrack <> nil then
+//            frmRightAtasAir.focusedTrack := focusedTrack;
+
+          frmRightAtasAir.UpdateFormData;
+        end;
+
+        if Assigned(frmLeftAtasAir) then
+        begin
+           if focusedTrack <> nil then
+            frmLeftAtasAir.focusedTrack := focusedTrack;
+
+          frmLeftAtasAir.UpdateFormData;
+        end;
         {$ENDREGION}
       end;
       3:

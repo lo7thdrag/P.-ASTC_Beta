@@ -6,7 +6,9 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, ufmControlled,
   ufmPlatformGuidance, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Buttons,
-  VrControls, VrBlinkLed, ufmSensor, Vcl.Menus, Vcl.ComCtrls, ufmWeapon;
+  VrControls, VrBlinkLed, ufmSensor, Vcl.Menus, Vcl.ComCtrls,
+
+   ufmWeapon,uT3Unit;
 
 type
   TfrmRightAtasAir = class(TForm)
@@ -36,6 +38,8 @@ type
   private
     { Private declarations }
   public
+    procedure UpdateFormData;
+
     { Public declarations }
   end;
 
@@ -85,6 +89,11 @@ begin
       pnlTabTrackTable.Color := RGB(16, 46, 58);
     end;
   end;
+end;
+
+procedure TfrmRightAtasAir.UpdateFormData;
+begin
+    fmWeapon1.Refresh_VisibleTab;
 end;
 
 end.

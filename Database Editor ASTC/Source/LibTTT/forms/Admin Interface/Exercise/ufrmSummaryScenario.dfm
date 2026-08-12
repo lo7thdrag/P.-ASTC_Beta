@@ -27487,206 +27487,6 @@ object frmSummaryScenario: TfrmSummaryScenario
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object pnlTabScenario: TPanel
-      Left = 308
-      Top = 421
-      Width = 1305
-      Height = 443
-      BevelOuter = bvNone
-      Color = 5980694
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -16
-      Font.Name = 'Berlin Sans FB'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 3
-      object lbl7: TLabel
-        Left = 951
-        Top = 138
-        Width = 92
-        Height = 34
-        Caption = 'Start   :'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -27
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Label2: TLabel
-        Left = 951
-        Top = 280
-        Width = 109
-        Height = 34
-        Caption = 'D Day   :'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -27
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object lbl9: TLabel
-        Left = 87
-        Top = 280
-        Width = 166
-        Height = 34
-        Caption = 'Game Area  :'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -27
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Label3: TLabel
-        Left = 87
-        Top = 138
-        Width = 204
-        Height = 34
-        Caption = 'Scenario Name :'
-        Color = 3421496
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -27
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = [fsBold]
-        ParentColor = False
-        ParentFont = False
-        Transparent = True
-      end
-      object Label4: TLabel
-        Left = 564
-        Top = 45
-        Width = 178
-        Height = 44
-        Caption = 'SCENARIO'
-        Color = 1119507
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -35
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = [fsBold]
-        ParentColor = False
-        ParentFont = False
-        Transparent = True
-      end
-      object dtpDate: TDateTimePicker
-        Left = 951
-        Top = 182
-        Width = 122
-        Height = 31
-        Date = 42159.000000000000000000
-        Time = 0.391244918981101400
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -21
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
-        OnChange = dtpDateChange
-      end
-      object dtpDDay: TDateTimePicker
-        Left = 951
-        Top = 324
-        Width = 122
-        Height = 31
-        Date = 42159.000000000000000000
-        Time = 0.391238425923802400
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -21
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
-        OnChange = dtpDDayChange
-      end
-      object dtpTime: TDateTimePicker
-        Left = 1092
-        Top = 182
-        Width = 137
-        Height = 31
-        Date = 42159.000000000000000000
-        Time = 0.391244918981101400
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -21
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = []
-        Kind = dtkTime
-        ParentFont = False
-        TabOrder = 2
-        OnChange = dtpDateChange
-      end
-      object dtpJamJ: TDateTimePicker
-        Left = 1092
-        Top = 324
-        Width = 137
-        Height = 31
-        Date = 42159.000000000000000000
-        Time = 0.391238425923802400
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -21
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = []
-        Kind = dtkTime
-        ParentFont = False
-        TabOrder = 3
-        OnChange = dtpDDayChange
-      end
-      object edtGameArea: TEdit
-        Tag = 1
-        Left = 87
-        Top = 324
-        Width = 718
-        Height = 31
-        Enabled = False
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -21
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = []
-        ParentFont = False
-        ReadOnly = True
-        TabOrder = 4
-      end
-      object btnGameArea: TButton
-        Tag = 1
-        Left = 809
-        Top = 324
-        Width = 36
-        Height = 31
-        Caption = '...'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -21
-        Font.Name = 'Berlin Sans FB'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 5
-        OnClick = btnGameAreaClick
-      end
-      object edtName: TEdit
-        Tag = 4
-        Left = 87
-        Top = 182
-        Width = 758
-        Height = 35
-        AutoSize = False
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clGray
-        Font.Height = -21
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 6
-        Text = 'None'
-      end
-    end
     object pnlTabEnvironment: TPanel
       Left = 308
       Top = 421
@@ -39120,6 +38920,206 @@ object frmSummaryScenario: TfrmSummaryScenario
         TabOrder = 4
         Visible = False
         OnClick = ForceChosePlatformClick
+      end
+    end
+    object pnlTabScenario: TPanel
+      Left = 308
+      Top = 421
+      Width = 1305
+      Height = 443
+      BevelOuter = bvNone
+      Color = 5980694
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Berlin Sans FB'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      object lbl7: TLabel
+        Left = 940
+        Top = 138
+        Width = 92
+        Height = 34
+        Caption = 'Start   :'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -27
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 940
+        Top = 280
+        Width = 109
+        Height = 34
+        Caption = 'D Day   :'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -27
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lbl9: TLabel
+        Left = 87
+        Top = 280
+        Width = 166
+        Height = 34
+        Caption = 'Game Area  :'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -27
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label3: TLabel
+        Left = 87
+        Top = 138
+        Width = 204
+        Height = 34
+        Caption = 'Scenario Name :'
+        Color = 3421496
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -27
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Transparent = True
+      end
+      object Label4: TLabel
+        Left = 564
+        Top = 45
+        Width = 178
+        Height = 44
+        Caption = 'SCENARIO'
+        Color = 1119507
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -35
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Transparent = True
+      end
+      object dtpDate: TDateTimePicker
+        Left = 940
+        Top = 182
+        Width = 132
+        Height = 31
+        Date = 42159.000000000000000000
+        Time = 0.391244918981101400
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        OnChange = dtpDateChange
+      end
+      object dtpDDay: TDateTimePicker
+        Left = 940
+        Top = 324
+        Width = 132
+        Height = 31
+        Date = 42159.000000000000000000
+        Time = 0.391238425923802400
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        OnChange = dtpDDayChange
+      end
+      object dtpTime: TDateTimePicker
+        Left = 1086
+        Top = 182
+        Width = 153
+        Height = 31
+        Date = 42159.000000000000000000
+        Time = 0.391244918981101400
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = []
+        Kind = dtkTime
+        ParentFont = False
+        TabOrder = 2
+        OnChange = dtpDateChange
+      end
+      object dtpJamJ: TDateTimePicker
+        Left = 1086
+        Top = 324
+        Width = 153
+        Height = 31
+        Date = 42159.000000000000000000
+        Time = 0.391238425923802400
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = []
+        Kind = dtkTime
+        ParentFont = False
+        TabOrder = 3
+        OnChange = dtpDDayChange
+      end
+      object edtGameArea: TEdit
+        Tag = 1
+        Left = 87
+        Top = 324
+        Width = 718
+        Height = 31
+        Enabled = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 4
+      end
+      object btnGameArea: TButton
+        Tag = 1
+        Left = 809
+        Top = 324
+        Width = 36
+        Height = 31
+        Caption = '...'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Berlin Sans FB'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 5
+        OnClick = btnGameAreaClick
+      end
+      object edtName: TEdit
+        Tag = 4
+        Left = 87
+        Top = 182
+        Width = 758
+        Height = 35
+        AutoSize = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -21
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 6
+        Text = 'None'
       end
     end
   end

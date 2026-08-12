@@ -715,9 +715,9 @@ object frmAvailableOverlay: TfrmAvailableOverlay
         ItemHeight = 19
         ParentFont = False
         TabOrder = 0
+        TabWidth = 200
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitTop = 6
       end
     end
   end

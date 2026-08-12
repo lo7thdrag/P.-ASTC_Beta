@@ -1882,17 +1882,14 @@ begin
     SizeOf(TRecCmd_Sync_Hit_BombMine), netRecv_CmdSync_Hit_Mine_Bomb);
 
   {nando}
-  VNetServer.RegisterTCPPacket(CPID_SincWaypoint,SizeOf(TrecSinc_Waypoint),
-    netRecv_SincWaypoint);
+  VNetServer.RegisterTCPPacket(CPID_SincWaypoint,SizeOf(TrecSinc_Waypoint),netRecv_SincWaypoint);
   VNetServer.RegisterTCPPacket(CPID_SincRBLW,SizeOf(TrecSinc_RBLW),netRecv_SincRBLWMissile);
   VNetServer.RegisterTCPPacket(CPID_SincBOLW,SizeOf(TrecSinc_BOLW),netRecv_SincBOLWMissile);
   VNetServer.RegisterTCPPacket(CPID_CMD_Missile_Envi, SizeOf(TrecMissile_envi), netRecv_SincMissileEnvi);
   VNetServer.RegisterTCPPacket(CPID_CMD_RECORDTRACK, SizeOf(TRecRecordVoice) , netRecv_RecordTrack);
   {end}
 
-  // farah
-  VNetServer.RegisterTCPPacket(CPID_CMD_ENVI,SizeOf(TrecSinc_Envi),
-    netRecv_cmd_environment);
+  VNetServer.RegisterTCPPacket(CPID_CMD_ENVI,SizeOf(TrecSinc_Envi),netRecv_cmd_environment);
 
   //Client Session -------------------------------------------------------------
   VNetServer.RegisterSessionPacket(CPID_REQ, SizeOf(TRecRequest),

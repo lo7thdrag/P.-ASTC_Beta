@@ -6199,14 +6199,14 @@ begin
         begin
           frmLeftAtasAir.fmCounterMeasure1.SetControlledObject(pit);
           frmLeftAtasAir.fmSensor1.SetControlledObject(pit);
+          frmLeftAtasAir.fmFireControl1.SetControlledObject(pit);
           frmLeftAtasAir.SetControlledObject(pit);
         end;
 
         if Assigned(frmRightAtasAir) then
         begin
           frmRightAtasAir.fmWeapon1.SetControlledObject(pit);
-//          frmRightAtasAir.AddTrackPlatform(pit);
-//          frmRightAtasAir.UpdateTrackListData;
+//          frmRightAtasAir.SetControlledObject(pit);
          end;
 
 
@@ -8745,7 +8745,7 @@ begin // ini procedure update yg dipanggil dari sim client
 //          if focusedTrack <> nil then
 //            frmRightAtasAir.focusedTrack := focusedTrack;
 
-          frmRightAtasAir.UpdateFormData;
+//          frmRightAtasAir.UpdateFormData;
         end;
 
         if Assigned(frmLeftAtasAir) then
@@ -13943,6 +13943,12 @@ begin
       2:
       begin
         {$REGION ' Atas Air '}
+         if Assigned(frmRightAtasAir) then
+        begin
+          frmRightAtasAir.pnlGameState.Color := clRed;
+          frmRightAtasAir.pnlGameState.Caption := 'FROZEN';
+          frmRightAtasAir.pnlGameState.Font.Color := clWhite;
+        end;
         {$ENDREGION}
       end;
       3:
@@ -13983,6 +13989,12 @@ begin
         2:
         begin
           {$REGION ' Atas Air '}
+           if Assigned(frmRightAtasAir) then
+          begin
+            frmRightAtasAir.pnlGameState.Color := clLime;
+            frmRightAtasAir.pnlGameState.Caption := '1/' + IntToStr(i) + ' X';
+            frmRightAtasAir.pnlGameState.Font.Color := clBlack;
+          end;
           {$ENDREGION}
         end;
         3:
@@ -14020,6 +14032,12 @@ begin
         2:
         begin
           {$REGION ' Atas Air '}
+          if Assigned(frmRightAtasAir) then
+          begin
+            frmRightAtasAir.pnlGameState.Color := clYellow;
+            frmRightAtasAir.pnlGameState.Caption := 'Percepatan ' + IntToStr(Round(gSpeed)) + ' X';
+            frmRightAtasAir.pnlGameState.Font.Color := clBlack;
+          end;
           {$ENDREGION}
         end;
         3:

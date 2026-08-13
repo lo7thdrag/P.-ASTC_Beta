@@ -8,7 +8,7 @@ uses
   Vcl.StdCtrls, Vcl.ComCtrls, ufmControlled, ufmSensor, ufmPlatformGuidance,
   ufmCounterMeasure,
 
-  uT3Unit,uSimObjects;
+  uT3Unit,uSimObjects, ufmFireControl;
 
 type
   TfrmLeftAtasAir = class(TForm)
@@ -165,18 +165,28 @@ type
     imgCounterMeasure: TImage;
     pnlCounterMeasure: TPanel;
     fmCounterMeasure1: TfmCounterMeasure;
+    pnlTabFireControl: TPanel;
+    imgFireControl: TImage;
+    pnlFireControl: TPanel;
+    fmFireControl1: TfmFireControl;
+    pnl1: TPanel;
     procedure THButtonClick(Sender: TObject);
     procedure TDCPButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
+    function DecToOct(Inp : String): String;
     { Private declarations }
   public
 
     focusedTrack: TSimObject;
+    procedure GetNameAndClass(const obj: TSimObject; var n, c: string);
     procedure SetControlledObject(pit: TT3PlatformInstance);
     procedure UpdateHookedInfo(Sender: TObject);
     procedure InitTabHookedInfo;
     procedure DisplayTabHooked(Sender: TObject);
+    procedure DisplayTabDetail(sender: TObject);
+    procedure DisplayTabDetection(sender: TObject);
+    procedure DisplayTabIFF(sender: TObject);
     procedure UpdateTabHooked(aTrack: TSimObject);
 
     procedure UpdateFormData;
@@ -193,12 +203,388 @@ uses
   ufTacticalDisplay, ufToteDisplay, uT3DetectedTrack, uSettingCoordinate, uT3Radar,
   uBaseCoordSystem, uSimMgr_Client, tttData, uT3Vehicle, uDBAsset_Vehicle, uT3Torpedo, uT3Missile,
   uDBAsset_Weapon, uT3Sonobuoy, uT3Mine, uT3CounterMeasure, uMapXHandler, uT3Common, uT3OtherSensor, ufrmGuidance,
-  ufrmWeapon, ufrmRadar, uT3SimManager, ufrmTrackDetails, uSimContainers;
+  ufrmWeapon, ufrmRadar, uT3SimManager, ufrmTrackDetails, uSimContainers,
+  ufrmTopNav;
 
 {$R *.dfm}
 
 { TfrmLeftAtasAir }
 
+function TfrmLeftAtasAir.DecToOct(Inp: String): String;
+Var
+  HasilBagi,SisaBagi : Integer;
+  Oct,Oktal : String;
+  i : integer;
+  Des : integer;
+Begin
+  Oct := '';
+  Oktal := '';
+  Des:= StrToInt(inp);
+  Repeat
+  SisaBagi := des Mod 8;
+  Oct:= Oct + intToStr(SisaBagi);
+  HasilBagi := Des Div 8;
+  des:= HasilBagi;
+  Until HasilBagi = 0;
+
+  For I := length (Oct) Downto 1 Do
+  Begin
+  Oktal := Oktal+ Oct[i];
+  End;
+  Result:= Oktal;
+end;
+
+procedure TfrmLeftAtasAir.DisplayTabDetail(sender: TObject);
+  var
+  v: TT3PlatformInstance;
+  det: TT3DetectedTrack;
+  dName, dClass: string;
+  esm: TT3ESMTrack;
+begin
+  v := nil;
+  det := nil;
+
+  if Assigned(Sender) then
+  begin
+    if Sender is TT3PlatformInstance then
+      v := TT3PlatformInstance(Sender)
+    else
+    if Sender is TT3DetectedTrack then
+    begin
+      {$REGION ' Detected Track '}
+      det := TT3DetectedTrack(Sender);
+
+      if Assigned(det.MergedESM) then
+      begin
+        lblMergeStatus.Caption := 'Merged';
+        lblTrackDetails.Caption := (det.MergedESM.TrackNumber);
+        lblNameDetails.Caption := TT3PlatformInstance(det.MergedESM.TrackObject).InstanceName;
+        lblClassdetails.Caption := TT3Radar(det.MergedESM.TrackObject).RadarDefinition.FDef.Radar_Emitter;
+        lblTypeDetails.Caption := 'Other';
+        lblDoppler.Caption := '[None]';
+        lblTrackType.Caption := 'Real Time Bearing Track';
+
+        if TT3ESMTrack(Sender).IsMerged then
+          lblMergeStatus.Caption := 'Merged'
+        else
+          lblMergeStatus.Caption := 'Not Merged';
+
+        Exit;
+      end
+      else
+        lblMergeStatus.Caption := 'Not Merged';
+
+      v := TT3PlatformInstance(det.TrackObject);
+      {$ENDREGION}
+    end
+    else if Sender is TT3ESMTrack then
+    begin
+      {$REGION ' ESM Track '}
+      esm := TT3ESMTrack(Sender);
+
+      if esm.DetailedDetectionShowedESM.Track_ID then
+        lblTrackDetails.Caption      := esm.TrackNumber
+      else
+        lblTrackDetails.Caption      := 'Unknown';
+
+      if esm.DetailedDetectionShowedESM.Name_Data_Capability then
+        lblNameDetails.Caption      := TT3PlatformInstance(esm.TrackObject).InstanceName
+      else
+        lblNameDetails.Caption      := 'Unknown';
+
+      if esm.DetailedDetectionShowedESM.Class_Data_Capability then
+        lblClassdetails.Caption      := TT3Radar(esm.TrackObject).RadarDefinition.FDef.Radar_Emitter
+      else
+        lblClassdetails.Caption      := 'Unknown';
+
+      lblIdentifier.Caption  := getIdentStr(esm.TrackIdent);
+      lblDomain.Caption      := getDomain(esm.TrackDomain);
+      lblTypeDetails.Caption := 'Other';
+      lblDoppler.Caption     := '[None]';
+      lblTrackType.Caption   := 'Real Time Bearing Track';
+
+      if esm.IsMerged then
+        lblMergeStatus.Caption := 'Merged'
+      else
+        lblMergeStatus.Caption := 'Not Merged';
+
+      Exit;
+
+      {$ENDREGION}
+    end;
+
+    if v = nil then
+      exit;
+
+    if det <> nil then
+    begin
+      {$REGION ' Jk yg di hook detected track '}
+      GetNameAndClass(det, dName, dClass);
+
+      {Navigasi}
+      frmTopNav.lblTrackID.Caption := FormatTrackNumber(det.trackNumber);
+      lblTrackDetails.Caption := FormatTrackNumber(det.trackNumber);
+      lblNameDetails.Caption  := det.TrackName;
+      lblClassdetails.Caption := det.TrackClass;
+      lblTypeDetails.Caption := 'Unknown';
+
+      {$REGION ' Kodingan Lama '}
+      if det.IsDetailViewed then
+      begin
+//        if det.DetailedDetectionShowed.Track_ID then
+//          lbTrackDetails.Caption := FormatTrackNumber(det.trackNumber)
+//        else
+//          lbTrackDetails.Caption   := 'Unknown';
+//
+//        if det.DetailedDetectionShowed.Plat_Name_Recog_Capability then
+//        begin
+//          lbNameDetails.Caption      := v.InstanceName;
+//        end
+//        else
+//        begin
+//          lbNameDetails.Caption      := 'Unknown';
+//        end;
+//
+//        if det.DetailedDetectionShowed.Plat_Class_Recog_Capability then
+//        begin
+//          lbClassDetails.Caption     := v.InstanceClass;
+//        end
+//        else
+//        begin
+//          lbClassDetails.Caption     := 'Unknown';
+//        end;
+//
+//        if det.DetailedDetectionShowed.Plat_Type_Recog_Capability then
+////          lbTypeDetails.Caption := getVehicleTypestr(det.TrackDomain, det.track, det.TrackType)  //no category on det track, ask mas Hambali
+//            lbTypeDetails.Caption := 'Unknown'
+//        else
+//          lbTypeDetails.Caption := 'Unknown';
+
+      end;
+      {$ENDREGION}
+
+      lblIdentifier.Caption  := getIdentStr(det.TrackIdent);
+      lblDomain.Caption      := getDomain(det.TrackDomain);
+      lblTrackType.Caption   := 'Real Time Point Track';
+      {$ENDREGION}
+    end
+    else
+    begin
+      {$REGION ' Jk yg di hook selain detected track  '}
+      if v is TT3NonRealVehicle then
+      begin
+
+        lblTrackDetails.Caption := IntToStr(v.TrackNumber);
+        lblTypeDetails.Caption  := 'Other';
+        lblIdentifier.Caption    := getIdentStr(v.TrackIdent);
+        lblDomain.Caption        := getDomain(v.TrackDomain);
+        lblTrackType.Caption     := getNRTrackTypeStr(TT3NonRealVehicle(v).NRPType);
+      end
+      else
+      begin
+        lblTrackDetails.Caption := v.Track_ID;
+        lblTypeDetails.Caption := getVehicleTypestr(v.PlatformDomain, v.PlatformCategory, v.PlatformType);
+
+        case v.Force_Designation of
+          1 : lblIdentifier.Caption := 'Red Force';
+          2 : lblIdentifier.Caption := 'Yellow Force';
+          3 : lblIdentifier.Caption := 'Blue Force';
+          4 : lblIdentifier.Caption := 'Green Force';
+          5 : lblIdentifier.Caption := 'White Force';
+          6 : lblIdentifier.Caption := 'Black Force';
+        else
+          lblIdentifier.Caption := 'White Force';
+        end;
+
+        lblDomain.Caption    := getDomain(v.PlatformDomain);
+        lblTrackType.Caption := 'Real Time Point Track';
+      end;
+
+      lblNameDetails.Caption   := v.InstanceName;
+      lblClassdetails.Caption  := v.InstanceClass;
+
+      if v is TT3Missile then lblClassdetails.Caption := TMissile_On_Board(v.UnitDefinition).FDef.Class_Identifier;
+
+      if v is TT3Torpedo then lblClassdetails.Caption := TTorpedo_On_Board(v.UnitDefinition).FDef.Class_Identifier;
+
+      if v is TT3Chaff then lblClassdetails.Caption := 'Chaff';
+
+      if v is TT3AirBubble then lblClassdetails.Caption := 'Air Bubble';
+
+      if v is TT3Decoy then lblClassdetails.Caption := 'Decoy';
+
+      if v is TT3Sonobuoy then lblClassdetails.Caption := 'Sonobuoy';
+
+      if v is TT3Mine then lblClassdetails.Caption := 'Mine';
+      {$ENDREGION}
+    end;
+  end;
+end;
+
+procedure TfrmLeftAtasAir.DisplayTabDetection(sender: TObject);
+var
+  v: TT3PlatformInstance;
+  dName, dClass: string;
+  det: TT3DetectedTrack;
+  //dev : TSimObject;
+  esm: TT3ESMTrack;
+begin
+  v := nil;
+  det := nil;
+
+  if Assigned(Sender) then
+  begin
+    if Sender is TT3PlatformInstance then
+      v := TT3PlatformInstance(Sender);
+
+    if Sender is TT3DetectedTrack then
+    begin
+      {$REGION ' Detected Track '}
+      det := TT3DetectedTrack(Sender);
+
+      if Assigned(det.MergedESM) then
+      begin
+        lblTrackDetection.Caption := (det.MergedESM.TrackNumber);
+        lblNameDetection.Caption := TT3PlatformInstance(det.MergedESM.TrackObject).InstanceName;
+        lblClassDetection.Caption := TT3Radar(det.MergedESM.TrackObject).RadarDefinition.FDef.Radar_Emitter;
+        lblFirstDetected.Caption := FormatDateTime('ddhhnn', det.MergedESM.FirstDetected)
+        + 'Z ' + FormatDateTime(' mmm yyyy', det.MergedESM.FirstDetected);
+        lblLastDetected.Caption := FormatDateTime('ddhhnn', det.MergedESM.LastDetected)
+        + 'Z ' + FormatDateTime(' mmm yyyy', det.MergedESM.LastDetected);
+        lblDetectionDetectionType.Caption := 'Merged Track';
+        Exit;
+      end;
+
+      v := TT3PlatformInstance(det.TrackObject);
+      {$ENDREGION}
+    end
+    else if Sender is TT3ESMTrack then
+    begin
+      {$REGION ' ESM Track '}
+      esm := TT3ESMTrack(Sender);
+
+      if esm.DetailedDetectionShowedESM.Track_ID then
+        lblTrackDetection.Caption      := esm.TrackNumber
+      else
+        lblTrackDetection.Caption      := 'Unknown';
+
+      if esm.DetailedDetectionShowedESM.Name_Data_Capability then
+        lblNameDetection.Caption      := TT3PlatformInstance(esm.TrackObject).InstanceName
+      else
+        lblNameDetection.Caption      := 'Unknown';
+
+      if esm.DetailedDetectionShowedESM.Class_Data_Capability then
+        lblClassDetection.Caption      := TT3Radar(esm.TrackObject).RadarDefinition.FDef.Radar_Emitter
+      else
+        lblClassDetection.Caption      := 'Unknown';
+
+      lblFirstDetected.Caption := FormatDateTime('ddhhnn', esm.FirstDetected)
+            + 'Z ' + FormatDateTime(' mmm yyyy', esm.FirstDetected);
+      lblLastDetected.Caption := FormatDateTime('ddhhnn', esm.LastDetected)
+            + 'Z ' + FormatDateTime(' mmm yyyy', esm.LastDetected);
+      lblDetectionDetectionType.Caption := 'ESM';
+
+      Exit;
+      {$ENDREGION}
+    end;
+
+    if v = nil then
+      exit;
+
+    if det <> nil then
+    begin
+      {$REGION ' Jk yg di hook detected track '}
+      GetNameAndClass(det, dName, dClass);
+
+      lblTrackDetection.Caption := FormatTrackNumber(det.trackNumber);
+      lblNameDetection.Caption  := det.TrackName;
+      lblClassDetection.Caption := det.TrackClass;
+
+      {$REGION '  Kodingan Lama '}
+      if det.IsDetailViewed then
+      begin
+//        if det.DetailedDetectionShowed.Track_ID then
+//          lbTrackDetection.Caption := FormatTrackNumber(det.trackNumber)
+//        else
+//          lbTrackDetection.Caption  := 'Unknown';
+//
+//        if det.DetailedDetectionShowed.Plat_Name_Recog_Capability then
+//        begin
+//          lbNameDetection.Caption  := det.TrackName;//v.InstanceName;
+//        end
+//        else
+//        begin
+//          lbNameDetection.Caption  := 'Unknown';
+//        end;
+//
+//        if det.DetailedDetectionShowed.Plat_Class_Recog_Capability then
+//        begin
+//          lbClassDetection.Caption := det.TrackClass;//v.InstanceClass;
+//        end
+//        else
+//        begin
+//          lbClassDetection.Caption := 'Unknown';
+//        end;
+
+//          lbNameDetection.Caption   := TT3DeviceUnit(det.TrackDetectedBy.Items[0]).InstanceName;
+//          dev := det.TrackDetectedBy.Items[0];
+//          if dev is TT3Visual then
+//            lbClassDetection.Caption := 'Visual Sensor'
+//          else
+//          if dev is TT3Radar then
+//            lbClassDetection.Caption := TT3Radar(dev).RadarDefinition.FDef.Radar_Emitter
+//          else
+//          if dev is TT3Sonar then
+//            case (TT3Sonar(dev).SonarCategory) of
+//              scHMS : lbClassDetection.Caption     := scsHMS;
+//              scVDS : lbClassDetection.Caption     := scsVDS;
+//              scTAS : lbClassDetection.Caption     := scsTAS;
+//              scDipping : lbClassDetection.Caption := scsDipping;
+//              scSonobuoy : lbClassDetection.Caption:= scsSonobuoy;
+//            end
+//          else
+//          if dev is TT3EOSensor then
+//            case (TT3EOSensor(dev).EODefinition.FData.Instance_Type) of
+//              Byte(eocOptical) : lbClassDetection.Caption     := eocsOptical;
+//              Byte(eocLaserSensor) : lbClassDetection.Caption := eocsLaserSensor;
+//              Byte(eocInfrared) : lbClassDetection.Caption    := eocsInfrared;
+//            end
+//          else
+//            lbClassDetection.Caption := TT3DeviceUnit(det.TrackDetectedBy.Items[0]).InstanceClass;
+      end;
+      {$ENDREGION}
+
+      {$ENDREGION}
+    end
+    else
+    begin
+      {$REGION ' Jk yg di hook selain detected track  '}
+      if v is TT3NonRealVehicle then
+        lblTrackDetection.Caption := IntToStr(v.TrackNumber)
+      else
+        lblTrackDetection.Caption := v.Track_ID;
+
+      lblNameDetection.Caption := v.InstanceName;
+      lblClassDetection.Caption := v.InstanceClass;
+
+      if v is TT3Missile then lblClassDetection.Caption := TMissile_On_Board(v.UnitDefinition).FDef.Class_Identifier;
+
+      if v is TT3Torpedo then lblClassDetection.Caption := TTorpedo_On_Board(v.UnitDefinition).FDef.Class_Identifier;
+
+      if v is TT3Chaff then lblClassDetection.Caption := 'Chaff';
+
+      if v is TT3AirBubble then lblClassDetection.Caption := 'Air Bubble';
+
+      if v is TT3Decoy then lblClassDetection.Caption := 'Decoy';
+
+      if v is TT3Sonobuoy then lblClassDetection.Caption := 'Sonobuoy';
+
+      if v is TT3Mine then lblClassDetection.Caption := 'Mine';
+
+      {$ENDREGION}
+    end;
+  end;
+end;
 procedure TfrmLeftAtasAir.DisplayTabHooked(Sender: TObject);
 var
   v: TT3PlatformInstance;
@@ -547,10 +933,233 @@ begin
   lblRangeHook.Caption     := FormatFloat('000.00', d);
 end;
 
+procedure TfrmLeftAtasAir.DisplayTabIFF(sender: TObject);
+var
+  v: TT3PlatformInstance;
+  det: TT3DetectedTrack;
+  SensorDevice: TT3DeviceUnit;
+  i: Integer;
+  SensorIFF: TT3IFFSensor;
+  esm: TT3ESMTrack;
+begin
+  v := nil;
+  det := nil;
+
+  if Assigned(Sender) then   //mk
+  begin
+    if Sender is TT3PlatformInstance then
+      v := TT3PlatformInstance(Sender);
+
+    if Sender is TT3DetectedTrack then
+    begin
+      {$REGION ' Detected Track '}
+      det := TT3DetectedTrack(Sender);
+      v := TT3PlatformInstance(det.TrackObject);
+      {$ENDREGION}
+    end
+    else if Sender is TT3ESMTrack then
+    begin
+      {$REGION ' ESM Track '}
+      esm := TT3ESMTrack(Sender);
+
+      if esm.DetailedDetectionShowedESM.Track_ID then
+        lblTrackIff.Caption      := esm.TrackNumber
+      else
+        lblTrackIff.Caption      := 'Unknown';
+
+      if esm.DetailedDetectionShowedESM.Name_Data_Capability then
+        lblNameIff.Caption      := TT3PlatformInstance(esm.TrackObject).InstanceName
+      else
+        lblNameIff.Caption      := 'Unknown';
+
+      if esm.DetailedDetectionShowedESM.Class_Data_Capability then
+        lblClassIff.Caption      := TT3Radar(esm.TrackObject).RadarDefinition.FDef.Radar_Emitter
+      else
+        lblClassIff.Caption      := 'Unknown';
+
+      exit;
+      {$ENDREGION}
+    end;
+
+    if v = nil then
+      exit;
+
+    if det <> nil then
+    begin
+      {$REGION ' Jk yg di hook detected track '}
+      lblTrackIff.Caption := FormatTrackNumber(det.trackNumber);
+      lblNameIff.Caption  := det.TrackName;
+      lblClassIff.Caption := det.TrackClass;
+
+      {$REGION '  Kodingan Lama '}
+//      if det.DetailedDetectionShowed.Track_ID then
+//        lbTrackIff.Caption := FormatTrackNumber(det.trackNumber)
+//      else
+//        lbTrackIff.Caption := 'Unknown';
+//
+//      if det.DetailedDetectionShowed.Plat_Name_Recog_Capability then
+//      begin
+//        lbNameIff.Caption  := v.InstanceName;
+//      end
+//      else
+//      begin
+//        lbNameIff.Caption  := 'Unknown';
+//      end;
+//
+//      if det.DetailedDetectionShowed.Plat_Class_Recog_Capability then
+//      begin
+//        lbClassIff.Caption := v.InstanceClass;
+//      end
+//      else
+//      begin
+//        lbClassIff.Caption := 'Unknown';
+//      end;
+      {$ENDREGION}
+
+      lblMode1Iff.Caption := det.TransMode1Detected;
+      lblMode2Iff.Caption := det.TransMode2Detected;
+      lblMode3Iff.Caption := det.TransMode3Detected;
+      lblMode3CIff.Caption := det.TransMode3CDetected;
+
+      if det.TransMode1Detected = '' then
+      lblMode1Iff.Caption := '---';
+
+      if det.TransMode2Detected = '' then
+      lblMode2Iff.Caption := '---';
+
+      if det.TransMode3Detected = '' then
+      lblMode3Iff.Caption := '---';
+
+      if det.TransMode3CDetected = '' then
+      lblMode3CIff.Caption := '---';
+      {$ENDREGION}
+    end
+    else
+    begin
+      {$REGION ' Jk yg di hook selain detected track  '}
+      if v is TT3NonRealVehicle then
+      begin
+        lblTrackIff.Caption := IntToStr(v.TrackNumber);
+      end
+      else
+      begin
+        lblTrackIff.Caption := v.Track_ID;
+      end;
+
+      lblNameIff.Caption := v.InstanceName;
+      lblClassIff.Caption := v.InstanceClass;
+
+      if v is TT3Missile then
+        lblClassIff.Caption := TMissile_On_Board(v.UnitDefinition)
+          .FDef.Class_Identifier;
+
+      if v is TT3Torpedo then
+        lblClassIff.Caption := TTorpedo_On_Board(v.UnitDefinition)
+          .FDef.Class_Identifier;
+
+      if v is TT3Chaff then lblClassIff.Caption := 'Chaff';
+
+      if v is TT3AirBubble then lblClassIff.Caption := 'Air Bubble';
+
+      if v is TT3Decoy then lblClassIff.Caption := 'Decoy';
+
+      if v is TT3Sonobuoy then lblClassIff.Caption := 'Sonobuoy';
+
+      if v is TT3Mine then lblClassIff.Caption := 'Mine';
+
+      if v is TT3Vehicle then
+      begin
+        for i := 0 to TT3Vehicle(v).Devices.Count -1 do
+        begin
+          SensorDevice := TT3DeviceUnit(TT3Vehicle(v).Devices.Items[i]);
+
+          if SensorDevice is TT3IFFSensor then
+          begin
+            SensorIFF := TT3IFFSensor(SensorDevice);
+
+            lblMode3CIff.Caption := '---';
+            if SensorIFF.TransponderOperateStatus = sopon then
+              begin
+                if SensorIFF.TransponderMode1Enabled then
+                  lblMode1Iff.Caption := DecToOct(IntToStr(SensorIFF.TransponderMode1))
+                else
+                  lblMode1Iff.Caption := '---';
+                if SensorIFF.TransponderMode2Enabled then
+                  lblMode2Iff.Caption := DecToOct(IntToStr(SensorIFF.TransponderMode2))
+                else
+                  lblMode2Iff.Caption := '---';
+                if SensorIFF.TransponderMode3Enabled then
+                  lblMode3Iff.Caption := DecToOct(IntToStr(SensorIFF.TransponderMode3))
+                else
+                  lblMode3Iff.Caption := '---';
+                end
+            else
+            begin
+              lblMode1Iff.Caption  :='---';
+              lblMode2Iff.Caption  := '---';
+              lblMode3Iff.Caption  := '---';
+              lblMode3CIff.Caption := '---';
+            end;
+          end;
+        end;
+      end;
+      {$ENDREGION}
+    end;
+  end;
+end;
+
 procedure TfrmLeftAtasAir.FormShow(Sender: TObject);
 begin
    if focusedTrack <> nil then
     TT3PlatformInstance(focusedTrack).Selected := True;
+end;
+
+procedure TfrmLeftAtasAir.GetNameAndClass(const obj: TSimObject; var n,
+  c: string);
+var
+  det: TT3DetectedTrack;
+  fd: byte;
+  v: TT3Vehicle;
+begin
+  if not Assigned(obj) then   //mk
+    Exit;
+
+  det := TT3DetectedTrack(obj);
+  if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then
+  begin
+    fd := simMgrClient.FMyCubGroup.FData.Force_Designation;
+
+    if det.TrackObject is TT3PlatformInstance then
+    begin
+      if det.TrackObject is TT3Vehicle then
+      begin
+        v := det.TrackObject as TT3Vehicle;
+        if fd = TT3PlatformInstance(det.TrackObject).Force_Designation then
+        begin
+          n := v.InstanceName;
+          c := TVehicle_Definition(v.UnitDefinition).FData.Vehicle_Identifier;
+        end
+        else
+        begin
+          n := 'Unknown';
+          c := 'Unknown';
+        end;
+      end
+      else
+      begin
+        if fd = TT3PlatformInstance(det.TrackObject).Force_Designation then
+        begin
+          n := TT3PlatformInstance(det.TrackObject).InstanceName;
+          c := TT3PlatformInstance(det.TrackObject).InstanceClass;
+        end
+        else
+        begin
+          n := 'Unknown';
+          c := 'Unknown';
+        end;
+      end;
+    end;
+  end;
 end;
 
 procedure TfrmLeftAtasAir.InitTabHookedInfo;
@@ -590,7 +1199,9 @@ begin
       pnlCounterMeasure.BringToFront;
       imgCounterMeasure.Tag := 1;
       imgSensor.Tag := 0;
+      imgFireControl.Tag := 0;
       pnlTabSensor.Color := RGB(16, 46, 58);
+      pnlTabFireControl.Color := RGB(16, 46, 58);
     end;
   end
   else if Image = imgSensor then
@@ -601,9 +1212,24 @@ begin
       pnlSensor.BringToFront;
       imgSensor.Tag := 1;
       imgCounterMeasure.Tag := 0;
+      imgFireControl.Tag := 0;
       pnlTabCounterMeasure.Color := RGB(16, 46, 58);
+      pnlTabFireControl.Color := RGB(16, 46, 58);
     end;
+  end
+   else if Image = imgFireControl then
+  begin
+    if ImgTag = 0 then
+    begin
+      pnlTabFireControl.Color := RGB(29, 81, 103);
+      pnlFireControl.BringToFront;
+      imgFireControl.Tag := 1;
+      imgCounterMeasure.Tag := 0;
+      imgSensor.Tag := 0;
+      pnlTabCounterMeasure.Color := RGB(16, 46, 58);
+      pnlTabSensor.Color := RGB(16, 46, 58);
     end;
+end;
 end;
 
 
@@ -702,6 +1328,16 @@ begin
 
   if pnlTabHook.Tag = 1 then
     DisplayTabHooked(Sender);
+
+  if pnlTabDetails.Tag = 1 then
+    DisplayTabDetail(Sender);
+
+  if pnlTabDetection.Tag = 1 then
+    DisplayTabDetection(Sender);
+
+  if pnlTabIFF.Tag = 1 then
+    DisplayTabIFF(Sender);
+
 
 end;
 

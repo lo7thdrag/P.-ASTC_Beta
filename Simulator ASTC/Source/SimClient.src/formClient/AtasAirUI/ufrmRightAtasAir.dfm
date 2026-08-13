@@ -12,6 +12,7 @@ object frmRightAtasAir: TfrmRightAtasAir
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnlContainer: TPanel
@@ -10923,6 +10924,7 @@ object frmRightAtasAir: TfrmRightAtasAir
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        OnClick = TTButtonClick
         object pnlTrackControl: TPanel
           Left = 1
           Top = 1
@@ -21984,7 +21986,6 @@ object frmRightAtasAir: TfrmRightAtasAir
           Font.Color = clBlack
           Font.Height = -13
           ParentFont = False
-          ExplicitLeft = -1
           ExplicitWidth = 345
           ExplicitHeight = 41
           inherited btnWeapon: TSpeedButton
@@ -22338,8 +22339,6 @@ object frmRightAtasAir: TfrmRightAtasAir
             inherited grbSurfaceToSurfaceMissile: TGroupBox [2]
               Width = 345
               Height = 474
-              ExplicitLeft = 0
-              ExplicitTop = 0
               ExplicitWidth = 345
               ExplicitHeight = 474
               inherited ScrollBox6: TScrollBox

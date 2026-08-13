@@ -578,9 +578,9 @@ begin
     E_Period_of_Twilight              : ;
     E_Rain_Rate                       :
                                       begin
-                                        frmToteDisplay.edtAttenRainRate.Text := FormatFloat('0.00', Value);
+//                                        frmToteDisplay.edtAttenRainRate.Text := FormatFloat('0.00', Value);
                                         frmToteDisplay.lblAttenuationFactorsRain.Caption := FormatFloat('0.00', Value);
-                                        frmToteDisplay.trbAttenRainRate.Position := Round(Value);
+//                                        frmToteDisplay.trbAttenRainRate.Position := Round(Value);
 
                                          case Round(Value) of
                                             0 : frmToteDisplay.lblAttenuationFactorsRain.Caption     := 'Sunny';
@@ -595,8 +595,8 @@ begin
                                       end;
     E_Cloud_Attenuation               :
                                       begin
-                                        frmToteDisplay.edtAttenCloud.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.trbAttenCloud.Position := Round(Value);
+//                                        frmToteDisplay.edtAttenCloud.Text := FormatFloat('0.00', Value);
+//                                        frmToteDisplay.trbAttenCloud.Position := Round(Value);
 
                                         case Round(Value) of
                                           0 : frmToteDisplay.lblCloudAttenuation.Caption     := 'No Fog';
@@ -607,8 +607,8 @@ begin
                                       end;
     E_Sea_State                       :
                                       begin
-                                        frmToteDisplay.edtSeaState.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.trbSeaState.Position := Round(Value);
+//                                        frmToteDisplay.edtSeaState.Text := FormatFloat('0.00', Value);
+//                                        frmToteDisplay.trbSeaState.Position := Round(Value);
 
                                         case Round(Value) of
                                           0 : frmToteDisplay.lblSeaState.Caption    := 'Calm (glassy)';

@@ -541,6 +541,7 @@ type
     procedure btnHandleShape(Sender: TObject);
     procedure btnHandleShapePosition(Sender: TObject);
     procedure btnHandleObjectEditor(Sender: TObject);
+    procedure ResetImageOverlay;
 
     procedure btnAttachClick(Sender: TObject);
     procedure btnTargetSearchClick(Sender: TObject);
@@ -782,6 +783,8 @@ begin
 
       btnEdit.Enabled := True;
       btnDelete.Enabled := True;
+
+      SelectTemplate;
     end;
 
   end
@@ -789,6 +792,9 @@ begin
   begin
     btnEdit.Enabled := False;
     btnDelete.Enabled := False;
+
+    grpDynamic.Visible := False;
+    grpStatic.Visible := False;
   end;
 end;
 
@@ -879,7 +885,11 @@ begin
   k := IdSelectedTemplate - 1;
 
   if (k < 0) or (k > simMgrClient.SimOverlayTemplate.FList.Count ) then
-    exit;
+  begin
+    ShowMessage(Format('Gagal Refresh! IdSelectedTemplate: %d, Nilai k: %d, Total FList: %d',
+      [IdSelectedTemplate, k, simMgrClient.SimOverlayTemplate.FList.Count]));
+    Exit;
+  end;
 
   OverlayTemplate := simMgrClient.SimOverlayTemplate.FList.Items[k];
 
@@ -1209,6 +1219,29 @@ begin
   btnObjectApply.Enabled := False;
 end;
 
+procedure TfmOverlayEditor.ResetImageOverlay;
+var
+  i: Integer;
+begin
+  for i := 0 to ComponentCount - 1 do
+  begin
+    if Components[i] is TRzBmpButton then
+      TRzBmpButton(Components[i]).Down := False;
+  end;
+
+  btnSelect.Down      := False;
+  btnText.Down        := False;
+  btnLine.Down        := False;
+  btnRectangle.Down   := False;
+  btnCircle.Down      := False;
+  btnLine.Down        := False;
+  btnEllipse.Down     := False;
+  btnArc.Down         := False;
+  btnSector.Down      := False;
+  btnGrid.Down        := False;
+  btnPolygon.Down     := False;
+end;
+
 procedure TfmOverlayEditor.AddTrackSelection;
 var
   OverlayTemplate : TMainOverlayTemplate;
@@ -1260,6 +1293,7 @@ begin
     ovGrid : GbrGrid;
     ovPolygon : GbrPolygon;
   end;
+  ResetImageOverlay;
 end;
 
 procedure TfmOverlayEditor.ChangePosition(idAction : Integer);
@@ -1445,15 +1479,59 @@ begin
 end;
 
 procedure TfmOverlayEditor.btnAttachClick(Sender: TObject);
+var
+  OverlayTemplate : TMainOverlayTemplate;
+  rec : TRecCmd_OverlayDynamicTrack;
+  idx : Integer;
 begin
-//  pnlType.Visible := False;
-  pnlTrackSelection.Visible := True;
-  btnTrackSelectionOK.Enabled := False;
-  edtTrack.Text := '';
-  edtRange.Text := '0';
-  edtBearing.Text := '0';
-  edtRotation.Text := '0';
+  // 1. Validasi ID Template (Pencegah Error Index -1)
+  idx := IdSelectedTemplate - 1;
+  if (idx < 0) or (idx >= simMgrClient.SimOverlayTemplate.FList.Count) then
+  begin
+    ShowMessage('Pilih overlay dynamic terlebih dahulu dari tabel!');
+    Exit;
+  end;
+
+  OverlayTemplate := simMgrClient.SimOverlayTemplate.FList.Items[idx];
+
+  rec.TemplateName  := OverlayTemplate.Name;
+  rec.IdSelectTrack := IdSelectedTrack;
+  rec.IdAction      := 1;
+
+  simMgrClient.netSend_CmdDynamicTrack(rec);
+
+  OverlayTemplate.isShow := True;
+  ShowMessage('Berhasil di-Attach ke Track!');
 end;
+//var
+//  OverlayTemplate : TMainOverlayTemplate;
+//  rec : TRecCmd_OverlayDynamicTrack;
+//begin
+//  if IdSelectedTrack > lvTrack.Items.Count then
+//    Exit;
+//
+//  OverlayTemplate := simMgrClient.SimOverlayTemplate.FList.Items[IdSelectedTemplate - 1];
+//
+//  rec.TemplateName  := OverlayTemplate.Name;
+//  rec.IdSelectTrack := IdSelectedTrack;
+//  rec.IdAction      := 1;
+//
+//  simMgrClient.netSend_CmdDynamicTrack(rec);
+//
+//  btnAttach.Enabled := False;
+//  OverlayTemplate.isShow := True;
+//end;
+
+//begin
+//  pnlType.Visible := False;
+
+//  pnlTrackSelection.Visible := True;
+//  btnTrackSelectionOK.Enabled := False;
+//  edtTrack.Text := '';
+//  edtRange.Text := '0';
+//  edtBearing.Text := '0';
+//  edtRotation.Text := '0';
+//end;
 
 procedure TfmOverlayEditor.btnClearPointClick(Sender: TObject);
 begin
@@ -1691,6 +1769,7 @@ begin
     begin
       lblShape.Caption := '---';
       grpNone.BringToFront;
+      grpNoneD.BringToFront;
 
       isMoveOverlay := False;
 
@@ -1745,6 +1824,13 @@ begin
     isBtnFillClick := False;
     isBtnFrameClick := True;
 //    txtFillColor.Color := txtColorSelect.Color;
+  end;
+
+  ResetImageOverlay;
+
+  if Sender is TRzBmpButton then
+  begin
+    TRzBmpButton(Sender).Down := True;
   end;
 end;
 
@@ -3803,22 +3889,24 @@ begin
   chkHideAllOverlayTemplate.Checked := False;
   chkShowOverlayTemplate.Checked := FSelectedOverlay.isShow;
 
-//  grpStatic.Visible := False;
-//  grpDynamic.Visible := False;
+  grpStatic.Visible := False;
+  grpDynamic.Visible := False;
 
-  {dibuat IdSelectedRoute - 1, karena perbedaan penomoran antara Flisttemp dan listview}
+//  {dibuat IdSelectedRoute - 1, karena perbedaan penomoran antara Flisttemp dan listview}
 //  OverlayTemplate := simMgrClient.DrawOverlayTemplate.FList.Items[IdSelectedTemplate - 1];
 //  StateOverlay := OverlayTemplate.Tipe;
 //
-//  if StateOverlay = osDynamic then
-//  begin
-//    grpDynamic.Visible := True;
-//    RefreshDynamicTrack;
-//  end
-//  else
-//  begin
-//    grpStatic.Visible := True;
-//    btnEdit.Enabled := True;
+  if StateOverlay = osDynamic then
+  begin
+    grpDynamic.Visible := True;
+    grpStatic.Visible := False;
+    RefreshDynamicTrack;
+  end
+  else
+  begin
+    grpStatic.Visible := True;
+    grpDynamic.Visible := False;
+    btnEdit.Enabled := True;
 
 //    case OverlayTemplate.Domain of
 //      vhdAir        : lbDomain.Caption := 'Air';
@@ -3829,8 +3917,8 @@ begin
 //    end;
 
 //    chkShowOverlayTemplate.Checked := OverlayTemplate.isShow;
-//  end;
-
+  end;
+  chkShowOverlayTemplate.Checked := FSelectedOverlay.isShow;
 //  if OverlayTemplate.isShow then
 //    chkShowOverlayTemplate.Checked := True
 //  else

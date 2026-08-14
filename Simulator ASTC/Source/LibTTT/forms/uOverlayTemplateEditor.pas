@@ -386,7 +386,7 @@ type
     colorChoose: TColorGrid;
     pnl1: TPanel;
     btnNoFill: TStaticText;
-    GroupBox1: TGroupBox;
+    grpLines: TGroupBox;
     pnlPenEditing: TPanel;
     lbl16: TLabel;
     Label3: TLabel;
@@ -394,7 +394,6 @@ type
     cbbDashesPen: TComboBox;
     Label5: TLabel;
     Label84: TLabel;
-    Label85: TLabel;
     pnlMainBackground: TPanel;
     imgBackground: TImage;
     btnSelect: TRzBmpButton;
@@ -877,49 +876,40 @@ procedure TfmOverlayEditor.RefreshDynamicTrack;
 var
   i, j, k : Integer;
   objectTrackSelection : TMainTrackSelection;
-  OverlayTemplate : TMainOverlayTemplate;
+
 begin
   lvTrack.Clear;
 
-  {dibuat IdSelectedRoute - 1, karena perbedaan penomoran antara Flisttemp dan listview}
-  k := IdSelectedTemplate - 1;
-
-  if (k < 0) or (k > simMgrClient.SimOverlayTemplate.FList.Count ) then
+  if Assigned(FSelectedOverlay) then
   begin
-    ShowMessage(Format('Gagal Refresh! IdSelectedTemplate: %d, Nilai k: %d, Total FList: %d',
-      [IdSelectedTemplate, k, simMgrClient.SimOverlayTemplate.FList.Count]));
-    Exit;
-  end;
-
-  OverlayTemplate := simMgrClient.SimOverlayTemplate.FList.Items[k];
-
-  for i := 0 to OverlayTemplate.ListAttachShip.Count - 1 do
-  begin
-    objectTrackSelection := OverlayTemplate.ListAttachShip.Items[i];
-
-    with lvTrack.Items.Add do
+    for i := 0 to FSelectedOverlay.ListAttachShip.Count - 1 do
     begin
-      SubItems.Add(objectTrackSelection.TrackId);
-      SubItems.Add(FloatToStr(objectTrackSelection.BearingOffset));
-      SubItems.Add(FloatToStr(objectTrackSelection.RangeOffset));
-      SubItems.Add(FloatToStr(objectTrackSelection.Rotation));
-      if objectTrackSelection.Orientation = 1 then
-        SubItems.Add('T')
-      else
-        SubItems.Add('R');
+      objectTrackSelection := FSelectedOverlay.ListAttachShip.Items[i];
+
+      with lvTrack.Items.Add do
+      begin
+        SubItems.Add(objectTrackSelection.TrackId);
+        SubItems.Add(FloatToStr(objectTrackSelection.BearingOffset));
+        SubItems.Add(FloatToStr(objectTrackSelection.RangeOffset));
+        SubItems.Add(FloatToStr(objectTrackSelection.Rotation));
+        if objectTrackSelection.Orientation = 1 then
+          SubItems.Add('T')
+        else
+          SubItems.Add('R');
+      end;
     end;
-  end;
 
-  lvTrack.Items.BeginUpdate;
-  try
-   for j := 0 to lvTrack.Items.Count-1 do
-     lvTrack.Items.Item[j].Caption:=IntToStr(j+1);
-  finally
-    lvTrack.Items.EndUpdate;
-  end;
+    lvTrack.Items.BeginUpdate;
+    try
+     for j := 0 to lvTrack.Items.Count-1 do
+       lvTrack.Items.Item[j].Caption:=IntToStr(j+1);
+    finally
+      lvTrack.Items.EndUpdate;
+    end;
 
-  if lvTrack.Items.Count = 0 then
-    btnEdit.Enabled := False;
+    if lvTrack.Items.Count = 0 then
+      btnEdit.Enabled := False;
+  end;
 end;
 
 procedure TfmOverlayEditor.UpdateOverlayTemplateList;
@@ -1244,40 +1234,42 @@ end;
 
 procedure TfmOverlayEditor.AddTrackSelection;
 var
-  OverlayTemplate : TMainOverlayTemplate;
   rec : TRecCmd_OverlayDynamicTrack;
 
 begin
-  if (edtTrack.Text = '') or (edtRange.Text = '') or (edtBearing.Text = '') or
-     (edtRotation.Text = '') then
+  if (edtTrack.Text = '') or (edtRange.Text = '') or (edtBearing.Text = '') or (edtRotation.Text = '') then
   begin
     ShowMessage('Incomplete data input');
     Exit;
   end;
 
-  OverlayTemplate := simMgrClient.SimOverlayTemplate.FList.Items[IdSelectedTemplate - 1];
+  if Assigned(FSelectedOverlay) then
+  begin
+    rec.TemplateName := FSelectedOverlay.Name;
+    rec.IDTrack := IdTrackInstanceIndex;
+    rec.NameTrack := edtTrack.Text;
+    rec.Rng := StrToFloat(edtRange.Text);
+    rec.Brg := StrToInt(edtBearing.Text);
+    rec.Rot := StrToInt(edtRotation.Text);
+    rec.IdAction := caAdd;
 
-  rec.TemplateName := OverlayTemplate.Name;
-  rec.IDTrack := IdTrackInstanceIndex;
-  rec.NameTrack := edtTrack.Text;
-  rec.Rng := StrToFloat(edtRange.Text);
-  rec.Brg := StrToInt(edtBearing.Text);
-  rec.Rot := StrToInt(edtRotation.Text);
-  rec.IdAction := caAdd;
+    if rbTrueOrientation.Checked then
+      rec.Orientation := 1
+    else
+      rec.Orientation := 0;
 
-  if rbTrueOrientation.Checked then
-    rec.Orientation := 1
-  else
-    rec.Orientation := 0;
+    simMgrClient.netSend_CmdDynamicTrack(rec);
+    edtTrack.Text := '';
+    edtRange.Text := '0';
+    edtBearing.Text := '0';
+    edtRotation.Text := '0';
 
-  simMgrClient.netSend_CmdDynamicTrack(rec);
-  edtTrack.Text := '';
-  edtRange.Text := '0';
-  edtBearing.Text := '0';
-  edtRotation.Text := '0';
+    // menambah isShow unk multipleTemplate
+    FSelectedOverlay.isShow := True;
+  end;
 
-  // menambah isShow unk multipleTemplate
-  OverlayTemplate.isShow := True;
+  pnlType.BringToFront;
+
 end;
 
 procedure TfmOverlayEditor.Apply;
@@ -1479,59 +1471,15 @@ begin
 end;
 
 procedure TfmOverlayEditor.btnAttachClick(Sender: TObject);
-var
-  OverlayTemplate : TMainOverlayTemplate;
-  rec : TRecCmd_OverlayDynamicTrack;
-  idx : Integer;
 begin
-  // 1. Validasi ID Template (Pencegah Error Index -1)
-  idx := IdSelectedTemplate - 1;
-  if (idx < 0) or (idx >= simMgrClient.SimOverlayTemplate.FList.Count) then
-  begin
-    ShowMessage('Pilih overlay dynamic terlebih dahulu dari tabel!');
-    Exit;
-  end;
-
-  OverlayTemplate := simMgrClient.SimOverlayTemplate.FList.Items[idx];
-
-  rec.TemplateName  := OverlayTemplate.Name;
-  rec.IdSelectTrack := IdSelectedTrack;
-  rec.IdAction      := 1;
-
-  simMgrClient.netSend_CmdDynamicTrack(rec);
-
-  OverlayTemplate.isShow := True;
-  ShowMessage('Berhasil di-Attach ke Track!');
-end;
-//var
-//  OverlayTemplate : TMainOverlayTemplate;
-//  rec : TRecCmd_OverlayDynamicTrack;
-//begin
-//  if IdSelectedTrack > lvTrack.Items.Count then
-//    Exit;
-//
-//  OverlayTemplate := simMgrClient.SimOverlayTemplate.FList.Items[IdSelectedTemplate - 1];
-//
-//  rec.TemplateName  := OverlayTemplate.Name;
-//  rec.IdSelectTrack := IdSelectedTrack;
-//  rec.IdAction      := 1;
-//
-//  simMgrClient.netSend_CmdDynamicTrack(rec);
-//
-//  btnAttach.Enabled := False;
-//  OverlayTemplate.isShow := True;
-//end;
-
-//begin
 //  pnlType.Visible := False;
-
-//  pnlTrackSelection.Visible := True;
-//  btnTrackSelectionOK.Enabled := False;
-//  edtTrack.Text := '';
-//  edtRange.Text := '0';
-//  edtBearing.Text := '0';
-//  edtRotation.Text := '0';
-//end;
+  pnlTrackSelection.BringToFront;
+  btnTrackSelectionOK.Enabled := False;
+  edtTrack.Text := '';
+  edtRange.Text := '0';
+  edtBearing.Text := '0';
+  edtRotation.Text := '0';
+end;
 
 procedure TfmOverlayEditor.btnClearPointClick(Sender: TObject);
 begin
@@ -1738,7 +1686,7 @@ begin
   end;
   ClearEditText;
   ClearFlagPoint;
-  frmTacticalDisplay.Map1.CurrentTool := mtSelectObject;
+//  frmTacticalDisplay.Map1.CurrentTool := mtSelectObject;
   btnNone.Down := True;
 end;
 
@@ -1877,6 +1825,7 @@ begin
     end;
     6:{Ok Track Selection}
     begin
+//      pnlType.BringToFront;
       AddTrackSelection;
     end;
     7:{Cancel Track Selection}
@@ -3885,9 +3834,9 @@ procedure TfmOverlayEditor.SelectTemplate;
 var
   OverlayTemplate : TMainOverlayTemplate;
 begin
-  chkShowAllOverlayTemplate.Checked := False;
-  chkHideAllOverlayTemplate.Checked := False;
-  chkShowOverlayTemplate.Checked := FSelectedOverlay.isShow;
+//  chkShowAllOverlayTemplate.Checked := False;
+//  chkHideAllOverlayTemplate.Checked := False;
+//  chkShowOverlayTemplate.Checked := FSelectedOverlay.isShow;
 
   grpStatic.Visible := False;
   grpDynamic.Visible := False;
@@ -3896,16 +3845,17 @@ begin
 //  OverlayTemplate := simMgrClient.DrawOverlayTemplate.FList.Items[IdSelectedTemplate - 1];
 //  StateOverlay := OverlayTemplate.Tipe;
 //
+  StateOverlay := FSelectedOverlay.Tipe;
   if StateOverlay = osDynamic then
   begin
     grpDynamic.Visible := True;
-    grpStatic.Visible := False;
+//    grpStatic.Visible := False;
     RefreshDynamicTrack;
   end
   else
   begin
     grpStatic.Visible := True;
-    grpDynamic.Visible := False;
+//    grpDynamic.Visible := False;
     btnEdit.Enabled := True;
 
 //    case OverlayTemplate.Domain of

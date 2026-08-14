@@ -44899,7 +44899,7 @@ object fmOverlayEditor: TfmOverlayEditor
         end
       end
     end
-    object GroupBox1: TGroupBox
+    object grpLines: TGroupBox
       Left = 17
       Top = 98
       Width = 298
@@ -44972,1089 +44972,6 @@ object fmOverlayEditor: TfmOverlayEditor
             'Dot'
             'Dash Dot'
             'Dash Dot Dot')
-        end
-      end
-    end
-    object grpColorEditing: TGroupBox
-      Left = 17
-      Top = 8
-      Width = 117
-      Height = 83
-      Color = 2695445
-      ParentBackground = False
-      ParentColor = False
-      TabOrder = 2
-      object btnOutline: TImage
-        Left = 8
-        Top = 9
-        Width = 30
-        Height = 30
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
-          001E08030000000CEE5E90000002E5504C54457CEEED1D22261013154347471C
-          212512151856A9A923272B22272A5F6565656A6A171B1E939898939999A1A7A7
-          44484B272C3015191C464A4D2D32351B20241F30334B4F4F5D606369CCCBABB1
-          B1203033474B4B6BCECE1C20244E9697161A1C253F414549491C2124243A3D38
-          3D3F45494C64C1C11E292B363B3E1C2527353A3D191F221A1F23A8ADAE58A9A9
-          3C41424077781B20234448491A22252B3033373C3F464A4A1D26295C5F616ACE
-          CE6ACCCC69CCCC70D8D716191C151A1B203133203336282D30243C401C222612
-          1517263E41767D7D979D9D8A91919098988087871C2427233B3E989F9F233B3D
-          191E21404548ADB3B31D282A2B4F5072DBDB253C3F2540422F56591E2F3160B9
-          B9243C3E80EFED7DEEED181C1F6D7373202E319197988E94946BCCCB6CD1D013
-          16184384841C23264A8E8F2237396F76762F35381F2D30243D40191D20595E5E
-          999FA06CD0D03F4346474C4C2A2E314077795E6264878F8F0E11132742447980
-          808E9696979E9E676C6D4F53557BEDEC4A4E519096961D272A42464872797956
-          5A5D9EA4A41F292D212E32A3AAAA7E86864083839DA3A3223A3C5B5E61A7ACAC
-          383E41387373A5ABAB4B505023393CA0A6A657AAABAFB4B4294C4E305C5E6FD6
-          D66FD5D52B4D4E23353969CBCB74E0DF27434553A0A0223A3D56A8A82F55562D
-          535547898B6167678D94952D50527B82821F2C2F5EB7B7202529575C5CA2A9A9
-          55595994999A323739B1B7B71B2125366C6D14181B484E5023363A5F64643B73
-          75B5BABA316162B2B7B7292E3143888875E1E0417B7C408182458788447D7F95
-          9B9B5AB1B1407D7E5C626231363A64C2C22D5C5E6B7272989E9F525758BCC0C0
-          3C40416D74755256589EA5A5BEC2C264696B676A6D3A3E42BBC0C0B7BCBC373C
-          3E757B7D9299998A8F9078E6E6B0B5B5A9AFAF888D8E474B4F59AFAF828A8AAA
-          AFAF79E8E770DAD9858C8D9BA2A2393F422132353E44464D93946FD7D660BBBB
-          63BFBF376E6F3F74752E585A315F60254143529B9C284A4C68BE3630000002B3
-          4944415478DA636464E8F3DE18E9B94F950119D47F149CB3DEF8130323E3D623
-          260FBEAFC8DC7D0249564486F1DFB153BF197519B3EE483DBBCAF688011DC8FD
-          0A5EBDCF8FB1E8CDAB82A250BE2E24194586D0D5B6ECA1896CCB98188D028FDD
-          BF59B0E515425639E01C83D184A2C015F38CDC19A5FBFE4DD7B78F6090FB0D96
-          637D24C7AF28F649F0C6476FD6751B37322ABEB493F9B9DCDD9A7132583AF7FF
-          5ABF4B47DBD867AB15702B35A4303AEA5AC6452C8F4E8986987C8EF567E6B3E3
-          0C75CFD9F6FFBED796C0C8316FF11E362136DF356B6341D227D9FEBA1F07D2C9
-          21C5BF0537F930723031FF60E3E409F82ABC1A285A90B864E15BBD350C0C6C96
-          AF7F7FFCC10A9536BC2EA2740BE86823B1C5F2737FA5AC395AFBFCFF5F8434CF
-          1F91EFAC2F24D43CE7CB1FB798FDEB6B02E72589BB2C48D2119BB91E0B97CC97
-          FFCBF4DF798ADCDDD71F14DEA14AB3865E7AB63583E9BFD354F52B5F9EFF5546
-          911651BAA978E1E4EA3FA79DA7A85FF9F9E82F03B234D069819B5233189E2DE1
-          9F0A9145965613D10EBABBB0CD8A81A14E7CE76D8E8F8F1850742BDA6C593C35
-          67F94C86BB3B763EB57A7497E1C5070624A7C94996B332FFFA798DCDEAEC55F5
-          9FA26B799CBAEF1AC23D26A5983DE12E2848BD18B681A394218969C9344BA8B4
-          F96DDF0B4740C231FF19189740A2664982CA2BB0F4E19F0DB7CD9F1D414B4B8B
-          054A5F357CEB6634710BB294D2FD802EBD2246E55503CB2EC6B33B5E4D63E3F7
-          B54E41919DD5ACF0E996FACAF58CD20993BF6CAE2B9F7A9BE1375C925555E1C6
-          598329AB24D91815338C8B2F27DD7C247705A1570798AEDFB848C77273329E5F
-          673AFF9E0743377A3A777A26C3C2DCCCB837CE2F50245E8A213306492E44E121
-          DF7C4B7DE63D8C8C1BB218E2CEB169B2F52249E74C395E25EFC26423C6C8C850
-          B487FD299BC23114A3AD1EFC92FEE9D2C700006DBE24A9F35767890000000049
-          454E44AE426082}
-        OnClick = btnOutlineClick
-      end
-      object btnFill: TImage
-        Left = 8
-        Top = 45
-        Width = 30
-        Height = 30
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
-          001E08030000000CEE5E90000002E2504C54451D22267CEEED1C212510131512
-          151843474716191C509C9D23272B22272A464A4D181C1F5F6565939999939898
-          656A6A272C302D3235A1A7A7383D401F2E314B4F4FABB1B1474B4B1A1F235D60
-          6345494C454949373C3E7EEEED1B20242031341C20241B20235AB2B21B222544
-          484B1F2E32213437171B1E1D21255BB3B31B2528253F419CF2F1464A4A5B5E61
-          151A1B74DFDE1F2F328DF0EF8D9494161A1C191D201C24271F30321D2628282D
-          3088F0EE767D7D1D2529292E3178E6E695F1F03C40422033359098988A919121
-          363998F2F191F1F0808787444849989F9F6ED5D54083842B303370D8D7A7ADAD
-          404548A7ACAC5C5F621B21242742441F2C2F2A4F51509A99181B1E253D4083EF
-          ED84EFEE40797B1C232713161964B3B31E292D62B3B36F767667C9C898F2F099
-          9FA02F35388AF0EF3C4142595E5E353A3C6D74753E7D7E474C4C6DD1D1969D9D
-          313639989E9F8E9696878F8F989D9D0E11137980803158595256584F535560BC
-          BB676C6D5F636562C0C0BCC0C04B4F522E54566ACECE243C3F9EA4A42640425A
-          B1B12F595A77E5E4575A5D9097972D5153484C5043474A42464851A2A27E8686
-          393F42ADB3B3A3AAAA3E4446383E414B5050A5ABABAAAFAF878D8EA0A6A6AFB4
-          B428474926414459ABAB509E9E69CCCC78E7E64D92934889895DB2B221383A29
-          4C4E6167679297985E63636EC5C5202529909595646A6A7B82827279796D7373
-          B1B7B7575C5C1C2629A2A9A9539FA094999A418080959B9B363B3D55595967B4
-          B4484E5087EFEE3F4346B5BABAB2B7B73161616B7272509D9D212E3261B5B54A
-          95965FB3B3223A3C21313381D3D34792925C62625EB9B9427C7D45828445898A
-          73DDDD57A7A827424538707276E3E27AEBEA43888850A1A14684852A494B9EA5
-          A5BEC2C2ADB2B364696B676A6D243C3E57A7A75B606072DCDB1F323480EFEDB7
-          BCBC7FD3D2757B7D6DD4D356A7A79CA3A32F5C5E78D2D174E0DFA0A7A78A8F90
-          B0B5B59DA3A3828A8A737A7AA9ADAE9BA2A22D3236720A4452000002B1494441
-          5478DA636460981CCCB52C767E1D033268FECABB7381D91D0646865DDB1DE719
-          9DF1FEDE86246BF185F5CFAAEFDF98541853AFF96EBEC3F28A011D88FD092C5E
-          349731C769AAC53BD10DAF417A18EE3230289F00CB26FDFF7B7106FF0A468FD4
-          A9A59E7BE280225CE98C87196CFFCF64F806E414FC0D9B3DDFC89F517C6AFB1F
-          B69270A00853545AE6B2E2DC40B51B20ED82B99C07572E67949E30436ADD5790
-          ACE29F754CAC1BFE6F3DF50F6CBC8357F5DBA58C96FAA72FB283A5CDDC437EB3
-          4CC82BBCFB042C2FFCFD77272323E79CB98720D2B1154B234394AC83BCFF3EFA
-          0796563E1EC1C8C9F6EF3B489A4966F2D1848CC315ECB7AFFDBCC604B45FF83B
-          F7DFFF08E980B3D33A0F3354FB7FE35EB541E894DA0D146926451193CB871918
-          4EFC6E63FC3F75D1EE63FF50A583D85D9218229238B67578324E533B10C9F11A
-          595A81AD229921E2A6088342AD5CCFF7E4EFCE0F0551742B1BAE6648BDC9C6C0
-          F8C5F89FF4F17B6F5FA14A479D37DF2D6A78924178CDFFC5253E6653D1A4E5A5
-          25258E02A5772ED9B15CD2074D3793CC2FD9AF552CD3D99A0F2EFC99943EE5C8
-          1564E9EF663FBF4ADF6BD9C498CCC65EB87AFE3FB6FD9FCE20A4838F7394F532
-          FC6468D8F78F812935968181BD2BE7FFBF773069E58FD6EB40B12063FB8041E1
-          F013204B5FE3E46F88F4F66F7ECA1F9BD221494886E10998D6573ECAF2AEEB6F
-          0AA38FEAFF29CABFAAD250531A587717EB36C672EE470B824FFE6FFC9B852C3D
-          6BDACB3F1C9C99BB18C523177D64169293BBFBE53D5C5290C1EAFA192FE5BFB5
-          6B18A58B0D56CE895AA9C7700949B31E03C3673E83547E1346070B739D1E5E86
-          7EF474CE987A89874991D1F69657CC81B286DF6E51487233583A0DD7C5B0302F
-          6764C85FC110F7F3B626C72424E9D9A97177A5FC396EE5313230D86A1D7BC522
-          771EC568C3477FC4ACAE1D660000BAC5480942469E590000000049454E44AE42
-          6082}
-        OnClick = btnFillClick
-      end
-      object pnlOutline: TPanel
-        Left = 49
-        Top = 9
-        Width = 54
-        Height = 66
-        BevelOuter = bvNone
-        BorderWidth = 3
-        Color = clRed
-        ParentBackground = False
-        TabOrder = 0
-        object pnlFill: TPanel
-          Left = 3
-          Top = 3
-          Width = 48
-          Height = 60
-          Align = alClient
-          BevelOuter = bvNone
-          Caption = 'No Fill'
-          Color = 16775920
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentBackground = False
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-    end
-    object grpTemplate: TGroupBox
-      Left = 357
-      Top = 8
-      Width = 298
-      Height = 646
-      Color = 2695445
-      ParentBackground = False
-      ParentColor = False
-      TabOrder = 4
-      object pnlCreateNew: TPanel
-        Left = 13
-        Top = 469
-        Width = 282
-        Height = 174
-        BevelOuter = bvNone
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentBackground = False
-        ParentColor = True
-        ParentFont = False
-        TabOrder = 0
-        object Label1: TLabel
-          Left = 8
-          Top = 25
-          Width = 32
-          Height = 13
-          Caption = 'Name'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -12
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label65: TLabel
-          Left = 48
-          Top = 25
-          Width = 9
-          Height = 13
-          Caption = ' : '
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -12
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label2: TLabel
-          Left = 7
-          Top = 51
-          Width = 31
-          Height = 13
-          Caption = 'Type  '
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -12
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Bevel3: TBevel
-          Left = 11
-          Top = 8
-          Width = 259
-          Height = 3
-        end
-        object Bevel2: TBevel
-          Left = 12
-          Top = 129
-          Width = 259
-          Height = 3
-          Visible = False
-        end
-        object Label4: TLabel
-          Left = 48
-          Top = 51
-          Width = 9
-          Height = 13
-          Caption = ' : '
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -12
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          Visible = False
-        end
-        object Label85: TLabel
-          Left = 120
-          Top = 88
-          Width = 37
-          Height = 13
-          Caption = 'Label85'
-        end
-        object rgForce: TRadioGroup
-          Left = 11
-          Top = 67
-          Width = 259
-          Height = 59
-          Caption = '       '
-          Columns = 2
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ItemIndex = 0
-          Items.Strings = (
-            'Blue'
-            'Red')
-          ParentBackground = False
-          ParentFont = False
-          TabOrder = 2
-        end
-        object edtNameOverlay: TEdit
-          Left = 70
-          Top = 21
-          Width = 188
-          Height = 24
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          MaxLength = 30
-          ParentFont = False
-          TabOrder = 0
-          Text = 'New Overlay'
-        end
-        object btnCancel: TButton
-          Tag = 5
-          Left = 209
-          Top = 139
-          Width = 59
-          Height = 25
-          Caption = 'Cancel'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 4
-          OnClick = btnHandleTemplate
-        end
-        object btnOk: TButton
-          Tag = 4
-          Left = 144
-          Top = 139
-          Width = 59
-          Height = 25
-          Caption = 'Create'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 3
-          OnClick = btnHandleTemplate
-        end
-        object Panel1: TPanel
-          Left = 59
-          Top = 51
-          Width = 225
-          Height = 21
-          BevelOuter = bvNone
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentBackground = False
-          ParentColor = True
-          ParentFont = False
-          TabOrder = 1
-          object Bevel5: TBevel
-            Left = 12
-            Top = 229
-            Width = 259
-            Height = 5
-          end
-          object Label5: TLabel
-            Left = 31
-            Top = 0
-            Width = 28
-            Height = 13
-            Caption = 'Static'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWhite
-            Font.Height = -12
-            Font.Name = 'Berlin Sans FB'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label84: TLabel
-            Left = 91
-            Top = 0
-            Width = 44
-            Height = 13
-            Caption = 'Dynamic'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWhite
-            Font.Height = -12
-            Font.Name = 'Berlin Sans FB'
-            Font.Style = []
-            ParentFont = False
-          end
-          object rbStatic: TRadioButton
-            Tag = 1
-            Left = 11
-            Top = -2
-            Width = 14
-            Height = 17
-            Checked = True
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            TabStop = True
-            OnClick = rbTipeHandle
-          end
-          object rbDynamic: TRadioButton
-            Left = 72
-            Top = -2
-            Width = 14
-            Height = 17
-            Caption = 'Dynamic'
-            Color = 3683636
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 1
-            OnClick = rbTipeHandle
-          end
-        end
-      end
-      object lvTemplates: TListView
-        Left = 18
-        Top = 20
-        Width = 262
-        Height = 450
-        Columns = <
-          item
-            Caption = 'No'
-            Width = 0
-          end
-          item
-            Caption = 'Name'
-            Width = 105
-          end
-          item
-            Alignment = taCenter
-            Caption = 'Type'
-          end
-          item
-            Alignment = taCenter
-            Caption = 'Force'
-          end
-          item
-            Alignment = taCenter
-            Caption = 'Role'
-          end
-          item
-            Caption = 'NoCubicle'
-            Width = 0
-          end>
-        GridLines = True
-        HideSelection = False
-        ReadOnly = True
-        RowSelect = True
-        TabOrder = 3
-        ViewStyle = vsReport
-        OnSelectItem = lvTemplatesSelectItem
-      end
-      object pnlTrackSelection: TPanel
-        Left = 333
-        Top = 260
-        Width = 282
-        Height = 235
-        BevelOuter = bvNone
-        ParentBackground = False
-        ParentColor = True
-        TabOrder = 2
-        Visible = False
-        object Label15: TLabel
-          Left = 24
-          Top = 26
-          Width = 26
-          Height = 13
-          Caption = 'Track'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lb2: TLabel
-          Left = 24
-          Top = 57
-          Width = 63
-          Height = 13
-          Caption = 'Range offset'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          Transparent = False
-        end
-        object lb3: TLabel
-          Left = 24
-          Top = 79
-          Width = 68
-          Height = 13
-          Caption = 'Bearing offset'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          Transparent = False
-        end
-        object lb4: TLabel
-          Left = 160
-          Top = 57
-          Width = 14
-          Height = 13
-          Caption = 'nm'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          Transparent = False
-        end
-        object lb5: TLabel
-          Left = 160
-          Top = 79
-          Width = 18
-          Height = 13
-          Caption = 'deg'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          Transparent = False
-        end
-        object lb6: TLabel
-          Left = 24
-          Top = 101
-          Width = 70
-          Height = 13
-          Caption = 'Rotation angle'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lb7: TLabel
-          Left = 160
-          Top = 101
-          Width = 18
-          Height = 13
-          Caption = 'deg'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object btnTargetSearch: TSpeedButton
-          Tag = 10
-          Left = 198
-          Top = 21
-          Width = 23
-          Height = 22
-          Glyph.Data = {
-            36090000424D360900000000000036000000280000001F000000180000000100
-            18000000000000090000000000000000000000000000000000006161613E3E3E
-            3737374040403B3B3B3A3A3A4141414141413A3A3A3A3A3A4040403737373E3E
-            3E3D3D3D3838384141413A3A3A3B3B3B4040403737373E3E3E3D3D3D38383841
-            41413A3A3A3B3B3B4040403737373E3E3E3C3C3C383838000000B2B2B27C7C7C
-            7474747F7F7F7878787777778080808080807878787878788080807474747C7C
-            7C7B7B7B7474748080807A7A7A7A7A7A7F7F7F7474747C7C7C7B7B7B74747480
-            80807777777979797F7F7F7474747D7D7D7A7A7A757575000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2BDBDBDBBBBBBB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C0C0C04949
-            491111111111111111111212121212121A1A1AB2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29191914D4D4D5454545F5F
-            5F6565656262620000004747476565656363634D4D4D4D4D4D797979BABABAB2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29797976969692929292929298686
-            86B2B2B2ADADAD0000007D7D7DB2B2B2ABABAB292929292929545454979797B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B23D3D3D3B3B3BB2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B26A6A6A0E0E0EB2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B21616166F6F6FA5A5A5B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2AAAAAA94949413
-            13138A8A8AB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A4A4A400
-            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2A6A6A68B8B8B2C2C2C838383B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007F7F7FB4B4B4B2B2B2B2B2B2B2B2B2B2B2B2A7A7A727
-            27277272729C9C9CB2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B000000BDBDBDB7B7B7B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD000000888888BBBBBBB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B000000B0B0B0B3B3B3B2B2B2B2B2B2BFBFBFB6B6
-            B6B2B2B2B1B1B19D9D9DADADADB3B3B3B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3BF
-            BFBF3030304C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B0000004F4F4F5151515151515151515858585353
-            53737373B2B2B2B2B2B2B2B2B28D8D8D51515151515151515151515152525258
-            58581616164C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B0000002424242525252525252525252525252525
-            25575757B2B2B2B2B2B2B2B2B27D7D7D25252525252525252525252525252525
-            25250909094C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B000000AFAFAFB2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B000000BBBBBBB6B6B6B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD171717848484B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B29999995F5F5F5A5A5A949494B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B5B5B5B2B2B253
-            53535C5C5C828282B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B7B7B7AFAFAF00
-            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A4A4A400
-            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29A9A9A4545454B4B4BB2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B274747423232399
-            9999ACACACB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B27A7A7A5A5A5A5555555555559494
-            94B5B5B5B4B4B4000000838383B7B7B7ADADAD555555555555585858646464B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B28282822121212121216D6D
-            6D9595959898980000006E6E6E9898988B8B8B2121212121215B5B5BB2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B23939
-            39000000000000000000000000000000090909B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A0A0
-            A0979797979797979797979797979797999999B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-          OnClick = btnTargetSearchClick
-        end
-        object Bevel10: TBevel
-          Left = 11
-          Top = 4
-          Width = 259
-          Height = 3
-        end
-        object Bevel11: TBevel
-          Left = 12
-          Top = 180
-          Width = 259
-          Height = 3
-        end
-        object Label16: TLabel
-          Left = 24
-          Top = 129
-          Width = 36
-          Height = 13
-          Caption = 'Bearing'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          Transparent = False
-        end
-        object Label17: TLabel
-          Left = 55
-          Top = 26
-          Width = 4
-          Height = 13
-          Caption = ':'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label18: TLabel
-          Left = 99
-          Top = 57
-          Width = 4
-          Height = 13
-          Caption = ':'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label19: TLabel
-          Left = 99
-          Top = 79
-          Width = 4
-          Height = 13
-          Caption = ':'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label20: TLabel
-          Left = 99
-          Top = 101
-          Width = 4
-          Height = 13
-          Caption = ':'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label24: TLabel
-          Left = 65
-          Top = 129
-          Width = 4
-          Height = 13
-          Caption = ':'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object btnTrackSelectionCancel: TButton
-          Tag = 7
-          Left = 211
-          Top = 198
-          Width = 59
-          Height = 25
-          Caption = 'Cancel'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 7
-          OnClick = btnHandleTemplate
-        end
-        object edtTrack: TEdit
-          Left = 120
-          Top = 22
-          Width = 73
-          Height = 21
-          Enabled = False
-          MaxLength = 10
-          TabOrder = 0
-        end
-        object edtRange: TEdit
-          Left = 119
-          Top = 53
-          Width = 35
-          Height = 21
-          MaxLength = 5
-          TabOrder = 1
-          Text = '0'
-          OnKeyPress = OnKeyPress
-        end
-        object edtBearing: TEdit
-          Left = 119
-          Top = 75
-          Width = 30
-          Height = 21
-          MaxLength = 3
-          NumbersOnly = True
-          TabOrder = 2
-          Text = '0'
-        end
-        object edtRotation: TEdit
-          Left = 119
-          Top = 97
-          Width = 30
-          Height = 21
-          MaxLength = 3
-          NumbersOnly = True
-          TabOrder = 3
-          Text = '0'
-        end
-        object btnTrackSelectionOK: TButton
-          Tag = 6
-          Left = 145
-          Top = 198
-          Width = 59
-          Height = 25
-          Caption = 'OK'
-          Enabled = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 6
-          OnClick = btnHandleTemplate
-        end
-        object rbTrueOrientation: TRadioButton
-          Left = 43
-          Top = 146
-          Width = 113
-          Height = 17
-          Caption = 'True'
-          Checked = True
-          TabOrder = 4
-          TabStop = True
-        end
-        object rbRelativeOrientation: TRadioButton
-          Left = 43
-          Top = 167
-          Width = 113
-          Height = 17
-          Caption = 'Relative'
-          TabOrder = 5
-        end
-      end
-      object pnlType: TPanel
-        Left = 8
-        Top = 467
-        Width = 282
-        Height = 164
-        BevelOuter = bvNone
-        ParentBackground = False
-        ParentColor = True
-        TabOrder = 1
-        object btnCloseTemplate: TSpeedButton
-          Tag = 3
-          Left = 212
-          Top = 141
-          Width = 59
-          Height = 25
-          Hint = 'Close'
-          Caption = 'Close'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnHandleTemplate
-        end
-        object btnDelete: TSpeedButton
-          Tag = 2
-          Left = 145
-          Top = 141
-          Width = 59
-          Height = 25
-          Hint = 'Delete Template'
-          Caption = 'Delete'
-          Enabled = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnHandleTemplate
-        end
-        object btnEdit: TSpeedButton
-          Tag = 1
-          Left = 79
-          Top = 141
-          Width = 59
-          Height = 25
-          Hint = 'Edit Templates'
-          Caption = 'Edit'
-          Enabled = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnHandleTemplate
-        end
-        object btnNew: TSpeedButton
-          Left = 12
-          Top = 141
-          Width = 59
-          Height = 25
-          Hint = 'Create New Templates'
-          Caption = 'New'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = True
-          OnClick = btnHandleTemplate
-        end
-        object Bevel8: TBevel
-          Left = 12
-          Top = 128
-          Width = 259
-          Height = 3
-        end
-        object grpStatic: TGroupBox
-          Left = 11
-          Top = 9
-          Width = 259
-          Height = 54
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 1
-          object lblShow: TLabel
-            Left = 38
-            Top = 24
-            Width = 26
-            Height = 13
-            Caption = 'Show'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label163: TLabel
-            Left = 112
-            Top = 24
-            Width = 40
-            Height = 13
-            Caption = 'Show All'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label164: TLabel
-            Left = 191
-            Top = 24
-            Width = 35
-            Height = 13
-            Caption = 'Hide All'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object chkShowOverlayTemplate: TCheckBox
-            Tag = 1
-            Left = 22
-            Top = 22
-            Width = 14
-            Height = 17
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            OnClick = TemplateShowHide
-          end
-          object chkShowAllOverlayTemplate: TCheckBox
-            Tag = 2
-            Left = 96
-            Top = 22
-            Width = 14
-            Height = 17
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-            OnClick = TemplateShowHide
-          end
-          object chkHideAllOverlayTemplate: TCheckBox
-            Tag = 3
-            Left = 175
-            Top = 22
-            Width = 14
-            Height = 17
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 2
-            OnClick = TemplateShowHide
-          end
-        end
-        object grpDynamic: TGroupBox
-          Left = 11
-          Top = 5
-          Width = 259
-          Height = 118
-          Caption = 'Dynamic '
-          Color = 2695445
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentBackground = False
-          ParentColor = False
-          ParentFont = False
-          TabOrder = 0
-          Visible = False
-          object btnAttach: TSpeedButton
-            Tag = 1
-            Left = 96
-            Top = 13
-            Width = 73
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Attack Track'
-            AllowAllUp = True
-            Caption = 'Attach'
-            OnClick = btnAttachClick
-          end
-          object btnDetach: TSpeedButton
-            Tag = 3
-            Left = 173
-            Top = 13
-            Width = 73
-            Height = 23
-            Cursor = crHandPoint
-            Hint = 'Detach Track'
-            AllowAllUp = True
-            Caption = 'Detach'
-            Enabled = False
-            OnClick = btnDetachClick
-          end
-          object lvTrack: TListView
-            Left = 13
-            Top = 42
-            Width = 233
-            Height = 67
-            Columns = <
-              item
-                Caption = 'No'
-                Width = 0
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Name'
-                Width = 79
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Brg'
-                Width = 40
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Rng'
-                Width = 40
-              end
-              item
-                Alignment = taCenter
-                Caption = 'Rot'
-                Width = 40
-              end
-              item
-                Alignment = taCenter
-                Width = 30
-              end>
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            GridLines = True
-            ReadOnly = True
-            RowSelect = True
-            ParentFont = False
-            TabOrder = 0
-            ViewStyle = vsReport
-            OnSelectItem = lvTrackSelectItem
-          end
         end
       end
     end
@@ -58388,6 +57305,1093 @@ object fmOverlayEditor: TfmOverlayEditor
           Height = 270
           TabOrder = 6
         end
+      end
+    end
+    object grpColorEditing: TGroupBox
+      Left = 17
+      Top = 8
+      Width = 117
+      Height = 83
+      Color = 2695445
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 2
+      object btnOutline: TImage
+        Left = 8
+        Top = 9
+        Width = 30
+        Height = 30
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+          001E08030000000CEE5E90000002E5504C54457CEEED1D22261013154347471C
+          212512151856A9A923272B22272A5F6565656A6A171B1E939898939999A1A7A7
+          44484B272C3015191C464A4D2D32351B20241F30334B4F4F5D606369CCCBABB1
+          B1203033474B4B6BCECE1C20244E9697161A1C253F414549491C2124243A3D38
+          3D3F45494C64C1C11E292B363B3E1C2527353A3D191F221A1F23A8ADAE58A9A9
+          3C41424077781B20234448491A22252B3033373C3F464A4A1D26295C5F616ACE
+          CE6ACCCC69CCCC70D8D716191C151A1B203133203336282D30243C401C222612
+          1517263E41767D7D979D9D8A91919098988087871C2427233B3E989F9F233B3D
+          191E21404548ADB3B31D282A2B4F5072DBDB253C3F2540422F56591E2F3160B9
+          B9243C3E80EFED7DEEED181C1F6D7373202E319197988E94946BCCCB6CD1D013
+          16184384841C23264A8E8F2237396F76762F35381F2D30243D40191D20595E5E
+          999FA06CD0D03F4346474C4C2A2E314077795E6264878F8F0E11132742447980
+          808E9696979E9E676C6D4F53557BEDEC4A4E519096961D272A42464872797956
+          5A5D9EA4A41F292D212E32A3AAAA7E86864083839DA3A3223A3C5B5E61A7ACAC
+          383E41387373A5ABAB4B505023393CA0A6A657AAABAFB4B4294C4E305C5E6FD6
+          D66FD5D52B4D4E23353969CBCB74E0DF27434553A0A0223A3D56A8A82F55562D
+          535547898B6167678D94952D50527B82821F2C2F5EB7B7202529575C5CA2A9A9
+          55595994999A323739B1B7B71B2125366C6D14181B484E5023363A5F64643B73
+          75B5BABA316162B2B7B7292E3143888875E1E0417B7C408182458788447D7F95
+          9B9B5AB1B1407D7E5C626231363A64C2C22D5C5E6B7272989E9F525758BCC0C0
+          3C40416D74755256589EA5A5BEC2C264696B676A6D3A3E42BBC0C0B7BCBC373C
+          3E757B7D9299998A8F9078E6E6B0B5B5A9AFAF888D8E474B4F59AFAF828A8AAA
+          AFAF79E8E770DAD9858C8D9BA2A2393F422132353E44464D93946FD7D660BBBB
+          63BFBF376E6F3F74752E585A315F60254143529B9C284A4C68BE3630000002B3
+          4944415478DA636464E8F3DE18E9B94F950119D47F149CB3DEF8130323E3D623
+          260FBEAFC8DC7D0249564486F1DFB153BF197519B3EE483DBBCAF688011DC8FD
+          0A5EBDCF8FB1E8CDAB82A250BE2E24194586D0D5B6ECA1896CCB98188D028FDD
+          BF59B0E515425639E01C83D184A2C015F38CDC19A5FBFE4DD7B78F6090FB0D96
+          637D24C7AF28F649F0C6476FD6751B37322ABEB493F9B9DCDD9A7132583AF7FF
+          5ABF4B47DBD867AB15702B35A4303AEA5AC6452C8F4E8986987C8EF567E6B3E3
+          0C75CFD9F6FFBED796C0C8316FF11E362136DF356B6341D227D9FEBA1F07D2C9
+          21C5BF0537F930723031FF60E3E409F82ABC1A285A90B864E15BBD350C0C6C96
+          AF7F7FFCC10A9536BC2EA2740BE86823B1C5F2737FA5AC395AFBFCFF5F8434CF
+          1F91EFAC2F24D43CE7CB1FB798FDEB6B02E72589BB2C48D2119BB91E0B97CC97
+          FFCBF4DF798ADCDDD71F14DEA14AB3865E7AB63583E9BFD354F52B5F9EFF5546
+          911651BAA978E1E4EA3FA79DA7A85FF9F9E82F03B234D069819B5233189E2DE1
+          9F0A9145965613D10EBABBB0CD8A81A14E7CE76D8E8F8F1850742BDA6C593C35
+          67F94C86BB3B763EB57A7497E1C5070624A7C94996B332FFFA798DCDEAEC55F5
+          9FA26B799CBAEF1AC23D26A5983DE12E2848BD18B681A394218969C9344BA8B4
+          F96DDF0B4740C231FF19189740A2664982CA2BB0F4E19F0DB7CD9F1D414B4B8B
+          054A5F357CEB6634710BB294D2FD802EBD2246E55503CB2EC6B33B5E4D63E3F7
+          B54E41919DD5ACF0E996FACAF58CD20993BF6CAE2B9F7A9BE1375C925555E1C6
+          598329AB24D91815338C8B2F27DD7C247705A1570798AEDFB848C77273329E5F
+          673AFF9E0743377A3A777A26C3C2DCCCB837CE2F50245E8A213306492E44E121
+          DF7C4B7DE63D8C8C1BB218E2CEB169B2F52249E74C395E25EFC26423C6C8C850
+          B487FD299BC23114A3AD1EFC92FEE9D2C700006DBE24A9F35767890000000049
+          454E44AE426082}
+        OnClick = btnOutlineClick
+      end
+      object btnFill: TImage
+        Left = 8
+        Top = 45
+        Width = 30
+        Height = 30
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+          001E08030000000CEE5E90000002E2504C54451D22267CEEED1C212510131512
+          151843474716191C509C9D23272B22272A464A4D181C1F5F6565939999939898
+          656A6A272C302D3235A1A7A7383D401F2E314B4F4FABB1B1474B4B1A1F235D60
+          6345494C454949373C3E7EEEED1B20242031341C20241B20235AB2B21B222544
+          484B1F2E32213437171B1E1D21255BB3B31B2528253F419CF2F1464A4A5B5E61
+          151A1B74DFDE1F2F328DF0EF8D9494161A1C191D201C24271F30321D2628282D
+          3088F0EE767D7D1D2529292E3178E6E695F1F03C40422033359098988A919121
+          363998F2F191F1F0808787444849989F9F6ED5D54083842B303370D8D7A7ADAD
+          404548A7ACAC5C5F621B21242742441F2C2F2A4F51509A99181B1E253D4083EF
+          ED84EFEE40797B1C232713161964B3B31E292D62B3B36F767667C9C898F2F099
+          9FA02F35388AF0EF3C4142595E5E353A3C6D74753E7D7E474C4C6DD1D1969D9D
+          313639989E9F8E9696878F8F989D9D0E11137980803158595256584F535560BC
+          BB676C6D5F636562C0C0BCC0C04B4F522E54566ACECE243C3F9EA4A42640425A
+          B1B12F595A77E5E4575A5D9097972D5153484C5043474A42464851A2A27E8686
+          393F42ADB3B3A3AAAA3E4446383E414B5050A5ABABAAAFAF878D8EA0A6A6AFB4
+          B428474926414459ABAB509E9E69CCCC78E7E64D92934889895DB2B221383A29
+          4C4E6167679297985E63636EC5C5202529909595646A6A7B82827279796D7373
+          B1B7B7575C5C1C2629A2A9A9539FA094999A418080959B9B363B3D55595967B4
+          B4484E5087EFEE3F4346B5BABAB2B7B73161616B7272509D9D212E3261B5B54A
+          95965FB3B3223A3C21313381D3D34792925C62625EB9B9427C7D45828445898A
+          73DDDD57A7A827424538707276E3E27AEBEA43888850A1A14684852A494B9EA5
+          A5BEC2C2ADB2B364696B676A6D243C3E57A7A75B606072DCDB1F323480EFEDB7
+          BCBC7FD3D2757B7D6DD4D356A7A79CA3A32F5C5E78D2D174E0DFA0A7A78A8F90
+          B0B5B59DA3A3828A8A737A7AA9ADAE9BA2A22D3236720A4452000002B1494441
+          5478DA636460981CCCB52C767E1D033268FECABB7381D91D0646865DDB1DE719
+          9DF1FEDE86246BF185F5CFAAEFDF98541853AFF96EBEC3F28A011D88FD092C5E
+          349731C769AAC53BD10DAF417A18EE3230289F00CB26FDFF7B7106FF0A468FD4
+          A9A59E7BE280225CE98C87196CFFCF64F806E414FC0D9B3DDFC89F517C6AFB1F
+          B69270A00853545AE6B2E2DC40B51B20ED82B99C07572E67949E30436ADD5790
+          ACE29F754CAC1BFE6F3DF50F6CBC8357F5DBA58C96FAA72FB283A5CDDC437EB3
+          4CC82BBCFB042C2FFCFD77272323E79CB98720D2B1154B234394AC83BCFF3EFA
+          0796563E1EC1C8C9F6EF3B489A4966F2D1848CC315ECB7AFFDBCC604B45FF83B
+          F7DFFF08E980B3D33A0F3354FB7FE35EB541E894DA0D146926451193CB871918
+          4EFC6E63FC3F75D1EE63FF50A583D85D9218229238B67578324E533B10C9F11A
+          595A81AD229921E2A6088342AD5CCFF7E4EFCE0F0551742B1BAE6648BDC9C6C0
+          F8C5F89FF4F17B6F5FA14A479D37DF2D6A78924178CDFFC5253E6653D1A4E5A5
+          25258E02A5772ED9B15CD2074D3793CC2FD9AF552CD3D99A0F2EFC99943EE5C8
+          1564E9EF663FBF4ADF6BD9C498CCC65EB87AFE3FB6FD9FCE20A4838F7394F532
+          FC6468D8F78F812935968181BD2BE7FFBF773069E58FD6EB40B12063FB8041E1
+          F013204B5FE3E46F88F4F66F7ECA1F9BD221494886E10998D6573ECAF2AEEB6F
+          0AA38FEAFF29CABFAAD250531A587717EB36C672EE470B824FFE6FFC9B852C3D
+          6BDACB3F1C9C99BB18C523177D64169293BBFBE53D5C5290C1EAFA192FE5BFB5
+          6B18A58B0D56CE895AA9C7700949B31E03C3673E83547E1346070B739D1E5E86
+          7EF474CE987A89874991D1F69657CC81B286DF6E51487233583A0DD7C5B0302F
+          6764C85FC110F7F3B626C72424E9D9A97177A5FC396EE5313230D86A1D7BC522
+          771EC568C3477FC4ACAE1D660000BAC5480942469E590000000049454E44AE42
+          6082}
+        OnClick = btnFillClick
+      end
+      object pnlOutline: TPanel
+        Left = 49
+        Top = 9
+        Width = 54
+        Height = 66
+        BevelOuter = bvNone
+        BorderWidth = 3
+        Color = clRed
+        ParentBackground = False
+        TabOrder = 0
+        object pnlFill: TPanel
+          Left = 3
+          Top = 3
+          Width = 48
+          Height = 60
+          Align = alClient
+          BevelOuter = bvNone
+          Caption = 'No Fill'
+          Color = 16775920
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 0
+        end
+      end
+    end
+    object grpTemplate: TGroupBox
+      Left = 357
+      Top = 8
+      Width = 298
+      Height = 646
+      Color = 2695445
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 4
+      object pnlCreateNew: TPanel
+        Left = 8
+        Top = 408
+        Width = 282
+        Height = 235
+        BevelOuter = bvNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentColor = True
+        ParentFont = False
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 8
+          Top = 25
+          Width = 32
+          Height = 13
+          Caption = 'Name'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label65: TLabel
+          Left = 48
+          Top = 25
+          Width = 9
+          Height = 13
+          Caption = ' : '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label2: TLabel
+          Left = 7
+          Top = 51
+          Width = 31
+          Height = 13
+          Caption = 'Type  '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Bevel3: TBevel
+          Left = 11
+          Top = 8
+          Width = 259
+          Height = 3
+        end
+        object Bevel2: TBevel
+          Left = 12
+          Top = 190
+          Width = 259
+          Height = 3
+          Visible = False
+        end
+        object Label4: TLabel
+          Left = 48
+          Top = 51
+          Width = 9
+          Height = 13
+          Caption = ' : '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Visible = False
+        end
+        object rgForce: TRadioGroup
+          Left = 11
+          Top = 64
+          Width = 259
+          Height = 59
+          Caption = '       '
+          Columns = 2
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ItemIndex = 0
+          Items.Strings = (
+            'Blue'
+            'Red')
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 2
+        end
+        object edtNameOverlay: TEdit
+          Left = 70
+          Top = 21
+          Width = 188
+          Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxLength = 30
+          ParentFont = False
+          TabOrder = 0
+          Text = 'New Overlay'
+        end
+        object btnCancel: TButton
+          Tag = 5
+          Left = 209
+          Top = 203
+          Width = 59
+          Height = 25
+          Caption = 'Cancel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 4
+          OnClick = btnHandleTemplate
+        end
+        object btnOk: TButton
+          Tag = 4
+          Left = 144
+          Top = 203
+          Width = 59
+          Height = 25
+          Caption = 'Create'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 3
+          OnClick = btnHandleTemplate
+        end
+        object Panel1: TPanel
+          Left = 59
+          Top = 51
+          Width = 225
+          Height = 21
+          BevelOuter = bvNone
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentBackground = False
+          ParentColor = True
+          ParentFont = False
+          TabOrder = 1
+          object Bevel5: TBevel
+            Left = 12
+            Top = 229
+            Width = 259
+            Height = 5
+          end
+          object Label5: TLabel
+            Left = 31
+            Top = 0
+            Width = 28
+            Height = 13
+            Caption = 'Static'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label84: TLabel
+            Left = 91
+            Top = 0
+            Width = 44
+            Height = 13
+            Caption = 'Dynamic'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object rbStatic: TRadioButton
+            Tag = 1
+            Left = 11
+            Top = -2
+            Width = 14
+            Height = 17
+            Checked = True
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            TabStop = True
+            OnClick = rbTipeHandle
+          end
+          object rbDynamic: TRadioButton
+            Left = 72
+            Top = -2
+            Width = 14
+            Height = 17
+            Caption = 'Dynamic'
+            Color = 3683636
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentColor = False
+            ParentFont = False
+            TabOrder = 1
+            OnClick = rbTipeHandle
+          end
+        end
+      end
+      object pnlType: TPanel
+        Left = 8
+        Top = 408
+        Width = 282
+        Height = 235
+        BevelOuter = bvNone
+        ParentBackground = False
+        ParentColor = True
+        TabOrder = 1
+        object btnCloseTemplate: TSpeedButton
+          Tag = 3
+          Left = 212
+          Top = 204
+          Width = 59
+          Height = 25
+          Hint = 'Close'
+          Caption = 'Close'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = btnHandleTemplate
+        end
+        object btnDelete: TSpeedButton
+          Tag = 2
+          Left = 145
+          Top = 204
+          Width = 59
+          Height = 25
+          Hint = 'Delete Template'
+          Caption = 'Delete'
+          Enabled = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = btnHandleTemplate
+        end
+        object btnEdit: TSpeedButton
+          Tag = 1
+          Left = 79
+          Top = 204
+          Width = 59
+          Height = 25
+          Hint = 'Edit Templates'
+          Caption = 'Edit'
+          Enabled = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = btnHandleTemplate
+        end
+        object btnNew: TSpeedButton
+          Left = 12
+          Top = 204
+          Width = 59
+          Height = 25
+          Hint = 'Create New Templates'
+          Caption = 'New'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = btnHandleTemplate
+        end
+        object Bevel8: TBevel
+          Left = 12
+          Top = 191
+          Width = 259
+          Height = 3
+        end
+        object grpStatic: TGroupBox
+          Left = 11
+          Top = 9
+          Width = 259
+          Height = 54
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          object lblShow: TLabel
+            Left = 38
+            Top = 24
+            Width = 26
+            Height = 13
+            Caption = 'Show'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label163: TLabel
+            Left = 112
+            Top = 24
+            Width = 40
+            Height = 13
+            Caption = 'Show All'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label164: TLabel
+            Left = 191
+            Top = 24
+            Width = 35
+            Height = 13
+            Caption = 'Hide All'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object chkShowOverlayTemplate: TCheckBox
+            Tag = 1
+            Left = 22
+            Top = 22
+            Width = 14
+            Height = 17
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            OnClick = TemplateShowHide
+          end
+          object chkShowAllOverlayTemplate: TCheckBox
+            Tag = 2
+            Left = 96
+            Top = 22
+            Width = 14
+            Height = 17
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            OnClick = TemplateShowHide
+          end
+          object chkHideAllOverlayTemplate: TCheckBox
+            Tag = 3
+            Left = 175
+            Top = 22
+            Width = 14
+            Height = 17
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            OnClick = TemplateShowHide
+          end
+        end
+        object grpDynamic: TGroupBox
+          Left = 11
+          Top = 5
+          Width = 259
+          Height = 180
+          Caption = 'Dynamic '
+          Color = 2695445
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentBackground = False
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 0
+          Visible = False
+          object btnAttach: TSpeedButton
+            Tag = 1
+            Left = 96
+            Top = 13
+            Width = 73
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Attack Track'
+            AllowAllUp = True
+            Caption = 'Attach'
+            OnClick = btnAttachClick
+          end
+          object btnDetach: TSpeedButton
+            Tag = 3
+            Left = 173
+            Top = 13
+            Width = 73
+            Height = 23
+            Cursor = crHandPoint
+            Hint = 'Detach Track'
+            AllowAllUp = True
+            Caption = 'Detach'
+            Enabled = False
+            OnClick = btnDetachClick
+          end
+          object lvTrack: TListView
+            Left = 13
+            Top = 42
+            Width = 233
+            Height = 127
+            Columns = <
+              item
+                Caption = 'No'
+                Width = 0
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Name'
+                Width = 79
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Brg'
+                Width = 40
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Rng'
+                Width = 40
+              end
+              item
+                Alignment = taCenter
+                Caption = 'Rot'
+                Width = 40
+              end
+              item
+                Alignment = taCenter
+                Width = 30
+              end>
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            GridLines = True
+            ReadOnly = True
+            RowSelect = True
+            ParentFont = False
+            TabOrder = 0
+            ViewStyle = vsReport
+            OnSelectItem = lvTrackSelectItem
+          end
+        end
+      end
+      object pnlTrackSelection: TPanel
+        Left = 8
+        Top = 408
+        Width = 282
+        Height = 235
+        BevelOuter = bvNone
+        ParentBackground = False
+        ParentColor = True
+        TabOrder = 2
+        object Label15: TLabel
+          Left = 24
+          Top = 26
+          Width = 30
+          Height = 15
+          Caption = 'Track'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lb2: TLabel
+          Left = 24
+          Top = 57
+          Width = 67
+          Height = 15
+          Caption = 'Range offset'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+        end
+        object lb3: TLabel
+          Left = 24
+          Top = 79
+          Width = 73
+          Height = 15
+          Caption = 'Bearing offset'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+        end
+        object lb4: TLabel
+          Left = 160
+          Top = 57
+          Width = 17
+          Height = 15
+          Caption = 'nm'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+        end
+        object lb5: TLabel
+          Left = 160
+          Top = 79
+          Width = 20
+          Height = 15
+          Caption = 'deg'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+        end
+        object lb6: TLabel
+          Left = 24
+          Top = 101
+          Width = 78
+          Height = 15
+          Caption = 'Rotation angle'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lb7: TLabel
+          Left = 160
+          Top = 101
+          Width = 20
+          Height = 15
+          Caption = 'deg'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object btnTargetSearch: TSpeedButton
+          Tag = 10
+          Left = 198
+          Top = 21
+          Width = 23
+          Height = 22
+          Glyph.Data = {
+            36090000424D360900000000000036000000280000001F000000180000000100
+            18000000000000090000000000000000000000000000000000006161613E3E3E
+            3737374040403B3B3B3A3A3A4141414141413A3A3A3A3A3A4040403737373E3E
+            3E3D3D3D3838384141413A3A3A3B3B3B4040403737373E3E3E3D3D3D38383841
+            41413A3A3A3B3B3B4040403737373E3E3E3C3C3C383838000000B2B2B27C7C7C
+            7474747F7F7F7878787777778080808080807878787878788080807474747C7C
+            7C7B7B7B7474748080807A7A7A7A7A7A7F7F7F7474747C7C7C7B7B7B74747480
+            80807777777979797F7F7F7474747D7D7D7A7A7A757575000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2BDBDBDBBBBBBB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C0C0C04949
+            491111111111111111111212121212121A1A1AB2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29191914D4D4D5454545F5F
+            5F6565656262620000004747476565656363634D4D4D4D4D4D797979BABABAB2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29797976969692929292929298686
+            86B2B2B2ADADAD0000007D7D7DB2B2B2ABABAB292929292929545454979797B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B23D3D3D3B3B3BB2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B26A6A6A0E0E0EB2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B21616166F6F6FA5A5A5B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2AAAAAA94949413
+            13138A8A8AB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A4A4A400
+            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2A6A6A68B8B8B2C2C2C838383B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007F7F7FB4B4B4B2B2B2B2B2B2B2B2B2B2B2B2A7A7A727
+            27277272729C9C9CB2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B000000BDBDBDB7B7B7B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD000000888888BBBBBBB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B000000B0B0B0B3B3B3B2B2B2B2B2B2BFBFBFB6B6
+            B6B2B2B2B1B1B19D9D9DADADADB3B3B3B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3BF
+            BFBF3030304C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B0000004F4F4F5151515151515151515858585353
+            53737373B2B2B2B2B2B2B2B2B28D8D8D51515151515151515151515152525258
+            58581616164C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B0000002424242525252525252525252525252525
+            25575757B2B2B2B2B2B2B2B2B27D7D7D25252525252525252525252525252525
+            25250909094C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B000000AFAFAFB2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B000000BBBBBBB6B6B6B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD171717848484B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B29999995F5F5F5A5A5A949494B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B5B5B5B2B2B253
+            53535C5C5C828282B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B7B7B7AFAFAF00
+            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A4A4A400
+            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29A9A9A4545454B4B4BB2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B274747423232399
+            9999ACACACB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B27A7A7A5A5A5A5555555555559494
+            94B5B5B5B4B4B4000000838383B7B7B7ADADAD555555555555585858646464B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B28282822121212121216D6D
+            6D9595959898980000006E6E6E9898988B8B8B2121212121215B5B5BB2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B23939
+            39000000000000000000000000000000090909B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A0A0
+            A0979797979797979797979797979797999999B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
+          OnClick = btnTargetSearchClick
+        end
+        object Bevel10: TBevel
+          Left = 11
+          Top = 4
+          Width = 259
+          Height = 3
+        end
+        object Bevel11: TBevel
+          Left = 12
+          Top = 190
+          Width = 259
+          Height = 3
+        end
+        object Label16: TLabel
+          Left = 24
+          Top = 129
+          Width = 41
+          Height = 15
+          Caption = 'Bearing'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+        end
+        object Label17: TLabel
+          Left = 55
+          Top = 26
+          Width = 3
+          Height = 15
+          Caption = ':'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label18: TLabel
+          Left = 99
+          Top = 57
+          Width = 3
+          Height = 15
+          Caption = ':'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label19: TLabel
+          Left = 99
+          Top = 79
+          Width = 3
+          Height = 15
+          Caption = ':'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label20: TLabel
+          Left = 99
+          Top = 101
+          Width = 3
+          Height = 15
+          Caption = ':'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label24: TLabel
+          Left = 65
+          Top = 129
+          Width = 3
+          Height = 15
+          Caption = ':'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object btnTrackSelectionCancel: TButton
+          Tag = 7
+          Left = 211
+          Top = 203
+          Width = 59
+          Height = 25
+          Caption = 'Cancel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 7
+          OnClick = btnHandleTemplate
+        end
+        object edtTrack: TEdit
+          Left = 120
+          Top = 22
+          Width = 73
+          Height = 21
+          Enabled = False
+          MaxLength = 10
+          TabOrder = 0
+        end
+        object edtRange: TEdit
+          Left = 119
+          Top = 53
+          Width = 35
+          Height = 21
+          MaxLength = 5
+          TabOrder = 1
+          Text = '0'
+          OnKeyPress = OnKeyPress
+        end
+        object edtBearing: TEdit
+          Left = 119
+          Top = 75
+          Width = 30
+          Height = 21
+          MaxLength = 3
+          NumbersOnly = True
+          TabOrder = 2
+          Text = '0'
+        end
+        object edtRotation: TEdit
+          Left = 119
+          Top = 97
+          Width = 30
+          Height = 21
+          MaxLength = 3
+          NumbersOnly = True
+          TabOrder = 3
+          Text = '0'
+        end
+        object btnTrackSelectionOK: TButton
+          Tag = 6
+          Left = 146
+          Top = 203
+          Width = 59
+          Height = 25
+          Caption = 'OK'
+          Enabled = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 6
+          OnClick = btnHandleTemplate
+        end
+        object rbTrueOrientation: TRadioButton
+          Left = 43
+          Top = 146
+          Width = 113
+          Height = 17
+          Caption = 'True'
+          Checked = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 4
+          TabStop = True
+        end
+        object rbRelativeOrientation: TRadioButton
+          Left = 43
+          Top = 167
+          Width = 113
+          Height = 17
+          Caption = 'Relative'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 5
+        end
+      end
+      object lvTemplates: TListView
+        Left = 18
+        Top = 20
+        Width = 262
+        Height = 387
+        Columns = <
+          item
+            Caption = 'No'
+            Width = 0
+          end
+          item
+            Caption = 'Name'
+            Width = 105
+          end
+          item
+            Alignment = taCenter
+            Caption = 'Type'
+          end
+          item
+            Alignment = taCenter
+            Caption = 'Force'
+          end
+          item
+            Alignment = taCenter
+            Caption = 'Role'
+          end
+          item
+            Caption = 'NoCubicle'
+            Width = 0
+          end>
+        GridLines = True
+        HideSelection = False
+        ReadOnly = True
+        RowSelect = True
+        TabOrder = 3
+        ViewStyle = vsReport
+        OnSelectItem = lvTemplatesSelectItem
       end
     end
   end

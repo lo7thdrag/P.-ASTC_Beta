@@ -10907,125 +10907,6 @@ object frmRightAtasAir: TfrmRightAtasAir
         Font.Style = []
         ParentFont = False
       end
-      object pnlTrackInformationBody: TPanel
-        Tag = 1
-        Left = 6
-        Top = 90
-        Width = 345
-        Height = 191
-        Alignment = taLeftJustify
-        Caption = '  Track Information'
-        Color = 2695445
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 0
-        OnClick = TTButtonClick
-        object pnlTrackControl: TPanel
-          Left = 1
-          Top = 1
-          Width = 343
-          Height = 189
-          Align = alClient
-          Color = 16775920
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentBackground = False
-          ParentFont = False
-          TabOrder = 0
-          object lvTrackControl: TListView
-            Left = 1
-            Top = 1
-            Width = 341
-            Height = 187
-            Align = alClient
-            Color = clWhite
-            Columns = <
-              item
-                Caption = 'Group Name'
-                Width = 125
-              end
-              item
-                Caption = 'Course'
-                Width = 100
-              end
-              item
-                Caption = 'Speed'
-                Width = 100
-              end>
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -12
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ReadOnly = True
-            RowSelect = True
-            ParentFont = False
-            TabOrder = 0
-            ViewStyle = vsReport
-          end
-        end
-        object pnlTrackTable: TPanel
-          Left = 1
-          Top = 1
-          Width = 343
-          Height = 189
-          Align = alClient
-          Color = 16775920
-          ParentBackground = False
-          TabOrder = 1
-          object lvTrackTable: TListView
-            Left = 1
-            Top = 1
-            Width = 341
-            Height = 187
-            Align = alClient
-            BevelOuter = bvNone
-            BorderStyle = bsNone
-            Color = clWhite
-            Columns = <
-              item
-                Caption = 'Domain'
-              end
-              item
-                Caption = 'TrackNumber'
-              end
-              item
-                Caption = 'Identity'
-              end
-              item
-                Caption = 'Course'
-              end
-              item
-                Caption = 'Speed'
-              end
-              item
-                Caption = 'Altitude'
-              end
-              item
-                Caption = 'Depth'
-              end>
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            MultiSelect = True
-            ReadOnly = True
-            RowSelect = True
-            ParentFont = False
-            TabOrder = 0
-            ViewStyle = vsReport
-          end
-        end
-      end
       object pnlTrackSheet: TPanel
         Tag = 1
         Left = 6
@@ -11043,7 +10924,7 @@ object frmRightAtasAir: TfrmRightAtasAir
         Font.Style = [fsBold]
         ParentBackground = False
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 0
         object pnlTabTrackControl: TPanel
           Left = 90
           Top = 0
@@ -11080,6 +10961,136 @@ object frmRightAtasAir: TfrmRightAtasAir
           ParentFont = False
           TabOrder = 1
           OnClick = TTButtonClick
+        end
+      end
+      object pnlTrackInformationBody: TPanel
+        Tag = 1
+        Left = 5
+        Top = 89
+        Width = 345
+        Height = 192
+        Alignment = taLeftJustify
+        Caption = '  Track Information'
+        Color = 2695445
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 1
+        OnClick = TTButtonClick
+        object pnlTrackControl: TPanel
+          Left = 1
+          Top = 1
+          Width = 343
+          Height = 190
+          Align = alClient
+          Color = 16775920
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 0
+          ExplicitWidth = 354
+          ExplicitHeight = 287
+          object lvTrackControl: TListView
+            Left = 1
+            Top = 1
+            Width = 341
+            Height = 188
+            Align = alClient
+            Color = clWhite
+            Columns = <
+              item
+                Caption = 'Group Name'
+                Width = 125
+              end
+              item
+                Caption = 'Course'
+                Width = 100
+              end
+              item
+                Caption = 'Speed'
+                Width = 100
+              end>
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ReadOnly = True
+            RowSelect = True
+            ParentFont = False
+            TabOrder = 0
+            ViewStyle = vsReport
+            ExplicitWidth = 352
+            ExplicitHeight = 285
+          end
+        end
+        object pnlTrackTable: TPanel
+          Left = 1
+          Top = 1
+          Width = 343
+          Height = 190
+          Align = alClient
+          Color = 16775920
+          ParentBackground = False
+          TabOrder = 1
+          ExplicitWidth = 354
+          ExplicitHeight = 287
+          object lvTrackTable: TListView
+            Left = 1
+            Top = 1
+            Width = 341
+            Height = 188
+            Align = alClient
+            BevelOuter = bvNone
+            BorderStyle = bsNone
+            Color = clWhite
+            Columns = <
+              item
+                Caption = 'Domain'
+              end
+              item
+                Caption = 'TrackNumber'
+              end
+              item
+                Caption = 'Identity'
+              end
+              item
+                Caption = 'Course'
+              end
+              item
+                Caption = 'Speed'
+              end
+              item
+                Caption = 'Altitude'
+              end
+              item
+                Caption = 'Depth'
+              end>
+            DoubleBuffered = True
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            MultiSelect = True
+            ReadOnly = True
+            RowSelect = True
+            ParentDoubleBuffered = False
+            ParentFont = False
+            TabOrder = 0
+            ViewStyle = vsReport
+            OnSelectItem = lvTrackTableSelectItem
+            ExplicitWidth = 352
+            ExplicitHeight = 285
+          end
         end
       end
     end
@@ -22142,366 +22153,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 ExplicitTop = 189
               end
             end
-            inherited grbHybridMissile: TGroupBox
-              Width = 345
-              Height = 474
-              ParentBackground = False
-              ParentColor = False
-              ExplicitWidth = 345
-              ExplicitHeight = 474
-              inherited scrlbx1: TScrollBox
-                Width = 341
-                Height = 454
-                ExplicitWidth = 341
-                ExplicitHeight = 454
-                inherited btnHybridMissileDisplayBlindZonesHide: TSpeedButton
-                  Left = 231
-                  Top = 335
-                  Width = 50
-                  ExplicitLeft = 231
-                  ExplicitTop = 335
-                  ExplicitWidth = 50
-                end
-                inherited btnHybridMissileDisplayBlindZonesShow: TSpeedButton
-                  Left = 179
-                  Top = 335
-                  Width = 50
-                  ExplicitLeft = 179
-                  ExplicitTop = 335
-                  ExplicitWidth = 50
-                end
-                inherited lbl87: TLabel
-                  Top = 315
-                  ParentFont = False
-                  ExplicitTop = 315
-                end
-                inherited lbl88: TLabel
-                  Left = 68
-                  Top = 315
-                  ParentFont = False
-                  ExplicitLeft = 68
-                  ExplicitTop = 315
-                end
-                inherited btnHybridMissileDisplayRangeShow: TSpeedButton
-                  Left = 35
-                  Top = 335
-                  Width = 50
-                  ExplicitLeft = 35
-                  ExplicitTop = 335
-                  ExplicitWidth = 50
-                end
-                inherited btnHybridMissileDisplayRangeHide: TSpeedButton
-                  Left = 86
-                  Top = 335
-                  Width = 50
-                  ExplicitLeft = 86
-                  ExplicitTop = 335
-                  ExplicitWidth = 50
-                end
-                inherited lbl89: TLabel
-                  Left = 16
-                  ParentFont = False
-                  ExplicitLeft = 16
-                end
-                inherited bvl21: TBevel
-                  Left = 61
-                  ExplicitLeft = 61
-                end
-                inherited lbl90: TLabel
-                  Left = 31
-                  ParentFont = False
-                  ExplicitLeft = 31
-                end
-                inherited lbl91: TLabel
-                  Left = 31
-                  ParentFont = False
-                  ExplicitLeft = 31
-                end
-                inherited lbl92: TLabel
-                  Left = 31
-                  ParentFont = False
-                  ExplicitLeft = 31
-                end
-                inherited lbl93: TLabel
-                  Left = 22
-                  ParentFont = False
-                  ExplicitLeft = 22
-                end
-                inherited bvl22: TBevel
-                  Left = 67
-                  ExplicitLeft = 67
-                end
-                inherited lbl94: TLabel
-                  Left = 191
-                  ParentFont = False
-                  ExplicitLeft = 191
-                end
-                inherited lbl95: TLabel
-                  Left = 191
-                  ParentFont = False
-                  ExplicitLeft = 191
-                end
-                inherited lbl96: TLabel
-                  Left = 191
-                  Width = 33
-                  Caption = 'deg T'
-                  ParentFont = False
-                  ExplicitLeft = 191
-                  ExplicitWidth = 33
-                end
-                inherited btnSearchHybridMissileTargetTrack: TSpeedButton
-                  Left = 190
-                  ExplicitLeft = 190
-                end
-                inherited btnAddHybridMissileTargetAimpoint: TSpeedButton
-                  Left = 260
-                  ExplicitLeft = 260
-                end
-                inherited bvl23: TBevel
-                  Left = 61
-                  ExplicitLeft = 61
-                end
-                inherited lbl97: TLabel
-                  Left = 16
-                  ParentFont = False
-                  ExplicitLeft = 16
-                end
-                inherited lblHybridMissileStatus: TLabel
-                  Left = 31
-                  ParentFont = False
-                  ExplicitLeft = 31
-                end
-                inherited lbl98: TLabel
-                  Left = 121
-                  ParentFont = False
-                  ExplicitLeft = 121
-                end
-                inherited lblHybridMissileQuantity: TLabel
-                  Left = 181
-                  ParentFont = False
-                  ExplicitLeft = 181
-                end
-                inherited bvl24: TBevel
-                  Left = 61
-                  ExplicitLeft = 61
-                end
-                inherited lbl99: TLabel
-                  Left = 16
-                  ParentFont = False
-                  ExplicitLeft = 16
-                end
-                inherited btnHybridMissileLaunch: TButton
-                  Left = 241
-                  Top = 374
-                  ExplicitLeft = 241
-                  ExplicitTop = 374
-                end
-                inherited edtHybridMissileControlSalvoSize: TEdit
-                  Left = 131
-                  ExplicitLeft = 131
-                end
-                inherited edtHybridMissileControlCruiseAltitude: TEdit
-                  Left = 131
-                  ExplicitLeft = 131
-                end
-                inherited edtHybridMissileControlSeekerRange: TEdit
-                  Left = 131
-                  ExplicitLeft = 131
-                end
-                inherited btnDefaultHybridMissileControlSeekerRange: TButton
-                  Left = 241
-                  ExplicitLeft = 241
-                end
-                inherited btnDefaultHybridMissileControlCruiseAltitude: TButton
-                  Left = 241
-                  ExplicitLeft = 241
-                end
-                inherited edtHybridMissiletargetBearing: TEdit
-                  Left = 131
-                  ExplicitLeft = 131
-                end
-                inherited rbHybridMissileTargetBearing: TRadioButton
-                  Left = 30
-                  ExplicitLeft = 30
-                end
-                inherited rbHybridMissileTargetAimpoint: TRadioButton
-                  Left = 30
-                  ExplicitLeft = 30
-                end
-                inherited rbHybridMissileTargetTrack: TRadioButton
-                  Left = 30
-                  ExplicitLeft = 30
-                end
-                inherited edtHybridMissiletargetTrack: TEdit
-                  Left = 131
-                  ExplicitLeft = 131
-                end
-                inherited edtHybridMissiletargetAimpoint: TEdit
-                  Left = 131
-                  ExplicitLeft = 131
-                end
-                inherited btnBringToHookHybridMissileTargetBearing: TButton
-                  Left = 246
-                  ExplicitLeft = 246
-                end
-              end
-            end
-            inherited grbGunEngagementCIWS: TGroupBox [2]
-              Width = 345
-              Height = 474
-              ParentBackground = False
-              ParentColor = False
-              ExplicitWidth = 345
-              ExplicitHeight = 474
-            end
-            inherited grbGunEngagementChaffMode: TGroupBox [3]
-              Width = 345
-              Height = 474
-              ParentBackground = False
-              ParentColor = False
-              ExplicitWidth = 345
-              ExplicitHeight = 474
-              inherited ScrollBox9: TScrollBox
-                Width = 341
-                Height = 454
-                ExplicitWidth = 341
-                ExplicitHeight = 454
-                inherited Label348: TLabel
-                  Left = 13
-                  ParentFont = False
-                  ExplicitLeft = 13
-                end
-                inherited Bevel97: TBevel
-                  Left = 63
-                  ExplicitLeft = 63
-                end
-                inherited Label364: TLabel
-                  Left = 58
-                  ParentFont = False
-                  ExplicitLeft = 58
-                end
-                inherited Label365: TLabel
-                  Left = 33
-                  ParentFont = False
-                  ExplicitLeft = 33
-                end
-                inherited Label366: TLabel
-                  Left = 33
-                  ParentFont = False
-                  ExplicitLeft = 33
-                end
-                inherited Label466: TLabel
-                  Left = 33
-                  ParentFont = False
-                  ExplicitLeft = 33
-                end
-                inherited Label467: TLabel
-                  Left = 33
-                  ParentFont = False
-                  ExplicitLeft = 33
-                end
-                inherited lbChaffControlQuantity: TLabel
-                  Left = 153
-                  ParentFont = False
-                  ExplicitLeft = 153
-                end
-                inherited Label469: TLabel
-                  Left = 208
-                  ParentFont = False
-                  ExplicitLeft = 208
-                end
-                inherited Label470: TLabel
-                  Left = 13
-                  ParentFont = False
-                  ExplicitLeft = 13
-                end
-                inherited Bevel98: TBevel
-                  Left = 70
-                  ExplicitLeft = 70
-                end
-                inherited Label471: TLabel
-                  Left = 92
-                  ParentFont = False
-                  ExplicitLeft = 92
-                end
-                inherited Label472: TLabel
-                  Left = 202
-                  Top = 259
-                  ParentFont = False
-                  ExplicitLeft = 202
-                  ExplicitTop = 259
-                end
-                inherited btnChaffType: TSpeedButton
-                  Left = 235
-                  ExplicitLeft = 235
-                end
-                inherited btnChaffBloomPosition: TSpeedButton
-                  Left = 235
-                  ExplicitLeft = 235
-                end
-                inherited sbGunEngagementChaffContolAuto: TSpeedButton
-                  Left = 33
-                  ExplicitLeft = 33
-                end
-                inherited sbGunEngagementChaffContolManual: TSpeedButton
-                  Left = 33
-                  ExplicitLeft = 33
-                end
-                inherited sbChaffDisplayShow: TSpeedButton
-                  Left = 69
-                  ExplicitLeft = 69
-                end
-                inherited sbChaffDisplayHide: TSpeedButton
-                  Left = 69
-                  ExplicitLeft = 69
-                end
-                inherited sbChaffBlindZoneShow: TSpeedButton
-                  Left = 192
-                  ExplicitLeft = 192
-                end
-                inherited sbChaffBlindZoneHide: TSpeedButton
-                  Left = 192
-                  ExplicitLeft = 192
-                end
-                inherited sbGunEngagementChaffContolChaff: TSpeedButton
-                  Left = 33
-                  ExplicitLeft = 33
-                end
-                inherited editChaffControlChaff: TEdit
-                  Left = 153
-                  ExplicitLeft = 153
-                end
-                inherited editChaffControlBloomPosition: TEdit
-                  Left = 153
-                  ExplicitLeft = 153
-                end
-                inherited editChaffControlBloomAltitude: TEdit
-                  Left = 153
-                  ExplicitLeft = 153
-                end
-                inherited btnChaffFire: TButton
-                  Left = 171
-                  Top = 373
-                  ExplicitLeft = 171
-                  ExplicitTop = 373
-                end
-                inherited btnChaffCeaseFire: TButton
-                  Left = 254
-                  Top = 373
-                  ExplicitLeft = 254
-                  ExplicitTop = 373
-                end
-              end
-            end
-            inherited grbGunEngagementAutomaticManualMode: TGroupBox [4]
-              Width = 345
-              Height = 474
-              ParentBackground = False
-              ParentColor = False
-              ExplicitWidth = 345
-              ExplicitHeight = 474
-            end
-            inherited grbBombDepthCharge: TGroupBox [5]
+            inherited grbBombDepthCharge: TGroupBox [1]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -22701,7 +22353,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 ExplicitTop = 133
               end
             end
-            inherited grbAirDroppedVECTAC: TGroupBox [6]
+            inherited grbAirDroppedVECTAC: TGroupBox [2]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -22894,7 +22546,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbAirDroppedTorpedo: TGroupBox [7]
+            inherited grbAirDroppedTorpedo: TGroupBox [3]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -23319,7 +22971,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbActivePasiveTorpedo: TGroupBox [8]
+            inherited grbActivePasiveTorpedo: TGroupBox [4]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -23572,7 +23224,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbWireGuidedTorpedo: TGroupBox [9]
+            inherited grbWireGuidedTorpedo: TGroupBox [5]
               Width = 345
               Height = 474
               ParentColor = False
@@ -23839,7 +23491,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbWakeHomingTorpedos: TGroupBox [10]
+            inherited grbWakeHomingTorpedos: TGroupBox [6]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -24030,7 +23682,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbTacticalMissiles: TGroupBox [11]
+            inherited grbTacticalMissiles: TGroupBox [7]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -24040,8 +23692,6 @@ object frmRightAtasAir: TfrmRightAtasAir
               inherited ScrollBox7: TScrollBox
                 Width = 341
                 Height = 454
-                ExplicitLeft = 37
-                ExplicitTop = 6
                 ExplicitWidth = 341
                 ExplicitHeight = 454
                 inherited Bevel107: TBevel
@@ -24304,7 +23954,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbTacticalAcousticTorpedos: TGroupBox [12]
+            inherited grbTacticalAcousticTorpedos: TGroupBox [8]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -24434,7 +24084,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 ExplicitLeft = 135
               end
             end
-            inherited grbSurfaceToSurfaceMissile: TGroupBox [13]
+            inherited grbSurfaceToSurfaceMissile: TGroupBox [9]
               Width = 345
               Height = 474
               ExplicitWidth = 345
@@ -24786,7 +24436,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbSurfaceToAirMissile: TGroupBox [14]
+            inherited grbSurfaceToAirMissile: TGroupBox [10]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -25152,7 +24802,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbStraightRunningTorpedos: TGroupBox [15]
+            inherited grbStraightRunningTorpedos: TGroupBox [11]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -25376,7 +25026,211 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbAcousticTorpedo: TGroupBox [16]
+            inherited grbHybridMissile: TGroupBox [12]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 345
+              ExplicitHeight = 474
+              inherited scrlbx1: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 341
+                ExplicitHeight = 454
+                inherited btnHybridMissileDisplayBlindZonesHide: TSpeedButton
+                  Left = 231
+                  Top = 335
+                  Width = 50
+                  ExplicitLeft = 231
+                  ExplicitTop = 335
+                  ExplicitWidth = 50
+                end
+                inherited btnHybridMissileDisplayBlindZonesShow: TSpeedButton
+                  Left = 179
+                  Top = 335
+                  Width = 50
+                  ExplicitLeft = 179
+                  ExplicitTop = 335
+                  ExplicitWidth = 50
+                end
+                inherited lbl87: TLabel
+                  Top = 315
+                  ParentFont = False
+                  ExplicitTop = 315
+                end
+                inherited lbl88: TLabel
+                  Left = 68
+                  Top = 315
+                  ParentFont = False
+                  ExplicitLeft = 68
+                  ExplicitTop = 315
+                end
+                inherited btnHybridMissileDisplayRangeShow: TSpeedButton
+                  Left = 35
+                  Top = 335
+                  Width = 50
+                  ExplicitLeft = 35
+                  ExplicitTop = 335
+                  ExplicitWidth = 50
+                end
+                inherited btnHybridMissileDisplayRangeHide: TSpeedButton
+                  Left = 86
+                  Top = 335
+                  Width = 50
+                  ExplicitLeft = 86
+                  ExplicitTop = 335
+                  ExplicitWidth = 50
+                end
+                inherited lbl89: TLabel
+                  Left = 16
+                  ParentFont = False
+                  ExplicitLeft = 16
+                end
+                inherited bvl21: TBevel
+                  Left = 61
+                  ExplicitLeft = 61
+                end
+                inherited lbl90: TLabel
+                  Left = 31
+                  ParentFont = False
+                  ExplicitLeft = 31
+                end
+                inherited lbl91: TLabel
+                  Left = 31
+                  ParentFont = False
+                  ExplicitLeft = 31
+                end
+                inherited lbl92: TLabel
+                  Left = 31
+                  ParentFont = False
+                  ExplicitLeft = 31
+                end
+                inherited lbl93: TLabel
+                  Left = 22
+                  ParentFont = False
+                  ExplicitLeft = 22
+                end
+                inherited bvl22: TBevel
+                  Left = 67
+                  ExplicitLeft = 67
+                end
+                inherited lbl94: TLabel
+                  Left = 191
+                  ParentFont = False
+                  ExplicitLeft = 191
+                end
+                inherited lbl95: TLabel
+                  Left = 191
+                  ParentFont = False
+                  ExplicitLeft = 191
+                end
+                inherited lbl96: TLabel
+                  Left = 191
+                  Width = 33
+                  Caption = 'deg T'
+                  ParentFont = False
+                  ExplicitLeft = 191
+                  ExplicitWidth = 33
+                end
+                inherited btnSearchHybridMissileTargetTrack: TSpeedButton
+                  Left = 190
+                  ExplicitLeft = 190
+                end
+                inherited btnAddHybridMissileTargetAimpoint: TSpeedButton
+                  Left = 260
+                  ExplicitLeft = 260
+                end
+                inherited bvl23: TBevel
+                  Left = 61
+                  ExplicitLeft = 61
+                end
+                inherited lbl97: TLabel
+                  Left = 16
+                  ParentFont = False
+                  ExplicitLeft = 16
+                end
+                inherited lblHybridMissileStatus: TLabel
+                  Left = 31
+                  ParentFont = False
+                  ExplicitLeft = 31
+                end
+                inherited lbl98: TLabel
+                  Left = 121
+                  ParentFont = False
+                  ExplicitLeft = 121
+                end
+                inherited lblHybridMissileQuantity: TLabel
+                  Left = 181
+                  ParentFont = False
+                  ExplicitLeft = 181
+                end
+                inherited bvl24: TBevel
+                  Left = 61
+                  ExplicitLeft = 61
+                end
+                inherited lbl99: TLabel
+                  Left = 16
+                  ParentFont = False
+                  ExplicitLeft = 16
+                end
+                inherited btnHybridMissileLaunch: TButton
+                  Left = 241
+                  Top = 374
+                  ExplicitLeft = 241
+                  ExplicitTop = 374
+                end
+                inherited edtHybridMissileControlSalvoSize: TEdit
+                  Left = 131
+                  ExplicitLeft = 131
+                end
+                inherited edtHybridMissileControlCruiseAltitude: TEdit
+                  Left = 131
+                  ExplicitLeft = 131
+                end
+                inherited edtHybridMissileControlSeekerRange: TEdit
+                  Left = 131
+                  ExplicitLeft = 131
+                end
+                inherited btnDefaultHybridMissileControlSeekerRange: TButton
+                  Left = 241
+                  ExplicitLeft = 241
+                end
+                inherited btnDefaultHybridMissileControlCruiseAltitude: TButton
+                  Left = 241
+                  ExplicitLeft = 241
+                end
+                inherited edtHybridMissiletargetBearing: TEdit
+                  Left = 131
+                  ExplicitLeft = 131
+                end
+                inherited rbHybridMissileTargetBearing: TRadioButton
+                  Left = 30
+                  ExplicitLeft = 30
+                end
+                inherited rbHybridMissileTargetAimpoint: TRadioButton
+                  Left = 30
+                  ExplicitLeft = 30
+                end
+                inherited rbHybridMissileTargetTrack: TRadioButton
+                  Left = 30
+                  ExplicitLeft = 30
+                end
+                inherited edtHybridMissiletargetTrack: TEdit
+                  Left = 131
+                  ExplicitLeft = 131
+                end
+                inherited edtHybridMissiletargetAimpoint: TEdit
+                  Left = 131
+                  ExplicitLeft = 131
+                end
+                inherited btnBringToHookHybridMissileTargetBearing: TButton
+                  Left = 246
+                  ExplicitLeft = 246
+                end
+              end
+            end
+            inherited grbAcousticTorpedo: TGroupBox
               Width = 345
               Height = 474
               ParentBackground = False
@@ -25771,6 +25625,161 @@ object frmRightAtasAir: TfrmRightAtasAir
                   ExplicitHeight = 22
                 end
               end
+            end
+            inherited grbGunEngagementCIWS: TGroupBox [14]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 345
+              ExplicitHeight = 474
+            end
+            inherited grbGunEngagementChaffMode: TGroupBox
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 345
+              ExplicitHeight = 474
+              inherited ScrollBox9: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 341
+                ExplicitHeight = 454
+                inherited Label348: TLabel
+                  Left = 13
+                  ParentFont = False
+                  ExplicitLeft = 13
+                end
+                inherited Bevel97: TBevel
+                  Left = 63
+                  ExplicitLeft = 63
+                end
+                inherited Label364: TLabel
+                  Left = 58
+                  ParentFont = False
+                  ExplicitLeft = 58
+                end
+                inherited Label365: TLabel
+                  Left = 33
+                  ParentFont = False
+                  ExplicitLeft = 33
+                end
+                inherited Label366: TLabel
+                  Left = 33
+                  ParentFont = False
+                  ExplicitLeft = 33
+                end
+                inherited Label466: TLabel
+                  Left = 33
+                  ParentFont = False
+                  ExplicitLeft = 33
+                end
+                inherited Label467: TLabel
+                  Left = 33
+                  ParentFont = False
+                  ExplicitLeft = 33
+                end
+                inherited lbChaffControlQuantity: TLabel
+                  Left = 153
+                  ParentFont = False
+                  ExplicitLeft = 153
+                end
+                inherited Label469: TLabel
+                  Left = 208
+                  ParentFont = False
+                  ExplicitLeft = 208
+                end
+                inherited Label470: TLabel
+                  Left = 13
+                  ParentFont = False
+                  ExplicitLeft = 13
+                end
+                inherited Bevel98: TBevel
+                  Left = 70
+                  ExplicitLeft = 70
+                end
+                inherited Label471: TLabel
+                  Left = 92
+                  ParentFont = False
+                  ExplicitLeft = 92
+                end
+                inherited Label472: TLabel
+                  Left = 202
+                  Top = 259
+                  ParentFont = False
+                  ExplicitLeft = 202
+                  ExplicitTop = 259
+                end
+                inherited btnChaffType: TSpeedButton
+                  Left = 235
+                  ExplicitLeft = 235
+                end
+                inherited btnChaffBloomPosition: TSpeedButton
+                  Left = 235
+                  ExplicitLeft = 235
+                end
+                inherited sbGunEngagementChaffContolAuto: TSpeedButton
+                  Left = 33
+                  ExplicitLeft = 33
+                end
+                inherited sbGunEngagementChaffContolManual: TSpeedButton
+                  Left = 33
+                  ExplicitLeft = 33
+                end
+                inherited sbChaffDisplayShow: TSpeedButton
+                  Left = 69
+                  ExplicitLeft = 69
+                end
+                inherited sbChaffDisplayHide: TSpeedButton
+                  Left = 69
+                  ExplicitLeft = 69
+                end
+                inherited sbChaffBlindZoneShow: TSpeedButton
+                  Left = 192
+                  ExplicitLeft = 192
+                end
+                inherited sbChaffBlindZoneHide: TSpeedButton
+                  Left = 192
+                  ExplicitLeft = 192
+                end
+                inherited sbGunEngagementChaffContolChaff: TSpeedButton
+                  Left = 33
+                  ExplicitLeft = 33
+                end
+                inherited editChaffControlChaff: TEdit
+                  Left = 153
+                  ExplicitLeft = 153
+                end
+                inherited editChaffControlBloomPosition: TEdit
+                  Left = 153
+                  ExplicitLeft = 153
+                end
+                inherited editChaffControlBloomAltitude: TEdit
+                  Left = 153
+                  ExplicitLeft = 153
+                end
+                inherited btnChaffFire: TButton
+                  Left = 171
+                  Top = 373
+                  ExplicitLeft = 171
+                  ExplicitTop = 373
+                end
+                inherited btnChaffCeaseFire: TButton
+                  Left = 254
+                  Top = 373
+                  ExplicitLeft = 254
+                  ExplicitTop = 373
+                end
+              end
+            end
+            inherited grbGunEngagementAutomaticManualMode: TGroupBox [16]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 345
+              ExplicitHeight = 474
             end
           end
         end

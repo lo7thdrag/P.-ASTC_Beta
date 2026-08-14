@@ -6572,6 +6572,8 @@ begin
   if not Assigned(frmLeftAtasAir) then
     frmLeftAtasAir := TfrmLeftAtasAir.Create(Application);
 
+  frmRightAtasAir.Map1 := Map1;
+
   frmLeftAtasAir.Parent := nil;
   frmLeftAtasAir.Align  := alLeft;
   frmLeftAtasAir.Parent := Self;
@@ -7184,7 +7186,10 @@ begin
   if focusedTrack <> nil then
   begin
     AddTrackPlatform(focusedTrack);
-  end;
+
+  if Assigned(frmRightAtasAir) then
+      frmRightAtasAir.AddTrackPlatform(focusedTrack);
+end;
 end;
 
 procedure TfrmTacticalDisplay.btnAnchorCursorClick(Sender: TObject);
@@ -8742,10 +8747,10 @@ begin // ini procedure update yg dipanggil dari sim client
 
         if Assigned(frmRightAtasAir) then
         begin
-//          if focusedTrack <> nil then
-//            frmRightAtasAir.focusedTrack := focusedTrack;
+//         if focusedTrack <> nil then
+//            frmRightAtasAir.AddTrackPlatform(focusedTrack);
 
-//          frmRightAtasAir.UpdateFormData;
+          frmRightAtasAir.UpdateFormData;
         end;
 
         if Assigned(frmLeftAtasAir) then
@@ -13806,6 +13811,8 @@ begin
   li := FindTrackListByMember(s);
   if li <> nil then
     li.Delete;
+  if Assigned(frmRightAtasAir) then
+    frmRightAtasAir.RemoveFromTrackList(Sender);
 end;
 
 procedure TfrmTacticalDisplay.RemoveListandForm(ctrlObj: TObject);

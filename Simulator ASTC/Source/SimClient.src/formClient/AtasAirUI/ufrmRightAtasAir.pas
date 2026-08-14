@@ -8,8 +8,8 @@ uses
   ufmPlatformGuidance, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Buttons,
   VrControls, VrBlinkLed, ufmSensor, Vcl.Menus, Vcl.ComCtrls,
 
-   ufmWeapon,uT3Unit,uT3DetectedTrack,uBaseCoordSystem,uT3Common,uT3Vehicle,
-   uDBAsset_Vehicle;
+    ufmWeapon,uT3Unit,uT3DetectedTrack,uBaseCoordSystem,uT3Common,uT3Vehicle,
+   uDBAsset_Vehicle,uTMapTouch2;
 
 type
   TfrmRightAtasAir = class(TForm)
@@ -19,11 +19,6 @@ type
     pmModeSonobuoy: TPopupMenu;
     pnlContact: TPanel;
     lbl1: TLabel;
-    pnlTrackInformationBody: TPanel;
-    pnlTrackControl: TPanel;
-    lvTrackControl: TListView;
-    pnlTrackTable: TPanel;
-    lvTrackTable: TListView;
     pnlTrackSheet: TPanel;
     pnlTabTrackControl: TPanel;
     pnlTabTrackTable: TPanel;
@@ -34,15 +29,24 @@ type
     Label1: TLabel;
     pnlGameState: TPanel;
     fmWeapon1: TfmWeapon;
+    pnlTrackInformationBody: TPanel;
+    pnlTrackControl: TPanel;
+    lvTrackControl: TListView;
+    pnlTrackTable: TPanel;
+    lvTrackTable: TListView;
     procedure TTButtonClick(Sender: TObject);
     procedure fmWeapon1btnWeaponClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure lvTrackTableSelectItem(Sender: TObject; Item: TListItem;
+      Selected: Boolean);
   private
     function FindTrackListByMember(const arg: string): TListItem;
-    procedure AddTrackPlatform(Sender: TObject);
     procedure UpdateTrackListData;
     { Private declarations }
   public
+    Map1 : TMapXTouch;
+    procedure AddTrackPlatform(Sender: TObject);
+    procedure RemoveFromTrackList(Sender: TObject);
     procedure UpdateFormData;
 
     { Public declarations }
@@ -199,6 +203,54 @@ begin
    fmWeapon1.InitCreate(self);
    lvTrackTable.DoubleBuffered := true;
    lvTrackTable.SortType := stText;
+   lvTrackTable.Font.Color := clBlack;
+end;
+
+procedure TfrmRightAtasAir.lvTrackTableSelectItem(Sender: TObject;
+  Item: TListItem; Selected: Boolean);
+var
+  obj: TObject;
+begin
+  if Item = nil then
+    exit;
+
+  obj := Item.Data;
+  if obj is TT3DetectedTrack then (obj as TT3DetectedTrack)
+    .Selected := true
+  else if obj is TT3PlatformInstance then (obj as TT3PlatformInstance)
+    .Selected := true;
+
+  Map1.Repaint;
+end;
+
+procedure TfrmRightAtasAir.RemoveFromTrackList(Sender: TObject);
+var
+  s: string;
+  li: TListItem;
+  det: TT3DetectedTrack;
+  pi: TT3PlatformInstance;
+begin
+  if Sender is TT3DetectedTrack then
+  begin
+    det := Sender as TT3DetectedTrack;
+    s := FormatTrackNumber(det.TrackNumber);
+  end
+  else if Sender is TT3PlatformInstance then
+  begin
+    pi := Sender as TT3PlatformInstance;
+
+    if pi is TT3NonRealVehicle then
+      s := IntToStr(pi.TrackNumber)
+    else
+      s := pi.TrackLabel;
+  end
+  else
+    Exit;
+
+  li := FindTrackListByMember(s);
+
+  if li <> nil then
+    li.Delete;
 end;
 
 procedure TfrmRightAtasAir.TTButtonClick(Sender: TObject);

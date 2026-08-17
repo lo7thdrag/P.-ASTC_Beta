@@ -173,6 +173,18 @@ type
     procedure THButtonClick(Sender: TObject);
     procedure TDCPButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnMADOnClick(Sender: TObject);
+    procedure btnESMOnClick(Sender: TObject);
+    procedure btnEOOnClick(Sender: TObject);
+    procedure fmSensor1btnIFFInterrogatorTrackSearchClick(Sender: TObject);
+    procedure fmSensor1edtIFFInterrogatorMode1KeyPress(Sender: TObject;
+      var Key: Char);
+    procedure fmSensor1sbIFFTransponderControlModeOnClick(Sender: TObject);
+    procedure fmSensor1sbIFFTransponderControlModeOffClick(Sender: TObject);
+    procedure OnRadarBtnClick(Sender: TObject);
+    procedure OnSonarBtnClick(Sender: TObject);
+    procedure OnSoonobuoyBtnClick(Sender: TObject);
+    procedure OnVisualShowClick(Sender: TObject);
   private
     function DecToOct(Inp : String): String;
     { Private declarations }
@@ -209,6 +221,23 @@ uses
 {$R *.dfm}
 
 { TfrmLeftAtasAir }
+
+procedure TfrmLeftAtasAir.btnEOOnClick(Sender: TObject);
+begin
+  fmSensor1.sbElectroOpticalSensorOnClick(Sender);
+
+end;
+
+procedure TfrmLeftAtasAir.btnESMOnClick(Sender: TObject);
+begin
+  fmSensor1.sbESMSensorControlModeClick(Sender);
+
+end;
+
+procedure TfrmLeftAtasAir.btnMADOnClick(Sender: TObject);
+begin
+  fmSensor1.sbAnomalyDetectorOnClick(Sender);
+end;
 
 function TfrmLeftAtasAir.DecToOct(Inp: String): String;
 Var
@@ -1108,6 +1137,38 @@ begin
   end;
 end;
 
+procedure TfrmLeftAtasAir.fmSensor1btnIFFInterrogatorTrackSearchClick(
+  Sender: TObject);
+begin
+  fmSensor1.btnIFFInterrogatorTrackSearchClick(Sender);
+
+end;
+
+procedure TfrmLeftAtasAir.fmSensor1edtIFFInterrogatorMode1KeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  fmSensor1.edtInterrogatorOnKeyPress(Sender, Key);
+
+end;
+
+procedure TfrmLeftAtasAir.fmSensor1sbIFFTransponderControlModeOffClick(
+  Sender: TObject);
+begin
+  if Assigned(Sender)then
+  begin
+    fmSensor1.btnIFFOnClick(Sender);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmSensor1sbIFFTransponderControlModeOnClick(
+  Sender: TObject);
+begin
+  if Assigned(Sender)then
+  begin
+    fmSensor1.btnIFFOnClick(Sender);
+  end;
+end;
+
 procedure TfrmLeftAtasAir.FormShow(Sender: TObject);
 begin
    if focusedTrack <> nil then
@@ -1175,6 +1236,30 @@ begin
 //  lbDepth.Caption := '---';
   lblBearingHook.Caption := '---';
   lblRangeHook.Caption := '---';
+
+end;
+
+procedure TfrmLeftAtasAir.OnRadarBtnClick(Sender: TObject);
+begin
+  fmSensor1.sbSearchRadarClick(Sender);
+
+end;
+
+procedure TfrmLeftAtasAir.OnSonarBtnClick(Sender: TObject);
+begin
+  fmSensor1.sbSonarClick(Sender);
+
+end;
+
+procedure TfrmLeftAtasAir.OnSoonobuoyBtnClick(Sender: TObject);
+begin
+  fmSensor1.btnSonobuoyControlDeployClick(Sender);
+
+end;
+
+procedure TfrmLeftAtasAir.OnVisualShowClick(Sender: TObject);
+begin
+  fmSensor1.sbVisualSensorClick(Sender);
 
 end;
 

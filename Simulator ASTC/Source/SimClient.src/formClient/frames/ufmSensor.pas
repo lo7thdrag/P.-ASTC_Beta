@@ -743,7 +743,7 @@ end;
 procedure TfmSensor.UpdateSensorForm(sensor: TT3Sensor);
 begin
   if not(Assigned(sensor)) then
-    Exit;  
+    Exit;
 
   UpdateSensorList(sensor);
 
@@ -1930,6 +1930,8 @@ end;
 
 procedure TfmSensor.Refresh_VisibleTab;
 begin
+   if Assigned(Focused_Sensor) and (Focused_Sensor is TT3Sensor) then
+    UpdateSensorForm(TT3Sensor(Focused_Sensor));
 {  case FActiveTab of
     1: RefreshRadarPropertiesTab(TT3Radar(focused_sensor));
     2: RefreshSonarPropertiesTab(TT3Sonar(focused_sensor));

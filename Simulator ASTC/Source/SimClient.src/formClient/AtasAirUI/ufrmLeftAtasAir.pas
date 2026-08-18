@@ -8,7 +8,7 @@ uses
   Vcl.StdCtrls, Vcl.ComCtrls, ufmControlled, ufmSensor, ufmPlatformGuidance,
   ufmCounterMeasure,
 
-  uT3Unit,uSimObjects, ufmFireControl;
+  uT3Unit,uSimObjects, ufmFireControl,ufTacticalDisplay;
 
 type
   TfrmLeftAtasAir = class(TForm)
@@ -185,7 +185,34 @@ type
     procedure OnSonarBtnClick(Sender: TObject);
     procedure OnSoonobuoyBtnClick(Sender: TObject);
     procedure OnVisualShowClick(Sender: TObject);
+    procedure fmSensor1sbIFFInterrogatorControlModeOffClick(Sender: TObject);
+    procedure fmSensor1sbIFFInterrogatorControlModeOnClick(Sender: TObject);
+    procedure fmCounterMeasure1btnChaffAirboneDeployClick(Sender: TObject);
+    procedure fmCounterMeasure1sbRadarJammingControlActivationOnClick(
+      Sender: TObject);
+    procedure fmCounterMeasure1sbRadarJammingControlActivationOffClick(
+      Sender: TObject);
+    procedure fmCounterMeasure1btnSurfaceChaffLauncherClick(Sender: TObject);
+    procedure fmCounterMeasure1btnSurfaceChaffTypeClick(Sender: TObject);
+    procedure fmCounterMeasure1edtSurfaceChaffBloomRangeKeyPress(
+      Sender: TObject; var Key: Char);
+    procedure fmCounterMeasure1edtSurfaceChaffBloomAltitudeKeyPress(
+      Sender: TObject; var Key: Char);
+    procedure fmCounterMeasure1edtSurfaceChaffSalvoSizeKeyPress(Sender: TObject;
+      var Key: Char);
+    procedure fmCounterMeasure1edtSurfaceChaffDelayKeyPress(Sender: TObject;
+      var Key: Char);
+    procedure fmCounterMeasure1btnSurfaceChaffCopyClick(Sender: TObject);
+    procedure fmCounterMeasure1btnSurfaceChaffLaunchClick(Sender: TObject);
+    procedure fmCounterMeasure1btnSurfaceChaffAbortClick(Sender: TObject);
+    procedure fmCounterMeasure1ckSurfaceChaffSeductionEnabledClick(
+      Sender: TObject);
+    procedure fmCounterMeasure1btnAirBubbleDeployClick(Sender: TObject);
+    procedure fmSensor1cbbtnIFFInterrogatorMode1Click(Sender: TObject);
+    procedure btnFireControlOnClick(Sender: TObject);
   private
+    FTacticalDisplay: TfrmTacticalDisplay;
+    FObjectAssignedByGun : TSimObject;
     function DecToOct(Inp : String): String;
     { Private declarations }
   public
@@ -201,7 +228,20 @@ type
     procedure DisplayTabIFF(sender: TObject);
     procedure UpdateTabHooked(aTrack: TSimObject);
 
+    procedure SetObjectAssignedByGun(value : TSimObject);
+    procedure SetFCTargetObjectobj (obj : TSimObject);
+    procedure SetWeaponTargetObject(obj: TSimObject);
+
+    procedure UnSelectAllRBLWPointTrack;
+    procedure UnSelectAllBOlWPointTrack;
+    procedure UnSelectAllPlatformTrack;
+    procedure UnSelectAllNRPlatformTrack;
+    procedure UnselectAllDetectedTrack;
+
     procedure UpdateFormData;
+
+    property ObjectAssignedByGun : TSimObject read FObjectAssignedByGun
+      write SetObjectAssignedByGun;
 
     { Public declarations }
   end;
@@ -212,11 +252,11 @@ var
 implementation
 
 uses
-  ufTacticalDisplay, ufToteDisplay, uT3DetectedTrack, uSettingCoordinate, uT3Radar,
+  ufToteDisplay, uT3DetectedTrack, uSettingCoordinate, uT3Radar,
   uBaseCoordSystem, uSimMgr_Client, tttData, uT3Vehicle, uDBAsset_Vehicle, uT3Torpedo, uT3Missile,
   uDBAsset_Weapon, uT3Sonobuoy, uT3Mine, uT3CounterMeasure, uMapXHandler, uT3Common, uT3OtherSensor, ufrmGuidance,
   ufrmWeapon, ufrmRadar, uT3SimManager, ufrmTrackDetails, uSimContainers,
-  ufrmTopNav;
+  ufrmTopNav, ufrmFireControl,uT3MissileEnvironment,ufmWeapon;
 
 {$R *.dfm}
 
@@ -225,13 +265,22 @@ uses
 procedure TfrmLeftAtasAir.btnEOOnClick(Sender: TObject);
 begin
   fmSensor1.sbElectroOpticalSensorOnClick(Sender);
-
 end;
 
 procedure TfrmLeftAtasAir.btnESMOnClick(Sender: TObject);
 begin
   fmSensor1.sbESMSensorControlModeClick(Sender);
 
+end;
+
+procedure TfrmLeftAtasAir.btnFireControlOnClick(Sender: TObject);
+begin
+  if (Sender is TButton) and (TButton(Sender).Tag = 4) then
+    ObjectAssignedByGun := fmFireControl1.Focused_Platform
+  else
+    ObjectAssignedByGun := nil;
+
+  fmFireControl1.btnFCROnClick(Sender);
 end;
 
 procedure TfrmLeftAtasAir.btnMADOnClick(Sender: TObject);
@@ -1137,17 +1186,187 @@ begin
   end;
 end;
 
+procedure TfrmLeftAtasAir.fmCounterMeasure1btnAirBubbleDeployClick(
+  Sender: TObject);
+begin
+  if Assigned(Sender)then
+  begin
+    fmCounterMeasure1.btnAirBubbleDeployClick(Sender);
+  end;
+
+
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1btnChaffAirboneDeployClick(
+  Sender: TObject);
+begin
+  if Assigned(Sender)then
+  begin
+    fmCounterMeasure1.btnChaffAirboneDeployClick(Sender);
+  end;
+
+
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1btnSurfaceChaffAbortClick(
+  Sender: TObject);
+begin
+ if Assigned(Sender)then
+  begin
+    fmCounterMeasure1.btnSurfaceChaffOnClick(Sender);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1btnSurfaceChaffCopyClick(
+  Sender: TObject);
+begin
+ if Assigned(Sender)then
+  begin
+    fmCounterMeasure1.btnSurfaceChaffOnClick(Sender);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1btnSurfaceChaffLaunchClick(
+  Sender: TObject);
+begin
+  if Assigned(Sender)then
+  begin
+    fmCounterMeasure1.btnSurfaceChaffOnClick(Sender);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1btnSurfaceChaffLauncherClick(
+  Sender: TObject);
+begin
+  if Assigned(Sender)then
+  begin
+    fmCounterMeasure1.btnSurfaceChaffOnClick(Sender);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1btnSurfaceChaffTypeClick(
+  Sender: TObject);
+begin
+ if Assigned (Sender) then
+ begin
+    fmCounterMeasure1.btnSurfaceChaffOnClick(Sender);
+ end;
+
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1ckSurfaceChaffSeductionEnabledClick(
+  Sender: TObject);
+begin
+  if Assigned(Sender) then
+  begin
+//    fmCounterMeasure1.
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1edtSurfaceChaffBloomAltitudeKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Assigned (Sender) then
+  begin
+    fmCounterMeasure1.OnSurfaceChaffKeyPress(Sender, Key);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1edtSurfaceChaffBloomRangeKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Assigned (Sender) then
+  begin
+    fmCounterMeasure1.OnSurfaceChaffKeyPress(Sender, Key);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1edtSurfaceChaffDelayKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Assigned (Sender) then
+  begin
+    fmCounterMeasure1.OnSurfaceChaffKeyPress(Sender, Key);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1edtSurfaceChaffSalvoSizeKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+   if Assigned (Sender) then
+  begin
+    fmCounterMeasure1.OnSurfaceChaffKeyPress(Sender, Key);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1sbRadarJammingControlActivationOffClick(
+  Sender: TObject);
+begin
+  if Assigned (Sender) then
+  begin
+     fmCounterMeasure1.btnRadarNoiseJammerOnClick(Sender);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1sbRadarJammingControlActivationOnClick(
+  Sender: TObject);
+begin
+  if Assigned (Sender) then
+  begin
+     fmCounterMeasure1.btnRadarNoiseJammerOnClick(Sender);
+  end;
+
+end;
+
 procedure TfrmLeftAtasAir.fmSensor1btnIFFInterrogatorTrackSearchClick(
   Sender: TObject);
 begin
-  fmSensor1.btnIFFInterrogatorTrackSearchClick(Sender);
+  if Assigned(Sender)then
+  begin
+    if Assigned(focusedTrack) then
+    begin
+      if focusedTrack is TT3DetectedTrack then
+        fmSensor1.SetFocusedPlatform(TT3DetectedTrack(focusedTrack).TrackObject as TT3PlatformInstance)
+      else if focusedTrack is TT3PlatformInstance then
+        fmSensor1.focused_platform := focusedTrack;
+    end;
 
+    fmSensor1.btnIFFInterrogatorTrackSearchClick(Sender);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmSensor1cbbtnIFFInterrogatorMode1Click(
+  Sender: TObject);
+begin
+   if Assigned(Sender)then
+  begin
+    fmSensor1.OnIFFCheckedClick(Sender);
+  end;
 end;
 
 procedure TfrmLeftAtasAir.fmSensor1edtIFFInterrogatorMode1KeyPress(
   Sender: TObject; var Key: Char);
 begin
   fmSensor1.edtInterrogatorOnKeyPress(Sender, Key);
+
+end;
+
+procedure TfrmLeftAtasAir.fmSensor1sbIFFInterrogatorControlModeOffClick(
+  Sender: TObject);
+begin
+   if Assigned(Sender)then
+  begin
+    fmSensor1.btnIFFOnClick(Sender);
+  end;
+end;
+
+procedure TfrmLeftAtasAir.fmSensor1sbIFFInterrogatorControlModeOnClick(
+  Sender: TObject);
+begin
+  if Assigned(Sender)then
+  begin
+    fmSensor1.btnIFFOnClick(Sender);
+  end;
 
 end;
 
@@ -1267,6 +1486,95 @@ procedure TfrmLeftAtasAir.SetControlledObject(pit: TT3PlatformInstance);
 begin
 
 end;
+
+procedure TfrmLeftAtasAir.SetFCTargetObjectobj(obj: TSimObject);
+var
+  aObject : TObject;
+begin
+  if obj <> nil then      //mk
+  begin
+    if obj is TT3PlatformInstance then
+       fmFireControl1.SetFocusedPlatform(TT3PlatformInstance(obj))
+    else if obj is TT3DetectedTrack then
+    begin
+      aObject := TT3DetectedTrack(obj).TrackObject;
+      if Assigned(aObject) then
+        fmFireControl1.SetFocusedPlatform(TT3PlatformInstance(aObject));
+    end;
+
+    // wasdal UI
+    if simMgrClient.ISWasdal then
+    begin
+      if Assigned(frmFCR) then
+      begin
+        if obj is TT3PlatformInstance then
+           frmFCR.fmFireControl1.SetFocusedPlatform(TT3PlatformInstance(obj))
+        else if obj is TT3DetectedTrack then
+        begin
+          aObject := TT3DetectedTrack(obj).TrackObject;
+          if Assigned(aObject) then
+            frmFCR.fmFireControl1.SetFocusedPlatform(TT3PlatformInstance(aObject));
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TfrmLeftAtasAir.SetObjectAssignedByGun(value: TSimObject);
+begin
+  FObjectAssignedByGun := value;
+
+  SetFCTargetObjectobj(FObjectAssignedByGun);
+  SetWeaponTargetObject(FObjectAssignedByGun);
+end;
+
+procedure TfrmLeftAtasAir.SetWeaponTargetObject(obj: TSimObject);
+var
+  aObject: TObject;
+begin
+  if Assigned(obj) then
+  begin
+    if obj <> nil then    //mk
+    begin
+      if not(Assigned(focusedTrack)) or (focusedTrack <> obj) then
+      begin
+        focusedTrack := nil;
+
+        // unselect all track
+        UnSelectAllRBLWPointTrack;
+        UnSelectAllBOLWPointTrack;
+        UnSelectAllPlatformTrack;
+        UnSelectAllNRPlatformTrack;
+        UnselectAllDetectedTrack;
+
+        if obj is TT3PlatformInstance then
+          TT3PlatformInstance(obj).Selected := true
+        else
+        if obj is TT3DetectedTrack then
+          TT3DetectedTrack(obj).Selected := true;
+
+        focusedTrack := obj;
+      end;
+
+      if Assigned(focusedTrack) then
+      begin
+        if Assigned(FTacticalDisplay) then
+        begin
+         if focusedTrack is TT3PlatformInstance then
+           FTacticalDisplay.fmWeapon1.SetFocusedPlatform(TT3PlatformInstance(focusedTrack))
+         else if focusedTrack is TT3DetectedTrack then
+         begin
+           aObject := TT3DetectedTrack(focusedTrack).TrackObject;
+
+         if Assigned(aObject) and (aObject is TT3PlatformInstance) then
+           FTacticalDisplay.fmWeapon1.SetFocusedPlatform(
+          TT3PlatformInstance(aObject));
+         end;
+        end;
+        end;
+      end;
+    end;
+  end;
 
 procedure TfrmLeftAtasAir.TDCPButtonClick(Sender: TObject);
 var
@@ -1390,9 +1698,77 @@ begin
     end;
   end;
 end;
+procedure TfrmLeftAtasAir.UnSelectAllBOlWPointTrack;
+var
+  i : integer;
+  pi : TPointVehicleMissileBOLW;
+begin
+  for i := 0 to simMgrClient.SimPointBOLW_VehicleMissile.itemCount - 1 do
+  begin
+    pi := simMgrClient.SimPointBOLW_VehicleMissile.getObject(i) as TPointVehicleMissileBOLW;
+    if pi.Selected then
+      pi.Selected := False;
+  end;
+end;
+
+procedure TfrmLeftAtasAir.UnselectAllDetectedTrack;
+var
+  i, j : integer;
+  dt : TT3DetectedTrack;
+  esmObj : TT3ESMTrack;
+begin
+  for I := 0 to simMgrClient.SimDetectedTrackList.itemCount - 1 do
+  begin
+    dt := simMgrClient.SimDetectedTrackList.getObject(i) as TT3DetectedTrack;
+    dt.Selected := false;
+
+    for j := 0 to dt.ESMTracks.Count - 1 do
+    begin
+      esmObj := dt.ESMTracks[j];
+      esmObj.IsSelected := False;
+    end;
+  end;
+end;
+
+procedure TfrmLeftAtasAir.UnSelectAllNRPlatformTrack;
+var
+  i : integer;
+  pi : TT3PlatformInstance;
+begin
+  for I := 0 to simMgrClient.simNonRealPlatform.itemCount - 1 do begin
+    pi := simMgrClient.simNonRealPlatform.getObject(i) as TT3PlatformInstance;
+      pi.Selected := false;
+  end;
+end;
+
+procedure TfrmLeftAtasAir.UnSelectAllPlatformTrack;
+var
+  i : integer;
+  pi : TT3PlatformInstance;
+begin
+  for I := 0 to simMgrClient.SimPlatforms.itemCount - 1 do begin
+    pi := simMgrClient.SimPlatforms.getObject(i) as TT3PlatformInstance;
+      pi.Selected := false;
+  end;
+end;
+
+procedure TfrmLeftAtasAir.UnSelectAllRBLWPointTrack;
+var
+  i : integer;
+  pi : TPointVehicleMissileRBLW;
+begin
+  for i := 0 to simMgrClient.SimPointRBLW_VehicleMissile.itemCount - 1 do
+  begin
+    pi := simMgrClient.SimPointRBLW_VehicleMissile.getObject(i) as TPointVehicleMissileRBLW;
+    if pi.Selected then
+      pi.Selected := False;
+  end;
+end;
+
 procedure TfrmLeftAtasAir.UpdateFormData;
 begin
 //   fmPlatformGuidance1.Refresh_VisibleTab();
+  fmSensor1.Refresh_VisibleTab;
 
   if focusedTrack <> nil then
   begin

@@ -16,7 +16,6 @@ inherited fmSensor: TfmSensor
     Color = 2695445
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 323
   end
   object PanelSensorChoices: TPanel
     Left = 0
@@ -27,7 +26,6 @@ inherited fmSensor: TfmSensor
     Color = 2695445
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 323
     object lstSensor: TListView
       Left = 1
       Top = 1
@@ -60,7 +58,6 @@ inherited fmSensor: TfmSensor
       TabOrder = 0
       ViewStyle = vsReport
       OnSelectItem = lstSensorSelectItem
-      ExplicitWidth = 370
     end
   end
   object PanelALL: TPanel
@@ -79,7 +76,6 @@ inherited fmSensor: TfmSensor
     ParentBackground = False
     ParentFont = False
     TabOrder = 2
-    ExplicitWidth = 323
     object PanelSensorControl: TPanel
       Left = 0
       Top = 0
@@ -91,191 +87,6 @@ inherited fmSensor: TfmSensor
       Color = 2695445
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 323
-      object grbElectroOpticalSensor: TGroupBox
-        Left = 3
-        Top = 3
-        Width = 370
-        Height = 316
-        Align = alClient
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        ExplicitWidth = 317
-        object btnElectroOpticalSensorExecuteSingleScan: TButton
-          Left = 145
-          Top = 367
-          Width = 153
-          Height = 25
-          Caption = 'Execute Single Scan'
-          TabOrder = 0
-        end
-        object ScrollBox3: TScrollBox
-          Left = 2
-          Top = 18
-          Width = 366
-          Height = 296
-          Align = alClient
-          BevelInner = bvNone
-          BevelOuter = bvNone
-          BorderStyle = bsNone
-          TabOrder = 1
-          ExplicitWidth = 313
-          object Label1: TLabel
-            Left = 5
-            Top = 3
-            Width = 41
-            Height = 16
-            Caption = 'Control'
-          end
-          object Bevel1: TBevel
-            Left = 55
-            Top = 10
-            Width = 255
-            Height = 3
-          end
-          object Label2: TLabel
-            Left = 35
-            Top = 30
-            Width = 55
-            Height = 16
-            Caption = 'Periscope'
-          end
-          object Label3: TLabel
-            Left = 5
-            Top = 105
-            Width = 40
-            Height = 16
-            Caption = 'Display'
-          end
-          object Bevel2: TBevel
-            Left = 55
-            Top = 113
-            Width = 255
-            Height = 3
-          end
-          object Label4: TLabel
-            Left = 175
-            Top = 130
-            Width = 69
-            Height = 16
-            Caption = 'Blind Zones '
-          end
-          object Label5: TLabel
-            Left = 75
-            Top = 130
-            Width = 36
-            Height = 16
-            Caption = 'Range'
-          end
-          object sbElectroOpticalSensorDisplayRangeShow: TSpeedButton
-            Left = 53
-            Top = 150
-            Width = 76
-            Height = 22
-            HelpContext = 1
-            AllowAllUp = True
-            GroupIndex = 1
-            Caption = 'Show'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = sbElectroOpticalSensorOnClick
-          end
-          object sbElectroOpticalSensorDisplayRangeHide: TSpeedButton
-            Left = 53
-            Top = 173
-            Width = 76
-            Height = 22
-            AllowAllUp = True
-            GroupIndex = 1
-            Down = True
-            Caption = 'Hide'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = sbElectroOpticalSensorOnClick
-          end
-          object sbElectroOpticalSensorBlindZoneShow: TSpeedButton
-            Left = 170
-            Top = 150
-            Width = 76
-            Height = 22
-            HelpContext = 1
-            AllowAllUp = True
-            GroupIndex = 2
-            Caption = 'Show'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = sbElectroOpticalSensorOnClick
-          end
-          object sbElectroOpticalSensorBlindZoneHide: TSpeedButton
-            Left = 170
-            Top = 173
-            Width = 76
-            Height = 22
-            AllowAllUp = True
-            GroupIndex = 2
-            Down = True
-            Caption = 'Hide'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = sbElectroOpticalSensorOnClick
-          end
-          object sbElectroOpticalSensorControlModeOn: TSpeedButton
-            Left = 25
-            Top = 50
-            Width = 76
-            Height = 22
-            HelpContext = 1
-            AllowAllUp = True
-            GroupIndex = 3
-            Caption = 'Up'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = sbElectroOpticalSensorOnClick
-          end
-          object sbElectroOpticalSensorControlModeOff: TSpeedButton
-            Left = 25
-            Top = 73
-            Width = 76
-            Height = 22
-            AllowAllUp = True
-            GroupIndex = 3
-            Down = True
-            Caption = 'Down'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = sbElectroOpticalSensorOnClick
-          end
-        end
-      end
       object grbESMSensorControl: TGroupBox
         Left = 3
         Top = 3
@@ -289,7 +100,6 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 2
-        ExplicitWidth = 317
         object ScrollBox4: TScrollBox
           Left = 2
           Top = 18
@@ -300,7 +110,6 @@ inherited fmSensor: TfmSensor
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
-          ExplicitWidth = 313
           object Label6: TLabel
             Left = 5
             Top = 3
@@ -428,7 +237,6 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 8
-        ExplicitWidth = 317
         object ScrollBox6: TScrollBox
           Left = 2
           Top = 18
@@ -439,7 +247,6 @@ inherited fmSensor: TfmSensor
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
-          ExplicitWidth = 313
           object Bevel8: TBevel
             Left = 55
             Top = 10
@@ -616,7 +423,6 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 317
         object ScrollBox1: TScrollBox
           Left = 2
           Top = 18
@@ -627,7 +433,6 @@ inherited fmSensor: TfmSensor
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
-          ExplicitWidth = 313
           object Label189: TLabel
             Left = 5
             Top = 0
@@ -1246,7 +1051,6 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 6
-        ExplicitWidth = 317
         object Label257: TLabel
           Left = 5
           Top = 3
@@ -1354,7 +1158,6 @@ inherited fmSensor: TfmSensor
         Height = 316
         Align = alClient
         TabOrder = 3
-        ExplicitWidth = 317
         object Label225: TLabel
           Left = 5
           Top = 3
@@ -1435,7 +1238,6 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 1
-        ExplicitWidth = 317
         object ScrollBox2: TScrollBox
           Left = 2
           Top = 18
@@ -1446,7 +1248,6 @@ inherited fmSensor: TfmSensor
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
-          ExplicitWidth = 313
           object Bevel37: TBevel
             Left = 55
             Top = 5
@@ -1848,7 +1649,6 @@ inherited fmSensor: TfmSensor
         ParentColor = False
         ParentFont = False
         TabOrder = 7
-        ExplicitWidth = 317
         object ScrollBox5: TScrollBox
           Left = 2
           Top = 18
@@ -1861,7 +1661,6 @@ inherited fmSensor: TfmSensor
           Color = 2695445
           ParentColor = False
           TabOrder = 0
-          ExplicitWidth = 313
           object Bevel5: TBevel
             Left = 55
             Top = 5
@@ -2185,7 +1984,6 @@ inherited fmSensor: TfmSensor
         Font.Style = []
         ParentFont = False
         TabOrder = 5
-        ExplicitWidth = 317
         object ScrollBox7: TScrollBox
           Left = 2
           Top = 18
@@ -2196,7 +1994,6 @@ inherited fmSensor: TfmSensor
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
-          ExplicitWidth = 313
           object Bevel10: TBevel
             Left = 55
             Top = 10
@@ -2411,6 +2208,188 @@ inherited fmSensor: TfmSensor
             ParentFont = False
             TabOrder = 2
             Text = 'Passive'
+          end
+        end
+      end
+      object grbElectroOpticalSensor: TGroupBox
+        Left = 3
+        Top = 3
+        Width = 370
+        Height = 316
+        Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        object btnElectroOpticalSensorExecuteSingleScan: TButton
+          Left = 145
+          Top = 367
+          Width = 153
+          Height = 25
+          Caption = 'Execute Single Scan'
+          TabOrder = 0
+        end
+        object ScrollBox3: TScrollBox
+          Left = 2
+          Top = 18
+          Width = 366
+          Height = 296
+          Align = alClient
+          BevelInner = bvNone
+          BevelOuter = bvNone
+          BorderStyle = bsNone
+          TabOrder = 1
+          object Label1: TLabel
+            Left = 5
+            Top = 3
+            Width = 41
+            Height = 16
+            Caption = 'Control'
+          end
+          object Bevel1: TBevel
+            Left = 55
+            Top = 10
+            Width = 255
+            Height = 3
+          end
+          object Label2: TLabel
+            Left = 35
+            Top = 30
+            Width = 55
+            Height = 16
+            Caption = 'Periscope'
+          end
+          object Label3: TLabel
+            Left = 5
+            Top = 105
+            Width = 40
+            Height = 16
+            Caption = 'Display'
+          end
+          object Bevel2: TBevel
+            Left = 55
+            Top = 113
+            Width = 255
+            Height = 3
+          end
+          object Label4: TLabel
+            Left = 175
+            Top = 130
+            Width = 69
+            Height = 16
+            Caption = 'Blind Zones '
+          end
+          object Label5: TLabel
+            Left = 75
+            Top = 130
+            Width = 36
+            Height = 16
+            Caption = 'Range'
+          end
+          object sbElectroOpticalSensorDisplayRangeShow: TSpeedButton
+            Left = 53
+            Top = 150
+            Width = 76
+            Height = 22
+            HelpContext = 1
+            AllowAllUp = True
+            GroupIndex = 1
+            Caption = 'Show'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = sbElectroOpticalSensorOnClick
+          end
+          object sbElectroOpticalSensorDisplayRangeHide: TSpeedButton
+            Left = 53
+            Top = 173
+            Width = 76
+            Height = 22
+            AllowAllUp = True
+            GroupIndex = 1
+            Down = True
+            Caption = 'Hide'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = sbElectroOpticalSensorOnClick
+          end
+          object sbElectroOpticalSensorBlindZoneShow: TSpeedButton
+            Left = 170
+            Top = 150
+            Width = 76
+            Height = 22
+            HelpContext = 1
+            AllowAllUp = True
+            GroupIndex = 2
+            Caption = 'Show'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = sbElectroOpticalSensorOnClick
+          end
+          object sbElectroOpticalSensorBlindZoneHide: TSpeedButton
+            Left = 170
+            Top = 173
+            Width = 76
+            Height = 22
+            AllowAllUp = True
+            GroupIndex = 2
+            Down = True
+            Caption = 'Hide'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = sbElectroOpticalSensorOnClick
+          end
+          object sbElectroOpticalSensorControlModeOn: TSpeedButton
+            Left = 25
+            Top = 50
+            Width = 76
+            Height = 22
+            HelpContext = 1
+            AllowAllUp = True
+            GroupIndex = 3
+            Caption = 'Up'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = sbElectroOpticalSensorOnClick
+          end
+          object sbElectroOpticalSensorControlModeOff: TSpeedButton
+            Left = 25
+            Top = 73
+            Width = 76
+            Height = 22
+            AllowAllUp = True
+            GroupIndex = 3
+            Down = True
+            Caption = 'Down'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = sbElectroOpticalSensorOnClick
           end
         end
       end

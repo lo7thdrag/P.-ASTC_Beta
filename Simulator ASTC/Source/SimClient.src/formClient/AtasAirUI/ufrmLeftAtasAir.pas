@@ -187,7 +187,7 @@ type
     procedure OnVisualShowClick(Sender: TObject);
     procedure fmSensor1sbIFFInterrogatorControlModeOffClick(Sender: TObject);
     procedure fmSensor1sbIFFInterrogatorControlModeOnClick(Sender: TObject);
-    procedure fmCounterMeasure1btnChaffAirboneDeployClick(Sender: TObject);
+    procedure fmCounterMeasure1btnFloatingDecoyDeployClick(Sender: TObject);
     procedure fmCounterMeasure1sbRadarJammingControlActivationOnClick(
       Sender: TObject);
     procedure fmCounterMeasure1sbRadarJammingControlActivationOffClick(
@@ -210,6 +210,9 @@ type
     procedure fmCounterMeasure1btnAirBubbleDeployClick(Sender: TObject);
     procedure fmSensor1cbbtnIFFInterrogatorMode1Click(Sender: TObject);
     procedure btnFireControlOnClick(Sender: TObject);
+    procedure fmFireControl1btnSearchFireControlAssetsTargetClick(
+      Sender: TObject);
+    procedure fmCounterMeasure1ckSurfaceChaffEnabledClick(Sender: TObject);
   private
     FTacticalDisplay: TfrmTacticalDisplay;
     FObjectAssignedByGun : TSimObject;
@@ -1197,14 +1200,10 @@ begin
 
 end;
 
-procedure TfrmLeftAtasAir.fmCounterMeasure1btnChaffAirboneDeployClick(
+procedure TfrmLeftAtasAir.fmCounterMeasure1btnFloatingDecoyDeployClick(
   Sender: TObject);
 begin
-  if Assigned(Sender)then
-  begin
-    fmCounterMeasure1.btnChaffAirboneDeployClick(Sender);
-  end;
-
+  fmCounterMeasure1.btnChaffAirboneDeployClick(Sender);
 
 end;
 
@@ -1252,6 +1251,15 @@ begin
     fmCounterMeasure1.btnSurfaceChaffOnClick(Sender);
  end;
 
+end;
+
+procedure TfrmLeftAtasAir.fmCounterMeasure1ckSurfaceChaffEnabledClick(
+  Sender: TObject);
+begin
+   if Assigned(Sender)then
+  begin
+    fmCounterMeasure1.ckSurfaceChaffEnabledClick(Sender);
+  end;
 end;
 
 procedure TfrmLeftAtasAir.fmCounterMeasure1ckSurfaceChaffSeductionEnabledClick(
@@ -1316,6 +1324,18 @@ begin
      fmCounterMeasure1.btnRadarNoiseJammerOnClick(Sender);
   end;
 
+end;
+
+procedure TfrmLeftAtasAir.fmFireControl1btnSearchFireControlAssetsTargetClick(
+  Sender: TObject);
+begin
+  SetFCTargetObjectobj(focusedTrack);
+  SetWeaponTargetObject(focusedTrack);
+
+  if Assigned(Sender)then
+  begin
+    fmFireControl1.btnSearchFireControlAssetsTargetClick(Sender);
+  end;
 end;
 
 procedure TfrmLeftAtasAir.fmSensor1btnIFFInterrogatorTrackSearchClick(

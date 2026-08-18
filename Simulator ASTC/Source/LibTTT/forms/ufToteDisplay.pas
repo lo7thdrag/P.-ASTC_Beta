@@ -19545,7 +19545,7 @@ var
   Rainstate: Integer;
   Seastate: Integer;
 begin
-  gbEnvironmentStatus.BringToFront;
+//  gbEnvironmentStatus.BringToFront;
   ge := (simMgrClient).GameEnvironment;
 
 //  Label111.Caption := Char(176) + 'C';

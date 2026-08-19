@@ -414,50 +414,9 @@ var
 begin
   inherited;
 
-  if index = 1 then
+  if index = 14 then
   begin
-//     frmToteDisplay.edtWindSpeed.Text := FloatToStr(Value);
-//
-//     frmToteDisplay.lblWindRelativeSpeed.Caption := FormatSpeed(Value);
-//     frmToteDisplay.lblSpeedWIndTrue.Caption := FormatSpeed(Value);
-//     frmTacticalDisplay.Label21.Caption := FormatSpeed(Value * C_MS_To_KNOTS);
-//
-//     if Value > 50 then    //add wahyu 6-03-2012
-//     begin
-//      frmToteDisplay.edtWindSpeed.Text := FloatToStr(0);
-//      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-//        frmTacticalDisplay.addStatus('The value Input wind speed Is To High');
-//     end;
-  end
-  else if index = 2 then
-  begin
-//     frmToteDisplay.edtWindDir.Text := FloatToStr(Value);
-//     frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
-//     frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
-//     frmToteDisplay.rw.degree := ValidateDegree(Value);
-//     frmTacticalDisplay.Label10.Caption := FloatToStr(Value);
-  end
-  else if index = 3 then
-  begin
-     frmToteDisplay.edtDayVis.Text := FloatToStr(Value);
-     frmToteDisplay.trbDaytimeVisual.Position := Round(Value);
-  end
-  else if index = 4 then
-  begin
-     frmToteDisplay.edtNightVis.Text := FloatToStr(Value);
-     frmToteDisplay.trbNighttimeVisual.Position := Round(Value);
-  end
-  else if index = 14 then
-  begin
-     frmToteDisplay.edtOceanCurrentSpeed.Text := FloatToStr(Value);
-     frmToteDisplay.lblOceanCurrentSpeed.Caption := FormatFloat('00.0', Value);
-
-     if Value > 50 then  //add wahyu 6-03-2012
-     begin
-      frmToteDisplay.edtOceanCurrentSpeed.Text  := FloatToStr(0);
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-        frmTacticalDisplay.addStatus('The value Input ocean current Is To High');
-     end;
+     
   end
   else if index = 15 then
   begin
@@ -576,18 +535,18 @@ begin
     E_Sunrise                         : ;
     E_Sunset                          : ;
     E_Period_of_Twilight              : ;
-    E_Rain_Rate                       :
-                                      begin
+    E_Rain_Rate :
+    begin
 //                                        frmToteDisplay.edtAttenRainRate.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.lblAttenuationFactorsRain.Caption := FormatFloat('0.00', Value);
+      frmToteDisplay.lblAttenuationFactorsRain.Caption := FormatFloat('0.00', Value);
 //                                        frmToteDisplay.trbAttenRainRate.Position := Round(Value);
 
-                                         case Round(Value) of
-                                            0 : frmToteDisplay.lblAttenuationFactorsRain.Caption     := 'Sunny';
-                                            1 : frmToteDisplay.lblAttenuationFactorsRain.Caption     := 'Light Rain';
-                                            2 : frmToteDisplay.lblAttenuationFactorsRain.Caption     := 'Heavy Rain';
-                                        end;
-                                      end;
+       case Round(Value) of
+          0 : frmToteDisplay.lblAttenuationFactorsRain.Caption     := 'Sunny';
+          1 : frmToteDisplay.lblAttenuationFactorsRain.Caption     := 'Light Rain';
+          2 : frmToteDisplay.lblAttenuationFactorsRain.Caption     := 'Heavy Rain';
+      end;
+    end;
     E_Cloud_Base_Height               :
                                       begin
                                         frmToteDisplay.edtCloudBaseHeight.Text := FormatFloat('0.00', Value);
@@ -623,18 +582,18 @@ begin
                                           9,10 : frmToteDisplay.lblSeaState.Caption := 'Phenomenal';
                                         end;
                                       end;
-    E_Ocean_Current_Speed             :
-                                      begin
-                                         frmToteDisplay.edtOceanCurrentSpeed.Text := FloatToStr(Value);
-                                         frmToteDisplay.lblOceanCurrentSpeed.Caption := FormatFloat('00.0', Value);
+    E_Ocean_Current_Speed :
+    begin
+      frmToteDisplay.edtOceanCurrentSpeed.Text := FloatToStr(Value);
+      frmToteDisplay.lblOceanCurrentSpeed.Caption := FormatFloat('00.0', Value);
 
-                                         if Value > 50 then  //add wahyu 6-03-2012
-                                         begin
-                                          frmToteDisplay.edtOceanCurrentSpeed.Text  := FloatToStr(0);
-                                          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                                            frmTacticalDisplay.addStatus('The value Input ocean current Is To High');
-                                         end;
-                                      end;
+      if Value > 50 then  //add wahyu 6-03-2012
+      begin
+        frmToteDisplay.edtOceanCurrentSpeed.Text  := FloatToStr(0);
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          frmTacticalDisplay.addStatus('The value Input ocean current Is To High');
+      end;
+    end;
     E_Ocean_Current_Direction         :
                                       begin
                                         frmToteDisplay.edtOceanCurrentDirection.Text := FloatToStr(Value);

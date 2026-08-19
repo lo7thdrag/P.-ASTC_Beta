@@ -1493,12 +1493,10 @@ type
 
     procedure OnKeyPress(Sender: TObject; var Key: Char);
     procedure btnChangeDisplayClick(Sender: TObject);
-    procedure edtWindDirExit(Sender: TObject);
     procedure edtWindSpeedExit(Sender: TObject);
     procedure edtDayVisExit(Sender: TObject);
     procedure edtNightVisExit(Sender: TObject);
 
-    procedure edtAttenCloudExit(Sender: TObject);
     procedure edtBarometricPressureKeyPress(Sender: TObject; var Key: Char);
     procedure edtBarometricPressureExit(Sender: TObject);
     procedure edtAirTempKeyPress(Sender: TObject; var Key: Char);
@@ -6915,9 +6913,9 @@ begin
   li := lvEnviroArea.Items.Add;
   li.Caption := 'Default Game Area';
   li.Data := ge;
+
   // tambahan dari Aldy sub-area
-  if ((simMgrClient).GameEnvironment.FSubArea <> nil) and
-    ((simMgrClient).GameEnvironment.FSubArea.Count > 0) then
+  if ((simMgrClient).GameEnvironment.FSubArea <> nil) and ((simMgrClient).GameEnvironment.FSubArea.Count > 0) then
   begin
     for i := 0 to (simMgrClient).GameEnvironment.FSubArea.Count - 1 do
     begin
@@ -7866,19 +7864,6 @@ begin
 
     edtAirTemp.Text := FormatFloat('0.0', value);
   end;
-end;
-
-procedure TfrmToteDisplay.edtAttenCloudExit(Sender: TObject);
-var
-  value : Integer;
-begin
-//  if not TryStrToInt(edtAttenCloud.Text, value) then
-//    Exit;
-//
-//  if value > trbAttenCloud.Max then
-//    value := trbAttenCloud.Max;
-//
-//  trbAttenCloud.Position := value;
 end;
 
 procedure TfrmToteDisplay.edtBarometricPressureExit(Sender: TObject);
@@ -10793,45 +10778,85 @@ begin
     Exit;
   if not Selected then
     Exit;
-  // if first item then
+
   if (sender as TListView).Selected.Index = 0 then
   begin
     ge := Item.Data;
 
     with ge.FData do
     begin
+      {$REGION ' Visibility Factor '}
+      trbDaytimeVisual.Position := Round(Daytime_Visual_Modifier);
+      trbDaytimeInfra.Position := Round(Daytime_Infrared_Modifier);
+      trbNighttimeVisual.Position := Round(Nighttime_Visual_Modifier);
+      trbNighttimeInfra.Position := Round(Nighttime_Infrared_Modifier);
+
+      edtDayVis.Text := FormatFloat('000', Daytime_Visual_Modifier);
+      edtNightVis.Text := FormatFloat('000', Nighttime_Visual_Modifier);
+      edtDayInfra.Text := FormatFloat('000', Daytime_Infrared_Modifier);
+      edtNightInfra.Text := FormatFloat('000', Nighttime_Infrared_Modifier);
+      {$ENDREGION}
+
+      {$REGION ' Athmospheric sub / super refraction modifier '}
+      trbAtmRefract.Position := Round(Atmospheric_Refract_Modifier);
+      edtAtmRefract.Text := FormatFloat('000', Atmospheric_Refract_Modifier);
+      {$ENDREGION}
+
+      {$REGION ' Wind Velocity '}
       edtWindDir.Text := FormatCourse(Wind_Direction);
       edtWindSpeed.Text := FormatSpeed(Wind_Speed);
+      {$ENDREGION}
 
-      trbDaytimeVisual.Position := Round(Daytime_Visual_Modifier * (100.0/100.0));
-      trbDaytimeInfra.Position := Round(Daytime_Infrared_Modifier * (100.0/100.0));
-      trbNighttimeVisual.Position := Round(Nighttime_Visual_Modifier * (100.0/100.0));
-      trbNighttimeInfra.Position := Round(Nighttime_Infrared_Modifier * (100.0/100.0));
+      {$REGION ' Ocean Current '}
+      edtOceanCurrentDirection.Text := FormatFloat('000',Ocean_Current_Direction);
+      edtOceanCurrentSpeed.Text := FormatFloat('00.0',Ocean_Current_Speed);
+      {$ENDREGION}
 
+      {$REGION ' Rain Intensity '}
+      case Rain_Rate of
+        0 : btnSunny.Down := True;
+        1 : btnLightRain.Down := True;
+        2 : btnHeavyRain.Down := True;
+      end;
+      {$ENDREGION}
+
+      {$REGION ' Cloud Attenuation '}
+      case Cloud_Attenuation of
+        0 : btnNoFog.Down := True;
+        1 : btnSlightFog.Down := True;
+        2 : btnfog.Down := True;
+        3 : btnVeryFog.Down := True;
+      end;
+      {$ENDREGION}
+
+      {$REGION ' Sea State '}
+      case Sea_State of
+        0 : btnSea1.Down := True;
+        1 : btnSea2.Down := True;
+        2 : btnSea3.Down := True;
+        3 : btnSea4.Down := True;
+        4 : btnSea5.Down := True;
+        5 : btnSea6.Down := True;
+        6 : btnSea7.Down := True;
+        7 : btnSea8.Down := True;
+      end;
+      {$ENDREGION}
+
+      {$REGION ' Other '}
       t := SecondToTime(Sunrise);
       lblEnviCtrlSunrise.Caption := FormatDateTime('hh : nn : ss', t);
 
       t := SecondToTime(Sunset);
       lblEnviCtrlSunset.Caption := FormatDateTime('hh : nn : ss', t);
+
       t := SecondToTime(Period_of_Twilight);
       lblEnviCtrlPeriodTwilight.Caption := FormatDateTime('hh : nn : ss', t);
-
-//      trbAttenRainRate.Position := Rain_Rate;
-//      trbAttenCloud.Position := Cloud_Attenuation;
 
       edtBarometricPressure.Text := FormatFloat('000.0', Barometric_Pressure);
       edtAirTemp.Text := FormatFloat('00.0', Air_Temperature);
       edtCloudBaseHeight.Text := FormatFloat('0000.0', Cloud_Base_Height);
 
-      trbAtmRefract.Position := Round(Atmospheric_Refract_Modifier);
-
-      edtOceanCurrentDirection.Text := FormatFloat('00.0',
-        ge.FData.Ocean_Current_Direction);
-      edtOceanCurrentSpeed.Text := FormatFloat('00.0',
-        ge.FData.Ocean_Current_Speed);
-
-      edtDepthTermalLayer.Text := FormatFloat('00.0',
-        ge.FData.Thermal_Layer_Depth);
+      edtDepthTermalLayer.Text := FormatFloat('00.0',ge.FData.Thermal_Layer_Depth);
 
       cbxShippingRate.ItemHeight := Shipping_Rate;
 
@@ -10845,10 +10870,6 @@ begin
       edtSubSurfaceDuctUp.Text := FloatToStr(Upper_Limit_Sub_Duct_Depth);
       edtSubSurfaceDuctLow.Text := FloatToStr(Lower_Limit_Sub_Duct_Depth);
 
-//      trbSeaState.SetTick(Sea_State);
-//      edtSeaState.Text := IntToStr(Sea_State);
-//      trbSeaState.Position := Sea_State;
-
       trbBottomLost.SetTick(Bottomloss_Coefficient);
       edtBottomLost.Text := IntToStr(Bottomloss_Coefficient);
       trbBottomLost.Position := Bottomloss_Coefficient;
@@ -10856,12 +10877,7 @@ begin
       edtSurfaceTemperatur.Text := FloatToStr(Surface_Temperature);
       edtAvgOceanDepth.Text := FloatToStr(Ave_Ocean_Depth);
       edtShadowZone.Text := FloatToStr(Shadow_Zone_Trans_Loss);
-
-//      edtAttenRainRate.Text := IntToStr(Rain_Rate);
-//      trbAttenRainRate.SetTick(Rain_Rate);
-
-//      edtAttenCloud.Text := IntToStr(Cloud_Attenuation);
-//      trbAttenCloud.SetTick(Cloud_Attenuation);
+      {$ENDREGION}
 
       simMgrClient.SubEnviArea.isVisible := False;
     end;
@@ -10879,17 +10895,6 @@ begin
       trbDaytimeInfra.Position := Round(Daytime_Infrared_Modifier * 100.0);
       trbNighttimeVisual.Position := Round(Nighttime_Visual_Modifier * 100.0);
       trbNighttimeInfra.Position := Round(Nighttime_Infrared_Modifier * 100.0);
-      {
-        t := SecondToTime(Sunrise);
-        lblEnviCtrlSunrise.Caption := FormatDateTime('hh : nn : ss', t);
-
-        t := SecondToTime(Sunset);
-        lblEnviCtrlSunset.Caption := FormatDateTime('hh : nn : ss', t);
-        t := SecondToTime(Period_of_Twilight);
-        lblEnviCtrlPeriodTwilight.Caption := FormatDateTime('hh : nn : ss', t);
-        }
-//      trbAttenRainRate.Position := Rain_Rate;
-//      trbAttenCloud.Position := Cloud_Attenuation;
 
       edtBarometricPressure.Text := FormatFloat('000.0', Barometric_Pressure);
       edtAirTemp.Text := FormatFloat('00.0', Air_Temperature);
@@ -10897,8 +10902,7 @@ begin
 
       trbAtmRefract.Position := Round(Atmospheric_Refract_Modifier);
 
-      edtOceanCurrentDirection.Text := FormatFloat('00.0',
-        Ocean_Current_Direction);
+      edtOceanCurrentDirection.Text := FormatFloat('00.0',Ocean_Current_Direction);
       edtOceanCurrentSpeed.Text := FormatFloat('00.0', Ocean_Current_Speed);
 
       edtDepthTermalLayer.Text := FormatFloat('00.0', Thermal_Layer_Depth);
@@ -10915,10 +10919,6 @@ begin
       edtSubSurfaceDuctUp.Text := FloatToStr(Upper_Limit_Sub_Duct_Depth);
       edtSubSurfaceDuctLow.Text := FloatToStr(Lower_Limit_Sub_Duct_Depth);
 
-//      trbSeaState.SetTick(Sea_State);
-//      edtSeaState.Text := IntToStr(Sea_State);
-//      trbSeaState.Position := Sea_State;
-
       trbBottomLost.SetTick(Bottomloss_Coefficient);
       edtBottomLost.Text := IntToStr(Bottomloss_Coefficient);
       trbBottomLost.Position := Bottomloss_Coefficient;
@@ -10926,12 +10926,6 @@ begin
       edtSurfaceTemperatur.Text := FloatToStr(Surface_Temperature);
       edtAvgOceanDepth.Text := FloatToStr(Ave_Ocean_Depth);
       edtShadowZone.Text := FloatToStr(Shadow_Zone_Trans_Loss);
-
-//      edtAttenRainRate.Text := IntToStr(Rain_Rate);
-//      trbAttenRainRate.SetTick(Rain_Rate);
-
-//      edtAttenCloud.Text := IntToStr(Cloud_Attenuation);
-//      trbAttenCloud.SetTick(Cloud_Attenuation);
 
       //draw area sub envi
       simMgrClient.SubEnviArea.X1 := X_Position_1;
@@ -18680,7 +18674,7 @@ end;
 procedure TfrmToteDisplay.edtOceanCurrentSpeedKeyPress(Sender: TObject; var Key: Char);
 var
   ValKey : set of AnsiChar;
-  OceanCurrent_Speed : Double;
+  ValueData : Double;
   rec: TrecSinc_Envi;
   env : TEnvi;
 begin
@@ -18690,8 +18684,10 @@ begin
 
   if Key = #13 then
   begin
-     TryStrToFloat(edtOceanCurrentSpeed.Text, OceanCurrent_Speed);
-     edtOceanCurrentSpeed.Text := ' ';
+     TryStrToFloat(edtOceanCurrentSpeed.Text, ValueData);
+
+     if edtOceanCurrentSpeed.Text = '' then
+      ValueData := 0;
 
      with rec do
      begin
@@ -18702,7 +18698,7 @@ begin
        else
          rec.Envi_Type := 0;
 
-       rec.Value       := OceanCurrent_Speed;
+       rec.Value := ValueData;
      end;
 
      if Assigned(lvEnviroArea.Selected) then
@@ -18722,7 +18718,7 @@ end;
 procedure TfrmToteDisplay.edtOceanCurrentDirectionKeyPress(Sender: TObject; var Key: Char);
 var
   ValKey : set of AnsiChar;
-  OceanCurrent_Direction : Double;
+  ValueData : Double;
   rec: TrecSinc_Envi;
   env : TEnvi;
 begin
@@ -18732,8 +18728,10 @@ begin
 
   if Key = #13 then
   begin
-    TryStrToFloat(edtOceanCurrentDirection.Text, OceanCurrent_Direction);
-    edtOceanCurrentDirection.Text := ' ';
+    TryStrToFloat(edtOceanCurrentDirection.Text, ValueData);
+
+    if edtOceanCurrentDirection.Text = '' then
+      ValueData := 0;
 
     with rec do
     begin
@@ -18744,7 +18742,7 @@ begin
       else
         rec.Envi_Type := 0;
 
-      rec.Value       := OceanCurrent_Direction;
+      rec.Value := ValidateDegree(ValueData);
     end;
 
     if Assigned(lvEnviroArea.Selected) then
@@ -18764,7 +18762,7 @@ end;
 procedure TfrmToteDisplay.edtWindSpeedKeyPress(Sender: TObject; var Key: Char);
 var
   ValKey : set of AnsiChar;
-  Wind_Speed : Double;
+  ValueData : Double;
   rec: TrecSinc_Envi;
   env : TEnvi;
 begin
@@ -18774,8 +18772,10 @@ begin
 
   if Key = #13 then
   begin
-     TryStrToFloat(edtWindSpeed.Text, Wind_Speed);
-     edtWindSpeed.Text := ' ';
+     TryStrToFloat(edtWindSpeed.Text, ValueData);
+
+     if edtWindSpeed.Text = '' then
+      ValueData := 0;
 
      with rec do
      begin
@@ -18786,7 +18786,7 @@ begin
        else
          rec.Envi_Type := 0;
 
-       rec.Value       := Wind_Speed;
+       rec.Value := ValueData;
      end;
 
      if Assigned(lvEnviroArea.Selected) then
@@ -18816,18 +18816,20 @@ end;
 procedure TfrmToteDisplay.edtWindDirKeyPress(Sender: TObject; var Key: Char);
 var
   ValKey : set of AnsiChar;
-  Wind_Direction : Double;
+  ValueData : Double;
   rec: TrecSinc_Envi;
   env : TEnvi;
 begin
-  ValKey := [#48 .. #57, #8, #13, #46];
+   ValKey := [#48 .. #57, #8, #13, #46];
   if not(CharInSet(Key, ValKey)) then
     Key := #0;
 
   if Key = #13 then
   begin
-     TryStrToFloat(edtWindDir.Text, Wind_Direction);
-     edtWindDir.Text := ' ';
+     TryStrToFloat(edtWindDir.Text, ValueData);
+
+     if edtWindDir.Text = '' then
+      ValueData := 0;
 
      with rec do
      begin
@@ -18838,7 +18840,7 @@ begin
        else
          rec.Envi_Type := 0;
 
-       rec.Value       := Wind_Direction;
+       rec.Value := ValidateDegree(ValueData);
      end;
 
      if Assigned(lvEnviroArea.Selected) then
@@ -18853,19 +18855,6 @@ begin
 
      simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
-end;
-
-procedure TfrmToteDisplay.edtWindDirExit(Sender: TObject);
-var
-  value : Double;
-begin
-  if not TryStrToFloat(edtWindDir.Text, value) then
-    Exit;
-
-  if value >= 360 then
-    value := 0;
-
-  rw.Degree := value;
 end;
 
 procedure TfrmToteDisplay.edtAtmRefractKeyPress(Sender: TObject; var Key: Char);
@@ -18883,6 +18872,12 @@ begin
   begin
     TryStrToFloat(edtAtmRefract.Text, ValueData);
 
+    if edtAtmRefract.Text = '' then
+      ValueData := trbNighttimeInfra.Position;
+
+    if ValueData > 200 then
+      ValueData := 200;
+
     with rec do
     begin
       rec.Envi_Chance := E_Atmospheric_Refract_Modifier;
@@ -18892,10 +18887,7 @@ begin
       else
         rec.Envi_Type := 0;
 
-      if edtAtmRefract.Text = '' then
-        rec.Value := trbAtmRefract.Position
-      else
-        rec.Value := ValueData;
+      rec.Value := ValueData;
     end;
 
     if Assigned(lvEnviroArea.Selected) then
@@ -18927,6 +18919,12 @@ begin
   begin
     TryStrToFloat(edtDayVis.Text, ValueData);
 
+    if edtDayVis.Text = '' then
+      ValueData := trbDaytimeVisual.Position;
+
+    if ValueData > 100 then
+      ValueData := 100;
+
     with rec do
     begin
       rec.Envi_Chance := E_Daytime_Visual_Modifier;
@@ -18936,10 +18934,7 @@ begin
       else
         rec.Envi_Type := 0;
 
-      if edtDayVis.Text = '' then
-        rec.Value := trbDaytimeVisual.Position
-      else
-        rec.Value := ValueData;
+      rec.Value := ValueData;
     end;
 
     if Assigned(lvEnviroArea.Selected) then
@@ -18971,6 +18966,12 @@ begin
   begin
     TryStrToFloat(edtDayInfra.Text, ValueData);
 
+    if edtDayInfra.Text = '' then
+      ValueData := trbNighttimeVisual.Position;
+
+    if ValueData > 100 then
+      ValueData := 100;
+
     with rec do
     begin
       rec.Envi_Chance := E_Daytime_Infrared_Modifier;
@@ -18980,10 +18981,7 @@ begin
       else
         rec.Envi_Type := 0;
 
-      if edtDayInfra.Text = '' then
-        rec.Value := trbDaytimeInfra.Position
-      else
-        rec.Value := ValueData;
+      rec.Value := ValueData;
     end;
 
     if Assigned(lvEnviroArea.Selected) then
@@ -19015,6 +19013,12 @@ begin
   begin
     TryStrToFloat(edtNightInfra.Text, ValueData);
 
+    if edtNightInfra.Text = '' then
+      ValueData := trbNighttimeInfra.Position;
+
+    if ValueData > 100 then
+      ValueData := 100;
+
     with rec do
     begin
       rec.Envi_Chance := E_Nighttime_Infrared_Modifier;
@@ -19024,10 +19028,7 @@ begin
       else
         rec.Envi_Type := 0;
 
-      if edtNightInfra.Text= '' then
-        rec.Value       := trbNighttimeInfra.Position
-      else
-        rec.Value := ValueData;
+      rec.Value := ValueData;
     end;
 
     if Assigned(lvEnviroArea.Selected) then
@@ -19059,6 +19060,12 @@ begin
   begin
     TryStrToFloat(edtNightVis.Text, ValueData);
 
+    if edtNightVis.Text = '' then
+      ValueData := trbNighttimeVisual.Position;
+
+    if ValueData > 100 then
+      ValueData := 100;
+
     with rec do
     begin
       rec.Envi_Chance := E_Nighttime_Visual_Modifier;
@@ -19068,10 +19075,7 @@ begin
       else
         rec.Envi_Type := 0;
 
-      if edtNightInfra.Text= '' then
-        rec.Value := trbNighttimeVisual.Position
-      else
-        rec.Value := ValueData;
+      rec.Value := ValueData;
     end;
 
     if Assigned(lvEnviroArea.Selected) then
@@ -19545,7 +19549,6 @@ var
   Rainstate: Integer;
   Seastate: Integer;
 begin
-//  gbEnvironmentStatus.BringToFront;
   ge := (simMgrClient).GameEnvironment;
 
 //  Label111.Caption := Char(176) + 'C';
@@ -19553,6 +19556,18 @@ begin
 
   with ge.FData do
   begin
+    {$REGION ' Visibility Factor '}
+    trbDaytimeVisual.Position := Round(Daytime_Visual_Modifier);
+    trbDaytimeInfra.Position := Round(Daytime_Infrared_Modifier);
+    trbNighttimeVisual.Position := Round(Nighttime_Visual_Modifier);
+    trbNighttimeInfra.Position := Round(Nighttime_Infrared_Modifier);
+
+    edtDayVis.Text := FormatFloat('0', Daytime_Visual_Modifier);
+    edtNightVis.Text := FormatFloat('0', Nighttime_Visual_Modifier);
+    edtDayInfra.Text := FormatFloat('0', Daytime_Infrared_Modifier);
+    edtNightInfra.Text := FormatFloat('0', Nighttime_Infrared_Modifier);
+    {$ENDREGION}
+
     lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);
     lblDirectionWindTrue.Caption          := FormatCourse(Wind_Direction);
  //   lblAttenuationFactorsRain.Caption     := IntToStr(Rain_Rate);

@@ -54,6 +54,7 @@ type
     procedure onIFFTransponderStatus(Sender : TObject;Mode : TSensorOperationalStatus);   override;
     procedure OnIFFInterrogatorStatus(Sender : TObject;Mode : TSensorOperationalStatus);  override;
     procedure OnSonobuoyPassiveDetect(Sender, detected: TObject; aValue : Byte); override;
+
     //weapon event
     procedure OnWeaponLaunched(Sender : TObject; Target : TObject); override;
     procedure OnWeaponDestroy(Sender : TObject);                    override;
@@ -3562,7 +3563,6 @@ begin
   if Sender is TT3Sensor then
   begin
     frmTacticalDisplay.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
-    frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
 
     if sender is TT3Radar then
     begin
@@ -3572,6 +3572,36 @@ begin
 
     frmTacticalDisplay.fmEMCON1.UpdateSensorList(TT3Sensor(Sender));
 //    frmLeftAtasAir.fmCounterMeasure1.UpdateECMList(TT3CounterMeasure(Sender));
+
+    case vGameDataSetting.Role of
+      0:
+      begin
+        {$REGION ' Plotter '}
+        {$ENDREGION}
+      end;
+      1:
+      begin
+        {$REGION ' Navigasi '}
+        frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        {$ENDREGION}
+      end;
+      2:
+      begin
+        {$REGION ' Atas Air '}
+        frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        {$ENDREGION}
+      end;
+      3:
+      begin
+        {$REGION ' BawahAir '}
+        {$ENDREGION}
+      end;
+      4:
+      begin
+        {$REGION ' General '}
+        {$ENDREGION}
+      end;
+    end;
 
     {wasdal UI}
     if simMgrClient.ISWasdal then
@@ -3672,7 +3702,36 @@ begin
 
     frmTacticalDisplay.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
     frmTacticalDisplay.fmEMCON1.UpdateSensorList(TT3Sensor(Sender));
-    frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+
+    case vGameDataSetting.Role of
+      0:
+      begin
+        {$REGION ' Plotter '}
+        {$ENDREGION}
+      end;
+      1:
+      begin
+        {$REGION ' Navigasi '}
+        frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        {$ENDREGION}
+      end;
+      2:
+      begin
+        {$REGION ' Atas Air '}
+        frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        {$ENDREGION}
+      end;
+      3:
+      begin
+        {$REGION ' BawahAir '}
+        {$ENDREGION}
+      end;
+      4:
+      begin
+        {$REGION ' General '}
+        {$ENDREGION}
+      end;
+    end;
 
     {wasdal UI}
     if simMgrClient.ISWasdal then
@@ -3706,7 +3765,36 @@ begin
 
     frmTacticalDisplay.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
     frmTacticalDisplay.fmEMCON1.UpdateSensorList(TT3Sensor(Sender));
-    frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+
+    case vGameDataSetting.Role of
+      0:
+      begin
+        {$REGION ' Plotter '}
+        {$ENDREGION}
+      end;
+      1:
+      begin
+        {$REGION ' Navigasi '}
+        frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        {$ENDREGION}
+      end;
+      2:
+      begin
+        {$REGION ' Atas Air '}
+        frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        {$ENDREGION}
+      end;
+      3:
+      begin
+        {$REGION ' BawahAir '}
+        {$ENDREGION}
+      end;
+      4:
+      begin
+        {$REGION ' General '}
+        {$ENDREGION}
+      end;
+    end;
 
     {wasdal UI}
     if simMgrClient.ISWasdal then

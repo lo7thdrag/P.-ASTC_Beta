@@ -187,6 +187,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure fmPlatformGuidance1btnWaypointClick(Sender: TObject);
+    procedure fmSensor1sbIFFTransponderControlModeOnClick(Sender: TObject);
   protected
     FControlled: TObject;
 
@@ -1383,6 +1384,14 @@ begin
   if Assigned(Sender)then
   begin
     fmPlatformGuidance1.whHeadingChange(Sender);
+  end;
+end;
+
+procedure TfrmRightNav.fmSensor1sbIFFTransponderControlModeOnClick(Sender: TObject);
+begin
+  if Assigned(Sender)then
+  begin
+    fmSensor1.btnIFFOnClick(Sender);
   end;
 end;
 

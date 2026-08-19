@@ -11066,6 +11066,267 @@ object frmLeftAtasAir: TfrmLeftAtasAir
           BevelOuter = bvNone
           TabOrder = 1
         end
+        object pnlFireControl: TPanel
+          Left = 1
+          Top = 1
+          Width = 338
+          Height = 591
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 2695445
+          ParentBackground = False
+          TabOrder = 3
+          inline fmFireControl1: TfmFireControl
+            Left = 0
+            Top = 0
+            Width = 338
+            Height = 591
+            Align = alClient
+            Color = 15131105
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentBackground = False
+            ParentColor = False
+            ParentFont = False
+            TabOrder = 0
+            ExplicitWidth = 338
+            ExplicitHeight = 591
+            inherited PaneFCSpace: TPanel [0]
+              Top = 171
+              Width = 338
+              Height = 0
+              ExplicitTop = 171
+              ExplicitWidth = 338
+              ExplicitHeight = 0
+            end
+            inherited PanelALL: TPanel [1]
+              Top = 171
+              Width = 338
+              Height = 420
+              ExplicitTop = 171
+              ExplicitWidth = 338
+              ExplicitHeight = 420
+              inherited PanelFC: TPanel
+                Width = 338
+                Height = 420
+                ExplicitWidth = 338
+                ExplicitHeight = 420
+                inherited ScrollBox3: TScrollBox
+                  Width = 338
+                  Height = 420
+                  HorzScrollBar.Color = clHotLight
+                  HorzScrollBar.ParentColor = False
+                  HorzScrollBar.Size = 2
+                  ExplicitWidth = 338
+                  ExplicitHeight = 420
+                  inherited grbFireControl: TGroupBox
+                    Width = 338
+                    Height = 420
+                    ParentBackground = False
+                    ParentColor = False
+                    ExplicitWidth = 338
+                    ExplicitHeight = 420
+                    inherited Bevel27: TBevel
+                      Left = 71
+                      Top = 22
+                      ExplicitLeft = 71
+                      ExplicitTop = 22
+                    end
+                    inherited Bevel52: TBevel
+                      Left = 71
+                      Top = 142
+                      ExplicitLeft = 71
+                      ExplicitTop = 142
+                    end
+                    inherited Bevel53: TBevel
+                      Left = 71
+                      Top = 308
+                      ExplicitLeft = 71
+                      ExplicitTop = 308
+                    end
+                    inherited btnSearchFireControlAssetsTarget: TSpeedButton
+                      Tag = 4
+                      Left = 167
+                      Top = 160
+                      Spacing = 0
+                      OnClick = fmFireControl1btnSearchFireControlAssetsTargetClick
+                      ExplicitLeft = 167
+                      ExplicitTop = 160
+                    end
+                    inherited Label265: TLabel
+                      Left = 87
+                      Top = 34
+                      ParentFont = False
+                      ExplicitLeft = 87
+                      ExplicitTop = 34
+                    end
+                    inherited Label266: TLabel
+                      Left = 170
+                      Top = 35
+                      ParentFont = False
+                      ExplicitLeft = 170
+                      ExplicitTop = 35
+                    end
+                    inherited Label267: TLabel
+                      Left = 21
+                      Top = 15
+                      ParentFont = False
+                      ExplicitLeft = 21
+                      ExplicitTop = 15
+                    end
+                    inherited Label268: TLabel
+                      Left = 21
+                      Top = 135
+                      ParentFont = False
+                      ExplicitLeft = 21
+                      ExplicitTop = 135
+                    end
+                    inherited Label514: TLabel
+                      Left = 21
+                      Top = 301
+                      ParentFont = False
+                      ExplicitLeft = 21
+                      ExplicitTop = 301
+                    end
+                    inherited Label515: TLabel
+                      Left = 90
+                      Top = 322
+                      ParentFont = False
+                      ExplicitLeft = 90
+                      ExplicitTop = 322
+                    end
+                    inherited Label527: TLabel
+                      Left = 218
+                      Top = 322
+                      ParentFont = False
+                      ExplicitLeft = 218
+                      ExplicitTop = 322
+                    end
+                    inherited lbControlChannel: TLabel
+                      Left = 295
+                      Top = 35
+                      ParentFont = False
+                      ExplicitLeft = 295
+                      ExplicitTop = 35
+                    end
+                    inherited sbFireControlAssetsBlindZonesHide: TSpeedButton
+                      Left = 251
+                      Top = 343
+                      Width = 54
+                      OnClick = btnFireControlOnClick
+                      ExplicitLeft = 251
+                      ExplicitTop = 343
+                      ExplicitWidth = 54
+                    end
+                    inherited sbFireControlAssetsBlindZonesShow: TSpeedButton
+                      Left = 194
+                      Top = 343
+                      Width = 54
+                      OnClick = btnFireControlOnClick
+                      ExplicitLeft = 194
+                      ExplicitTop = 343
+                      ExplicitWidth = 54
+                    end
+                    inherited sbFireControlAssetsDisplayHide: TSpeedButton
+                      Left = 109
+                      Top = 343
+                      Width = 54
+                      OnClick = btnFireControlOnClick
+                      ExplicitLeft = 109
+                      ExplicitTop = 343
+                      ExplicitWidth = 54
+                    end
+                    inherited sbFireControlAssetsDisplayShow: TSpeedButton
+                      Left = 52
+                      Top = 342
+                      Width = 54
+                      OnClick = btnFireControlOnClick
+                      ExplicitLeft = 52
+                      ExplicitTop = 342
+                      ExplicitWidth = 54
+                    end
+                    inherited sbFireControlAssetsModeOff: TSpeedButton
+                      Left = 52
+                      Top = 104
+                      OnClick = btnFireControlOnClick
+                      ExplicitLeft = 52
+                      ExplicitTop = 104
+                    end
+                    inherited sbFireControlAssetsModeSearch: TSpeedButton
+                      Left = 52
+                      Top = 54
+                      OnClick = btnFireControlOnClick
+                      ExplicitLeft = 52
+                      ExplicitTop = 54
+                    end
+                    inherited sbFireControlAssetsModeTrackOnly: TSpeedButton
+                      Left = 52
+                      Top = 79
+                      OnClick = btnFireControlOnClick
+                      ExplicitLeft = 52
+                      ExplicitTop = 79
+                    end
+                    inherited btnFireControlAssetsTargetAssign: TButton
+                      Left = 230
+                      Top = 160
+                      OnClick = btnFireControlOnClick
+                      ExplicitLeft = 230
+                      ExplicitTop = 160
+                    end
+                    inherited btnFireControlAssetsTargetBreak: TButton
+                      Left = 230
+                      Top = 185
+                      OnClick = btnFireControlOnClick
+                      ExplicitLeft = 230
+                      ExplicitTop = 185
+                    end
+                    inherited btnFireControlAssetsTargetBreakAll: TButton
+                      Left = 230
+                      Top = 210
+                      OnClick = btnFireControlOnClick
+                      ExplicitLeft = 230
+                      ExplicitTop = 210
+                    end
+                    inherited edtFireControlAssetsTarget: TEdit
+                      Left = 50
+                      Top = 160
+                      Width = 111
+                      ExplicitLeft = 50
+                      ExplicitTop = 160
+                      ExplicitWidth = 111
+                    end
+                    inherited lstFireControlAssetsAssignedTracks: TListView
+                      Left = 50
+                      Width = 140
+                      Height = 109
+                      ExplicitLeft = 50
+                      ExplicitWidth = 140
+                      ExplicitHeight = 109
+                    end
+                  end
+                end
+              end
+            end
+            inherited PanelFCChoices: TPanel [2]
+              Width = 338
+              Height = 171
+              ExplicitWidth = 338
+              ExplicitHeight = 171
+              inherited lstAssetsChoices: TListView
+                Width = 334
+                Height = 167
+                Align = alClient
+                Font.Color = clBlack
+                ParentFont = False
+                ExplicitWidth = 334
+                ExplicitHeight = 167
+              end
+            end
+          end
+        end
         object pnlSensor: TPanel
           Left = 1
           Top = 1
@@ -11306,278 +11567,7 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     ExplicitTop = 95
                   end
                 end
-                inherited grbSonarControl: TGroupBox [2]
-                  Width = 332
-                  Height = 366
-                  ParentBackground = False
-                  ParentColor = False
-                  ExplicitWidth = 332
-                  ExplicitHeight = 366
-                  inherited ScrollBox2: TScrollBox
-                    Width = 328
-                    Height = 346
-                    ExplicitWidth = 328
-                    ExplicitHeight = 346
-                    inherited Bevel37: TBevel
-                      Left = 59
-                      ExplicitLeft = 59
-                    end
-                    inherited Bevel43: TBevel
-                      Left = 58
-                      Top = 255
-                      ExplicitLeft = 58
-                      ExplicitTop = 255
-                    end
-                    inherited Label213: TLabel
-                      Left = 13
-                      ParentFont = False
-                      ExplicitLeft = 13
-                    end
-                    inherited Label214: TLabel
-                      Left = 89
-                      ParentFont = False
-                      ExplicitLeft = 89
-                    end
-                    inherited Label237: TLabel
-                      Left = 13
-                      Top = 248
-                      ParentFont = False
-                      ExplicitLeft = 13
-                      ExplicitTop = 248
-                    end
-                    inherited Label238: TLabel
-                      Left = 68
-                      Top = 269
-                      ParentFont = False
-                      ExplicitLeft = 68
-                      ExplicitTop = 269
-                    end
-                    inherited Label239: TLabel
-                      Left = 204
-                      Top = 269
-                      ParentFont = False
-                      ExplicitLeft = 204
-                      ExplicitTop = 269
-                    end
-                    inherited sbDisplayBlindHide: TSpeedButton
-                      Left = 243
-                      Top = 291
-                      Width = 60
-                      Font.Color = clBlack
-                      ParentFont = False
-                      OnClick = OnSonarBtnClick
-                      ExplicitLeft = 243
-                      ExplicitTop = 291
-                      ExplicitWidth = 60
-                    end
-                    inherited sbDisplayBlindShow: TSpeedButton
-                      Left = 179
-                      Top = 290
-                      Width = 60
-                      Font.Color = clBlack
-                      ParentFont = False
-                      OnClick = OnSonarBtnClick
-                      ExplicitLeft = 179
-                      ExplicitTop = 290
-                      ExplicitWidth = 60
-                    end
-                    inherited sbDisplayRangeHide: TSpeedButton
-                      Left = 88
-                      Top = 290
-                      Width = 60
-                      Font.Color = clBlack
-                      ParentFont = False
-                      OnClick = OnSonarBtnClick
-                      ExplicitLeft = 88
-                      ExplicitTop = 290
-                      ExplicitWidth = 60
-                    end
-                    inherited sbDisplayRangeShow: TSpeedButton
-                      Left = 24
-                      Top = 290
-                      Width = 60
-                      Font.Color = clBlack
-                      ParentFont = False
-                      OnClick = OnSonarBtnClick
-                      ExplicitLeft = 24
-                      ExplicitTop = 290
-                      ExplicitWidth = 60
-                    end
-                    inherited sbSonarControlModeActive: TSpeedButton
-                      Left = 67
-                      Top = 35
-                      Font.Color = clBlack
-                      OnClick = OnSonarBtnClick
-                      ExplicitLeft = 67
-                      ExplicitTop = 35
-                    end
-                    inherited sbSonarControlModePassive: TSpeedButton [12]
-                      Left = 67
-                      Top = 58
-                      Font.Color = clBlack
-                      ParentFont = False
-                      OnClick = OnSonarBtnClick
-                      ExplicitLeft = 67
-                      ExplicitTop = 58
-                    end
-                    inherited lblRangeTIOW: TLabel [13]
-                      Left = 185
-                      ParentFont = False
-                      ExplicitLeft = 185
-                    end
-                    inherited btnRange1: TSpeedButton [14]
-                      Left = 184
-                      Top = 35
-                      Font.Color = clBlack
-                      ParentFont = False
-                      ExplicitLeft = 184
-                      ExplicitTop = 35
-                    end
-                    inherited btnRAnge2: TSpeedButton [15]
-                      Left = 184
-                      Top = 58
-                      Font.Color = clBlack
-                      ParentFont = False
-                      ExplicitLeft = 184
-                      ExplicitTop = 58
-                    end
-                    inherited btnRange3: TSpeedButton [16]
-                      Left = 184
-                      Top = 81
-                      Font.Color = clBlack
-                      ParentFont = False
-                      ExplicitLeft = 184
-                      ExplicitTop = 81
-                    end
-                    inherited sbSonarControlModeOff: TSpeedButton [17]
-                      Left = 67
-                      Top = 81
-                      Font.Color = clBlack
-                      ParentFont = False
-                      OnClick = OnSonarBtnClick
-                      ExplicitLeft = 67
-                      ExplicitTop = 81
-                    end
-                    inherited pnlDeployment: TPanel
-                      Left = 0
-                      Top = 112
-                      Color = 2695445
-                      ParentBackground = False
-                      ParentFont = False
-                      ExplicitLeft = 0
-                      ExplicitTop = 112
-                      inherited Bevel39: TBevel
-                        Left = 79
-                        ExplicitLeft = 79
-                      end
-                      inherited Bevel41: TBevel
-                        Left = 218
-                        Width = 86
-                        ExplicitLeft = 218
-                        ExplicitWidth = 86
-                      end
-                      inherited Bevel42: TBevel
-                        Left = 179
-                        Width = 125
-                        ExplicitLeft = 179
-                        ExplicitWidth = 125
-                      end
-                      inherited Label215: TLabel
-                        Left = 33
-                        Top = 26
-                        ExplicitLeft = 33
-                        ExplicitTop = 26
-                      end
-                      inherited Label216: TLabel
-                        Left = 7
-                        ExplicitLeft = 7
-                      end
-                      inherited Label221: TLabel
-                        Left = 146
-                        Top = 41
-                        ExplicitLeft = 146
-                        ExplicitTop = 41
-                      end
-                      inherited Label222: TLabel
-                        Left = 146
-                        ExplicitLeft = 146
-                      end
-                      inherited Label223: TLabel
-                        Left = 262
-                        Top = 41
-                        ExplicitLeft = 262
-                        ExplicitTop = 41
-                      end
-                      inherited Label224: TLabel
-                        Left = 262
-                        ExplicitLeft = 262
-                      end
-                      inherited Label226: TLabel
-                        Left = 12
-                        Top = 109
-                        ExplicitLeft = 12
-                        ExplicitTop = 109
-                      end
-                      inherited Label228: TLabel
-                        Left = 146
-                        ExplicitLeft = 146
-                      end
-                      inherited Label232: TLabel
-                        Left = 264
-                        ExplicitLeft = 264
-                      end
-                      inherited LabelCablePayout: TLabel
-                        Left = 135
-                        ExplicitLeft = 135
-                      end
-                      inherited LabelDepth: TLabel
-                        Left = 135
-                        ExplicitLeft = 135
-                      end
-                      inherited lbCableActual: TLabel
-                        Left = 212
-                        ExplicitLeft = 212
-                      end
-                      inherited lbDepthSettled: TLabel
-                        Left = 212
-                        ExplicitLeft = 212
-                      end
-                      inherited lblStatusDeployment: TLabel
-                        Left = 64
-                        Top = 109
-                        ExplicitLeft = 64
-                        ExplicitTop = 109
-                      end
-                      inherited sbDeploymentActiondeploy: TSpeedButton
-                        Left = 12
-                        Top = 46
-                        Font.Color = clBlack
-                        ParentFont = False
-                        OnClick = OnSonarBtnClick
-                        ExplicitLeft = 12
-                        ExplicitTop = 46
-                      end
-                      inherited sbDeploymentActionShow: TSpeedButton
-                        Left = 12
-                        Top = 69
-                        Font.Color = clBlack
-                        ParentFont = False
-                        OnClick = OnSonarBtnClick
-                        ExplicitLeft = 12
-                        ExplicitTop = 69
-                      end
-                      inherited editCableOrdered: TEdit
-                        Left = 212
-                        Top = 40
-                        Width = 40
-                        ExplicitLeft = 212
-                        ExplicitTop = 40
-                        ExplicitWidth = 40
-                      end
-                    end
-                  end
-                end
-                inherited grbESMSensorControl: TGroupBox [3]
+                inherited grbESMSensorControl: TGroupBox [2]
                   Width = 332
                   Height = 366
                   ExplicitWidth = 332
@@ -11635,7 +11625,7 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grbIFFInterrogatorControl: TGroupBox [4]
+                inherited grbIFFInterrogatorControl: TGroupBox [3]
                   Width = 332
                   Height = 366
                   ExplicitWidth = 332
@@ -11790,7 +11780,242 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grbSearchRadarControl: TGroupBox [5]
+                inherited grbIFFTransponderControl: TGroupBox [4]
+                  Width = 332
+                  Height = 366
+                  ParentBackground = False
+                  ParentColor = False
+                  ExplicitWidth = 332
+                  ExplicitHeight = 366
+                  inherited ScrollBox6: TScrollBox
+                    Width = 328
+                    Height = 346
+                    ExplicitWidth = 328
+                    ExplicitHeight = 346
+                    inherited Bevel8: TBevel
+                      Left = 59
+                      ExplicitLeft = 59
+                    end
+                    inherited Bevel9: TBevel
+                      Left = 139
+                      ExplicitLeft = 139
+                    end
+                    inherited Label14: TLabel
+                      Left = 13
+                      ParentFont = False
+                      ExplicitLeft = 13
+                    end
+                    inherited Label15: TLabel
+                      Left = 146
+                      ParentFont = False
+                      ExplicitLeft = 146
+                    end
+                    inherited Label16: TLabel
+                      Left = 13
+                      ParentFont = False
+                      ExplicitLeft = 13
+                    end
+                    inherited sbIFFTransponderControlModeOff: TSpeedButton
+                      Tag = 4
+                      Left = 125
+                      OnClick = fmSensor1sbIFFTransponderControlModeOffClick
+                      ExplicitLeft = 125
+                    end
+                    inherited sbIFFTransponderControlModeOn: TSpeedButton
+                      Tag = 3
+                      Left = 125
+                      OnClick = fmSensor1sbIFFTransponderControlModeOnClick
+                      ExplicitLeft = 125
+                    end
+                    inherited cbIFFTransponderControlMode1: TCheckBox
+                      Tag = 1
+                      Left = 37
+                      ExplicitLeft = 37
+                    end
+                    inherited cbIFFTransponderControlMode2: TCheckBox
+                      Tag = 2
+                      Left = 37
+                      ExplicitLeft = 37
+                    end
+                    inherited cbIFFTransponderControlMode3: TCheckBox
+                      Tag = 3
+                      Left = 37
+                      ExplicitLeft = 37
+                    end
+                    inherited cbIFFTransponderControlMode3C: TCheckBox
+                      Tag = 4
+                      Left = 37
+                      ExplicitLeft = 37
+                    end
+                    inherited cbIFFTransponderControlMode4: TCheckBox
+                      Tag = 5
+                      Left = 37
+                      ExplicitLeft = 37
+                    end
+                    inherited edtIFFTransponderControlMode1: TEdit
+                      Left = 127
+                      Text = '0000'
+                      ExplicitLeft = 127
+                    end
+                    inherited edtIFFTransponderControlMode2: TEdit
+                      Left = 127
+                      ExplicitLeft = 127
+                    end
+                    inherited edtIFFTransponderControlMode3: TEdit
+                      Left = 127
+                      ExplicitLeft = 127
+                    end
+                  end
+                end
+                inherited grbElectroOpticalSensor: TGroupBox [5]
+                  Width = 332
+                  Height = 366
+                  ExplicitWidth = 332
+                  ExplicitHeight = 366
+                  inherited ScrollBox3: TScrollBox
+                    Width = 328
+                    Height = 346
+                    ExplicitWidth = 328
+                    ExplicitHeight = 346
+                    inherited Label1: TLabel
+                      Left = 19
+                      Top = 1
+                      ExplicitLeft = 19
+                      ExplicitTop = 1
+                    end
+                    inherited Bevel1: TBevel
+                      Left = 65
+                      Top = 8
+                      Width = 244
+                      ExplicitLeft = 65
+                      ExplicitTop = 8
+                      ExplicitWidth = 244
+                    end
+                    inherited Label2: TLabel
+                      Left = 142
+                      Top = 24
+                      ExplicitLeft = 142
+                      ExplicitTop = 24
+                    end
+                    inherited Label3: TLabel
+                      Left = 19
+                      Top = 103
+                      ExplicitLeft = 19
+                      ExplicitTop = 103
+                    end
+                    inherited Bevel2: TBevel
+                      Left = 65
+                      Top = 111
+                      Width = 244
+                      ExplicitLeft = 65
+                      ExplicitTop = 111
+                      ExplicitWidth = 244
+                    end
+                    inherited Label4: TLabel
+                      Left = 190
+                      Top = 128
+                      ExplicitLeft = 190
+                      ExplicitTop = 128
+                    end
+                    inherited Label5: TLabel
+                      Left = 90
+                      Top = 128
+                      ExplicitLeft = 90
+                      ExplicitTop = 128
+                    end
+                    inherited sbElectroOpticalSensorDisplayRangeShow: TSpeedButton
+                      Tag = 3
+                      Left = 68
+                      Top = 148
+                      OnClick = btnEOOnClick
+                      ExplicitLeft = 68
+                      ExplicitTop = 148
+                    end
+                    inherited sbElectroOpticalSensorDisplayRangeHide: TSpeedButton
+                      Tag = 4
+                      Left = 68
+                      Top = 171
+                      OnClick = btnEOOnClick
+                      ExplicitLeft = 68
+                      ExplicitTop = 171
+                    end
+                    inherited sbElectroOpticalSensorBlindZoneShow: TSpeedButton
+                      Tag = 5
+                      Left = 185
+                      Top = 148
+                      OnClick = btnEOOnClick
+                      ExplicitLeft = 185
+                      ExplicitTop = 148
+                    end
+                    inherited sbElectroOpticalSensorBlindZoneHide: TSpeedButton
+                      Tag = 6
+                      Left = 185
+                      Top = 171
+                      OnClick = btnEOOnClick
+                      ExplicitLeft = 185
+                      ExplicitTop = 171
+                    end
+                    inherited sbElectroOpticalSensorControlModeOn: TSpeedButton
+                      Tag = 1
+                      Left = 132
+                      Top = 44
+                      OnClick = btnEOOnClick
+                      ExplicitLeft = 132
+                      ExplicitTop = 44
+                    end
+                    inherited sbElectroOpticalSensorControlModeOff: TSpeedButton
+                      Tag = 2
+                      Left = 132
+                      Top = 67
+                      OnClick = btnEOOnClick
+                      ExplicitLeft = 132
+                      ExplicitTop = 67
+                    end
+                  end
+                end
+                inherited grbAnomalyDetectorSensor: TGroupBox [6]
+                  Width = 332
+                  Height = 366
+                  ExplicitWidth = 332
+                  ExplicitHeight = 366
+                  inherited Label225: TLabel
+                    Left = 15
+                    Top = 22
+                    ExplicitLeft = 15
+                    ExplicitTop = 22
+                  end
+                  inherited Bevel47: TBevel
+                    Left = 61
+                    Top = 29
+                    ExplicitLeft = 61
+                    ExplicitTop = 29
+                  end
+                  inherited Label230: TLabel
+                    Left = 145
+                    Top = 49
+                    ExplicitLeft = 145
+                    ExplicitTop = 49
+                  end
+                  inherited sbAnomalyDetectorControlModeOn: TSpeedButton
+                    Left = 118
+                    Top = 69
+                    Width = 85
+                    OnClick = btnMADOnClick
+                    ExplicitLeft = 118
+                    ExplicitTop = 69
+                    ExplicitWidth = 85
+                  end
+                  inherited sbAnomalyDetectorControlModeOff: TSpeedButton
+                    Left = 118
+                    Top = 92
+                    Width = 85
+                    OnClick = btnMADOnClick
+                    ExplicitLeft = 118
+                    ExplicitTop = 92
+                    ExplicitWidth = 85
+                  end
+                end
+                inherited grbSearchRadarControl: TGroupBox [7]
                   Width = 332
                   Height = 366
                   ParentBackground = False
@@ -12154,239 +12379,275 @@ object frmLeftAtasAir: TfrmLeftAtasAir
                     end
                   end
                 end
-                inherited grbIFFTransponderControl: TGroupBox [6]
+                inherited grbSonarControl: TGroupBox [8]
                   Width = 332
                   Height = 366
                   ParentBackground = False
                   ParentColor = False
                   ExplicitWidth = 332
                   ExplicitHeight = 366
-                  inherited ScrollBox6: TScrollBox
+                  inherited ScrollBox2: TScrollBox
                     Width = 328
                     Height = 346
                     ExplicitWidth = 328
                     ExplicitHeight = 346
-                    inherited Bevel8: TBevel
+                    inherited Bevel37: TBevel
                       Left = 59
                       ExplicitLeft = 59
                     end
-                    inherited Bevel9: TBevel
-                      Left = 139
-                      ExplicitLeft = 139
+                    inherited Bevel43: TBevel
+                      Left = 58
+                      Top = 255
+                      ExplicitLeft = 58
+                      ExplicitTop = 255
                     end
-                    inherited Label14: TLabel
+                    inherited Label213: TLabel
                       Left = 13
                       ParentFont = False
                       ExplicitLeft = 13
                     end
-                    inherited Label15: TLabel
-                      Left = 146
+                    inherited Label214: TLabel
+                      Left = 89
                       ParentFont = False
-                      ExplicitLeft = 146
+                      ExplicitLeft = 89
                     end
-                    inherited Label16: TLabel
+                    inherited Label237: TLabel
                       Left = 13
+                      Top = 248
                       ParentFont = False
                       ExplicitLeft = 13
+                      ExplicitTop = 248
                     end
-                    inherited sbIFFTransponderControlModeOff: TSpeedButton
-                      Tag = 4
-                      Left = 125
-                      OnClick = fmSensor1sbIFFTransponderControlModeOffClick
-                      ExplicitLeft = 125
-                    end
-                    inherited sbIFFTransponderControlModeOn: TSpeedButton
-                      Tag = 3
-                      Left = 125
-                      OnClick = fmSensor1sbIFFTransponderControlModeOnClick
-                      ExplicitLeft = 125
-                    end
-                    inherited cbIFFTransponderControlMode1: TCheckBox
-                      Tag = 1
-                      Left = 37
-                      ExplicitLeft = 37
-                    end
-                    inherited cbIFFTransponderControlMode2: TCheckBox
-                      Tag = 2
-                      Left = 37
-                      ExplicitLeft = 37
-                    end
-                    inherited cbIFFTransponderControlMode3: TCheckBox
-                      Tag = 3
-                      Left = 37
-                      ExplicitLeft = 37
-                    end
-                    inherited cbIFFTransponderControlMode3C: TCheckBox
-                      Tag = 4
-                      Left = 37
-                      ExplicitLeft = 37
-                    end
-                    inherited cbIFFTransponderControlMode4: TCheckBox
-                      Tag = 5
-                      Left = 37
-                      ExplicitLeft = 37
-                    end
-                    inherited edtIFFTransponderControlMode1: TEdit
-                      Left = 127
-                      Text = '0000'
-                      ExplicitLeft = 127
-                    end
-                    inherited edtIFFTransponderControlMode2: TEdit
-                      Left = 127
-                      ExplicitLeft = 127
-                    end
-                    inherited edtIFFTransponderControlMode3: TEdit
-                      Left = 127
-                      ExplicitLeft = 127
-                    end
-                  end
-                end
-                inherited grbElectroOpticalSensor: TGroupBox [7]
-                  Width = 332
-                  Height = 366
-                  ExplicitWidth = 332
-                  ExplicitHeight = 366
-                  inherited ScrollBox3: TScrollBox
-                    Width = 328
-                    Height = 346
-                    ExplicitWidth = 328
-                    ExplicitHeight = 346
-                    inherited Label1: TLabel
-                      Left = 19
-                      Top = 1
-                      ExplicitLeft = 19
-                      ExplicitTop = 1
-                    end
-                    inherited Bevel1: TBevel
-                      Left = 65
-                      Top = 8
-                      Width = 244
-                      ExplicitLeft = 65
-                      ExplicitTop = 8
-                      ExplicitWidth = 244
-                    end
-                    inherited Label2: TLabel
-                      Left = 142
-                      Top = 24
-                      ExplicitLeft = 142
-                      ExplicitTop = 24
-                    end
-                    inherited Label3: TLabel
-                      Left = 19
-                      Top = 103
-                      ExplicitLeft = 19
-                      ExplicitTop = 103
-                    end
-                    inherited Bevel2: TBevel
-                      Left = 65
-                      Top = 111
-                      Width = 244
-                      ExplicitLeft = 65
-                      ExplicitTop = 111
-                      ExplicitWidth = 244
-                    end
-                    inherited Label4: TLabel
-                      Left = 190
-                      Top = 128
-                      ExplicitLeft = 190
-                      ExplicitTop = 128
-                    end
-                    inherited Label5: TLabel
-                      Left = 90
-                      Top = 128
-                      ExplicitLeft = 90
-                      ExplicitTop = 128
-                    end
-                    inherited sbElectroOpticalSensorDisplayRangeShow: TSpeedButton
-                      Tag = 3
+                    inherited Label238: TLabel
                       Left = 68
-                      Top = 148
-                      OnClick = btnEOOnClick
+                      Top = 269
+                      ParentFont = False
                       ExplicitLeft = 68
-                      ExplicitTop = 148
+                      ExplicitTop = 269
                     end
-                    inherited sbElectroOpticalSensorDisplayRangeHide: TSpeedButton
-                      Tag = 4
-                      Left = 68
-                      Top = 171
-                      OnClick = btnEOOnClick
-                      ExplicitLeft = 68
-                      ExplicitTop = 171
+                    inherited Label239: TLabel
+                      Left = 204
+                      Top = 269
+                      ParentFont = False
+                      ExplicitLeft = 204
+                      ExplicitTop = 269
                     end
-                    inherited sbElectroOpticalSensorBlindZoneShow: TSpeedButton
-                      Tag = 5
+                    inherited sbDisplayBlindHide: TSpeedButton
+                      Left = 243
+                      Top = 291
+                      Width = 60
+                      Font.Color = clBlack
+                      ParentFont = False
+                      OnClick = OnSonarBtnClick
+                      ExplicitLeft = 243
+                      ExplicitTop = 291
+                      ExplicitWidth = 60
+                    end
+                    inherited sbDisplayBlindShow: TSpeedButton
+                      Left = 179
+                      Top = 290
+                      Width = 60
+                      Font.Color = clBlack
+                      ParentFont = False
+                      OnClick = OnSonarBtnClick
+                      ExplicitLeft = 179
+                      ExplicitTop = 290
+                      ExplicitWidth = 60
+                    end
+                    inherited sbDisplayRangeHide: TSpeedButton
+                      Left = 88
+                      Top = 290
+                      Width = 60
+                      Font.Color = clBlack
+                      ParentFont = False
+                      OnClick = OnSonarBtnClick
+                      ExplicitLeft = 88
+                      ExplicitTop = 290
+                      ExplicitWidth = 60
+                    end
+                    inherited sbDisplayRangeShow: TSpeedButton
+                      Left = 24
+                      Top = 290
+                      Width = 60
+                      Font.Color = clBlack
+                      ParentFont = False
+                      OnClick = OnSonarBtnClick
+                      ExplicitLeft = 24
+                      ExplicitTop = 290
+                      ExplicitWidth = 60
+                    end
+                    inherited sbSonarControlModeActive: TSpeedButton
+                      Left = 67
+                      Top = 35
+                      Font.Color = clBlack
+                      OnClick = OnSonarBtnClick
+                      ExplicitLeft = 67
+                      ExplicitTop = 35
+                    end
+                    inherited sbSonarControlModePassive: TSpeedButton [12]
+                      Left = 67
+                      Top = 58
+                      Font.Color = clBlack
+                      ParentFont = False
+                      OnClick = OnSonarBtnClick
+                      ExplicitLeft = 67
+                      ExplicitTop = 58
+                    end
+                    inherited lblRangeTIOW: TLabel [13]
                       Left = 185
-                      Top = 148
-                      OnClick = btnEOOnClick
+                      ParentFont = False
                       ExplicitLeft = 185
-                      ExplicitTop = 148
                     end
-                    inherited sbElectroOpticalSensorBlindZoneHide: TSpeedButton
-                      Tag = 6
-                      Left = 185
-                      Top = 171
-                      OnClick = btnEOOnClick
-                      ExplicitLeft = 185
-                      ExplicitTop = 171
+                    inherited btnRange1: TSpeedButton [14]
+                      Left = 184
+                      Top = 35
+                      Font.Color = clBlack
+                      ParentFont = False
+                      ExplicitLeft = 184
+                      ExplicitTop = 35
                     end
-                    inherited sbElectroOpticalSensorControlModeOn: TSpeedButton
-                      Tag = 1
-                      Left = 132
-                      Top = 44
-                      OnClick = btnEOOnClick
-                      ExplicitLeft = 132
-                      ExplicitTop = 44
+                    inherited btnRAnge2: TSpeedButton [15]
+                      Left = 184
+                      Top = 58
+                      Font.Color = clBlack
+                      ParentFont = False
+                      ExplicitLeft = 184
+                      ExplicitTop = 58
                     end
-                    inherited sbElectroOpticalSensorControlModeOff: TSpeedButton
-                      Tag = 2
-                      Left = 132
-                      Top = 67
-                      OnClick = btnEOOnClick
-                      ExplicitLeft = 132
-                      ExplicitTop = 67
+                    inherited btnRange3: TSpeedButton [16]
+                      Left = 184
+                      Top = 81
+                      Font.Color = clBlack
+                      ParentFont = False
+                      ExplicitLeft = 184
+                      ExplicitTop = 81
                     end
-                  end
-                end
-                inherited grbAnomalyDetectorSensor: TGroupBox [8]
-                  Width = 332
-                  Height = 366
-                  ExplicitWidth = 332
-                  ExplicitHeight = 366
-                  inherited Label225: TLabel
-                    Left = 15
-                    Top = 22
-                    ExplicitLeft = 15
-                    ExplicitTop = 22
-                  end
-                  inherited Bevel47: TBevel
-                    Left = 61
-                    Top = 29
-                    ExplicitLeft = 61
-                    ExplicitTop = 29
-                  end
-                  inherited Label230: TLabel
-                    Left = 145
-                    Top = 49
-                    ExplicitLeft = 145
-                    ExplicitTop = 49
-                  end
-                  inherited sbAnomalyDetectorControlModeOn: TSpeedButton
-                    Left = 118
-                    Top = 69
-                    Width = 85
-                    OnClick = btnMADOnClick
-                    ExplicitLeft = 118
-                    ExplicitTop = 69
-                    ExplicitWidth = 85
-                  end
-                  inherited sbAnomalyDetectorControlModeOff: TSpeedButton
-                    Left = 118
-                    Top = 92
-                    Width = 85
-                    OnClick = btnMADOnClick
-                    ExplicitLeft = 118
-                    ExplicitTop = 92
-                    ExplicitWidth = 85
+                    inherited sbSonarControlModeOff: TSpeedButton [17]
+                      Left = 67
+                      Top = 81
+                      Font.Color = clBlack
+                      ParentFont = False
+                      OnClick = OnSonarBtnClick
+                      ExplicitLeft = 67
+                      ExplicitTop = 81
+                    end
+                    inherited pnlDeployment: TPanel
+                      Left = 0
+                      Top = 112
+                      Color = 2695445
+                      ParentBackground = False
+                      ParentFont = False
+                      ExplicitLeft = 0
+                      ExplicitTop = 112
+                      inherited Bevel39: TBevel
+                        Left = 79
+                        ExplicitLeft = 79
+                      end
+                      inherited Bevel41: TBevel
+                        Left = 218
+                        Width = 86
+                        ExplicitLeft = 218
+                        ExplicitWidth = 86
+                      end
+                      inherited Bevel42: TBevel
+                        Left = 179
+                        Width = 125
+                        ExplicitLeft = 179
+                        ExplicitWidth = 125
+                      end
+                      inherited Label215: TLabel
+                        Left = 33
+                        Top = 26
+                        ExplicitLeft = 33
+                        ExplicitTop = 26
+                      end
+                      inherited Label216: TLabel
+                        Left = 7
+                        ExplicitLeft = 7
+                      end
+                      inherited Label221: TLabel
+                        Left = 146
+                        Top = 41
+                        ExplicitLeft = 146
+                        ExplicitTop = 41
+                      end
+                      inherited Label222: TLabel
+                        Left = 146
+                        ExplicitLeft = 146
+                      end
+                      inherited Label223: TLabel
+                        Left = 262
+                        Top = 41
+                        ExplicitLeft = 262
+                        ExplicitTop = 41
+                      end
+                      inherited Label224: TLabel
+                        Left = 262
+                        ExplicitLeft = 262
+                      end
+                      inherited Label226: TLabel
+                        Left = 12
+                        Top = 109
+                        ExplicitLeft = 12
+                        ExplicitTop = 109
+                      end
+                      inherited Label228: TLabel
+                        Left = 146
+                        ExplicitLeft = 146
+                      end
+                      inherited Label232: TLabel
+                        Left = 264
+                        ExplicitLeft = 264
+                      end
+                      inherited LabelCablePayout: TLabel
+                        Left = 135
+                        ExplicitLeft = 135
+                      end
+                      inherited LabelDepth: TLabel
+                        Left = 135
+                        ExplicitLeft = 135
+                      end
+                      inherited lbCableActual: TLabel
+                        Left = 212
+                        ExplicitLeft = 212
+                      end
+                      inherited lbDepthSettled: TLabel
+                        Left = 212
+                        ExplicitLeft = 212
+                      end
+                      inherited lblStatusDeployment: TLabel
+                        Left = 64
+                        Top = 109
+                        ExplicitLeft = 64
+                        ExplicitTop = 109
+                      end
+                      inherited sbDeploymentActiondeploy: TSpeedButton
+                        Left = 12
+                        Top = 46
+                        Font.Color = clBlack
+                        ParentFont = False
+                        OnClick = OnSonarBtnClick
+                        ExplicitLeft = 12
+                        ExplicitTop = 46
+                      end
+                      inherited sbDeploymentActionShow: TSpeedButton
+                        Left = 12
+                        Top = 69
+                        Font.Color = clBlack
+                        ParentFont = False
+                        OnClick = OnSonarBtnClick
+                        ExplicitLeft = 12
+                        ExplicitTop = 69
+                      end
+                      inherited editCableOrdered: TEdit
+                        Left = 212
+                        Top = 40
+                        Width = 40
+                        ExplicitLeft = 212
+                        ExplicitTop = 40
+                        ExplicitWidth = 40
+                      end
+                    end
                   end
                 end
               end
@@ -12394,267 +12655,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             inherited pmModeSonobuoy: TPopupMenu
               Left = 256
               Top = 496
-            end
-          end
-        end
-        object pnlFireControl: TPanel
-          Left = 1
-          Top = 1
-          Width = 338
-          Height = 591
-          Align = alClient
-          BevelOuter = bvNone
-          Color = 2695445
-          ParentBackground = False
-          TabOrder = 3
-          inline fmFireControl1: TfmFireControl
-            Left = 0
-            Top = 0
-            Width = 338
-            Height = 591
-            Align = alClient
-            Color = 15131105
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 0
-            ExplicitWidth = 338
-            ExplicitHeight = 591
-            inherited PaneFCSpace: TPanel [0]
-              Top = 171
-              Width = 338
-              Height = 0
-              ExplicitTop = 171
-              ExplicitWidth = 338
-              ExplicitHeight = 0
-            end
-            inherited PanelALL: TPanel [1]
-              Top = 171
-              Width = 338
-              Height = 420
-              ExplicitTop = 171
-              ExplicitWidth = 338
-              ExplicitHeight = 420
-              inherited PanelFC: TPanel
-                Width = 338
-                Height = 420
-                ExplicitWidth = 338
-                ExplicitHeight = 420
-                inherited ScrollBox3: TScrollBox
-                  Width = 338
-                  Height = 420
-                  HorzScrollBar.Color = clHotLight
-                  HorzScrollBar.ParentColor = False
-                  HorzScrollBar.Size = 2
-                  ExplicitWidth = 338
-                  ExplicitHeight = 420
-                  inherited grbFireControl: TGroupBox
-                    Width = 338
-                    Height = 420
-                    ParentBackground = False
-                    ParentColor = False
-                    ExplicitWidth = 338
-                    ExplicitHeight = 420
-                    inherited Bevel27: TBevel
-                      Left = 71
-                      Top = 22
-                      ExplicitLeft = 71
-                      ExplicitTop = 22
-                    end
-                    inherited Bevel52: TBevel
-                      Left = 71
-                      Top = 142
-                      ExplicitLeft = 71
-                      ExplicitTop = 142
-                    end
-                    inherited Bevel53: TBevel
-                      Left = 71
-                      Top = 308
-                      ExplicitLeft = 71
-                      ExplicitTop = 308
-                    end
-                    inherited btnSearchFireControlAssetsTarget: TSpeedButton
-                      Tag = 4
-                      Left = 167
-                      Top = 160
-                      Spacing = 0
-                      OnClick = fmFireControl1btnSearchFireControlAssetsTargetClick
-                      ExplicitLeft = 167
-                      ExplicitTop = 160
-                    end
-                    inherited Label265: TLabel
-                      Left = 87
-                      Top = 34
-                      ParentFont = False
-                      ExplicitLeft = 87
-                      ExplicitTop = 34
-                    end
-                    inherited Label266: TLabel
-                      Left = 170
-                      Top = 35
-                      ParentFont = False
-                      ExplicitLeft = 170
-                      ExplicitTop = 35
-                    end
-                    inherited Label267: TLabel
-                      Left = 21
-                      Top = 15
-                      ParentFont = False
-                      ExplicitLeft = 21
-                      ExplicitTop = 15
-                    end
-                    inherited Label268: TLabel
-                      Left = 21
-                      Top = 135
-                      ParentFont = False
-                      ExplicitLeft = 21
-                      ExplicitTop = 135
-                    end
-                    inherited Label514: TLabel
-                      Left = 21
-                      Top = 301
-                      ParentFont = False
-                      ExplicitLeft = 21
-                      ExplicitTop = 301
-                    end
-                    inherited Label515: TLabel
-                      Left = 90
-                      Top = 322
-                      ParentFont = False
-                      ExplicitLeft = 90
-                      ExplicitTop = 322
-                    end
-                    inherited Label527: TLabel
-                      Left = 218
-                      Top = 322
-                      ParentFont = False
-                      ExplicitLeft = 218
-                      ExplicitTop = 322
-                    end
-                    inherited lbControlChannel: TLabel
-                      Left = 295
-                      Top = 35
-                      ParentFont = False
-                      ExplicitLeft = 295
-                      ExplicitTop = 35
-                    end
-                    inherited sbFireControlAssetsBlindZonesHide: TSpeedButton
-                      Left = 251
-                      Top = 343
-                      Width = 54
-                      OnClick = btnFireControlOnClick
-                      ExplicitLeft = 251
-                      ExplicitTop = 343
-                      ExplicitWidth = 54
-                    end
-                    inherited sbFireControlAssetsBlindZonesShow: TSpeedButton
-                      Left = 194
-                      Top = 343
-                      Width = 54
-                      OnClick = btnFireControlOnClick
-                      ExplicitLeft = 194
-                      ExplicitTop = 343
-                      ExplicitWidth = 54
-                    end
-                    inherited sbFireControlAssetsDisplayHide: TSpeedButton
-                      Left = 109
-                      Top = 343
-                      Width = 54
-                      OnClick = btnFireControlOnClick
-                      ExplicitLeft = 109
-                      ExplicitTop = 343
-                      ExplicitWidth = 54
-                    end
-                    inherited sbFireControlAssetsDisplayShow: TSpeedButton
-                      Left = 52
-                      Top = 342
-                      Width = 54
-                      OnClick = btnFireControlOnClick
-                      ExplicitLeft = 52
-                      ExplicitTop = 342
-                      ExplicitWidth = 54
-                    end
-                    inherited sbFireControlAssetsModeOff: TSpeedButton
-                      Left = 52
-                      Top = 104
-                      OnClick = btnFireControlOnClick
-                      ExplicitLeft = 52
-                      ExplicitTop = 104
-                    end
-                    inherited sbFireControlAssetsModeSearch: TSpeedButton
-                      Left = 52
-                      Top = 54
-                      OnClick = btnFireControlOnClick
-                      ExplicitLeft = 52
-                      ExplicitTop = 54
-                    end
-                    inherited sbFireControlAssetsModeTrackOnly: TSpeedButton
-                      Left = 52
-                      Top = 79
-                      OnClick = btnFireControlOnClick
-                      ExplicitLeft = 52
-                      ExplicitTop = 79
-                    end
-                    inherited btnFireControlAssetsTargetAssign: TButton
-                      Left = 230
-                      Top = 160
-                      OnClick = btnFireControlOnClick
-                      ExplicitLeft = 230
-                      ExplicitTop = 160
-                    end
-                    inherited btnFireControlAssetsTargetBreak: TButton
-                      Left = 230
-                      Top = 185
-                      OnClick = btnFireControlOnClick
-                      ExplicitLeft = 230
-                      ExplicitTop = 185
-                    end
-                    inherited btnFireControlAssetsTargetBreakAll: TButton
-                      Left = 230
-                      Top = 210
-                      OnClick = btnFireControlOnClick
-                      ExplicitLeft = 230
-                      ExplicitTop = 210
-                    end
-                    inherited edtFireControlAssetsTarget: TEdit
-                      Left = 50
-                      Top = 160
-                      Width = 111
-                      ExplicitLeft = 50
-                      ExplicitTop = 160
-                      ExplicitWidth = 111
-                    end
-                    inherited lstFireControlAssetsAssignedTracks: TListView
-                      Left = 50
-                      Width = 140
-                      Height = 109
-                      ExplicitLeft = 50
-                      ExplicitWidth = 140
-                      ExplicitHeight = 109
-                    end
-                  end
-                end
-              end
-            end
-            inherited PanelFCChoices: TPanel [2]
-              Width = 338
-              Height = 171
-              ExplicitWidth = 338
-              ExplicitHeight = 171
-              inherited lstAssetsChoices: TListView
-                Width = 334
-                Height = 167
-                Align = alClient
-                Font.Color = clBlack
-                ParentFont = False
-                ExplicitWidth = 334
-                ExplicitHeight = 167
-              end
             end
           end
         end

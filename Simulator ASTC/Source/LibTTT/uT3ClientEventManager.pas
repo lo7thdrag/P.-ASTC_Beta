@@ -244,7 +244,7 @@ uses ufTacticalDisplay,
      uFormationEditorForm, uFormationAddRemMembers, uLogisticCalculation,
      uStrategiEditor, uMainPlottingShape, ufrmTop,
      ufrmRadar, ufrmEMCON, ufrmFireControl, ufrmC, ufrmWeapon,
-     ufrmGuidance, uWaypointCopy, ufrmRightNav;
+     ufrmGuidance, uWaypointCopy, ufrmRightNav,ufrmLeftAtasAir;
 
 { TT3ClientEventManager }
 
@@ -1312,6 +1312,7 @@ begin
   if sender is TT3CounterMeasure then
   begin
     frmTacticalDisplay.fmCounterMeasure1.UpdateECMList(TT3CounterMeasure(Sender));//ecm
+    frmLeftAtasAir.fmCounterMeasure1.UpdateECMList(TT3CounterMeasure(Sender));
 
     if simMgrClient.ISWasdal then
     begin
@@ -3376,6 +3377,7 @@ begin
     2:
     begin
       {$REGION ' Atas Air '}
+      frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
       {$ENDREGION}
     end;
     3:
@@ -3560,13 +3562,16 @@ begin
   if Sender is TT3Sensor then
   begin
     frmTacticalDisplay.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+    frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
 
     if sender is TT3Radar then
     begin
       frmTacticalDisplay.fmFireControl1.UpdateFCList(TT3Radar(Sender));
+      frmLeftAtasAir.fmFireControl1.UpdateFCList(TT3Sensor(Sender));
     end;
 
     frmTacticalDisplay.fmEMCON1.UpdateSensorList(TT3Sensor(Sender));
+//    frmLeftAtasAir.fmCounterMeasure1.UpdateECMList(TT3CounterMeasure(Sender));
 
     {wasdal UI}
     if simMgrClient.ISWasdal then
@@ -3632,6 +3637,7 @@ begin
     2:
     begin
       {$REGION ' Atas Air '}
+       frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
       {$ENDREGION}
     end;
     3:
@@ -3666,6 +3672,7 @@ begin
 
     frmTacticalDisplay.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
     frmTacticalDisplay.fmEMCON1.UpdateSensorList(TT3Sensor(Sender));
+    frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
 
     {wasdal UI}
     if simMgrClient.ISWasdal then
@@ -3699,6 +3706,7 @@ begin
 
     frmTacticalDisplay.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
     frmTacticalDisplay.fmEMCON1.UpdateSensorList(TT3Sensor(Sender));
+    frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
 
     {wasdal UI}
     if simMgrClient.ISWasdal then

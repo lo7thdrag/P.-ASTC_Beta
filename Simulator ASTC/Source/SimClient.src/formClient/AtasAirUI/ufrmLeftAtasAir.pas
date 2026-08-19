@@ -259,7 +259,7 @@ uses
   uBaseCoordSystem, uSimMgr_Client, tttData, uT3Vehicle, uDBAsset_Vehicle, uT3Torpedo, uT3Missile,
   uDBAsset_Weapon, uT3Sonobuoy, uT3Mine, uT3CounterMeasure, uMapXHandler, uT3Common, uT3OtherSensor, ufrmGuidance,
   ufrmWeapon, ufrmRadar, uT3SimManager, ufrmTrackDetails, uSimContainers,
-  ufrmTopNav, ufrmFireControl,uT3MissileEnvironment,ufmWeapon;
+  ufrmTopNav, ufrmFireControl,uT3MissileEnvironment,ufmWeapon, ufrmTop;
 
 {$R *.dfm}
 
@@ -1788,7 +1788,7 @@ end;
 procedure TfrmLeftAtasAir.UpdateFormData;
 begin
 //   fmPlatformGuidance1.Refresh_VisibleTab();
-  fmSensor1.Refresh_VisibleTab;
+//  fmSensor1.Refresh_VisibleTab;
 
   if focusedTrack <> nil then
   begin

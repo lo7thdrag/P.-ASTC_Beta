@@ -400,9 +400,27 @@ begin
 end;
 
 procedure TfrmRightNav.UpdateFormData;
+var
+  i: Integer;
 begin
   {Update Guidance}
-  fmPlatformGuidance1.Refresh_VisibleTab();
+  if (simMgrClient.ControlledPlatform <> nil) and (simMgrClient.ControlledPlatform is TT3PlatformInstance) then
+  begin
+    if imgPlatformGuidance.Tag = 1 then i := 1;
+    if imgSensor.Tag = 1 then i := 2;
+
+    if i = 1 then
+      TT3Vehicle(simMgrClient.ControlledPlatform).Waypoints.IsOpenGuidanceTab := True
+    else
+      TT3Vehicle(simMgrClient.ControlledPlatform).Waypoints.IsOpenGuidanceTab := False;
+
+    case i of
+      1:
+        fmPlatformGuidance1.Refresh_VisibleTab();
+      2:
+        fmSensor1.Refresh_VisibleTab();
+    end;
+  end;
 
   if focusedTrack <> nil then
   begin

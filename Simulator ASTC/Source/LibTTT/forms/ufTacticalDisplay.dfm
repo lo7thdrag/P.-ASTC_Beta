@@ -2944,8 +2944,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 inherited grbSurfaceToSurfaceMissile: TGroupBox [2]
                   Width = 359
                   Height = 1951
-                  ExplicitLeft = 0
-                  ExplicitTop = 0
                   ExplicitWidth = 359
                   ExplicitHeight = 1951
                   inherited ScrollBox6: TScrollBox

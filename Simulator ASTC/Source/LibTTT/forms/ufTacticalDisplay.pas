@@ -3313,42 +3313,60 @@ begin
     {nando added}
     mtAimpoint :
       begin
+        case vGameDataSetting.Role of
+          2, 3 :
+          begin
+            {$REGION ' Penembakan '}
+            if Assigned(frmRightAtasAir) then
+            begin
+              if frmRightAtasAir.fmWeapon1.focused_weapon is TT3HybridOnVehicle then
+              begin
+                frmRightAtasAir.fmWeapon1.edtHybridMissiletargetAimpoint.Text := formatDMS_long(mx) + ' ' + formatDMS_latt(my);
+
+                TT3HybridOnVehicle(frmRightAtasAir.fmWeapon1.focused_weapon).Aimpoint_Movement.PositionX := mx;
+                TT3HybridOnVehicle(frmRightAtasAir.fmWeapon1.focused_weapon).Aimpoint_Movement.PositionY := my;
+              end
+              else
+              begin
+                frmRightAtasAir.fmWeapon1.editTacticalMissileTargetAimpoint.Text := formatDMS_long(mx) + ' ' + formatDMS_latt(my);
+                frmRightAtasAir.fmWeapon1.TacticalMissileAimpointSet(Mx, MY);
+              end;
+            end;
+            {$ENDREGION}
+          end;
+        end;
+
         {wasdal UI}
         if simMgrClient.ISWasdal and assigned(frmWeapon) then
         begin
-          if frmWeapon.fmWeapon1.focused_weapon is TT3HybridOnVehicle then begin
-
-            frmWeapon.fmWeapon1.edtHybridMissiletargetAimpoint.Text :=
-               formatDMS_long(mx) + ' ' + formatDMS_latt(my);
+          if frmWeapon.fmWeapon1.focused_weapon is TT3HybridOnVehicle then
+          begin
+            frmWeapon.fmWeapon1.edtHybridMissiletargetAimpoint.Text := formatDMS_long(mx) + ' ' + formatDMS_latt(my);
 
             TT3HybridOnVehicle(frmWeapon.fmWeapon1.focused_weapon).Aimpoint_Movement.PositionX := mx;
             TT3HybridOnVehicle(frmWeapon.fmWeapon1.focused_weapon).Aimpoint_Movement.PositionY := my;
-
-          end else begin
-
-            frmWeapon.fmWeapon1.editTacticalMissileTargetAimpoint.Text :=
-               formatDMS_long(mx) + ' ' + formatDMS_latt(my);
-
+          end
+          else
+          begin
+            frmWeapon.fmWeapon1.editTacticalMissileTargetAimpoint.Text := formatDMS_long(mx) + ' ' + formatDMS_latt(my);
             frmWeapon.fmWeapon1.TacticalMissileAimpointSet(Mx, MY);
           end;
-        end else
+        end
+        else
         begin
-          if fmWeapon1.focused_weapon is TT3HybridOnVehicle then begin
-
-            fmWeapon1.edtHybridMissiletargetAimpoint.Text :=
-               formatDMS_long(mx) + ' ' + formatDMS_latt(my);
-
+          if fmWeapon1.focused_weapon is TT3HybridOnVehicle then
+          begin
+            fmWeapon1.edtHybridMissiletargetAimpoint.Text := formatDMS_long(mx) + ' ' + formatDMS_latt(my);
             TT3HybridOnVehicle(fmWeapon1.focused_weapon).Aimpoint_Movement.PositionX := mx;
             TT3HybridOnVehicle(fmWeapon1.focused_weapon).Aimpoint_Movement.PositionY := my;
-
-          end else begin
-
-            fmWeapon1.editTacticalMissileTargetAimpoint.Text :=
-               formatDMS_long(mx) + ' ' + formatDMS_latt(my);
-
+          end
+          else
+          begin
+            fmWeapon1.editTacticalMissileTargetAimpoint.Text := formatDMS_long(mx) + ' ' + formatDMS_latt(my);
             fmWeapon1.TacticalMissileAimpointSet(Mx, MY);
           end;
         end;
+
         Map1.CurrentTool := mtSelectObject;
         btnZoom.Down := False;
         if btnPan.Down then
@@ -3359,6 +3377,17 @@ begin
       end;
     mtDeployChaff :
       begin
+         case vGameDataSetting.Role of
+            2, 3 :
+            begin
+              {$REGION ' Penembakan '}
+              if Assigned(frmRightAtasAir) then
+              begin
+                frmRightAtasAir.fmWeapon1.MapPosition(mx,my);
+              end;
+              {$ENDREGION}
+            end;
+          end;
         {wasdal UI}
         if simMgrClient.ISWasdal and assigned(frmWeapon) then
           frmWeapon.fmWeapon1.MapPosition(mx,my)
@@ -3419,6 +3448,18 @@ begin
   begin
     fmWeapon1.focused_platform := focusedTrack;
     fmPlatformGuidance1.focused_platform  := focusedTrack;
+
+    case vGameDataSetting.Role of
+      2, 3 :
+      begin
+        {$REGION ' Penembakan '}
+        if Assigned(frmRightAtasAir) then
+        begin
+          frmRightAtasAir.fmWeapon1.focused_platform  := focusedTrack;
+        end;
+        {$ENDREGION}
+      end;
+    end;
 
     {wasdal UI}
     if simMgrClient.ISWasdal then

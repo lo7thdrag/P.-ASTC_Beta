@@ -4,7 +4,7 @@ object frmNGSGunSetup: TfrmNGSGunSetup
   Caption = 'NGS Gun Setup'
   ClientHeight = 189
   ClientWidth = 316
-  Color = 16775920
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -21,6 +21,12 @@ object frmNGSGunSetup: TfrmNGSGunSetup
     Width = 67
     Height = 13
     Caption = 'Engagement :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object lblAimPoint: TLabel
     Left = 16
@@ -28,6 +34,12 @@ object frmNGSGunSetup: TfrmNGSGunSetup
     Width = 45
     Height = 13
     Caption = 'AimPoint:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object lblSpotterLine: TLabel
     Left = 16
@@ -35,6 +47,12 @@ object frmNGSGunSetup: TfrmNGSGunSetup
     Width = 65
     Height = 13
     Caption = 'Spotter Line :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object lblAltitude: TLabel
     Left = 16
@@ -42,6 +60,12 @@ object frmNGSGunSetup: TfrmNGSGunSetup
     Width = 44
     Height = 13
     Caption = 'Altitude :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object lblGunLine2: TLabel
     Left = 16
@@ -49,6 +73,12 @@ object frmNGSGunSetup: TfrmNGSGunSetup
     Width = 45
     Height = 13
     Caption = 'Gun Line:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object lblGunLine: TLabel
     Left = 103
@@ -56,6 +86,12 @@ object frmNGSGunSetup: TfrmNGSGunSetup
     Width = 6
     Height = 13
     Caption = '0'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object lbl1: TLabel
     Left = 193
@@ -63,6 +99,12 @@ object frmNGSGunSetup: TfrmNGSGunSetup
     Width = 20
     Height = 13
     Caption = 'feet'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object lbl2: TLabel
     Left = 193
@@ -70,6 +112,12 @@ object frmNGSGunSetup: TfrmNGSGunSetup
     Width = 48
     Height = 13
     Caption = 'degrees T'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object lbl3: TLabel
     Left = 193
@@ -77,6 +125,12 @@ object frmNGSGunSetup: TfrmNGSGunSetup
     Width = 48
     Height = 13
     Caption = 'degrees T'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object btnSelect: TSpeedButton
     Left = 272

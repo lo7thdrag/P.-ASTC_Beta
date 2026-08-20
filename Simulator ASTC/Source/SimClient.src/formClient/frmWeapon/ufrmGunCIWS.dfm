@@ -2,9 +2,9 @@ object frmGunCIWS: TfrmGunCIWS
   Left = 0
   Top = 0
   Caption = 'frmGunCIWS'
-  ClientHeight = 359
-  ClientWidth = 307
-  Color = 16775920
+  ClientHeight = 394
+  ClientWidth = 339
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -16,138 +16,222 @@ object frmGunCIWS: TfrmGunCIWS
   object grbGunEngagementCIWS: TGroupBox
     Left = 0
     Top = 0
-    Width = 307
-    Height = 359
+    Width = 339
+    Height = 394
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 307
+    ExplicitHeight = 359
     object ScrollBox8: TScrollBox
       Left = 2
       Top = 15
-      Width = 303
-      Height = 342
+      Width = 335
+      Height = 377
       Align = alClient
       BevelInner = bvNone
       BevelOuter = bvNone
       BorderStyle = bsNone
+      Color = 2695445
+      ParentColor = False
       TabOrder = 0
+      ExplicitWidth = 303
+      ExplicitHeight = 342
       object Label468: TLabel
-        Left = 3
+        Left = 19
         Top = 1
         Width = 31
         Height = 13
         Caption = 'Status'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object lblCIWSStatus: TLabel
-        Left = 35
+        Left = 67
         Top = 19
         Width = 43
         Height = 13
         Caption = 'Available'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Label474: TLabel
-        Left = 108
+        Left = 140
         Top = 19
         Width = 49
         Height = 13
         Caption = 'Quantity :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object lbCIWSQuantity: TLabel
-        Left = 164
+        Left = 196
         Top = 17
         Width = 12
         Height = 13
         Caption = '---'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Label477: TLabel
-        Left = 3
+        Left = 19
         Top = 42
         Width = 35
         Height = 13
         Caption = 'Control'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Bevel99: TBevel
-        Left = 40
+        Left = 62
         Top = 49
-        Width = 190
+        Width = 254
         Height = 2
       end
       object Label478: TLabel
-        Left = 35
+        Left = 70
         Top = 137
         Width = 55
         Height = 13
         Caption = 'Salvo Size :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Label479: TLabel
-        Left = 3
+        Left = 19
         Top = 157
         Width = 32
         Height = 13
         Caption = 'Target'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Bevel100: TBevel
-        Left = 40
+        Left = 56
         Top = 163
         Width = 260
-        Height = 3
+        Height = 2
       end
       object Label480: TLabel
-        Left = 3
+        Left = 19
         Top = 206
         Width = 34
         Height = 13
         Caption = 'Display'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Bevel101: TBevel
-        Left = 40
+        Left = 56
         Top = 214
         Width = 260
-        Height = 3
+        Height = 2
       end
       object Label481: TLabel
-        Left = 60
-        Top = 218
+        Left = 90
+        Top = 223
         Width = 31
         Height = 13
         Caption = 'Range'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Label482: TLabel
-        Left = 174
-        Top = 219
+        Left = 204
+        Top = 224
         Width = 54
         Height = 13
         Caption = 'Blind Zones'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Label483: TLabel
-        Left = 35
+        Left = 67
         Top = 178
         Width = 33
         Height = 13
         Caption = 'Track :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Label488: TLabel
-        Left = 61
+        Left = 96
         Top = 59
         Width = 26
         Height = 13
         Caption = 'Mode'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Label489: TLabel
-        Left = 165
+        Left = 200
         Top = 58
         Width = 55
         Height = 13
         Caption = 'Salvo Mode'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Bevel103: TBevel
-        Left = 40
+        Left = 56
         Top = 8
         Width = 260
-        Height = 3
+        Height = 2
       end
       object sbCIWSControlModeAuto: TSpeedButton
         Tag = 1
-        Left = 32
+        Left = 67
         Top = 75
         Width = 83
         Height = 24
@@ -159,7 +243,7 @@ object frmGunCIWS: TfrmGunCIWS
       end
       object sbCIWSControlModeManual: TSpeedButton
         Tag = 2
-        Left = 32
+        Left = 67
         Top = 98
         Width = 83
         Height = 24
@@ -170,7 +254,7 @@ object frmGunCIWS: TfrmGunCIWS
       end
       object sbCIWSControlSalvoCont: TSpeedButton
         Tag = 3
-        Left = 150
+        Left = 185
         Top = 75
         Width = 83
         Height = 24
@@ -182,7 +266,7 @@ object frmGunCIWS: TfrmGunCIWS
       end
       object sbCIWSControlSalvoSalvo: TSpeedButton
         Tag = 4
-        Left = 150
+        Left = 185
         Top = 98
         Width = 83
         Height = 24
@@ -193,8 +277,8 @@ object frmGunCIWS: TfrmGunCIWS
       end
       object sbCIWSControlDisplayRangeShow: TSpeedButton
         Tag = 1
-        Left = 33
-        Top = 237
+        Left = 63
+        Top = 242
         Width = 83
         Height = 24
         AllowAllUp = True
@@ -204,8 +288,8 @@ object frmGunCIWS: TfrmGunCIWS
       end
       object sbCIWSControlDisplayRangeHide: TSpeedButton
         Tag = 2
-        Left = 33
-        Top = 260
+        Left = 63
+        Top = 265
         Width = 83
         Height = 24
         AllowAllUp = True
@@ -216,8 +300,8 @@ object frmGunCIWS: TfrmGunCIWS
       end
       object sbCIWSControlDisplayBlindZonesShow: TSpeedButton
         Tag = 1
-        Left = 159
-        Top = 237
+        Left = 189
+        Top = 242
         Width = 83
         Height = 24
         AllowAllUp = True
@@ -227,8 +311,8 @@ object frmGunCIWS: TfrmGunCIWS
       end
       object sbCIWSControlDisplayBlindZonesHide: TSpeedButton
         Tag = 2
-        Left = 159
-        Top = 260
+        Left = 189
+        Top = 265
         Width = 83
         Height = 24
         AllowAllUp = True
@@ -239,7 +323,7 @@ object frmGunCIWS: TfrmGunCIWS
       end
       object btnTargetSearch: TSpeedButton
         Tag = 10
-        Left = 217
+        Left = 233
         Top = 173
         Width = 29
         Height = 24
@@ -298,7 +382,7 @@ object frmGunCIWS: TfrmGunCIWS
         OnClick = btnTargetSearchClick
       end
       object editCIWSControlSalvoSize: TEdit
-        Left = 161
+        Left = 196
         Top = 133
         Width = 53
         Height = 21
@@ -311,7 +395,7 @@ object frmGunCIWS: TfrmGunCIWS
       end
       object btnCIWSCease: TButton
         Tag = 2
-        Left = 217
+        Left = 233
         Top = 309
         Width = 81
         Height = 24
@@ -320,7 +404,7 @@ object frmGunCIWS: TfrmGunCIWS
         OnClick = btnCIWSCeaseClick
       end
       object editCIWSTargetTrack: TEdit
-        Left = 161
+        Left = 177
         Top = 174
         Width = 53
         Height = 21
@@ -329,7 +413,7 @@ object frmGunCIWS: TfrmGunCIWS
       end
       object btnCIWSFire: TButton
         Tag = 1
-        Left = 131
+        Left = 147
         Top = 309
         Width = 81
         Height = 24

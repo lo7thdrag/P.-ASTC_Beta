@@ -2,9 +2,9 @@ object frmGunAutoManual: TfrmGunAutoManual
   Left = 0
   Top = 0
   Caption = 'Gun Auto Manual'
-  ClientHeight = 359
-  ClientWidth = 308
-  Color = 16775920
+  ClientHeight = 394
+  ClientWidth = 339
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -17,85 +17,131 @@ object frmGunAutoManual: TfrmGunAutoManual
   object grbGunEngagementAutomaticManualMode: TGroupBox
     Left = 0
     Top = 0
-    Width = 308
-    Height = 359
+    Width = 339
+    Height = 394
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 308
+    ExplicitHeight = 359
     object ScrollBox2: TScrollBox
       Left = 2
       Top = 15
-      Width = 304
-      Height = 342
+      Width = 335
+      Height = 377
       Align = alClient
       BevelInner = bvNone
       BevelOuter = bvNone
       BorderStyle = bsNone
       TabOrder = 0
+      ExplicitLeft = 1
+      ExplicitTop = 17
       object Label12: TLabel
-        Left = 3
+        Left = 19
         Top = -1
         Width = 31
         Height = 13
         Caption = 'Status'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object lblGunEngagementStatus: TLabel
-        Left = 22
+        Left = 71
         Top = 14
         Width = 43
         Height = 13
         Caption = 'Available'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Label13: TLabel
-        Left = 116
+        Left = 156
         Top = 14
         Width = 49
         Height = 13
         Caption = 'Quantity :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object lbGunEngagementQuantity: TLabel
-        Left = 172
+        Left = 210
         Top = 14
         Width = 12
         Height = 13
         Caption = '---'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Label14: TLabel
-        Left = 3
-        Top = 31
+        Left = 19
+        Top = 34
         Width = 35
         Height = 13
         Caption = 'Control'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Bevel3: TBevel
-        Left = 40
-        Top = 36
-        Width = 260
+        Left = 62
+        Top = 39
+        Width = 254
         Height = 2
       end
       object Label25: TLabel
-        Left = 47
-        Top = 40
+        Left = 95
+        Top = 48
         Width = 26
         Height = 13
         Caption = 'Mode'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object lblSalvoMode: TLabel
-        Left = 146
-        Top = 40
+        Left = 194
+        Top = 48
         Width = 55
         Height = 13
         Caption = 'Salvo Mode'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Bevel6: TBevel
-        Left = 40
+        Left = 56
         Top = 6
         Width = 260
-        Height = 3
+        Height = 2
       end
       object sbControlModeAuto: TSpeedButton
         Tag = 1
-        Left = 22
-        Top = 53
+        Left = 70
+        Top = 61
         Width = 81
         Height = 22
         AllowAllUp = True
@@ -105,8 +151,8 @@ object frmGunAutoManual: TfrmGunAutoManual
       end
       object sbControlModeManual: TSpeedButton
         Tag = 2
-        Left = 22
-        Top = 73
+        Left = 70
+        Top = 81
         Width = 81
         Height = 22
         AllowAllUp = True
@@ -116,8 +162,8 @@ object frmGunAutoManual: TfrmGunAutoManual
       end
       object sbControlModeChaff: TSpeedButton
         Tag = 3
-        Left = 22
-        Top = 93
+        Left = 70
+        Top = 101
         Width = 81
         Height = 22
         AllowAllUp = True
@@ -129,8 +175,8 @@ object frmGunAutoManual: TfrmGunAutoManual
       end
       object sbControlSalvoModeCont: TSpeedButton
         Tag = 4
-        Left = 136
-        Top = 59
+        Left = 184
+        Top = 67
         Width = 80
         Height = 22
         AllowAllUp = True
@@ -140,8 +186,8 @@ object frmGunAutoManual: TfrmGunAutoManual
       end
       object sbControlSalvoModeSalvo: TSpeedButton
         Tag = 5
-        Left = 136
-        Top = 87
+        Left = 184
+        Top = 93
         Width = 80
         Height = 22
         AllowAllUp = True
@@ -150,44 +196,68 @@ object frmGunAutoManual: TfrmGunAutoManual
         OnClick = btnGunSalvoClick
       end
       object Label15: TLabel
-        Left = 3
+        Left = 19
         Top = 248
         Width = 34
         Height = 13
         Caption = 'Display'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Bevel4: TBevel
-        Left = 45
+        Left = 61
         Top = 255
         Width = 255
-        Height = 3
+        Height = 2
       end
       object Label16: TLabel
-        Left = 47
-        Top = 260
+        Left = 59
+        Top = 265
         Width = 31
         Height = 13
         Caption = 'Range'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object Label17: TLabel
-        Left = 126
-        Top = 260
+        Left = 138
+        Top = 265
         Width = 54
         Height = 13
         Caption = 'Blind Zones'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object lblIntercept: TLabel
-        Left = 205
-        Top = 260
+        Left = 217
+        Top = 265
         Width = 79
         Height = 13
         Caption = 'Intercept Range'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         Visible = False
       end
       object sbGunEngagementDisplayRangeShow: TSpeedButton
         Tag = 6
-        Left = 24
-        Top = 273
+        Left = 36
+        Top = 278
         Width = 82
         Height = 22
         AllowAllUp = True
@@ -197,8 +267,8 @@ object frmGunAutoManual: TfrmGunAutoManual
       end
       object sbGunEngagementDisplayRangeHide: TSpeedButton
         Tag = 7
-        Left = 24
-        Top = 293
+        Left = 36
+        Top = 300
         Width = 82
         Height = 22
         AllowAllUp = True
@@ -209,8 +279,8 @@ object frmGunAutoManual: TfrmGunAutoManual
       end
       object sbGunEngagementDisplayBlindShow: TSpeedButton
         Tag = 8
-        Left = 113
-        Top = 273
+        Left = 125
+        Top = 278
         Width = 82
         Height = 22
         AllowAllUp = True
@@ -220,8 +290,8 @@ object frmGunAutoManual: TfrmGunAutoManual
       end
       object sbGunEngagementDisplayBlindHide: TSpeedButton
         Tag = 9
-        Left = 113
-        Top = 293
+        Left = 125
+        Top = 300
         Width = 82
         Height = 22
         AllowAllUp = True
@@ -232,8 +302,8 @@ object frmGunAutoManual: TfrmGunAutoManual
       end
       object sbGunEngagementDisplayInterceptShow: TSpeedButton
         Tag = 10
-        Left = 203
-        Top = 273
+        Left = 215
+        Top = 278
         Width = 82
         Height = 22
         AllowAllUp = True
@@ -244,8 +314,8 @@ object frmGunAutoManual: TfrmGunAutoManual
       end
       object sbGunEngagementDisplayInterceptHide: TSpeedButton
         Tag = 11
-        Left = 203
-        Top = 293
+        Left = 215
+        Top = 300
         Width = 82
         Height = 22
         AllowAllUp = True
@@ -257,8 +327,8 @@ object frmGunAutoManual: TfrmGunAutoManual
       end
       object sbControlModeNGS: TSpeedButton
         Tag = 14
-        Left = 22
-        Top = 113
+        Left = 70
+        Top = 121
         Width = 81
         Height = 22
         AllowAllUp = True
@@ -266,183 +336,59 @@ object frmGunAutoManual: TfrmGunAutoManual
         Caption = 'NGS'
         OnClick = btnGunModeClick
       end
-      object ScrollBox1: TScrollBox
-        Left = 2
-        Top = 136
-        Width = 295
-        Height = 113
-        BevelInner = bvNone
-        BevelOuter = bvNone
-        BorderStyle = bsNone
-        TabOrder = 0
-        object Label1: TLabel
-          Left = 24
-          Top = 18
-          Width = 61
-          Height = 13
-          Caption = 'Chaff Type :'
-        end
-        object Label2: TLabel
-          Left = 24
-          Top = 38
-          Width = 49
-          Height = 13
-          Caption = 'Quantity :'
-        end
-        object Label3: TLabel
-          Left = 24
-          Top = 58
-          Width = 75
-          Height = 13
-          Caption = 'Bloom Position :'
-        end
-        object Label4: TLabel
-          Left = 24
-          Top = 83
-          Width = 75
-          Height = 13
-          Caption = 'Bloom Altitude :'
-        end
-        object lblQuantityChaff: TLabel
-          Left = 112
-          Top = 38
-          Width = 12
-          Height = 13
-          Caption = '---'
-        end
-        object Label6: TLabel
-          Left = 166
-          Top = 83
-          Width = 20
-          Height = 13
-          Caption = 'feet'
-        end
-        object btnChaffType: TSpeedButton
-          Left = 195
-          Top = 13
-          Width = 23
-          Height = 22
-          Glyph.Data = {
-            D6050000424DD605000000000000360000002800000017000000140000000100
-            180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-            000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
-            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-          OnClick = btnChaffTypeClick
-        end
-        object btnPosition: TSpeedButton
-          Left = 195
-          Top = 53
-          Width = 23
-          Height = 22
-          Caption = '+'
-          OnClick = btnPositionClick
-        end
-        object edtChaffType: TEdit
-          Left = 112
-          Top = 14
-          Width = 75
-          Height = 21
-          Enabled = False
-          ReadOnly = True
-          TabOrder = 0
-        end
-        object edtBloomPosition: TEdit
-          Left = 112
-          Top = 54
-          Width = 75
-          Height = 21
-          ReadOnly = True
-          TabOrder = 1
-          Text = '0.00'
-        end
-        object edtBloomAltitude: TEdit
-          Left = 112
-          Top = 79
-          Width = 47
-          Height = 21
-          NumbersOnly = True
-          TabOrder = 2
-          Text = '100'
-        end
-      end
       object ScrollBox3: TScrollBox
-        Left = 2
-        Top = 137
-        Width = 298
-        Height = 111
+        Left = 0
+        Top = 145
+        Width = 332
+        Height = 104
         BevelInner = bvNone
         BevelOuter = bvNone
         BorderStyle = bsNone
         TabOrder = 1
         object Label10: TLabel
-          Left = 26
+          Left = 71
           Top = 16
           Width = 55
           Height = 13
           Caption = 'Salvo Size :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label11: TLabel
-          Left = 1
+          Left = 19
           Top = 36
           Width = 32
           Height = 13
           Caption = 'Target'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel2: TBevel
-          Left = 43
+          Left = 65
           Top = 44
           Width = 251
-          Height = 3
+          Height = 2
         end
         object Label18: TLabel
-          Left = 25
+          Left = 71
           Top = 58
           Width = 33
           Height = 13
           Caption = 'Track :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label19: TLabel
           Left = 1
@@ -450,6 +396,12 @@ object frmGunAutoManual: TfrmGunAutoManual
           Width = 97
           Height = 13
           Caption = 'Autofire Parameters'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           Visible = False
         end
         object Label20: TLabel
@@ -458,6 +410,12 @@ object frmGunAutoManual: TfrmGunAutoManual
           Width = 86
           Height = 13
           Caption = 'Intercept Range :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           Visible = False
         end
         object Label21: TLabel
@@ -466,6 +424,12 @@ object frmGunAutoManual: TfrmGunAutoManual
           Width = 87
           Height = 13
           Caption = 'Threshold Speed :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           Visible = False
         end
         object Label22: TLabel
@@ -474,6 +438,12 @@ object frmGunAutoManual: TfrmGunAutoManual
           Width = 26
           Height = 13
           Caption = 'knots'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           Visible = False
         end
         object Bevel5: TBevel
@@ -489,6 +459,12 @@ object frmGunAutoManual: TfrmGunAutoManual
           Width = 14
           Height = 13
           Caption = 'nm'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           Visible = False
         end
         object btnTargetSearch: TSpeedButton
@@ -597,99 +573,62 @@ object frmGunAutoManual: TfrmGunAutoManual
           OnKeyPress = editAutofireThresholdKeyPress
         end
       end
-      object btnGunEngagementAssign: TButton
-        Tag = 1
-        Left = 21
-        Top = 319
-        Width = 68
-        Height = 23
-        Caption = 'Assign'
-        Enabled = False
-        TabOrder = 2
-        OnClick = btnGunEngagementAssignClick
-      end
-      object btnGunEngagementCease: TButton
-        Tag = 4
-        Left = 222
-        Top = 319
-        Width = 68
-        Height = 23
-        Caption = 'Cease Fire'
-        Enabled = False
-        TabOrder = 3
-        OnClick = btnGunEngagementCeaseClick
-      end
-      object btnGunEngagementBreak: TButton
-        Tag = 2
-        Left = 88
-        Top = 319
-        Width = 68
-        Height = 23
-        Caption = 'Break'
-        Enabled = False
-        TabOrder = 4
-        OnClick = btnGunEngagementBreakClick
-      end
-      object btnGunEngagementFire: TButton
-        Tag = 3
-        Left = 155
-        Top = 319
-        Width = 68
-        Height = 23
-        Caption = 'Fire'
-        Enabled = False
-        TabOrder = 5
-        OnClick = btnGunEngagementFireClick
-      end
-      object btnFireALL: TButton
-        Tag = 3
-        Left = 136
-        Top = 115
-        Width = 80
-        Height = 23
-        Caption = 'Fire ALL'
-        TabOrder = 7
-        Visible = False
-        OnClick = btnFireALLClick
-      end
       object ScrollBox4: TScrollBox
-        Left = 2
-        Top = 136
-        Width = 299
-        Height = 113
+        Left = 0
+        Top = 145
+        Width = 332
+        Height = 104
         BevelInner = bvNone
         BevelOuter = bvNone
         BorderStyle = bsNone
         TabOrder = 6
         object Label5: TLabel
-          Left = 27
+          Left = 78
           Top = 16
           Width = 55
           Height = 13
           Caption = 'Salvo Size :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label7: TLabel
-          Left = 5
+          Left = 19
           Top = 37
           Width = 55
           Height = 13
           Caption = 'Corrections'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel1: TBevel
-          Left = 76
+          Left = 95
           Top = 44
           Width = 219
-          Height = 3
+          Height = 2
         end
         object Label9: TLabel
-          Left = 19
+          Left = 78
           Top = 64
           Width = 60
           Height = 13
           Caption = 'Engagement'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Edit1: TEdit
-          Left = 138
+          Left = 189
           Top = 13
           Width = 62
           Height = 21
@@ -701,7 +640,7 @@ object frmGunAutoManual: TfrmGunAutoManual
           OnKeyPress = editControlSalvoSizeKeyPress
         end
         object btnSetup: TButton
-          Left = 134
+          Left = 156
           Top = 60
           Width = 80
           Height = 20
@@ -715,6 +654,12 @@ object frmGunAutoManual: TfrmGunAutoManual
           Width = 160
           Height = 67
           Caption = 'Spotter Correction'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 2
           Visible = False
           object Label8: TLabel
@@ -866,6 +811,239 @@ object frmGunAutoManual: TfrmGunAutoManual
             OnClick = btnConvertClick
           end
         end
+      end
+      object ScrollBox1: TScrollBox
+        Left = 0
+        Top = 145
+        Width = 332
+        Height = 104
+        BevelInner = bvNone
+        BevelOuter = bvNone
+        BorderStyle = bsNone
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 67
+          Top = 18
+          Width = 61
+          Height = 13
+          Caption = 'Chaff Type :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label2: TLabel
+          Left = 67
+          Top = 38
+          Width = 49
+          Height = 13
+          Caption = 'Quantity :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label3: TLabel
+          Left = 67
+          Top = 58
+          Width = 75
+          Height = 13
+          Caption = 'Bloom Position :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label4: TLabel
+          Left = 67
+          Top = 83
+          Width = 75
+          Height = 13
+          Caption = 'Bloom Altitude :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblQuantityChaff: TLabel
+          Left = 155
+          Top = 38
+          Width = 12
+          Height = 13
+          Caption = '---'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label6: TLabel
+          Left = 209
+          Top = 83
+          Width = 20
+          Height = 13
+          Caption = 'feet'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object btnChaffType: TSpeedButton
+          Left = 238
+          Top = 13
+          Width = 23
+          Height = 22
+          Glyph.Data = {
+            D6050000424DD605000000000000360000002800000017000000140000000100
+            180000000000A005000000000000000000000000000000000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C1C1C1B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
+            000000000000000000000000C1C1C1B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+            0000000000000000000000000000000000000000000000000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2000000000000000000000000000000000000000000000000B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000000000000000B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000000000000000000000
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200000000
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B200
+            0000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
+          OnClick = btnChaffTypeClick
+        end
+        object btnPosition: TSpeedButton
+          Left = 238
+          Top = 53
+          Width = 23
+          Height = 22
+          Caption = '+'
+          OnClick = btnPositionClick
+        end
+        object edtChaffType: TEdit
+          Left = 155
+          Top = 14
+          Width = 75
+          Height = 21
+          Enabled = False
+          ReadOnly = True
+          TabOrder = 0
+        end
+        object edtBloomPosition: TEdit
+          Left = 155
+          Top = 54
+          Width = 75
+          Height = 21
+          ReadOnly = True
+          TabOrder = 1
+          Text = '0.00'
+        end
+        object edtBloomAltitude: TEdit
+          Left = 155
+          Top = 79
+          Width = 47
+          Height = 21
+          NumbersOnly = True
+          TabOrder = 2
+          Text = '100'
+        end
+      end
+      object btnGunEngagementAssign: TButton
+        Tag = 1
+        Left = 33
+        Top = 326
+        Width = 68
+        Height = 23
+        Caption = 'Assign'
+        Enabled = False
+        TabOrder = 2
+        OnClick = btnGunEngagementAssignClick
+      end
+      object btnGunEngagementCease: TButton
+        Tag = 4
+        Left = 234
+        Top = 326
+        Width = 68
+        Height = 23
+        Caption = 'Cease Fire'
+        Enabled = False
+        TabOrder = 3
+        OnClick = btnGunEngagementCeaseClick
+      end
+      object btnGunEngagementBreak: TButton
+        Tag = 2
+        Left = 100
+        Top = 326
+        Width = 68
+        Height = 23
+        Caption = 'Break'
+        Enabled = False
+        TabOrder = 4
+        OnClick = btnGunEngagementBreakClick
+      end
+      object btnGunEngagementFire: TButton
+        Tag = 3
+        Left = 167
+        Top = 326
+        Width = 68
+        Height = 23
+        Caption = 'Fire'
+        Enabled = False
+        TabOrder = 5
+        OnClick = btnGunEngagementFireClick
+      end
+      object btnFireALL: TButton
+        Tag = 3
+        Left = 184
+        Top = 120
+        Width = 80
+        Height = 23
+        Caption = 'Fire ALL'
+        TabOrder = 7
+        Visible = False
+        OnClick = btnFireALLClick
       end
     end
   end

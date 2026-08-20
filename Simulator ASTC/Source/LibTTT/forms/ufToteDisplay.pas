@@ -1308,7 +1308,7 @@ type
     lblShipNAme: TLabel;
     lblClass: TLabel;
     pnlImageShip: TPanel;
-    Image2: TImage;
+    imgShip: TImage;
     pnlSMS: TPanel;
     Panel25Nav: TPanel;
     pcReceivedNav: TPageControl;
@@ -2129,6 +2129,8 @@ public
     {$REGION ' Logistic Public Method '}
     procedure ResetLogisticPanel(val : Boolean);
     procedure UpdateLogisticToteDisplay (sender : TT3Vehicle);
+
+    procedure UpdateShipDataVehicle(sender : TT3Vehicle);
 
     procedure RefreshStatusLogistic(sender : TT3Vehicle);
     procedure RefreshShipLogistic(sender : TT3Vehicle);
@@ -3674,18 +3676,18 @@ begin
   UpdateSensorVehicle(TT3Vehicle(lvPlatforms.Selected.Data));
 
   {$REGION 'Navigasi'}
-  if (lvSensorNav.Selected = nil) or (lvSensorNav.ItemIndex = -1) then
-    Exit;
-
-  with simMgrClient do
-  begin
-     TT3Sensor(lvSensorNav.Selected.Data).OperationalStatus := sopOff;
-  end;
-
-  lvPlatformsSelectItem(lvSensorNav, lvSensorNav.Selected, True);
-  lvSensorNav.Selected.Focused := true;
-  Invalidate;
-  UpdateSensorVehicle(TT3Vehicle(lvSensorNav.Selected.Data));
+//  if (lvSensorNav.Selected = nil) or (lvSensorNav.ItemIndex = -1) then
+//    Exit;
+//
+//  with simMgrClient do
+//  begin
+//     TT3Sensor(lvSensorNav.Selected.Data).OperationalStatus := sopOff;
+//  end;
+//
+//  lvPlatformsSelectItem(lvSensorNav, lvSensorNav.Selected, True);
+//  lvSensorNav.Selected.Focused := true;
+//  Invalidate;
+//  UpdateSensorVehicle(TT3Vehicle(lvSensorNav.Selected.Data));
   {$ENDREGION}
 end;
 
@@ -8944,7 +8946,8 @@ var
 begin
   pnlMainGeneral.Visible := False;
   pnlMainNavigasi.Visible := True;
-  RefreshNavigasi(pi);
+  RefreshEnvironment;
+//  RefreshNavigasi(pi);
 end;
 
 procedure TfrmToteDisplay.cbSetEnDisClick(sender: TObject);
@@ -9227,17 +9230,17 @@ begin
   UpdateSensorVehicle(TT3Vehicle(lvPlatforms.Selected.Data));
 
   {$REGION 'Navigasi'}
-  if (lvSensorNav.Selected = nil) or (lvSensorNav.ItemIndex = -1) then
-    Exit;
-
-  with simMgrClient do
-  begin
-    TT3Sensor(lvSensorNav.Selected.Data).OperationalStatus := sopDamage;
-  end;
-  lvPlatformsSelectItem(lvPlatforms, lvPlatforms.Selected, True);
-  lvPlatforms.Selected.Focused := true;
-  Invalidate;
-  UpdateSensorVehicle(TT3Vehicle(lvPlatforms.Selected.Data));
+//  if (lvSensorNav.Selected = nil) or (lvSensorNav.ItemIndex = -1) then
+//    Exit;
+//
+//  with simMgrClient do
+//  begin
+//    TT3Sensor(lvSensorNav.Selected.Data).OperationalStatus := sopDamage;
+//  end;
+//  lvPlatformsSelectItem(lvPlatforms, lvPlatforms.Selected, True);
+//  lvPlatforms.Selected.Focused := true;
+//  Invalidate;
+//  UpdateSensorVehicle(TT3Vehicle(lvPlatforms.Selected.Data));
   {$ENDREGION}
 end;
 
@@ -11067,6 +11070,7 @@ begin
     with ge.FData do
     begin
       {$REGION ' Visibility Factor '}
+      {}
       trbDaytimeVisual.Position := Round(Daytime_Visual_Modifier);
       trbDaytimeInfra.Position := Round(Daytime_Infrared_Modifier);
       trbNighttimeVisual.Position := Round(Nighttime_Visual_Modifier);
@@ -13258,6 +13262,15 @@ begin
   {$ENDREGION}
 end;
 
+procedure TfrmToteDisplay.UpdateShipDataVehicle(sender: TT3Vehicle);
+begin
+// isi data vehicle disini
+  lblShipNAme.Caption := sender.InstanceName;
+  lblClass.Caption := sender.InstanceClass;
+
+//  imgShip.Picture.LoadFromFile();
+end;
+
 procedure TfrmToteDisplay.UpdateStatusVehicle(sender: TT3Vehicle);
 var
   li      : TListItem;
@@ -13879,6 +13892,8 @@ begin
   {Prince titipan}
   UpdateTransportToteDisplay(sender);
   UpdateLogisticToteDisplay(sender);
+
+  UpdateShipDataVehicle(sender);
 end;
 
 procedure TfrmToteDisplay.UpdateWeaponVehicle(sender : TT3Vehicle);
@@ -15273,11 +15288,11 @@ begin
 
   with ge.FData do
   begin
-    lblDayVisualNav.Caption                  := FormatFloat('0.00', Daytime_Visual_Modifier) + '%';
-    lblNightimeVisualNav.Caption             := FormatFloat('0.00', Nighttime_Visual_Modifier) + '%';
-    lblDaytimeInfraredNav.Caption            := FormatFloat('0.00', Daytime_Infrared_Modifier) + '%';
-    lblNightimeInfraredNav.Caption           := FormatFloat('0.00', Nighttime_Infrared_Modifier) + '%';
-    lblAtmosphereNav.Caption                 := FormatFloat('0.00', Atmospheric_Refract_Modifier) + '%';
+//    lblDayVisualNav.Caption                  := FormatFloat('0.00', Daytime_Visual_Modifier) + '%';
+//    lblNightimeVisualNav.Caption             := FormatFloat('0.00', Nighttime_Visual_Modifier) + '%';
+//    lblDaytimeInfraredNav.Caption            := FormatFloat('0.00', Daytime_Infrared_Modifier) + '%';
+//    lblNightimeInfraredNav.Caption           := FormatFloat('0.00', Nighttime_Infrared_Modifier) + '%';
+//    lblAtmosphereNav.Caption                 := FormatFloat('0.00', Atmospheric_Refract_Modifier) + '%';
 
     case Rain_Rate of
       0 :
@@ -20590,12 +20605,10 @@ var
 begin
   ge := (simMgrClient).GameEnvironment;
 
-//  Label111.Caption := Char(176) + 'C';
-//  Label108.Caption := Char(176) + 'C';
-
   with ge.FData do
   begin
     {$REGION ' Visibility Factor '}
+    {Environtment Control}
     trbDaytimeVisual.Position := Round(Daytime_Visual_Modifier);
     trbDaytimeInfra.Position := Round(Daytime_Infrared_Modifier);
     trbNighttimeVisual.Position := Round(Nighttime_Visual_Modifier);
@@ -20605,6 +20618,12 @@ begin
     edtNightVis.Text := FormatFloat('0', Nighttime_Visual_Modifier);
     edtDayInfra.Text := FormatFloat('0', Daytime_Infrared_Modifier);
     edtNightInfra.Text := FormatFloat('0', Nighttime_Infrared_Modifier);
+
+    {Environtment Role Navigasi}
+    lblDayVisualNav.Caption := FormatFloat('0', Daytime_Visual_Modifier) + ' %';
+    lblNightimeVisualNav.Caption := FormatFloat('0', Nighttime_Visual_Modifier) + ' %';
+    lblDaytimeInfraredNav.Caption := FormatFloat('0', Daytime_Infrared_Modifier) + ' %';
+    lblNightimeInfraredNav.Caption := FormatFloat('0', Nighttime_Infrared_Modifier) + ' %';
     {$ENDREGION}
 
     lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);
@@ -20674,185 +20693,7 @@ begin
 //    lblSoundVelocityProfile.Caption       := IntToStr(Sound_Velocity_Type);
     lblSoundVelocityLayer.Caption         := FormatFloat('0.0', Thermal_Layer_Depth);
     lblSoundVelocityAverageBottom.Caption := FormatFloat('0.0', Ave_Ocean_Depth);
-
-//    case Sea_State of
-//      0 :
-//      begin
-//        lblSeaStatDesc.Caption           := 'Calm (glassy)';
-//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Sea.png');
-//      end;
-//      1 :
-//      begin
-//        lblSeaStatDesc.Caption           := 'Calm (rippled)';
-//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Sea.png');
-//      end;
-//      2 :
-//      begin
-//        lblSeaStatDesc.Caption           := 'Smooth (wavelets)';
-//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Sea.png');
-//      end;
-//      3 :
-//      begin
-//        lblSeaStatDesc.Caption           := 'Slight';
-//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\4_Sea.png');
-//      end;
-//      4 :
-//      begin
-//        lblSeaStatDesc.Caption           := 'Moderate';
-//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\5_Sea.png');
-//      end;
-//      5 :
-//      begin
-//        lblSeaStatDesc.Caption           := 'Rough';
-//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\6_Sea.png');
-//      end;
-//      6 :
-//      begin
-//        lblSeaStatDesc.Caption           := 'Very rough';
-//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\7_Sea.png');
-//      end;
-//      7 :
-//      begin
-//        lblSeaStatDesc.Caption           := 'High';
-//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
-//      end;
-//      8 :
-//      begin
-//        lblSeaStatDesc.Caption           := 'Very high';
-//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
-//      end;
-//      9,10 :
-//      begin
-//        lblSeaStatDesc.Caption        := 'Phenomenal';
-//        imgSeaState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\8_Sea.png');
-//      end;
-//    end;
-
-//    case Rain_Rate of
-//      0 :
-//      begin
-//        lblRainRateDesc.Caption     := 'Sunny';
-//        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Rain.png');
-//        imgSunDisplay.Visible := True;
-//        pnlEnvironmentDisplay.Color := $00FFFDDD;
-//        pnlRainDisplay.Color := $00FFFDDD;
-//        imgRainDisplay.Visible := False;
-//      end;
-//      1 :
-//      begin
-//        lblRainRateDesc.Caption     := 'Light Rain';
-//        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Rain.png');
-//        imgSunDisplay.Visible := True;
-//        pnlEnvironmentDisplay.Color := $00BAB9A5;
-//        pnlRainDisplay.Color := $00BAB9A5;
-//        imgRainDisplay.Visible := True;
-//      end;
-//      2 :
-//      begin
-//        lblRainRateDesc.Caption     := 'Heavy Rain';
-//        imgRainState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Rain.png');
-//        imgSunDisplay.Visible := False;
-//        pnlEnvironmentDisplay.Color := $00969585;
-//        pnlRainDisplay.Color := $00969585;
-//        imgRainDisplay.Visible := True;
-//      end;
-//    end;
-
-//    case Cloud_Attenuation of
-//      0 :
-//      begin
-//        lblCloudAttenDesc.Caption     := 'No Fog';
-//        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\1_Cloud.png');
-//        Fogstate:= 'FOG1';
-//        if Rain_Rate = 0 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00FFFDDD;
-//          pnlRainDisplay.Color := $00FFFDDD;
-//        end
-//        else if Rain_Rate = 1 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00BAB9A5;
-//          pnlRainDisplay.Color := $00BAB9A5;
-//        end
-//        else if Rain_Rate = 2 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00969585;
-//          pnlRainDisplay.Color := $00969585;
-//        end;
-//      end;
-//      1 :
-//      begin
-//        lblCloudAttenDesc.Caption     := 'Slightly Foggy';
-//        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\2_Cloud.png');
-//        Fogstate:= 'FOG2';
-//        if Rain_Rate = 0 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00F2F1DC;
-//          pnlRainDisplay.Color := $00F2F1DC;
-//        end
-//        else if Rain_Rate = 1 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00C5C4B7;
-//          pnlRainDisplay.Color := $00C5C4B7;
-//        end
-//        else if Rain_Rate = 2 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00AEADA3;
-//          pnlRainDisplay.Color := $00AEADA3;
-//        end;
-//      end;
-//      2 :
-//      begin
-//        lblCloudAttenDesc.Caption     := 'Foggy';
-//        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\3_Cloud.png');
-//        Fogstate:= 'FOG2';
-//        if Rain_Rate = 0 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00E8E7DA;
-//          pnlRainDisplay.Color := $00E8E7DA;
-//        end
-//        else if Rain_Rate = 1 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00CCCCC4;
-//          pnlRainDisplay.Color := $00CCCCC4;
-//        end
-//        else if Rain_Rate = 2 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00BEBEB7;
-//          pnlRainDisplay.Color := $00BEBEB7;
-//        end;
-//      end;
-//      3 :
-//      begin
-//        lblCloudAttenDesc.Caption     := 'Very Foggy';
-//        imgCloudState.Picture.LoadFromFile('data\Image Interface\Tote\MiniPic\4_Cloud.png');
-//        Fogstate:= 'FOG3';
-//        if Rain_Rate = 0 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00DEDED9;
-//          pnlRainDisplay.Color := $00DEDED9;
-//        end
-//        else if Rain_Rate = 1 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00D4D4D1;
-//          pnlRainDisplay.Color := $00D4D4D1;
-//        end
-//        else if Rain_Rate = 2 then
-//        begin
-//          pnlEnvironmentDisplay.Color := $00CECECC;
-//          pnlRainDisplay.Color := $00CECECC;
-//        end;
-//      end;
-//    end;
-
-//    lblSeaState.Caption                   := IntToStr(Sea_State);
     lblSurfaceTemp.Caption                := FormatFloat('0.0', Surface_Temperature);
-
-    //lOAD FOR DISPLAY
-//    imgRainStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\cloud\' + (Rain_Rate + 1).ToString + '.png');
-//    imgSeaStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\wave\' + (Sea_State + 1).ToString + '.png');
-//    imgRainDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Rain\' + (Rain_Rate + 1).ToString + '.png');
-//    imgSunDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Sun\' + '1.png');
   end;
 
 //  SetImageAlpha(img1,200);

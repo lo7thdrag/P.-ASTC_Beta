@@ -440,6 +440,10 @@ begin
       frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
       frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
 
+      {Environtment Status}
+      frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
+      frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
+
       {Environtment Control}
       frmToteDisplay.edtWindDir.Text := FormatCourse(Value);
       frmToteDisplay.rw.degree := ValidateDegree(Value);
@@ -448,8 +452,9 @@ begin
     E_Daytime_Visual_Modifier :
     begin
       {$REGION ' Daytime Visual Modifier '}
-       frmToteDisplay.edtDayVis.Text := FormatFloat('000', Value);
-       frmToteDisplay.trbDaytimeVisual.Position := Round(Value);
+      {Environtment Control}
+      frmToteDisplay.edtDayVis.Text := FormatFloat('000', Value);
+      frmToteDisplay.trbDaytimeVisual.Position := Round(Value);
 
       StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
       SecondTime := TimeStringToSecond(StrTime);

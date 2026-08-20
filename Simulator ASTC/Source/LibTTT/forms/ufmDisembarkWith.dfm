@@ -6,7 +6,7 @@ object fmDisembarkWith: TfmDisembarkWith
   Caption = 'Disembark with'
   ClientHeight = 278
   ClientWidth = 289
-  Color = 5980694
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -18,7 +18,7 @@ object fmDisembarkWith: TfmDisembarkWith
   PixelsPerInch = 96
   TextHeight = 13
   object pnlDisembarkWithPf: TPanel
-    Left = 10
+    Left = 12
     Top = 10
     Width = 265
     Height = 220
@@ -47,31 +47,31 @@ object fmDisembarkWith: TfmDisembarkWith
     end
   end
   object btnOk: TButton
-    Left = 113
-    Top = 240
-    Width = 75
+    Left = 112
+    Top = 238
+    Width = 80
     Height = 30
     Caption = 'OK'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
     OnClick = btnOkClick
   end
   object btnCancel: TButton
-    Left = 199
-    Top = 240
-    Width = 75
+    Left = 198
+    Top = 238
+    Width = 80
     Height = 30
     Caption = 'Cancel'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 2
     OnClick = btnCancelClick

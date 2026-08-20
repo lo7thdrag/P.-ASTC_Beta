@@ -407,30 +407,18 @@ begin
   end;
 end;
 
-procedure TT3ClientEventManager.OnUpdateEnvi(index : integer; Value: Double;
-  GameEnvironment : TGame_Environment_Definition);
+procedure TT3ClientEventManager.OnUpdateEnvi(index : integer; Value: Double; GameEnvironment : TGame_Environment_Definition);
 var
   StrTime:string;
   SecondTime : Integer;
 begin
   inherited;
 
-  if index = 14 then
-  begin
-     
-  end
-  else if index = 15 then
-  begin
-    frmToteDisplay.edtOceanCurrentDirection.Text := FloatToStr(Value);
-    frmToteDisplay.lblOceanCurrentDirection.Caption := FormatFloat('000.0', Value);
-    frmToteDisplay.rw1.degree := ValidateDegree(Value);
-  end;
-
   case index of
     E_Wind_Speed :
     begin
+      {$REGION ' Wind Speed '}
       frmToteDisplay.edtWindSpeed.Text := FormatFloat('0.00', Value);
-
       frmToteDisplay.lblWindRelativeSpeed.Caption := FormatSpeed(Value);
       frmToteDisplay.lblSpeedWIndTrue.Caption := FormatSpeed(Value);
       frmTacticalDisplay.Label21.Caption := FormatSpeed(Value * C_MS_To_KNOTS);
@@ -442,17 +430,21 @@ begin
         if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
           frmTacticalDisplay.addStatus('The value Input wind speed Is To High');
       end;
+      {$ENDREGION}
     end;
     E_Wind_Direction :
     begin
+      {$REGION ' Wind Direction '}
       frmToteDisplay.edtWindDir.Text := FormatFloat('0.00', Value);
       frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
       frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
       frmToteDisplay.rw.degree := ValidateDegree(Value);
       frmTacticalDisplay.Label10.Caption := FormatFloat('0.00', Value);
+      {$ENDREGION}
     end;
-    E_Daytime_Visual_Modifier         :
+    E_Daytime_Visual_Modifier :
     begin
+      {$REGION ' Daytime Visual Modifier '}
        frmToteDisplay.edtDayVis.Text := FormatFloat('0.00', Value);
        frmToteDisplay.trbDaytimeVisual.Position := Round(Value);
 
@@ -467,124 +459,136 @@ begin
           lblVisibilityFactorsElectroOptical.Caption := FormatFloat('0.00', Value) + '%';
         end;
       end;
+      {$ENDREGION}
     end;
-    E_Nighttime_Visual_Modifier       :
-                                      begin
-                                         frmToteDisplay.edtNightVis.Text := FormatFloat('0.00', Value);
-                                         frmToteDisplay.trbNighttimeVisual.Position := Round(Value);
+    E_Nighttime_Visual_Modifier :
+    begin
+      {$REGION ' Nighttime Visual Modifier '}
+      frmToteDisplay.edtNightVis.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.trbNighttimeVisual.Position := Round(Value);
 
-                                        StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
-                                        SecondTime := TimeStringToSecond(StrTime);
+      StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
+      SecondTime := TimeStringToSecond(StrTime);
 
-                                        if (SecondTime >= GameEnvironment.FData.Sunrise) and
-                                          (SecondTime <= GameEnvironment.FData.Sunset) then
-                                        begin
-                                          frmToteDisplay.lblVisibilityactorsTime.Caption := 'DayTime';
-                                        end
-                                        else
-                                        begin
-                                          with frmToteDisplay do
-                                          begin
-                                            lblVisibilityactorsTime.Caption := 'NightTime';
-                                            lblVisibilityFactorsElectroOptical.Caption :=
-                                              FormatFloat('0.00', Value) + '%';
-                                           end;
-                                        end;
-                                      end;
-    E_Daytime_Infrared_Modifier       :
-                                      begin
-                                        frmToteDisplay.edtDayInfra.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.trbDaytimeInfra.Position := Round(Value);
+      if (SecondTime >= GameEnvironment.FData.Sunrise) and (SecondTime <= GameEnvironment.FData.Sunset) then
+      begin
+        frmToteDisplay.lblVisibilityactorsTime.Caption := 'DayTime';
+      end
+      else
+      begin
+        with frmToteDisplay do
+        begin
+          lblVisibilityactorsTime.Caption := 'NightTime';
+          lblVisibilityFactorsElectroOptical.Caption := FormatFloat('0.00', Value) + '%';
+         end;
+      end;
+      {$ENDREGION}
+    end;
+    E_Daytime_Infrared_Modifier :
+    begin
+      {$REGION ' Daytime Infrared Modifier '}
+      frmToteDisplay.edtDayInfra.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.trbDaytimeInfra.Position := Round(Value);
 
-                                        StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
-                                        SecondTime := TimeStringToSecond(StrTime);
+      StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
+      SecondTime := TimeStringToSecond(StrTime);
 
-                                        if (SecondTime >= GameEnvironment.FData.Sunrise) and
-                                          (SecondTime <= GameEnvironment.FData.Sunset) then
-                                        begin
-                                          with frmToteDisplay do
-                                          begin
-                                            lblVisibilityactorsTime.Caption := 'DayTime';
-                                            lblVisibilityFactorsnfrared.Caption :=
-                                              FormatFloat('0.00', Value) + '%';
-                                          end;
-                                        end;
-                                      end;
-    E_Nighttime_Infrared_Modifier     :
-                                      begin
-                                        frmToteDisplay.edtNightInfra.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.trbNighttimeInfra.Position := Round(Value);
+      if (SecondTime >= GameEnvironment.FData.Sunrise) and (SecondTime <= GameEnvironment.FData.Sunset) then
+      begin
+        with frmToteDisplay do
+        begin
+          lblVisibilityactorsTime.Caption := 'DayTime';
+          lblVisibilityFactorsnfrared.Caption := FormatFloat('0.00', Value) + '%';
+        end;
+      end;
+      {$ENDREGION}
+    end;
+    E_Nighttime_Infrared_Modifier :
+    begin
+      {$REGION ' Nighttime Infrared Modifier '}
+      frmToteDisplay.edtNightInfra.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.trbNighttimeInfra.Position := Round(Value);
 
-                                        StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
-                                        SecondTime := TimeStringToSecond(StrTime);
+      StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
+      SecondTime := TimeStringToSecond(StrTime);
 
-                                        if (SecondTime >= GameEnvironment.FData.Sunrise) and
-                                          (SecondTime <= GameEnvironment.FData.Sunset) then
-                                        begin
-                                          frmToteDisplay.lblVisibilityactorsTime.Caption := 'DayTime';
-                                        end
-                                        else
-                                        begin
-                                          with frmToteDisplay do
-                                          begin
-                                            lblVisibilityactorsTime.Caption := 'NightTime';
-                                            lblVisibilityFactorsElectroOptical.Caption :=
-                                              FormatFloat('0.00', Value) + '%';
-                                           end;
-                                        end;
-                                      end;
-    E_Sunrise                         : ;
-    E_Sunset                          : ;
-    E_Period_of_Twilight              : ;
+      if (SecondTime >= GameEnvironment.FData.Sunrise) and
+        (SecondTime <= GameEnvironment.FData.Sunset) then
+      begin
+        frmToteDisplay.lblVisibilityactorsTime.Caption := 'DayTime';
+      end
+      else
+      begin
+        with frmToteDisplay do
+        begin
+          lblVisibilityactorsTime.Caption := 'NightTime';
+          lblVisibilityFactorsElectroOptical.Caption :=
+            FormatFloat('0.00', Value) + '%';
+         end;
+      end;
+      {$ENDREGION}
+    end;
+    E_Sunrise : ;
+    E_Sunset  : ;
+    E_Period_of_Twilight : ;
     E_Rain_Rate :
     begin
-//                                        frmToteDisplay.edtAttenRainRate.Text := FormatFloat('0.00', Value);
+      {$REGION ' Rain Rate '}
+//    frmToteDisplay.edtAttenRainRate.Text := FormatFloat('0.00', Value);
       frmToteDisplay.lblAttenuationFactorsRain.Caption := FormatFloat('0.00', Value);
-//                                        frmToteDisplay.trbAttenRainRate.Position := Round(Value);
+//    frmToteDisplay.trbAttenRainRate.Position := Round(Value);
 
        case Round(Value) of
           0 : frmToteDisplay.lblAttenuationFactorsRain.Caption     := 'Sunny';
           1 : frmToteDisplay.lblAttenuationFactorsRain.Caption     := 'Light Rain';
           2 : frmToteDisplay.lblAttenuationFactorsRain.Caption     := 'Heavy Rain';
       end;
+      {$ENDREGION}
     end;
-    E_Cloud_Base_Height               :
-                                      begin
-                                        frmToteDisplay.edtCloudBaseHeight.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.lblAttenuationFactorsCloud.Caption := FormatFloat('0.00', Value);
-                                      end;
-    E_Cloud_Attenuation               :
-                                      begin
-//                                        frmToteDisplay.edtAttenCloud.Text := FormatFloat('0.00', Value);
-//                                        frmToteDisplay.trbAttenCloud.Position := Round(Value);
+    E_Cloud_Base_Height :
+    begin
+      {$REGION ' Cloud Base Height '}
+      frmToteDisplay.edtCloudBaseHeight.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.lblAttenuationFactorsCloud.Caption := FormatFloat('0.00', Value);
+      {$ENDREGION}
+    end;
+    E_Cloud_Attenuation :
+    begin
+      {$REGION ' Cloud Attenuation '}
+//    frmToteDisplay.edtAttenCloud.Text := FormatFloat('0.00', Value);
+//    frmToteDisplay.trbAttenCloud.Position := Round(Value);
 
-                                        case Round(Value) of
-                                          0 : frmToteDisplay.lblCloudAttenuation.Caption     := 'No Fog';
-                                          1 : frmToteDisplay.lblCloudAttenuation.Caption     := 'Slightly Foggy';
-                                          2 : frmToteDisplay.lblCloudAttenuation.Caption     := 'Foggy';
-                                          3 : frmToteDisplay.lblCloudAttenuation.Caption     := 'Very Foggy';
-                                        end;
-                                      end;
-    E_Sea_State                       :
-                                      begin
-//                                        frmToteDisplay.edtSeaState.Text := FormatFloat('0.00', Value);
-//                                        frmToteDisplay.trbSeaState.Position := Round(Value);
+      case Round(Value) of
+        0 : frmToteDisplay.lblCloudAttenuation.Caption     := 'No Fog';
+        1 : frmToteDisplay.lblCloudAttenuation.Caption     := 'Slightly Foggy';
+        2 : frmToteDisplay.lblCloudAttenuation.Caption     := 'Foggy';
+        3 : frmToteDisplay.lblCloudAttenuation.Caption     := 'Very Foggy';
+      end;
+      {$ENDREGION}
+    end;
+    E_Sea_State :
+    begin
+      {$REGION ' Sea State '}
+//    frmToteDisplay.edtSeaState.Text := FormatFloat('0.00', Value);
+//    frmToteDisplay.trbSeaState.Position := Round(Value);
 
-                                        case Round(Value) of
-                                          0 : frmToteDisplay.lblSeaState.Caption    := 'Calm (glassy)';
-                                          1 : frmToteDisplay.lblSeaState.Caption    := 'Calm (rippled)';
-                                          2 : frmToteDisplay.lblSeaState.Caption    := 'Smooth (wavelets)';
-                                          3 : frmToteDisplay.lblSeaState.Caption    := 'Slight';
-                                          4 : frmToteDisplay.lblSeaState.Caption    := 'Moderate';
-                                          5 : frmToteDisplay.lblSeaState.Caption    := 'Rough';
-                                          6 : frmToteDisplay.lblSeaState.Caption    := 'Very rough';
-                                          7 : frmToteDisplay.lblSeaState.Caption    := 'High';
-                                          8 : frmToteDisplay.lblSeaState.Caption    := 'Very high';
-                                          9,10 : frmToteDisplay.lblSeaState.Caption := 'Phenomenal';
-                                        end;
-                                      end;
+      case Round(Value) of
+        0 : frmToteDisplay.lblSeaState.Caption    := 'Calm (glassy)';
+        1 : frmToteDisplay.lblSeaState.Caption    := 'Calm (rippled)';
+        2 : frmToteDisplay.lblSeaState.Caption    := 'Smooth (wavelets)';
+        3 : frmToteDisplay.lblSeaState.Caption    := 'Slight';
+        4 : frmToteDisplay.lblSeaState.Caption    := 'Moderate';
+        5 : frmToteDisplay.lblSeaState.Caption    := 'Rough';
+        6 : frmToteDisplay.lblSeaState.Caption    := 'Very rough';
+        7 : frmToteDisplay.lblSeaState.Caption    := 'High';
+        8 : frmToteDisplay.lblSeaState.Caption    := 'Very high';
+        9,10 : frmToteDisplay.lblSeaState.Caption := 'Phenomenal';
+      end;
+      {$ENDREGION}
+    end;
     E_Ocean_Current_Speed :
     begin
+      {$REGION ' Ocean Current Speed '}
       frmToteDisplay.edtOceanCurrentSpeed.Text := FloatToStr(Value);
       frmToteDisplay.lblOceanCurrentSpeed.Caption := FormatFloat('00.0', Value);
 
@@ -594,80 +598,91 @@ begin
         if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
           frmTacticalDisplay.addStatus('The value Input ocean current Is To High');
       end;
+      {$ENDREGION}
     end;
-    E_Ocean_Current_Direction         :
-                                      begin
-                                        frmToteDisplay.edtOceanCurrentDirection.Text := FloatToStr(Value);
-                                        frmToteDisplay.lblOceanCurrentDirection.Caption := FormatFloat('000.0', Value);
-                                        frmToteDisplay.rw1.degree := ValidateDegree(Value);
-                                      end;
-    E_Thermal_Layer_Depth             :
-                                      begin
-                                        frmToteDisplay.edtDepthTermalLayer.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.lblSoundVelocityLayer.Caption := FormatFloat('0.00', Value);
-                                      end;
-    E_Sound_Velocity_Type             :
-                                      begin
-                                        case Round(Value) of
-                                          0 :
-                                            begin
-                                              frmToteDisplay.Label203.Alignment := taCenter;
-                                              frmToteDisplay.Label203.Caption := 'Positive';
-                                              frmToteDisplay.lblSoundVelocityProfile.Caption := 'Positive';
+    E_Ocean_Current_Direction :
+    begin
+      {$REGION ' Ocean Current Direction '}
+      frmToteDisplay.edtOceanCurrentDirection.Text := FloatToStr(Value);
+      frmToteDisplay.lblOceanCurrentDirection.Caption := FormatFloat('000.0', Value);
+      frmToteDisplay.rw1.degree := ValidateDegree(Value);
+      {$ENDREGION}
+    end;
+    E_Thermal_Layer_Depth :
+    begin
+      {$REGION ' Thermal Layer Depth '}
+      frmToteDisplay.edtDepthTermalLayer.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.lblSoundVelocityLayer.Caption := FormatFloat('0.00', Value);
+      {$ENDREGION}
+    end;
+    E_Sound_Velocity_Type :
+    begin
+      {$REGION ' Sound Velocity Type '}
+      case Round(Value) of
+        0 :
+          begin
+            frmToteDisplay.Label203.Alignment := taCenter;
+            frmToteDisplay.Label203.Caption := 'Positive';
+            frmToteDisplay.lblSoundVelocityProfile.Caption := 'Positive';
 
-                                              frmToteDisplay.SpeedButton24.Down := True;
-                                              frmToteDisplay.SpeedButton25.Down := False;
-                                              frmToteDisplay.SpeedButton26.Down := False;
-                                              frmToteDisplay.SpeedButton27.Down := False;
-                                            end;
-                                          1 :
-                                            begin
-                                              frmToteDisplay.Label203.Alignment := taCenter;
-                                              frmToteDisplay.Label203.Caption := 'Negative';
-                                              frmToteDisplay.lblSoundVelocityProfile.Caption := 'Negative';
+            frmToteDisplay.SpeedButton24.Down := True;
+            frmToteDisplay.SpeedButton25.Down := False;
+            frmToteDisplay.SpeedButton26.Down := False;
+            frmToteDisplay.SpeedButton27.Down := False;
+          end;
+        1 :
+          begin
+            frmToteDisplay.Label203.Alignment := taCenter;
+            frmToteDisplay.Label203.Caption := 'Negative';
+            frmToteDisplay.lblSoundVelocityProfile.Caption := 'Negative';
 
-                                              frmToteDisplay.SpeedButton24.Down := False;
-                                              frmToteDisplay.SpeedButton25.Down := True;
-                                              frmToteDisplay.SpeedButton26.Down := False;
-                                              frmToteDisplay.SpeedButton27.Down := False;
-                                            end;
-                                          2 :
-                                            begin
-                                              frmToteDisplay.Label203.Alignment := taCenter;
-                                              frmToteDisplay.Label203.Caption := 'Positive over negative';
-                                              frmToteDisplay.lblSoundVelocityProfile.Caption := 'Positive over negative';
+            frmToteDisplay.SpeedButton24.Down := False;
+            frmToteDisplay.SpeedButton25.Down := True;
+            frmToteDisplay.SpeedButton26.Down := False;
+            frmToteDisplay.SpeedButton27.Down := False;
+          end;
+        2 :
+          begin
+            frmToteDisplay.Label203.Alignment := taCenter;
+            frmToteDisplay.Label203.Caption := 'Positive over negative';
+            frmToteDisplay.lblSoundVelocityProfile.Caption := 'Positive over negative';
 
-                                              frmToteDisplay.SpeedButton24.Down := False;
-                                              frmToteDisplay.SpeedButton25.Down := False;
-                                              frmToteDisplay.SpeedButton26.Down := True;
-                                              frmToteDisplay.SpeedButton27.Down := False;
-                                            end;
-                                          3 :
-                                            begin
-                                              frmToteDisplay.Label203.Alignment := taCenter;
-                                              frmToteDisplay.Label203.Caption := 'Negative over positive';
-                                              frmToteDisplay.lblSoundVelocityProfile.Caption := 'Negative over positive';
+            frmToteDisplay.SpeedButton24.Down := False;
+            frmToteDisplay.SpeedButton25.Down := False;
+            frmToteDisplay.SpeedButton26.Down := True;
+            frmToteDisplay.SpeedButton27.Down := False;
+          end;
+        3 :
+          begin
+            frmToteDisplay.Label203.Alignment := taCenter;
+            frmToteDisplay.Label203.Caption := 'Negative over positive';
+            frmToteDisplay.lblSoundVelocityProfile.Caption := 'Negative over positive';
 
-                                              frmToteDisplay.SpeedButton24.Down := False;
-                                              frmToteDisplay.SpeedButton25.Down := False;
-                                              frmToteDisplay.SpeedButton26.Down := True;
-                                              frmToteDisplay.SpeedButton27.Down := False;
-                                            end;
-                                        end;
-                                      end;
-    E_Surface_Sound_Speed             : frmToteDisplay.edtSpeedOfSoundSurface.Text := FormatFloat('0.00', Value);
-    E_Layer_Sound_Speed               : frmToteDisplay.edtSpeedOfSoundlayer.Text := FormatFloat('0.00', Value);
-    E_Bottom_Sound_Speed              : frmToteDisplay.edtSpeedOfSoundBottom.Text := FormatFloat('0.00', Value);
-    E_Bottomloss_Coefficient          :
-                                      begin
-                                        frmToteDisplay.edtBottomLost.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.trbBottomLost.Position := Round(Value);
-                                      end;
-    E_Ave_Ocean_Depth                 :
-                                      begin
-                                        frmToteDisplay.edtAvgOceanDepth.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.lblSoundVelocityAverageBottom.Caption := FormatFloat('0.00', Value);
-                                      end;
+            frmToteDisplay.SpeedButton24.Down := False;
+            frmToteDisplay.SpeedButton25.Down := False;
+            frmToteDisplay.SpeedButton26.Down := True;
+            frmToteDisplay.SpeedButton27.Down := False;
+          end;
+      end;
+      {$ENDREGION}
+    end;
+    E_Surface_Sound_Speed : frmToteDisplay.edtSpeedOfSoundSurface.Text := FormatFloat('0.00', Value);
+    E_Layer_Sound_Speed   : frmToteDisplay.edtSpeedOfSoundlayer.Text := FormatFloat('0.00', Value);
+    E_Bottom_Sound_Speed  : frmToteDisplay.edtSpeedOfSoundBottom.Text := FormatFloat('0.00', Value);
+    E_Bottomloss_Coefficient :
+    begin
+      {$REGION ' Bottomloss Coefficient '}
+      frmToteDisplay.edtBottomLost.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.trbBottomLost.Position := Round(Value);
+      {$ENDREGION}
+    end;
+    E_Ave_Ocean_Depth :
+    begin
+      {$REGION ' Ave Ocean Depth '}
+      frmToteDisplay.edtAvgOceanDepth.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.lblSoundVelocityAverageBottom.Caption := FormatFloat('0.00', Value);
+      {$ENDREGION}
+    end;
     E_CZ_Active                       : ;
     E_Surface_Ducting_Active          : ;
     E_Upper_Limit_Surface_Duct_Depth  : frmToteDisplay.edtSurfaceDuctUp.Text := FormatFloat('0.00', Value);
@@ -678,27 +693,35 @@ begin
     E_Shipping_Rate                   : frmToteDisplay.cbxShippingRate.ItemIndex := Round(Value);
     E_Shadow_Zone_Trans_Loss          : frmToteDisplay.edtShadowZone.Text := FormatFloat('0.00', Value);
     E_Atmospheric_Refract_Modifier    :
-                                      begin
-                                        frmToteDisplay.edtAtmRefract.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.trbAtmRefract.Position := Round(Value);
-                                      end;
-    E_Barometric_Pressure             :
-                                      begin
-                                        frmToteDisplay.edtBarometricPressure.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.lblOtherBarometric.Caption := FormatFloat('0.00', Value);
-                                      end;
-    E_Air_Temperature                 :
-                                      begin
-                                        frmToteDisplay.edtAirTemp.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.lblOtherAirTemp.Caption := FormatFloat('0.00', Value);
-                                      end;
-    E_Surface_Temperature             :
-                                      begin
-                                        frmToteDisplay.edtSurfaceTemperatur.Text := FormatFloat('0.00', Value);
-                                        frmToteDisplay.lblSurfaceTemp.Caption := FormatFloat('0.00', Value);
-                                      end;
-    E_Start_HF_Range_Gap              : ;
-    E_End_HF_Range_Gap                : ;
+    begin
+      {$REGION ' Atmospheric Refract Modifier '}
+      frmToteDisplay.edtAtmRefract.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.trbAtmRefract.Position := Round(Value);
+      {$ENDREGION}
+    end;
+    E_Barometric_Pressure :
+    begin
+      {$REGION ' Borometric Pressure '}
+      frmToteDisplay.edtBarometricPressure.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.lblOtherBarometric.Caption := FormatFloat('0.00', Value);
+      {$ENDREGION}
+    end;
+    E_Air_Temperature :
+    begin
+      {$REGION ' Air Temperature '}
+      frmToteDisplay.edtAirTemp.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.lblOtherAirTemp.Caption := FormatFloat('0.00', Value);
+      {$ENDREGION}
+    end;
+    E_Surface_Temperature :
+    begin
+      {$REGION ' Surface Temperature '}
+      frmToteDisplay.edtSurfaceTemperatur.Text := FormatFloat('0.00', Value);
+      frmToteDisplay.lblSurfaceTemp.Caption := FormatFloat('0.00', Value);
+      {$ENDREGION}
+    end;
+    E_Start_HF_Range_Gap : ;
+    E_End_HF_Range_Gap   : ;
   end;
 end;
 

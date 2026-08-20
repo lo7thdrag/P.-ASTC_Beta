@@ -418,34 +418,37 @@ begin
     E_Wind_Speed :
     begin
       {$REGION ' Wind Speed '}
-      frmToteDisplay.edtWindSpeed.Text := FormatFloat('0.00', Value);
-      frmToteDisplay.lblWindRelativeSpeed.Caption := FormatSpeed(Value);
-      frmToteDisplay.lblSpeedWIndTrue.Caption := FormatSpeed(Value);
+      {Tactical Display Status}
       frmTacticalDisplay.Label21.Caption := FormatSpeed(Value * C_MS_To_KNOTS);
 
-      if Value > 50 then    //add wahyu 6-03-2012
-      begin
-        frmToteDisplay.edtWindSpeed.Text := FloatToStr(0);
+      {Environtment Status}
+      frmToteDisplay.lblSpeedWIndTrue.Caption := FormatSpeed(Value);
+      frmToteDisplay.lblWindRelativeSpeed.Caption := FormatSpeed(Value);
 
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          frmTacticalDisplay.addStatus('The value Input wind speed Is To High');
-      end;
+      {Environtment Control}
+      frmToteDisplay.edtWindSpeed.Text := FormatSpeed(Value);
+
       {$ENDREGION}
     end;
     E_Wind_Direction :
     begin
       {$REGION ' Wind Direction '}
-      frmToteDisplay.edtWindDir.Text := FormatFloat('0.00', Value);
+      {Tactical Display Status}
+      frmTacticalDisplay.Label10.Caption := FormatFloat('0.00', Value);
+
+      {Environtment Status}
       frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
       frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
+
+      {Environtment Control}
+      frmToteDisplay.edtWindDir.Text := FormatCourse(Value);
       frmToteDisplay.rw.degree := ValidateDegree(Value);
-      frmTacticalDisplay.Label10.Caption := FormatFloat('0.00', Value);
       {$ENDREGION}
     end;
     E_Daytime_Visual_Modifier :
     begin
       {$REGION ' Daytime Visual Modifier '}
-       frmToteDisplay.edtDayVis.Text := FormatFloat('0.00', Value);
+       frmToteDisplay.edtDayVis.Text := FormatFloat('000', Value);
        frmToteDisplay.trbDaytimeVisual.Position := Round(Value);
 
       StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
@@ -589,22 +592,21 @@ begin
     E_Ocean_Current_Speed :
     begin
       {$REGION ' Ocean Current Speed '}
-      frmToteDisplay.edtOceanCurrentSpeed.Text := FloatToStr(Value);
-      frmToteDisplay.lblOceanCurrentSpeed.Caption := FormatFloat('00.0', Value);
+      {Environtment Status}
+      frmToteDisplay.lblOceanCurrentSpeed.Caption := FormatSpeed(Value);
 
-      if Value > 50 then  //add wahyu 6-03-2012
-      begin
-        frmToteDisplay.edtOceanCurrentSpeed.Text  := FloatToStr(0);
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          frmTacticalDisplay.addStatus('The value Input ocean current Is To High');
-      end;
+      {Environtment Control}
+      frmToteDisplay.edtOceanCurrentSpeed.Text := FormatSpeed(Value);
       {$ENDREGION}
     end;
     E_Ocean_Current_Direction :
     begin
       {$REGION ' Ocean Current Direction '}
-      frmToteDisplay.edtOceanCurrentDirection.Text := FloatToStr(Value);
-      frmToteDisplay.lblOceanCurrentDirection.Caption := FormatFloat('000.0', Value);
+      {Environtment Status}
+      frmToteDisplay.lblOceanCurrentDirection.Caption := FormatCourse(Value);
+
+      {Environtment Control}
+      frmToteDisplay.edtOceanCurrentDirection.Text := FormatCourse(Value);
       frmToteDisplay.rw1.degree := ValidateDegree(Value);
       {$ENDREGION}
     end;

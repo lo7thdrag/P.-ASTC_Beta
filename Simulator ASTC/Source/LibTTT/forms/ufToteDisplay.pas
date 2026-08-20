@@ -18684,34 +18684,40 @@ begin
 
   if Key = #13 then
   begin
-     TryStrToFloat(edtOceanCurrentSpeed.Text, ValueData);
+    TryStrToFloat(edtOceanCurrentSpeed.Text, ValueData);
 
-     if edtOceanCurrentSpeed.Text = '' then
+    if edtOceanCurrentSpeed.Text = '' then
       ValueData := 0;
 
-     with rec do
-     begin
-       rec.Envi_Chance := 14;
+    if ValueData > 6 then
+    begin
+      ShowMessage('The value Input speed Is To High');
+      Exit;
+    end;
 
-       if lvEnviroArea.ItemIndex <> -1 then
-         rec.Envi_Type := lvEnviroArea.ItemIndex
-       else
-         rec.Envi_Type := 0;
+    with rec do
+    begin
+      rec.Envi_Chance := 14;
 
-       rec.Value := ValueData;
-     end;
+      if lvEnviroArea.ItemIndex <> -1 then
+        rec.Envi_Type := lvEnviroArea.ItemIndex
+      else
+        rec.Envi_Type := 0;
 
-     if Assigned(lvEnviroArea.Selected) then
-     begin
-       env := lvEnviroArea.Selected.Data;
+      rec.Value := ValueData;
+    end;
 
-       if env is TSubArea_Enviro_Definition then
-          rec.Sub_EnviID := TSubArea_Enviro_Definition(env).FData.Enviro_Index
-       else
-          rec.Sub_EnviID := 0;
-     end;
+    if Assigned(lvEnviroArea.Selected) then
+    begin
+      env := lvEnviroArea.Selected.Data;
 
-     simMgrClient.netSend_CmdSyncEnvi(rec);
+      if env is TSubArea_Enviro_Definition then
+        rec.Sub_EnviID := TSubArea_Enviro_Definition(env).FData.Enviro_Index
+      else
+        rec.Sub_EnviID := 0;
+    end;
+
+    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
 end;
 
@@ -18772,34 +18778,40 @@ begin
 
   if Key = #13 then
   begin
-     TryStrToFloat(edtWindSpeed.Text, ValueData);
+    TryStrToFloat(edtWindSpeed.Text, ValueData);
 
-     if edtWindSpeed.Text = '' then
+    if edtWindSpeed.Text = '' then
       ValueData := 0;
 
-     with rec do
-     begin
-       rec.Envi_Chance := 1;
+    if ValueData > 50 then
+    begin
+      ShowMessage('The value Input speed Is To High');
+      Exit;
+    end;
 
-       if lvEnviroArea.ItemIndex <> -1 then
-         rec.Envi_Type := lvEnviroArea.ItemIndex
-       else
-         rec.Envi_Type := 0;
+    with rec do
+    begin
+      rec.Envi_Chance := 1;
 
-       rec.Value := ValueData;
-     end;
+      if lvEnviroArea.ItemIndex <> -1 then
+        rec.Envi_Type := lvEnviroArea.ItemIndex
+      else
+        rec.Envi_Type := 0;
 
-     if Assigned(lvEnviroArea.Selected) then
-     begin
-       env := lvEnviroArea.Selected.Data;
+      rec.Value := ValueData;
+    end;
 
-       if env is TSubArea_Enviro_Definition then
-         rec.Sub_EnviID := TSubArea_Enviro_Definition(env).FData.Enviro_Index
-       else
-         rec.Sub_EnviID := 0;
-     end;
+    if Assigned(lvEnviroArea.Selected) then
+    begin
+      env := lvEnviroArea.Selected.Data;
 
-     simMgrClient.netSend_CmdSyncEnvi(rec);
+      if env is TSubArea_Enviro_Definition then
+        rec.Sub_EnviID := TSubArea_Enviro_Definition(env).FData.Enviro_Index
+      else
+        rec.Sub_EnviID := 0;
+    end;
+
+    simMgrClient.netSend_CmdSyncEnvi(rec);
   end;
 end;
 

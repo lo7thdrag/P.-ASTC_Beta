@@ -1394,6 +1394,8 @@ end;
 
 procedure TfmCounterMeasure.InitCreate;
 begin
+  lvECM.DoubleBuffered := true;
+
   FAGroupBox[ecAcousticDecoy]      := grbAcousticDecoy ;
   FAGroupBox[ecAirborneChaff]      := grbAirborneChaff ;
   FAGroupBox[ecFloatingDecoy]      := grbFloatingDecoy;
@@ -1403,6 +1405,8 @@ begin
   FAGroupBox[ecOnBoardDefence]     := grbOnBoardSelfDefenseJammer;
   FAGroupBox[ecBubble]             := grpAirBubble;
   FAGroupBox[ecRadarNoiseJammer]   := grbRadarNoiseJammer;  //jammer noise
+
+
 end;
 
 procedure TfmCounterMeasure.InitSurfaceChaffUI;
@@ -2095,6 +2099,7 @@ begin
   if not (Sender is TT3RadarNoiseJammerOnVehicle) then
     exit
   else
+
     jammer := TT3RadarNoiseJammerOnVehicle(Sender);
 
   case jammer.Status of

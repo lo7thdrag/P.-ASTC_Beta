@@ -213,6 +213,9 @@ type
     procedure fmFireControl1btnSearchFireControlAssetsTargetClick(
       Sender: TObject);
     procedure fmCounterMeasure1ckSurfaceChaffEnabledClick(Sender: TObject);
+    procedure fmCounterMeasure1lvECMSelectItem(Sender: TObject; Item: TListItem;
+      Selected: Boolean);
+    procedure FormCreate(Sender: TObject);
   private
     FTacticalDisplay: TfrmTacticalDisplay;
     FObjectAssignedByGun : TSimObject;
@@ -1307,6 +1310,13 @@ begin
   end;
 end;
 
+procedure TfrmLeftAtasAir.fmCounterMeasure1lvECMSelectItem(Sender: TObject;
+  Item: TListItem; Selected: Boolean);
+begin
+  fmCounterMeasure1.lvECMSelectItem(Sender, Item, Selected);
+
+end;
+
 procedure TfrmLeftAtasAir.fmCounterMeasure1sbRadarJammingControlActivationOffClick(
   Sender: TObject);
 begin
@@ -1406,6 +1416,11 @@ begin
   begin
     fmSensor1.btnIFFOnClick(Sender);
   end;
+end;
+
+procedure TfrmLeftAtasAir.FormCreate(Sender: TObject);
+begin
+  fmCounterMeasure1.InitCreate(self);
 end;
 
 procedure TfrmLeftAtasAir.FormShow(Sender: TObject);

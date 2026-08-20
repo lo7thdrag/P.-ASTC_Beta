@@ -1215,70 +1215,6 @@ type
     mnEngagement1: TMenuItem;
     mnShadow1: TMenuItem;
     mnReturntoBase1: TMenuItem;
-    pnlMainBackground: TPanel;
-    pnlMainRight: TPanel;
-    pnlWeaponsStatus: TPanel;
-    Image4: TImage;
-    Label82: TLabel;
-    lvWeaponNav: TTreeView;
-    pnlCountermeasures: TPanel;
-    Image3: TImage;
-    Label83: TLabel;
-    lvCountermeasuresNav: TTreeView;
-    pnSensorsStatusBG: TPanel;
-    Image5: TImage;
-    Label84: TLabel;
-    lvSensorNav: TListView;
-    pnlSystemState: TPanel;
-    Image2: TImage;
-    Label85: TLabel;
-    lvSystemStateNav: TListView;
-    pnlSMS: TPanel;
-    Image8: TImage;
-    Label86: TLabel;
-    Panel108: TPanel;
-    pcReceived: TPageControl;
-    TabSheet1: TTabSheet;
-    Panel109: TPanel;
-    ListView4: TListView;
-    TabSheet2: TTabSheet;
-    Panel111: TPanel;
-    ListView5: TListView;
-    TabSheet3: TTabSheet;
-    Panel112: TPanel;
-    ListView6: TListView;
-    Panel113: TPanel;
-    Panel114: TPanel;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
-    Button5: TButton;
-    Button6: TButton;
-    Button7: TButton;
-    Button8: TButton;
-    Panel115: TPanel;
-    Memo1: TMemo;
-    Panel116: TPanel;
-    Image6: TImage;
-    btnSensors: TRzBmpButton;
-    btnWeapons: TRzBmpButton;
-    btnSystemState: TRzBmpButton;
-    btnMessage: TRzBmpButton;
-    btnEmbarked: TRzBmpButton;
-    btnPlatform: TRzBmpButton;
-    btnCountermeasures: TRzBmpButton;
-    pnlEmbarkedBG: TPanel;
-    Image9: TImage;
-    Label87: TLabel;
-    Panel117: TPanel;
-    Label89: TLabel;
-    TreeView4: TTreeView;
-    Edit2: TEdit;
-    pnlEmbarkedBottom: TPanel;
-    Panel118: TPanel;
-    Image7: TImage;
-    Label90: TLabel;
-    lvPlatformNav: TListView;
     Panel119: TPanel;
     Label91: TLabel;
     SpeedButton4: TSpeedButton;
@@ -1311,6 +1247,233 @@ type
     Image14: TImage;
     Image15: TImage;
     Image16: TImage;
+    pnlNavigasi: TPanel;
+    Panel16: TPanel;
+    Panel22: TPanel;
+    Image9: TImage;
+    Label17: TLabel;
+    Label82: TLabel;
+    lblDayVisualNav: TLabel;
+    lblNightimeVisualNav: TLabel;
+    Label83: TLabel;
+    lblDaytimeInfraredNav: TLabel;
+    Label84: TLabel;
+    lblNightimeInfraredNav: TLabel;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    Image17: TImage;
+    Image18: TImage;
+    Image19: TImage;
+    Image20: TImage;
+    Image21: TImage;
+    Panel54: TPanel;
+    Label92: TLabel;
+    lblAtmosphereNav: TLabel;
+    Bevel4: TBevel;
+    Image8: TImage;
+    Panel55: TPanel;
+    Panel56: TPanel;
+    Panel23: TPanel;
+    imgRainStateNav: TImage;
+    Label90: TLabel;
+    lblRainstateNav: TLabel;
+    Panel130: TPanel;
+    Label13: TLabel;
+    lblSeaStatDescNav: TLabel;
+    imgSeaStateNav: TImage;
+    pnl1: TPanel;
+    pnlSystemState: TPanel;
+    lvSystemStateNav: TListView;
+    Panel92: TPanel;
+    pnlCountermeasures: TPanel;
+    lvCountermeasuresNav: TTreeView;
+    Panel108: TPanel;
+    pnlWeaponsStatus: TPanel;
+    lvWeaponNav: TTreeView;
+    Panel109: TPanel;
+    pnSensorsStatusBG: TPanel;
+    lvSensorNav: TListView;
+    Panel111: TPanel;
+    Panel112: TPanel;
+    Panel113: TPanel;
+    Panel114: TPanel;
+    lvLogisticPlatformNav: TListView;
+    Panel115: TPanel;
+    Label94: TLabel;
+    btnChangeLogisticNav: TButton;
+    edtLogisticNav: TEdit;
+    pnlImage: TPanel;
+    lblShipNAme: TLabel;
+    lblClass: TLabel;
+    pnlImageShip: TPanel;
+    Image2: TImage;
+    pnlSMS: TPanel;
+    Panel25Nav: TPanel;
+    pcReceivedNav: TPageControl;
+    TabSheet1Nav: TTabSheet;
+    Panel74Nav: TPanel;
+    lvReceiveNav: TListView;
+    TabSheet2Nav: TTabSheet;
+    Panel78Nav: TPanel;
+    lvSentNav: TListView;
+    TabSheet3Nav: TTabSheet;
+    Panel82Nav: TPanel;
+    lvDraftNav: TListView;
+    Panel20Nav: TPanel;
+    Panel75Nav: TPanel;
+    mmoMessageNav: TMemo;
+    Panel49Nav: TPanel;
+    btnNewNav: TButton;
+    btnRemoveNav: TButton;
+    btnReplyNav: TButton;
+    btnForwardNav: TButton;
+    btnSendNav: TButton;
+    btnEditNav: TButton;
+    btnPrintNav: TButton;
+    Panel129: TPanel;
+    pnlTransportNav: TPanel;
+    pnlNone: TPanel;
+    Panel117: TPanel;
+    Panel118: TPanel;
+    pnlAirPlatformNav: TPanel;
+    Label103: TLabel;
+    Panel121: TPanel;
+    btnTakeoffNav: TSpeedButton;
+    Label104: TLabel;
+    lvAirCarriedNav: TListView;
+    Panel122: TPanel;
+    Label105: TLabel;
+    Label106: TLabel;
+    lblMaxCapacityHangerNav: TLabel;
+    Label107: TLabel;
+    Label108: TLabel;
+    lblFreeCapacityHangerNav: TLabel;
+    Label109: TLabel;
+    Label110: TLabel;
+    lblCurrentWeightHangerNav: TLabel;
+    pnlContactSheet: TPanel;
+    pnlGeneral: TPanel;
+    pnlAir: TPanel;
+    pnlPersonelT: TPanel;
+    pnlLanding: TPanel;
+    pnlAmphibi: TPanel;
+    pnlLandingCraftPlatformNav: TPanel;
+    Label28Nav: TLabel;
+    TreeView1Nav: TTreeView;
+    Panel34Nav: TPanel;
+    Label111: TLabel;
+    Label112: TLabel;
+    Label42Nav: TLabel;
+    Label114: TLabel;
+    Label115: TLabel;
+    Label48Nav: TLabel;
+    Label116: TLabel;
+    Label117: TLabel;
+    Label65Nav: TLabel;
+    Panel101Nav: TPanel;
+    btnLandingCraftDisembarkNav: TSpeedButton;
+    btnLandingCraftDisembarkWithNav: TSpeedButton;
+    Label118: TLabel;
+    lvLandingCraftCarriedNav: TListView;
+    pnlPersonelPlatformNav: TPanel;
+    Label119: TLabel;
+    TreeView2: TTreeView;
+    Panel125: TPanel;
+    Label120: TLabel;
+    Label121: TLabel;
+    lblMaxCapacityPersonelNav: TLabel;
+    Label146: TLabel;
+    Label154: TLabel;
+    lblFreeCapacityPersonelNav: TLabel;
+    Label161: TLabel;
+    Label162: TLabel;
+    lblCurrentWeightPersonelNav: TLabel;
+    Panel126: TPanel;
+    btnPersonelDebarkasiNav: TSpeedButton;
+    btnPersonelDebarkasiWithNav: TSpeedButton;
+    Label174: TLabel;
+    lvPersonelCarriedNav: TListView;
+    pnlAmphibiousPlatformNav: TPanel;
+    Label176: TLabel;
+    lvAmphibiousandLandCarriedNav: TListView;
+    Panel127: TPanel;
+    Label232: TLabel;
+    Label233: TLabel;
+    lblMaxSpaceHullNav: TLabel;
+    Label234: TLabel;
+    Label235: TLabel;
+    lblFreeSpaceHullNav: TLabel;
+    Label236: TLabel;
+    Label237: TLabel;
+    lblCurrentWeightHullNav: TLabel;
+    Panel128: TPanel;
+    btnAmphibiousLandDisembarkNav: TSpeedButton;
+    btnAmphibiousLandDisembarkWithNav: TSpeedButton;
+    lblDisembarkStatusNav: TLabel;
+    Label238: TLabel;
+    btnOpenHullViewNav: TButton;
+    pnlInfoKapalNav: TPanel;
+    pnlPlatformDetailsNav: TPanel;
+    lbClassNav: TLabel;
+    lblMaxWeightNav: TLabel;
+    lblTotalWeightNav: TLabel;
+    lblVehicleNameNav: TLabel;
+    btnTransportEmbarkasiNav: TSpeedButton;
+    lbl7Nav: TLabel;
+    lbl8Nav: TLabel;
+    lbl10Nav: TLabel;
+    lbl9Nav: TLabel;
+    pnlEmbarkStatusNav: TPanel;
+    lbl17Nav: TLabel;
+    lbl18Nav: TLabel;
+    lblHostPlatformNav: TLabel;
+    lblHostPlatformClassNav: TLabel;
+    lbl21Nav: TLabel;
+    lblPlatformEmbarkStatusNav: TLabel;
+    btnHullViewNav: TButton;
+    btnMemberTakeOffNav: TButton;
+    btnMemberDisembarkNav: TButton;
+    pnlRampStatusNav: TPanel;
+    lbl11Nav: TLabel;
+    pnlRampDetailsNav: TPanel;
+    pnlRampStarboardNav: TPanel;
+    lbl12Nav: TLabel;
+    pnlRampStarboardImageNav: TPanel;
+    pnlRampStarboardLeftNav: TPanel;
+    pnlRampStarboardRightNav: TPanel;
+    pnlRampStarboardUpNav: TPanel;
+    pnlRampStarboardDoorNav: TPanel;
+    btnStarboardRampNav: TButton;
+    pnlRampPortNav: TPanel;
+    lbl14Nav: TLabel;
+    pnlRampPortImageNav: TPanel;
+    pnlRampPortLeftNav: TPanel;
+    pnlRampPortRightNav: TPanel;
+    pnlRampPortUpNav: TPanel;
+    pnlRampPortDoorNav: TPanel;
+    btnPortRampNav: TButton;
+    pnlRampBackNav: TPanel;
+    lbl15Nav: TLabel;
+    pnlRampBackImageNav: TPanel;
+    pnlRampBackLeftNav: TPanel;
+    pnlRampBackRightNav: TPanel;
+    pnlRampBackUpNav: TPanel;
+    pnlRampBackDoorNav: TPanel;
+    btnBackRampNav: TButton;
+    pnlRampFrontNav: TPanel;
+    lbl16Nav: TLabel;
+    pnlRampFrontImageNav: TPanel;
+    pnlRampFrontLeftNav: TPanel;
+    pnlRampFrontRightNav: TPanel;
+    pnlRampFrontUpNav: TPanel;
+    pnlRampFrontDoorNav: TPanel;
+    btnFrontRampNav: TButton;
+    imgTransportNav: TImage;
+    Image7: TImage;
+    pnlNoneTransport: TPanel;
+    lvPlatformEmbarkDisembarkNav: TListView;
 
 
 
@@ -1634,6 +1797,16 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure btnRainClick(Sender: TObject);
     procedure btnCloudClick(Sender: TObject);
+    procedure Panel56Click(Sender: TObject);
+    procedure Panel55Click(Sender: TObject);
+    procedure imgTransportNavClick(Sender: TObject);
+    procedure btnTransport(Sender: TObject);
+    procedure lvAmphibiousandLandCarriedNavSelectItem(Sender: TObject;
+      Item: TListItem; Selected: Boolean);
+    procedure lvLandingCraftCarriedNavSelectItem(Sender: TObject;
+      Item: TListItem; Selected: Boolean);
+    procedure btnPersonelDebarkasiWithNavClick(Sender: TObject);
+//    procedure Panel56Click(Sender: TObject);
 
     {$ENDREGION}
 
@@ -1726,9 +1899,14 @@ type
 
     //NAVIGASI
     procedure SetUpToteNavigasiUI;
+    procedure RefreshNavigasi(Sender: TObject);
+//    procedure BTNransport(Sender: TObject);
 
     //GENERAL
     procedure SetUpToteGeneralUI;
+
+  protected
+    FControlled: TObject;
 
 public
     sgSurToSurEditedRow, sgSurToAirEditedRow: Integer;
@@ -2810,6 +2988,13 @@ begin
       liLubricants : recLogistic.vLubricants := StrToFloat(edtLogistic.Text);
       liWater : recLogistic.vWater := StrToFloat(edtLogistic.Text);
       liFood : recLogistic.vFood := StrToFloat(edtLogistic.Text);
+    end;
+
+    case LogisticItemID of
+      liFuel : recLogistic.vFuel := StrToFloat(edtLogisticNav.Text);
+      liLubricants : recLogistic.vLubricants := StrToFloat(edtLogisticNav.Text);
+      liWater : recLogistic.vWater := StrToFloat(edtLogisticNav.Text);
+      liFood : recLogistic.vFood := StrToFloat(edtLogisticNav.Text);
     end;
 
     simMgrClient.netSend_Cmd_Change_Logistic(recLogistic);
@@ -5154,6 +5339,7 @@ begin
   FLastPlatform := nil;
   lvEventSummary.StateImages := ImageList1;
   lvPlatformEmbarkDisembark.StateImages := ImageList1;
+  lvPlatformEmbarkDisembarkNav.StateImages := ImageList1;
 
   mList := TList.Create;
 
@@ -5430,6 +5616,16 @@ begin
       frmTacticalDisplay.Map1.Repaint;
       Break;
     end;
+
+    {NAVIGASI}
+    if Assigned(lvPlatformEmbarkDisembarkNav.Selected) and (TT3PlatformInstance(frmTacticalDisplay.cbAssumeControl.Items.Objects[I]).InstanceIndex = TT3PlatformInstance(lvPlatformEmbarkDisembarkNav.Selected.Data).InstanceIndex) then
+    begin
+      index := I;
+      frmTacticalDisplay.cbAssumeControl.ItemIndex := index;
+      frmTacticalDisplay.cbAssumeControlChange(self);
+      frmTacticalDisplay.Map1.Repaint;
+      Break;
+    end;
   end;
 
   if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then Exit;
@@ -5445,25 +5641,25 @@ end;
 
 procedure TfrmToteDisplay.StatusOperationClick(sender: TObject);
 begin
-
+  lvSystemStateNav.Selected.SubItems[0] := 'Operation';
   lvSystemState.Selected.SubItems[0] := 'Operation';
 end;
 
 procedure TfrmToteDisplay.StatusPercentageClick(sender: TObject);
 begin
-
+  lvSystemStateNav.Selected.Focused := true;
   lvSystemState.Selected.Focused := true;
 end;
 
 procedure TfrmToteDisplay.StatusEnableClick(sender: TObject);
 begin
-
+  lvSystemStateNav.Selected.SubItems[0] := 'On';
   lvSystemState.Selected.SubItems[0] := 'On';
 end;
 
 procedure TfrmToteDisplay.StatusPendingClick(sender: TObject);
 begin
-
+  lvSystemStateNav.Selected.SubItems[0] := 'Pending';
   lvSystemState.Selected.SubItems[0] := 'Pending';
 end;
 
@@ -5660,6 +5856,7 @@ end;
 
 procedure TfrmToteDisplay.StatusDisableClick(sender: TObject);
 begin
+  lvSystemStateNav.Selected.SubItems[0] := 'Off';
   lvSystemState.Selected.SubItems[0] := 'Off';
 end;
 
@@ -5817,6 +6014,9 @@ begin
     if (lvSystemState.Selected = nil) or (lvSystemState.ItemIndex = -1) then
       Exit;
 
+    if (lvSystemStateNav.Selected = nil) or (lvSystemStateNav.ItemIndex = -1) then
+      Exit;
+
     // if percentage status
     if (TListView(sender).Selected.Caption = 'Overall Damage') or
       (TListView(sender).Selected.Caption = 'Speed') or
@@ -5867,12 +6067,16 @@ var
 begin
   // clear Tree
   tvWeapons.Items.Clear;
+  lvWeaponNav.Items.Clear;
+
   // setup tree
   if Assigned(weapons) then
   begin
     for i := 0 to weapons.Count - 1 do
     begin
       tn := TTreeNode.Create(tvWeapons.Items);
+      tn := TTreeNode.Create(lvWeaponNav.Items);
+
       // GUN
       case TT3Weapon(weapons[I]).WeaponStatus of
         wsAvailable : status := 'Available';
@@ -5887,15 +6091,22 @@ begin
         tn.StateIndex := 3;
         tn.Data := TT3GunOnVehicle(weapons.Items[i]);
         tvWeapons.Items.AddObject(nil, tn.Text, tn.Data);
+        lvWeaponNav.Items.AddObject(nil, tn.Text, tn.Data);
 
         temp := TTreeNode.Create(tvWeapons.Items);
         temp.Text := IntToStr(TT3GunOnVehicle(tn.Data).Quantity);
         temp := FindText(tvWeapons, tn.Text);
 
+        temp := TTreeNode.Create(lvWeaponNav.Items);
+        temp := FindText(lvWeaponNav, tn.Text);
+
         if temp.HasChildren then
           temp := temp.getNextSibling;
 
         tvWeapons.Items.AddChildObject(temp,
+          IntToStr(TT3GunOnVehicle(tn.Data).Quantity), tn.Data);
+
+        lvWeaponNav.Items.AddChildObject(temp,
           IntToStr(TT3GunOnVehicle(tn.Data).Quantity), tn.Data);
       end
       // MISSILE
@@ -5908,10 +6119,16 @@ begin
           (tn.Text + ' : ' + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity)),
           tn.Data);
 
+        tn.Data := TT3MissilesOnVehicle(weapons.Items[i]);
+        lvWeaponNav.Items.AddObject(nil,
+          (tn.Text + ' : ' + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity)),
+          tn.Data);
+
         for j := 0 to TT3MissilesOnVehicle(weapons.Items[i]).MissileDefinition.FLaunchs.Count - 1 do
         begin
           MissileLauncher := TFitted_Weap_Launcher_On_Board(TT3MissilesOnVehicle(weapons.Items[i]).MissileDefinition.FLaunchs.Items[j]);
 
+          temp      := TTreeNode.Create(lvWeaponNav.Items);
           temp      := TTreeNode.Create(tvWeapons.Items);
           temp.Data := MissileLauncher;
 
@@ -5930,6 +6147,15 @@ begin
           tvWeapons.Items.AddChild(temp, 'Launcher '
                                    + IntToStr(launcherNumber) + ' : '
                                    + IntToStr(MissileLauncher.FData.Launcher_Qty));
+
+          //Parent
+          temp      := FindText(lvWeaponNav, tn.Text + ' : '
+                       + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity));
+
+          //Child
+          lvWeaponNav.Items.AddChild(temp, 'Launcher '
+                                   + IntToStr(launcherNumber) + ' : '
+                                   + IntToStr(MissileLauncher.FData.Launcher_Qty));
         end;
 
         //Parent
@@ -5944,6 +6170,8 @@ begin
         tn.Data := TT3TorpedoesOnVehicle(weapons.Items[i]);
         tvWeapons.Items.AddObject(nil, tn.Text + ' : ' + IntToStr
             (TT3TorpedoesOnVehicle(tn.Data).Quantity), tn.Data);
+        lvWeaponNav.Items.AddObject(nil, tn.Text + ' : ' + IntToStr
+            (TT3TorpedoesOnVehicle(tn.Data).Quantity), tn.Data);
 
         for j := 0 to TT3TorpedoesOnVehicle(weapons.Items[i]).Quantity - 1 do
         begin
@@ -5952,6 +6180,12 @@ begin
           temp := FindText(tvWeapons,
             tn.Text + ' : ' + IntToStr(TT3TorpedoesOnVehicle(tn.Data).Quantity));
           tvWeapons.Items.AddChild(temp, 'Launcher ' + IntToStr(j + 1));
+
+          temp := TTreeNode.Create(lvWeaponNav.Items);
+          temp.Text := 'Launcher ' + IntToStr(j + 1);
+          temp := FindText(lvWeaponNav,
+            tn.Text + ' : ' + IntToStr(TT3TorpedoesOnVehicle(tn.Data).Quantity));
+          lvWeaponNav.Items.AddChild(temp, 'Launcher ' + IntToStr(j + 1));
           // FindAdd(tvWeapons, tn.Text, 'Launcher ' + IntToStr(j+1));
         end;
       end
@@ -5967,10 +6201,16 @@ begin
         temp.Text := IntToStr(TT3BombONVehicle(tn.Data).Quantity);
         temp := FindText(tvWeapons, tn.Text);
 
+        lvWeaponNav.Items.AddObject(nil, tn.Text, tn.Data);
+        temp := TTreeNode.Create(lvWeaponNav.Items);
+        temp := FindText(lvWeaponNav, tn.Text);
+
         if temp.HasChildren then
           temp := temp.getNextSibling;
 
         tvWeapons.Items.AddChildObject(temp,
+          IntToStr(TT3BombONVehicle(tn.Data).Quantity), tn.Data);
+        lvWeaponNav.Items.AddChildObject(temp,
           IntToStr(TT3BombONVehicle(tn.Data).Quantity), tn.Data);
       end
       // MINE
@@ -5985,10 +6225,17 @@ begin
         temp.Text := IntToStr(TT3MineOnVehicle(tn.Data).Quantity);
         temp := FindText(tvWeapons, tn.Text);
 
+        lvWeaponNav.Items.AddObject(nil, tn.Text, tn.Data);
+
+        temp := TTreeNode.Create(lvWeaponNav.Items);
+        temp := FindText(lvWeaponNav, tn.Text);
+
         if temp.HasChildren then
           temp := temp.getNextSibling;
 
         tvWeapons.Items.AddChildObject(temp,
+          IntToStr(TT3MineOnVehicle(tn.Data).Quantity), tn.Data);
+        lvWeaponNav.Items.AddChildObject(temp,
           IntToStr(TT3MineOnVehicle(tn.Data).Quantity), tn.Data);
       end;
     end;
@@ -5996,6 +6243,7 @@ begin
 
   // expand all
   tvWeapons.FullExpand;
+  lvWeaponNav.FullExpand;
 end;
 
 procedure TfrmToteDisplay.showEmbarkQuantity(sender : TObject);
@@ -6026,6 +6274,9 @@ begin
   if CategoryPanelStatusOp.Enabled then
   begin
     if (lvSystemState.Selected = nil) or (lvSystemState.ItemIndex = -1) then
+      Exit;
+
+    if (lvSystemStateNav.Selected = nil) or (lvSystemStateNav.ItemIndex = -1) then
       Exit;
 
     GetCursorPos(pos);
@@ -6713,6 +6964,7 @@ begin
   {$ENDREGION}
 
   btnLandingCraftDisembark.Enabled := False;
+  btnLandingCraftDisembarkNav.Enabled := False;
 end;
 
 procedure TfrmToteDisplay.btnLaunchClick(Sender: TObject);
@@ -8569,6 +8821,8 @@ begin
 
       SetupWasdalUI;
     end;
+
+    SetUpToteGeneralUI;
   end
   // cubicle
   else if rc = crpCubicle then
@@ -8585,7 +8839,7 @@ begin
       1:
       begin
         {$REGION ' Navigasi '}
-//        SetUpToteNavigasiUI;
+        SetUpToteNavigasiUI;
         {$ENDREGION}
       end;
       2:
@@ -8601,7 +8855,7 @@ begin
       4:
       begin
         {$REGION ' General '}
-//        SetUpToteGeneralUI
+        SetUpToteGeneralUI
         {$ENDREGION}
       end;
     end;
@@ -8680,14 +8934,17 @@ end;
 
 procedure TfrmToteDisplay.SetUpToteGeneralUI;
 begin
-//  pnlMainGeneral.Visible := True;
-//  pnlMainNavigasi.Visible := False;
+  pnlMainGeneral.Visible := True;
+  pnlMainNavigasi.Visible := False;
 end;
 
 procedure TfrmToteDisplay.SetUpToteNavigasiUI;
+var
+  pi: TT3PlatformInstance;
 begin
-//  pnlMainGeneral.Visible := False;
-//  pnlMainNavigasi.Visible := True;
+  pnlMainGeneral.Visible := False;
+  pnlMainNavigasi.Visible := True;
+  RefreshNavigasi(pi);
 end;
 
 procedure TfrmToteDisplay.cbSetEnDisClick(sender: TObject);
@@ -9054,6 +9311,11 @@ begin
   for I := Low(FSidePanels) to High(FSidePanels) do
     FSidePanels[I].Visible := False;
 
+end;
+
+procedure TfrmToteDisplay.imgTransportNavClick(Sender: TObject);
+begin
+  pnlTransportNav.BringToFront;
 end;
 
 procedure TfrmToteDisplay.Inactive1Click(Sender: TObject);
@@ -9826,7 +10088,12 @@ begin
 
 //          for i := 0 to sgSurfacetoSurface.RowCount - 1 do
 //          begin
-//            if sgSurfacetoSurface.Cells[0, i] = '' then
+//            if sgSurfacetoSurfaprocedure TfrmToteDisplay.Panel56Click(Sender: TObject);
+begin
+
+end;
+
+//ce.Cells[0, i] = '' then
 //            begin
 //              emptyRow := i;
 //              break;
@@ -9886,6 +10153,17 @@ begin
     end;
   end;
 end;
+procedure TfrmToteDisplay.Panel55Click(Sender: TObject);
+begin
+  pnlTransportNav.BringToFront;
+end;
+
+procedure TfrmToteDisplay.Panel56Click(Sender: TObject);
+begin
+//  pnlSMS.BringToFront;
+  frmTacticalDisplay.Show;
+end;
+
 //procedure TfrmToteDisplay.Panel83Click(Sender: TObject);
 //begin
 //
@@ -10699,10 +10977,12 @@ begin
     Exit;
 
   tvCountermeasures.Items.Clear;
+  lvCountermeasuresNav.Items.Clear;
 
   if Assigned(sender.Devices) then
   begin
     tn := TTreeNode.Create(tvCountermeasures.Items);
+    tn := TTreeNode.Create(lvCountermeasuresNav.Items);
 
     for i := 0 to sender.Devices.Count - 1 do
     begin
@@ -10739,6 +11019,7 @@ begin
 
         tn.Text := counter.InstanceName + ' : ' + ecmstatus;
         tvCountermeasures.Items.AddChildObject(tn, tn.Text, counter);
+        lvCountermeasuresNav.Items.AddChildObject(tn, tn.Text, counter);
       end;
     end;
   end;
@@ -11398,6 +11679,7 @@ var
 begin
   lvPlatforms.Items.Clear;
   lvPlatformEmbarkDisembark.Items.Clear;
+  lvPlatformEmbarkDisembarkNav.Items.Clear;
   lvPlatformLogistic.Items.Clear;
 
   with simMgrClient do
@@ -11419,35 +11701,41 @@ begin
             lvPlatforms.Canvas.Brush.Color := clRed;
             forceColor := 'Red';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clRed;
+            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clRed;
           end;
           fcBlue:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlue;
             forceColor := 'Blue';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlue;
+            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlue;
           end;
           fcGreen:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlue;
             forceColor := 'Green';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clGreen;
+            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clGreen;
           end;
           fcAmber:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlue;
             forceColor := 'Yellow';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clYellow;
+            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clYellow;
           end;
           fcNoForce:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlack;
             forceColor := 'No Force';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlack;
+            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlack;
           end;
         else
           lvPlatforms.Canvas.Brush.Color := clBlack;
           forceColor := 'Black'; //mk
           lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlack;
+          lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlack;
         end;
 
         if pi is TT3Vehicle then     //mk
@@ -11464,6 +11752,7 @@ begin
 
             {untuk menampilkan di halaman embark/disembark}
             li2 := lvPlatformEmbarkDisembark.Items.Add;
+            li2 := lvPlatformEmbarkDisembarkNav.Items.Add;
             li2.Caption := pi.InstanceName;
             li2.SubItems.Add(pi.InstanceClass);
             li2.SubItems.Add(pi.Track_ID);
@@ -11509,23 +11798,27 @@ begin
             lvPlatforms.Canvas.Brush.Color := clRed;
             forceColor := 'Red';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clRed;
+            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clRed;
           end;
           fcBlue:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlue;
             forceColor := 'Blue';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlue;
+            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlue;
           end;
           fcNoForce:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlack;
             forceColor := 'No Force';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlack;
+            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlack;
           end;
         else
           lvPlatforms.Canvas.Brush.Color := clBlack;
           forceColor := 'Black'; //mk
           lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlack;
+          lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlack;
         end;
 
         if pi is TT3Vehicle then     //mk
@@ -11542,6 +11835,7 @@ begin
 
             {untuk menampilkan di halaman embark/disembark}
             li2 := lvPlatformEmbarkDisembark.Items.Add;
+            li2 := lvPlatformEmbarkDisembarkNav.Items.Add;
             li2.Caption := pi.InstanceName;
             li2.SubItems.Add(pi.InstanceClass);
             li2.SubItems.Add(IntToStr(pi.TrackNumber));
@@ -12744,6 +13038,11 @@ begin
   else
     result := lvSystemState.Items[row];
 
+  if lvSystemStateNav.Items.Count <= row then
+    result := lvSystemState.Items.Add
+  else
+    result := lvSystemState.Items[row];
+
   result.Caption := Caption;
 
   if result.SubItems.Count < 1 then
@@ -12968,15 +13267,18 @@ begin
     Exit;
 
   lvSystemState.Items.Clear;
+  lvSystemStateNav.Items.Clear;
 
   //Overall Damage
   li := lvSystemState.Items.Add;
+  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Overall Damage';
   li.SubItems.Add(IntToStr(sender.DamageOverall) + ' %');
 
   //Helm
   li := lvSystemState.Items.Add;
+  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Helm';
   if sender.DamageHelm then
@@ -12986,6 +13288,7 @@ begin
 
   //Propultion
   li := lvSystemState.Items.Add;
+  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Propulsion';
   if sender.DamagePropulsion then
@@ -12995,18 +13298,21 @@ begin
 
   //Speed
   li := lvSystemState.Items.Add;
+  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Speed';
   li.SubItems.Add(IntToStr(sender.DamagePercentSpeed)  +' %');
 
   //Fuel Remaining
   li := lvSystemState.Items.Add;
+  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Fuel Remaining';
   li.SubItems.Add(FloatToStr(Round(sender.FuelPercentage)) + ' %');
 
   //Fuel Leakage
   li := lvSystemState.Items.Add;
+  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Fuel Leakage';
   if sender.FuelLeakage then
@@ -13144,6 +13450,7 @@ begin
   // sensors
   //lvSensors.Items.Clear;
   tvCountermeasures.Items.Clear;
+  lvCountermeasuresNav.Items.Clear;
   if Assigned(ve.Devices) then
   begin
     for i := 0 to ve.Devices.Count - 1 do
@@ -13235,6 +13542,7 @@ begin
         else if (TT3DeviceUnit(Devices[i]) is TT3CounterMeasure) then
         begin
           tn := TTreeNode.Create(tvCountermeasures.Items);
+          tn := TTreeNode.Create(lvCountermeasuresNav.Items);
 
           if (TT3CounterMeasure(Devices.Items[i]) is TT3ChaffOnVehicle) then
             tn.StateIndex := 1
@@ -13276,6 +13584,11 @@ begin
           temp := FindText(tvCountermeasures, tn.Text);
 
           tvCountermeasures.Items.AddChild(temp, ecmStatus);
+
+          lvCountermeasuresNav.Items.AddObject(nil, tn.Text, tn.Data);
+          temp := FindText(lvCountermeasuresNav, tn.Text);
+
+          lvCountermeasuresNav.Items.AddChild(temp, ecmStatus);
         end;
       end;
     end;
@@ -13338,6 +13651,7 @@ begin
   // sensors
   //lvSensors.Items.Clear;
   tvCountermeasures.Items.Clear;
+  lvCountermeasuresNav.Items.Clear;
   if Assigned(ve.Devices) then
   begin
     for i := 0 to ve.Devices.Count - 1 do
@@ -13427,6 +13741,7 @@ begin
         else if (TT3DeviceUnit(Devices[i]) is TT3CounterMeasure) then
         begin
           tn := TTreeNode.Create(tvCountermeasures.Items);
+          tn := TTreeNode.Create(lvCountermeasuresNav.Items);
 
           if (TT3CounterMeasure(Devices.Items[i]) is TT3ChaffOnVehicle) then
             tn.StateIndex := 1
@@ -13468,6 +13783,11 @@ begin
           temp := FindText(tvCountermeasures, tn.Text);
 
           tvCountermeasures.Items.AddChild(temp, ecmStatus);
+
+          lvCountermeasuresNav.Items.AddObject(nil, tn.Text, tn.Data);
+          temp := FindText(lvCountermeasuresNav, tn.Text);
+
+          lvCountermeasuresNav.Items.AddChild(temp, ecmStatus);
         end;
       end;
     end;
@@ -13583,6 +13903,7 @@ begin
     Exit;
 
   tvWeapons.Items.Clear;
+  lvWeaponNav.Items.Clear;
 
   if Assigned(sender.Weapons) then
   begin
@@ -13603,15 +13924,18 @@ begin
       begin
         WeaponText := TT3GunOnVehicle(weapon).InstanceName + ' : ' + status;
         tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3GunOnVehicle(weapon));
+        tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3GunOnVehicle(weapon));
         //tnParent := tvWeapons.Items.AddObject(tnParent, WeaponText, TT3GunOnVehicle(weapon));
 
         tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3GunOnVehicle(weapon).Quantity), TT3GunOnVehicle(weapon));
+        lvWeaponNav.Items.AddChildObject(tnParent, IntToStr(TT3GunOnVehicle(weapon).Quantity), TT3GunOnVehicle(weapon));
       end
       // MISSILE
       else if weapon is TT3MissilesOnVehicle then
       begin
         WeaponText := TT3MissilesOnVehicle(weapon).InstanceName + ' : ' + status + ' : ' + IntToStr(TT3MissilesOnVehicle(weapon).Quantity);
         tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3MissilesOnVehicle(weapon));
+        tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3MissilesOnVehicle(weapon));
         //tnParent := tvWeapons.Items.AddObject(tnParent, WeaponText, TT3MissilesOnVehicle(weapon));
 
         if Assigned(TT3MissilesOnVehicle(weapon).MissileDefinition) then
@@ -13629,6 +13953,7 @@ begin
             LauncherText := 'Launcher ' + IntToStr(launcherNumber) + ' : ' + IntToStr(WeaponLauncher.FData.Launcher_Qty);
 
             tvWeapons.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
+            lvWeaponNav.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
           end;
         end;
       end
@@ -13637,6 +13962,7 @@ begin
       begin
         WeaponText := TT3TorpedoesOnVehicle(weapon).InstanceName + ' : ' + status + ' : ' + IntToStr(TT3TorpedoesOnVehicle(weapon).Quantity);
         tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3TorpedoesOnVehicle(weapon));
+        tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3TorpedoesOnVehicle(weapon));
 
         if Assigned(TT3TorpedoesOnVehicle(weapon).TorpedoDefinition) then
         begin
@@ -13653,6 +13979,7 @@ begin
             LauncherText := 'Tube ' + IntToStr(launcherNumber) + ' : ' + IntToStr(WeaponLauncher.FData.Launcher_Qty);
 
             tvWeapons.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
+            lvWeaponNav.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
           end;
         end;
       end
@@ -13661,27 +13988,37 @@ begin
       begin
         WeaponText := TT3BombONVehicle(weapon).InstanceName + ' : ' + status;
         tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3BombONVehicle(weapon));
+        tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3BombONVehicle(weapon));
         //tnParent := tvWeapons.Items.AddObject(tnParent, WeaponText, TT3BombONVehicle(weapon));
         tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3BombONVehicle(weapon).Quantity), TT3BombONVehicle(weapon));
+        lvWeaponNav.Items.AddChildObject(tnParent, IntToStr(TT3BombONVehicle(weapon).Quantity), TT3BombONVehicle(weapon));
       end
       // MINE
       else if weapon is TT3MineOnVehicle then
       begin
         WeaponText := TT3MineOnVehicle(weapon).InstanceName + ' : ' + status;
         tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3MineOnVehicle(weapon));
+        tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3MineOnVehicle(weapon));
         //tnParent := tvWeapons.Items.AddObject(tnParent, WeaponText, TT3MineOnVehicle(weapon));
         tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3MineOnVehicle(weapon).Quantity), TT3MineOnVehicle(weapon));
+        lvWeaponNav.Items.AddChildObject(tnParent, IntToStr(TT3MineOnVehicle(weapon).Quantity), TT3MineOnVehicle(weapon));
       end
       //Hybrid Missile
       else if weapon is TT3HybridOnVehicle then
       begin
         WeaponText := TT3HybridOnVehicle(weapon).InstanceName + ' : ' + status;
         tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3HybridOnVehicle(weapon));
-        
+        tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3HybridOnVehicle(weapon));
+
         tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3HybridOnVehicle(weapon).Quantity), TT3HybridOnVehicle(weapon));
+        lvWeaponNav.Items.AddChildObject(tnParent, IntToStr(TT3HybridOnVehicle(weapon).Quantity), TT3HybridOnVehicle(weapon));
       end;
     end;
   end;
+
+  lvWeaponNav.FullExpand;
+  if lvWeaponNav.Items.Count > 0 then
+    lvWeaponNav.Select(lvWeaponNav.Items[0]);
 
   tvWeapons.FullExpand;
   if tvWeapons.Items.Count > 0 then
@@ -14411,6 +14748,7 @@ begin
     TT3PlatformInstance(TT3CounterMeasure(Sender).Parent).Equals(ToteSelectedPlatform) then
   begin
     tn := GetNodeByData(tvCountermeasures,Sender);
+    tn := GetNodeByData(lvCountermeasuresNav,Sender);
 
     if Assigned(tn) then
     begin
@@ -14840,9 +15178,11 @@ begin
     Exit;
 
   lvLogisticPlatform.Items.Clear;
+  lvLogisticPlatformNav.Items.Clear;
 
   {$REGION ' Fuel '}
   li := lvLogisticPlatform.Items.Add;
+  li := lvLogisticPlatformNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Fuel';
 
@@ -14874,6 +15214,7 @@ begin
 
   {$REGION ' Lubricants '}
   li := lvLogisticPlatform.Items.Add;
+  li := lvLogisticPlatformNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Lubricants';
 
@@ -14885,6 +15226,7 @@ begin
 
   {$REGION ' Water '}
   li := lvLogisticPlatform.Items.Add;
+  li := lvLogisticPlatformNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Water';
 
@@ -14896,6 +15238,7 @@ begin
 
   {$REGION ' Food '}
   li := lvLogisticPlatform.Items.Add;
+  li := lvLogisticPlatformNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Food';
 
@@ -14905,6 +15248,108 @@ begin
 //  li.SubItems.Add('ton');
   {$ENDREGION}
 
+end;
+
+procedure TfrmToteDisplay.RefreshNavigasi(Sender: TObject);
+var
+  ge: TGame_Environment_Definition;
+begin
+  ge := (simMgrClient).GameEnvironment;
+
+//  with TT3PlatformInstance(FControlled) do
+//  begin
+//    if FControlled is TT3Vehicle then
+//    begin
+//      lblShipNAme.Caption := InstanceName;
+//      lblClass.Caption := TT3Vehicle(FControlled).VehicleDefinition.FData.Vehicle_Identifier;
+//    end
+//    else
+//    begin
+//      lblShipNAme.Caption := '---';
+//      lblClass.Caption := '---';
+//    end;
+//  end;
+
+
+  with ge.FData do
+  begin
+    lblDayVisualNav.Caption                  := FormatFloat('0.00', Daytime_Visual_Modifier) + '%';
+    lblNightimeVisualNav.Caption             := FormatFloat('0.00', Nighttime_Visual_Modifier) + '%';
+    lblDaytimeInfraredNav.Caption            := FormatFloat('0.00', Daytime_Infrared_Modifier) + '%';
+    lblNightimeInfraredNav.Caption           := FormatFloat('0.00', Nighttime_Infrared_Modifier) + '%';
+    lblAtmosphereNav.Caption                 := FormatFloat('0.00', Atmospheric_Refract_Modifier) + '%';
+
+    case Rain_Rate of
+      0 :
+      begin
+        lblRainstateNav.Caption     := 'Sunny';
+        imgRainStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Rain.png');
+      end;
+      1 :
+      begin
+        lblRainstateNav.Caption     := 'Light Rain';
+        imgRainStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Rain.png');
+      end;
+      2 :
+      begin
+        lblRainstateNav.Caption     := 'Heavy Rain';
+        imgRainStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Rain.png');
+      end;
+    end;
+
+    case Sea_State of
+      0 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Calm (glassy)';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
+      end;
+      1 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Calm (rippled)';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
+      end;
+      2 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Smooth (wavelets)';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
+      end;
+      3 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Slight';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
+      end;
+      4 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Moderate';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
+      end;
+      5 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Rough';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
+      end;
+      6 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Very rough';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
+      end;
+      7 :
+      begin
+        lblSeaStatDescNav.Caption           := 'High';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+      8 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Very high';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+      9,10 :
+      begin
+        lblSeaStatDescNav.Caption        := 'Phenomenal';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+    end;
+  end;
 end;
 
 procedure TfrmToteDisplay.RefreshNearestBaseLogistic(sender : TT3Vehicle);
@@ -15302,6 +15747,37 @@ begin
   LogisticWPCalculation;
 end;
 
+procedure TfrmToteDisplay.lvLandingCraftCarriedNavSelectItem(Sender: TObject;
+  Item: TListItem; Selected: Boolean);
+var
+  HostShip : TT3PlatformInstance;
+begin
+  {$REGION ' Reset button '}
+  DisableBtnTransportOnShip;
+  {$ENDREGION}
+
+  {$REGION ' Pengecekan kapal yang mengeluarkan '}
+  HostShip := TT3PlatformInstance(simMgrClient.SimPlatforms.getObjectByInstanceIndex(TransportHostShipID));
+
+  if not Assigned(HostShip) then
+    Exit;
+
+  if HostShip = nil then
+  begin
+    ResetTransportPanel;
+
+    MessageDlg('Please re-select The transport platfrom', mtInformation, [mbOK], 0);
+    Exit
+  end;
+  {$ENDREGION}
+
+  if Selected then
+  begin
+    TransportMemberShipID := StrToInt(lvLandingCraftCarried.Selected.Caption);
+    btnLandingCraftDisembarkNav.Enabled := True;
+  end
+end;
+
 procedure TfrmToteDisplay.lvLandingCraftCarriedSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 var
   HostShip : TT3PlatformInstance;
@@ -15559,6 +16035,105 @@ begin
   end;
 end;
 
+
+procedure TfrmToteDisplay.btnTransport(Sender: TObject);
+var
+  PanelTag: integer;
+  Panel: Tpanel;
+begin
+  panel := Sender as Tpanel;
+  PanelTag := panel.Tag;
+
+  if panel = pnlGeneral then
+  begin
+    if PanelTag = 0 then
+    begin
+      pnlGeneral.Color := RGB(29, 81, 103);
+      pnlInfoKapalNav.BringToFront;
+      pnlGeneral.Tag := 1;
+      pnlAir.Tag := 0;
+      pnlPersonel.Tag := 0;
+      pnlLanding.Tag := 0;
+      pnlAmphibi.Tag := 0;
+      pnlAir.Color := RGB(16, 46, 58);
+      pnlPersonel.Color := RGB(16, 46, 58);
+      pnlLanding.Color := RGB(16, 46, 58);
+      pnlAmphibi.Color := RGB(16, 46, 58);
+    end;
+  end
+
+  else if panel = pnlAir then
+  begin
+    if PanelTag = 0 then
+    begin
+      pnlAir.Color := RGB(29, 81, 103);
+      pnlAirPlatformNav.BringToFront;
+      pnlAir.Tag := 1;
+      pnlGeneral.Tag := 0;
+      pnlPersonel.Tag := 0;
+      pnlLanding.Tag := 0;
+      pnlAmphibi.Tag := 0;
+      pnlLanding.Color := RGB(16, 46, 58);
+      pnlPersonel.Color := RGB(16, 46, 58);
+      pnlGeneral.Color := RGB(16, 46, 58);
+      pnlAmphibi.Color := RGB(16, 46, 58);
+    end;
+  end
+
+  else if panel = pnlPersonelT then
+  begin
+    if PanelTag = 0 then
+    begin
+      pnlPersonelT.Color := RGB(29, 81, 103);
+      pnlPersonelPlatformNav.BringToFront;
+      pnlPersonelT.Tag := 1;
+      pnlGeneral.Tag := 0;
+      pnlAir.Tag := 0;
+      pnlLanding.Tag := 0;
+      pnlAmphibi.Tag := 0;
+      pnlLanding.Color := RGB(16, 46, 58);
+      pnlAir.Color := RGB(16, 46, 58);
+      pnlGeneral.Color := RGB(16, 46, 58);
+      pnlAmphibi.Color := RGB(16, 46, 58);
+    end;
+  end
+
+  else if panel = pnlAmphibi then
+  begin
+    if PanelTag = 0 then
+    begin
+      pnlAmphibi.Color := RGB(29, 81, 103);
+      pnlAmphibiousPlatformNav.BringToFront;
+      pnlAmphibi.Tag := 1;
+      pnlGeneral.Tag := 0;
+      pnlAir.Tag := 0;
+      pnlLanding.Tag := 0;
+      pnlPersonelT.Tag := 0;
+      pnlLanding.Color := RGB(16, 46, 58);
+      pnlAir.Color := RGB(16, 46, 58);
+      pnlGeneral.Color := RGB(16, 46, 58);
+      pnlPersonelT.Color := RGB(16, 46, 58);
+    end;
+  end
+
+  else if panel = pnlLanding then
+  begin
+    if PanelTag = 0 then
+    begin
+      pnlLanding.Color := RGB(29, 81, 103);
+      pnlLandingCraftPlatformNav.BringToFront;
+      pnlLanding.Tag := 1;
+      pnlGeneral.Tag := 0;
+      pnlAir.Tag := 0;
+      pnlAmphibi.Tag := 0;
+      pnlPersonelT.Tag := 0;
+      pnlAmphibi.Color := RGB(16, 46, 58);
+      pnlAir.Color := RGB(16, 46, 58);
+      pnlGeneral.Color := RGB(16, 46, 58);
+      pnlPersonelT.Color := RGB(16, 46, 58);
+    end;
+  end;
+end;
 
 procedure TfrmToteDisplay.pnlRightBorderMouseEnter(Sender: TObject);
 begin
@@ -15949,9 +16524,13 @@ procedure TfrmToteDisplay.ResetTransportPanel;
 begin
   lblVehicleName.Caption  := '---';
   lbClass.Caption         := '---';
+  lblVehicleNameNav.Caption  := '---';
+  lbClassNav.Caption         := '---';
 
   lblMaxWeight.Caption    := '---';
   lblTotalWeight.Caption  := '---';
+  lblMaxWeightNav.Caption    := '---';
+  lblTotalWeightNav.Caption  := '---';
 
   {$REGION ' Air Platform Carried Section'}
   lblMaxCapacityHanger.Caption := '---';
@@ -15975,6 +16554,31 @@ begin
   lblFreeSpaceHull.Caption := '---';
   lblCurrentWeightHull.Caption := '---';
   lvAmphibiousandLandCarried.Items.Clear;
+  {$ENDREGION}
+
+  {$REGION ' NAVIGASI '}
+
+  {$REGION ' Air Platform Carried Section'}
+  lblMaxCapacityHangerNav.Caption := '---';
+  lblFreeCapacityHangerNav.Caption := '---';
+  lblCurrentWeightHangerNav.Caption := '---';
+  lvAirCarriedNav.Items.Clear;
+  {$ENDREGION}
+
+  {$REGION ' Personel Platform Carried Section'}
+  lblMaxCapacityPersonelNav.Caption := '---';
+  lblFreeCapacityPersonelNav.Caption := '---';
+  lblCurrentWeightPersonelNav.Caption := '---';
+  lvPersonelCarriedNav.Items.Clear;
+  {$ENDREGION}
+
+  {$REGION ' Amphibious & Land Platform Carried Section'}
+  lblMaxSpaceHullNav.Caption := '---';
+  lblFreeSpaceHullNav.Caption := '---';
+  lblCurrentWeightHullNav.Caption := '---';
+  lvAmphibiousandLandCarriedNav.Items.Clear;
+  {$ENDREGION}
+
   {$ENDREGION}
 
   DisableBtnTransportOnShip;
@@ -16049,6 +16653,9 @@ begin
     {$ENDREGION}
 
     {$REGION ' Paltform Info '}
+    lblVehicleNameNav.Caption := TT3PlatformInstance(sender).InstanceName;
+    lbClassNav.Caption := TT3PlatformInstance(sender).InstanceClass;
+
     lblVehicleName.Caption := TT3PlatformInstance(sender).InstanceName;
     lbClass.Caption := TT3PlatformInstance(sender).InstanceClass;
 
@@ -16056,6 +16663,13 @@ begin
                                                (TT3Vehicle(sender).UnitCapability.FData.Max_Personnel_Capacity * 0.7)));
 
     lblTotalWeight.Caption := FormatFloat('0.##',(TT3Vehicle(sender).CurrentHanggarWeight +
+                                                  TT3Vehicle(sender).CurrentHullWeight + TT3Vehicle(sender).CurrentPersonelWeight));
+
+
+    lblMaxWeightNav.Caption := FormatFloat('0.##',(TT3Vehicle(sender).UnitCapability.FData.Max_Hangar_Weight + TT3Vehicle(sender).UnitCapability.FData.Max_Deck_Weight +
+                                               (TT3Vehicle(sender).UnitCapability.FData.Max_Personnel_Capacity * 0.7)));
+
+    lblTotalWeightNav.Caption := FormatFloat('0.##',(TT3Vehicle(sender).CurrentHanggarWeight +
                                                   TT3Vehicle(sender).CurrentHullWeight + TT3Vehicle(sender).CurrentPersonelWeight));
 
     {$REGION ' Capability Rampa '}
@@ -16163,6 +16777,101 @@ begin
 
     {$ENDREGION}
 
+    {$REGION ' State Rampa NAVIGASI '}
+    for i := 0 to TT3Vehicle(sender).RampList.Count-1 do
+    begin
+      rampTemp := TT3Vehicle(sender).RampList[i];
+
+      case i of
+        0: {Depan}
+        begin
+          if rampTemp.State then
+          begin
+            pnlRampFrontDoorNav.Color := clLime;
+            pnlRampFrontUpNav.Color := clLime;
+            pnlRampFrontLeftNav.Color := clLime;
+            pnlRampFrontRightNav.Color := clLime;
+            btnFrontRampNav.Caption := 'Close';
+            pnlRampFrontDoorNav.Top := 82;
+          end
+          else
+          begin
+            pnlRampFrontDoorNav.Color := clRed;
+            pnlRampFrontUpNav.Color := clRed;
+            pnlRampFrontLeft.Color := clRed;
+            pnlRampFrontRightNav.Color := clRed;
+            btnFrontRampNav.Caption := 'Open';
+            pnlRampFrontDoorNav.Top := 25;
+          end;
+        end;
+        1: {Kanan}
+        begin
+          if rampTemp.State then
+          begin
+            pnlRampStarboardDoorNav.Color := clLime;
+            pnlRampStarboardUpNav.Color := clLime;
+            pnlRampStarboardLeftNav.Color := clLime;
+            pnlRampStarboardRightNav.Color := clLime;
+            btnStarboardRampNav.Caption := 'Close';
+            pnlRampStarboardDoorNav.Top := 82;
+          end
+          else
+          begin
+            pnlRampStarboardDoorNav.Color := clRed;
+            pnlRampStarboardUpNav.Color := clRed;
+            pnlRampStarboardLeftNav.Color := clRed;
+            pnlRampStarboardRightNav.Color := clRed;
+            btnStarboardRampNav.Caption := 'Open';
+            pnlRampStarboardDoorNav.Top := 25;
+          end;
+        end;
+        2: {Belakang}
+        begin
+          if rampTemp.State then
+          begin
+            pnlRampBackDoorNav.Color := clLime;
+            pnlRampBackUpNav.Color := clLime;
+            pnlRampBackLeftNav.Color := clLime;
+            pnlRampBackRightNav.Color := clLime;
+            btnBackRampNav.Caption := 'Close';
+            pnlRampBackDoorNav.Top := 82;
+          end
+          else
+          begin
+            pnlRampBackDoorNav.Color := clRed;
+            pnlRampBackUpNav.Color := clRed;
+            pnlRampBackLeftNav.Color := clRed;
+            pnlRampBackRightNav.Color := clRed;
+            btnBackRampNav.Caption := 'Open';
+            pnlRampBackDoorNav.Top := 25;
+          end;
+        end;
+        3: {Kiri}
+        begin
+          if rampTemp.State then
+          begin
+            pnlRampPortDoorNav.Color := clLime;
+            pnlRampPortUpNav.Color := clLime;
+            pnlRampPortLeftNav.Color := clLime;
+            pnlRampPortRightNav.Color := clLime;
+            btnPortRampNav.Caption := 'Close';
+            pnlRampPortDoorNav.Top := 82;
+          end
+          else
+          begin
+            pnlRampPortDoorNav.Color := clRed;
+            pnlRampPortUpNav.Color := clRed;
+            pnlRampPortLeftNav.Color := clRed;
+            pnlRampPortRightNav.Color := clRed;
+            btnPortRampNav.Caption := 'Open';
+            pnlRampPortDoorNav.Top := 25;
+          end;
+        end;
+      end;
+    end;
+
+    {$ENDREGION}
+
     {$REGION 'Show panel platform detail'}
     pnlRampStatus.Visible := False;
     pnlEmbarkStatus.Visible := False;
@@ -16173,6 +16882,8 @@ begin
     begin
       pnlRampStatus.Visible := True;
       pnlEmbarkStatus.Visible := False;
+      pnlRampStatusNav.Visible := True;
+      pnlEmbarkStatusNav.Visible := False;
     end
     else if sender.StateTransport then
     begin
@@ -16181,15 +16892,26 @@ begin
         Exit;
       pnlRampStatus.Visible := False;
       pnlEmbarkStatus.Visible := True;
+      pnlRampStatusNav.Visible := False;
+      pnlEmbarkStatusNav.Visible := True;
 
+      lblHostPlatformNav.Caption := hostShipTemp.InstanceName;
       lblHostPlatform.Caption := hostShipTemp.InstanceName;
       lblHostPlatformClass.Caption := hostShipTemp.InstanceClass;
+      lblHostPlatformClassNav.Caption := hostShipTemp.InstanceClass;
 
       case sender.MemberLoadState of
         0:  lblPlatformEmbarkStatus.Caption := 'Queue';
         1:  lblPlatformEmbarkStatus.Caption := 'Embark Process';
         2:  lblPlatformEmbarkStatus.Caption := 'Standby';
         3:  lblPlatformEmbarkStatus.Caption := 'Ready';
+      end;
+
+      case sender.MemberLoadState of
+        0:  lblPlatformEmbarkStatusNav.Caption := 'Queue';
+        1:  lblPlatformEmbarkStatusNav.Caption := 'Embark Process';
+        2:  lblPlatformEmbarkStatusNav.Caption := 'Standby';
+        3:  lblPlatformEmbarkStatusNav.Caption := 'Ready';
       end;
 
       case sender.PlatformDomain of
@@ -16225,6 +16947,43 @@ begin
           btnHullView.Visible := True;
           btnMemberTakeOff.Visible := False;
           btnMemberDisembark.Visible := False;
+        end;
+      end;
+
+      {NAVIGASI}
+      case sender.PlatformDomain of
+        vhdAir:
+        begin
+          btnHullViewNav.Visible := False;
+          btnMemberTakeOffNav.Visible := True;
+          btnMemberDisembarkNav.Visible := False;
+        end;
+        vhdSurface, vhdSubsurface :
+        begin
+          btnHullViewNav.Visible := False;
+          btnMemberTakeOffNav.Visible := False;
+          btnMemberDisembarkNav.Visible := True;
+        end;
+        vhdLand:
+        begin
+          if (sender.PlatformCategory = 2) and (sender.PlatformType = 0) then
+          begin
+            btnHullViewNav.Visible := False;
+            btnMemberTakeOffNav.Visible := False;
+            btnMemberDisembarkNav.Visible := True;
+          end
+          else
+          begin
+            btnHullViewNav.Visible := True;
+            btnMemberTakeOffNav.Visible := False;
+            btnMemberDisembarkNav.Visible := False;
+          end;
+        end;
+        vhdAmphibious:
+        begin
+          btnHullViewNav.Visible := True;
+          btnMemberTakeOffNav.Visible := False;
+          btnMemberDisembarkNav.Visible := False;
         end;
       end;
     end
@@ -16279,6 +17038,16 @@ begin
   lblCurrentWeightHanger.Caption := FormatFloat('0.##',hostShipTemp.CurrentHanggarWeight) + ' Ton';
   {$ENDREGION}
 
+  {$REGION ' NAVIGASI '}
+
+  {$REGION ' Header Info '}
+  lblMaxCapacityHangerNav.Caption := IntToStr(hostShipTemp.UnitCapability.FData.Max_Hangar_Capacity);
+  lblFreeCapacityHangerNav.Caption := IntToStr(hostShipTemp.UnitCapability.FData.Max_Hangar_Capacity - hostShipTemp.CurrentHanggarCapacity) ;
+  lblCurrentWeightHangerNav.Caption := FormatFloat('0.##',hostShipTemp.CurrentHanggarWeight) + ' Ton';
+  {$ENDREGION}
+
+  {$ENDREGION}
+
   for i := 0 to hostShipTemp.MemberTransportList.Count - 1 do
   begin
     memberShipTemp := TT3Vehicle(hostShipTemp).MemberTransportList.Items[i];
@@ -16303,6 +17072,22 @@ begin
     end;
     {$ENDREGION}
 
+    {$REGION ' Memasukkan data kedalam list item NAVIGASI '}
+    with lvAirCarriedNav.Items.Add do
+    begin
+      Caption := IntToStr(memberShipTemp.InstanceIndex);
+      SubItems.Add(memberShipTemp.InstanceName);
+      SubItems.Add(memberShipTemp.Track_ID);
+      SubItems.Add(FormatFloat('0.##',memberShipTemp.SumCurrentWeight));
+
+      case memberShipTemp.MemberLoadState of
+        0 : SubItems.Add('Queue');
+        1 : SubItems.Add('Embark Process');
+        2 : SubItems.Add('Standby');
+        3 : SubItems.Add('Ready');
+      end;
+    end;
+    {$ENDREGION}
   end;
 end;
 
@@ -16382,6 +17167,13 @@ begin
   lblMaxSpaceHull.Caption     := FormatFloat('0.##',maxSpaceHullTemp) + ' Feet²';
   lblFreeSpaceHull.Caption := FormatFloat('0.##',maxSpaceHullTemp - TT3Vehicle(hostShipTemp).CurrentHullSpace) + ' Feet²';
   lblCurrentWeightHull.Caption := FormatFloat('0.##',TT3Vehicle(hostShipTemp).CurrentHullWeight) + ' Ton';
+  {$ENDREGION}
+
+  {Navigasi}
+  {$REGION ' Header Info '}
+  lblMaxSpaceHullNav.Caption     := FormatFloat('0.##',maxSpaceHullTemp) + ' Feet²';
+  lblFreeSpaceHullNav.Caption := FormatFloat('0.##',maxSpaceHullTemp - TT3Vehicle(hostShipTemp).CurrentHullSpace) + ' Feet²';
+  lblCurrentWeightHullNav.Caption := FormatFloat('0.##',TT3Vehicle(hostShipTemp).CurrentHullWeight) + ' Ton';
   {$ENDREGION}
 
   for i := 0 to TT3Vehicle(hostShipTemp).MemberTransportList.Count - 1 do
@@ -16494,7 +17286,67 @@ begin
   begin
     TransportMemberShipID := StrToInt(lvAirCarried.Selected.Caption);
     btnTakeoff.Enabled := True;
+    btnTakeoffNav.Enabled := True;
   end
+end;
+
+procedure TfrmToteDisplay.lvAmphibiousandLandCarriedNavSelectItem(
+  Sender: TObject; Item: TListItem; Selected: Boolean);
+var
+  HostShip : TT3PlatformInstance;
+  TempPlatform : TT3Vehicle;
+begin
+  {$REGION ' Reset button '}
+  DisableBtnTransportOnShip;
+  {$ENDREGION}
+
+  {$REGION ' Pengecekan kapal yang mengeluarkan '}
+  HostShip := TT3PlatformInstance(simMgrClient.SimPlatforms.getObjectByInstanceIndex(TransportHostShipID));
+
+  if not Assigned(HostShip) then
+    Exit;
+
+  if HostShip = nil then
+  begin
+    ResetTransportPanel;
+
+    MessageDlg('Please re-select The transport platfrom', mtInformation, [mbOK], 0);
+    Exit
+  end;
+  {$ENDREGION}
+
+  if Selected then
+  begin
+    TransportMemberShipID := StrToInt(lvAmphibiousandLandCarried.Selected.Caption);
+    TempPlatform := TT3Vehicle(simMgrClient.SimPlatforms.getObjectByInstanceIndex(TransportMemberShipID));
+
+    if TempPlatform.isInDisembarkArea then
+    begin
+      case TempPlatform.MemberPosDisembark of
+        0: lblDisembarkStatusNav.Caption := 'Platform is in front ramp disembark area';
+        1: lblDisembarkStatusNav.Caption := 'Platform is in starboard ramp disembark area';
+        2: lblDisembarkStatusNav.Caption := 'Platform is in back ramp disembark area';
+        3: lblDisembarkStatusNav.Caption := 'Platform is in port ramp disembark area';
+      end;
+
+      btnAmphibiousLandDisembarkNav.Enabled := True;
+      btnAmphibiousLandDisembarkWithNav.Enabled := True;
+    end
+    else
+    begin
+      lblDisembarkStatusNav.Caption := 'Platform is not in disembark area';
+      btnAmphibiousLandDisembarkNav.Enabled := False;
+      btnAmphibiousLandDisembarkWithNav.Enabled := False;
+    end;
+  end
+  else
+  begin
+    lblDisembarkStatusNav.Caption := 'No selected platform';
+    btnAmphibiousLandDisembarkNav.Enabled := False;
+    btnAmphibiousLandDisembarkWithNav.Enabled := False;
+  end;
+
+  btnTransportEmbarkasiNav.Enabled := True;
 end;
 
 procedure TfrmToteDisplay.lvAmphibiousandLandCarriedSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
@@ -16582,6 +17434,7 @@ begin
   begin
     TransportMemberShipID := StrToInt(lvPersonelCarried.Selected.Caption);
     btnPersonelDebarkasi.Enabled := True;
+    btnPersonelDebarkasiNav.Enabled := True;
   end;
 end;
 
@@ -16948,6 +17801,7 @@ begin
   {$ENDREGION}
 
   btnMemberDisembark.Visible := False;
+  btnMemberDisembarkNav.Visible := False;
 
 end;
 
@@ -17006,6 +17860,7 @@ begin
   {$ENDREGION}
 
   btnTakeoff.Visible := False;
+  btnTakeoffNav.Visible := False;
 end;
 
 procedure TfrmToteDisplay.btnAmphibiousLandDisembarkClick(Sender: TObject);
@@ -17259,6 +18114,7 @@ begin
   {$ENDREGION}
 
   btnPersonelDebarkasi.Enabled := False;
+  btnPersonelDebarkasiNav.Enabled := False;
 
 end;
 
@@ -17341,6 +18197,88 @@ begin
   {$ENDREGION}
 
   btnPersonelDebarkasiWith.Enabled := False;
+  isSender := True;
+end;
+
+procedure TfrmToteDisplay.btnPersonelDebarkasiWithNavClick(Sender: TObject);
+var
+  hostShipTemp : TT3PlatformInstance;
+begin
+  {$REGION ' Pengecekan kapal yang mengeluarkan '}
+  hostShipTemp := TT3PlatformInstance(simMgrClient.SimPlatforms.getObjectByInstanceIndex(TransportHostShipID));
+
+  if not Assigned(hostShipTemp) then
+    Exit;
+
+  if hostShipTemp = nil then
+  begin
+    ResetTransportPanel;
+
+    MessageDlg('Please re-select The transport platfrom', mtInformation, [mbOK], 0);
+    Exit
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Pengecekan pemilihan personel '}
+  if PersonelOnShipSelected = nil then
+  begin
+    MessageDlg('Please re-select The Group Personel', mtInformation, [mbOK], 0);
+    Exit;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Setting button Disembark With '}
+  if btnPersonelDebarkasiWith.Caption = 'Disembark with' then
+  begin
+    btnPersonelDebarkasiWithNav.Caption := 'OK';
+    btnPersonelDebarkasiNav.Enabled := False;
+
+    Exit;
+  end
+  else
+  begin
+    btnPersonelDebarkasiWithNav.Caption := 'Disembark with';
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Mengirim Paket '}
+  RecDisembark.SessionID        := simMgrClient.SessionID;
+  RecDisembark.ParentPlatformID := hostShipTemp.InstanceIndex;
+  RecDisembark.EmbarkPlatformID := 0;
+  RecDisembark.IDPlatformClass  := LandingPlatformID;
+  RecDisembark.Hosted_Index     := 0;
+
+  StrToChar(LandingPlatformName, RecDisembark.LaunchName);
+  StrToChar(LandingPlatformName, RecDisembark.TrackIdent);
+
+  RecDisembark.QueueNum         := TransportMemberShipID-1;
+  RecDisembark.GrpID            := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+  {Pinjem variabel}
+  RecDisembark.Quantity         := 101; {100: u/disembark; 101: disembarkwith}
+  RecDisembark.Quantity_Group_Personal := PersonelOnShipSelected.Id; {u/ id group personel yg di disembark}
+
+  {$REGION ' Penentuan arah keluar '}
+  case TT3Vehicle(ToteSelectedPlatform).VehicleDefinition.FData.GangwayPosition of
+    0 : //front Door
+      begin
+        RecDisembark.InitCourse := ToteSelectedPlatform.Course;
+        RecDisembark.InitSpeed  := 2;
+      end;
+    1 : //Back Door
+      begin
+        RecDisembark.InitCourse := ValidateDegree(ToteSelectedPlatform.Course + 180);
+        RecDisembark.InitSpeed  := 2;
+      end;
+  end;
+  {$ENDREGION}
+
+  RecDisembark.OrderID := CORD_ID_INITIATE;
+
+  simMgrClient.netSend_CmdDisembarkTransport(RecDisembark);
+  {$ENDREGION}
+
+  btnPersonelDebarkasiWithNav.Enabled := False;
   isSender := True;
 end;
 
@@ -17503,6 +18441,95 @@ begin
       end;
     end;
   end;
+
+  {$REGION ' NAVIGASI '}
+  case Ramp of
+    0:
+    begin
+      if tempRamp.State then
+      begin
+        while pnlRampFrontDoorNav.Top <> 25 do
+        begin
+          pnlRampFrontDoorNav.Top := pnlRampFrontDoorNav.Top - 19;
+          Sleep(300);
+        end;
+        Result:= True;
+      end
+      else
+      begin
+        while pnlRampFrontDoorNav.Top <> 82 do
+        begin
+          pnlRampFrontDoorNav.Top := pnlRampFrontDoorNav.Top + 19;
+          Sleep(300);
+        end;
+        Result:= True;
+      end;
+    end;
+    1:
+    begin
+      if tempRamp.State then
+      begin
+        while pnlRampStarboardDoorNav.Top <> 25 do
+        begin
+          pnlRampStarboardDoorNav.Top := pnlRampStarboardDoorNav.Top - 19;
+          Sleep(300);
+        end;
+        Result:= True;
+      end
+      else
+      begin
+        while pnlRampStarboardDoorNav.Top <> 82 do
+        begin
+          pnlRampStarboardDoorNav.Top := pnlRampStarboardDoorNav.Top + 19;
+          Sleep(300);
+        end;
+        Result:= True;
+      end;
+    end;
+    2:
+    begin
+      if tempRamp.State then
+      begin
+        while pnlRampBackDoorNav.Top <> 25 do
+        begin
+          pnlRampBackDoorNav.Top := pnlRampBackDoorNav.Top - 19;
+          Sleep(300);
+        end;
+        Result:= True;
+      end
+      else
+      begin
+        while pnlRampBackDoorNav.Top <> 82 do
+        begin
+          pnlRampBackDoorNav.Top := pnlRampBackDoorNav.Top + 19;
+          Sleep(300);
+        end;
+        Result:= True;
+      end;
+    end;
+    3:
+    begin
+      if tempRamp.State then
+      begin
+        while pnlRampPortDoorNav.Top <> 25 do
+        begin
+          pnlRampPortDoorNav.Top := pnlRampPortDoorNav.Top - 19;
+          Sleep(300);
+        end;
+        Result:= True;
+      end
+      else
+      begin
+        while pnlRampPortDoorNav.Top <> 82 do
+        begin
+          pnlRampPortDoorNav.Top := pnlRampPortDoorNav.Top + 19;
+          Sleep(300);
+        end;
+        Result:= True;
+      end;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.btnEmbarkClick(Sender: TObject);

@@ -64,7 +64,7 @@ implementation
 
 uses
   ufTacticalDisplay,uMapXHandler, uT3Unit, uT3Vehicle, uBaseCoordSystem, uDBAsset_Vehicle,
-  uSimMgr_Client, uSettingCoordinate;
+  uSimMgr_Client, uSettingCoordinate, ufToteDisplay;
 
 {$R *.dfm}
 
@@ -111,13 +111,17 @@ begin
     if FControlled is TT3Vehicle then
     begin
       lblName.Caption := InstanceName;
+      frmToteDisplay.lblShipNAme.Caption := InstanceName;
       lblClass.Caption := TT3Vehicle(FControlled).VehicleDefinition.FData.Vehicle_Identifier;
+      frmToteDisplay.lblClass.Caption := TT3Vehicle(FControlled).VehicleDefinition.FData.Vehicle_Identifier;
       lblTrackID.Caption := Track_ID;
     end
     else
     begin
       lblName.Caption := '---';
+      frmToteDisplay.lblShipNAme.Caption := '---';
       lblClass.Caption := '---';
+      frmToteDisplay.lblClass.Caption := '---';
     end;
 
     case idCoordinat of

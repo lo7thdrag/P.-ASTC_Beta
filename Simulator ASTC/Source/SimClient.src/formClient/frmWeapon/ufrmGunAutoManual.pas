@@ -9,7 +9,6 @@ uses
 
 type
   TfrmGunAutoManual = class(TfrmWeaponCtrl)
-    grbGunEngagementAutomaticManualMode: TGroupBox;
     ScrollBox2: TScrollBox;
     ScrollBox1: TScrollBox;
     Label1: TLabel;

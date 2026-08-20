@@ -10,7 +10,6 @@ uses
 
 type
   TfrmGunCIWS = class(TfrmWeaponCtrl)
-    grbGunEngagementCIWS: TGroupBox;
     ScrollBox8: TScrollBox;
     Label468: TLabel;
     lblCIWSStatus: TLabel;

@@ -169,7 +169,6 @@ type
     imgFireControl: TImage;
     pnlFireControl: TPanel;
     fmFireControl1: TfmFireControl;
-    pnl1: TPanel;
     procedure THButtonClick(Sender: TObject);
     procedure TDCPButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);

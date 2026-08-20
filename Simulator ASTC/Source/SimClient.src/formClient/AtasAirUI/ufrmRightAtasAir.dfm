@@ -29,14 +29,14 @@ object frmRightAtasAir: TfrmRightAtasAir
       Left = 0
       Top = 0
       Width = 356
-      Height = 289
+      Height = 332
       BevelOuter = bvNone
       TabOrder = 0
       object imgMainBackgorundContact: TImage
         Left = 0
         Top = 0
         Width = 356
-        Height = 289
+        Height = 332
         Align = alClient
         Picture.Data = {
           07544269746D6170224C0500424D224C05000000000036000000280000005101
@@ -10893,24 +10893,25 @@ object frmRightAtasAir: TfrmRightAtasAir
         ExplicitLeft = 2
         ExplicitTop = 2
         ExplicitWidth = 373
+        ExplicitHeight = 289
       end
       object lbl1: TLabel
         Left = 12
         Top = 15
-        Width = 175
-        Height = 27
+        Width = 152
+        Height = 24
         Caption = 'Track Information'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
-        Font.Height = -27
+        Font.Height = -24
         Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
       end
       object pnlTrackSheet: TPanel
         Tag = 1
-        Left = 6
-        Top = 58
+        Left = 7
+        Top = 53
         Width = 341
         Height = 25
         Alignment = taLeftJustify
@@ -10926,7 +10927,7 @@ object frmRightAtasAir: TfrmRightAtasAir
         ParentFont = False
         TabOrder = 0
         object pnlTabTrackControl: TPanel
-          Left = 90
+          Left = 95
           Top = 0
           Width = 90
           Height = 25
@@ -10941,11 +10942,12 @@ object frmRightAtasAir: TfrmRightAtasAir
           ParentBackground = False
           ParentFont = False
           TabOrder = 0
+          Visible = False
           OnClick = TTButtonClick
         end
         object pnlTabTrackTable: TPanel
           Tag = 1
-          Left = 0
+          Left = 5
           Top = 0
           Width = 90
           Height = 25
@@ -10965,10 +10967,10 @@ object frmRightAtasAir: TfrmRightAtasAir
       end
       object pnlTrackInformationBody: TPanel
         Tag = 1
-        Left = 5
-        Top = 89
-        Width = 345
-        Height = 192
+        Left = 11
+        Top = 84
+        Width = 335
+        Height = 230
         Alignment = taLeftJustify
         Caption = '  Track Information'
         Color = 2695445
@@ -10984,8 +10986,8 @@ object frmRightAtasAir: TfrmRightAtasAir
         object pnlTrackControl: TPanel
           Left = 1
           Top = 1
-          Width = 343
-          Height = 190
+          Width = 333
+          Height = 228
           Align = alClient
           Color = 16775920
           Font.Charset = DEFAULT_CHARSET
@@ -10996,13 +10998,13 @@ object frmRightAtasAir: TfrmRightAtasAir
           ParentBackground = False
           ParentFont = False
           TabOrder = 0
-          ExplicitWidth = 354
-          ExplicitHeight = 287
+          ExplicitWidth = 343
+          ExplicitHeight = 190
           object lvTrackControl: TListView
             Left = 1
             Top = 1
-            Width = 341
-            Height = 188
+            Width = 331
+            Height = 226
             Align = alClient
             Color = clWhite
             Columns = <
@@ -11028,26 +11030,26 @@ object frmRightAtasAir: TfrmRightAtasAir
             ParentFont = False
             TabOrder = 0
             ViewStyle = vsReport
-            ExplicitWidth = 352
-            ExplicitHeight = 285
+            ExplicitWidth = 341
+            ExplicitHeight = 188
           end
         end
         object pnlTrackTable: TPanel
           Left = 1
           Top = 1
-          Width = 343
-          Height = 190
+          Width = 333
+          Height = 228
           Align = alClient
           Color = 16775920
           ParentBackground = False
           TabOrder = 1
-          ExplicitWidth = 354
-          ExplicitHeight = 287
+          ExplicitWidth = 343
+          ExplicitHeight = 190
           object lvTrackTable: TListView
             Left = 1
             Top = 1
-            Width = 341
-            Height = 188
+            Width = 331
+            Height = 226
             Align = alClient
             BevelOuter = bvNone
             BorderStyle = bsNone
@@ -11055,24 +11057,36 @@ object frmRightAtasAir: TfrmRightAtasAir
             Columns = <
               item
                 Caption = 'Domain'
+                Width = 80
               end
               item
-                Caption = 'TrackNumber'
+                Alignment = taCenter
+                Caption = 'Track'
+                Width = 60
               end
               item
+                Alignment = taCenter
                 Caption = 'Identity'
+                Width = 90
               end
               item
+                Alignment = taCenter
                 Caption = 'Course'
               end
               item
+                Alignment = taCenter
                 Caption = 'Speed'
+                Width = 60
               end
               item
+                Alignment = taCenter
                 Caption = 'Altitude'
+                Width = 60
               end
               item
+                Alignment = taCenter
                 Caption = 'Depth'
+                Width = 60
               end>
             DoubleBuffered = True
             Font.Charset = DEFAULT_CHARSET
@@ -11088,24 +11102,24 @@ object frmRightAtasAir: TfrmRightAtasAir
             TabOrder = 0
             ViewStyle = vsReport
             OnSelectItem = lvTrackTableSelectItem
-            ExplicitWidth = 352
-            ExplicitHeight = 285
+            ExplicitWidth = 341
+            ExplicitHeight = 188
           end
         end
       end
     end
     object pnlWeaponController: TPanel
       Left = 0
-      Top = 309
+      Top = 344
       Width = 356
-      Height = 573
+      Height = 578
       BevelOuter = bvNone
       TabOrder = 1
       object imgMainBackgorundController: TImage
         Left = 0
         Top = 0
         Width = 356
-        Height = 573
+        Height = 578
         Align = alClient
         Picture.Data = {
           07544269746D6170224C0500424D224C05000000000036000000280000005101
@@ -21967,12 +21981,12 @@ object frmRightAtasAir: TfrmRightAtasAir
       object Label10: TLabel
         Left = 12
         Top = 15
-        Width = 182
-        Height = 27
+        Width = 158
+        Height = 24
         Caption = 'Weapon Controller'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
-        Font.Height = -27
+        Font.Height = -24
         Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
@@ -22025,135 +22039,7 @@ object frmRightAtasAir: TfrmRightAtasAir
             Height = 474
             ExplicitWidth = 345
             ExplicitHeight = 474
-            inherited grbMines: TGroupBox [0]
-              Width = 345
-              Height = 474
-              ParentBackground = False
-              ParentColor = False
-              ExplicitWidth = 345
-              ExplicitHeight = 474
-              inherited Label272: TLabel
-                Left = 17
-                Top = 20
-                ParentFont = False
-                ExplicitLeft = 17
-                ExplicitTop = 20
-              end
-              inherited lblStatusMines: TLabel
-                Left = 34
-                Top = 48
-                ParentFont = False
-                ExplicitLeft = 34
-                ExplicitTop = 48
-              end
-              inherited Label288: TLabel
-                Left = 124
-                Top = 48
-                ParentFont = False
-                ExplicitLeft = 124
-                ExplicitTop = 48
-              end
-              inherited lbMinesQuantity: TLabel
-                Left = 184
-                Top = 48
-                ParentFont = False
-                ExplicitLeft = 184
-                ExplicitTop = 48
-              end
-              inherited Label291: TLabel
-                Left = 17
-                Top = 77
-                ParentFont = False
-                ExplicitLeft = 17
-                ExplicitTop = 77
-              end
-              inherited Bevel58: TBevel
-                Left = 64
-                Top = 84
-                ExplicitLeft = 64
-                ExplicitTop = 84
-              end
-              inherited Label292: TLabel
-                Left = 34
-                Top = 120
-                Width = 74
-                Caption = 'Depth         :'
-                ParentFont = False
-                ExplicitLeft = 34
-                ExplicitTop = 120
-                ExplicitWidth = 74
-              end
-              inherited Bevel61: TBevel
-                Left = 64
-                Top = 27
-                ExplicitLeft = 64
-                ExplicitTop = 27
-              end
-              inherited lbl84: TLabel
-                Left = 187
-                Top = 190
-                ParentFont = False
-                Visible = False
-                ExplicitLeft = 187
-                ExplicitTop = 190
-              end
-              inherited lbl104: TLabel
-                Left = 34
-                Top = 217
-                Width = 74
-                Caption = 'Count         :'
-                ParentFont = False
-                ExplicitLeft = 34
-                ExplicitTop = 217
-                ExplicitWidth = 74
-              end
-              inherited lbl101: TLabel
-                Left = 187
-                Top = 120
-                ParentFont = False
-                Visible = True
-                ExplicitLeft = 187
-                ExplicitTop = 120
-              end
-              inherited lbl100: TLabel
-                Left = 34
-                Top = 190
-                Width = 75
-                Caption = 'Range area :'
-                ParentFont = False
-                ExplicitLeft = 34
-                ExplicitTop = 190
-                ExplicitWidth = 75
-              end
-              inherited EdtMinesDepth: TEdit
-                Left = 128
-                Top = 118
-                Width = 52
-                ExplicitLeft = 128
-                ExplicitTop = 118
-                ExplicitWidth = 52
-              end
-              inherited btnMinesDeploy: TButton
-                Left = 249
-                Top = 150
-                ExplicitLeft = 249
-                ExplicitTop = 150
-              end
-              inherited edtCount: TEdit
-                Left = 128
-                Top = 214
-                OnKeyPress = nil
-                ExplicitLeft = 128
-                ExplicitTop = 214
-              end
-              inherited edtRange: TEdit
-                Left = 128
-                Top = 189
-                ExplicitLeft = 128
-                ExplicitTop = 189
-              end
-            end
-            inherited grbBombDepthCharge: TGroupBox [1]
+            inherited grbBombDepthCharge: TGroupBox [0]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -22353,7 +22239,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 ExplicitTop = 133
               end
             end
-            inherited grbAirDroppedVECTAC: TGroupBox [2]
+            inherited grbAirDroppedVECTAC: TGroupBox [1]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -22546,7 +22432,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbAirDroppedTorpedo: TGroupBox [3]
+            inherited grbAirDroppedTorpedo: TGroupBox [2]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -22971,7 +22857,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbActivePasiveTorpedo: TGroupBox [4]
+            inherited grbActivePasiveTorpedo: TGroupBox [3]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -23224,274 +23110,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbWireGuidedTorpedo: TGroupBox [5]
-              Width = 345
-              Height = 474
-              ParentColor = False
-              ExplicitWidth = 345
-              ExplicitHeight = 474
-              inherited ScrollBox10: TScrollBox
-                Width = 341
-                Height = 454
-                ParentBackground = True
-                ParentColor = False
-                ExplicitWidth = 341
-                ExplicitHeight = 454
-                inherited Bevel19: TBevel
-                  Left = 66
-                  Top = 70
-                  ExplicitLeft = 66
-                  ExplicitTop = 70
-                end
-                inherited Bevel20: TBevel
-                  Left = 66
-                  Top = 216
-                  Width = 263
-                  ExplicitLeft = 66
-                  ExplicitTop = 216
-                  ExplicitWidth = 263
-                end
-                inherited Bevel21: TBevel
-                  Left = 66
-                  Top = 12
-                  ExplicitLeft = 66
-                  ExplicitTop = 12
-                end
-                inherited btnWGTargetTrack: TSpeedButton
-                  Left = 201
-                  Top = 86
-                  ExplicitLeft = 201
-                  ExplicitTop = 86
-                end
-                inherited Label84: TLabel
-                  Left = 11
-                  Top = 4
-                  ParentFont = False
-                  ExplicitLeft = 11
-                  ExplicitTop = 4
-                end
-                inherited Label85: TLabel
-                  Left = 116
-                  Top = 32
-                  ParentFont = False
-                  ExplicitLeft = 116
-                  ExplicitTop = 32
-                end
-                inherited Label86: TLabel
-                  Left = 11
-                  Top = 61
-                  ParentFont = False
-                  ExplicitLeft = 11
-                  ExplicitTop = 61
-                end
-                inherited Label87: TLabel
-                  Left = 26
-                  Top = 89
-                  ParentFont = False
-                  ExplicitLeft = 26
-                  ExplicitTop = 89
-                end
-                inherited Label88: TLabel
-                  Left = 11
-                  Top = 208
-                  ParentFont = False
-                  ExplicitLeft = 11
-                  ExplicitTop = 208
-                end
-                inherited Label89: TLabel
-                  Left = 80
-                  Top = 231
-                  ParentFont = False
-                  ExplicitLeft = 80
-                  ExplicitTop = 231
-                end
-                inherited Label90: TLabel
-                  Left = 212
-                  Top = 231
-                  ParentFont = False
-                  ExplicitLeft = 212
-                  ExplicitTop = 231
-                end
-                inherited Label91: TLabel
-                  Left = 26
-                  Top = 112
-                  ParentFont = False
-                  ExplicitLeft = 26
-                  ExplicitTop = 112
-                end
-                inherited Label92: TLabel
-                  Left = 26
-                  Top = 134
-                  ParentFont = False
-                  ExplicitLeft = 26
-                  ExplicitTop = 134
-                end
-                inherited Label93: TLabel
-                  Left = 26
-                  Top = 156
-                  ParentFont = False
-                  ExplicitLeft = 26
-                  ExplicitTop = 156
-                end
-                inherited Label94: TLabel
-                  Left = 26
-                  Top = 178
-                  Width = 33
-                  Caption = 'Depth'
-                  ParentFont = False
-                  ExplicitLeft = 26
-                  ExplicitTop = 178
-                  ExplicitWidth = 33
-                end
-                inherited Label95: TLabel
-                  Left = 201
-                  Top = 134
-                  ParentFont = False
-                  ExplicitLeft = 201
-                  ExplicitTop = 134
-                end
-                inherited Label96: TLabel
-                  Left = 201
-                  Top = 156
-                  ParentFont = False
-                  ExplicitLeft = 201
-                  ExplicitTop = 156
-                end
-                inherited Label97: TLabel
-                  Left = 201
-                  Top = 178
-                  ParentFont = False
-                  ExplicitLeft = 201
-                  ExplicitTop = 178
-                end
-                inherited lblWGQuantity: TLabel
-                  Left = 176
-                  Top = 32
-                  ParentFont = False
-                  ExplicitLeft = 176
-                  ExplicitTop = 32
-                end
-                inherited lblWGStatus: TLabel
-                  Left = 26
-                  Top = 32
-                  ParentFont = False
-                  ExplicitLeft = 26
-                  ExplicitTop = 32
-                end
-                inherited lblWGTargetCourse: TLabel
-                  Left = 136
-                  Top = 134
-                  ParentFont = False
-                  ExplicitLeft = 136
-                  ExplicitTop = 134
-                end
-                inherited lblWGTargetDepth: TLabel
-                  Left = 136
-                  Top = 178
-                  ParentFont = False
-                  ExplicitLeft = 136
-                  ExplicitTop = 178
-                end
-                inherited lblWGTargetSpeed: TLabel
-                  Left = 136
-                  Top = 156
-                  ParentFont = False
-                  ExplicitLeft = 136
-                  ExplicitTop = 156
-                end
-                inherited lblWGTargetIdentity: TLabel
-                  Left = 136
-                  Top = 112
-                  ParentFont = False
-                  ExplicitLeft = 136
-                  ExplicitTop = 112
-                end
-                inherited btnWGRangeHide: TSpeedButton
-                  Left = 99
-                  Top = 251
-                  Width = 54
-                  Height = 23
-                  ExplicitLeft = 99
-                  ExplicitTop = 251
-                  ExplicitWidth = 54
-                  ExplicitHeight = 23
-                end
-                inherited btnWGBlindHide: TSpeedButton
-                  Left = 246
-                  Top = 251
-                  Width = 54
-                  Height = 23
-                  ExplicitLeft = 246
-                  ExplicitTop = 251
-                  ExplicitWidth = 54
-                  ExplicitHeight = 23
-                end
-                inherited btnWGBlindShow: TSpeedButton
-                  Left = 189
-                  Top = 251
-                  Width = 54
-                  Height = 23
-                  ExplicitLeft = 189
-                  ExplicitTop = 251
-                  ExplicitWidth = 54
-                  ExplicitHeight = 23
-                end
-                inherited btnWGRangeShow: TSpeedButton
-                  Left = 42
-                  Top = 251
-                  Width = 54
-                  Height = 23
-                  ExplicitLeft = 42
-                  ExplicitTop = 251
-                  ExplicitWidth = 54
-                  ExplicitHeight = 23
-                end
-                inherited Label39: TLabel
-                  Left = 116
-                  Top = 178
-                  ParentFont = False
-                  ExplicitLeft = 116
-                  ExplicitTop = 178
-                end
-                inherited Label40: TLabel
-                  Left = 116
-                  Top = 156
-                  ParentFont = False
-                  ExplicitLeft = 116
-                  ExplicitTop = 156
-                end
-                inherited Label41: TLabel
-                  Left = 116
-                  Top = 134
-                  ParentFont = False
-                  ExplicitLeft = 116
-                  ExplicitTop = 134
-                end
-                inherited Label42: TLabel
-                  Left = 116
-                  Top = 89
-                  ParentFont = False
-                  ExplicitLeft = 116
-                  ExplicitTop = 89
-                end
-                inherited btnWGLaunch: TButton
-                  Left = 249
-                  Top = 315
-                  ExplicitLeft = 249
-                  ExplicitTop = 315
-                end
-                inherited EdtWGTargetTrack: TEdit
-                  Left = 136
-                  Top = 87
-                  Width = 60
-                  Text = '---'
-                  ExplicitLeft = 136
-                  ExplicitTop = 87
-                  ExplicitWidth = 60
-                end
-              end
-            end
-            inherited grbWakeHomingTorpedos: TGroupBox [6]
+            inherited grbWakeHomingTorpedos: TGroupBox [4]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -23682,7 +23301,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbTacticalMissiles: TGroupBox [7]
+            inherited grbTacticalMissiles: TGroupBox [5]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -23954,7 +23573,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbTacticalAcousticTorpedos: TGroupBox [8]
+            inherited grbTacticalAcousticTorpedos: TGroupBox [6]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -24084,9 +23703,11 @@ object frmRightAtasAir: TfrmRightAtasAir
                 ExplicitLeft = 135
               end
             end
-            inherited grbSurfaceToSurfaceMissile: TGroupBox [9]
+            inherited grbSurfaceToSurfaceMissile: TGroupBox [7]
               Width = 345
               Height = 474
+              ExplicitLeft = 0
+              ExplicitTop = 0
               ExplicitWidth = 345
               ExplicitHeight = 474
               inherited ScrollBox6: TScrollBox
@@ -24436,7 +24057,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbSurfaceToAirMissile: TGroupBox [10]
+            inherited grbSurfaceToAirMissile: TGroupBox [8]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -24802,7 +24423,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbStraightRunningTorpedos: TGroupBox [11]
+            inherited grbStraightRunningTorpedos: TGroupBox [9]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -25026,7 +24647,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbHybridMissile: TGroupBox [12]
+            inherited grbHybridMissile: TGroupBox [10]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -25230,7 +24851,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbAcousticTorpedo: TGroupBox
+            inherited grbAcousticTorpedo: TGroupBox [11]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -25626,7 +25247,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbGunEngagementCIWS: TGroupBox [14]
+            inherited grbGunEngagementCIWS: TGroupBox [12]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -25634,7 +25255,7 @@ object frmRightAtasAir: TfrmRightAtasAir
               ExplicitWidth = 345
               ExplicitHeight = 474
             end
-            inherited grbGunEngagementChaffMode: TGroupBox
+            inherited grbGunEngagementChaffMode: TGroupBox [13]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -25773,13 +25394,408 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbGunEngagementAutomaticManualMode: TGroupBox [16]
+            inherited grbGunEngagementAutomaticManualMode: TGroupBox [14]
               Width = 345
               Height = 474
               ParentBackground = False
               ParentColor = False
               ExplicitWidth = 345
               ExplicitHeight = 474
+            end
+            inherited grbWireGuidedTorpedo: TGroupBox [15]
+              Width = 345
+              Height = 474
+              ParentColor = False
+              ExplicitWidth = 345
+              ExplicitHeight = 474
+              inherited ScrollBox10: TScrollBox
+                Width = 341
+                Height = 454
+                ParentBackground = True
+                ParentColor = False
+                ExplicitWidth = 341
+                ExplicitHeight = 454
+                inherited Bevel19: TBevel
+                  Left = 66
+                  Top = 70
+                  ExplicitLeft = 66
+                  ExplicitTop = 70
+                end
+                inherited Bevel20: TBevel
+                  Left = 66
+                  Top = 216
+                  Width = 263
+                  ExplicitLeft = 66
+                  ExplicitTop = 216
+                  ExplicitWidth = 263
+                end
+                inherited Bevel21: TBevel
+                  Left = 66
+                  Top = 12
+                  ExplicitLeft = 66
+                  ExplicitTop = 12
+                end
+                inherited btnWGTargetTrack: TSpeedButton
+                  Left = 201
+                  Top = 86
+                  ExplicitLeft = 201
+                  ExplicitTop = 86
+                end
+                inherited Label84: TLabel
+                  Left = 11
+                  Top = 4
+                  ParentFont = False
+                  ExplicitLeft = 11
+                  ExplicitTop = 4
+                end
+                inherited Label85: TLabel
+                  Left = 116
+                  Top = 32
+                  ParentFont = False
+                  ExplicitLeft = 116
+                  ExplicitTop = 32
+                end
+                inherited Label86: TLabel
+                  Left = 11
+                  Top = 61
+                  ParentFont = False
+                  ExplicitLeft = 11
+                  ExplicitTop = 61
+                end
+                inherited Label87: TLabel
+                  Left = 26
+                  Top = 89
+                  ParentFont = False
+                  ExplicitLeft = 26
+                  ExplicitTop = 89
+                end
+                inherited Label88: TLabel
+                  Left = 11
+                  Top = 208
+                  ParentFont = False
+                  ExplicitLeft = 11
+                  ExplicitTop = 208
+                end
+                inherited Label89: TLabel
+                  Left = 80
+                  Top = 231
+                  ParentFont = False
+                  ExplicitLeft = 80
+                  ExplicitTop = 231
+                end
+                inherited Label90: TLabel
+                  Left = 212
+                  Top = 231
+                  ParentFont = False
+                  ExplicitLeft = 212
+                  ExplicitTop = 231
+                end
+                inherited Label91: TLabel
+                  Left = 26
+                  Top = 112
+                  ParentFont = False
+                  ExplicitLeft = 26
+                  ExplicitTop = 112
+                end
+                inherited Label92: TLabel
+                  Left = 26
+                  Top = 134
+                  ParentFont = False
+                  ExplicitLeft = 26
+                  ExplicitTop = 134
+                end
+                inherited Label93: TLabel
+                  Left = 26
+                  Top = 156
+                  ParentFont = False
+                  ExplicitLeft = 26
+                  ExplicitTop = 156
+                end
+                inherited Label94: TLabel
+                  Left = 26
+                  Top = 178
+                  Width = 33
+                  Caption = 'Depth'
+                  ParentFont = False
+                  ExplicitLeft = 26
+                  ExplicitTop = 178
+                  ExplicitWidth = 33
+                end
+                inherited Label95: TLabel
+                  Left = 201
+                  Top = 134
+                  ParentFont = False
+                  ExplicitLeft = 201
+                  ExplicitTop = 134
+                end
+                inherited Label96: TLabel
+                  Left = 201
+                  Top = 156
+                  ParentFont = False
+                  ExplicitLeft = 201
+                  ExplicitTop = 156
+                end
+                inherited Label97: TLabel
+                  Left = 201
+                  Top = 178
+                  ParentFont = False
+                  ExplicitLeft = 201
+                  ExplicitTop = 178
+                end
+                inherited lblWGQuantity: TLabel
+                  Left = 176
+                  Top = 32
+                  ParentFont = False
+                  ExplicitLeft = 176
+                  ExplicitTop = 32
+                end
+                inherited lblWGStatus: TLabel
+                  Left = 26
+                  Top = 32
+                  ParentFont = False
+                  ExplicitLeft = 26
+                  ExplicitTop = 32
+                end
+                inherited lblWGTargetCourse: TLabel
+                  Left = 136
+                  Top = 134
+                  ParentFont = False
+                  ExplicitLeft = 136
+                  ExplicitTop = 134
+                end
+                inherited lblWGTargetDepth: TLabel
+                  Left = 136
+                  Top = 178
+                  ParentFont = False
+                  ExplicitLeft = 136
+                  ExplicitTop = 178
+                end
+                inherited lblWGTargetSpeed: TLabel
+                  Left = 136
+                  Top = 156
+                  ParentFont = False
+                  ExplicitLeft = 136
+                  ExplicitTop = 156
+                end
+                inherited lblWGTargetIdentity: TLabel
+                  Left = 136
+                  Top = 112
+                  ParentFont = False
+                  ExplicitLeft = 136
+                  ExplicitTop = 112
+                end
+                inherited btnWGRangeHide: TSpeedButton
+                  Left = 99
+                  Top = 251
+                  Width = 54
+                  Height = 23
+                  ExplicitLeft = 99
+                  ExplicitTop = 251
+                  ExplicitWidth = 54
+                  ExplicitHeight = 23
+                end
+                inherited btnWGBlindHide: TSpeedButton
+                  Left = 246
+                  Top = 251
+                  Width = 54
+                  Height = 23
+                  ExplicitLeft = 246
+                  ExplicitTop = 251
+                  ExplicitWidth = 54
+                  ExplicitHeight = 23
+                end
+                inherited btnWGBlindShow: TSpeedButton
+                  Left = 189
+                  Top = 251
+                  Width = 54
+                  Height = 23
+                  ExplicitLeft = 189
+                  ExplicitTop = 251
+                  ExplicitWidth = 54
+                  ExplicitHeight = 23
+                end
+                inherited btnWGRangeShow: TSpeedButton
+                  Left = 42
+                  Top = 251
+                  Width = 54
+                  Height = 23
+                  ExplicitLeft = 42
+                  ExplicitTop = 251
+                  ExplicitWidth = 54
+                  ExplicitHeight = 23
+                end
+                inherited Label39: TLabel
+                  Left = 116
+                  Top = 178
+                  ParentFont = False
+                  ExplicitLeft = 116
+                  ExplicitTop = 178
+                end
+                inherited Label40: TLabel
+                  Left = 116
+                  Top = 156
+                  ParentFont = False
+                  ExplicitLeft = 116
+                  ExplicitTop = 156
+                end
+                inherited Label41: TLabel
+                  Left = 116
+                  Top = 134
+                  ParentFont = False
+                  ExplicitLeft = 116
+                  ExplicitTop = 134
+                end
+                inherited Label42: TLabel
+                  Left = 116
+                  Top = 89
+                  ParentFont = False
+                  ExplicitLeft = 116
+                  ExplicitTop = 89
+                end
+                inherited btnWGLaunch: TButton
+                  Left = 249
+                  Top = 315
+                  ExplicitLeft = 249
+                  ExplicitTop = 315
+                end
+                inherited EdtWGTargetTrack: TEdit
+                  Left = 136
+                  Top = 87
+                  Width = 60
+                  Text = '---'
+                  ExplicitLeft = 136
+                  ExplicitTop = 87
+                  ExplicitWidth = 60
+                end
+              end
+            end
+            inherited grbMines: TGroupBox [16]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 345
+              ExplicitHeight = 474
+              inherited Label272: TLabel
+                Left = 17
+                Top = 20
+                ParentFont = False
+                ExplicitLeft = 17
+                ExplicitTop = 20
+              end
+              inherited lblStatusMines: TLabel
+                Left = 34
+                Top = 48
+                ParentFont = False
+                ExplicitLeft = 34
+                ExplicitTop = 48
+              end
+              inherited Label288: TLabel
+                Left = 124
+                Top = 48
+                ParentFont = False
+                ExplicitLeft = 124
+                ExplicitTop = 48
+              end
+              inherited lbMinesQuantity: TLabel
+                Left = 184
+                Top = 48
+                ParentFont = False
+                ExplicitLeft = 184
+                ExplicitTop = 48
+              end
+              inherited Label291: TLabel
+                Left = 17
+                Top = 77
+                ParentFont = False
+                ExplicitLeft = 17
+                ExplicitTop = 77
+              end
+              inherited Bevel58: TBevel
+                Left = 64
+                Top = 84
+                ExplicitLeft = 64
+                ExplicitTop = 84
+              end
+              inherited Label292: TLabel
+                Left = 34
+                Top = 120
+                Width = 74
+                Caption = 'Depth         :'
+                ParentFont = False
+                ExplicitLeft = 34
+                ExplicitTop = 120
+                ExplicitWidth = 74
+              end
+              inherited Bevel61: TBevel
+                Left = 64
+                Top = 27
+                ExplicitLeft = 64
+                ExplicitTop = 27
+              end
+              inherited lbl84: TLabel
+                Left = 187
+                Top = 190
+                ParentFont = False
+                Visible = False
+                ExplicitLeft = 187
+                ExplicitTop = 190
+              end
+              inherited lbl104: TLabel
+                Left = 34
+                Top = 217
+                Width = 74
+                Caption = 'Count         :'
+                ParentFont = False
+                ExplicitLeft = 34
+                ExplicitTop = 217
+                ExplicitWidth = 74
+              end
+              inherited lbl101: TLabel
+                Left = 187
+                Top = 120
+                ParentFont = False
+                Visible = True
+                ExplicitLeft = 187
+                ExplicitTop = 120
+              end
+              inherited lbl100: TLabel
+                Left = 34
+                Top = 190
+                Width = 75
+                Caption = 'Range area :'
+                ParentFont = False
+                ExplicitLeft = 34
+                ExplicitTop = 190
+                ExplicitWidth = 75
+              end
+              inherited EdtMinesDepth: TEdit
+                Left = 128
+                Top = 118
+                Width = 52
+                ExplicitLeft = 128
+                ExplicitTop = 118
+                ExplicitWidth = 52
+              end
+              inherited btnMinesDeploy: TButton
+                Left = 249
+                Top = 150
+                ExplicitLeft = 249
+                ExplicitTop = 150
+              end
+              inherited edtCount: TEdit
+                Left = 128
+                Top = 214
+                OnKeyPress = nil
+                ExplicitLeft = 128
+                ExplicitTop = 214
+              end
+              inherited edtRange: TEdit
+                Left = 128
+                Top = 189
+                ExplicitLeft = 128
+                ExplicitTop = 189
+              end
             end
           end
         end
@@ -25839,10 +25855,9 @@ object frmRightAtasAir: TfrmRightAtasAir
     end
     object pnlGameStatus: TPanel
       Left = 0
-      Top = 907
+      Top = 928
       Width = 356
-      Height = 117
-      Align = alBottom
+      Height = 89
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
@@ -25850,7 +25865,7 @@ object frmRightAtasAir: TfrmRightAtasAir
         Left = 0
         Top = 0
         Width = 356
-        Height = 117
+        Height = 89
         Align = alClient
         Picture.Data = {
           07544269746D61700A600100424D0A6001000000000036000000280000005101
@@ -28677,7 +28692,7 @@ object frmRightAtasAir: TfrmRightAtasAir
       end
       object Label1: TLabel
         Left = 16
-        Top = 23
+        Top = 13
         Width = 104
         Height = 24
         Caption = 'Game Status'
@@ -28690,7 +28705,7 @@ object frmRightAtasAir: TfrmRightAtasAir
       end
       object pnlGameState: TPanel
         Left = 12
-        Top = 54
+        Top = 44
         Width = 331
         Height = 33
         BevelOuter = bvNone

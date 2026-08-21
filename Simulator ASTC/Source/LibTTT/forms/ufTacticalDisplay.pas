@@ -1235,6 +1235,7 @@ type
     procedure imgCenterOnHookClick(Sender: TObject);
     procedure imgFilterRangeRingsClick(Sender: TObject);
     procedure cbbSetScaleChange(Sender: TObject);
+    procedure fmWeapon1btnSearchTargetClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -1299,7 +1300,8 @@ type
     procedure SetupPlotterUI;
     //    procedure SetUpPlotterUI;
     procedure SetUpNavigasiUI;
-    procedure setUpAAWOUI;
+    procedure setUpASWUI;
+    procedure setUpAsuwoUI;
   public
     // move to public, use by wasdal UI
     FLastMapCenterX, FLastMapCenterY : double;
@@ -1930,7 +1932,10 @@ begin
 
     {$REGION ' Atas Air '}
     if Assigned(frmRightAtasAir)  then
-        frmRightAtasAir.fmWeapon1.SetControlledObject(pit);
+    begin
+      frmRightAtasAir.focusedTrack := pit;
+      frmRightAtasAir.fmWeapon1.SetControlledObject(pit);
+    end;
 
     {$ENDREGION}
 
@@ -3848,6 +3853,12 @@ begin
 
                 focusedTrack := TSimObject(objTemp);
 
+                {untuk role penembakan}
+                if Assigned(frmRightAtasAir) then
+                begin
+                  frmRightAtasAir.focusedTrack := TSimObject(objTemp);
+                end;
+
                 if Assigned(focusedTrack) then
                 begin
                   if ((focusedTrack is TT3PlatformInstance) or (focusedTrack is TT3NonRealVehicle)) then
@@ -4373,6 +4384,12 @@ begin
                   TT3PlatformInstance(objTemp).Selected := true;
                   focusedTrack := TT3PlatformInstance(objTemp);
 
+                  if Assigned(frmRightAtasAir) then
+                  begin
+                    frmRightAtasAir.focusedTrack := TT3PlatformInstance(objTemp);
+                  end;
+
+
                   setPopUpPropItem(TSimObject(focusedTrack));
                   setHookPopup;
 
@@ -4436,6 +4453,11 @@ begin
                   // focusedTrack := simMgrClient.FindNearestTrack(mx, my, 10);
                   if TT3DetectedTrack(objTemp).Selected <> true then   //add andik
                     TT3DetectedTrack(objTemp).Selected := true;
+
+                  if Assigned (frmRightAtasAir) then
+                  begin
+                    focusedTrack := TT3DetectedTrack(objTemp);
+                  end;
 
                   focusedTrack := TT3DetectedTrack(objTemp);
                   setHookPopup;
@@ -6443,12 +6465,13 @@ begin
         2:
         begin
           {$REGION ' Atas Air '}
-          setUpAAWOUI;
+          setUpASWUI;
           {$ENDREGION}
         end;
         3:
         begin
           {$REGION ' BawahAir '}
+          setUpAsuwoUI;
           {$ENDREGION}
         end;
         4:
@@ -6608,7 +6631,45 @@ begin
   fPictureCentreSettings.Show;
 end;
 
-procedure TfrmTacticalDisplay.setUpAAWOUI;
+procedure TfrmTacticalDisplay.setUpASWUI;
+begin
+  pnl1ToolbarGeneral.Visible    := False;
+  pnlBottom.Visible := False;
+  pnlLeft.Visible   := False;
+  pnlContainerBottom.Visible := True;
+  Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
+
+  if not Assigned(frmLeftAtasAir) then
+    frmLeftAtasAir := TfrmLeftAtasAir.Create(Application);
+
+  frmRightAtasAir.Map1 := Map1;
+
+  frmLeftAtasAir.Parent := nil;
+  frmLeftAtasAir.Align  := alLeft;
+  frmLeftAtasAir.Parent := Self;
+  frmLeftAtasAir.Show;
+  frmLeftAtasAir.BringToFront;
+
+  if not Assigned(frmTopNav) then
+    frmTopNav := TfrmTopNav.Create(Application);
+
+  frmTopNav.Parent := nil;
+  frmTopNav.Align  := alTop;
+  frmTopNav.Parent := Self;
+  frmTopNav.Show;
+  frmTopNav.BringToFront;
+//
+  if not Assigned(frmRightAtasAir) then
+    frmRightAtasAir := TfrmRightAtasAir.Create(Application);
+
+  frmRightAtasAir.Parent := nil;
+  frmRightAtasAir.Align  := alRight;
+  frmRightAtasAir.Parent := Self;
+  frmRightAtasAir.Show;
+  frmRightAtasAir.BringToFront;
+end;
+
+procedure TfrmTacticalDisplay.setUpAsuwoUI;
 begin
   pnl1ToolbarGeneral.Visible    := False;
   pnlBottom.Visible := False;
@@ -6743,16 +6804,40 @@ begin
           TT3DetectedTrack(obj).Selected := true;
 
         focusedTrack := obj;
+
+        {untuk role penembakan}
+        if Assigned (frmRightAtasAir) then
+        begin
+           focusedTrack := obj;
+        end;
       end;
 
       if Assigned(focusedTrack) then begin
         if focusedTrack is TT3PlatformInstance then
-          fmWeapon1.SetFocusedPlatform(TT3PlatformInstance(focusedTrack))
+        begin
+          fmWeapon1.SetFocusedPlatform(TT3PlatformInstance(focusedTrack)) ;
+
+          {untuk role penembakan}
+          if Assigned (frmRightAtasAir) then
+          begin
+             frmRightAtasAir.fmWeapon1.SetFocusedPlatform(TT3PlatformInstance(focusedTrack))
+          end;
+        end
         else if focusedTrack is TT3DetectedTrack then
         begin
           aObject := TT3DetectedTrack(focusedTrack).TrackObject;
           if Assigned(aObject) then
-            fmWeapon1.SetFocusedPlatform(TT3PlatformInstance(aObject))
+          begin
+            fmWeapon1.SetFocusedPlatform(TT3PlatformInstance(aObject));
+
+            {untuk role penembakan}
+            if Assigned (frmRightAtasAir) then
+            begin
+              frmRightAtasAir.fmWeapon1.SetFocusedPlatform(TT3PlatformInstance(aObject));
+
+            end;
+
+          end;
         end;
       end;
     end;
@@ -11687,6 +11772,12 @@ begin
   begin
     fmWeapon1.btnPositionClick(Sender);
   end;
+end;
+
+procedure TfrmTacticalDisplay.fmWeapon1btnSearchTargetClick(Sender: TObject);
+begin
+  fmWeapon1.btnAcousticTorpedoOnClick(Sender);
+
 end;
 
 procedure TfrmTacticalDisplay.fmWeapon1btnSRTargetTrackClick(Sender: TObject);

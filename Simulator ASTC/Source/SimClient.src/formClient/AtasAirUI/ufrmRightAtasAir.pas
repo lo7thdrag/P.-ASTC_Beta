@@ -9,7 +9,7 @@ uses
   VrControls, VrBlinkLed, ufmSensor, Vcl.Menus, Vcl.ComCtrls,
 
     ufmWeapon,uT3Unit,uT3DetectedTrack,uBaseCoordSystem,uT3Common,uT3Vehicle,
-   uDBAsset_Vehicle,uTMapTouch2,uSimObjects,ufrmWeapon,ufToteDisplay;
+   uDBAsset_Vehicle,uTMapTouch2,uSimObjects,ufrmWeapon,ufToteDisplay, ufTacticalDisplay;
 
 type
   TfrmRightAtasAir = class(TForm)
@@ -763,8 +763,13 @@ end;
 procedure TfrmRightAtasAir.fmWeapon1btnSurfaceToAirTargetTrackClick(
   Sender: TObject);
 begin
-  fmWeapon1.btnSurfaceToAirOnClick(Sender);
+  if Assigned(Sender)then
+  begin
+    if (Sender is TSpeedButton) and (TSpeedButton(Sender).Tag = 5) then
+      frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
 
+  fmWeapon1.btnSurfaceToAirOnClick(Sender);
+end;
 end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnSurfaceToSurfaceCancelClick(
@@ -802,11 +807,15 @@ begin
 
 end;
 
-procedure TfrmRightAtasAir.fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick(
-  Sender: TObject);
+procedure TfrmRightAtasAir.fmWeapon1btnSurfaceToSurfaceMissileTargetTrackClick(Sender: TObject);
 begin
-  fmWeapon1.btnSurfaceToSurfaceClick(Sender);
+  if Assigned(Sender)then
+  begin
+    if (Sender is TSpeedButton) and (TSpeedButton(Sender).Tag = 3) then
+      frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
 
+    fmWeapon1.btnSurfaceToSurfaceClick(Sender);
+  end;
 end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnSurfaceToSurfaceMissileTargetTrackDetailsClick(
@@ -882,7 +891,11 @@ end;
 procedure TfrmRightAtasAir.fmWeapon1btnTacticalMissileTargetTrackClick(
   Sender: TObject);
 begin
-  fmWeapon1.btnTacticalMissileTargetTrackClick(Sender);
+  if Assigned(Sender)then
+  begin
+    frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
+    fmWeapon1.btnTacticalMissileTargetTrackClick(Sender);
+  end;
 
 end;
 
@@ -1475,6 +1488,7 @@ begin
 //    frmWeapon.Caption := 'Weapon ' + pit.InstanceName;
 //  end;
 end;
+
 
 procedure TfrmRightAtasAir.tmrWarningTimer(Sender: TObject);
 begin

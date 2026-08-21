@@ -1928,6 +1928,12 @@ begin
 
     {$ENDREGION}
 
+    {$REGION ' Atas Air '}
+    if Assigned(frmRightAtasAir)  then
+        frmRightAtasAir.fmWeapon1.SetControlledObject(pit);
+
+    {$ENDREGION}
+
     // wasdal UI
     if simMgrClient.ISWasdal then
     begin
@@ -6247,7 +6253,7 @@ begin
         if Assigned(frmRightAtasAir) then
         begin
           frmRightAtasAir.fmWeapon1.SetControlledObject(pit);
-//          frmRightAtasAir.SetControlledObject(pit);
+          frmRightAtasAir.SetControlledObject(pit);
          end;
 
 
@@ -8788,6 +8794,8 @@ begin // ini procedure update yg dipanggil dari sim client
 
         if Assigned(frmRightAtasAir) then
         begin
+           if Assigned(frmWeapon) then
+            frmRightAtasAir.fmWeapon1.Refresh_VisibleTab;
 //         if focusedTrack <> nil then
 //            frmRightAtasAir.AddTrackPlatform(focusedTrack);
 

@@ -14,7 +14,7 @@ uses
   uBrigadePersonel,
   uSlidingTrans, ufrmWeapon, uDataModuleTTT,uMainLogisticTemplate,ufmLogisticCalculation,
   System.ImageList, RzBmpBtn, Vcl.Imaging.pngimage, Vcl.Imaging.jpeg,
-  VrControls, VrTrackBar{,
+  VrControls, VrTrackBar, uDBAsset_MotionCharacteristics{,
   frxClass};
 
 type
@@ -1249,7 +1249,7 @@ type
     Image16: TImage;
     pnlNavigasi: TPanel;
     Panel16: TPanel;
-    Panel22: TPanel;
+    pnlVisual: TPanel;
     Image9: TImage;
     Label17: TLabel;
     Label82: TLabel;
@@ -1268,10 +1268,9 @@ type
     Image19: TImage;
     Image20: TImage;
     Image21: TImage;
-    Panel54: TPanel;
+    pnlAtmospheric: TPanel;
     Label92: TLabel;
     lblAtmosphereNav: TLabel;
-    Bevel4: TBevel;
     Image8: TImage;
     Panel55: TPanel;
     Panel56: TPanel;
@@ -1279,25 +1278,15 @@ type
     imgRainStateNav: TImage;
     Label90: TLabel;
     lblRainstateNav: TLabel;
-    Panel130: TPanel;
-    Label13: TLabel;
-    lblSeaStatDescNav: TLabel;
-    imgSeaStateNav: TImage;
-    pnl1: TPanel;
     pnlSystemState: TPanel;
     lvSystemStateNav: TListView;
-    Panel92: TPanel;
     pnlCountermeasures: TPanel;
     lvCountermeasuresNav: TTreeView;
-    Panel108: TPanel;
     pnlWeaponsStatus: TPanel;
     lvWeaponNav: TTreeView;
-    Panel109: TPanel;
     pnSensorsStatusBG: TPanel;
     lvSensorNav: TListView;
-    Panel111: TPanel;
     Panel112: TPanel;
-    Panel113: TPanel;
     Panel114: TPanel;
     lvLogisticPlatformNav: TListView;
     Panel115: TPanel;
@@ -1335,8 +1324,6 @@ type
     Panel129: TPanel;
     pnlTransportNav: TPanel;
     pnlNone: TPanel;
-    Panel117: TPanel;
-    Panel118: TPanel;
     pnlAirPlatformNav: TPanel;
     Label103: TLabel;
     Panel121: TPanel;
@@ -1473,7 +1460,84 @@ type
     imgTransportNav: TImage;
     Image7: TImage;
     pnlNoneTransport: TPanel;
-    lvPlatformEmbarkDisembarkNav: TListView;
+    Image33: TImage;
+    Image34: TImage;
+    Image2: TImage;
+    Image37: TImage;
+    Label252: TLabel;
+    Image39: TImage;
+    Image40: TImage;
+    Label253: TLabel;
+    Image41: TImage;
+    Label254: TLabel;
+    Image42: TImage;
+    Label87: TLabel;
+    Image31: TImage;
+    Label89: TLabel;
+    Label99: TLabel;
+    Label100: TLabel;
+    Label96: TLabel;
+    edtLengthDimension: TLabel;
+    edtWidthDimension: TLabel;
+    Label98: TLabel;
+    Label101: TLabel;
+    Label255: TLabel;
+    Label256: TLabel;
+    Label257: TLabel;
+    Label258: TLabel;
+    edtHeightDimension: TLabel;
+    edtWeightDimension: TLabel;
+    Label261: TLabel;
+    Label262: TLabel;
+    Label248: TLabel;
+    Label246: TLabel;
+    Label245: TLabel;
+    edtMaxSpeed: TLabel;
+    edtMinSpeed: TLabel;
+    Label247: TLabel;
+    Label244: TLabel;
+    Label249: TLabel;
+    Image38: TImage;
+    pnlWindCurrent: TPanel;
+    Image36: TImage;
+    Label85: TLabel;
+    Label86: TLabel;
+    lblWindSpeedNav: TLabel;
+    lblWindDir: TLabel;
+    Label95: TLabel;
+    lblCurrentSpeed: TLabel;
+    Label97: TLabel;
+    lblCurrentDir: TLabel;
+    Image22: TImage;
+    Image23: TImage;
+    Image24: TImage;
+    Image25: TImage;
+    Image26: TImage;
+    Image27: TImage;
+    Image28: TImage;
+    Image29: TImage;
+    Image30: TImage;
+    Label102: TLabel;
+    Label239: TLabel;
+    Label240: TLabel;
+    Label241: TLabel;
+    Label242: TLabel;
+    Label243: TLabel;
+    lblTinght: TLabel;
+    lblStandart: TLabel;
+    imgSeaStateNav: TImage;
+    Label13: TLabel;
+    lblSeaStatDescNav: TLabel;
+    imgCloudStateNav: TImage;
+    Label251: TLabel;
+    lblCloudAttenDescNav: TLabel;
+    Label259: TLabel;
+    Image32: TImage;
+    Label260: TLabel;
+    Image35: TImage;
+    Label263: TLabel;
+    Image43: TImage;
+    Label264: TLabel;
 
 
 
@@ -1813,6 +1877,7 @@ type
   private
 
     tagState : Integer;
+    FSelectedMotion : TMotion_Characteristics;
 
     FSelectedDataLink : TT3DataLink;
     {nando add}
@@ -1899,7 +1964,6 @@ type
 
     //NAVIGASI
     procedure SetUpToteNavigasiUI;
-    procedure RefreshNavigasi(Sender: TObject);
 //    procedure BTNransport(Sender: TObject);
 
     //GENERAL
@@ -5341,7 +5405,6 @@ begin
   FLastPlatform := nil;
   lvEventSummary.StateImages := ImageList1;
   lvPlatformEmbarkDisembark.StateImages := ImageList1;
-  lvPlatformEmbarkDisembarkNav.StateImages := ImageList1;
 
   mList := TList.Create;
 
@@ -5366,13 +5429,6 @@ begin
 //  btnCubicleNew.Glyph.Assign(FButtonImage[5].Normal);
 //  btnEnviControlNew.Glyph.Assign(FButtonImage[6].Normal);
 //  btnTacticalNew.Glyph.Assign(FButtonImage[7].Normal);
-
-  {NAVIGASI}
-//  lvSensorNav.Items.Assign(lvPlatforms.Items);
-//  lvPlatformNav.Items.Assign(lvPlatforms.Items);
-//  lvWeaponNav.Items.Assign(tvWeapons.Items);
-//  lvCountermeasuresNav.Items.Assign(tvCountermeasures.Items);
-//  lvSystemStateNav.Items.Assign(lvSystemState.Items);
 end;
 
 procedure TfrmToteDisplay.Initialize;
@@ -5611,16 +5667,6 @@ begin
       Break;
     end;
     if Assigned(lvPlatformEmbarkDisembark.Selected) and (TT3PlatformInstance(frmTacticalDisplay.cbAssumeControl.Items.Objects[I]).InstanceIndex = TT3PlatformInstance(lvPlatformEmbarkDisembark.Selected.Data).InstanceIndex) then
-    begin
-      index := I;
-      frmTacticalDisplay.cbAssumeControl.ItemIndex := index;
-      frmTacticalDisplay.cbAssumeControlChange(self);
-      frmTacticalDisplay.Map1.Repaint;
-      Break;
-    end;
-
-    {NAVIGASI}
-    if Assigned(lvPlatformEmbarkDisembarkNav.Selected) and (TT3PlatformInstance(frmTacticalDisplay.cbAssumeControl.Items.Objects[I]).InstanceIndex = TT3PlatformInstance(lvPlatformEmbarkDisembarkNav.Selected.Data).InstanceIndex) then
     begin
       index := I;
       frmTacticalDisplay.cbAssumeControl.ItemIndex := index;
@@ -8947,7 +8993,6 @@ begin
   pnlMainGeneral.Visible := False;
   pnlMainNavigasi.Visible := True;
   RefreshEnvironment;
-//  RefreshNavigasi(pi);
 end;
 
 procedure TfrmToteDisplay.cbSetEnDisClick(sender: TObject);
@@ -11683,7 +11728,6 @@ var
 begin
   lvPlatforms.Items.Clear;
   lvPlatformEmbarkDisembark.Items.Clear;
-  lvPlatformEmbarkDisembarkNav.Items.Clear;
   lvPlatformLogistic.Items.Clear;
 
   with simMgrClient do
@@ -11705,41 +11749,35 @@ begin
             lvPlatforms.Canvas.Brush.Color := clRed;
             forceColor := 'Red';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clRed;
-            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clRed;
           end;
           fcBlue:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlue;
             forceColor := 'Blue';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlue;
-            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlue;
           end;
           fcGreen:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlue;
             forceColor := 'Green';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clGreen;
-            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clGreen;
           end;
           fcAmber:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlue;
             forceColor := 'Yellow';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clYellow;
-            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clYellow;
           end;
           fcNoForce:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlack;
             forceColor := 'No Force';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlack;
-            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlack;
           end;
         else
           lvPlatforms.Canvas.Brush.Color := clBlack;
           forceColor := 'Black'; //mk
           lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlack;
-          lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlack;
         end;
 
         if pi is TT3Vehicle then     //mk
@@ -11756,7 +11794,6 @@ begin
 
             {untuk menampilkan di halaman embark/disembark}
             li2 := lvPlatformEmbarkDisembark.Items.Add;
-            li2 := lvPlatformEmbarkDisembarkNav.Items.Add;
             li2.Caption := pi.InstanceName;
             li2.SubItems.Add(pi.InstanceClass);
             li2.SubItems.Add(pi.Track_ID);
@@ -11802,27 +11839,23 @@ begin
             lvPlatforms.Canvas.Brush.Color := clRed;
             forceColor := 'Red';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clRed;
-            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clRed;
           end;
           fcBlue:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlue;
             forceColor := 'Blue';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlue;
-            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlue;
           end;
           fcNoForce:
           begin
             lvPlatforms.Canvas.Brush.Color := clBlack;
             forceColor := 'No Force';
             lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlack;
-            lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlack;
           end;
         else
           lvPlatforms.Canvas.Brush.Color := clBlack;
           forceColor := 'Black'; //mk
           lvPlatformEmbarkDisembark.Canvas.Brush.Color := clBlack;
-          lvPlatformEmbarkDisembarkNav.Canvas.Brush.Color := clBlack;
         end;
 
         if pi is TT3Vehicle then     //mk
@@ -11839,7 +11872,6 @@ begin
 
             {untuk menampilkan di halaman embark/disembark}
             li2 := lvPlatformEmbarkDisembark.Items.Add;
-            li2 := lvPlatformEmbarkDisembarkNav.Items.Add;
             li2.Caption := pi.InstanceName;
             li2.SubItems.Add(pi.InstanceClass);
             li2.SubItems.Add(IntToStr(pi.TrackNumber));
@@ -13263,12 +13295,34 @@ begin
 end;
 
 procedure TfrmToteDisplay.UpdateShipDataVehicle(sender: TT3Vehicle);
+var
+  ImagePath: string;
 begin
-// isi data vehicle disini
   lblShipNAme.Caption := sender.InstanceName;
   lblClass.Caption := sender.InstanceClass;
 
-//  imgShip.Picture.LoadFromFile();
+  with sender.VehicleDefinition do
+  begin
+    edtLengthDimension.Caption := FormatFloat('0', FData.Length);
+    edtWidthDimension.Caption := FormatFloat('0', FData.Width);
+    edtHeightDimension.Caption := FormatFloat('0', FData.Height);
+    edtWeightDimension.Caption := FormatFloat('0.0', FData.Weight);
+
+    ImagePath :=  vGameDataSetting.DataPath + 'Image Simulator\Interface\' + FData.VBS_Class_Name + '.PNG' ;
+    try
+      imgShip.Picture.LoadFromFile(ImagePath);
+    except
+      imgShip.Picture.LoadFromFile(vGameDataSetting.DataPath + 'NoModel.bmp');
+    end;
+  end;
+
+  with TT3PlatformInstance(sender).UnitMotion.FData do
+  begin
+    edtMinSpeed.Caption := FormatFloat('0.00', Min_Ground_Speed);
+    edtMaxSpeed.Caption := FormatFloat('0.00', Max_Ground_Speed);
+    lblStandart.Caption := FormatFloat('0.0', Standard_Turn_Rate);
+    lblTinght.Caption   := FormatFloat('0.0', Tight_Turn_Rate);
+  end;
 end;
 
 procedure TfrmToteDisplay.UpdateStatusVehicle(sender: TT3Vehicle);
@@ -13280,18 +13334,15 @@ begin
     Exit;
 
   lvSystemState.Items.Clear;
-  lvSystemStateNav.Items.Clear;
 
   //Overall Damage
   li := lvSystemState.Items.Add;
-  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Overall Damage';
   li.SubItems.Add(IntToStr(sender.DamageOverall) + ' %');
 
   //Helm
   li := lvSystemState.Items.Add;
-  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Helm';
   if sender.DamageHelm then
@@ -13301,7 +13352,6 @@ begin
 
   //Propultion
   li := lvSystemState.Items.Add;
-  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Propulsion';
   if sender.DamagePropulsion then
@@ -13311,27 +13361,45 @@ begin
 
   //Speed
   li := lvSystemState.Items.Add;
-  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Speed';
   li.SubItems.Add(IntToStr(sender.DamagePercentSpeed)  +' %');
 
-  //Fuel Remaining
+//  Fuel Remaining
   li := lvSystemState.Items.Add;
-  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Fuel Remaining';
   li.SubItems.Add(FloatToStr(Round(sender.FuelPercentage)) + ' %');
 
   //Fuel Leakage
   li := lvSystemState.Items.Add;
-  li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Fuel Leakage';
   if sender.FuelLeakage then
     li.SubItems.Add('Yes')
   else
     li.SubItems.Add('No');
+
+  {NAVIGASI}
+  lvSystemStateNav.Items.Clear;
+
+  li := lvSystemStateNav.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Overall Damage';
+  li.SubItems.Add(IntToStr(sender.DamageOverall) + ' %');
+
+  li := lvSystemStateNav.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Speed';
+  li.SubItems.Add(IntToStr(sender.DamagePercentSpeed)  +' %');
+
+  li := lvSystemStateNav.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Propulsion';
+  if sender.DamagePropulsion then
+    li.SubItems.Add('Damage')
+  else
+    li.SubItems.Add('Operational');
 
   //Communication
 //  li := lvSystemState.Items.Add;
@@ -13875,6 +13943,7 @@ end;
 
 procedure TfrmToteDisplay.UpdateVehicle(sender: TT3Vehicle);
 begin
+
   if not Assigned(sender) then
     Exit;
 
@@ -13890,7 +13959,10 @@ begin
   UpdateEmbarkVehicle(sender);
 
   {Prince titipan}
+  TransportHostShipID := sender.InstanceIndex;
   UpdateTransportToteDisplay(sender);
+
+  LogisticSelectedID := sender.InstanceIndex;
   UpdateLogisticToteDisplay(sender);
 
   UpdateShipDataVehicle(sender);
@@ -15193,11 +15265,9 @@ begin
     Exit;
 
   lvLogisticPlatform.Items.Clear;
-  lvLogisticPlatformNav.Items.Clear;
 
   {$REGION ' Fuel '}
   li := lvLogisticPlatform.Items.Add;
-  li := lvLogisticPlatformNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Fuel';
 
@@ -15229,7 +15299,6 @@ begin
 
   {$REGION ' Lubricants '}
   li := lvLogisticPlatform.Items.Add;
-  li := lvLogisticPlatformNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Lubricants';
 
@@ -15241,7 +15310,6 @@ begin
 
   {$REGION ' Water '}
   li := lvLogisticPlatform.Items.Add;
-  li := lvLogisticPlatformNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Water';
 
@@ -15253,7 +15321,6 @@ begin
 
   {$REGION ' Food '}
   li := lvLogisticPlatform.Items.Add;
-  li := lvLogisticPlatformNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Food';
 
@@ -15263,108 +15330,73 @@ begin
 //  li.SubItems.Add('ton');
   {$ENDREGION}
 
-end;
-
-procedure TfrmToteDisplay.RefreshNavigasi(Sender: TObject);
-var
-  ge: TGame_Environment_Definition;
-begin
-  ge := (simMgrClient).GameEnvironment;
-
-//  with TT3PlatformInstance(FControlled) do
-//  begin
-//    if FControlled is TT3Vehicle then
-//    begin
-//      lblShipNAme.Caption := InstanceName;
-//      lblClass.Caption := TT3Vehicle(FControlled).VehicleDefinition.FData.Vehicle_Identifier;
-//    end
-//    else
-//    begin
-//      lblShipNAme.Caption := '---';
-//      lblClass.Caption := '---';
-//    end;
-//  end;
+  {NAVIGASI}
+  lvLogisticPlatformNav.Items.Clear;
 
 
-  with ge.FData do
-  begin
-//    lblDayVisualNav.Caption                  := FormatFloat('0.00', Daytime_Visual_Modifier) + '%';
-//    lblNightimeVisualNav.Caption             := FormatFloat('0.00', Nighttime_Visual_Modifier) + '%';
-//    lblDaytimeInfraredNav.Caption            := FormatFloat('0.00', Daytime_Infrared_Modifier) + '%';
-//    lblNightimeInfraredNav.Caption           := FormatFloat('0.00', Nighttime_Infrared_Modifier) + '%';
-//    lblAtmosphereNav.Caption                 := FormatFloat('0.00', Atmospheric_Refract_Modifier) + '%';
+  {$REGION ' Fuel '}
+  li := lvLogisticPlatformNav.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Fuel';
 
-    case Rain_Rate of
-      0 :
-      begin
-        lblRainstateNav.Caption     := 'Sunny';
-        imgRainStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Rain.png');
-      end;
-      1 :
-      begin
-        lblRainstateNav.Caption     := 'Light Rain';
-        imgRainStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Rain.png');
-      end;
-      2 :
-      begin
-        lblRainstateNav.Caption     := 'Heavy Rain';
-        imgRainStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Rain.png');
-      end;
+  case TT3PlatformInstance(sender).UnitMotion.FData.Endurance_Type of
+    byte(entFuel):
+    begin
+      li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FuelCapacity) + ' m3');
+//      li.SubItems.Add('m3');
+      li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FuelRemaining)+ ' m3');
+//      li.SubItems.Add('m3');
     end;
-
-    case Sea_State of
-      0 :
-      begin
-        lblSeaStatDescNav.Caption           := 'Calm (glassy)';
-        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
-      end;
-      1 :
-      begin
-        lblSeaStatDescNav.Caption           := 'Calm (rippled)';
-        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
-      end;
-      2 :
-      begin
-        lblSeaStatDescNav.Caption           := 'Smooth (wavelets)';
-        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
-      end;
-      3 :
-      begin
-        lblSeaStatDescNav.Caption           := 'Slight';
-        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
-      end;
-      4 :
-      begin
-        lblSeaStatDescNav.Caption           := 'Moderate';
-        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
-      end;
-      5 :
-      begin
-        lblSeaStatDescNav.Caption           := 'Rough';
-        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
-      end;
-      6 :
-      begin
-        lblSeaStatDescNav.Caption           := 'Very rough';
-        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
-      end;
-      7 :
-      begin
-        lblSeaStatDescNav.Caption           := 'High';
-        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
-      end;
-      8 :
-      begin
-        lblSeaStatDescNav.Caption           := 'Very high';
-        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
-      end;
-      9,10 :
-      begin
-        lblSeaStatDescNav.Caption        := 'Phenomenal';
-        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
-      end;
+    byte(entTime):
+    begin
+      li.SubItems.Add('Time');
+      li.SubItems.Add('Time');
+    end;
+    byte(entRange):
+    begin
+      li.SubItems.Add('Range');
+      li.SubItems.Add('Range');
+    end;
+    byte(entUnlimited):
+    begin
+      li.SubItems.Add('Unlimited');
+      li.SubItems.Add('Unlimited');
     end;
   end;
+  {$ENDREGION}
+
+  {$REGION ' Lubricants '}
+  li := lvLogisticPlatformNav.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Lubricants';
+
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).MLCapacity) + ' m3');
+//  li.SubItems.Add('m3');
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).MLRemaining) + ' m3');
+//  li.SubItems.Add('m3');
+  {$ENDREGION}
+
+  {$REGION ' Water '}
+  li := lvLogisticPlatformNav.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Water';
+
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).ATCapacity) + ' m3');
+//  li.SubItems.Add('m3');
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).ATRemaining) + ' m3');
+//  li.SubItems.Add('m3');
+  {$ENDREGION}
+
+  {$REGION ' Food '}
+  li := lvLogisticPlatformNav.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Food';
+
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FoodCapacity) + ' ton');
+//  li.SubItems.Add('ton');
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FoodRemaining) + ' ton');
+//  li.SubItems.Add('ton');
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.RefreshNearestBaseLogistic(sender : TT3Vehicle);
@@ -16067,11 +16099,11 @@ begin
       pnlInfoKapalNav.BringToFront;
       pnlGeneral.Tag := 1;
       pnlAir.Tag := 0;
-      pnlPersonel.Tag := 0;
+      pnlPersonelT.Tag := 0;
       pnlLanding.Tag := 0;
       pnlAmphibi.Tag := 0;
       pnlAir.Color := RGB(16, 46, 58);
-      pnlPersonel.Color := RGB(16, 46, 58);
+      pnlPersonelT.Color := RGB(16, 46, 58);
       pnlLanding.Color := RGB(16, 46, 58);
       pnlAmphibi.Color := RGB(16, 46, 58);
     end;
@@ -16085,11 +16117,11 @@ begin
       pnlAirPlatformNav.BringToFront;
       pnlAir.Tag := 1;
       pnlGeneral.Tag := 0;
-      pnlPersonel.Tag := 0;
+      pnlPersonelT.Tag := 0;
       pnlLanding.Tag := 0;
       pnlAmphibi.Tag := 0;
       pnlLanding.Color := RGB(16, 46, 58);
-      pnlPersonel.Color := RGB(16, 46, 58);
+      pnlPersonelT.Color := RGB(16, 46, 58);
       pnlGeneral.Color := RGB(16, 46, 58);
       pnlAmphibi.Color := RGB(16, 46, 58);
     end;
@@ -16889,6 +16921,9 @@ begin
 
     {$REGION 'Show panel platform detail'}
     pnlRampStatus.Visible := False;
+    pnlRampStatusNav.Visible := False;
+    pnlEmbarkStatusNav.Height := 427;
+    pnlPlatformDetailsNav.Height := 427;
     pnlEmbarkStatus.Visible := False;
     pnlPlatformDetails.Height := 105;
     pnlInfoKapal.Height := 280;
@@ -16909,6 +16944,8 @@ begin
       pnlEmbarkStatus.Visible := True;
       pnlRampStatusNav.Visible := False;
       pnlEmbarkStatusNav.Visible := True;
+      pnlEmbarkStatusNav.Height := 192;
+      pnlPlatformDetailsNav.Height := 192;
 
       lblHostPlatformNav.Caption := hostShipTemp.InstanceName;
       lblHostPlatform.Caption := hostShipTemp.InstanceName;
@@ -20607,6 +20644,106 @@ begin
 
   with ge.FData do
   begin
+    {$REGION ' NAVIGASI '}
+     case Rain_Rate of
+      0 :
+      begin
+        lblRainstateNav.Caption     := 'Sunny';
+        imgRainStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Rain.png');
+      end;
+      1 :
+      begin
+        lblRainstateNav.Caption     := 'Light Rain';
+        imgRainStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Rain.png');
+      end;
+      2 :
+      begin
+        lblRainstateNav.Caption     := 'Heavy Rain';
+        imgRainStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Rain.png');
+      end;
+    end;
+
+    case Cloud_Attenuation of
+      0 :
+      begin
+        lblCloudAttenDesc.Caption     := 'No Fog';
+        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
+        Fogstate:= 'FOG1';
+
+      end;
+      1 :
+      begin
+        lblCloudAttenDescNav.Caption     := 'Slightly Foggy';
+        imgCloudStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Cloud.png');
+        Fogstate:= 'FOG2';
+      end;
+      2 :
+      begin
+        lblCloudAttenDescNav.Caption     := 'Foggy';
+        imgCloudStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Cloud.png');
+      end;
+      3 :
+      begin
+        lblCloudAttenDescNav.Caption     := 'Very Foggy';
+        imgCloudStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Cloud.png');
+        Fogstate:= 'FOG3';
+      end;
+    end;
+
+    case Sea_State of
+      0 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Calm (glassy)';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
+      end;
+      1 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Calm (rippled)';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
+      end;
+      2 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Smooth (wavelets)';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
+      end;
+      3 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Slight';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
+      end;
+      4 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Moderate';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
+      end;
+      5 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Rough';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
+      end;
+      6 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Very rough';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
+      end;
+      7 :
+      begin
+        lblSeaStatDescNav.Caption           := 'High';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+      8 :
+      begin
+        lblSeaStatDescNav.Caption           := 'Very high';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+      9,10 :
+      begin
+        lblSeaStatDescNav.Caption        := 'Phenomenal';
+        imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+    end;
+    {$ENDREGION}
+
     {$REGION ' Visibility Factor '}
     {Environtment Control}
     trbDaytimeVisual.Position := Round(Daytime_Visual_Modifier);
@@ -20620,10 +20757,15 @@ begin
     edtNightInfra.Text := FormatFloat('0', Nighttime_Infrared_Modifier);
 
     {Environtment Role Navigasi}
-    lblDayVisualNav.Caption := FormatFloat('0', Daytime_Visual_Modifier) + ' %';
-    lblNightimeVisualNav.Caption := FormatFloat('0', Nighttime_Visual_Modifier) + ' %';
-    lblDaytimeInfraredNav.Caption := FormatFloat('0', Daytime_Infrared_Modifier) + ' %';
-    lblNightimeInfraredNav.Caption := FormatFloat('0', Nighttime_Infrared_Modifier) + ' %';
+    lblDayVisualNav.Caption         := FormatFloat('0', Daytime_Visual_Modifier) + ' %';
+    lblNightimeVisualNav.Caption    := FormatFloat('0', Nighttime_Visual_Modifier) + ' %';
+    lblDaytimeInfraredNav.Caption   := FormatFloat('0', Daytime_Infrared_Modifier) + ' %';
+    lblNightimeInfraredNav.Caption  := FormatFloat('0', Nighttime_Infrared_Modifier) + ' %';
+    lblAtmosphereNav.Caption        := FormatFloat('0.00', Atmospheric_Refract_Modifier) + '%';
+    lblWindSpeedNav.Caption         := FormatSpeed(Wind_Speed);
+    lblWindDir.Caption              := FormatCourse(Wind_Direction);
+    lblCurrentSpeed.Caption         := FormatFloat('00.0', Ocean_Current_Speed);
+    lblCurrentDir.Caption           := FormatFloat('000.0', Ocean_Current_Direction);
     {$ENDREGION}
 
     lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);
@@ -20694,12 +20836,15 @@ begin
     lblSoundVelocityLayer.Caption         := FormatFloat('0.0', Thermal_Layer_Depth);
     lblSoundVelocityAverageBottom.Caption := FormatFloat('0.0', Ave_Ocean_Depth);
     lblSurfaceTemp.Caption                := FormatFloat('0.0', Surface_Temperature);
+
   end;
 
 //  SetImageAlpha(img1,200);
   DrawSeaNeedle(StrToFloat(lblOceanCurrentDirection.Caption), imgOceanNeedle.Canvas);
   DrawSeaNeedle(StrToFloat(lblDirectionWindTrue.Caption), imgWindNeedle.Canvas);
   tmrEnviDisplay.Enabled := True;
+
+
 end;
 
 procedure TfrmToteDisplay.SidebarToggleClick(Sender: TObject);

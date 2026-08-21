@@ -245,7 +245,7 @@ uses ufTacticalDisplay,
      uFormationEditorForm, uFormationAddRemMembers, uLogisticCalculation,
      uStrategiEditor, uMainPlottingShape, ufrmTop,
      ufrmRadar, ufrmEMCON, ufrmFireControl, ufrmC, ufrmWeapon,
-     ufrmGuidance, uWaypointCopy, ufrmRightNav,ufrmLeftAtasAir;
+     ufrmGuidance, uWaypointCopy, ufrmRightNav,ufrmLeftAtasAir,ufrmRightAtasAir;
 
 { TT3ClientEventManager }
 
@@ -1318,6 +1318,9 @@ procedure TT3ClientEventManager.OnECMQuantityChange(Sender : TObject);
 begin
   frmTacticalDisplay.fmCounterMeasure1.OnRefreshECMQuantity(Sender);
   frmTacticalDisplay.fmWeapon1.UpdateGunAutoManualTab(Sender);
+
+  if Assigned(frmRightAtasAir) then
+      frmRightAtasAir.fmWeapon1.UpdateGunAutoManualTab(Sender);
 
   if simMgrClient.ISWasdal then
   begin
@@ -5751,6 +5754,10 @@ begin
           begin
             frmTacticalDisplay.fmWeapon1.FRippleCountArray[i] := False;
 
+            if Assigned (frmRightAtasAir) then
+               frmRightAtasAir.fmWeapon1.FRippleCountArray[i] := False;
+
+
             { wasdal UI}
             if simMgrClient.ISWasdal and Assigned(frmWeapon) then
               frmWeapon.fmWeapon1.FRippleCountArray[i] := False;
@@ -6136,6 +6143,22 @@ begin
           := IntToStr(TT3BombONVehicle(Focused_weapon).SalvoSize);
       frmTacticalDisplay.fmWeapon1.btnBombDrop.Enabled
          := TT3BombONVehicle(Focused_weapon).ButtonLaunch;
+
+    if Assigned(frmRightAtasAir) and
+     Assigned(frmRightAtasAir.fmWeapon1) then
+    begin
+      frmRightAtasAir.fmWeapon1.EdtBombTargetTrack.Text :=
+       TT3BombONVehicle(Focused_weapon).TargetTrack;
+
+      frmRightAtasAir.fmWeapon1.chkBombDropWhitoutTarget.Checked :=
+       TT3BombONVehicle(Focused_weapon).DropWhithoutTarget;
+
+      frmRightAtasAir.fmWeapon1.EdtBombControlSalvo.Text :=
+        IntToStr(TT3BombONVehicle(Focused_weapon).SalvoSize);
+
+      frmRightAtasAir.fmWeapon1.btnBombDrop.Enabled :=
+       TT3BombONVehicle(Focused_weapon).ButtonLaunch;
+     end;
 
       { wasdal UI}
       if simMgrClient.ISWasdal and Assigned(frmWeapon) then

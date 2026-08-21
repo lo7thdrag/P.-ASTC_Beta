@@ -20761,11 +20761,11 @@ begin
     lblNightimeVisualNav.Caption    := FormatFloat('0', Nighttime_Visual_Modifier) + ' %';
     lblDaytimeInfraredNav.Caption   := FormatFloat('0', Daytime_Infrared_Modifier) + ' %';
     lblNightimeInfraredNav.Caption  := FormatFloat('0', Nighttime_Infrared_Modifier) + ' %';
-    lblAtmosphereNav.Caption        := FormatFloat('0.00', Atmospheric_Refract_Modifier) + '%';
+    lblAtmosphereNav.Caption        := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
     lblWindSpeedNav.Caption         := FormatSpeed(Wind_Speed);
     lblWindDir.Caption              := FormatCourse(Wind_Direction);
     lblCurrentSpeed.Caption         := FormatFloat('00.0', Ocean_Current_Speed);
-    lblCurrentDir.Caption           := FormatFloat('000.0', Ocean_Current_Direction);
+    lblCurrentDir.Caption           := FormatFloat('000', Ocean_Current_Direction);
     {$ENDREGION}
 
     lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);
@@ -20773,12 +20773,12 @@ begin
  //   lblAttenuationFactorsRain.Caption     := IntToStr(Rain_Rate);
 //    lblAttenuationFactorsCloud.Caption    := IntToStr(Cloud_Attenuation);
 
-    lblDayVisual.Caption                  := FormatFloat('0.00', Daytime_Visual_Modifier) + '%';
-    lblNightimeVisual.Caption             := FormatFloat('0.00', Nighttime_Visual_Modifier) + '%';
-    lblDaytimeInfrared.Caption            := FormatFloat('0.00', Daytime_Infrared_Modifier) + '%';
-    lblNightimeInfrared.Caption           := FormatFloat('0.00', Nighttime_Infrared_Modifier) + '%';
+    lblDayVisual.Caption                  := FormatFloat('0', Daytime_Visual_Modifier) + '%';
+    lblNightimeVisual.Caption             := FormatFloat('0', Nighttime_Visual_Modifier) + '%';
+    lblDaytimeInfrared.Caption            := FormatFloat('0', Daytime_Infrared_Modifier) + '%';
+    lblNightimeInfrared.Caption           := FormatFloat('0', Nighttime_Infrared_Modifier) + '%';
 
-    lblAtmosphere.Caption                 := FormatFloat('0.00', Atmospheric_Refract_Modifier) + '%';
+    lblAtmosphere.Caption                 := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
     lblCloudAttenuation.Caption           := IntToStr(Cloud_Attenuation);
 
     lblSeaState.Caption                   := IntToStr(Sea_State);
@@ -20811,7 +20811,7 @@ begin
     lblOtherAirTemp.Caption               := FormatFloat('00.0', Air_Temperature);
     lblOtherBarometric.Caption            := FormatFloat('000.0', Barometric_Pressure);
     lblOceanCurrentSpeed.Caption          := FormatFloat('00.0', Ocean_Current_Speed);
-    lblOceanCurrentDirection.Caption      := FormatFloat('000.0', Ocean_Current_Direction);
+    lblOceanCurrentDirection.Caption      := FormatCourse(Ocean_Current_Direction);
 
     case Sound_Velocity_Type of
       0 :

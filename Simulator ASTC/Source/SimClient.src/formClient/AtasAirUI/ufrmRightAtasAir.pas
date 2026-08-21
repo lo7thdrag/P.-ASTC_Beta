@@ -37,7 +37,7 @@ type
     Panel1: TPanel;
     Image1: TImage;
     pnlStatusRed: TPanel;
-    pnlStatusYellow: TPanel;
+    tmrWarning: TTimer;
     procedure TTButtonClick(Sender: TObject);
     procedure fmWeapon1btnWeaponClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -225,18 +225,22 @@ type
     procedure fmWeapon1btnWGBlindShowClick(Sender: TObject);
     procedure fmWeapon1btnWGBlindHideClick(Sender: TObject);
     procedure fmWeapon1btnWGLaunchClick(Sender: TObject);
-    procedure pnlStatusYellowClick(Sender: TObject);
+//    procedure pnlStatusYellowClick(Sender: TObject);
     procedure pnlStatusRedClick(Sender: TObject);
+    procedure tmrWarningTimer(Sender: TObject);
   private
+    tmrFlag : Integer;
     function FindTrackListByMember(const arg: string): TListItem;
     procedure UpdateTrackListData;
     { Private declarations }
   public
     focusedTrack: TSimObject;
     Map1 : TMapXTouch;
-    statusR_List,statusY_List : TList;
-    procedure updateStatus;
-    procedure updateStatus_Yellow;
+//    statusR_List,statusY_List : TList;
+
+    procedure addStatus(status: String);
+
+//    procedure updateStatus;
     procedure SetControlledObject(pit : TT3PlatformInstance);
     procedure AddTrackPlatform(Sender: TObject);
     procedure RemoveFromTrackList(Sender: TObject);
@@ -256,6 +260,14 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmRightAtasAir.addStatus(status: String);
+begin
+  pnlStatusRed.Caption := status;
+  pnlStatusRed.Visible := True;
+
+  tmrWarning.Enabled := True;
+end;
 
 procedure TfrmRightAtasAir.AddTrackPlatform(Sender: TObject);
 var
@@ -1391,13 +1403,11 @@ end;
 procedure TfrmRightAtasAir.FormCreate(Sender: TObject);
 begin
    fmWeapon1.InitCreate(self);
-   lvTrackTable.DoubleBuffered := true;
-   lvTrackTable.SortType := stText;
-   lvTrackTable.Font.Color := clBlack;
+
+   tmrFlag := 0;
 end;
 
-procedure TfrmRightAtasAir.lvTrackTableSelectItem(Sender: TObject;
-  Item: TListItem; Selected: Boolean);
+procedure TfrmRightAtasAir.lvTrackTableSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 var
   obj: TObject;
 begin
@@ -1405,47 +1415,19 @@ begin
     exit;
 
   obj := Item.Data;
-  if obj is TT3DetectedTrack then (obj as TT3DetectedTrack)
-    .Selected := true
-  else if obj is TT3PlatformInstance then (obj as TT3PlatformInstance)
-    .Selected := true;
+
+  if obj is TT3DetectedTrack then
+    (obj as TT3DetectedTrack).Selected := true
+  else if obj is TT3PlatformInstance then
+    (obj as TT3PlatformInstance).Selected := true;
 
   Map1.Repaint;
 end;
 
 procedure TfrmRightAtasAir.pnlStatusRedClick(Sender: TObject);
-var
-  CmdStatus : TStatus;
 begin
-  if statusR_List.Count > 0 then
-  begin
-    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
-    if LowerCase(CmdStatus.state) = 'receive message' then
-    begin
-      frmToteDisplay.gbMessageHandlingSystem.BringToFront;
-      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
-      frmToteDisplay.pnlContentReceived.BringToFront;
-      frmToteDisplay.pnlTabReceived.Tag := 1;
-      frmToteDisplay.pnlTabDraft.Tag := 0;
-      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
-      frmToteDisplay.pnlTabSent.Tag := 0;
-      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
-
-//      frmToteDisplay.pcReceived.ActivePageIndex := 0;
-    end;
-
-    statusR_List.Delete(statusR_List.Count-1);
-    updateStatus;
-  end;
-end;
-
-procedure TfrmRightAtasAir.pnlStatusYellowClick(Sender: TObject);
-begin
-   if statusY_List.Count > 0 then
-  begin
-    statusY_List.Delete(statusY_List.Count-1);
-    updateStatus_Yellow;
-  end;
+  pnlStatusRed.Caption := '';
+  pnlStatusRed.Visible := False;
 end;
 
 procedure TfrmRightAtasAir.RemoveFromTrackList(Sender: TObject);
@@ -1494,6 +1476,23 @@ begin
 //  end;
 end;
 
+procedure TfrmRightAtasAir.tmrWarningTimer(Sender: TObject);
+begin
+  if tmrFlag > 5 then
+  begin
+    {menghilangkan tmr}
+    pnlStatusRed.Caption := '';
+    pnlStatusRed.Visible := False;
+    tmrWarning.Enabled := False;
+    tmrFlag := 0;
+  end
+  else
+  begin
+    tmrFlag := tmrFlag + 1;
+  end;
+
+end;
+
 procedure TfrmRightAtasAir.TTButtonClick(Sender: TObject);
 var
   PanelTag: integer;
@@ -1531,34 +1530,6 @@ procedure TfrmRightAtasAir.UpdateFormData;
 begin
 //    fmWeapon1.SetControlledObject(pit);
 //    fmWeapon1.Refresh_VisibleTab;
-end;
-
-procedure TfrmRightAtasAir.updateStatus;
-begin
-  if statusR_List.Count > 0 then
-  begin
-    pnlStatusRed.Visible := true;
-    pnlStatusYellow.Visible := true;
-    pnlStatusRed.Caption := TStatus(statusR_List[statusR_List.Count-1]).state;
-  end
-  else
-  begin
-    pnlStatusRed.Visible  := false;
-    if statusY_List.Count <= 0 then
-      pnlStatusYellow.Visible := false
-
-  end;
-end;
-
-procedure TfrmRightAtasAir.updateStatus_Yellow;
-begin
-  if statusY_List.Count > 0 then
-  begin
-    pnlStatusYellow.Visible := true;
-    pnlStatusYellow.Caption := TStatus(statusY_List[statusY_List.Count-1]).state;
-  end
-  else
-    pnlStatusYellow.Visible := false;
 end;
 
 procedure TfrmRightAtasAir.UpdateTrackListData;

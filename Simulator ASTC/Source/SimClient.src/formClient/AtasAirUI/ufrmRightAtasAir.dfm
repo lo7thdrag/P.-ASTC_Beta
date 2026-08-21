@@ -10999,7 +10999,6 @@ object frmRightAtasAir: TfrmRightAtasAir
           ParentBackground = False
           ParentFont = False
           TabOrder = 0
-          ExplicitHeight = 228
           object lvTrackControl: TListView
             Left = 1
             Top = 1
@@ -11030,7 +11029,6 @@ object frmRightAtasAir: TfrmRightAtasAir
             ParentFont = False
             TabOrder = 0
             ViewStyle = vsReport
-            ExplicitHeight = 226
           end
         end
         object pnlTrackTable: TPanel
@@ -11042,7 +11040,6 @@ object frmRightAtasAir: TfrmRightAtasAir
           Color = 16775920
           ParentBackground = False
           TabOrder = 1
-          ExplicitHeight = 187
           object lvTrackTable: TListView
             Left = 1
             Top = 1
@@ -11088,7 +11085,7 @@ object frmRightAtasAir: TfrmRightAtasAir
               end>
             DoubleBuffered = True
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -11097,10 +11094,10 @@ object frmRightAtasAir: TfrmRightAtasAir
             RowSelect = True
             ParentDoubleBuffered = False
             ParentFont = False
+            SortType = stText
             TabOrder = 0
             ViewStyle = vsReport
             OnSelectItem = lvTrackTableSelectItem
-            ExplicitHeight = 208
           end
         end
       end
@@ -24877,17 +24874,19 @@ object frmRightAtasAir: TfrmRightAtasAir
           ExplicitWidth = 345
           ExplicitHeight = 41
           inherited btnWeapon: TSpeedButton
-            Left = 310
+            Left = 318
             Top = 7
             OnClick = fmWeapon1btnWeaponClick
-            ExplicitLeft = 310
+            ExplicitLeft = 318
             ExplicitTop = 7
           end
           inherited edtWeaponName: TEdit
+            Left = 2
             Top = 8
-            Width = 304
+            Width = 312
+            ExplicitLeft = 2
             ExplicitTop = 8
-            ExplicitWidth = 304
+            ExplicitWidth = 312
           end
         end
         inherited PanelALL: TPanel
@@ -26611,6 +26610,8 @@ object frmRightAtasAir: TfrmRightAtasAir
             inherited grbSurfaceToSurfaceMissile: TGroupBox [9]
               Width = 345
               Height = 474
+              ExplicitLeft = 0
+              ExplicitTop = 0
               ExplicitWidth = 345
               ExplicitHeight = 474
               inherited ScrollBox6: TScrollBox
@@ -31752,8 +31753,7 @@ object frmRightAtasAir: TfrmRightAtasAir
         Left = 12
         Top = 16
         Width = 331
-        Height = 17
-        Alignment = taLeftJustify
+        Height = 33
         BevelOuter = bvNone
         Color = clRed
         Font.Charset = ANSI_CHARSET
@@ -31767,29 +31767,16 @@ object frmRightAtasAir: TfrmRightAtasAir
         Visible = False
         OnClick = pnlStatusRedClick
       end
-      object pnlStatusYellow: TPanel
-        Left = 12
-        Top = 34
-        Width = 331
-        Height = 17
-        Alignment = taLeftJustify
-        BevelOuter = bvNone
-        Color = clYellow
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -17
-        Font.Name = 'System'
-        Font.Style = [fsBold]
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 1
-        Visible = False
-        OnClick = pnlStatusYellowClick
-      end
     end
   end
   object pmModeSonobuoy: TPopupMenu
     Left = 288
     Top = 400
+  end
+  object tmrWarning: TTimer
+    Enabled = False
+    OnTimer = tmrWarningTimer
+    Left = 312
+    Top = 863
   end
 end

@@ -180,9 +180,6 @@ type
       Sender: TObject; var Key: Char);
     procedure fmPlatformGuidance1edOrderAltitudeKeyPress(Sender: TObject;
       var Key: Char);
-    procedure pnlGameStateClick(Sender: TObject);
-    procedure pnlStatusRedClick(Sender: TObject);
-    procedure pnlStatusYellowClick(Sender: TObject);
 
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -1514,68 +1511,6 @@ begin
 //  lbTrackIff.Caption := 'Unknown';
 //  lbNameIff.Caption  := 'Unknown';
 //  lbClassIff.Caption := 'Unknown';
-end;
-
-procedure TfrmRightNav.pnlGameStateClick(Sender: TObject);
-var
-  CmdStatus : TStatus;
-begin
-//  if statusR_List.Count > 0 then
-//  begin
-//    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
-//    if LowerCase(CmdStatus.state) = 'receive message' then
-//    begin
-//      frmToteDisplay.gbMessageHandlingSystem.BringToFront;
-//      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
-//      frmToteDisplay.pnlContentReceived.BringToFront;
-//      frmToteDisplay.pnlTabReceived.Tag := 1;
-//      frmToteDisplay.pnlTabDraft.Tag := 0;
-//      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
-//      frmToteDisplay.pnlTabSent.Tag := 0;
-//      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
-//
-////      frmToteDisplay.pcReceived.ActivePageIndex := 0;
-//    end;
-//
-//    statusR_List.Delete(statusR_List.Count-1);
-//    updateStatus;
-//  end;
-end;
-
-procedure TfrmRightNav.pnlStatusRedClick(Sender: TObject);
-var
-  CmdStatus : TStatus;
-begin
-//  if statusR_List.Count > 0 then
-//  begin
-//    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
-//    if LowerCase(CmdStatus.state) = 'receive message' then
-//    begin
-//      frmToteDisplay.gbMessageHandlingSystem.BringToFront;
-//      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
-//      frmToteDisplay.pnlContentReceived.BringToFront;
-//      frmToteDisplay.pnlTabReceived.Tag := 1;
-//      frmToteDisplay.pnlTabDraft.Tag := 0;
-//      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
-//      frmToteDisplay.pnlTabSent.Tag := 0;
-//      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
-//
-////      frmToteDisplay.pcReceived.ActivePageIndex := 0;
-//    end;
-//
-//    statusR_List.Delete(statusR_List.Count-1);
-//    updateStatus;
-//  end;
-end;
-
-
-procedure TfrmRightNav.pnlStatusYellowClick(Sender: TObject);
-begin
-//  if statusY_List.Count > 0 then
-//  begin
-//    statusY_List.Delete(statusY_List.Count-1);
-//    updateStatus_Yellow;
-//  end;
 end;
 
 procedure TfrmRightNav.Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);

@@ -17238,54 +17238,7 @@ object frmRightNav: TfrmRightNav
                     end
                   end
                 end
-                inherited grbVisualDetectorSensor: TGroupBox
-                  Width = 327
-                  Height = 362
-                  ParentBackground = False
-                  ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
-                  inherited Label257: TLabel
-                    Left = 8
-                    Top = 21
-                    ParentFont = False
-                    ExplicitLeft = 8
-                    ExplicitTop = 21
-                  end
-                  inherited Bevel51: TBevel
-                    Left = 53
-                    Top = 28
-                    ExplicitLeft = 53
-                    ExplicitTop = 28
-                  end
-                  inherited Label258: TLabel
-                    Top = 50
-                    ParentFont = False
-                    ExplicitTop = 50
-                  end
-                  inherited Label259: TLabel
-                    Top = 50
-                    ParentFont = False
-                    ExplicitTop = 50
-                  end
-                  inherited sbVisualDetectorDisplayRangeShow: TSpeedButton
-                    Top = 73
-                    ExplicitTop = 73
-                  end
-                  inherited sbVisualDetectorDisplayRangeHide: TSpeedButton
-                    Top = 95
-                    ExplicitTop = 95
-                  end
-                  inherited sbVisualDetectorDisplayBlindZonesShow: TSpeedButton
-                    Top = 73
-                    ExplicitTop = 73
-                  end
-                  inherited sbVisualDetectorDisplayBlindZonesHide: TSpeedButton
-                    Top = 95
-                    ExplicitTop = 95
-                  end
-                end
-                inherited grbESMSensorControl: TGroupBox [4]
+                inherited grbESMSensorControl: TGroupBox [3]
                   Width = 327
                   Height = 362
                   ExplicitWidth = 327
@@ -17339,7 +17292,7 @@ object frmRightNav: TfrmRightNav
                     end
                   end
                 end
-                inherited grbElectroOpticalSensor: TGroupBox [5]
+                inherited grbElectroOpticalSensor: TGroupBox [4]
                   Width = 327
                   Height = 362
                   ExplicitWidth = 327
@@ -17403,7 +17356,94 @@ object frmRightNav: TfrmRightNav
                     end
                   end
                 end
-                inherited grbIFFInterrogatorControl: TGroupBox
+                inherited grbVisualDetectorSensor: TGroupBox [5]
+                  Width = 327
+                  Height = 362
+                  ParentBackground = False
+                  ParentColor = False
+                  ExplicitWidth = 327
+                  ExplicitHeight = 362
+                  inherited Label257: TLabel
+                    Left = 8
+                    Top = 21
+                    ParentFont = False
+                    ExplicitLeft = 8
+                    ExplicitTop = 21
+                  end
+                  inherited Bevel51: TBevel
+                    Left = 53
+                    Top = 28
+                    ExplicitLeft = 53
+                    ExplicitTop = 28
+                  end
+                  inherited Label258: TLabel
+                    Top = 50
+                    ParentFont = False
+                    ExplicitTop = 50
+                  end
+                  inherited Label259: TLabel
+                    Top = 50
+                    ParentFont = False
+                    ExplicitTop = 50
+                  end
+                  inherited sbVisualDetectorDisplayRangeShow: TSpeedButton
+                    Top = 73
+                    ExplicitTop = 73
+                  end
+                  inherited sbVisualDetectorDisplayRangeHide: TSpeedButton
+                    Top = 95
+                    ExplicitTop = 95
+                  end
+                  inherited sbVisualDetectorDisplayBlindZonesShow: TSpeedButton
+                    Top = 73
+                    ExplicitTop = 73
+                  end
+                  inherited sbVisualDetectorDisplayBlindZonesHide: TSpeedButton
+                    Top = 95
+                    ExplicitTop = 95
+                  end
+                end
+                inherited grbAnomalyDetectorSensor: TGroupBox [6]
+                  Width = 327
+                  Height = 362
+                  ExplicitWidth = 327
+                  ExplicitHeight = 362
+                  inherited Label225: TLabel
+                    Left = 8
+                    Top = 22
+                    ExplicitLeft = 8
+                    ExplicitTop = 22
+                  end
+                  inherited Bevel47: TBevel
+                    Left = 54
+                    Top = 29
+                    ExplicitLeft = 54
+                    ExplicitTop = 29
+                  end
+                  inherited Label230: TLabel
+                    Left = 145
+                    Top = 49
+                    ExplicitLeft = 145
+                    ExplicitTop = 49
+                  end
+                  inherited sbAnomalyDetectorControlModeOn: TSpeedButton
+                    Left = 118
+                    Top = 69
+                    Width = 85
+                    ExplicitLeft = 118
+                    ExplicitTop = 69
+                    ExplicitWidth = 85
+                  end
+                  inherited sbAnomalyDetectorControlModeOff: TSpeedButton
+                    Left = 118
+                    Top = 92
+                    Width = 85
+                    ExplicitLeft = 118
+                    ExplicitTop = 92
+                    ExplicitWidth = 85
+                  end
+                end
+                inherited grbIFFInterrogatorControl: TGroupBox [7]
                   Width = 327
                   Height = 362
                   ExplicitWidth = 327
@@ -17536,46 +17576,6 @@ object frmRightNav: TfrmRightNav
                       ExplicitLeft = 107
                       ExplicitTop = 233
                     end
-                  end
-                end
-                inherited grbAnomalyDetectorSensor: TGroupBox [7]
-                  Width = 327
-                  Height = 362
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
-                  inherited Label225: TLabel
-                    Left = 8
-                    Top = 22
-                    ExplicitLeft = 8
-                    ExplicitTop = 22
-                  end
-                  inherited Bevel47: TBevel
-                    Left = 54
-                    Top = 29
-                    ExplicitLeft = 54
-                    ExplicitTop = 29
-                  end
-                  inherited Label230: TLabel
-                    Left = 145
-                    Top = 49
-                    ExplicitLeft = 145
-                    ExplicitTop = 49
-                  end
-                  inherited sbAnomalyDetectorControlModeOn: TSpeedButton
-                    Left = 118
-                    Top = 69
-                    Width = 85
-                    ExplicitLeft = 118
-                    ExplicitTop = 69
-                    ExplicitWidth = 85
-                  end
-                  inherited sbAnomalyDetectorControlModeOff: TSpeedButton
-                    Left = 118
-                    Top = 92
-                    Width = 85
-                    ExplicitLeft = 118
-                    ExplicitTop = 92
-                    ExplicitWidth = 85
                   end
                 end
                 inherited grbIFFTransponderControl: TGroupBox [8]

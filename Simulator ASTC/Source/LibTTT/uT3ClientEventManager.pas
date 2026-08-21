@@ -446,7 +446,7 @@ begin
 
       {Environtment Control}
       frmToteDisplay.edtWindDir.Text := FormatCourse(Value);
-      frmToteDisplay.rw.degree := ValidateDegree(Value);
+//      frmToteDisplay.rw.degree := ValidateDegree(Value);
       {$ENDREGION}
     end;
     E_Daytime_Visual_Modifier :
@@ -612,7 +612,7 @@ begin
 
       {Environtment Control}
       frmToteDisplay.edtOceanCurrentDirection.Text := FormatCourse(Value);
-      frmToteDisplay.rw1.degree := ValidateDegree(Value);
+//      frmToteDisplay.rw1.degree := ValidateDegree(Value);
       {$ENDREGION}
     end;
     E_Thermal_Layer_Depth :

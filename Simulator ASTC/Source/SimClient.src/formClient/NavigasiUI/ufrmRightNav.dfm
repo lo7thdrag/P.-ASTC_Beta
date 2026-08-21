@@ -16458,15 +16458,6 @@ object frmRightNav: TfrmRightNav
             end
           end
         end
-        object pnlControllerNone: TPanel
-          Left = 1
-          Top = 1
-          Width = 333
-          Height = 483
-          Align = alClient
-          BevelOuter = bvNone
-          TabOrder = 1
-        end
         object pnlSensor: TPanel
           Left = 1
           Top = 1
@@ -16487,13 +16478,7 @@ object frmRightNav: TfrmRightNav
             TabOrder = 0
             ExplicitWidth = 333
             ExplicitHeight = 483
-            inherited PanelSpace: TPanel
-              Width = 333
-              Height = 0
-              ExplicitWidth = 333
-              ExplicitHeight = 0
-            end
-            inherited PanelSensorChoices: TPanel
+            inherited PanelSensorChoices: TPanel [0]
               Width = 333
               ExplicitWidth = 333
               inherited lstSensor: TListView
@@ -16512,7 +16497,7 @@ object frmRightNav: TfrmRightNav
                 ExplicitWidth = 331
               end
             end
-            inherited PanelALL: TPanel
+            inherited PanelALL: TPanel [1]
               Top = 115
               Width = 333
               Height = 368
@@ -17659,11 +17644,26 @@ object frmRightNav: TfrmRightNav
                 end
               end
             end
+            inherited PanelSpace: TPanel [2]
+              Width = 333
+              Height = 0
+              ExplicitWidth = 333
+              ExplicitHeight = 0
+            end
             inherited pmModeSonobuoy: TPopupMenu
               Left = 256
               Top = 496
             end
           end
+        end
+        object pnlControllerNone: TPanel
+          Left = 1
+          Top = 1
+          Width = 333
+          Height = 483
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 1
         end
       end
     end

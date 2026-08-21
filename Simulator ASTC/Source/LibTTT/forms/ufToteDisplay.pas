@@ -14,7 +14,7 @@ uses
   uBrigadePersonel,
   uSlidingTrans, ufrmWeapon, uDataModuleTTT,uMainLogisticTemplate,ufmLogisticCalculation,
   System.ImageList, RzBmpBtn, Vcl.Imaging.pngimage, Vcl.Imaging.jpeg,
-  VrControls, VrTrackBar, uDBAsset_MotionCharacteristics{,
+  VrControls, VrTrackBar, uDBAsset_MotionCharacteristics, VrWheel{,
   frxClass};
 
 type
@@ -1289,10 +1289,6 @@ type
     Panel112: TPanel;
     Panel114: TPanel;
     lvLogisticPlatformNav: TListView;
-    Panel115: TPanel;
-    Label94: TLabel;
-    btnChangeLogisticNav: TButton;
-    edtLogisticNav: TEdit;
     pnlImage: TPanel;
     lblShipNAme: TLabel;
     lblClass: TLabel;
@@ -1538,6 +1534,8 @@ type
     Label263: TLabel;
     Image43: TImage;
     Label264: TLabel;
+    vrWind: TVrWheel;
+    vrCurrent: TVrWheel;
 
 
 
@@ -1870,6 +1868,10 @@ type
     procedure lvLandingCraftCarriedNavSelectItem(Sender: TObject;
       Item: TListItem; Selected: Boolean);
     procedure btnPersonelDebarkasiWithNavClick(Sender: TObject);
+    procedure vrWindMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure vrCurrentMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
 //    procedure Panel56Click(Sender: TObject);
 
     {$ENDREGION}
@@ -1975,7 +1977,7 @@ type
 public
     sgSurToSurEditedRow, sgSurToAirEditedRow: Integer;
 
-    rw, rw1: TRotWheel;     // untuk sync
+//    rw, rw1: TRotWheel;     // untuk sync
 
     IdSelectedWaypointLogistic : Integer;
 
@@ -2286,7 +2288,8 @@ uses
   uSimObjects, uT3Gun, uT3Mine, uT3Torpedo,
   uT3Bomb, uT3SimManager, uT3CounterMeasure, uT3Visual, DateUtils,
   uT3Common, uT3HybridOnVehicle, ufmInputTrackId, uGameSetting,
-  ufmDisembarkWith, uLogisticChange, ufTransportEmbarkasi, ufrmKeyboard, ufrmPlatformBaseDetail;
+  ufmDisembarkWith, uLogisticChange, ufTransportEmbarkasi, ufrmKeyboard, ufrmPlatformBaseDetail,
+  uLaunchPlatform;
 
 function DeleteAmpersand(Value: string): string;
 var
@@ -3054,13 +3057,6 @@ begin
       liLubricants : recLogistic.vLubricants := StrToFloat(edtLogistic.Text);
       liWater : recLogistic.vWater := StrToFloat(edtLogistic.Text);
       liFood : recLogistic.vFood := StrToFloat(edtLogistic.Text);
-    end;
-
-    case LogisticItemID of
-      liFuel : recLogistic.vFuel := StrToFloat(edtLogisticNav.Text);
-      liLubricants : recLogistic.vLubricants := StrToFloat(edtLogisticNav.Text);
-      liWater : recLogistic.vWater := StrToFloat(edtLogisticNav.Text);
-      liFood : recLogistic.vFood := StrToFloat(edtLogisticNav.Text);
     end;
 
     simMgrClient.netSend_Cmd_Change_Logistic(recLogistic);
@@ -4796,8 +4792,8 @@ begin
   begin
     with rec do
     begin
-      Envi_Chance := E_Wind_Direction;
-      Value := Round(rw.Degree);
+      Envi_Chance := E_Wind_Direction;;
+//      Value := Round(rw.Degree);
     end;
 
 //    simMgrClient.netSend_CmdSyncEnvi(rec);
@@ -4989,7 +4985,7 @@ begin
     with rec do
     begin
       Envi_Chance := E_Ocean_Current_Direction;
-      Value := Round(rw.Degree);
+//      Value := Round(rw.Degree);
     end;
 
 //    simMgrClient.netSend_CmdSyncEnvi(rec);
@@ -8439,13 +8435,67 @@ begin
 end;
 
 procedure TfrmToteDisplay.RotWheelAboveDegreeChange(sender: TObject);
+var
+  rec: TrecSinc_Envi;
+  env : TEnvi;
 begin
-  edtWindDir.Text := FormatFloat('000', rw.Degree);
+//  edtWindDir.Text := FormatFloat('000', rw.Degree);
+//
+//  with rec do
+//  begin
+//    rec.Envi_Chance := E_Wind_Direction;
+//
+//    if lvEnviroArea.ItemIndex <> -1 then
+//      rec.Envi_Type := lvEnviroArea.ItemIndex
+//    else
+//      rec.Envi_Type := 0;
+//
+//    rec.Value := ValidateDegree(rw.Degree);
+//  end;
+//
+//  if Assigned(lvEnviroArea.Selected) then
+//  begin
+//    env := lvEnviroArea.Selected.Data;
+//
+//    if env is TSubArea_Enviro_Definition then
+//      rec.Sub_EnviID := TSubArea_Enviro_Definition(env).FData.Enviro_Index
+//    else
+//      rec.Sub_EnviID := 0;
+//  end;
+//
+//  simMgrClient.netSend_CmdSyncEnvi(rec);
 end;
 
 procedure TfrmToteDisplay.RotWheelSurfaceChange(sender: TObject);
+var
+  rec: TrecSinc_Envi;
+  env : TEnvi;
 begin
-  edtOceanCurrentDirection.Text := FormatFloat('000', rw1.Degree);
+//  edtOceanCurrentDirection.Text := FormatFloat('000', rw1.Degree);
+
+//  with rec do
+//  begin
+//    rec.Envi_Chance := E_Ocean_Current_Direction;
+//
+//    if lvEnviroArea.ItemIndex <> -1 then
+//      rec.Envi_Type := lvEnviroArea.ItemIndex
+//    else
+//      rec.Envi_Type := 0;
+//
+//    rec.Value := ValidateDegree(rw1.Degree);
+//  end;
+//
+//  if Assigned(lvEnviroArea.Selected) then
+//  begin
+//    env := lvEnviroArea.Selected.Data;
+//
+//    if env is TSubArea_Enviro_Definition then
+//      rec.Sub_EnviID := TSubArea_Enviro_Definition(env).FData.Enviro_Index
+//    else
+//      rec.Sub_EnviID := 0;
+//  end;
+//
+//  simMgrClient.netSend_CmdSyncEnvi(rec);
 end;
 
 procedure TfrmToteDisplay.SetAvailableQuantity1Click(sender: TObject);
@@ -8509,21 +8559,21 @@ end;
 
 procedure TfrmToteDisplay.setWheel;
 begin
-  rw := TRotWheel.Create(self);
-  rw.Parent := pnWheelAbove;
-  rw.Left := 0;
-  rw.Top := 0;
-  rw.Width := pnWheelAbove.Width;
-  rw.Height := pnWheelAbove.Height;
-  rw.OnDegreeChange := RotWheelAboveDegreeChange;
-
-  rw1 := TRotWheel.Create(self);
-  rw1.Parent := pnlWheelSurface;
-  rw1.Left := 0;
-  rw1.Top := 0;
-  rw1.Width := pnlWheelSurface.Width;
-  rw1.Height := pnlWheelSurface.Height;
-  rw1.OnDegreeChange := RotWheelSurfaceChange;
+//  rw := TRotWheel.Create(self);
+//  rw.Parent := pnWheelAbove;
+//  rw.Left := 0;
+//  rw.Top := 0;
+//  rw.Width := pnWheelAbove.Width;
+//  rw.Height := pnWheelAbove.Height;
+//  rw.OnDegreeChange := RotWheelAboveDegreeChange;
+//
+//  rw1 := TRotWheel.Create(self);
+//  rw1.Parent := pnlWheelSurface;
+//  rw1.Left := 0;
+//  rw1.Top := 0;
+//  rw1.Width := pnlWheelSurface.Width;
+//  rw1.Height := pnlWheelSurface.Height;
+//  rw1.OnDegreeChange := RotWheelSurfaceChange;
 end;
 
 procedure TfrmToteDisplay.setGroupListToDataLinkCombo;
@@ -11267,8 +11317,11 @@ begin
     end;
   end;
 
-  rw1.Degree := StrToFloat(edtOceanCurrentDirection.Text);
-  rw.Degree := StrToFloat(edtWindDir.Text);
+  vrWind.Position     := Round(StrTofloat(edtWindDir.Text));
+  vrCurrent.Position  := Round(StrTofloat(edtOceanCurrentDirection.Text));
+//  vrWind
+//  rw1.Degree := StrToFloat(edtOceanCurrentDirection.Text);
+//  rw.Degree := StrToFloat(edtWindDir.Text);
 
 end;
 
@@ -14112,6 +14165,82 @@ begin
     tvWeapons.Select(tvWeapons.Items[0]);
 end;
 
+procedure TfrmToteDisplay.vrCurrentMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  newheading : integer;
+  rec: TrecSinc_Envi;
+  env : TEnvi;
+
+begin
+  if vrCurrent.Position < 180 then
+    newheading := (180 + vrCurrent.Position)
+  else
+    newheading := (vrCurrent.Position - 180);
+
+  with rec do
+  begin
+    rec.Envi_Chance := E_Ocean_Current_Direction;
+
+    if lvEnviroArea.ItemIndex <> -1 then
+      rec.Envi_Type := lvEnviroArea.ItemIndex
+    else
+      rec.Envi_Type := 0;
+
+    rec.Value := ValidateDegree(newheading);
+  end;
+
+  if Assigned(lvEnviroArea.Selected) then
+  begin
+    env := lvEnviroArea.Selected.Data;
+
+    if env is TSubArea_Enviro_Definition then
+      rec.Sub_EnviID := TSubArea_Enviro_Definition(env).FData.Enviro_Index
+    else
+      rec.Sub_EnviID := 0;
+  end;
+
+  simMgrClient.netSend_CmdSyncEnvi(rec)
+end;
+
+procedure TfrmToteDisplay.vrWindMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+var
+  newheading : integer;
+  rec: TrecSinc_Envi;
+  env : TEnvi;
+
+begin
+  if vrWind.Position < 180 then
+    newheading := (180 + vrWind.Position)
+  else
+    newheading := (vrWind.Position - 180);
+
+  with rec do
+  begin
+    rec.Envi_Chance := E_Wind_Direction;
+
+    if lvEnviroArea.ItemIndex <> -1 then
+      rec.Envi_Type := lvEnviroArea.ItemIndex
+    else
+      rec.Envi_Type := 0;
+
+    rec.Value := ValidateDegree(newheading);
+  end;
+
+  if Assigned(lvEnviroArea.Selected) then
+  begin
+    env := lvEnviroArea.Selected.Data;
+
+    if env is TSubArea_Enviro_Definition then
+      rec.Sub_EnviID := TSubArea_Enviro_Definition(env).FData.Enviro_Index
+    else
+      rec.Sub_EnviID := 0;
+  end;
+
+  simMgrClient.netSend_CmdSyncEnvi(rec)
+end;
+
 procedure TfrmToteDisplay.WriteEventSummary;
 var
   li : TListItem;
@@ -15139,8 +15268,8 @@ begin
     Exit;
 
   {hanya merefresh list ketika kapal yg diselect sedang diedit}
-  if LogisticSelectedID = TT3PlatformInstance(sender).InstanceIndex  then
-  begin
+//  if LogisticSelectedID = TT3PlatformInstance(sender).InstanceIndex  then
+//  begin
     {Update data status}
     RefreshStatusLogistic(sender);
 
@@ -15155,7 +15284,7 @@ begin
 
     {Mengisi List Rute}
     RefreshRouteLogistic(LogisticSelectedID);
-  end;
+//  end;
 end;
 
 //procedure TfrmToteDisplay.RefreshShipDestinationLogistic(idx : Integer);
@@ -15333,7 +15462,6 @@ begin
   {NAVIGASI}
   lvLogisticPlatformNav.Items.Clear;
 
-
   {$REGION ' Fuel '}
   li := lvLogisticPlatformNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
@@ -15397,6 +15525,7 @@ begin
   li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FoodRemaining) + ' ton');
 //  li.SubItems.Add('ton');
   {$ENDREGION}
+
 end;
 
 procedure TfrmToteDisplay.RefreshNearestBaseLogistic(sender : TT3Vehicle);
@@ -20766,6 +20895,8 @@ begin
     lblWindDir.Caption              := FormatCourse(Wind_Direction);
     lblCurrentSpeed.Caption         := FormatFloat('00.0', Ocean_Current_Speed);
     lblCurrentDir.Caption           := FormatFloat('000', Ocean_Current_Direction);
+
+//    edtWindDir.Text := FormatFloat('000', E_Wind_Direction);
     {$ENDREGION}
 
     lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);

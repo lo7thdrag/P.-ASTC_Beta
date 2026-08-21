@@ -3274,6 +3274,16 @@ begin
         TT3ClientEventManager(EventManager).OnVehicleLogisticChange(ve);
     end;
   end;
+
+  {$REGION ' Refresh tote saat Merubah Logistik dari instruktur '}
+  if rec.ModeTransferID = 2 then
+  begin
+    ve := FindT3PlatformByID(rec.PlatfomID) as TT3Vehicle;
+
+    if Assigned(ve) then
+      TT3ClientEventManager(EventManager).OnVehicleLogisticChange(ve);
+  end;
+  {$ENDREGION}
 end;
 
 procedure TSimMgr_Client.ChangeLogisticState(const rec: TRecCmd_State_Logistic);

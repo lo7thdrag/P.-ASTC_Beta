@@ -8794,8 +8794,7 @@ begin // ini procedure update yg dipanggil dari sim client
 
         if Assigned(frmRightAtasAir) then
         begin
-           if Assigned(frmWeapon) then
-            frmRightAtasAir.fmWeapon1.Refresh_VisibleTab;
+          frmRightAtasAir.fmWeapon1.Refresh_VisibleTab;
 //         if focusedTrack <> nil then
 //            frmRightAtasAir.AddTrackPlatform(focusedTrack);
 

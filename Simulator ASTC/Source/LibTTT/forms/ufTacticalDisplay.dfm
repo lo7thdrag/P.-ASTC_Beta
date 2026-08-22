@@ -3095,56 +3095,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                       ExplicitLeft = 201
                       ExplicitTop = 242
                     end
-                    inherited btn1: TButton
-                      Left = 253
-                      Top = 179
-                      ExplicitLeft = 253
-                      ExplicitTop = 179
-                    end
-                    inherited editSurfaceToSurfaceMissileFiring: TEdit
-                      Left = 150
-                      Top = 170
-                      ExplicitLeft = 150
-                      ExplicitTop = 170
-                    end
-                    inherited editSurfaceToSurfaceMissileEngangement: TEdit
-                      Left = 150
-                      Top = 193
-                      ExplicitLeft = 150
-                      ExplicitTop = 193
-                    end
-                    inherited editSurfaceToSurfaceMissileTargetTrack: TEdit
-                      Left = 123
-                      Top = 67
-                      ExplicitLeft = 123
-                      ExplicitTop = 67
-                    end
-                    inherited btnSurfaceToSurfacePlan: TButton
-                      Left = 189
-                      Top = 341
-                      Width = 65
-                      ExplicitLeft = 189
-                      ExplicitTop = 341
-                      ExplicitWidth = 65
-                    end
-                    inherited btnSurfaceToSurfaceLaunch: TButton
-                      Top = 374
-                      ExplicitTop = 374
-                    end
-                    inherited btnSurfaceToSurfaceCancel: TButton
-                      Left = 258
-                      Top = 341
-                      Width = 65
-                      ExplicitLeft = 258
-                      ExplicitTop = 341
-                      ExplicitWidth = 65
-                    end
-                    inherited btnSurfaceToSurfaceMissileTargetTrackDetails: TButton
-                      Left = 252
-                      Top = 87
-                      ExplicitLeft = 252
-                      ExplicitTop = 87
-                    end
                     inherited panSurfaceToSurfaceWp: TPanel
                       Left = 21
                       Top = 260
@@ -3196,6 +3146,56 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                         ExplicitLeft = 243
                         ExplicitTop = 23
                       end
+                    end
+                    inherited btn1: TButton
+                      Left = 253
+                      Top = 179
+                      ExplicitLeft = 253
+                      ExplicitTop = 179
+                    end
+                    inherited editSurfaceToSurfaceMissileFiring: TEdit
+                      Left = 150
+                      Top = 170
+                      ExplicitLeft = 150
+                      ExplicitTop = 170
+                    end
+                    inherited editSurfaceToSurfaceMissileEngangement: TEdit
+                      Left = 150
+                      Top = 193
+                      ExplicitLeft = 150
+                      ExplicitTop = 193
+                    end
+                    inherited editSurfaceToSurfaceMissileTargetTrack: TEdit
+                      Left = 123
+                      Top = 67
+                      ExplicitLeft = 123
+                      ExplicitTop = 67
+                    end
+                    inherited btnSurfaceToSurfacePlan: TButton
+                      Left = 189
+                      Top = 341
+                      Width = 65
+                      ExplicitLeft = 189
+                      ExplicitTop = 341
+                      ExplicitWidth = 65
+                    end
+                    inherited btnSurfaceToSurfaceLaunch: TButton
+                      Top = 374
+                      ExplicitTop = 374
+                    end
+                    inherited btnSurfaceToSurfaceCancel: TButton
+                      Left = 258
+                      Top = 341
+                      Width = 65
+                      ExplicitLeft = 258
+                      ExplicitTop = 341
+                      ExplicitWidth = 65
+                    end
+                    inherited btnSurfaceToSurfaceMissileTargetTrackDetails: TButton
+                      Left = 252
+                      Top = 87
+                      ExplicitLeft = 252
+                      ExplicitTop = 87
                     end
                     inherited btnSurfaceToSurfaceMissileLauncherMore: TButton
                       Left = 242
@@ -4837,7 +4837,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   ExplicitWidth = 359
                   ExplicitHeight = 1951
                 end
-                inherited grbBombDepthCharge: TGroupBox [12]
+                inherited grbBombDepthCharge: TGroupBox
                   Width = 359
                   Height = 1951
                   ParentBackground = False
@@ -5043,199 +5043,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     OnKeyPress = fmWeapon1edtBombDepthKeyPress
                     ExplicitLeft = 118
                     ExplicitTop = 133
-                  end
-                end
-                inherited grbAirDroppedVECTAC: TGroupBox [13]
-                  Width = 359
-                  Height = 1951
-                  ParentBackground = False
-                  ParentColor = False
-                  ExplicitWidth = 359
-                  ExplicitHeight = 1951
-                  inherited ScrollBox13: TScrollBox
-                    Width = 355
-                    Height = 1931
-                    ExplicitWidth = 355
-                    ExplicitHeight = 1931
-                    inherited Label367: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label368: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label369: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label371: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label375: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label376: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label377: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label378: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label379: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label380: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label383: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label384: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label385: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label386: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label387: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label388: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label389: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label390: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label391: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label392: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label393: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label394: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label395: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label396: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label398: TLabel
-                      Top = 351
-                      ParentFont = False
-                      ExplicitTop = 351
-                    end
-                    inherited lbVectacTargetCourse: TLabel
-                      ParentFont = False
-                    end
-                    inherited lbVectacTargetDepth: TLabel
-                      ParentFont = False
-                    end
-                    inherited lbVectacTargetDoppler: TLabel
-                      ParentFont = False
-                    end
-                    inherited lbVectacTargetGround: TLabel
-                      ParentFont = False
-                    end
-                    inherited lbVectacTargetIdentity: TLabel
-                      ParentFont = False
-                    end
-                    inherited lbVectacTargetPropulsion: TLabel
-                      ParentFont = False
-                    end
-                    inherited lbVectacWeaponCarrierAdviced: TLabel
-                      ParentFont = False
-                    end
-                    inherited lbVectacWeaponCarrierTime: TLabel
-                      ParentFont = False
-                    end
-                    inherited lbVectacWeaponExpiry: TLabel
-                      Top = 351
-                      ParentFont = False
-                      ExplicitTop = 351
-                    end
-                    inherited Label66: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label68: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label80: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label81: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label82: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label83: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label98: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label99: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label100: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label101: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label102: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label103: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label104: TLabel
-                      ParentFont = False
-                    end
-                    inherited Label105: TLabel
-                      ParentFont = False
-                    end
-                    inherited btnVectacWeaponCarrierDrop: TButton
-                      Left = 253
-                      ExplicitLeft = 253
-                    end
-                    inherited btnVectacWeaponCarrierGround: TButton
-                      Left = 253
-                      ExplicitLeft = 253
-                    end
-                    inherited editVectacTargetTrack: TEdit
-                      Enabled = True
-                      ReadOnly = True
-                    end
-                    inherited editVectacWeaponCarrierDrop: TEdit
-                      Enabled = True
-                      ReadOnly = True
-                    end
-                    inherited editVectacWeaponCarrierGround: TEdit
-                      Enabled = True
-                      ReadOnly = True
-                    end
-                    inherited editVectacWeaponCarrierName: TEdit
-                      Enabled = True
-                      ReadOnly = True
-                    end
-                    inherited editVectacWeaponName: TEdit
-                      Top = 321
-                      Enabled = True
-                      ReadOnly = True
-                      Text = ''
-                      ExplicitTop = 321
-                    end
                   end
                 end
                 inherited grbAirDroppedTorpedo: TGroupBox
@@ -5676,7 +5483,200 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     end
                   end
                 end
-                inherited grbActivePasiveTorpedo: TGroupBox
+                inherited grbAirDroppedVECTAC: TGroupBox [14]
+                  Width = 359
+                  Height = 1951
+                  ParentBackground = False
+                  ParentColor = False
+                  ExplicitWidth = 359
+                  ExplicitHeight = 1951
+                  inherited ScrollBox13: TScrollBox
+                    Width = 355
+                    Height = 1931
+                    ExplicitWidth = 355
+                    ExplicitHeight = 1931
+                    inherited Label367: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label368: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label369: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label371: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label375: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label376: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label377: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label378: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label379: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label380: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label383: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label384: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label385: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label386: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label387: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label388: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label389: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label390: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label391: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label392: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label393: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label394: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label395: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label396: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label398: TLabel
+                      Top = 351
+                      ParentFont = False
+                      ExplicitTop = 351
+                    end
+                    inherited lbVectacTargetCourse: TLabel
+                      ParentFont = False
+                    end
+                    inherited lbVectacTargetDepth: TLabel
+                      ParentFont = False
+                    end
+                    inherited lbVectacTargetDoppler: TLabel
+                      ParentFont = False
+                    end
+                    inherited lbVectacTargetGround: TLabel
+                      ParentFont = False
+                    end
+                    inherited lbVectacTargetIdentity: TLabel
+                      ParentFont = False
+                    end
+                    inherited lbVectacTargetPropulsion: TLabel
+                      ParentFont = False
+                    end
+                    inherited lbVectacWeaponCarrierAdviced: TLabel
+                      ParentFont = False
+                    end
+                    inherited lbVectacWeaponCarrierTime: TLabel
+                      ParentFont = False
+                    end
+                    inherited lbVectacWeaponExpiry: TLabel
+                      Top = 351
+                      ParentFont = False
+                      ExplicitTop = 351
+                    end
+                    inherited Label66: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label68: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label80: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label81: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label82: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label83: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label98: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label99: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label100: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label101: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label102: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label103: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label104: TLabel
+                      ParentFont = False
+                    end
+                    inherited Label105: TLabel
+                      ParentFont = False
+                    end
+                    inherited btnVectacWeaponCarrierDrop: TButton
+                      Left = 253
+                      ExplicitLeft = 253
+                    end
+                    inherited btnVectacWeaponCarrierGround: TButton
+                      Left = 253
+                      ExplicitLeft = 253
+                    end
+                    inherited editVectacTargetTrack: TEdit
+                      Enabled = True
+                      ReadOnly = True
+                    end
+                    inherited editVectacWeaponCarrierDrop: TEdit
+                      Enabled = True
+                      ReadOnly = True
+                    end
+                    inherited editVectacWeaponCarrierGround: TEdit
+                      Enabled = True
+                      ReadOnly = True
+                    end
+                    inherited editVectacWeaponCarrierName: TEdit
+                      Enabled = True
+                      ReadOnly = True
+                    end
+                    inherited editVectacWeaponName: TEdit
+                      Top = 321
+                      Enabled = True
+                      ReadOnly = True
+                      Text = ''
+                      ExplicitTop = 321
+                    end
+                  end
+                end
+                inherited grbActivePasiveTorpedo: TGroupBox [15]
                   Width = 359
                   Height = 1951
                   ParentBackground = False

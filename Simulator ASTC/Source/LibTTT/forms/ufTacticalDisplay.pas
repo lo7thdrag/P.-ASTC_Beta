@@ -1924,16 +1924,15 @@ begin
 //    fmLogisticCalculation1.SetControlledObject(pit);
 
     {$REGION ' Navigasi '}
-    if True then
 
-    frmTopNav.SetControlledObject(pit);
+//    frmTopNav.SetControlledObject(pit);
 
     {$ENDREGION}
 
     {$REGION ' Atas Air '}
     if Assigned(frmRightAtasAir)  then
     begin
-      frmRightAtasAir.focusedTrack := pit;
+//      frmRightAtasAir.focusedTrack := pit;
       frmRightAtasAir.fmWeapon1.SetControlledObject(pit);
     end;
 
@@ -3103,6 +3102,8 @@ var
   i : Integer;
   rec : TRec_CameraController;
 begin
+  {Procedure Camera Controller}
+
   if not Assigned(Item.Data) then
     Exit;
 
@@ -3289,7 +3290,6 @@ begin
           fmWeapon1.MapPositionX := mx;
           fmWeapon1.MapPositionY := my;
         end;
-
 
         {wasdal UI}
         if simMgrClient.ISWasdal then
@@ -3489,6 +3489,18 @@ begin
   begin
     fmWeapon1.focused_platform := nil;
     fmPlatformGuidance1.focused_platform  := nil;
+
+    case vGameDataSetting.Role of
+      2, 3 :
+      begin
+        {$REGION ' Penembakan '}
+        if Assigned(frmRightAtasAir) then
+        begin
+          frmRightAtasAir.fmWeapon1.focused_platform  := nil;
+        end;
+        {$ENDREGION}
+      end;
+    end;
 
     {wasdal UI}
     if simMgrClient.ISWasdal then
@@ -3823,7 +3835,7 @@ begin
               begin
                 focusedTrack := nil;
 
-                // unselect all track
+                { unselect all track }
                 UnSelectAllRBLWPointTrack;
                 UnSelectAllBOLWPointTrack;
                 UnSelectAllPlatformTrack;
@@ -4389,7 +4401,6 @@ begin
                     frmRightAtasAir.focusedTrack := TT3PlatformInstance(objTemp);
                   end;
 
-
                   setPopUpPropItem(TSimObject(focusedTrack));
                   setHookPopup;
 
@@ -4456,7 +4467,7 @@ begin
 
                   if Assigned (frmRightAtasAir) then
                   begin
-                    focusedTrack := TT3DetectedTrack(objTemp);
+                    frmRightAtasAir.focusedTrack := TT3DetectedTrack(objTemp);
                   end;
 
                   focusedTrack := TT3DetectedTrack(objTemp);
@@ -6277,10 +6288,6 @@ begin
           frmRightAtasAir.fmWeapon1.SetControlledObject(pit);
           frmRightAtasAir.SetControlledObject(pit);
          end;
-
-
-
-
         {$ENDREGION}
       end;
 //      3:
@@ -6639,34 +6646,49 @@ begin
   pnlContainerBottom.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
-  if not Assigned(frmLeftAtasAir) then
-    frmLeftAtasAir := TfrmLeftAtasAir.Create(Application);
-
-  frmRightAtasAir.Map1 := Map1;
-
-  frmLeftAtasAir.Parent := nil;
-  frmLeftAtasAir.Align  := alLeft;
-  frmLeftAtasAir.Parent := Self;
-  frmLeftAtasAir.Show;
-  frmLeftAtasAir.BringToFront;
-
+  {$REGION ' Create Form Top '}
   if not Assigned(frmTopNav) then
     frmTopNav := TfrmTopNav.Create(Application);
 
-  frmTopNav.Parent := nil;
-  frmTopNav.Align  := alTop;
-  frmTopNav.Parent := Self;
-  frmTopNav.Show;
-  frmTopNav.BringToFront;
-//
+   if Assigned(frmTopNav) then
+  begin
+    frmTopNav.Parent := nil;
+    frmTopNav.Align  := alTop;
+    frmTopNav.Parent := Self;
+    frmTopNav.Show;
+    frmTopNav.BringToFront;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Create Form Left '}
+  if not Assigned(frmLeftAtasAir) then
+    frmLeftAtasAir := TfrmLeftAtasAir.Create(Application);
+
+  if Assigned(frmLeftAtasAir) then
+  begin
+    frmLeftAtasAir.Parent := nil;
+    frmLeftAtasAir.Align  := alLeft;
+    frmLeftAtasAir.Parent := Self;
+    frmLeftAtasAir.Show;
+    frmLeftAtasAir.BringToFront;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Create Form Right '}
   if not Assigned(frmRightAtasAir) then
     frmRightAtasAir := TfrmRightAtasAir.Create(Application);
 
-  frmRightAtasAir.Parent := nil;
-  frmRightAtasAir.Align  := alRight;
-  frmRightAtasAir.Parent := Self;
-  frmRightAtasAir.Show;
-  frmRightAtasAir.BringToFront;
+  if Assigned(frmLeftAtasAir) then
+  begin
+    frmRightAtasAir.Parent := nil;
+    frmRightAtasAir.Align  := alRight;
+    frmRightAtasAir.Parent := Self;
+    frmRightAtasAir.Show;
+    frmRightAtasAir.BringToFront;
+
+    frmRightAtasAir.Map1 := Map1;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmTacticalDisplay.setUpAsuwoUI;

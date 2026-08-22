@@ -147,6 +147,8 @@ type
     procedure ChaffFiring(Sender: TObject);
     //function  SetChaffType(Sender: TT3PlatformInstance) : string;
     procedure OnChaffTypeItemSelected(Sender: TObject);
+
+    procedure AddStatus(Command: string);
  protected
     procedure Empty;override;
     procedure SetProperties;override;
@@ -170,14 +172,19 @@ uses uT3Gun, uT3CounterMeasure,
 {$R *.dfm}
 
 { TfrmGunAutoManual }
+procedure TfrmGunAutoManual.AddStatus(Command: string);
+begin
+  frmTacticalDisplay.addStatus(Command);
+
+  if Assigned(frmRightAtasAir) then
+    frmRightAtasAir.addStatus(Command);
+end;
+
 procedure TfrmGunAutoManual.ApplyAssigned(Value : boolean);
 begin
   if (not Assigned(FWeapon)) or (not(FWeapon is TT3GunOnVehicle)) then
   begin
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
-
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Weapon not defined');
+    AddStatus('Weapon not defined');
     exit;
   end;
 

@@ -392,7 +392,8 @@ begin
     2, 3:
     begin
       {$REGION ' Atas Air '}
-      frmRightAtasAir.fmWeapon1.EdtBombControlSalvo.Text := FloatToStr(value);
+      if Assigned(frmRightAtasAir) then
+        frmRightAtasAir.fmWeapon1.EdtBombControlSalvo.Text := FloatToStr(value);
       {$ENDREGION}
     end;
   end;
@@ -810,7 +811,8 @@ begin
     2, 3:
     begin
       {$REGION ' Atas Air '}
-      frmRightAtasAir.fmWeapon1.EdtMinesDepth.Text := FloatToStr(value);
+      if Assigned(frmRightAtasAir) then
+        frmRightAtasAir.fmWeapon1.EdtMinesDepth.Text := FloatToStr(value);
       {$ENDREGION}
     end;
   end;
@@ -1167,15 +1169,15 @@ begin
 
   with frmToteDisplay do
   begin
-    if ve = TT3Vehicle(ToteSelectedPlatform) then
-    begin
+//    if ve = TT3Vehicle(ToteSelectedPlatform) then
+//    begin
       UpdateSensorVehicle(ve);
       UpdateWeaponVehicle(ve);
       UpdateCountermeasureVehicle(ve);
       UpdateStatusVehicle(ve);
       UpdateEmbarkVehicle(ve);
 //      UpdateLogisticToteDisplay(ve);
-    end;
+//    end;
   end;
 end;
 
@@ -1313,8 +1315,7 @@ begin
     //------------- cari new platform untuk selected + controled object -----//
 
     if frmTacticalDisplay.focusedTrack is TT3DetectedTrack then
-      ftrack := TT3DetectedTrack(frmTacticalDisplay.focusedTrack).TrackObject
-                as TT3PlatformInstance
+      ftrack := TT3DetectedTrack(frmTacticalDisplay.focusedTrack).TrackObject as TT3PlatformInstance
     else
       ftrack := TT3PlatformInstance(frmTacticalDisplay.focusedTrack);
 
@@ -1337,27 +1338,32 @@ begin
     case vGameDataSetting.Role of
       2, 3:
       begin
-        {$REGION ' Atas Air '}
-        if frmRightAtasAir.focusedTrack is TT3DetectedTrack then
-          ftrack := TT3DetectedTrack(frmRightAtasAir.focusedTrack).TrackObject as TT3PlatformInstance
-        else
-          ftrack := TT3PlatformInstance(frmTacticalDisplay.focusedTrack);
+        {$REGION ' Penembakan Role '}
 
-        if Assigned(pf) and Assigned(ftrack) and (pf = ftrack) then
+        if Assigned(frmRightAtasAir) then
         begin
-          if ftrack.Selected then
-          begin
-            ftrack.Selected := False;
-          end;
+          if frmRightAtasAir.focusedTrack is TT3DetectedTrack then
+            ftrack := TT3DetectedTrack(frmRightAtasAir.focusedTrack).TrackObject as TT3PlatformInstance
+          else
+            ftrack := TT3PlatformInstance(frmTacticalDisplay.focusedTrack);
 
-          frmRightAtasAir.focusedTrack := nil;
-
-          if newPlatform <> nil then
+          if Assigned(pf) and Assigned(ftrack) and (pf = ftrack) then
           begin
-            newPlatform.Selected := True;
-            frmRightAtasAir.focusedTrack := newPlatform;
+            if ftrack.Selected then
+            begin
+              ftrack.Selected := False;
+            end;
+
+            frmRightAtasAir.focusedTrack := nil;
+
+            if newPlatform <> nil then
+            begin
+              newPlatform.Selected := True;
+              frmRightAtasAir.focusedTrack := newPlatform;
+            end;
           end;
         end;
+
         {$ENDREGION}
       end;
     end;
@@ -3196,32 +3202,35 @@ begin
       2, 3:
       begin
         {$REGION ' Atas Air '}
-        for I := 0 to frmRightAtasAir.fmWeapon1.WpnIntCont.Count - 1 do
+        if Assigned(frmRightAtasAir) then
         begin
-          WpnController := frmRightAtasAir.fmWeapon1.WpnIntCont.Items[I];
-
-          if WpnController.WeaponCategory = (Sender as TT3GunOnVehicle).WeaponCategory then
+          for I := 0 to frmRightAtasAir.fmWeapon1.WpnIntCont.Count - 1 do
           begin
-            case WpnController.WeaponCategory of
-              wcMissileAirToSurfaceSubsurface: ;
-              wcMissileSurfaceSubsurfaceToSurfaceSubsurface: ;
-              wcMissileSurfaceSubsurfaceToAir: ;
-              wcMissileAirToAir: ;
-              wcMissileLandAttack: ;
-              wcTorpedoStraigth: ;
-              wcTorpedoActiveAcoustic: ;
-              wcTorpedoPassiveAcoustic: ;
-              wcTorpedoWireGuided: ;
-              wcTorpedoWakeHoming: ;
-              wcTorpedoActivePassive: ;
-              wcTorpedoAirDropped: ;
-              wcMine: ;
-              wcGunCIWS: TfrmGunCIWS(WpnController).OnPropertyByteChange(Sender, Props, Value);
-              wcGunGun: TfrmGunAutoManual(WpnController).OnPropertyByteChange(Sender, Props, Value) ;
-              wcGunRocket: ;
-              wcBomb: ;
-              wcVectac: ;
-              wcHybrid: ;
+            WpnController := frmRightAtasAir.fmWeapon1.WpnIntCont.Items[I];
+
+            if WpnController.WeaponCategory = (Sender as TT3GunOnVehicle).WeaponCategory then
+            begin
+              case WpnController.WeaponCategory of
+                wcMissileAirToSurfaceSubsurface: ;
+                wcMissileSurfaceSubsurfaceToSurfaceSubsurface: ;
+                wcMissileSurfaceSubsurfaceToAir: ;
+                wcMissileAirToAir: ;
+                wcMissileLandAttack: ;
+                wcTorpedoStraigth: ;
+                wcTorpedoActiveAcoustic: ;
+                wcTorpedoPassiveAcoustic: ;
+                wcTorpedoWireGuided: ;
+                wcTorpedoWakeHoming: ;
+                wcTorpedoActivePassive: ;
+                wcTorpedoAirDropped: ;
+                wcMine: ;
+                wcGunCIWS: TfrmGunCIWS(WpnController).OnPropertyByteChange(Sender, Props, Value);
+                wcGunGun: TfrmGunAutoManual(WpnController).OnPropertyByteChange(Sender, Props, Value) ;
+                wcGunRocket: ;
+                wcBomb: ;
+                wcVectac: ;
+                wcHybrid: ;
+              end;
             end;
           end;
         end;
@@ -4101,8 +4110,7 @@ begin
     //------------- cari new platform untuk selected + controled object -----//
 
     if frmTacticalDisplay.focusedTrack is TT3DetectedTrack then
-      ftrack := TT3DetectedTrack(frmTacticalDisplay.focusedTrack).TrackObject
-                as TT3PlatformInstance
+      ftrack := TT3DetectedTrack(frmTacticalDisplay.focusedTrack).TrackObject as TT3PlatformInstance
     else
       ftrack := TT3PlatformInstance(frmTacticalDisplay.focusedTrack);
 
@@ -4581,7 +4589,8 @@ begin
     2, 3:
     begin
       {$REGION ' Atas Air '}
-      frmRightAtasAir.fmWeapon1.OnWeaponPropertyChange(Sender);
+      if Assigned(frmRightAtasAir) then
+        frmRightAtasAir.fmWeapon1.OnWeaponPropertyChange(Sender);
       {$ENDREGION}
     end;
   end;
@@ -4783,14 +4792,17 @@ begin
     2, 3:
     begin
       {$REGION ' Atas Air '}
-      if Sender is TT3GunOnVehicle then
-        frmRightAtasAir.fmWeapon1.UpdateGunAutoManualTab(Sender as TT3GunOnVehicle);
+      if Assigned(frmRightAtasAir) then
+      begin
+        if Sender is TT3GunOnVehicle then
+          frmRightAtasAir.fmWeapon1.UpdateGunAutoManualTab(Sender as TT3GunOnVehicle);
 
-      if Sender is TT3BombONVehicle then
-        frmRightAtasAir.fmWeapon1.UpdateBombDepthChargeTab(Sender as TT3BombONVehicle);
+        if Sender is TT3BombONVehicle then
+          frmRightAtasAir.fmWeapon1.UpdateBombDepthChargeTab(Sender as TT3BombONVehicle);
 
-      if Sender is TT3MineOnVehicle then
-        frmRightAtasAir.fmWeapon1.UpdateMinesTab(Sender as TT3MineOnVehicle);
+        if Sender is TT3MineOnVehicle then
+          frmRightAtasAir.fmWeapon1.UpdateMinesTab(Sender as TT3MineOnVehicle);
+      end;
       {$ENDREGION}
     end;
   end;
@@ -4828,36 +4840,12 @@ end;
 
 procedure TT3ClientEventManager.OnPlatformDamageChanged(sender: TObject; const dmgType: TDamageItemType);
 begin
-  frmToteDisplay.UpdateSystemState(sender, dmgType);
+//  frmToteDisplay.UpdateSystemState(sender, dmgType);
 
   if (sender is TT3Vehicle) then
   begin
     OnVehicleHealthChange(TT3Vehicle(sender))
   end;
-
-  {SEMENTARA
-  if simMgrClient.ISInstructor then
-  begin
-    case dmgType of
-      diOverall:
-      begin
-        if TT3Vehicle(sender).HealthPercent <= 0 then
-          frmTacticalDisplay.addStatus('Vehicle is damage');
-      end;
-      diSensor:
-        frmTacticalDisplay.addStatus('Sensor is damage');
-      diECM:
-        frmTacticalDisplay.addStatus('CounterMeasure is damage');
-      diWeapon:
-        frmTacticalDisplay.addStatus('Weapon is damage');
-      diCommm:
-        frmTacticalDisplay.addStatus('Communication is damage');
-      diHelm:
-        frmTacticalDisplay.addStatus('Helm is damage');
-      diPropulsion:
-        frmTacticalDisplay.addStatus('Propulsion is damage');
-    end;
-  end;}
 end;
 
 //nando waypoint

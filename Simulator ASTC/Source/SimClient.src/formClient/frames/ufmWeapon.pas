@@ -960,6 +960,7 @@ type
 
       {$ENDREGION}
 
+      procedure AddStatus(Command: string);
   protected
     procedure DisplayTab(const i: byte); override;
 
@@ -11106,10 +11107,7 @@ begin
           {$REGION ' Target belum diselect '}
           if not Assigned(focused_platform) then
           begin
-            if Assigned (frmRightAtasAir) then
-               frmRightAtasAir.addStatus('Target platform not defined');
-
-            frmTacticalDisplay.addStatus('Target platform not defined');
+            AddStatus('Target platform not defined');
             exit;
           end;
           {$ENDREGION}
@@ -11117,10 +11115,7 @@ begin
           {$REGION ' Target harus sesuai capability '}
           if not TorpedoTargetCheck() then
           begin
-            if Assigned (frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Invalid target domain');
-
-            frmTacticalDisplay.addStatus('Invalid target domain');
+            AddStatus('Invalid target domain');
             exit;
           end;
           {$ENDREGION}
@@ -11311,6 +11306,14 @@ begin
     ObjectFlagPoint.Post.Y := MapPositionY;
     simMgrClient.DrawFlagPoint.FList.Add(ObjectFlagPoint);
   end;
+end;
+
+procedure TfmWeapon.AddStatus(Command: string);
+begin
+  frmTacticalDisplay.addStatus(Command);
+
+  if Assigned(frmRightAtasAir) then
+    frmRightAtasAir.addStatus(Command);
 end;
 
 procedure TfmWeapon.ADKeyPress(Sender: TObject; var Key: Char);
@@ -11653,70 +11656,36 @@ begin
 
   if Assigned (focused_platform)then
   begin
-    {$REGION ' DetectedTrack Section '}
-    if focused_platform is TT3DetectedTrack then
+
+    if focused_platform is TT3NonRealVehicle then
     begin
-      sObject := simMgrClient.findDetectedTrack(focused_platform);
-
-      if Assigned(sObject) then
-        strTargetID := FormatTrackNumber(TT3DetectedTrack(sObject).TrackNumber)
-      else
-      begin
-        strTargetID := TT3PlatformInstance(focused_platform).TrackLabel;
-
-        if strTargetID = '' then
-          strTargetID := (TT3PlatformInstance(focused_platform).TrackNumber).ToString;
-      end;
-
-      _targetID         := TT3PlatformInstance(TT3DetectedTrack(focused_platform).TrackObject).InstanceIndex;
-      _targetDomain     := TT3PlatformInstance(TT3DetectedTrack(focused_platform).TrackObject).PlatformDomain;
-      TorpedoTarget     := simMgrClient.FindT3PlatformByID(_targetID);
-//      strTargetID       := IntToStr(TT3DetectedTrack(focused_platform).TrackNumber);
-      _nonRealtimeType  := 5;{diisi nilai 5, sebagai penanda bukan nonreal vehicle}
-    end
-    {$ENDREGION}
-
-    {$REGION ' NonRealVehicle Section '}
-    else if focused_platform is TT3NonRealVehicle then
-    begin
-      sObject := simMgrClient.findDetectedTrack(focused_platform);
-
-      if Assigned(sObject) then
-        strTargetID := FormatTrackNumber(TT3DetectedTrack(sObject).TrackNumber)
-      else
-      begin
-        strTargetID := TT3PlatformInstance(focused_platform).TrackLabel;
-
-        if strTargetID = '' then
-          strTargetID := (TT3PlatformInstance(focused_platform).TrackNumber).ToString;
-      end;
-
+      {$REGION ' NonRealVehicle Section '}
+      strTargetID       := IntToStr(TT3PlatformInstance(focused_platform).TrackNumber);
       _targetDomain     := TT3PlatformInstance(focused_platform).PlatformDomain;
       TorpedoTarget     := TT3PlatformInstance(focused_platform);
-//      strTargetID       := IntToStr(TT3DetectedTrack(focused_platform).TrackNumber);
       _nonRealtimeType  := TT3NonRealVehicle(focused_platform).NRPType;
+      {$ENDREGION}
     end
-    {$ENDREGION}
+    else if focused_platform is TT3Vehicle then
+    begin
+      {$REGION ' TT3PlatformInstance Section '}
+      strTargetID       := TT3PlatformInstance(focused_platform).Track_ID;
+      _targetDomain     := TT3PlatformInstance(focused_platform).PlatformDomain;
+      TorpedoTarget     := TT3PlatformInstance(focused_platform);
+      _nonRealtimeType  := 5;
+      {$ENDREGION}
+    end;
 
-    {$REGION ' TT3PlatformInstance Section '}
+    sObject := simMgrClient.findDetectedTrack(focused_platform);
+    if Assigned(sObject) then
+      strTargetID := FormatTrackNumber(TT3DetectedTrack(sObject).TrackNumber)
     else
     begin
-      _targetDomain     := TT3PlatformInstance(focused_platform).PlatformDomain;
-      TorpedoTarget     := TT3PlatformInstance(focused_platform);
+      strTargetID := TT3PlatformInstance(focused_platform).TrackLabel;
 
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-        strTargetID       := TT3PlatformInstance(focused_platform).Track_ID
-      else
-      begin
-        strTargetID := TT3PlatformInstance(focused_platform).TrackLabel;
-
-        if strTargetID = '' then
-          strTargetID := (TT3PlatformInstance(focused_platform).TrackNumber).ToString;
-      end;
-
-      _nonRealtimeType  := 5;
+      if strTargetID = '' then
+        strTargetID := (TT3PlatformInstance(focused_platform).TrackNumber).ToString;
     end;
-    {$ENDREGION}
 
     if Assigned(focused_weapon) then
     begin

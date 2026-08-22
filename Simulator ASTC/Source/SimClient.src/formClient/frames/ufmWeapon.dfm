@@ -3749,520 +3749,6 @@ inherited fmWeapon: TfmWeapon
           end
         end
       end
-      object grbSurfaceToAirMissile: TGroupBox
-        Left = 0
-        Top = 0
-        Width = 346
-        Height = 425
-        Align = alClient
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 10
-        object ScrollBox1: TScrollBox
-          Left = 2
-          Top = 18
-          Width = 342
-          Height = 405
-          Align = alClient
-          BevelInner = bvNone
-          BorderStyle = bsNone
-          TabOrder = 0
-          object Label1: TLabel
-            Left = 5
-            Top = -2
-            Width = 36
-            Height = 16
-            Caption = 'Status'
-          end
-          object Bevel1: TBevel
-            Left = 55
-            Top = 5
-            Width = 265
-            Height = 3
-          end
-          object lblSurfaceToAirStatus: TLabel
-            Left = 25
-            Top = 17
-            Width = 51
-            Height = 16
-            Caption = 'Available'
-          end
-          object Label2: TLabel
-            Left = 115
-            Top = 17
-            Width = 56
-            Height = 16
-            Caption = 'Quantity :'
-          end
-          object lbSurfaceToAirStatusQuantity: TLabel
-            Left = 175
-            Top = 17
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object Label3: TLabel
-            Left = 5
-            Top = 34
-            Width = 41
-            Height = 16
-            Caption = 'Control'
-          end
-          object Bevel2: TBevel
-            Left = 55
-            Top = 41
-            Width = 265
-            Height = 2
-          end
-          object Label4: TLabel
-            Left = 25
-            Top = 54
-            Width = 114
-            Height = 16
-            Caption = 'Salvo size             :'
-          end
-          object Label5: TLabel
-            Left = 5
-            Top = 71
-            Width = 38
-            Height = 16
-            Caption = 'Target'
-          end
-          object Bevel3: TBevel
-            Left = 55
-            Top = 78
-            Width = 265
-            Height = 3
-          end
-          object Label6: TLabel
-            Left = 25
-            Top = 92
-            Width = 32
-            Height = 16
-            Caption = 'Track'
-          end
-          object Label7: TLabel
-            Left = 25
-            Top = 112
-            Width = 40
-            Height = 16
-            Caption = 'Course'
-          end
-          object Label8: TLabel
-            Left = 25
-            Top = 132
-            Width = 81
-            Height = 16
-            Caption = 'Ground Speed'
-          end
-          object Label9: TLabel
-            Left = 25
-            Top = 152
-            Width = 43
-            Height = 16
-            Caption = 'Altitude'
-          end
-          object Label10: TLabel
-            Left = 25
-            Top = 172
-            Width = 40
-            Height = 16
-            Caption = 'Priority'
-          end
-          object Label11: TLabel
-            Left = 25
-            Top = 192
-            Width = 36
-            Height = 16
-            Caption = 'Status'
-          end
-          object Label12: TLabel
-            Left = 25
-            Top = 212
-            Width = 72
-            Height = 16
-            Caption = 'Time to wait'
-          end
-          object Label13: TLabel
-            Left = 25
-            Top = 232
-            Width = 98
-            Height = 16
-            Caption = 'Time to intercept'
-          end
-          object Label14: TLabel
-            Left = 5
-            Top = 257
-            Width = 40
-            Height = 16
-            Caption = 'Display'
-          end
-          object Bevel4: TBevel
-            Left = 55
-            Top = 265
-            Width = 265
-            Height = 3
-          end
-          object Label15: TLabel
-            Left = 46
-            Top = 275
-            Width = 36
-            Height = 16
-            Caption = 'Range'
-          end
-          object Label16: TLabel
-            Left = 151
-            Top = 275
-            Width = 65
-            Height = 16
-            Caption = 'Blind Zones'
-          end
-          object lbSurfaceToAirCourse: TLabel
-            Left = 155
-            Top = 112
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbSurfaceToAirGround: TLabel
-            Left = 155
-            Top = 132
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbSurfaceToAirAltitude: TLabel
-            Left = 155
-            Top = 152
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbSurfaceToAirStatus: TLabel
-            Left = 155
-            Top = 192
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbSurfaceToAirTimeToWait: TLabel
-            Left = 155
-            Top = 212
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lbSurfaceToAirTimeToIntercept: TLabel
-            Left = 155
-            Top = 232
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object Label17: TLabel
-            Left = 205
-            Top = 112
-            Width = 58
-            Height = 16
-            Caption = 'degrees T'
-          end
-          object Label18: TLabel
-            Left = 205
-            Top = 132
-            Width = 30
-            Height = 16
-            Caption = 'knots'
-          end
-          object Label19: TLabel
-            Left = 205
-            Top = 152
-            Width = 22
-            Height = 16
-            Caption = 'feet'
-          end
-          object Label20: TLabel
-            Left = 205
-            Top = 212
-            Width = 39
-            Height = 16
-            Caption = 'mm:ss'
-          end
-          object Label22: TLabel
-            Left = 205
-            Top = 232
-            Width = 39
-            Height = 16
-            Caption = 'mm:ss'
-          end
-          object btnSurfaceToAirTargetTrack: TSpeedButton
-            Tag = 5
-            Left = 205
-            Top = 86
-            Width = 23
-            Height = 23
-            Glyph.Data = {
-              56080000424D560800000000000036000000280000001A0000001A0000000100
-              18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-              E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-              70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-              ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-              8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-              8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-              2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-              2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-              D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-              E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-              8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-              8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-              A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-              6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-              8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-              D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-              D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-              000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-              E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-              7070737070737070737070737070737070737070737070737070737070737070
-              737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-            OnClick = btnSurfaceToAirOnClick
-          end
-          object sbSurfaceToAirDisplayRangeShow: TSpeedButton
-            Tag = 1
-            Left = 24
-            Top = 295
-            Width = 80
-            Height = 25
-            AllowAllUp = True
-            GroupIndex = 2
-            Caption = 'Show'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = btnSurfaceToAirOnClick
-          end
-          object sbSurfaceToAirDisplayRangeHide: TSpeedButton
-            Tag = 2
-            Left = 24
-            Top = 320
-            Width = 80
-            Height = 25
-            AllowAllUp = True
-            GroupIndex = 2
-            Down = True
-            Caption = 'Hide'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = btnSurfaceToAirOnClick
-          end
-          object sbSurfaceToAirDisplayBlindShow: TSpeedButton
-            Tag = 3
-            Left = 144
-            Top = 295
-            Width = 80
-            Height = 25
-            AllowAllUp = True
-            GroupIndex = 1
-            Caption = 'Show'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = btnSurfaceToAirOnClick
-          end
-          object sbSurfaceToAirDisplayBlindHide: TSpeedButton
-            Tag = 4
-            Left = 144
-            Top = 320
-            Width = 80
-            Height = 25
-            AllowAllUp = True
-            GroupIndex = 1
-            Down = True
-            Caption = 'Hide'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = btnSurfaceToAirOnClick
-          end
-          object Label106: TLabel
-            Left = 135
-            Top = 92
-            Width = 5
-            Height = 16
-            Caption = ':'
-          end
-          object Label107: TLabel
-            Left = 135
-            Top = 112
-            Width = 5
-            Height = 16
-            Caption = ':'
-          end
-          object Label108: TLabel
-            Left = 135
-            Top = 132
-            Width = 5
-            Height = 16
-            Caption = ':'
-          end
-          object Label109: TLabel
-            Left = 135
-            Top = 152
-            Width = 5
-            Height = 16
-            Caption = ':'
-          end
-          object Label110: TLabel
-            Left = 135
-            Top = 172
-            Width = 5
-            Height = 16
-            Caption = ':'
-          end
-          object Label111: TLabel
-            Left = 135
-            Top = 192
-            Width = 5
-            Height = 16
-            Caption = ':'
-          end
-          object Label112: TLabel
-            Left = 135
-            Top = 212
-            Width = 5
-            Height = 16
-            Caption = ':'
-          end
-          object Label113: TLabel
-            Left = 135
-            Top = 232
-            Width = 5
-            Height = 16
-            Caption = ':'
-          end
-          object ediSurfaceToAirSalvo: TEdit
-            Left = 145
-            Top = 50
-            Width = 70
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            OnKeyPress = ediSurfaceToAirSalvoKeyPress
-          end
-          object editSurfaceToAirTrack: TEdit
-            Left = 155
-            Top = 87
-            Width = 39
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            ReadOnly = True
-            TabOrder = 1
-          end
-          object btSurfaceToAirPlan: TButton
-            Tag = 1
-            Left = 15
-            Top = 372
-            Width = 80
-            Height = 25
-            Caption = 'Plan'
-            Enabled = False
-            TabOrder = 2
-            OnClick = btnSurfaceToAirOnClick
-          end
-          object btSurfaceToAirLaunch: TButton
-            Tag = 3
-            Left = 245
-            Top = 372
-            Width = 80
-            Height = 25
-            Caption = 'Launch'
-            Enabled = False
-            TabOrder = 3
-            OnClick = btnSurfaceToAirOnClick
-          end
-          object btSurfaceToAirCancel: TButton
-            Tag = 2
-            Left = 105
-            Top = 372
-            Width = 80
-            Height = 25
-            Caption = 'Cancel'
-            Enabled = False
-            TabOrder = 4
-            OnClick = btnSurfaceToAirOnClick
-          end
-        end
-      end
       object grbMines: TGroupBox
         Left = 0
         Top = 0
@@ -6067,6 +5553,520 @@ inherited fmWeapon: TfmWeapon
           end
         end
       end
+      object grbSurfaceToAirMissile: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 346
+        Height = 425
+        Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 10
+        object ScrollBox1: TScrollBox
+          Left = 2
+          Top = 18
+          Width = 342
+          Height = 405
+          Align = alClient
+          BevelInner = bvNone
+          BorderStyle = bsNone
+          TabOrder = 0
+          object Label1: TLabel
+            Left = 5
+            Top = -2
+            Width = 36
+            Height = 16
+            Caption = 'Status'
+          end
+          object Bevel1: TBevel
+            Left = 55
+            Top = 5
+            Width = 265
+            Height = 3
+          end
+          object lblSurfaceToAirStatus: TLabel
+            Left = 25
+            Top = 17
+            Width = 51
+            Height = 16
+            Caption = 'Available'
+          end
+          object Label2: TLabel
+            Left = 115
+            Top = 17
+            Width = 56
+            Height = 16
+            Caption = 'Quantity :'
+          end
+          object lbSurfaceToAirStatusQuantity: TLabel
+            Left = 175
+            Top = 17
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object Label3: TLabel
+            Left = 5
+            Top = 34
+            Width = 41
+            Height = 16
+            Caption = 'Control'
+          end
+          object Bevel2: TBevel
+            Left = 55
+            Top = 41
+            Width = 265
+            Height = 2
+          end
+          object Label4: TLabel
+            Left = 25
+            Top = 54
+            Width = 114
+            Height = 16
+            Caption = 'Salvo size             :'
+          end
+          object Label5: TLabel
+            Left = 5
+            Top = 71
+            Width = 38
+            Height = 16
+            Caption = 'Target'
+          end
+          object Bevel3: TBevel
+            Left = 55
+            Top = 78
+            Width = 265
+            Height = 3
+          end
+          object Label6: TLabel
+            Left = 25
+            Top = 92
+            Width = 32
+            Height = 16
+            Caption = 'Track'
+          end
+          object Label7: TLabel
+            Left = 25
+            Top = 112
+            Width = 40
+            Height = 16
+            Caption = 'Course'
+          end
+          object Label8: TLabel
+            Left = 25
+            Top = 132
+            Width = 81
+            Height = 16
+            Caption = 'Ground Speed'
+          end
+          object Label9: TLabel
+            Left = 25
+            Top = 152
+            Width = 43
+            Height = 16
+            Caption = 'Altitude'
+          end
+          object Label10: TLabel
+            Left = 25
+            Top = 172
+            Width = 40
+            Height = 16
+            Caption = 'Priority'
+          end
+          object Label11: TLabel
+            Left = 25
+            Top = 192
+            Width = 36
+            Height = 16
+            Caption = 'Status'
+          end
+          object Label12: TLabel
+            Left = 25
+            Top = 212
+            Width = 72
+            Height = 16
+            Caption = 'Time to wait'
+          end
+          object Label13: TLabel
+            Left = 25
+            Top = 232
+            Width = 98
+            Height = 16
+            Caption = 'Time to intercept'
+          end
+          object Label14: TLabel
+            Left = 5
+            Top = 257
+            Width = 40
+            Height = 16
+            Caption = 'Display'
+          end
+          object Bevel4: TBevel
+            Left = 55
+            Top = 265
+            Width = 265
+            Height = 3
+          end
+          object Label15: TLabel
+            Left = 46
+            Top = 275
+            Width = 36
+            Height = 16
+            Caption = 'Range'
+          end
+          object Label16: TLabel
+            Left = 151
+            Top = 275
+            Width = 65
+            Height = 16
+            Caption = 'Blind Zones'
+          end
+          object lbSurfaceToAirCourse: TLabel
+            Left = 155
+            Top = 112
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object lbSurfaceToAirGround: TLabel
+            Left = 155
+            Top = 132
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object lbSurfaceToAirAltitude: TLabel
+            Left = 155
+            Top = 152
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object lbSurfaceToAirStatus: TLabel
+            Left = 155
+            Top = 192
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object lbSurfaceToAirTimeToWait: TLabel
+            Left = 155
+            Top = 212
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object lbSurfaceToAirTimeToIntercept: TLabel
+            Left = 155
+            Top = 232
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object Label17: TLabel
+            Left = 205
+            Top = 112
+            Width = 58
+            Height = 16
+            Caption = 'degrees T'
+          end
+          object Label18: TLabel
+            Left = 205
+            Top = 132
+            Width = 30
+            Height = 16
+            Caption = 'knots'
+          end
+          object Label19: TLabel
+            Left = 205
+            Top = 152
+            Width = 22
+            Height = 16
+            Caption = 'feet'
+          end
+          object Label20: TLabel
+            Left = 205
+            Top = 212
+            Width = 39
+            Height = 16
+            Caption = 'mm:ss'
+          end
+          object Label22: TLabel
+            Left = 205
+            Top = 232
+            Width = 39
+            Height = 16
+            Caption = 'mm:ss'
+          end
+          object btnSurfaceToAirTargetTrack: TSpeedButton
+            Tag = 5
+            Left = 205
+            Top = 86
+            Width = 23
+            Height = 23
+            Glyph.Data = {
+              56080000424D560800000000000036000000280000001A0000001A0000000100
+              18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
+              E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
+              70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
+              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
+              ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
+              8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
+              8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
+              2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
+              2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
+              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
+              D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
+              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
+              E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
+              8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
+              8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
+              A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
+              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
+              6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
+              8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
+              D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
+              D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
+              000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
+              E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
+              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
+              7070737070737070737070737070737070737070737070737070737070737070
+              737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
+            OnClick = btnSurfaceToAirOnClick
+          end
+          object sbSurfaceToAirDisplayRangeShow: TSpeedButton
+            Tag = 1
+            Left = 24
+            Top = 295
+            Width = 80
+            Height = 25
+            AllowAllUp = True
+            GroupIndex = 2
+            Caption = 'Show'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = btnSurfaceToAirOnClick
+          end
+          object sbSurfaceToAirDisplayRangeHide: TSpeedButton
+            Tag = 2
+            Left = 24
+            Top = 320
+            Width = 80
+            Height = 25
+            AllowAllUp = True
+            GroupIndex = 2
+            Down = True
+            Caption = 'Hide'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = btnSurfaceToAirOnClick
+          end
+          object sbSurfaceToAirDisplayBlindShow: TSpeedButton
+            Tag = 3
+            Left = 144
+            Top = 295
+            Width = 80
+            Height = 25
+            AllowAllUp = True
+            GroupIndex = 1
+            Caption = 'Show'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = btnSurfaceToAirOnClick
+          end
+          object sbSurfaceToAirDisplayBlindHide: TSpeedButton
+            Tag = 4
+            Left = 144
+            Top = 320
+            Width = 80
+            Height = 25
+            AllowAllUp = True
+            GroupIndex = 1
+            Down = True
+            Caption = 'Hide'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = btnSurfaceToAirOnClick
+          end
+          object Label106: TLabel
+            Left = 135
+            Top = 92
+            Width = 5
+            Height = 16
+            Caption = ':'
+          end
+          object Label107: TLabel
+            Left = 135
+            Top = 112
+            Width = 5
+            Height = 16
+            Caption = ':'
+          end
+          object Label108: TLabel
+            Left = 135
+            Top = 132
+            Width = 5
+            Height = 16
+            Caption = ':'
+          end
+          object Label109: TLabel
+            Left = 135
+            Top = 152
+            Width = 5
+            Height = 16
+            Caption = ':'
+          end
+          object Label110: TLabel
+            Left = 135
+            Top = 172
+            Width = 5
+            Height = 16
+            Caption = ':'
+          end
+          object Label111: TLabel
+            Left = 135
+            Top = 192
+            Width = 5
+            Height = 16
+            Caption = ':'
+          end
+          object Label112: TLabel
+            Left = 135
+            Top = 212
+            Width = 5
+            Height = 16
+            Caption = ':'
+          end
+          object Label113: TLabel
+            Left = 135
+            Top = 232
+            Width = 5
+            Height = 16
+            Caption = ':'
+          end
+          object ediSurfaceToAirSalvo: TEdit
+            Left = 145
+            Top = 50
+            Width = 70
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            OnKeyPress = ediSurfaceToAirSalvoKeyPress
+          end
+          object editSurfaceToAirTrack: TEdit
+            Left = 155
+            Top = 87
+            Width = 39
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            ReadOnly = True
+            TabOrder = 1
+          end
+          object btSurfaceToAirPlan: TButton
+            Tag = 1
+            Left = 15
+            Top = 372
+            Width = 80
+            Height = 25
+            Caption = 'Plan'
+            Enabled = False
+            TabOrder = 2
+            OnClick = btnSurfaceToAirOnClick
+          end
+          object btSurfaceToAirLaunch: TButton
+            Tag = 3
+            Left = 245
+            Top = 372
+            Width = 80
+            Height = 25
+            Caption = 'Launch'
+            Enabled = False
+            TabOrder = 3
+            OnClick = btnSurfaceToAirOnClick
+          end
+          object btSurfaceToAirCancel: TButton
+            Tag = 2
+            Left = 105
+            Top = 372
+            Width = 80
+            Height = 25
+            Caption = 'Cancel'
+            Enabled = False
+            TabOrder = 4
+            OnClick = btnSurfaceToAirOnClick
+          end
+        end
+      end
       object grbSurfaceToSurfaceMissile: TGroupBox
         Left = 0
         Top = 0
@@ -6445,6 +6445,77 @@ inherited fmWeapon: TfmWeapon
             Height = 16
             Caption = 'Nm'
           end
+          object panSurfaceToSurfaceWp: TPanel
+            Left = 14
+            Top = 290
+            Width = 305
+            Height = 59
+            BevelOuter = bvNone
+            TabOrder = 8
+            object Bevel16: TBevel
+              Left = 76
+              Top = 17
+              Width = 225
+              Height = 3
+            end
+            object Label54: TLabel
+              Left = 5
+              Top = 9
+              Width = 59
+              Height = 16
+              Caption = 'Waypoints'
+            end
+            object btnSurfaceToSurfaceMissileWaypointsEdit: TButton
+              Tag = 10
+              Left = 4
+              Top = 28
+              Width = 58
+              Height = 25
+              Caption = 'Edit'
+              TabOrder = 0
+              OnClick = btnSurfaceToSurfaceClick
+            end
+            object btnSurfaceToSurfaceMissileWaypointsAdd: TButton
+              Tag = 11
+              Left = 62
+              Top = 28
+              Width = 58
+              Height = 25
+              Caption = 'Add'
+              TabOrder = 1
+              OnClick = btnSurfaceToSurfaceClick
+            end
+            object btnSurfaceToSurfaceMissileWaypointsDelete: TButton
+              Tag = 12
+              Left = 120
+              Top = 28
+              Width = 58
+              Height = 25
+              Caption = 'Delete'
+              TabOrder = 2
+              OnClick = btnSurfaceToSurfaceClick
+            end
+            object btnSurfaceToSurfaceMissileWaypointsApply: TButton
+              Tag = 13
+              Left = 177
+              Top = 28
+              Width = 58
+              Height = 25
+              Caption = 'Apply'
+              TabOrder = 3
+              OnClick = btnSurfaceToSurfaceClick
+            end
+            object btnSurfaceToSurfaceMissileWaypointsCancel: TButton
+              Tag = 14
+              Left = 235
+              Top = 28
+              Width = 58
+              Height = 25
+              Caption = 'Cancel'
+              TabOrder = 4
+              OnClick = btnSurfaceToSurfaceClick
+            end
+          end
           object btn1: TButton
             Left = 238
             Top = 172
@@ -6540,77 +6611,6 @@ inherited fmWeapon: TfmWeapon
             TabOrder = 7
             Visible = False
             OnClick = btnSurfaceToSurfaceMissileTargetTrackDetailsClick
-          end
-          object panSurfaceToSurfaceWp: TPanel
-            Left = 14
-            Top = 290
-            Width = 305
-            Height = 59
-            BevelOuter = bvNone
-            TabOrder = 8
-            object Bevel16: TBevel
-              Left = 76
-              Top = 17
-              Width = 225
-              Height = 3
-            end
-            object Label54: TLabel
-              Left = 5
-              Top = 9
-              Width = 59
-              Height = 16
-              Caption = 'Waypoints'
-            end
-            object btnSurfaceToSurfaceMissileWaypointsEdit: TButton
-              Tag = 10
-              Left = 4
-              Top = 28
-              Width = 58
-              Height = 25
-              Caption = 'Edit'
-              TabOrder = 0
-              OnClick = btnSurfaceToSurfaceClick
-            end
-            object btnSurfaceToSurfaceMissileWaypointsAdd: TButton
-              Tag = 11
-              Left = 62
-              Top = 28
-              Width = 58
-              Height = 25
-              Caption = 'Add'
-              TabOrder = 1
-              OnClick = btnSurfaceToSurfaceClick
-            end
-            object btnSurfaceToSurfaceMissileWaypointsDelete: TButton
-              Tag = 12
-              Left = 120
-              Top = 28
-              Width = 58
-              Height = 25
-              Caption = 'Delete'
-              TabOrder = 2
-              OnClick = btnSurfaceToSurfaceClick
-            end
-            object btnSurfaceToSurfaceMissileWaypointsApply: TButton
-              Tag = 13
-              Left = 177
-              Top = 28
-              Width = 58
-              Height = 25
-              Caption = 'Apply'
-              TabOrder = 3
-              OnClick = btnSurfaceToSurfaceClick
-            end
-            object btnSurfaceToSurfaceMissileWaypointsCancel: TButton
-              Tag = 14
-              Left = 235
-              Top = 28
-              Width = 58
-              Height = 25
-              Caption = 'Cancel'
-              TabOrder = 4
-              OnClick = btnSurfaceToSurfaceClick
-            end
           end
           object btnSurfaceToSurfaceMissileLauncherMore: TButton
             Left = 240

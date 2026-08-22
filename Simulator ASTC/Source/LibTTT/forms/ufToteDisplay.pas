@@ -1829,16 +1829,14 @@ type
     procedure btnWeaponsClick(Sender: TObject);
     procedure btnCountermeasuresClick(Sender: TObject);
     procedure btnPlatformClick(Sender: TObject);
-    procedure lvSensorMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure lvCountermeasuresNavMouseDown(Sender: TObject;
-      Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-    procedure lvWeaponNavMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure lvSystemStateNavMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure lvSensorNavMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
+
+    procedure lvSensorMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+
+    procedure lvSensorNavMouseDown(Sender: TObject; Button: TMouseButton;Shift: TShiftState; X, Y: Integer);
+    procedure lvCountermeasuresNavMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure lvWeaponNavMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure lvSystemStateNavMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+
 //    procedure FormMouseEnter(Sender: TObject);
 //    procedure btnPlatformnewMouseEnter(Sender: TObject);
 //    procedure btnPlatformnewMouseLeave(Sender: TObject);
@@ -1872,6 +1870,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure vrCurrentMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+
 //    procedure Panel56Click(Sender: TObject);
 
     {$ENDREGION}
@@ -3707,18 +3706,18 @@ begin
   if f then
     Result := li;
 
-  {$REGION 'Navigasi'}
-  i := 0;
-  while not f and (i < lvSensorNav.Items.Count) do
-  begin
-    li := lvSensorNav.Items.Item[i];
-    f := SameText(li.SubItems[0], arg);
-    Inc(i);
-  end;
-
-  if f then
-    Result := li;
-  {$ENDREGION}
+//  {$REGION 'Navigasi'}
+//  i := 0;
+//  while not f and (i < lvSensorNav.Items.Count) do
+//  begin
+//    li := lvSensorNav.Items.Item[i];
+//    f := SameText(li.SubItems[0], arg);
+//    Inc(i);
+//  end;
+//
+//  if f then
+//    Result := li;
+//  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.fixed1Click(sender: TObject);
@@ -5945,48 +5944,23 @@ begin
     if (Button = mbRight) then
     begin
       if TT3Sensor(lvSensors.Selected.Data).OperationalStatus = sopDamage then
-        begin
-          damage1.Enabled := False;
-          fixed1.Enabled := True;
-        end
-        else
-        begin
-          damage1.Enabled := True;
-          fixed1.Enabled := False;
-        end;
+      begin
+        damage1.Enabled := False;
+        fixed1.Enabled := True;
+      end
+      else
+      begin
+        damage1.Enabled := True;
+        fixed1.Enabled := False;
+      end;
       pmSensor.Popup(pos.X, pos.Y);
     end;
   end;
 end;
 
-procedure TfrmToteDisplay.lvSensorNavMouseDown(Sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-var
-  pos: TPoint;
+procedure TfrmToteDisplay.lvSensorNavMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
-  // klik kanan
-  if CategoryPanelStatusOp.Enabled then
-  begin
-    if (lvSensorNav.Selected = nil) or (lvSensorNav.ItemIndex = -1) then
-      Exit;
-
-    GetCursorPos(pos);
-    if (Button = mbRight) then
-    begin
-      if TT3Sensor(lvSensorNav.Selected.Data).OperationalStatus = sopDamage then
-        begin
-          damage1.Enabled := False;
-          fixed1.Enabled := True;
-        end
-        else
-        begin
-          damage1.Enabled := True;
-          fixed1.Enabled := False;
-        end;
-      pmSensor.Popup(pos.X, pos.Y);
-    end;
-  end;
-
+  //
 end;
 
 procedure TfrmToteDisplay.lvSensorOverrideSelectItem(Sender: TObject;
@@ -6107,22 +6081,19 @@ var
   status : String;
 
   MissileLauncher : TFitted_Weap_Launcher_On_Board;
+  TorpedoLauncher : TFitted_Weap_Launcher_On_Board;
   launcherNumber : integer;
-  //QuantityTote : integer;
 begin
-  // clear Tree
-  tvWeapons.Items.Clear;
-  lvWeaponNav.Items.Clear;
 
-  // setup tree
   if Assigned(weapons) then
   begin
+    {$REGION ' Other Role '}
+    tvWeapons.Items.Clear;
+
     for i := 0 to weapons.Count - 1 do
     begin
       tn := TTreeNode.Create(tvWeapons.Items);
-      tn := TTreeNode.Create(lvWeaponNav.Items);
 
-      // GUN
       case TT3Weapon(weapons[I]).WeaponStatus of
         wsAvailable : status := 'Available';
         wsUnavailable : status := 'Unavailable';
@@ -6130,50 +6101,18 @@ begin
         wsTooHigh : status := 'Too High';
       end;
 
-      if (TT3Weapon(weapons.Items[i]) is TT3GunOnVehicle) then
+      if (TT3Weapon(weapons.Items[i]) is TT3MissilesOnVehicle) then
       begin
-        tn.Text := TT3GunOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
-        tn.StateIndex := 3;
-        tn.Data := TT3GunOnVehicle(weapons.Items[i]);
-        tvWeapons.Items.AddObject(nil, tn.Text, tn.Data);
-        lvWeaponNav.Items.AddObject(nil, tn.Text, tn.Data);
-
-        temp := TTreeNode.Create(tvWeapons.Items);
-        temp.Text := IntToStr(TT3GunOnVehicle(tn.Data).Quantity);
-        temp := FindText(tvWeapons, tn.Text);
-
-        temp := TTreeNode.Create(lvWeaponNav.Items);
-        temp := FindText(lvWeaponNav, tn.Text);
-
-        if temp.HasChildren then
-          temp := temp.getNextSibling;
-
-        tvWeapons.Items.AddChildObject(temp,
-          IntToStr(TT3GunOnVehicle(tn.Data).Quantity), tn.Data);
-
-        lvWeaponNav.Items.AddChildObject(temp,
-          IntToStr(TT3GunOnVehicle(tn.Data).Quantity), tn.Data);
-      end
-      // MISSILE
-      else if (TT3Weapon(weapons.Items[i]) is TT3MissilesOnVehicle) then
-      begin
+        {$REGION ' Missile '}
         tn.Text := TT3MissilesOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
         tn.StateIndex := 1;
         tn.Data := TT3MissilesOnVehicle(weapons.Items[i]);
-        tvWeapons.Items.AddObject(nil,
-          (tn.Text + ' : ' + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity)),
-          tn.Data);
-
-        tn.Data := TT3MissilesOnVehicle(weapons.Items[i]);
-        lvWeaponNav.Items.AddObject(nil,
-          (tn.Text + ' : ' + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity)),
-          tn.Data);
+        tvWeapons.Items.AddObject(nil, (tn.Text + ' : ' + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity)), tn.Data);
 
         for j := 0 to TT3MissilesOnVehicle(weapons.Items[i]).MissileDefinition.FLaunchs.Count - 1 do
         begin
           MissileLauncher := TFitted_Weap_Launcher_On_Board(TT3MissilesOnVehicle(weapons.Items[i]).MissileDefinition.FLaunchs.Items[j]);
 
-          temp      := TTreeNode.Create(lvWeaponNav.Items);
           temp      := TTreeNode.Create(tvWeapons.Items);
           temp.Data := MissileLauncher;
 
@@ -6183,60 +6122,40 @@ begin
             launcherNumber := MissileLauncher.FData.Launcher_Type;
 
           temp.Text := 'Launcher ' + IntToStr(launcherNumber);
-
-          //Parent
-          temp      := FindText(tvWeapons, tn.Text + ' : '
-                       + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity));
-
-          //Child
-          tvWeapons.Items.AddChild(temp, 'Launcher '
-                                   + IntToStr(launcherNumber) + ' : '
-                                   + IntToStr(MissileLauncher.FData.Launcher_Qty));
-
-          //Parent
-          temp      := FindText(lvWeaponNav, tn.Text + ' : '
-                       + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity));
-
-          //Child
-          lvWeaponNav.Items.AddChild(temp, 'Launcher '
-                                   + IntToStr(launcherNumber) + ' : '
-                                   + IntToStr(MissileLauncher.FData.Launcher_Qty));
+          temp      := FindText(tvWeapons, tn.Text + ' : ' + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity));
+          tvWeapons.Items.AddChild(temp, 'Launcher ' + IntToStr(launcherNumber) + ' : ' + IntToStr(MissileLauncher.FData.Launcher_Qty));
         end;
-
-        //Parent
-        //temp      := FindText(tvWeapons, tn.Text + ' : '
-                     //+ IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity));
+        {$ENDREGION}
       end
-      // TORPEDO
       else if (TT3Weapon(weapons.Items[i]) is TT3TorpedoesOnVehicle) then
       begin
+        {$REGION ' Torpedo '}
         tn.Text := TT3TorpedoesOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
         tn.StateIndex := 0;
         tn.Data := TT3TorpedoesOnVehicle(weapons.Items[i]);
-        tvWeapons.Items.AddObject(nil, tn.Text + ' : ' + IntToStr
-            (TT3TorpedoesOnVehicle(tn.Data).Quantity), tn.Data);
-        lvWeaponNav.Items.AddObject(nil, tn.Text + ' : ' + IntToStr
-            (TT3TorpedoesOnVehicle(tn.Data).Quantity), tn.Data);
+        tvWeapons.Items.AddObject(nil, tn.Text + ' : ' + IntToStr (TT3TorpedoesOnVehicle(tn.Data).Quantity), tn.Data);
 
         for j := 0 to TT3TorpedoesOnVehicle(weapons.Items[i]).Quantity - 1 do
         begin
-          temp := TTreeNode.Create(tvWeapons.Items);
-          temp.Text := 'Launcher ' + IntToStr(j + 1);
-          temp := FindText(tvWeapons,
-            tn.Text + ' : ' + IntToStr(TT3TorpedoesOnVehicle(tn.Data).Quantity));
-          tvWeapons.Items.AddChild(temp, 'Launcher ' + IntToStr(j + 1));
+          TorpedoLauncher := TFitted_Weap_Launcher_On_Board(TT3TorpedoesOnVehicle(weapons.Items[i]).TorpedoDefinition.FLaunchs.Items[j]);
 
-          temp := TTreeNode.Create(lvWeaponNav.Items);
-          temp.Text := 'Launcher ' + IntToStr(j + 1);
-          temp := FindText(lvWeaponNav,
-            tn.Text + ' : ' + IntToStr(TT3TorpedoesOnVehicle(tn.Data).Quantity));
-          lvWeaponNav.Items.AddChild(temp, 'Launcher ' + IntToStr(j + 1));
-          // FindAdd(tvWeapons, tn.Text, 'Launcher ' + IntToStr(j+1));
+          temp := TTreeNode.Create(tvWeapons.Items);
+          temp.Data := MissileLauncher;
+
+          if TorpedoLauncher.FData.Launcher_Type > 8 then
+            launcherNumber :=  TorpedoLauncher.FData.Launcher_Type - 8
+          else
+            launcherNumber := TorpedoLauncher.FData.Launcher_Type;
+
+          temp.Text := 'Launcher ' + IntToStr(launcherNumber);
+          temp := FindText(tvWeapons, tn.Text + ' : ' + IntToStr(TT3TorpedoesOnVehicle(tn.Data).Quantity));
+          tvWeapons.Items.AddChild(temp, 'Launcher ' + IntToStr(launcherNumber) + ' : ' + IntToStr(MissileLauncher.FData.Launcher_Qty));
         end;
+        {$ENDREGION}
       end
-      // BOMB
       else if (TT3Weapon(weapons.Items[i]) is TT3BombONVehicle) then
       begin
+        {$REGION ' Bomb '}
         tn.Text := TT3BombONVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
         tn.StateIndex := 4;
         tn.Data := TT3BombONVehicle(weapons.Items[i]);
@@ -6246,21 +6165,15 @@ begin
         temp.Text := IntToStr(TT3BombONVehicle(tn.Data).Quantity);
         temp := FindText(tvWeapons, tn.Text);
 
-        lvWeaponNav.Items.AddObject(nil, tn.Text, tn.Data);
-        temp := TTreeNode.Create(lvWeaponNav.Items);
-        temp := FindText(lvWeaponNav, tn.Text);
-
         if temp.HasChildren then
           temp := temp.getNextSibling;
 
-        tvWeapons.Items.AddChildObject(temp,
-          IntToStr(TT3BombONVehicle(tn.Data).Quantity), tn.Data);
-        lvWeaponNav.Items.AddChildObject(temp,
-          IntToStr(TT3BombONVehicle(tn.Data).Quantity), tn.Data);
+        tvWeapons.Items.AddChildObject(temp, IntToStr(TT3BombONVehicle(tn.Data).Quantity), tn.Data);
+        {$ENDREGION}
       end
-      // MINE
       else if (TT3Weapon(weapons.Items[i]) is TT3MineOnVehicle) then
       begin
+        {$REGION ' Mine '}
         tn.Text := TT3MineOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
         tn.StateIndex := 2;
         tn.Data := TT3MineOnVehicle(weapons.Items[i]);
@@ -6270,25 +6183,164 @@ begin
         temp.Text := IntToStr(TT3MineOnVehicle(tn.Data).Quantity);
         temp := FindText(tvWeapons, tn.Text);
 
+        if temp.HasChildren then
+          temp := temp.getNextSibling;
+
+        tvWeapons.Items.AddChildObject(temp, IntToStr(TT3MineOnVehicle(tn.Data).Quantity), tn.Data);
+        {$ENDREGION}
+      end
+      else if (TT3Weapon(weapons.Items[i]) is TT3GunOnVehicle) then
+      begin
+        {$REGION ' Gun '}
+        tn.Text := TT3GunOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 3;
+        tn.Data := TT3GunOnVehicle(weapons.Items[i]);
+        tvWeapons.Items.AddObject(nil, tn.Text, tn.Data);
+
+        temp := TTreeNode.Create(tvWeapons.Items);
+        temp.Text := IntToStr(TT3GunOnVehicle(tn.Data).Quantity);
+        temp := FindText(tvWeapons, tn.Text);
+
+        if temp.HasChildren then
+          temp := temp.getNextSibling;
+
+        tvWeapons.Items.AddChildObject(temp,IntToStr(TT3GunOnVehicle(tn.Data).Quantity), tn.Data);
+        {$ENDREGION}
+      end;
+    end;
+
+    tvWeapons.FullExpand;
+
+    {$ENDREGION}
+
+    {$REGION ' Navigasi Role '}
+
+    lvWeaponNav.Items.Clear;
+
+    for i := 0 to weapons.Count - 1 do
+    begin
+      tn := TTreeNode.Create(lvWeaponNav.Items);
+
+      case TT3Weapon(weapons[I]).WeaponStatus of
+        wsAvailable : status := 'Available';
+        wsUnavailable : status := 'Unavailable';
+        wsDamaged : status := 'Damage';
+        wsTooHigh : status := 'Too High';
+      end;
+
+      if (TT3Weapon(weapons.Items[i]) is TT3MissilesOnVehicle) then
+      begin
+        {$REGION ' Missile '}
+        tn.Text := TT3MissilesOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 1;
+        tn.Data := TT3MissilesOnVehicle(weapons.Items[i]);
+        lvWeaponNav.Items.AddObject(nil, (tn.Text + ' : ' + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity)), tn.Data);
+
+        for j := 0 to TT3MissilesOnVehicle(weapons.Items[i]).MissileDefinition.FLaunchs.Count - 1 do
+        begin
+          MissileLauncher := TFitted_Weap_Launcher_On_Board(TT3MissilesOnVehicle(weapons.Items[i]).MissileDefinition.FLaunchs.Items[j]);
+
+          temp      := TTreeNode.Create(lvWeaponNav.Items);
+          temp.Data := MissileLauncher;
+
+          if MissileLauncher.FData.Launcher_Type > 8 then
+            launcherNumber :=  MissileLauncher.FData.Launcher_Type - 8
+          else
+            launcherNumber := MissileLauncher.FData.Launcher_Type;
+
+          temp.Text := 'Launcher ' + IntToStr(launcherNumber);
+          temp      := FindText(lvWeaponNav, tn.Text + ' : ' + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity));
+          lvWeaponNav.Items.AddChild(temp, 'Launcher ' + IntToStr(launcherNumber) + ' : ' + IntToStr(MissileLauncher.FData.Launcher_Qty));
+        end;
+        {$ENDREGION}
+      end
+      else if (TT3Weapon(weapons.Items[i]) is TT3TorpedoesOnVehicle) then
+      begin
+        {$REGION ' Torpedo '}
+        tn.Text := TT3TorpedoesOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 0;
+        tn.Data := TT3TorpedoesOnVehicle(weapons.Items[i]);
+        lvWeaponNav.Items.AddObject(nil, tn.Text + ' : ' + IntToStr (TT3TorpedoesOnVehicle(tn.Data).Quantity), tn.Data);
+
+        for j := 0 to TT3TorpedoesOnVehicle(weapons.Items[i]).Quantity - 1 do
+        begin
+          TorpedoLauncher := TFitted_Weap_Launcher_On_Board(TT3TorpedoesOnVehicle(weapons.Items[i]).TorpedoDefinition.FLaunchs.Items[j]);
+
+          temp := TTreeNode.Create(lvWeaponNav.Items);
+          temp.Data := MissileLauncher;
+
+          if TorpedoLauncher.FData.Launcher_Type > 8 then
+            launcherNumber :=  TorpedoLauncher.FData.Launcher_Type - 8
+          else
+            launcherNumber := TorpedoLauncher.FData.Launcher_Type;
+
+          temp.Text := 'Launcher ' + IntToStr(launcherNumber);
+          temp := FindText(tvWeapons, tn.Text + ' : ' + IntToStr(TT3TorpedoesOnVehicle(tn.Data).Quantity));
+          lvWeaponNav.Items.AddChild(temp, 'Launcher ' + IntToStr(launcherNumber) + ' : ' + IntToStr(MissileLauncher.FData.Launcher_Qty));
+        end;
+        {$ENDREGION}
+      end
+      else if (TT3Weapon(weapons.Items[i]) is TT3BombONVehicle) then
+      begin
+        {$REGION ' Bomb '}
+        tn.Text := TT3BombONVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 4;
+        tn.Data := TT3BombONVehicle(weapons.Items[i]);
         lvWeaponNav.Items.AddObject(nil, tn.Text, tn.Data);
 
         temp := TTreeNode.Create(lvWeaponNav.Items);
+        temp.Text := IntToStr(TT3BombONVehicle(tn.Data).Quantity);
         temp := FindText(lvWeaponNav, tn.Text);
 
         if temp.HasChildren then
           temp := temp.getNextSibling;
 
-        tvWeapons.Items.AddChildObject(temp,
-          IntToStr(TT3MineOnVehicle(tn.Data).Quantity), tn.Data);
-        lvWeaponNav.Items.AddChildObject(temp,
-          IntToStr(TT3MineOnVehicle(tn.Data).Quantity), tn.Data);
+        lvWeaponNav.Items.AddChildObject(temp, IntToStr(TT3BombONVehicle(tn.Data).Quantity), tn.Data);
+        {$ENDREGION}
+      end
+      else if (TT3Weapon(weapons.Items[i]) is TT3MineOnVehicle) then
+      begin
+        {$REGION ' Mine '}
+        tn.Text := TT3MineOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 2;
+        tn.Data := TT3MineOnVehicle(weapons.Items[i]);
+        lvWeaponNav.Items.AddObject(nil, tn.Text, tn.Data);
+
+        temp := TTreeNode.Create(lvWeaponNav.Items);
+        temp.Text := IntToStr(TT3MineOnVehicle(tn.Data).Quantity);
+        temp := FindText(lvWeaponNav, tn.Text);
+
+        if temp.HasChildren then
+          temp := temp.getNextSibling;
+
+        lvWeaponNav.Items.AddChildObject(temp, IntToStr(TT3MineOnVehicle(tn.Data).Quantity), tn.Data);
+        {$ENDREGION}
+      end
+      else  if (TT3Weapon(weapons.Items[i]) is TT3GunOnVehicle) then
+      begin
+        {$REGION ' Gun '}
+        tn.Text := TT3GunOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 3;
+        tn.Data := TT3GunOnVehicle(weapons.Items[i]);
+        lvWeaponNav.Items.AddObject(nil, tn.Text, tn.Data);
+
+        temp := TTreeNode.Create(lvWeaponNav.Items);
+        temp.Text := IntToStr(TT3GunOnVehicle(tn.Data).Quantity);
+        temp := FindText(lvWeaponNav, tn.Text);
+
+        if temp.HasChildren then
+          temp := temp.getNextSibling;
+
+        lvWeaponNav.Items.AddChildObject(temp,IntToStr(TT3GunOnVehicle(tn.Data).Quantity), tn.Data);
+        {$ENDREGION}
       end;
     end;
+
+    // expand all
+    lvWeaponNav.FullExpand;
+    {$ENDREGION}
   end;
 
-  // expand all
-  tvWeapons.FullExpand;
-  lvWeaponNav.FullExpand;
 end;
 
 procedure TfrmToteDisplay.showEmbarkQuantity(sender : TObject);
@@ -6307,8 +6359,7 @@ begin
   }
 end;
 
-procedure TfrmToteDisplay.lvSystemStateMouseDown(sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+procedure TfrmToteDisplay.lvSystemStateMouseDown(sender: TObject;Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 var
   pos: TPoint;
   Item: TMenuItem;
@@ -6319,9 +6370,6 @@ begin
   if CategoryPanelStatusOp.Enabled then
   begin
     if (lvSystemState.Selected = nil) or (lvSystemState.ItemIndex = -1) then
-      Exit;
-
-    if (lvSystemStateNav.Selected = nil) or (lvSystemStateNav.ItemIndex = -1) then
       Exit;
 
     GetCursorPos(pos);
@@ -6344,14 +6392,14 @@ begin
       item.OnClick := Self.StatusClick;
       pmState.Items.Add(Item);
     end
-    else if (TListView(sender).Selected.Caption = 'Fuel Remaining') then
-    begin
-      Item := TMenuItem.Create(self);
-      item.Tag := tagFuelRemaining;
-      Item.Caption := 'Set ' + TListView(sender).Selected.Caption;
-      item.OnClick := Self.StatusClick;
-      pmState.Items.Add(Item);
-    end
+//    else if (TListView(sender).Selected.Caption = 'Fuel Remaining') then
+//    begin
+//      Item := TMenuItem.Create(self);
+//      item.Tag := tagFuelRemaining;
+//      Item.Caption := 'Set ' + TListView(sender).Selected.Caption;
+//      item.OnClick := Self.StatusClick;
+//      pmState.Items.Add(Item);
+//    end
     // if operational status
     else if (TListView(sender).Selected.Caption = 'Helm') or
       (TListView(sender).Selected.Caption = 'Propulsion') or
@@ -6394,20 +6442,21 @@ begin
 
       ve := li.Data;
 
-      if TListView(sender).Selected.Caption = 'Helm' then
-      begin
-        if not ve.DamageHelm then
-        begin
-          pmState.Items[0].Enabled := False;
-          pmState.Items[1].Enabled := True;
-        end
-        else if ve.DamageHelm then
-        begin
-          pmState.Items[0].Enabled := True;
-          pmState.Items[1].Enabled := False;
-        end;
-      end
-      else if (TListView(sender).Selected.Caption = 'Propulsion') then
+//      if TListView(sender).Selected.Caption = 'Helm' then
+//      begin
+//        if not ve.DamageHelm then
+//        begin
+//          pmState.Items[0].Enabled := False;
+//          pmState.Items[1].Enabled := True;
+//        end
+//        else if ve.DamageHelm then
+//        begin
+//          pmState.Items[0].Enabled := True;
+//          pmState.Items[1].Enabled := False;
+//        end;
+//      end
+//      else
+      if (TListView(sender).Selected.Caption = 'Propulsion') then
       begin
         if not ve.DamagePropulsion then
         begin
@@ -6419,65 +6468,66 @@ begin
           pmState.Items[0].Enabled := True;
           pmState.Items[1].Enabled := False;
         end;
-      end
-      else if (TListView(sender).Selected.Caption = 'Communications') then
-      begin
-        if not ve.DamageComm then
-        begin
-          pmState.Items[0].Enabled := False;
-          pmState.Items[1].Enabled := True;
-        end
-        else if ve.DamageComm then
-        begin
-          pmState.Items[0].Enabled := True;
-          pmState.Items[1].Enabled := False;
-        end;
       end;
+//      else if (TListView(sender).Selected.Caption = 'Communications') then
+//      begin
+//        if not ve.DamageComm then
+//        begin
+//          pmState.Items[0].Enabled := False;
+//          pmState.Items[1].Enabled := True;
+//        end
+//        else if ve.DamageComm then
+//        begin
+//          pmState.Items[0].Enabled := True;
+//          pmState.Items[1].Enabled := False;
+//        end;
+//      end;
 
-    end
+    end ;
     // if enable/disable
-    else if (TListView(sender).Selected.Caption = 'Fuel Leakage') then
-    begin
-      Item := TMenuItem.Create(self);
-      item.Tag := tagFuelLeakage;
-      Item.Caption := 'Enable';
-      item.OnClick := Self.StatusClick;
-      pmState.Items.Add(Item);
-
-      Item := TMenuItem.Create(self);
-      item.Tag := tagFuelLeakage;
-      Item.Caption := 'Disable';
-      item.OnClick := Self.StatusClick;
-      pmState.Items.Add(Item);
-
-      if lvPlatforms.Selected = nil then exit;
-
-      li := lvPlatforms.Selected;
-
-      u := li.Data;
-
-      if not (u is TT3Vehicle) then
-        exit;
-
-      ve := li.Data;
-
-      if ve.FuelLeakage then
-      begin
-        pmState.Items[0].Enabled := False;
-        pmState.Items[1].Enabled := True;
-      end
-      else if not ve.FuelLeakage then
-      begin
-        pmState.Items[0].Enabled := True;
-        pmState.Items[1].Enabled := False;
-      end;
-    end;
+//    else if (TListView(sender).Selected.Caption = 'Fuel Leakage') then
+//    begin
+//      Item := TMenuItem.Create(self);
+//      item.Tag := tagFuelLeakage;
+//      Item.Caption := 'Enable';
+//      item.OnClick := Self.StatusClick;
+//      pmState.Items.Add(Item);
+//
+//      Item := TMenuItem.Create(self);
+//      item.Tag := tagFuelLeakage;
+//      Item.Caption := 'Disable';
+//      item.OnClick := Self.StatusClick;
+//      pmState.Items.Add(Item);
+//
+//      if lvPlatforms.Selected = nil then exit;
+//
+//      li := lvPlatforms.Selected;
+//
+//      u := li.Data;
+//
+//      if not (u is TT3Vehicle) then
+//        exit;
+//
+//      ve := li.Data;
+//
+//      if ve.FuelLeakage then
+//      begin
+//        pmState.Items[0].Enabled := False;
+//        pmState.Items[1].Enabled := True;
+//      end
+//      else if not ve.FuelLeakage then
+//      begin
+//        pmState.Items[0].Enabled := True;
+//        pmState.Items[1].Enabled := False;
+//      end;
+//    end;
 
     if Button = mbRight then
     begin
       pmState.Popup(pos.X, pos.Y);
     end;
   end;
+
 end;
 
 procedure TfrmToteDisplay.lvSystemStateNavMouseDown(Sender: TObject;
@@ -6827,37 +6877,36 @@ var
   //gb: TGroupBox;
 begin
   // gbPlatformStatus.members
-  pnlPlatformRight.Width := gbPlatformStatus.Width div 3;
-  if pnlPlatformRight.Height < 740 then
-    h := (pnlPlatformRight.Height - 10) div 4
-  else
-    h := 220;
-
-  pnlPlatSystemState.Height := h;
-  pnlPlatCounterMeasure.Height := h - 30;
-//  pnlPlatCounterMeasure.Height := h;
-//  pnlPlatEmbarked.Height := h;
-
-  btHookSelectedPlatform.Left := pnlPlatformLeft.Width -
-    btHookSelectedPlatform.Width - 16;
-  btSelectHookedPlatform.Left := btHookSelectedPlatform.Left -
-    btSelectHookedPlatform.Width - 8;
-
-  w := lvPlatforms.Width;
-  lvPlatforms.Column[0].Width := Round(0.3 * w);
-  lvPlatforms.Column[1].Width := Round(0.2 * w);
-  lvPlatforms.Column[2].Width := Round(0.1 * w);
-  lvPlatforms.Column[3].Width := Round(0.1 * w);
-
-  w := lvSensors.Width;
-  lvSensors.Column[0].Width := Round(0.6 * w);
-  lvSensors.Column[1].Width := Round(0.3 * w);
-
-  {$REGION 'Navigasi'}
-  w := lvSensorNav.Width;
-  lvSensorNav.Column[0].Width := Round(0.6 * w);
-  lvSensorNav.Column[1].Width := Round(0.3 * w);
-  {$ENDREGION}
+//  pnlPlatformRight.Width := gbPlatformStatus.Width div 4;
+//
+//  if pnlPlatformRight.Height < 740 then
+//    h := (pnlPlatformRight.Height - 10) div 4
+//  else
+//    h := 220;
+//
+//  pnlPlatSystemState.Height := h;
+//  pnlPlatCounterMeasure.Height := h - 30;
+////  pnlPlatCounterMeasure.Height := h;
+////  pnlPlatEmbarked.Height := h;
+//
+//  btHookSelectedPlatform.Left := pnlPlatformLeft.Width - btHookSelectedPlatform.Width - 16;
+//  btSelectHookedPlatform.Left := btHookSelectedPlatform.Left - btSelectHookedPlatform.Width - 8;
+//
+//  w := lvPlatforms.Width;
+//  lvPlatforms.Column[0].Width := Round(0.3 * w);
+//  lvPlatforms.Column[1].Width := Round(0.2 * w);
+//  lvPlatforms.Column[2].Width := Round(0.1 * w);
+//  lvPlatforms.Column[3].Width := Round(0.1 * w);
+//
+//  w := lvSensors.Width;
+//  lvSensors.Column[0].Width := Round(0.6 * w);
+//  lvSensors.Column[1].Width := Round(0.3 * w);
+//
+//  {$REGION 'Navigasi'}
+//  w := lvSensorNav.Width;
+//  lvSensorNav.Column[0].Width := Round(0.6 * w);
+//  lvSensorNav.Column[1].Width := Round(0.3 * w);
+//  {$ENDREGION}
 
   // gbEnvironmentStatus.member
   // gbWeaponEngagementsSUmmary.member
@@ -11061,67 +11110,6 @@ begin
   grid.Cells[column, row] := value;
 end;
 
-procedure TfrmToteDisplay.UpdateCountermeasureVehicle(sender: TT3Vehicle);
-var
-  i         : Integer;
-  ecmstatus : string;
-  tn        : TTreeNode;
-  //ve        : TT3Vehicle;
-  du        : TT3DeviceUnit;
-  counter   : TT3CounterMeasure;
-begin
-  if not Assigned(sender) then
-    Exit;
-
-  tvCountermeasures.Items.Clear;
-  lvCountermeasuresNav.Items.Clear;
-
-  if Assigned(sender.Devices) then
-  begin
-    tn := TTreeNode.Create(tvCountermeasures.Items);
-    tn := TTreeNode.Create(lvCountermeasuresNav.Items);
-
-    for i := 0 to sender.Devices.Count - 1 do
-    begin
-      du := sender.Devices.Items[i];
-
-      if du is TT3CounterMeasure then
-      begin
-        counter := TT3CounterMeasure(du);
-
-        case counter.Status of
-          esAvailable:
-            ecmStatus := 'Available';
-          esUnavailable:
-            ecmStatus := 'Unavailable';
-          esLaunchingChaff:
-            ecmStatus := 'Launching Chaff';
-          esDamaged:
-            ecmStatus := 'Damaged';
-          esOn:
-            ecmStatus := 'On';
-          esOff:
-            ecmStatus := 'Off';
-          esEMCON:
-            ecmStatus := 'EMCON';
-          esAutomatic:
-            ecmStatus := 'Automatic';
-          esManual:
-            ecmStatus := 'Manual';
-          esDeployed:
-            ecmStatus := 'Deployed';
-          esStowed:
-            ecmStatus := 'Stowed';
-        end;
-
-        tn.Text := counter.InstanceName + ' : ' + ecmstatus;
-        tvCountermeasures.Items.AddChildObject(tn, tn.Text, counter);
-        lvCountermeasuresNav.Items.AddChildObject(tn, tn.Text, counter);
-      end;
-    end;
-  end;
-end;
-
 function TfrmToteDisplay.GetRowGrid(Sender, Target : String; grid: TStringGrid): Integer;
 var
   //ro : Integer;
@@ -13192,12 +13180,13 @@ procedure TfrmToteDisplay.UpdateSensorVehicle(sender: TT3Vehicle);
 var
   i       : Integer;
   li      : TListItem;
-  //ve      : TT3Vehicle;
   du      : TT3DeviceUnit;
   sensor  : TT3Sensor;
 begin
   if not Assigned(sender) then
     Exit;
+
+  {$REGION ' Other Role '}
 
   lvSensors.Items.Clear;
 
@@ -13268,9 +13257,9 @@ begin
     end;
   end;
 
-  {$REGION 'Navigasi'}
-    if not Assigned(sender) then
-    Exit;
+  {$ENDREGION}
+
+  {$REGION ' Navigasi Role '}
 
   lvSensorNav.Items.Clear;
 
@@ -13382,6 +13371,7 @@ begin
   if not Assigned(sender) then
     Exit;
 
+  {$REGION ' Other Role '}
   lvSystemState.Items.Clear;
 
   //Overall Damage
@@ -13391,13 +13381,13 @@ begin
   li.SubItems.Add(IntToStr(sender.DamageOverall) + ' %');
 
   //Helm
-  li := lvSystemState.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Helm';
-  if sender.DamageHelm then
-    li.SubItems.Add('Damage')
-  else
-    li.SubItems.Add('Operational');
+//  li := lvSystemState.Items.Add;
+//  li.Data := TT3PlatformInstance(sender);
+//  li.Caption := 'Helm';
+//  if sender.DamageHelm then
+//    li.SubItems.Add('Damage')
+//  else
+//    li.SubItems.Add('Operational');
 
   //Propultion
   li := lvSystemState.Items.Add;
@@ -13415,21 +13405,30 @@ begin
   li.SubItems.Add(IntToStr(sender.DamagePercentSpeed)  +' %');
 
 //  Fuel Remaining
-  li := lvSystemState.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Fuel Remaining';
-  li.SubItems.Add(FloatToStr(Round(sender.FuelPercentage)) + ' %');
+//  li := lvSystemState.Items.Add;
+//  li.Data := TT3PlatformInstance(sender);
+//  li.Caption := 'Fuel Remaining';
+//  li.SubItems.Add(FloatToStr(Round(sender.FuelPercentage)) + ' %');
 
   //Fuel Leakage
-  li := lvSystemState.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Fuel Leakage';
-  if sender.FuelLeakage then
-    li.SubItems.Add('Yes')
-  else
-    li.SubItems.Add('No');
+//  li := lvSystemState.Items.Add;
+//  li.Data := TT3PlatformInstance(sender);
+//  li.Caption := 'Fuel Leakage';
+//  if sender.FuelLeakage then
+//    li.SubItems.Add('Yes')
+//  else
+//    li.SubItems.Add('No');
+    //Communication
+//  li := lvSystemState.Items.Add;
+//  li.Data := TT3PlatformInstance(sender);
+//  li.Caption := 'Communications';
+//  if sender.DamageComm then
+//    li.SubItems.Add('Damage')
+//  else
+//    li.SubItems.Add('Operational');
+  {$ENDREGION}
 
-  {NAVIGASI}
+  {$REGION ' Navigasi Role '}
   lvSystemStateNav.Items.Clear;
 
   li := lvSystemStateNav.Items.Add;
@@ -13439,25 +13438,18 @@ begin
 
   li := lvSystemStateNav.Items.Add;
   li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Speed';
-  li.SubItems.Add(IntToStr(sender.DamagePercentSpeed)  +' %');
-
-  li := lvSystemStateNav.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Propulsion';
   if sender.DamagePropulsion then
     li.SubItems.Add('Damage')
   else
     li.SubItems.Add('Operational');
 
-  //Communication
-//  li := lvSystemState.Items.Add;
-//  li.Data := TT3PlatformInstance(sender);
-//  li.Caption := 'Communications';
-//  if sender.DamageComm then
-//    li.SubItems.Add('Damage')
-//  else
-//    li.SubItems.Add('Operational');
+  li := lvSystemStateNav.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Speed';
+  li.SubItems.Add(IntToStr(sender.DamagePercentSpeed)  +' %');
+
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.UpdateSystemState(sender: TObject; const dmgType: TDamageItemType);
@@ -14002,7 +13994,6 @@ begin
 
   UpdateSensorVehicle(sender);
   UpdateWeaponVehicle(sender);
-  //  setUpTreeWeapons(sender.Weapons);
   UpdateCountermeasureVehicle(sender);
   UpdateStatusVehicle(sender);
   UpdateEmbarkVehicle(sender);
@@ -14033,12 +14024,120 @@ var
 
   WeaponLauncher : TFitted_Weap_Launcher_On_Board;
   launcherNumber : integer;
-  //QuantityTote : integer;
 begin
+
   if not Assigned(sender) then
     Exit;
 
+  {$REGION ' Other Role '}
   tvWeapons.Items.Clear;
+
+  if Assigned(sender.Weapons) then
+  begin
+    for i := 0 to sender.Weapons.Count - 1 do
+    begin
+      weapon := TT3Weapon(sender.Weapons.Items[i]);
+
+      if not(Assigned(weapon)) then
+        Continue;
+
+      case weapon.WeaponStatus of
+        wsAvailable   : status := 'Available';
+        wsUnavailable : status := 'Unavailable';
+        wsDamaged     : status := 'Damage';
+        wsTooHigh     : status := 'Too High';
+      end;
+
+      if weapon is TT3MissilesOnVehicle then
+      begin
+        {$REGION ' Missile '}
+        WeaponText := TT3MissilesOnVehicle(weapon).InstanceName + ' : ' + status + ' : ' + IntToStr(TT3MissilesOnVehicle(weapon).Quantity);
+        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3MissilesOnVehicle(weapon));
+
+        if Assigned(TT3MissilesOnVehicle(weapon).MissileDefinition) then
+        begin
+          for j := 0 to TT3MissilesOnVehicle(weapon).MissileDefinition.FLaunchs.Count - 1 do
+          begin
+            WeaponLauncher := TFitted_Weap_Launcher_On_Board(TT3MissilesOnVehicle(weapon).MissileDefinition.FLaunchs.Items[j]);
+            if not(Assigned(WeaponLauncher)) then
+              Continue;
+
+            if WeaponLauncher.FData.Launcher_Type > 8 then
+              launcherNumber :=  WeaponLauncher.FData.Launcher_Type - 8
+            else
+              launcherNumber := WeaponLauncher.FData.Launcher_Type;
+
+            LauncherText := 'Launcher ' + IntToStr(launcherNumber) + ' : ' + IntToStr(WeaponLauncher.FData.Launcher_Qty);
+            tvWeapons.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
+          end;
+        end;
+        {$ENDREGION}
+      end
+      else if weapon is TT3TorpedoesOnVehicle then
+      begin
+        {$REGION ' Torpedo '}
+        WeaponText := TT3TorpedoesOnVehicle(weapon).InstanceName + ' : ' + status + ' : ' + IntToStr(TT3TorpedoesOnVehicle(weapon).Quantity);
+        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3TorpedoesOnVehicle(weapon));
+
+        if Assigned(TT3TorpedoesOnVehicle(weapon).TorpedoDefinition) then
+        begin
+          for j := 0 to TT3TorpedoesOnVehicle(weapon).TorpedoDefinition.FLaunchs.Count - 1 do
+          begin
+            WeaponLauncher := TFitted_Weap_Launcher_On_Board(TT3TorpedoesOnVehicle(weapon).TorpedoDefinition.FLaunchs.Items[j]);
+            if not(Assigned(WeaponLauncher)) then Continue;
+
+            if WeaponLauncher.FData.Launcher_Type > 8 then
+              launcherNumber :=  WeaponLauncher.FData.Launcher_Type - 8
+            else
+              launcherNumber := WeaponLauncher.FData.Launcher_Type;
+
+            LauncherText := 'Tube ' + IntToStr(launcherNumber) + ' : ' + IntToStr(WeaponLauncher.FData.Launcher_Qty);
+            tvWeapons.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
+          end;
+        end;
+        {$ENDREGION}
+      end
+      else if weapon is TT3BombONVehicle then
+      begin
+        {$REGION ' Bomb '}
+        WeaponText := TT3BombONVehicle(weapon).InstanceName + ' : ' + status;
+        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3BombONVehicle(weapon));
+        tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3BombONVehicle(weapon).Quantity), TT3BombONVehicle(weapon));
+        {$ENDREGION}
+      end
+      else if weapon is TT3MineOnVehicle then
+      begin
+        {$REGION ' Mine '}
+        WeaponText := TT3MineOnVehicle(weapon).InstanceName + ' : ' + status;
+        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3MineOnVehicle(weapon));
+        tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3MineOnVehicle(weapon).Quantity), TT3MineOnVehicle(weapon));
+        {$ENDREGION}
+      end
+      else if weapon is TT3GunOnVehicle then
+      begin
+        {$REGION ' Gun '}
+        WeaponText := TT3GunOnVehicle(weapon).InstanceName + ' : ' + status;
+        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3GunOnVehicle(weapon));
+        tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3GunOnVehicle(weapon).Quantity), TT3GunOnVehicle(weapon));
+        {$ENDREGION}
+      end
+      else if weapon is TT3HybridOnVehicle then
+      begin
+        {$REGION ' Hybrid Missile '}
+        WeaponText := TT3HybridOnVehicle(weapon).InstanceName + ' : ' + status;
+        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3HybridOnVehicle(weapon));
+        tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3HybridOnVehicle(weapon).Quantity), TT3HybridOnVehicle(weapon));
+        {$ENDREGION}
+      end;
+    end;
+
+    tvWeapons.FullExpand;
+//    if tvWeapons.Items.Count > 0 then
+//      tvWeapons.Select(tvWeapons.Items[0]);
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Navigasi Role '}
   lvWeaponNav.Items.Clear;
 
   if Assigned(sender.Weapons) then
@@ -14055,24 +14154,11 @@ begin
         wsTooHigh     : status := 'Too High';
       end;
 
-      // GUN
-      if weapon is TT3GunOnVehicle then
+      if weapon is TT3MissilesOnVehicle then
       begin
-        WeaponText := TT3GunOnVehicle(weapon).InstanceName + ' : ' + status;
-        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3GunOnVehicle(weapon));
-        tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3GunOnVehicle(weapon));
-        //tnParent := tvWeapons.Items.AddObject(tnParent, WeaponText, TT3GunOnVehicle(weapon));
-
-        tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3GunOnVehicle(weapon).Quantity), TT3GunOnVehicle(weapon));
-        lvWeaponNav.Items.AddChildObject(tnParent, IntToStr(TT3GunOnVehicle(weapon).Quantity), TT3GunOnVehicle(weapon));
-      end
-      // MISSILE
-      else if weapon is TT3MissilesOnVehicle then
-      begin
+        {$REGION ' Missile '}
         WeaponText := TT3MissilesOnVehicle(weapon).InstanceName + ' : ' + status + ' : ' + IntToStr(TT3MissilesOnVehicle(weapon).Quantity);
-        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3MissilesOnVehicle(weapon));
         tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3MissilesOnVehicle(weapon));
-        //tnParent := tvWeapons.Items.AddObject(tnParent, WeaponText, TT3MissilesOnVehicle(weapon));
 
         if Assigned(TT3MissilesOnVehicle(weapon).MissileDefinition) then
         begin
@@ -14087,17 +14173,15 @@ begin
               launcherNumber := WeaponLauncher.FData.Launcher_Type;
 
             LauncherText := 'Launcher ' + IntToStr(launcherNumber) + ' : ' + IntToStr(WeaponLauncher.FData.Launcher_Qty);
-
-            tvWeapons.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
             lvWeaponNav.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
           end;
         end;
+        {$ENDREGION}
       end
-      // TORPEDO
       else if weapon is TT3TorpedoesOnVehicle then
       begin
+        {$REGION ' Torpedo '}
         WeaponText := TT3TorpedoesOnVehicle(weapon).InstanceName + ' : ' + status + ' : ' + IntToStr(TT3TorpedoesOnVehicle(weapon).Quantity);
-        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3TorpedoesOnVehicle(weapon));
         tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3TorpedoesOnVehicle(weapon));
 
         if Assigned(TT3TorpedoesOnVehicle(weapon).TorpedoDefinition) then
@@ -14113,52 +14197,154 @@ begin
               launcherNumber := WeaponLauncher.FData.Launcher_Type;
 
             LauncherText := 'Tube ' + IntToStr(launcherNumber) + ' : ' + IntToStr(WeaponLauncher.FData.Launcher_Qty);
-
-            tvWeapons.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
             lvWeaponNav.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
           end;
         end;
+        {$ENDREGION}
       end
-      // BOMB
       else if weapon is TT3BombONVehicle then
       begin
+        {$REGION ' Bonb '}
         WeaponText := TT3BombONVehicle(weapon).InstanceName + ' : ' + status;
-        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3BombONVehicle(weapon));
         tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3BombONVehicle(weapon));
-        //tnParent := tvWeapons.Items.AddObject(tnParent, WeaponText, TT3BombONVehicle(weapon));
-        tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3BombONVehicle(weapon).Quantity), TT3BombONVehicle(weapon));
         lvWeaponNav.Items.AddChildObject(tnParent, IntToStr(TT3BombONVehicle(weapon).Quantity), TT3BombONVehicle(weapon));
+        {$ENDREGION}
       end
-      // MINE
       else if weapon is TT3MineOnVehicle then
       begin
+        {$REGION ' Mine '}
         WeaponText := TT3MineOnVehicle(weapon).InstanceName + ' : ' + status;
-        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3MineOnVehicle(weapon));
         tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3MineOnVehicle(weapon));
-        //tnParent := tvWeapons.Items.AddObject(tnParent, WeaponText, TT3MineOnVehicle(weapon));
-        tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3MineOnVehicle(weapon).Quantity), TT3MineOnVehicle(weapon));
         lvWeaponNav.Items.AddChildObject(tnParent, IntToStr(TT3MineOnVehicle(weapon).Quantity), TT3MineOnVehicle(weapon));
+        {$ENDREGION}
       end
-      //Hybrid Missile
+      else if weapon is TT3GunOnVehicle then
+      begin
+        {$REGION ' Gun '}
+        WeaponText := TT3GunOnVehicle(weapon).InstanceName + ' : ' + status;
+        tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3GunOnVehicle(weapon));
+        lvWeaponNav.Items.AddChildObject(tnParent, IntToStr(TT3GunOnVehicle(weapon).Quantity), TT3GunOnVehicle(weapon));
+        {$ENDREGION}
+      end
       else if weapon is TT3HybridOnVehicle then
       begin
+        {$REGION ' Hybrid Missile '}
         WeaponText := TT3HybridOnVehicle(weapon).InstanceName + ' : ' + status;
-        tnParent := tvWeapons.Items.AddObject(nil, WeaponText, TT3HybridOnVehicle(weapon));
         tnParent := lvWeaponNav.Items.AddObject(nil, WeaponText, TT3HybridOnVehicle(weapon));
-
-        tvWeapons.Items.AddChildObject(tnParent, IntToStr(TT3HybridOnVehicle(weapon).Quantity), TT3HybridOnVehicle(weapon));
         lvWeaponNav.Items.AddChildObject(tnParent, IntToStr(TT3HybridOnVehicle(weapon).Quantity), TT3HybridOnVehicle(weapon));
+        {$ENDREGION}
+      end;
+    end;
+    lvWeaponNav.FullExpand;
+  end;
+  {$ENDREGION}
+
+end;
+
+procedure TfrmToteDisplay.UpdateCountermeasureVehicle(sender: TT3Vehicle);
+var
+  i         : Integer;
+  ecmstatus : string;
+  tn        : TTreeNode;
+  du        : TT3DeviceUnit;
+  counter   : TT3CounterMeasure;
+begin
+  if not Assigned(sender) then
+    Exit;
+
+  {$REGION ' Other Role '}
+  tvCountermeasures.Items.Clear;
+
+  if Assigned(sender.Devices) then
+  begin
+    tn := TTreeNode.Create(tvCountermeasures.Items);
+
+    for i := 0 to sender.Devices.Count - 1 do
+    begin
+      du := sender.Devices.Items[i];
+
+      if du is TT3CounterMeasure then
+      begin
+        counter := TT3CounterMeasure(du);
+
+        case counter.Status of
+          esAvailable:
+            ecmStatus := 'Available';
+          esUnavailable:
+            ecmStatus := 'Unavailable';
+          esLaunchingChaff:
+            ecmStatus := 'Launching Chaff';
+          esDamaged:
+            ecmStatus := 'Damaged';
+          esOn:
+            ecmStatus := 'On';
+          esOff:
+            ecmStatus := 'Off';
+          esEMCON:
+            ecmStatus := 'EMCON';
+          esAutomatic:
+            ecmStatus := 'Automatic';
+          esManual:
+            ecmStatus := 'Manual';
+          esDeployed:
+            ecmStatus := 'Deployed';
+          esStowed:
+            ecmStatus := 'Stowed';
+        end;
+
+        tn.Text := counter.InstanceName + ' : ' + ecmstatus;
+        tvCountermeasures.Items.AddChildObject(tn, tn.Text, counter);
       end;
     end;
   end;
+  {$ENDREGION}
 
-  lvWeaponNav.FullExpand;
-  if lvWeaponNav.Items.Count > 0 then
-    lvWeaponNav.Select(lvWeaponNav.Items[0]);
+  {$REGION ' Navigasi Role '}
+  lvCountermeasuresNav.Items.Clear;
 
-  tvWeapons.FullExpand;
-  if tvWeapons.Items.Count > 0 then
-    tvWeapons.Select(tvWeapons.Items[0]);
+  if Assigned(sender.Devices) then
+  begin
+    tn := TTreeNode.Create(lvCountermeasuresNav.Items);
+
+    for i := 0 to sender.Devices.Count - 1 do
+    begin
+      du := sender.Devices.Items[i];
+
+      if du is TT3CounterMeasure then
+      begin
+        counter := TT3CounterMeasure(du);
+
+        case counter.Status of
+          esAvailable:
+            ecmStatus := 'Available';
+          esUnavailable:
+            ecmStatus := 'Unavailable';
+          esLaunchingChaff:
+            ecmStatus := 'Launching Chaff';
+          esDamaged:
+            ecmStatus := 'Damaged';
+          esOn:
+            ecmStatus := 'On';
+          esOff:
+            ecmStatus := 'Off';
+          esEMCON:
+            ecmStatus := 'EMCON';
+          esAutomatic:
+            ecmStatus := 'Automatic';
+          esManual:
+            ecmStatus := 'Manual';
+          esDeployed:
+            ecmStatus := 'Deployed';
+          esStowed:
+            ecmStatus := 'Stowed';
+        end;
+
+        tn.Text := counter.InstanceName + ' : ' + ecmstatus;
+        lvCountermeasuresNav.Items.AddChildObject(tn, tn.Text, counter);
+      end;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.vrCurrentMouseUp(Sender: TObject;

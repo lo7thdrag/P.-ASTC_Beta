@@ -387,6 +387,15 @@ begin
   inherited;
 
   frmTacticalDisplay.fmWeapon1.EdtBombControlSalvo.Text := FloatToStr(value);
+
+  case vGameDataSetting.Role of
+    2, 3:
+    begin
+      {$REGION ' Atas Air '}
+      frmRightAtasAir.fmWeapon1.EdtBombControlSalvo.Text := FloatToStr(value);
+      {$ENDREGION}
+    end;
+  end;
 end;
 
 procedure TT3ClientEventManager.OnUpdateDatalinkTote(idOrderDL: Integer);
@@ -752,8 +761,7 @@ begin
   frmTacticalDisplay.UpdateGroupControl(grp, Action);
 end;
 
-procedure TT3ClientEventManager.OnUpdateIFFList(sensor: TT3IFFSensor;
-  value: byte);
+procedure TT3ClientEventManager.OnUpdateIFFList(sensor: TT3IFFSensor; value: byte);
 begin
   inherited;
 
@@ -762,6 +770,25 @@ begin
 
   frmTacticalDisplay.fmSensor1.UpdateIFFSensorList(sensor, value);
   frmTacticalDisplay.fmEMCON1.UpdateIFFList(sensor);
+
+  case vGameDataSetting.Role of
+    0:
+    begin
+      {$REGION ' Plotter '}
+      {$ENDREGION}
+    end;
+    1:
+    begin
+      {$REGION ' Navigasi '}
+      {$ENDREGION}
+    end;
+    2, 3:
+    begin
+      {$REGION ' Atas Air '}
+      frmLeftAtasAir.fmSensor1.UpdateIFFSensorList(sensor, value);
+      {$ENDREGION}
+    end;
+  end;
 
   if simMgrClient.ISWasdal then
   begin
@@ -778,6 +805,15 @@ begin
   inherited;
 
   frmTacticalDisplay.fmWeapon1.EdtMinesDepth.Text := FloatToStr(value);
+
+  case vGameDataSetting.Role of
+    2, 3:
+    begin
+      {$REGION ' Atas Air '}
+      frmRightAtasAir.fmWeapon1.EdtMinesDepth.Text := FloatToStr(value);
+      {$ENDREGION}
+    end;
+  end;
 end;
 
 procedure TT3ClientEventManager.OnUpdateRadarNoiseJammer(jammer: TObject; value: byte);
@@ -789,8 +825,30 @@ begin
     if frmTacticalDisplay.fmCounterMeasure1.SelectedECM = jammer then
     begin
       frmTacticalDisplay.fmCounterMeasure1.UpdateNoiseJammer(jammer);
-      frmTacticalDisplay.fmCounterMeasure1.
-        UpdateRadarNoiseJammerList(TT3RadarNoiseJammerOnVehicle(jammer), value);
+      frmTacticalDisplay.fmCounterMeasure1. UpdateRadarNoiseJammerList(TT3RadarNoiseJammerOnVehicle(jammer), value);
+    end;
+
+    case vGameDataSetting.Role of
+      0:
+      begin
+        {$REGION ' Plotter '}
+        {$ENDREGION}
+      end;
+      1:
+      begin
+        {$REGION ' Navigasi '}
+        {$ENDREGION}
+      end;
+      2, 3:
+      begin
+        {$REGION ' Atas Air '}
+        if frmLeftAtasAir.fmCounterMeasure1.SelectedECM = jammer then
+        begin
+          frmLeftAtasAir.fmCounterMeasure1.UpdateNoiseJammer(jammer);
+          frmLeftAtasAir.fmCounterMeasure1. UpdateRadarNoiseJammerList(TT3RadarNoiseJammerOnVehicle(jammer), value);
+        end;
+        {$ENDREGION}
+      end;
     end;
 
     if simMgrClient.ISWasdal then
@@ -800,8 +858,7 @@ begin
         if frmCM.fmCounterMeasure1.SelectedECM = jammer then
         begin
           frmCM.fmCounterMeasure1.UpdateNoiseJammer(jammer);
-          frmCM.fmCounterMeasure1.
-            UpdateRadarNoiseJammerList(TT3RadarNoiseJammerOnVehicle(jammer), value);
+          frmCM.fmCounterMeasure1.UpdateRadarNoiseJammerList(TT3RadarNoiseJammerOnVehicle(jammer), value);
         end;
       end;
     end;
@@ -872,10 +929,35 @@ begin
           VehicleWeapon  := TT3TorpedoesOnVehicle(Focused_weapon);
 
           case TWeapoonCategory(rec.TorpType) of
-            wcTorpedoActiveAcoustic : frmTacticalDisplay.fmWeapon1.UpdateTorpedoAcousticTab(VehicleWeapon);
-            wcTorpedoWakeHoming : frmTacticalDisplay.fmWeapon1.UpdateTorpedoWakeHomingTab(VehicleWeapon);
-            wcTorpedoActivePassive : frmTacticalDisplay.fmWeapon1.UpdateTorpedoActivePassiveTab(VehicleWeapon);
-            wcTorpedoAirDropped : frmTacticalDisplay.fmWeapon1.UpdateTorpedoAirDroppedTab(VehicleWeapon);
+            wcTorpedoActiveAcoustic :
+            begin
+              frmTacticalDisplay.fmWeapon1.UpdateTorpedoAcousticTab(VehicleWeapon);
+
+              if Assigned(frmRightAtasAir) then
+                frmRightAtasAir.fmWeapon1.UpdateTorpedoAcousticTab(VehicleWeapon);
+
+            end;
+            wcTorpedoWakeHoming :
+            begin
+              frmTacticalDisplay.fmWeapon1.UpdateTorpedoWakeHomingTab(VehicleWeapon);
+
+              if Assigned(frmRightAtasAir) then
+                frmRightAtasAir.fmWeapon1.UpdateTorpedoWakeHomingTab(VehicleWeapon);
+            end;
+            wcTorpedoActivePassive :
+            begin
+              frmTacticalDisplay.fmWeapon1.UpdateTorpedoActivePassiveTab(VehicleWeapon);
+
+              if Assigned(frmRightAtasAir) then
+                frmRightAtasAir.fmWeapon1.UpdateTorpedoActivePassiveTab(VehicleWeapon);
+            end;
+            wcTorpedoAirDropped :
+            begin
+              frmTacticalDisplay.fmWeapon1.UpdateTorpedoAirDroppedTab(VehicleWeapon);
+
+              if Assigned(frmRightAtasAir) then
+                frmRightAtasAir.fmWeapon1.UpdateTorpedoAirDroppedTab(VehicleWeapon);
+            end;
           end;
         end;
       end;
@@ -897,8 +979,7 @@ begin
 
   if Sender is TT3Vehicle then
   begin
-    if (Assigned(simMgrClient.ControlledPlatform))
-        and (simMgrClient.ControlledPlatform is TT3Vehicle) then
+    if (Assigned(simMgrClient.ControlledPlatform)) and (simMgrClient.ControlledPlatform is TT3Vehicle) then
     begin
       if TT3Vehicle(Sender) = TT3Vehicle(simMgrClient.ControlledPlatform) then
         frmTacticalDisplay.fmWeapon1.setThisLauncherState;
@@ -1140,6 +1221,18 @@ begin
       frmTacticalDisplay.fmCounterMeasure1.UpdateOnBoardSelfDefence(JammerObj);
     end;
 
+    case vGameDataSetting.Role of
+      2, 3:
+      begin
+        {$REGION ' Atas Air '}
+        if frmLeftAtasAir.fmCounterMeasure1.SelectedECM = JammerObj then
+        begin
+          frmLeftAtasAir.fmCounterMeasure1.UpdateOnBoardSelfDefence(JammerObj);
+        end;
+        {$ENDREGION}
+      end;
+    end;
+
     if simMgrClient.ISWasdal then
     begin
       if Assigned(frmCM) then
@@ -1219,6 +1312,34 @@ begin
       begin
         newPlatform.Selected := True;
         frmTacticalDisplay.focusedTrack := newPlatform;
+      end;
+    end;
+
+    case vGameDataSetting.Role of
+      2, 3:
+      begin
+        {$REGION ' Atas Air '}
+        if frmRightAtasAir.focusedTrack is TT3DetectedTrack then
+          ftrack := TT3DetectedTrack(frmRightAtasAir.focusedTrack).TrackObject as TT3PlatformInstance
+        else
+          ftrack := TT3PlatformInstance(frmTacticalDisplay.focusedTrack);
+
+        if Assigned(pf) and Assigned(ftrack) and (pf = ftrack) then
+        begin
+          if ftrack.Selected then
+          begin
+            ftrack.Selected := False;
+          end;
+
+          frmRightAtasAir.focusedTrack := nil;
+
+          if newPlatform <> nil then
+          begin
+            newPlatform.Selected := True;
+            frmRightAtasAir.focusedTrack := newPlatform;
+          end;
+        end;
+        {$ENDREGION}
       end;
     end;
 
@@ -1302,7 +1423,9 @@ begin
   if sender is TT3CounterMeasure then
   begin
     frmTacticalDisplay.fmCounterMeasure1.UpdateECMList(TT3CounterMeasure(Sender));//ecm
-    frmLeftAtasAir.fmCounterMeasure1.UpdateECMList(TT3CounterMeasure(Sender));
+
+    if Assigned(frmLeftAtasAir) then
+      frmLeftAtasAir.fmCounterMeasure1.UpdateECMList(TT3CounterMeasure(Sender));
 
     if simMgrClient.ISWasdal then
     begin
@@ -1319,8 +1442,11 @@ begin
   frmTacticalDisplay.fmCounterMeasure1.OnRefreshECMQuantity(Sender);
   frmTacticalDisplay.fmWeapon1.UpdateGunAutoManualTab(Sender);
 
+  if Assigned(frmLeftAtasAir) then
+    frmLeftAtasAir.fmCounterMeasure1.OnRefreshECMQuantity(Sender);
+
   if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.fmWeapon1.UpdateGunAutoManualTab(Sender);
+    frmRightAtasAir.fmWeapon1.UpdateGunAutoManualTab(Sender);
 
   if simMgrClient.ISWasdal then
   begin
@@ -1375,6 +1501,10 @@ begin
   inherited;
 
   frmTacticalDisplay.fmWeapon1.EngagementModeChange(mis);
+
+  if Assigned (frmRightAtasAir)then
+    frmRightAtasAir.fmWeapon1.EngagementModeChange(mis);
+
 end;
 
 procedure TT3ClientEventManager.OnFiringModeChange(mis:TObject);
@@ -1382,6 +1512,9 @@ begin
   inherited;
 
   frmTacticalDisplay.fmWeapon1.FiringModeChange(mis);
+
+  if Assigned (frmRightAtasAir)then
+    frmRightAtasAir.fmWeapon1.FiringModeChange(mis);
 end;
 
 procedure TT3ClientEventManager.OnFocustrackNill(sender: TObject);
@@ -3039,6 +3172,43 @@ begin
         end;
       end;
     end;
+
+    case vGameDataSetting.Role of
+      2, 3:
+      begin
+        {$REGION ' Atas Air '}
+        for I := 0 to frmRightAtasAir.fmWeapon1.WpnIntCont.Count - 1 do
+        begin
+          WpnController := frmRightAtasAir.fmWeapon1.WpnIntCont.Items[I];
+
+          if WpnController.WeaponCategory = (Sender as TT3GunOnVehicle).WeaponCategory then
+          begin
+            case WpnController.WeaponCategory of
+              wcMissileAirToSurfaceSubsurface: ;
+              wcMissileSurfaceSubsurfaceToSurfaceSubsurface: ;
+              wcMissileSurfaceSubsurfaceToAir: ;
+              wcMissileAirToAir: ;
+              wcMissileLandAttack: ;
+              wcTorpedoStraigth: ;
+              wcTorpedoActiveAcoustic: ;
+              wcTorpedoPassiveAcoustic: ;
+              wcTorpedoWireGuided: ;
+              wcTorpedoWakeHoming: ;
+              wcTorpedoActivePassive: ;
+              wcTorpedoAirDropped: ;
+              wcMine: ;
+              wcGunCIWS: TfrmGunCIWS(WpnController).OnPropertyByteChange(Sender, Props, Value);
+              wcGunGun: TfrmGunAutoManual(WpnController).OnPropertyByteChange(Sender, Props, Value) ;
+              wcGunRocket: ;
+              wcBomb: ;
+              wcVectac: ;
+              wcHybrid: ;
+            end;
+          end;
+        end;
+        {$ENDREGION}
+      end;
+    end;
   end;
 end;
 
@@ -3367,17 +3537,17 @@ begin
       frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
       {$ENDREGION}
     end;
-    2:
+    2,3:
     begin
       {$REGION ' Atas Air '}
       frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
       {$ENDREGION}
     end;
-    3:
-    begin
-      {$REGION ' BawahAir '}
-      {$ENDREGION}
-    end;
+//    3:
+//    begin
+//      {$REGION ' BawahAir '}
+//      {$ENDREGION}
+//    end;
     4:
     begin
       {$REGION ' General '}
@@ -3559,7 +3729,6 @@ begin
     if sender is TT3Radar then
     begin
       frmTacticalDisplay.fmFireControl1.UpdateFCList(TT3Radar(Sender));
-      frmLeftAtasAir.fmFireControl1.UpdateFCList(TT3Sensor(Sender));
     end;
 
     frmTacticalDisplay.fmEMCON1.UpdateSensorList(TT3Sensor(Sender));
@@ -3577,17 +3746,22 @@ begin
         frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
         {$ENDREGION}
       end;
-      2:
+      2, 3:
       begin
         {$REGION ' Atas Air '}
         frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+
+        if sender is TT3Radar then
+        begin
+          frmLeftAtasAir.fmFireControl1.UpdateFCList(TT3Radar(Sender));
+        end;
         {$ENDREGION}
       end;
-      3:
-      begin
-        {$REGION ' BawahAir '}
-        {$ENDREGION}
-      end;
+//      3:
+//      begin
+//        {$REGION ' BawahAir '}
+//        {$ENDREGION}
+//      end;
       4:
       begin
         {$REGION ' General '}
@@ -3656,17 +3830,17 @@ begin
       frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
       {$ENDREGION}
     end;
-    2:
+    2, 3:
     begin
       {$REGION ' Atas Air '}
        frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
       {$ENDREGION}
     end;
-    3:
-    begin
-      {$REGION ' BawahAir '}
-      {$ENDREGION}
-    end;
+//    3:
+//    begin
+//      {$REGION ' BawahAir '}
+//      {$ENDREGION}
+//    end;
     4:
     begin
       {$REGION ' General '}
@@ -3707,17 +3881,17 @@ begin
         frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
         {$ENDREGION}
       end;
-      2:
+      2, 3:
       begin
         {$REGION ' Atas Air '}
         frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
         {$ENDREGION}
       end;
-      3:
-      begin
-        {$REGION ' BawahAir '}
-        {$ENDREGION}
-      end;
+//      3:
+//      begin
+//        {$REGION ' BawahAir '}
+//        {$ENDREGION}
+//      end;
       4:
       begin
         {$REGION ' General '}
@@ -3770,17 +3944,17 @@ begin
         frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
         {$ENDREGION}
       end;
-      2:
+      2, 3:
       begin
         {$REGION ' Atas Air '}
         frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
         {$ENDREGION}
       end;
-      3:
-      begin
-        {$REGION ' BawahAir '}
-        {$ENDREGION}
-      end;
+//      3:
+//      begin
+//        {$REGION ' BawahAir '}
+//        {$ENDREGION}
+//      end;
       4:
       begin
         {$REGION ' General '}
@@ -4238,9 +4412,14 @@ begin
 
         if simMgrClient.FMyCubGroup <> nil then
         begin
-          if (simMgrClient.FMyCubGroup.FData.Group_Index = 0) or
-             (simMgrClient.FMyCubGroup.FData.Group_Index = TT3Missile(sender).NoCubicle)then
+          if (simMgrClient.FMyCubGroup.FData.Group_Index = 0) or (simMgrClient.FMyCubGroup.FData.Group_Index = TT3Missile(sender).NoCubicle)then
+          begin
             frmTacticalDisplay.addStatus('Missile is launched');
+
+            if Assigned(frmRightAtasAir) then
+              frmRightAtasAir.addStatus('Missile is launched');
+          end;
+
         end;
 
         strAction := 'Missile ' + wpn.InstanceName + ' launch to target ' +
@@ -4283,9 +4462,13 @@ begin
       begin
         frmToteDisplay.OnWeaponLaunched(Sender, Target);
 
-        if (simMgrClient.FMyCubGroup.FData.Group_Index = 0) or
-           (simMgrClient.FMyCubGroup.FData.Group_Index = TT3Torpedo(sender).NoCubicle)then
+        if (simMgrClient.FMyCubGroup.FData.Group_Index = 0) or (simMgrClient.FMyCubGroup.FData.Group_Index = TT3Torpedo(sender).NoCubicle)then
+        begin
           frmTacticalDisplay.addStatus('Torpedo is launched');
+
+          if Assigned(frmRightAtasAir) then
+              frmRightAtasAir.addStatus('Torpedo is launched');
+        end;
 
         strAction := 'Torpedo ' + wpn.InstanceName + ' launch to target ' +
                       TT3PlatformInstance(Target).InstanceName;
@@ -4325,9 +4508,13 @@ begin
       begin
         frmToteDisplay.OnWeaponLaunched(Sender, Target);
 
-        if (simMgrClient.FMyCubGroup.FData.Group_Index = 0) or
-           (simMgrClient.FMyCubGroup.FData.Group_Index = TT3Bomb(sender).NoCubicle)then
+        if (simMgrClient.FMyCubGroup.FData.Group_Index = 0) or (simMgrClient.FMyCubGroup.FData.Group_Index = TT3Bomb(sender).NoCubicle)then
+        begin
           frmTacticalDisplay.addStatus('Bomb is launched');
+
+          if Assigned(frmRightAtasAir) then
+              frmRightAtasAir.addStatus('Bomb is launched');
+        end;
       end;
 
       if Sender is TT3Mine then
@@ -4349,9 +4536,13 @@ begin
     begin
       simMgrClient.SimWeapons.addObject(TSimObject(Sender));
 
-      if (simMgrClient.FMyCubGroup.FData.Group_Index = 0) or
-           (simMgrClient.FMyCubGroup.FData.Group_Index = TT3GunShoot(sender).NoCubicle)then
-      frmTacticalDisplay.addStatus('Gun is launched');
+      if (simMgrClient.FMyCubGroup.FData.Group_Index = 0) or (simMgrClient.FMyCubGroup.FData.Group_Index = TT3GunShoot(sender).NoCubicle)then
+      begin
+        frmTacticalDisplay.addStatus('Gun is launched');
+
+        if Assigned(frmRightAtasAir) then
+          frmRightAtasAir.addStatus('Gun is fire');
+      end;
 
       {Laporan kejadian penembakan gun tempatnya di uSimMgr_Client procedure gunfire}
     end;
@@ -4366,6 +4557,15 @@ begin
 
   frmTacticalDisplay.fmWeapon1.OnWeaponPropertyChange(Sender);
   frmToteDisplay.lvPlatformsSelectItem(sender, frmToteDisplay.lvPlatforms.Selected,true);
+
+  case vGameDataSetting.Role of
+    2, 3:
+    begin
+      {$REGION ' Atas Air '}
+      frmRightAtasAir.fmWeapon1.OnWeaponPropertyChange(Sender);
+      {$ENDREGION}
+    end;
+  end;
 
   { wasdal UI}
   if simMgrClient.ISWasdal and Assigned(frmWeapon) then
@@ -4559,6 +4759,22 @@ begin
 
   if Sender is TT3MineOnVehicle then
     frmTacticalDisplay.fmWeapon1.UpdateMinesTab(Sender as TT3MineOnVehicle);
+
+  case vGameDataSetting.Role of
+    2, 3:
+    begin
+      {$REGION ' Atas Air '}
+      if Sender is TT3GunOnVehicle then
+        frmRightAtasAir.fmWeapon1.UpdateGunAutoManualTab(Sender as TT3GunOnVehicle);
+
+      if Sender is TT3BombONVehicle then
+        frmRightAtasAir.fmWeapon1.UpdateBombDepthChargeTab(Sender as TT3BombONVehicle);
+
+      if Sender is TT3MineOnVehicle then
+        frmRightAtasAir.fmWeapon1.UpdateMinesTab(Sender as TT3MineOnVehicle);
+      {$ENDREGION}
+    end;
+  end;
 
   { wasdal UI}
   if simMgrClient.ISWasdal and Assigned(frmWeapon) then
@@ -5350,6 +5566,26 @@ begin
           frmTacticalDisplay.fmWeapon1.btnSRLaunch.Enabled
              := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
 
+          case vGameDataSetting.Role of
+            2, 3:
+            begin
+              {$REGION ' Atas Air '}
+              frmRightAtasAir.fmWeapon1.EdtSRTargetTrack.Text
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+              frmRightAtasAir.fmWeapon1.lblSRTargetIdentity.Caption
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
+              frmRightAtasAir.fmWeapon1.lblSRTargetCourse.Caption
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
+              frmRightAtasAir.fmWeapon1.lblSRTargetSpeed.Caption
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
+              frmRightAtasAir.fmWeapon1.lblSRTargetDepth.Caption
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
+              frmRightAtasAir.fmWeapon1.btnSRLaunch.Enabled
+                 := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              {$ENDREGION}
+            end;
+          end;
+
           { wasdal UI}
           if simMgrClient.ISWasdal and Assigned(frmWeapon) then
           with frmWeapon do
@@ -5412,6 +5648,53 @@ begin
           frmTacticalDisplay.fmWeapon1.btnLaunchAT.Enabled
              := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
 
+          case vGameDataSetting.Role of
+            2, 3:
+            begin
+              {$REGION ' Atas Air '}
+              frmRightAtasAir.fmWeapon1.EdtATTargetTrack.Text := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+
+              if (TT3TorpedoesOnVehicle(Focused_weapon).FiringMode = 1) then
+                frmRightAtasAir.fmWeapon1.EdtFiringModeAT.Text := 'Deliberate'
+              else
+                frmRightAtasAir.fmWeapon1.EdtFiringModeAT.Text := 'Urgent';
+
+              if (TT3TorpedoesOnVehicle(Focused_weapon).RunOutMode = 1) then
+                frmRightAtasAir.fmWeapon1.EdtRunOutAT.Text := 'RunOut'
+              else
+                frmRightAtasAir.fmWeapon1.EdtRunOutAT.Text := 'No RunOut';
+
+              frmRightAtasAir.fmWeapon1.EdtSearchRadiusAT.Text
+                 := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchRadius);
+              frmRightAtasAir.fmWeapon1.EdtSearchDepthAT.Text
+                 := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchDepth);
+              frmRightAtasAir.fmWeapon1.EdtSafetyCeilingAT.Text
+                 := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SafetyCeiling);
+              frmRightAtasAir.fmWeapon1.EdtSeekerRangeAT.Text
+                 := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
+              frmRightAtasAir.fmWeapon1.EdtGyroAngleAT.Text
+                 := IntToStr(TT3TorpedoesOnVehicle(Focused_weapon).GyroAngle);
+
+              frmRightAtasAir.fmWeapon1.btnTube1AT.Enabled := True;
+              frmRightAtasAir.fmWeapon1.btnTube2AT.Enabled := True;
+              frmRightAtasAir.fmWeapon1.btnTube3AT.Enabled := True;
+              frmRightAtasAir.fmWeapon1.btnTube4AT.Enabled := True;
+
+              case TT3TorpedoesOnVehicle(Focused_weapon).TubeOn of
+                1 : frmRightAtasAir.fmWeapon1.btnTube1AT.Enabled := False;
+                2 : frmRightAtasAir.fmWeapon1.btnTube2AT.Enabled := False;
+                3 : frmRightAtasAir.fmWeapon1.btnTube3AT.Enabled := False;
+                4 : frmRightAtasAir.fmWeapon1.btnTube4AT.Enabled := False;
+              end;
+
+              frmRightAtasAir.fmWeapon1.btnPlanAT.Enabled
+                 := TT3TorpedoesOnVehicle(Focused_weapon).ButtonPlan;
+              frmRightAtasAir.fmWeapon1.btnLaunchAT.Enabled
+                 := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              {$ENDREGION}
+            end;
+          end;
+
           { wasdal UI}
           if simMgrClient.ISWasdal and Assigned(frmWeapon) then
           with frmWeapon do
@@ -5473,6 +5756,26 @@ begin
           frmTacticalDisplay.fmWeapon1.btnWGLaunch.Enabled
              := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
 
+          case vGameDataSetting.Role of
+            2, 3:
+            begin
+              {$REGION ' Atas Air '}
+              frmRightAtasAir.fmWeapon1.EdtWGTargetTrack.Text
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+              frmRightAtasAir.fmWeapon1.lblWGTargetIdentity.Caption
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
+              frmRightAtasAir.fmWeapon1.lblWGTargetCourse.Caption
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
+              frmRightAtasAir.fmWeapon1.lblWGTargetSpeed.Caption
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
+              frmRightAtasAir.fmWeapon1.lblWGTargetDepth.Caption
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
+              frmRightAtasAir.fmWeapon1.btnWGLaunch.Enabled
+                 := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              {$ENDREGION}
+            end;
+          end;
+
           { wasdal UI}
           if simMgrClient.ISWasdal and Assigned(frmWeapon) then
           with frmWeapon do
@@ -5507,6 +5810,28 @@ begin
              := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
           frmTacticalDisplay.fmWeapon1.btnWHLaunch.Enabled
             := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+
+          case vGameDataSetting.Role of
+            2, 3:
+            begin
+              {$REGION ' Atas Air '}
+              frmRightAtasAir.fmWeapon1.EdtWHSalvo.Text
+                 := IntToStr(TT3TorpedoesOnVehicle(Focused_weapon).SalvoSize);
+              frmRightAtasAir.fmWeapon1.EdtWHTargetTrack.Text
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+              frmRightAtasAir.fmWeapon1.lblWHTargetIdentity.Caption
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
+              frmRightAtasAir.fmWeapon1.lblWHTargetBearing.Caption
+                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetBearing;
+              frmRightAtasAir.fmWeapon1.EdtWHLaunchBearing.Text
+                 := IntToStr(round(TT3TorpedoesOnVehicle(Focused_weapon).LaunchBearing));
+              frmRightAtasAir.fmWeapon1.EdtWHSeekerRange.Text
+                 := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
+              frmRightAtasAir.fmWeapon1.btnWHLaunch.Enabled
+                := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              {$ENDREGION}
+            end;
+          end;
 
             { wasdal UI}
             if simMgrClient.ISWasdal and Assigned(frmWeapon) then
@@ -5548,6 +5873,25 @@ begin
             frmTacticalDisplay.fmWeapon1.btnAPGLaunch.Enabled
                := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
 
+            case vGameDataSetting.Role of
+              2, 3:
+              begin
+                {$REGION ' Atas Air '}
+                frmRightAtasAir.fmWeapon1.EdtAPGTargetTrack.Text
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+                frmRightAtasAir.fmWeapon1.EdtAPGSearchRadius.Text
+                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchRadius);
+                frmRightAtasAir.fmWeapon1.EdtAPGSearchDepth.Text
+                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchDepth);
+                frmRightAtasAir.fmWeapon1.EdtAPGSafetyCeiling.Text
+                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SafetyCeiling);
+                frmRightAtasAir.fmWeapon1.EdtAPGSeekerRange.Text
+                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
+                frmRightAtasAir.fmWeapon1.btnAPGLaunch.Enabled
+                   := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+                {$ENDREGION}
+              end;
+            end;
             { wasdal UI}
             if simMgrClient.ISWasdal and Assigned(frmWeapon) then
             with frmWeapon do
@@ -5592,6 +5936,37 @@ begin
           frmTacticalDisplay.fmWeapon1.EdtADLaunchBearing.Enabled := False;
           frmTacticalDisplay.fmWeapon1.btnADLaunch.Enabled
               := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+
+          case vGameDataSetting.Role of
+            2, 3:
+            begin
+              {$REGION ' Atas Air '}
+              frmRightAtasAir.fmWeapon1.EdtADSearchRadius.Text
+                  := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchRadius*C_NauticalMile_To_Yards);
+              frmRightAtasAir.fmWeapon1.EdtADSearchDepth.Text
+                  := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchDepth);
+              frmRightAtasAir.fmWeapon1.EdtADSafetyCeiling.Text
+                  := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SafetyCeiling);
+              frmRightAtasAir.fmWeapon1.EdtADTargetTrack.Text
+                  := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+              frmRightAtasAir.fmWeapon1.lblADTargetForce.Caption
+                  := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
+              frmRightAtasAir.fmWeapon1.lblADTargetCourse.Caption
+                  := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
+              frmRightAtasAir.fmWeapon1.lblADTargetSpeed.Caption
+                  := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
+              frmRightAtasAir.fmWeapon1.lblADTargetDepth.Caption
+                  := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
+              frmRightAtasAir.fmWeapon1.chkADUseLaunchPlatformHeading.Checked
+                  := TT3TorpedoesOnVehicle(Focused_weapon).EnableLaunchBearing;
+              frmRightAtasAir.fmWeapon1.chkADLaunchWhithoutTarget.Checked
+                  := TT3TorpedoesOnVehicle(Focused_weapon).LaunchWhithoutTarget;
+              frmRightAtasAir.fmWeapon1.EdtADLaunchBearing.Enabled := False;
+              frmRightAtasAir.fmWeapon1.btnADLaunch.Enabled
+                  := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              {$ENDREGION}
+            end;
+          end;
 
           { wasdal UI}
           if simMgrClient.ISWasdal and Assigned(frmWeapon) then
@@ -6144,21 +6519,20 @@ begin
       frmTacticalDisplay.fmWeapon1.btnBombDrop.Enabled
          := TT3BombONVehicle(Focused_weapon).ButtonLaunch;
 
-    if Assigned(frmRightAtasAir) and
-     Assigned(frmRightAtasAir.fmWeapon1) then
-    begin
-      frmRightAtasAir.fmWeapon1.EdtBombTargetTrack.Text :=
-       TT3BombONVehicle(Focused_weapon).TargetTrack;
+      if Assigned(frmRightAtasAir) and Assigned(frmRightAtasAir.fmWeapon1) then
+      begin
+        frmRightAtasAir.fmWeapon1.EdtBombTargetTrack.Text :=
+         TT3BombONVehicle(Focused_weapon).TargetTrack;
 
-      frmRightAtasAir.fmWeapon1.chkBombDropWhitoutTarget.Checked :=
-       TT3BombONVehicle(Focused_weapon).DropWhithoutTarget;
+        frmRightAtasAir.fmWeapon1.chkBombDropWhitoutTarget.Checked :=
+         TT3BombONVehicle(Focused_weapon).DropWhithoutTarget;
 
-      frmRightAtasAir.fmWeapon1.EdtBombControlSalvo.Text :=
-        IntToStr(TT3BombONVehicle(Focused_weapon).SalvoSize);
+        frmRightAtasAir.fmWeapon1.EdtBombControlSalvo.Text :=
+          IntToStr(TT3BombONVehicle(Focused_weapon).SalvoSize);
 
-      frmRightAtasAir.fmWeapon1.btnBombDrop.Enabled :=
-       TT3BombONVehicle(Focused_weapon).ButtonLaunch;
-     end;
+        frmRightAtasAir.fmWeapon1.btnBombDrop.Enabled :=
+         TT3BombONVehicle(Focused_weapon).ButtonLaunch;
+       end;
 
       { wasdal UI}
       if simMgrClient.ISWasdal and Assigned(frmWeapon) then

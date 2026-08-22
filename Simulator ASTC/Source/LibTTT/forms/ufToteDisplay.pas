@@ -14743,7 +14743,7 @@ begin
           if (Sender is TT3GunOnVehicle) or (Sender is TT3BombONVehicle) or
              (Sender is TT3MineONVehicle) then
           begin
-            tn.getFirstChild.Text := IntToStr(Value);
+//            tn.getFirstChild.Text := IntToStr(Value);
           end;
 
           // Jika quantity di TT3TorpedoesOnVehicle berubah

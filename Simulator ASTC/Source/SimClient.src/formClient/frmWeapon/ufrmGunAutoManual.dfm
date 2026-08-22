@@ -24,10 +24,6 @@ object frmGunAutoManual: TfrmGunAutoManual
     BevelOuter = bvNone
     BorderStyle = bsNone
     TabOrder = 0
-    ExplicitLeft = 1
-    ExplicitTop = 10
-    ExplicitWidth = 337
-    ExplicitHeight = 379
     object Label12: TLabel
       Left = 19
       Top = -1

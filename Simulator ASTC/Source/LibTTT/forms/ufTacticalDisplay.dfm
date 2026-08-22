@@ -189,7 +189,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Width = 100
               end>
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []

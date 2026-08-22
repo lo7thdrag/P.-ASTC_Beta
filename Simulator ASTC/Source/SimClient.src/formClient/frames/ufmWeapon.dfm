@@ -5741,10 +5741,6 @@ inherited fmWeapon: TfmWeapon
         Font.Style = []
         ParentFont = False
         TabOrder = 16
-        ExplicitLeft = 2
-        ExplicitTop = 18
-        ExplicitWidth = 342
-        ExplicitHeight = 405
         object ScrollBox6: TScrollBox
           Left = 2
           Top = 18
@@ -5756,8 +5752,6 @@ inherited fmWeapon: TfmWeapon
           BorderStyle = bsNone
           TabOrder = 0
           OnMouseDown = ScrollBox6MouseDown
-          ExplicitWidth = 338
-          ExplicitHeight = 385
           object btnSurfaceToSurfaceMissileFiring: TSpeedButton
             Left = 176
             Top = 163

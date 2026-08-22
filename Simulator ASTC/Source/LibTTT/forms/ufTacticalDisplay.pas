@@ -6256,7 +6256,7 @@ begin
         end;
         {$ENDREGION}
       end;
-      2:
+      2, 3:
       begin
         {$REGION ' Atas Air '}
         if Assigned(frmTopNav) then
@@ -6283,11 +6283,11 @@ begin
 
         {$ENDREGION}
       end;
-      3:
-      begin
-        {$REGION ' BawahAir '}
-        {$ENDREGION}
-      end;
+//      3:
+//      begin
+//        {$REGION ' BawahAir '}
+//        {$ENDREGION}
+//      end;
       4:
       begin
         {$REGION ' General '}
@@ -6705,6 +6705,40 @@ begin
   frmRightAtasAir.Parent := Self;
   frmRightAtasAir.Show;
   frmRightAtasAir.BringToFront;
+//  pnl1ToolbarGeneral.Visible    := False;
+//  pnlBottom.Visible := False;
+//  pnlLeft.Visible   := False;
+//  pnlContainerBottom.Visible := True;
+//  Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
+//
+//  if not Assigned(frmLeftAtasAir) then
+//    frmLeftAtasAir := TfrmLeftAtasAir.Create(Application);
+//
+//  frmRightAtasAir.Map1 := Map1;
+//
+//  frmLeftAtasAir.Parent := nil;
+//  frmLeftAtasAir.Align  := alLeft;
+//  frmLeftAtasAir.Parent := Self;
+//  frmLeftAtasAir.Show;
+//  frmLeftAtasAir.BringToFront;
+//
+//  if not Assigned(frmTopNav) then
+//    frmTopNav := TfrmTopNav.Create(Application);
+//
+//  frmTopNav.Parent := nil;
+//  frmTopNav.Align  := alTop;
+//  frmTopNav.Parent := Self;
+//  frmTopNav.Show;
+//  frmTopNav.BringToFront;
+////
+//  if not Assigned(frmRightAtasAir) then
+//    frmRightAtasAir := TfrmRightAtasAir.Create(Application);
+//
+//  frmRightAtasAir.Parent := nil;
+//  frmRightAtasAir.Align  := alRight;
+//  frmRightAtasAir.Parent := Self;
+//  frmRightAtasAir.Show;
+//  frmRightAtasAir.BringToFront;
 end;
 
 procedure TfrmTacticalDisplay.SetUpNavigasiUI;
@@ -8869,7 +8903,7 @@ begin // ini procedure update yg dipanggil dari sim client
         end;
         {$ENDREGION}
       end;
-      2:
+      2,3 :
       begin
         {$REGION ' Atas Air '}
         if Assigned(frmTopNav) then
@@ -8895,11 +8929,11 @@ begin // ini procedure update yg dipanggil dari sim client
         end;
         {$ENDREGION}
       end;
-      3:
-      begin
-        {$REGION ' BawahAir '}
-        {$ENDREGION}
-      end;
+//      3:
+//      begin
+//        {$REGION ' BawahAir '}
+//        {$ENDREGION}
+//      end;
       4:
       begin
         {$REGION ' General '}
@@ -13950,6 +13984,7 @@ begin
   li := FindTrackListByMember(s);
   if li <> nil then
     li.Delete;
+
   if Assigned(frmRightAtasAir) then
     frmRightAtasAir.RemoveFromTrackList(Sender);
 end;
@@ -14086,7 +14121,7 @@ begin
         end;
         {$ENDREGION}
       end;
-      2:
+      2, 3:
       begin
         {$REGION ' Atas Air '}
          if Assigned(frmRightAtasAir) then
@@ -14097,11 +14132,11 @@ begin
         end;
         {$ENDREGION}
       end;
-      3:
-      begin
-        {$REGION ' BawahAir '}
-        {$ENDREGION}
-      end;
+//      3:
+//      begin
+//        {$REGION ' BawahAir '}
+//        {$ENDREGION}
+//      end;
     end;
   end
   else
@@ -14132,7 +14167,7 @@ begin
           end;
           {$ENDREGION}
         end;
-        2:
+        2, 3:
         begin
           {$REGION ' Atas Air '}
            if Assigned(frmRightAtasAir) then
@@ -14143,11 +14178,11 @@ begin
           end;
           {$ENDREGION}
         end;
-        3:
-        begin
-          {$REGION ' BawahAir '}
-          {$ENDREGION}
-        end;
+//        3:
+//        begin
+//          {$REGION ' BawahAir '}
+//          {$ENDREGION}
+//        end;
       end;
     end
     else
@@ -14175,7 +14210,7 @@ begin
           end;
           {$ENDREGION}
         end;
-        2:
+        2, 3:
         begin
           {$REGION ' Atas Air '}
           if Assigned(frmRightAtasAir) then
@@ -14186,11 +14221,11 @@ begin
           end;
           {$ENDREGION}
         end;
-        3:
-        begin
-          {$REGION ' BawahAir '}
-          {$ENDREGION}
-        end;
+//        3:
+//        begin
+//          {$REGION ' BawahAir '}
+//          {$ENDREGION}
+//        end;
       end;
     end;
   end;

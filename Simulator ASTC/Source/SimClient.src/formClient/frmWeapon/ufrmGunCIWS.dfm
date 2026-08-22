@@ -25,10 +25,6 @@ object frmGunCIWS: TfrmGunCIWS
     Color = 2695445
     ParentColor = False
     TabOrder = 0
-    ExplicitLeft = 2
-    ExplicitTop = 15
-    ExplicitWidth = 335
-    ExplicitHeight = 377
     object Label468: TLabel
       Left = 19
       Top = 1

@@ -14251,7 +14251,9 @@ begin
   lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
 
   {Cubicle}
-  frmTopNav.gTime := gTime;
+  if Assigned(frmTopNav) then
+    frmTopNav.gTime := gTime;
+
   StatusBar1.Panels[11].Text := Format('%d Day %d Hour %d Minute %d Seconds',[Day,Hour,Min,Sec,MSec]);
 
   if simMgrClient.ISInstructor or simMgrClient.ISWasdal then

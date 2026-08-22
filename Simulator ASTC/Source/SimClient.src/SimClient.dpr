@@ -320,11 +320,11 @@ begin
   Application.CreateForm(TfrmViewWasdal, frmViewWasdal);
   Application.CreateForm(TfrmRightToolsPlotter, frmRightToolsPlotter);
   Application.CreateForm(TfrmPlatformBaseDetail, frmPlatformBaseDetail);
-  Application.CreateForm(TfrmLeftNav, frmLeftNav);
-  Application.CreateForm(TfrmTopNav, frmTopNav);
-  Application.CreateForm(TfrmRightNav, frmRightNav);
-  Application.CreateForm(TfrmRightAtasAir, frmRightAtasAir);
-  Application.CreateForm(TfrmLeftAtasAir, frmLeftAtasAir);
+//  Application.CreateForm(TfrmLeftNav, frmLeftNav);
+//  Application.CreateForm(TfrmTopNav, frmTopNav);
+//  Application.CreateForm(TfrmRightNav, frmRightNav);
+//  Application.CreateForm(TfrmRightAtasAir, frmRightAtasAir);
+//  Application.CreateForm(TfrmLeftAtasAir, frmLeftAtasAir);
   frmLog.LogFile.FileName := ChangeFileExt(Application.ExeName, '.log');
   frmLog.LogFile.Init;
 

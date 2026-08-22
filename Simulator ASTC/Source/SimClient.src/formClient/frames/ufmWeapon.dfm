@@ -5109,6 +5109,964 @@ inherited fmWeapon: TfmWeapon
           end
         end
       end
+      object grbBombDepthCharge: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 346
+        Height = 425
+        Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+        object bvl17: TBevel
+          Left = 55
+          Top = 66
+          Width = 265
+          Height = 3
+        end
+        object bvl18: TBevel
+          Left = 55
+          Top = 279
+          Width = 265
+          Height = 3
+          Visible = False
+        end
+        object bvl19: TBevel
+          Left = 55
+          Top = 179
+          Width = 265
+          Height = 3
+        end
+        object bvl20: TBevel
+          Left = 55
+          Top = 10
+          Width = 265
+          Height = 3
+        end
+        object btnBombTarget: TSpeedButton
+          Tag = 1
+          Left = 180
+          Top = 298
+          Width = 23
+          Height = 23
+          Glyph.Data = {
+            56080000424D560800000000000036000000280000001A0000001A0000000100
+            18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
+            E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+            E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+            E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+            E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+            E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
+            E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
+            70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
+            E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
+            E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+            E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
+            ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+            E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
+            8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
+            E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
+            E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+            737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
+            8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
+            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
+            2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
+            2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+            737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
+            8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
+            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
+            D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+            D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+            737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
+            8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
+            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
+            E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
+            E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+            737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
+            E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
+            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
+            8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
+            8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+            737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
+            A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
+            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
+            E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+            E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+            737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
+            8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
+            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
+            6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+            555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+            737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
+            8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
+            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
+            D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
+            D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+            737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
+            000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
+            7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
+            E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+            E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
+            E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+            E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
+            E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
+            7070737070737070737070737070737070737070737070737070737070737070
+            737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
+            E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+            E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+            E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+            E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+            E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
+          Visible = False
+          OnClick = btnBombOnClick
+        end
+        object lbl76: TLabel
+          Left = 5
+          Top = 59
+          Width = 41
+          Height = 16
+          Caption = 'Control'
+        end
+        object lbl77: TLabel
+          Left = 25
+          Top = 91
+          Width = 72
+          Height = 16
+          Caption = 'Salvo Size  :'
+        end
+        object lbl78: TLabel
+          Left = 5
+          Top = 271
+          Width = 38
+          Height = 16
+          Caption = 'Target'
+          Visible = False
+        end
+        object lbl79: TLabel
+          Left = 5
+          Top = 171
+          Width = 40
+          Height = 16
+          Caption = 'Display'
+        end
+        object lbl80: TLabel
+          Left = 45
+          Top = 193
+          Width = 36
+          Height = 16
+          Caption = 'Range'
+        end
+        object lbl81: TLabel
+          Left = 25
+          Top = 301
+          Width = 73
+          Height = 16
+          Caption = 'Track         :'
+          Visible = False
+        end
+        object lbl82: TLabel
+          Left = 5
+          Top = 3
+          Width = 36
+          Height = 16
+          Caption = 'Status'
+        end
+        object lbl83: TLabel
+          Left = 115
+          Top = 31
+          Width = 56
+          Height = 16
+          Caption = 'Quantity :'
+        end
+        object lblBombQuantity: TLabel
+          Left = 175
+          Top = 31
+          Width = 15
+          Height = 16
+          Caption = '---'
+        end
+        object lblBombStatus: TLabel
+          Left = 25
+          Top = 31
+          Width = 51
+          Height = 16
+          Caption = 'Available'
+        end
+        object btnBombDisplayRangeHide: TSpeedButton
+          Tag = 3
+          Left = 23
+          Top = 240
+          Width = 80
+          Height = 25
+          AllowAllUp = True
+          GroupIndex = 2
+          Down = True
+          Caption = 'Hide'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = btnBombOnClick
+        end
+        object btnBombDisplayRangeShow: TSpeedButton
+          Tag = 2
+          Left = 24
+          Top = 215
+          Width = 80
+          Height = 25
+          AllowAllUp = True
+          GroupIndex = 2
+          Caption = 'Show'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = btnBombOnClick
+        end
+        object lbl86: TLabel
+          Left = 237
+          Top = 293
+          Width = 80
+          Height = 31
+          AutoSize = False
+          Caption = 'Drop without target'
+          Visible = False
+          WordWrap = True
+        end
+        object btnPosition: TSpeedButton
+          Left = 278
+          Top = 139
+          Width = 31
+          Height = 25
+          Caption = '+'
+          Enabled = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = btnPositionClick
+        end
+        object lbl103: TLabel
+          Left = 28
+          Top = 146
+          Width = 69
+          Height = 16
+          Caption = 'Position     :'
+          Enabled = False
+        end
+        object Label70: TLabel
+          Left = 27
+          Top = 119
+          Width = 70
+          Height = 16
+          Caption = 'Depth        :'
+          Enabled = False
+        end
+        object Label71: TLabel
+          Left = 180
+          Top = 119
+          Width = 40
+          Height = 16
+          Caption = 'metres'
+          Enabled = False
+        end
+        object btnBombDrop: TButton
+          Tag = 4
+          Left = 234
+          Top = 334
+          Width = 80
+          Height = 25
+          Caption = 'Drop'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          OnClick = btnBombOnClick
+        end
+        object EdtBombControlSalvo: TEdit
+          Left = 110
+          Top = 88
+          Width = 62
+          Height = 24
+          Color = clWhite
+          TabOrder = 1
+          Text = '1'
+          OnKeyPress = BombKeyPress
+        end
+        object EdtBombTargetTrack: TEdit
+          Left = 110
+          Top = 297
+          Width = 62
+          Height = 24
+          Color = clWhite
+          Enabled = False
+          ReadOnly = True
+          TabOrder = 2
+          Visible = False
+        end
+        object chkBombDropWhitoutTarget: TCheckBox
+          Left = 220
+          Top = 293
+          Width = 81
+          Height = 17
+          Checked = True
+          State = cbChecked
+          TabOrder = 3
+          Visible = False
+          OnClick = chkBombDropWhithoutTargetClick
+        end
+        object edtTargetPosition: TEdit
+          Left = 110
+          Top = 142
+          Width = 156
+          Height = 24
+          Color = clWhite
+          Enabled = False
+          TabOrder = 4
+          Text = '0'
+        end
+        object edtBombDepth: TEdit
+          Left = 110
+          Top = 115
+          Width = 62
+          Height = 21
+          Enabled = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 5
+          Text = '0'
+          OnKeyPress = MineKeyPress
+        end
+      end
+      object grbAirDroppedTorpedo: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 346
+        Height = 425
+        Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 9
+        object ScrollBox8: TScrollBox
+          Left = 2
+          Top = 18
+          Width = 342
+          Height = 405
+          Align = alClient
+          BevelOuter = bvNone
+          BorderStyle = bsNone
+          TabOrder = 0
+          object btnADBilndHide: TSpeedButton
+            Tag = 4
+            Left = 141
+            Top = 350
+            Width = 80
+            Height = 25
+            AllowAllUp = True
+            GroupIndex = 1
+            Down = True
+            Caption = 'Hide'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = btnAirDroppedTorpedoOnClick
+          end
+          object btnADBilndShow: TSpeedButton
+            Tag = 3
+            Left = 141
+            Top = 327
+            Width = 80
+            Height = 25
+            AllowAllUp = True
+            GroupIndex = 1
+            Caption = 'Show'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = btnAirDroppedTorpedoOnClick
+          end
+          object btnADRangeHide: TSpeedButton
+            Tag = 2
+            Left = 24
+            Top = 350
+            Width = 80
+            Height = 25
+            AllowAllUp = True
+            GroupIndex = 2
+            Down = True
+            Caption = 'Hide'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = btnAirDroppedTorpedoOnClick
+          end
+          object btnADRangeShow: TSpeedButton
+            Tag = 1
+            Left = 24
+            Top = 327
+            Width = 80
+            Height = 25
+            AllowAllUp = True
+            GroupIndex = 2
+            Caption = 'Show'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            OnClick = btnAirDroppedTorpedoOnClick
+          end
+          object btnADTargetTrack: TSpeedButton
+            Tag = 5
+            Left = 185
+            Top = 130
+            Width = 23
+            Height = 23
+            Glyph.Data = {
+              56080000424D560800000000000036000000280000001A0000001A0000000100
+              18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
+              E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
+              70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
+              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
+              ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
+              8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
+              8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
+              2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
+              2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
+              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
+              D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
+              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
+              E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
+              8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
+              8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
+              A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
+              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
+              6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
+              555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
+              8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
+              D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
+              D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
+              737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
+              000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
+              7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
+              E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
+              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
+              7070737070737070737070737070737070737070737070737070737070737070
+              737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
+              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
+              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
+              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
+            OnClick = btnAirDroppedTorpedoOnClick
+          end
+          object bvl10: TBevel
+            Left = 55
+            Top = 305
+            Width = 265
+            Height = 3
+          end
+          object bvl11: TBevel
+            Left = 55
+            Top = 6
+            Width = 265
+            Height = 3
+          end
+          object bvl12: TBevel
+            Left = 55
+            Top = 40
+            Width = 265
+            Height = 3
+          end
+          object bvl13: TBevel
+            Left = 100
+            Top = 245
+            Width = 220
+            Height = 3
+          end
+          object bvl9: TBevel
+            Left = 55
+            Top = 125
+            Width = 265
+            Height = 3
+          end
+          object lbl38: TLabel
+            Left = 5
+            Top = -2
+            Width = 36
+            Height = 16
+            Caption = 'Status'
+          end
+          object lbl39: TLabel
+            Left = 115
+            Top = 16
+            Width = 56
+            Height = 16
+            Caption = 'Quantity :'
+          end
+          object lbl40: TLabel
+            Left = 5
+            Top = 117
+            Width = 38
+            Height = 16
+            Caption = 'Target'
+          end
+          object lbl41: TLabel
+            Left = 22
+            Top = 135
+            Width = 32
+            Height = 16
+            Caption = 'Track'
+          end
+          object lbl42: TLabel
+            Left = 5
+            Top = 296
+            Width = 40
+            Height = 16
+            Caption = 'Display'
+          end
+          object lbl43: TLabel
+            Left = 45
+            Top = 310
+            Width = 36
+            Height = 16
+            Caption = 'Range'
+          end
+          object lbl44: TLabel
+            Left = 148
+            Top = 310
+            Width = 65
+            Height = 16
+            Caption = 'Blind Zones'
+          end
+          object lbl45: TLabel
+            Left = 22
+            Top = 154
+            Width = 32
+            Height = 16
+            Caption = 'Force'
+            Visible = False
+          end
+          object lbl46: TLabel
+            Left = 5
+            Top = 33
+            Width = 41
+            Height = 16
+            Caption = 'Control'
+          end
+          object lbl47: TLabel
+            Left = 22
+            Top = 50
+            Width = 79
+            Height = 16
+            Caption = 'Search radius'
+          end
+          object lbl48: TLabel
+            Left = 22
+            Top = 74
+            Width = 76
+            Height = 16
+            Caption = 'Search depth'
+          end
+          object lbl49: TLabel
+            Left = 22
+            Top = 98
+            Width = 76
+            Height = 16
+            Caption = 'Safety ceiling'
+          end
+          object lbl50: TLabel
+            Left = 185
+            Top = 50
+            Width = 31
+            Height = 16
+            Caption = 'yards'
+          end
+          object lbl51: TLabel
+            Left = 185
+            Top = 74
+            Width = 40
+            Height = 16
+            Caption = 'metres'
+          end
+          object lbl52: TLabel
+            Left = 185
+            Top = 98
+            Width = 40
+            Height = 16
+            Caption = 'metres'
+          end
+          object lbl53: TLabel
+            Left = 22
+            Top = 174
+            Width = 40
+            Height = 16
+            Caption = 'Course'
+          end
+          object lbl54: TLabel
+            Left = 22
+            Top = 193
+            Width = 81
+            Height = 16
+            Caption = 'Ground Speed'
+          end
+          object lbl55: TLabel
+            Left = 22
+            Top = 213
+            Width = 33
+            Height = 16
+            Caption = 'Depth'
+          end
+          object lbl56: TLabel
+            Left = 185
+            Top = 174
+            Width = 58
+            Height = 16
+            Caption = 'degrees T'
+          end
+          object lbl57: TLabel
+            Left = 185
+            Top = 193
+            Width = 30
+            Height = 16
+            Caption = 'knots'
+          end
+          object lbl58: TLabel
+            Left = 185
+            Top = 213
+            Width = 40
+            Height = 16
+            Caption = 'metres'
+          end
+          object lbl59: TLabel
+            Left = 5
+            Top = 236
+            Width = 87
+            Height = 16
+            Caption = 'Launch Bearing'
+          end
+          object lbl60: TLabel
+            Left = 22
+            Top = 275
+            Width = 43
+            Height = 16
+            Caption = 'Bearing'
+          end
+          object lbl61: TLabel
+            Left = 185
+            Top = 275
+            Width = 58
+            Height = 16
+            Caption = 'degrees T'
+          end
+          object lbl85: TLabel
+            Left = 241
+            Top = 132
+            Width = 124
+            Height = 16
+            AutoSize = False
+            Caption = 'Launch without target'
+            WordWrap = True
+          end
+          object lblADQuantity: TLabel
+            Left = 175
+            Top = 16
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object lblADTargetCourse: TLabel
+            Left = 120
+            Top = 174
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object lblADTargetDepth: TLabel
+            Left = 120
+            Top = 213
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object lblADTargetForce: TLabel
+            Left = 120
+            Top = 154
+            Width = 15
+            Height = 16
+            Caption = '---'
+            Visible = False
+          end
+          object lblADTargetSpeed: TLabel
+            Left = 120
+            Top = 193
+            Width = 15
+            Height = 16
+            Caption = '---'
+          end
+          object lblAirDroppedStatus: TLabel
+            Left = 25
+            Top = 16
+            Width = 51
+            Height = 16
+            Caption = 'Available'
+          end
+          object Label49: TLabel
+            Left = 105
+            Top = 213
+            Width = 13
+            Height = 16
+            Caption = ' : '
+          end
+          object Label50: TLabel
+            Left = 105
+            Top = 193
+            Width = 13
+            Height = 16
+            Caption = ' : '
+          end
+          object Label51: TLabel
+            Left = 105
+            Top = 174
+            Width = 13
+            Height = 16
+            Caption = ' : '
+          end
+          object Label52: TLabel
+            Left = 105
+            Top = 135
+            Width = 13
+            Height = 16
+            Caption = ' : '
+          end
+          object Label56: TLabel
+            Left = 105
+            Top = 50
+            Width = 13
+            Height = 16
+            Caption = ' : '
+          end
+          object Label57: TLabel
+            Left = 105
+            Top = 74
+            Width = 13
+            Height = 16
+            Caption = ' : '
+          end
+          object Label58: TLabel
+            Left = 105
+            Top = 98
+            Width = 13
+            Height = 16
+            Caption = ' : '
+          end
+          object Label62: TLabel
+            Left = 105
+            Top = 154
+            Width = 13
+            Height = 16
+            Caption = ' : '
+          end
+          object Label65: TLabel
+            Left = 105
+            Top = 275
+            Width = 13
+            Height = 16
+            Caption = ' : '
+          end
+          object btnADDefaultSafetyCeiling: TButton
+            Tag = 2
+            Left = 240
+            Top = 93
+            Width = 80
+            Height = 23
+            Caption = '< Default'
+            TabOrder = 0
+            OnClick = ADbtn
+          end
+          object btnADDefaultSearchDepth: TButton
+            Tag = 1
+            Left = 240
+            Top = 69
+            Width = 80
+            Height = 23
+            Caption = '< Default'
+            TabOrder = 1
+            OnClick = ADbtn
+          end
+          object btnADLaunch: TButton
+            Tag = 3
+            Left = 235
+            Top = 380
+            Width = 80
+            Height = 25
+            Caption = 'Drop'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            OnClick = btnAirDroppedTorpedoOnClick
+          end
+          object chkADLaunchWhithoutTarget: TCheckBox
+            Left = 220
+            Top = 133
+            Width = 81
+            Height = 17
+            TabOrder = 3
+            OnClick = chkADLaunchWhithoutTargetClick
+          end
+          object chkADUseLaunchPlatformHeading: TCheckBox
+            Left = 22
+            Top = 255
+            Width = 190
+            Height = 17
+            Caption = 'Use launch platform heading'
+            TabOrder = 4
+            OnClick = chkADUseLaunchPlatformHeadingClick
+          end
+          object EdtADTargetTrack: TEdit
+            Left = 120
+            Top = 131
+            Width = 60
+            Height = 21
+            Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            ReadOnly = True
+            TabOrder = 5
+          end
+          object EdtADLaunchBearing: TEdit
+            Tag = 4
+            Left = 120
+            Top = 274
+            Width = 60
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 6
+            OnKeyPress = ADKeyPress
+          end
+          object EdtADSafetyCeiling: TEdit
+            Tag = 3
+            Left = 120
+            Top = 94
+            Width = 60
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 7
+            OnKeyPress = ADKeyPress
+          end
+          object EdtADSearchDepth: TEdit
+            Tag = 2
+            Left = 120
+            Top = 70
+            Width = 60
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 8
+            OnKeyPress = ADKeyPress
+          end
+          object EdtADSearchRadius: TEdit
+            Tag = 1
+            Left = 120
+            Top = 46
+            Width = 60
+            Height = 21
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 9
+            OnKeyPress = ADKeyPress
+          end
+        end
+      end
       object grbActivePasiveTorpedo: TGroupBox
         Left = 0
         Top = 0
@@ -6631,964 +7589,6 @@ inherited fmWeapon: TfmWeapon
             ParentFont = False
             TabOrder = 18
             Text = '0'
-          end
-        end
-      end
-      object grbBombDepthCharge: TGroupBox
-        Left = 0
-        Top = 0
-        Width = 346
-        Height = 425
-        Align = alClient
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 3
-        object bvl17: TBevel
-          Left = 55
-          Top = 66
-          Width = 265
-          Height = 3
-        end
-        object bvl18: TBevel
-          Left = 55
-          Top = 279
-          Width = 265
-          Height = 3
-          Visible = False
-        end
-        object bvl19: TBevel
-          Left = 55
-          Top = 179
-          Width = 265
-          Height = 3
-        end
-        object bvl20: TBevel
-          Left = 55
-          Top = 10
-          Width = 265
-          Height = 3
-        end
-        object btnBombTarget: TSpeedButton
-          Tag = 1
-          Left = 180
-          Top = 298
-          Width = 23
-          Height = 23
-          Glyph.Data = {
-            56080000424D560800000000000036000000280000001A0000001A0000000100
-            18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-            E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-            E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-            E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-            E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-            E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-            E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-            70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-            E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-            E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-            E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-            ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-            E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-            8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-            E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-            E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-            737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-            8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-            2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-            2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-            737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-            8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-            D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-            D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-            737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-            8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-            E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-            E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-            737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-            E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-            8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-            8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-            737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-            A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-            E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-            E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-            737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-            8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-            6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-            555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-            737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-            8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-            7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-            D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-            D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-            737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-            000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-            7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-            E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-            E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-            E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-            E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-            E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-            7070737070737070737070737070737070737070737070737070737070737070
-            737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-            E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-            E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-            E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-            E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-            E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-          Visible = False
-          OnClick = btnBombOnClick
-        end
-        object lbl76: TLabel
-          Left = 5
-          Top = 59
-          Width = 41
-          Height = 16
-          Caption = 'Control'
-        end
-        object lbl77: TLabel
-          Left = 25
-          Top = 91
-          Width = 72
-          Height = 16
-          Caption = 'Salvo Size  :'
-        end
-        object lbl78: TLabel
-          Left = 5
-          Top = 271
-          Width = 38
-          Height = 16
-          Caption = 'Target'
-          Visible = False
-        end
-        object lbl79: TLabel
-          Left = 5
-          Top = 171
-          Width = 40
-          Height = 16
-          Caption = 'Display'
-        end
-        object lbl80: TLabel
-          Left = 45
-          Top = 193
-          Width = 36
-          Height = 16
-          Caption = 'Range'
-        end
-        object lbl81: TLabel
-          Left = 25
-          Top = 301
-          Width = 73
-          Height = 16
-          Caption = 'Track         :'
-          Visible = False
-        end
-        object lbl82: TLabel
-          Left = 5
-          Top = 3
-          Width = 36
-          Height = 16
-          Caption = 'Status'
-        end
-        object lbl83: TLabel
-          Left = 115
-          Top = 31
-          Width = 56
-          Height = 16
-          Caption = 'Quantity :'
-        end
-        object lblBombQuantity: TLabel
-          Left = 175
-          Top = 31
-          Width = 15
-          Height = 16
-          Caption = '---'
-        end
-        object lblBombStatus: TLabel
-          Left = 25
-          Top = 31
-          Width = 51
-          Height = 16
-          Caption = 'Available'
-        end
-        object btnBombDisplayRangeHide: TSpeedButton
-          Tag = 3
-          Left = 23
-          Top = 240
-          Width = 80
-          Height = 25
-          AllowAllUp = True
-          GroupIndex = 2
-          Down = True
-          Caption = 'Hide'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          OnClick = btnBombOnClick
-        end
-        object btnBombDisplayRangeShow: TSpeedButton
-          Tag = 2
-          Left = 24
-          Top = 215
-          Width = 80
-          Height = 25
-          AllowAllUp = True
-          GroupIndex = 2
-          Caption = 'Show'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          OnClick = btnBombOnClick
-        end
-        object lbl86: TLabel
-          Left = 237
-          Top = 293
-          Width = 80
-          Height = 31
-          AutoSize = False
-          Caption = 'Drop without target'
-          Visible = False
-          WordWrap = True
-        end
-        object btnPosition: TSpeedButton
-          Left = 278
-          Top = 139
-          Width = 31
-          Height = 25
-          Caption = '+'
-          Enabled = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          OnClick = btnPositionClick
-        end
-        object lbl103: TLabel
-          Left = 28
-          Top = 146
-          Width = 69
-          Height = 16
-          Caption = 'Position     :'
-          Enabled = False
-        end
-        object Label70: TLabel
-          Left = 27
-          Top = 119
-          Width = 70
-          Height = 16
-          Caption = 'Depth        :'
-          Enabled = False
-        end
-        object Label71: TLabel
-          Left = 180
-          Top = 119
-          Width = 40
-          Height = 16
-          Caption = 'metres'
-          Enabled = False
-        end
-        object btnBombDrop: TButton
-          Tag = 4
-          Left = 234
-          Top = 334
-          Width = 80
-          Height = 25
-          Caption = 'Drop'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-          OnClick = btnBombOnClick
-        end
-        object EdtBombControlSalvo: TEdit
-          Left = 110
-          Top = 88
-          Width = 62
-          Height = 24
-          Color = clWhite
-          TabOrder = 1
-          Text = '1'
-          OnKeyPress = BombKeyPress
-        end
-        object EdtBombTargetTrack: TEdit
-          Left = 110
-          Top = 297
-          Width = 62
-          Height = 24
-          Color = clWhite
-          Enabled = False
-          ReadOnly = True
-          TabOrder = 2
-          Visible = False
-        end
-        object chkBombDropWhitoutTarget: TCheckBox
-          Left = 220
-          Top = 293
-          Width = 81
-          Height = 17
-          Checked = True
-          State = cbChecked
-          TabOrder = 3
-          Visible = False
-          OnClick = chkBombDropWhithoutTargetClick
-        end
-        object edtTargetPosition: TEdit
-          Left = 110
-          Top = 142
-          Width = 156
-          Height = 24
-          Color = clWhite
-          Enabled = False
-          TabOrder = 4
-          Text = '0'
-        end
-        object edtBombDepth: TEdit
-          Left = 110
-          Top = 115
-          Width = 62
-          Height = 21
-          Enabled = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 5
-          Text = '0'
-          OnKeyPress = MineKeyPress
-        end
-      end
-      object grbAirDroppedTorpedo: TGroupBox
-        Left = 0
-        Top = 0
-        Width = 346
-        Height = 425
-        Align = alClient
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 9
-        object ScrollBox8: TScrollBox
-          Left = 2
-          Top = 18
-          Width = 342
-          Height = 405
-          Align = alClient
-          BevelOuter = bvNone
-          BorderStyle = bsNone
-          TabOrder = 0
-          object btnADBilndHide: TSpeedButton
-            Tag = 4
-            Left = 141
-            Top = 350
-            Width = 80
-            Height = 25
-            AllowAllUp = True
-            GroupIndex = 1
-            Down = True
-            Caption = 'Hide'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = btnAirDroppedTorpedoOnClick
-          end
-          object btnADBilndShow: TSpeedButton
-            Tag = 3
-            Left = 141
-            Top = 327
-            Width = 80
-            Height = 25
-            AllowAllUp = True
-            GroupIndex = 1
-            Caption = 'Show'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = btnAirDroppedTorpedoOnClick
-          end
-          object btnADRangeHide: TSpeedButton
-            Tag = 2
-            Left = 24
-            Top = 350
-            Width = 80
-            Height = 25
-            AllowAllUp = True
-            GroupIndex = 2
-            Down = True
-            Caption = 'Hide'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = btnAirDroppedTorpedoOnClick
-          end
-          object btnADRangeShow: TSpeedButton
-            Tag = 1
-            Left = 24
-            Top = 327
-            Width = 80
-            Height = 25
-            AllowAllUp = True
-            GroupIndex = 2
-            Caption = 'Show'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            OnClick = btnAirDroppedTorpedoOnClick
-          end
-          object btnADTargetTrack: TSpeedButton
-            Tag = 5
-            Left = 185
-            Top = 130
-            Width = 23
-            Height = 23
-            Glyph.Data = {
-              56080000424D560800000000000036000000280000001A0000001A0000000100
-              18000000000020080000C40E0000C40E00000000000000000000E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-              E6E1E1E6E1E18F8C8C7370707370707370707370707370707370707370707370
-              70737070737070737070737070737070737070737070737070ADA9A9E6E1E1E6
-              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1817F7F9E9B9BE6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1ACA8A8817F7FE6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-              ACA9A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9A9A90
-              8D8DE6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1C9C5C55654542B2A2A0000000000001D1C1C656262ADA9A9E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1E6E1E1E6E1E1D7D3D36462621D1C1C908D8DBBB6B68F8C
-              8C908C8CC9C5C57270700E0E0E656363D8D3D3E6E1E1E6E1E1E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1D7D3D32B
-              2A2A646363D8D3D3E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1D8D3D3555454
-              2B2A2AD8D3D3E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1E6E1E1646262565454E6E1E1E6E1E1E6E1E1E6E1E18F8C
-              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1646262656363E6E1E1E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1ACA9A90E0E0ED8
-              D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              D8D3D31C1C1CC9C5C5E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1646262737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C
-              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C565454E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E11C1C1CCAC5C5E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A8ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1BBB6B62B2A2AE6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1000000908C8C908C8C908C8C908C8C908C8CACA9A9E6E1
-              E1E6E1E1ACA9A9908C8C908C8C908C8C908C8C908C8C000000E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E10000008F8C8C8F
-              8C8C8F8C8C8F8C8C8F8C8CACA9A9E6E1E1E6E1E1ACA9A98F8C8C8F8C8C8F8C8C
-              8F8C8C8F8C8C000000E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E12B2A2ABBB7B7E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ADA9
-              A9ACA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1C9C5C51D1C1CE6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1565454908D8DE6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1737070656262E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1C9C5C51D1C1CD8D3D3E6E1E1E6E1E1E6E1E1E6E1E18F8C
-              8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1D7D3D30E0E0EACA9A9E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E164626265
-              6363E6E1E1E6E1E1E6E1E1E6E1E18F8C8C908C8CE6E1E1E6E1E1E6E1E1E6E1E1
-              555454646363E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1E6E1E1D8D3D32B2A2A565454D8D3D3E6E1E1E6E1E18F8C
-              8C908C8CE6E1E1E6E1E1D7D3D36462622B2A2AD8D3D3E6E1E1E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E1737070E6E1E1E6E1E1E6E1E1E6E1E1D8
-              D3D36462620E0E0E737171CAC5C58F8C8C908C8CBBB7B78F8C8C1C1C1C646363
-              D8D3D3E6E1E1E6E1E1E6E1E1E6E1E1737070E6E1E1E6E1E10000E6E1E1E6E1E1
-              737070E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1ACA8A86562621C1C1C0000
-              000000002B2A2A565454C9C5C5E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E173
-              7070E6E1E1E6E1E10000E6E1E1E6E1E18F8C8C9F9B9BE6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1ACA9A9ACA9A9E6E1E1E6E1E10000E6E1E1E6E1E1
-              E6E1E1817E7EADA9A9E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E19E9B9B817E7EE6
-              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1ACA8A873707073707073
-              7070737070737070737070737070737070737070737070737070737070737070
-              737070737070737070908D8DE6E1E1E6E1E1E6E1E1E6E1E10000E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1
-              E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E10000E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6
-              E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1
-              E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E1E6E1E10000}
-            OnClick = btnAirDroppedTorpedoOnClick
-          end
-          object bvl10: TBevel
-            Left = 55
-            Top = 305
-            Width = 265
-            Height = 3
-          end
-          object bvl11: TBevel
-            Left = 55
-            Top = 6
-            Width = 265
-            Height = 3
-          end
-          object bvl12: TBevel
-            Left = 55
-            Top = 40
-            Width = 265
-            Height = 3
-          end
-          object bvl13: TBevel
-            Left = 100
-            Top = 245
-            Width = 220
-            Height = 3
-          end
-          object bvl9: TBevel
-            Left = 55
-            Top = 125
-            Width = 265
-            Height = 3
-          end
-          object lbl38: TLabel
-            Left = 5
-            Top = -2
-            Width = 36
-            Height = 16
-            Caption = 'Status'
-          end
-          object lbl39: TLabel
-            Left = 115
-            Top = 16
-            Width = 56
-            Height = 16
-            Caption = 'Quantity :'
-          end
-          object lbl40: TLabel
-            Left = 5
-            Top = 117
-            Width = 38
-            Height = 16
-            Caption = 'Target'
-          end
-          object lbl41: TLabel
-            Left = 22
-            Top = 135
-            Width = 32
-            Height = 16
-            Caption = 'Track'
-          end
-          object lbl42: TLabel
-            Left = 5
-            Top = 296
-            Width = 40
-            Height = 16
-            Caption = 'Display'
-          end
-          object lbl43: TLabel
-            Left = 45
-            Top = 310
-            Width = 36
-            Height = 16
-            Caption = 'Range'
-          end
-          object lbl44: TLabel
-            Left = 148
-            Top = 310
-            Width = 65
-            Height = 16
-            Caption = 'Blind Zones'
-          end
-          object lbl45: TLabel
-            Left = 22
-            Top = 154
-            Width = 32
-            Height = 16
-            Caption = 'Force'
-            Visible = False
-          end
-          object lbl46: TLabel
-            Left = 5
-            Top = 33
-            Width = 41
-            Height = 16
-            Caption = 'Control'
-          end
-          object lbl47: TLabel
-            Left = 22
-            Top = 50
-            Width = 79
-            Height = 16
-            Caption = 'Search radius'
-          end
-          object lbl48: TLabel
-            Left = 22
-            Top = 74
-            Width = 76
-            Height = 16
-            Caption = 'Search depth'
-          end
-          object lbl49: TLabel
-            Left = 22
-            Top = 98
-            Width = 76
-            Height = 16
-            Caption = 'Safety ceiling'
-          end
-          object lbl50: TLabel
-            Left = 185
-            Top = 50
-            Width = 31
-            Height = 16
-            Caption = 'yards'
-          end
-          object lbl51: TLabel
-            Left = 185
-            Top = 74
-            Width = 40
-            Height = 16
-            Caption = 'metres'
-          end
-          object lbl52: TLabel
-            Left = 185
-            Top = 98
-            Width = 40
-            Height = 16
-            Caption = 'metres'
-          end
-          object lbl53: TLabel
-            Left = 22
-            Top = 174
-            Width = 40
-            Height = 16
-            Caption = 'Course'
-          end
-          object lbl54: TLabel
-            Left = 22
-            Top = 193
-            Width = 81
-            Height = 16
-            Caption = 'Ground Speed'
-          end
-          object lbl55: TLabel
-            Left = 22
-            Top = 213
-            Width = 33
-            Height = 16
-            Caption = 'Depth'
-          end
-          object lbl56: TLabel
-            Left = 185
-            Top = 174
-            Width = 58
-            Height = 16
-            Caption = 'degrees T'
-          end
-          object lbl57: TLabel
-            Left = 185
-            Top = 193
-            Width = 30
-            Height = 16
-            Caption = 'knots'
-          end
-          object lbl58: TLabel
-            Left = 185
-            Top = 213
-            Width = 40
-            Height = 16
-            Caption = 'metres'
-          end
-          object lbl59: TLabel
-            Left = 5
-            Top = 236
-            Width = 87
-            Height = 16
-            Caption = 'Launch Bearing'
-          end
-          object lbl60: TLabel
-            Left = 22
-            Top = 275
-            Width = 43
-            Height = 16
-            Caption = 'Bearing'
-          end
-          object lbl61: TLabel
-            Left = 185
-            Top = 275
-            Width = 58
-            Height = 16
-            Caption = 'degrees T'
-          end
-          object lbl85: TLabel
-            Left = 241
-            Top = 132
-            Width = 124
-            Height = 16
-            AutoSize = False
-            Caption = 'Launch without target'
-            WordWrap = True
-          end
-          object lblADQuantity: TLabel
-            Left = 175
-            Top = 16
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lblADTargetCourse: TLabel
-            Left = 120
-            Top = 174
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lblADTargetDepth: TLabel
-            Left = 120
-            Top = 213
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lblADTargetForce: TLabel
-            Left = 120
-            Top = 154
-            Width = 15
-            Height = 16
-            Caption = '---'
-            Visible = False
-          end
-          object lblADTargetSpeed: TLabel
-            Left = 120
-            Top = 193
-            Width = 15
-            Height = 16
-            Caption = '---'
-          end
-          object lblAirDroppedStatus: TLabel
-            Left = 25
-            Top = 16
-            Width = 51
-            Height = 16
-            Caption = 'Available'
-          end
-          object Label49: TLabel
-            Left = 105
-            Top = 213
-            Width = 13
-            Height = 16
-            Caption = ' : '
-          end
-          object Label50: TLabel
-            Left = 105
-            Top = 193
-            Width = 13
-            Height = 16
-            Caption = ' : '
-          end
-          object Label51: TLabel
-            Left = 105
-            Top = 174
-            Width = 13
-            Height = 16
-            Caption = ' : '
-          end
-          object Label52: TLabel
-            Left = 105
-            Top = 135
-            Width = 13
-            Height = 16
-            Caption = ' : '
-          end
-          object Label56: TLabel
-            Left = 105
-            Top = 50
-            Width = 13
-            Height = 16
-            Caption = ' : '
-          end
-          object Label57: TLabel
-            Left = 105
-            Top = 74
-            Width = 13
-            Height = 16
-            Caption = ' : '
-          end
-          object Label58: TLabel
-            Left = 105
-            Top = 98
-            Width = 13
-            Height = 16
-            Caption = ' : '
-          end
-          object Label62: TLabel
-            Left = 105
-            Top = 154
-            Width = 13
-            Height = 16
-            Caption = ' : '
-          end
-          object Label65: TLabel
-            Left = 105
-            Top = 275
-            Width = 13
-            Height = 16
-            Caption = ' : '
-          end
-          object btnADDefaultSafetyCeiling: TButton
-            Tag = 2
-            Left = 240
-            Top = 93
-            Width = 80
-            Height = 23
-            Caption = '< Default'
-            TabOrder = 0
-            OnClick = ADbtn
-          end
-          object btnADDefaultSearchDepth: TButton
-            Tag = 1
-            Left = 240
-            Top = 69
-            Width = 80
-            Height = 23
-            Caption = '< Default'
-            TabOrder = 1
-            OnClick = ADbtn
-          end
-          object btnADLaunch: TButton
-            Tag = 3
-            Left = 235
-            Top = 380
-            Width = 80
-            Height = 25
-            Caption = 'Drop'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 2
-            OnClick = btnAirDroppedTorpedoOnClick
-          end
-          object chkADLaunchWhithoutTarget: TCheckBox
-            Left = 220
-            Top = 133
-            Width = 81
-            Height = 17
-            TabOrder = 3
-            OnClick = chkADLaunchWhithoutTargetClick
-          end
-          object chkADUseLaunchPlatformHeading: TCheckBox
-            Left = 22
-            Top = 255
-            Width = 190
-            Height = 17
-            Caption = 'Use launch platform heading'
-            TabOrder = 4
-            OnClick = chkADUseLaunchPlatformHeadingClick
-          end
-          object EdtADTargetTrack: TEdit
-            Left = 120
-            Top = 131
-            Width = 60
-            Height = 21
-            Enabled = False
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            ReadOnly = True
-            TabOrder = 5
-          end
-          object EdtADLaunchBearing: TEdit
-            Tag = 4
-            Left = 120
-            Top = 274
-            Width = 60
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 6
-            OnKeyPress = ADKeyPress
-          end
-          object EdtADSafetyCeiling: TEdit
-            Tag = 3
-            Left = 120
-            Top = 94
-            Width = 60
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 7
-            OnKeyPress = ADKeyPress
-          end
-          object EdtADSearchDepth: TEdit
-            Tag = 2
-            Left = 120
-            Top = 70
-            Width = 60
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 8
-            OnKeyPress = ADKeyPress
-          end
-          object EdtADSearchRadius: TEdit
-            Tag = 1
-            Left = 120
-            Top = 46
-            Width = 60
-            Height = 21
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 9
-            OnKeyPress = ADKeyPress
           end
         end
       end

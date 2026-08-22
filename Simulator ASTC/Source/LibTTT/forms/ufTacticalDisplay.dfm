@@ -243,7 +243,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                 Caption = 'Depth'
               end>
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
+            Font.Color = clBlack
             Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -5238,7 +5238,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     end
                   end
                 end
-                inherited grbAirDroppedTorpedo: TGroupBox [14]
+                inherited grbAirDroppedTorpedo: TGroupBox
                   Width = 359
                   Height = 1951
                   ParentBackground = False
@@ -5676,7 +5676,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                     end
                   end
                 end
-                inherited grbActivePasiveTorpedo: TGroupBox [15]
+                inherited grbActivePasiveTorpedo: TGroupBox
                   Width = 359
                   Height = 1951
                   ParentBackground = False

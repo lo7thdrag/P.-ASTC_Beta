@@ -6528,7 +6528,7 @@ begin
         if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
           _weaponCategory := wcTorpedoActivePassive
         else
-          _weaponCategory := wcTorpedoActiveAcoustic;
+          _weaponCategory := wcTorpedoActivePassive;
       end;
     end;
     {$ENDREGION}

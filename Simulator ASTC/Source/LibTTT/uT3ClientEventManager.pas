@@ -933,30 +933,49 @@ begin
             begin
               frmTacticalDisplay.fmWeapon1.UpdateTorpedoAcousticTab(VehicleWeapon);
 
-              if Assigned(frmRightAtasAir) then
-                frmRightAtasAir.fmWeapon1.UpdateTorpedoAcousticTab(VehicleWeapon);
-
+              case vGameDataSetting.Role of
+                2, 3:
+                begin
+                  if Assigned(frmRightAtasAir) then
+                    frmRightAtasAir.fmWeapon1.UpdateTorpedoAcousticTab(VehicleWeapon);
+                end;
+              end;
             end;
             wcTorpedoWakeHoming :
             begin
               frmTacticalDisplay.fmWeapon1.UpdateTorpedoWakeHomingTab(VehicleWeapon);
 
-              if Assigned(frmRightAtasAir) then
-                frmRightAtasAir.fmWeapon1.UpdateTorpedoWakeHomingTab(VehicleWeapon);
+              case vGameDataSetting.Role of
+                2, 3:
+                begin
+                  if Assigned(frmRightAtasAir) then
+                    frmRightAtasAir.fmWeapon1.UpdateTorpedoWakeHomingTab(VehicleWeapon);
+                end;
+              end;
             end;
             wcTorpedoActivePassive :
             begin
               frmTacticalDisplay.fmWeapon1.UpdateTorpedoActivePassiveTab(VehicleWeapon);
 
-              if Assigned(frmRightAtasAir) then
-                frmRightAtasAir.fmWeapon1.UpdateTorpedoActivePassiveTab(VehicleWeapon);
+              case vGameDataSetting.Role of
+                2, 3:
+                begin
+                  if Assigned(frmRightAtasAir) then
+                    frmRightAtasAir.fmWeapon1.UpdateTorpedoActivePassiveTab(VehicleWeapon);
+                end;
+              end;
             end;
             wcTorpedoAirDropped :
             begin
               frmTacticalDisplay.fmWeapon1.UpdateTorpedoAirDroppedTab(VehicleWeapon);
 
-              if Assigned(frmRightAtasAir) then
-                frmRightAtasAir.fmWeapon1.UpdateTorpedoAirDroppedTab(VehicleWeapon);
+              case vGameDataSetting.Role of
+                2, 3:
+                begin
+                  if Assigned(frmRightAtasAir) then
+                    frmRightAtasAir.fmWeapon1.UpdateTorpedoAirDroppedTab(VehicleWeapon);
+                end;
+              end;
             end;
           end;
         end;

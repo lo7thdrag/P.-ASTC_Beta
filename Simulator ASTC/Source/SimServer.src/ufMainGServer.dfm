@@ -16,7 +16,6 @@ object fMainGServer: TfMainGServer
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
-  WindowState = wsMinimized
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   PixelsPerInch = 96

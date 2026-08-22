@@ -11703,7 +11703,17 @@ begin
     begin
       _targetDomain     := TT3PlatformInstance(focused_platform).PlatformDomain;
       TorpedoTarget     := TT3PlatformInstance(focused_platform);
-      strTargetID       := TT3PlatformInstance(focused_platform).Track_ID;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        strTargetID       := TT3PlatformInstance(focused_platform).Track_ID
+      else
+      begin
+        strTargetID := TT3PlatformInstance(focused_platform).TrackLabel;
+
+        if strTargetID = '' then
+          strTargetID := (TT3PlatformInstance(focused_platform).TrackNumber).ToString;
+      end;
+
       _nonRealtimeType  := 5;
     end;
     {$ENDREGION}

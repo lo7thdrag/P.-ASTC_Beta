@@ -1164,9 +1164,6 @@ begin
   else
   begin
     frmTacticalDisplay.addStatus('No Weapon Assigned !!');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('No Weapon Assigned !!');
     Exit;
   end;
 
@@ -1248,23 +1245,14 @@ begin
           FRippleCountArray[i] := False;
         end
         else
-          frmTacticalDisplay.addStatus('Vehicle Sender Not Found');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Vehicle Sender Not Found');
+          addStatus('Vehicle Sender Not Found');
       end;
     end;
 
-    frmTacticalDisplay.addStatus('Ready To STOT for ' + IntToStr(FRippleCount) + ' Missile');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Ready To STOT for ' + IntToStr(FRippleCount) + ' Missile');
+    addStatus('Ready To STOT for ' + IntToStr(FRippleCount) + ' Missile');
   end
   else
-    frmTacticalDisplay.addStatus('No Waypoint Applied!!');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('No Waypoint Applied!!');
+    addStatus('No Waypoint Applied!!');
 end;
 
 procedure TfmWeapon.MapPosition(X, Y: double);
@@ -1314,10 +1302,7 @@ begin
     OwnShip    := TT3Vehicle(FControlled)
   else
   begin
-    frmTacticalDisplay.addStatus('Vehicle Sender Not Found');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Vehicle Sender Not Found');
+    addStatus('Vehicle Sender Not Found');
     Exit;
   end;
 
@@ -1325,10 +1310,7 @@ begin
     Missile    := TT3MissilesOnVehicle(focused_weapon)
   else
   begin
-    frmTacticalDisplay.addStatus('No Weapon Assigned !!');
-
-    if  Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('No Weapon Assigned !!');
+    addStatus('No Weapon Assigned !!');
     Exit;
   end;
 
@@ -1390,10 +1372,7 @@ begin
     Missile := TT3MissilesOnVehicle(focused_weapon)
   else
   begin
-    frmTacticalDisplay.addStatus('No Weapon Assigned !!');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('No Weapon Assigned !!');
+    addStatus('No Weapon Assigned !!');
     Exit;
   end;
 
@@ -1449,10 +1428,7 @@ begin
 
   if not(FControlled is TT3PlatformInstance) then
   begin
-    frmTacticalDisplay.addStatus('Vehicle Sender Not Found');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Vehicle Sender Not Found');
+    addStatus('Vehicle Sender Not Found');
     exit;
   end;
 
@@ -1460,10 +1436,7 @@ begin
     Missile := TT3MissilesOnVehicle(focused_weapon)
   else
   begin
-    frmTacticalDisplay.addStatus('No Weapon Assigned !!');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('No Weapon Assigned !!');
+    addStatus('No Weapon Assigned !!');
     Exit;
   end;
 
@@ -1917,37 +1890,25 @@ begin
   inherited;
   if not simMgrClient.IsGameStart then
   begin
-    frmTacticalDisplay.addStatus('Game Frozen');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('No Weapon Assigned !!');
+    addStatus('Game Frozen');
     Exit;
   end;
 
   if focused_weapon = nil then
   begin
-    frmTacticalDisplay.addStatus('Not Found Selected Weapon');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Not Found Selected Weapon');
+    addStatus('Not Found Selected Weapon');
     Exit;
   end;
 
   if not(focused_weapon is TT3BombONVehicle) then
   begin
-    frmTacticalDisplay.addStatus('Selected Weapon Is Not Bomb'); 
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Selected Weapon Is Not Bomb');
+    addStatus('Selected Weapon Is Not Bomb');
     Exit;
   end;
 
   if TT3BombONVehicle(focused_weapon).WeaponStatus = wsDamaged then
   begin
-    frmTacticalDisplay.addStatus('Selected Weapon Is Damaged');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Selected Weapon Is Damaged');
+    addStatus('Selected Weapon Is Damaged');
     Exit;
   end;
 
@@ -1980,10 +1941,7 @@ begin
         end
         else
         begin
-          frmTacticalDisplay.addStatus('Controlled platform not defined');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Controlled platform not defined');
+          addStatus('Controlled platform not defined');
           exit;
         end;
 
@@ -1992,10 +1950,7 @@ begin
         begin
           if not BombTargetCheck(focused_platform,focused_weapon) then
           begin
-            frmTacticalDisplay.addStatus('Invalid target domain');
-            
-            if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Invalid target domain');
+            addStatus('Invalid target domain');
             exit;
           end;
 
@@ -2020,10 +1975,7 @@ begin
         end
         else
         begin
-          frmTacticalDisplay.addStatus('Target platform not defined');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Target platform not defined');
+          addStatus('Target platform not defined');
           exit;
         end;
 
@@ -2065,10 +2017,7 @@ begin
         end
         else
         begin
-          frmTacticalDisplay.addStatus('Cannot target own platform');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Cannot target own platform');
+          addStatus('Cannot target own platform');
           exit;
         end;
         rBom.BombOnVehicleID  := InstanceIndex;
@@ -2776,37 +2725,25 @@ begin
   inherited;
   if not simMgrClient.IsGameStart then
   begin
-    frmTacticalDisplay.addStatus('Game Frozen');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Game Frozen');
+    addStatus('Game Frozen');
     Exit;
   end;
 
   if focused_weapon = nil then
   begin
-    frmTacticalDisplay.addStatus('Not Found Selected Weapon');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Not Found Selected Weapon');
+    addStatus('Not Found Selected Weapon');
     Exit;
   end;
 
   if not(focused_weapon is TT3MineOnVehicle)then
   begin
-    frmTacticalDisplay.addStatus('Selected Weapon Is Not Mine');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Selected Weapon Is Not Mine');
+    addStatus('Selected Weapon Is Not Mine');
     Exit;
   end;
 
   if TT3MineOnVehicle(focused_weapon).WeaponStatus = wsDamaged then
   begin
-    frmTacticalDisplay.addStatus('Selected Weapon Is Damaged');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Selected Weapon Is Damaged');
+    addStatus('Selected Weapon Is Damaged');
     Exit;
   end;
 
@@ -2904,11 +2841,7 @@ begin
 
   if Missile.WeaponStatus = wsDamaged then
   begin
-    frmTacticalDisplay.addStatus('Weapon Status is Damage');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Weapon Status is Damage');
-    
+    addStatus('Weapon Status is Damage');
     Exit;
   end;
 
@@ -2946,32 +2879,20 @@ begin
     5 : begin
           if not Assigned(FControlled) then
           begin
-            frmTacticalDisplay.addStatus('Vehicle Sender Not Found');
-
-            if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Vehicle Sender Not Found');
-            
+            addStatus('Vehicle Sender Not Found');
             FisTrack := False;
             Exit;
           end;
           if not Assigned(focused_platform) then
           begin
-            frmTacticalDisplay.addStatus('Vehicle Target Not Found');
-
-            if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Vehicle Target Not Found');
-            
+            addStatus('Vehicle Target Not Found');
             rMis.TargetPlatformID := 0;
             FisTrack := False;
             Exit;
           end;
           if TT3PlatformInstance(focused_platform).PlatformDomain <> 0 then
           begin
-            frmTacticalDisplay.addStatus('Target Domain Not Same With Missile');
-
-            if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Target Domain Not Same With Missile');
-            
+            addStatus('Target Domain Not Same With Missile');
             editSurfaceToAirTrack.Text := '';
             FisTrack := False;
             Exit;
@@ -3011,11 +2932,7 @@ begin
           end
           else
           begin
-            frmTacticalDisplay.addStatus('Cant Track Own Vehicle');
-
-            if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Cant Track Own Vehicle');
-            
+            addStatus('Cant Track Own Vehicle');
             editSurfaceToSurfaceMissileTargetTrack.Text := '';
           end;
         end;
@@ -3030,18 +2947,12 @@ begin
 
         if Range <= TMissile_On_Board(Missile.UnitDefinition).FDef.Min_Range then
         begin
-          frmTacticalDisplay.addStatus('Target is to close');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Target is to close');
+          addStatus('Target is to close');
         end
         else
         if Range >= TMissile_On_Board(Missile.UnitDefinition).FDef.Max_Range then
         begin
-          frmTacticalDisplay.addStatus('Target is too far');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Target is too far');
+          addStatus('Target is too far');
         end
         else
         if (Range > TMissile_On_Board(Missile.UnitDefinition).FDef.Min_Range) and
@@ -3097,11 +3008,7 @@ begin
             btSurfaceToAirPlan.Enabled   := True;
             btSurfaceToAirCancel.Enabled := False;
             btSurfaceToAirLaunch.Enabled := False;
-            frmTacticalDisplay.addStatus('Target In Blind Zone Area');
-
-            if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Target In Blind Zone Area');
-
+            addStatus('Target In Blind Zone Area');
             Exit;
           end;
         end;
@@ -3465,31 +3372,19 @@ begin
   {$REGION ' Pengecekan Ketersediaan weapon yg dipilih '}
   if focused_weapon = nil then
   begin
-    frmTacticalDisplay.addStatus('Not Found Selected Weapon');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Not Found Selected Weapon');
-    
+    addStatus('Not Found Selected Weapon');
     Exit;
   end;
 
   if not(focused_weapon is TT3MissilesOnVehicle) then
   begin
-    frmTacticalDisplay.addStatus('Selected Weapon Is Not Missile');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Selected Weapon Is Not Missile');
-    
+    addStatus('Selected Weapon Is Not Missile');
     Exit;
   end;
 
   if TT3MissilesOnVehicle(focused_weapon).WeaponStatus = wsDamaged then
   begin
-    frmTacticalDisplay.addStatus('Selected Weapon Is Damaged');
-
-    if Assigned (frmRightAtasAir) then
-    frmRightAtasAir.addStatus('Selected Weapon Is Damaged');
-    
+    addStatus('Selected Weapon Is Damaged');
     Exit;
   end;
   {$ENDREGION}
@@ -3526,31 +3421,20 @@ begin
         {$REGION ' Track Target '}
         if not simMgrClient.IsGameStart then
         begin
-          frmTacticalDisplay.addStatus('Game Frozen');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Selected Weapon Is Damaged');
+          addStatus('Game Frozen');
           Exit;
         end;
 
         if not Assigned(FControlled) then
         begin
-          frmTacticalDisplay.addStatus('Vehicle Sender Not Found');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Vehicle Sender Not Found');
-          
+          addStatus('Vehicle Sender Not Found');
           FisTrack := False;
           Exit;
         end;
 
         if not Assigned(focused_platform) then
         begin
-          frmTacticalDisplay.addStatus('Vehicle Target Not Found');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Vehicle Target Not Found');
-          
+          addStatus('Vehicle Target Not Found');
           rMis.TargetPlatformID := 0;
           FisTrack := False;
           Exit;
@@ -3586,11 +3470,7 @@ begin
 
         if not CanTargetPlatform then
         begin
-          frmTacticalDisplay.addStatus('Target Domain Not Same With Missile');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Target Domain Not Same With Missile');
-          
+          addStatus('Target Domain Not Same With Missile');
           editSurfaceToSurfaceMissileTargetTrack.Text := '';
           FisTrack := False;
           Exit;
@@ -3598,11 +3478,7 @@ begin
 
         if missile.Planned then
         begin
-          frmTacticalDisplay.addStatus('Target Has Been Planned');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Target Has Been Planned');
-          
+          addStatus('Target Has Been Planned');
           Exit;
         end;
         if not (focused_platform is TT3PlatformInstance) then
@@ -3648,11 +3524,7 @@ begin
         end
         else
         begin
-          frmTacticalDisplay.addStatus('Cant Track Own Vehicle');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Cant Track Own Vehicle');
-          
+          addStatus('Cant Track Own Vehicle');
           editSurfaceToSurfaceMissileTargetTrack.Text := '';
           FisTrack := False;
         end;
@@ -3667,21 +3539,13 @@ begin
   begin
     if not simMgrClient.IsGameStart then
     begin
-      frmTacticalDisplay.addStatus('Game Frozen');
-
-      if Assigned (frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Game Frozen');
-      
+      addStatus('Game Frozen');
       Exit;
     end;
 
     if not Assigned(FControlled) then
     begin
-      frmTacticalDisplay.addStatus('Vehicle Sender Not Found');
-
-      if Assigned (frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Vehicle Sender Not Found');
-      
+      addStatus('Vehicle Sender Not Found');
       FisTrack := False;
       Exit;
     end;
@@ -3692,11 +3556,7 @@ begin
       begin
         if not (Assigned(missile.TargetObject)) then
         begin
-          frmTacticalDisplay.addStatus('Target not assigned');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Target not assigned');
-          
+          addStatus('Target not assigned');
           Exit;
         end;
 
@@ -3707,21 +3567,13 @@ begin
 
         if Range <= TMissile_On_Board(missile.UnitDefinition).FDef.Min_Range then
         begin
-          frmTacticalDisplay.addStatus('Target is to close');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Target is to close');
-          
+          addStatus('Target is to close');
           setThisLauncherState;
         end
         else
         if Range >= TMissile_On_Board(missile.UnitDefinition).FDef.Max_Range then
         begin
-          frmTacticalDisplay.addStatus('Target is too far');
-
-          if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Target is too far');
-          
+          addStatus('Target is too far');
           setThisLauncherState;
         end
         else
@@ -4070,11 +3922,7 @@ begin
                   end;
                 end;
 
-                frmTacticalDisplay.addStatus('Ready To Ripple for ' + IntToStr(FRippleCount) + ' Missile');
-
-                if Assigned (frmRightAtasAir)then
-                frmRightAtasAir.addStatus('Ready To Ripple for ' + IntToStr(FRippleCount) + ' Missile');
-
+                addStatus('Ready To Ripple for ' + IntToStr(FRippleCount) + ' Missile');
                 setThisLauncherState;
               end;
               meSTOT:
@@ -4096,10 +3944,7 @@ begin
                   if FRippleCountArray[i] then
                     FRippleCount := FRippleCount + 1;
                 end;
-                frmTacticalDisplay.addStatus('Ready To DTOT for ' + IntToStr(FRippleCount) + ' Missile');
-
-                if Assigned (frmRightAtasAir) then
-                frmRightAtasAir.addStatus('Ready To DTOT for ' + IntToStr(FRippleCount) + ' Missile');
+                addStatus('Ready To DTOT for ' + IntToStr(FRippleCount) + ' Missile');
 
                 FRippleTimer := 0;
                 TimerRipple.Enabled := False;
@@ -4336,10 +4181,7 @@ begin
             end
             else
             begin
-              frmTacticalDisplay.addStatus('Cant Detect bearing To Launch');
-              
-              if Assigned (frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Cant Detect bearing To Launch');
+              addStatus('Cant Detect bearing To Launch');
             end;
           end;
         end;
@@ -4400,10 +4242,7 @@ begin
         if not ((frmTacticalDisplay.focusedTrack is TPointVehicleMissileRBLW) or
           (frmTacticalDisplay.focusedTrack is TPointVehicleMissileBOLW)) then
         begin
-          frmTacticalDisplay.addStatus('Select the Waypoint');
-
-          if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Select the Waypoint');
+          addStatus('Select the Waypoint');
           Exit;
         end;
 
@@ -4418,10 +4257,7 @@ begin
           begin
             if not Assigned(missile.TargetObject) then
             begin
-             if Assigned (frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Target not assigned');
-              
-             frmTacticalDisplay.addStatus('Target not assigned');
+             addStatus('Target not assigned');
              Exit;
             end;
 
@@ -4434,10 +4270,7 @@ begin
               PointRBLW2 := missile.GetRBLWPoint(LauncherIndexRBLW, (IndexRBLW-1));
               if PointRBLW2 = nil then
               begin
-                frmTacticalDisplay.addStatus('Point RBLW not Assined!');
-
-                if Assigned (frmRightAtasAir) then
-                  frmRightAtasAir.addStatus('Point RBLW not Assined!');
+                addStatus('Point RBLW not Assined!');
                 Exit;
               end;
 
@@ -4479,12 +4312,7 @@ begin
             end
             else
             begin
-              frmTacticalDisplay.addStatus('You Already Have '
-                  + IntToStr(missile.MissileDefinition.FDef.Max_Num_Wpts)
-                  + ' Waypoint in Launcher ' + IntToStr(FLauncherIDLastOn));
-
-              if assigned (frmRightAtasAir) then
-                frmRightAtasAir.addStatus('You Already Have '
+              addStatus('You Already Have '
                   + IntToStr(missile.MissileDefinition.FDef.Max_Num_Wpts)
                   + ' Waypoint in Launcher ' + IntToStr(FLauncherIDLastOn));
             end;
@@ -4493,10 +4321,7 @@ begin
           begin
             if not Assigned(missile.TargetObject) then
             begin
-              frmTacticalDisplay.addStatus('Target not assigned');
-              
-              if Assigned (frmRightAtasAir) then
-                frmRightAtasAir.addStatus('Target not assigned');
+              addStatus('Target not assigned');
               Exit;
             end;
 
@@ -4509,10 +4334,7 @@ begin
               PointBOLW2 := missile.GetBOLWPoint(LauncherIndexRBLW, (IndexRBLW-1));
               if PointBOLW2 = nil then
               begin
-                frmTacticalDisplay.addStatus('Point RBLW not Assined!');
-
-                if Assigned (frmRightAtasAir) then
-                  frmRightAtasAir.addStatus('Point RBLW not Assined!');
+                addStatus('Point RBLW not Assined!');
                 Exit;
               end;
 
@@ -4554,12 +4376,7 @@ begin
             end
             else
             begin
-              frmTacticalDisplay.addStatus('You Already Have '
-                  + IntToStr(missile.MissileDefinition.FDef.Max_Num_Wpts)
-                  + ' Waypoint in Launcher ' + IntToStr(FLauncherIDLastOn));
-
-              if Assigned (frmRightAtasAir) then
-                frmRightAtasAir.addStatus('You Already Have '
+              addStatus('You Already Have '
                   + IntToStr(missile.MissileDefinition.FDef.Max_Num_Wpts)
                   + ' Waypoint in Launcher ' + IntToStr(FLauncherIDLastOn));
             end;
@@ -4572,10 +4389,7 @@ begin
         if not ((frmTacticalDisplay.focusedTrack is TPointVehicleMissileRBLW) or
                (frmTacticalDisplay.focusedTrack is TPointVehicleMissileBOLW)) then
         begin
-          if assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Select the Waypoint');
-            
-          frmTacticalDisplay.addStatus('Select the Waypoint');
+          addStatus('Select the Waypoint');
           Exit;
         end;
 
@@ -4635,10 +4449,7 @@ begin
             end
             else
             begin
-              if assigned (frmRightAtasAir) then
-                frmRightAtasAir.addStatus('You Must Have Minimum 1 Point of RBLW');
-                
-              frmTacticalDisplay.addStatus('You Must Have Minimum 1 Point of RBLW');
+              addStatus('You Must Have Minimum 1 Point of RBLW');
             end;
           end;
           mfmBOLW:
@@ -4698,10 +4509,7 @@ begin
 
         if not (Assigned(missile.TargetObject)) then
         begin
-          frmTacticalDisplay.addStatus('Target not assigned');
-          
-          if assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Target not assigned');
+          addStatus('Target not assigned');
           Exit;
         end;
 
@@ -4724,10 +4532,7 @@ begin
 
                 if Distance > missile.WeaponRange then
                 begin
-                  frmTacticalDisplay.addStatus('Launcher ' + IntToStr(i+1) + ' Waypoint is Out Of Range');
-
-                  if assigned (frmRightAtasAir) then
-                    frmRightAtasAir.addStatus('Launcher ' + IntToStr(i+1) + ' Waypoint is Out Of Range');
+                  addStatus('Launcher ' + IntToStr(i+1) + ' Waypoint is Out Of Range');
 
                   PointRBLW := missile.GetRBLWPoint(i+1);
 
@@ -4776,10 +4581,7 @@ begin
                 end
                 else
                 begin
-                  frmTacticalDisplay.addStatus('Launcher ' + IntToStr(i+1) + ' Waypoint is Ready');
-                  
-                  if assigned (frmRightAtasAir) then
-                    frmRightAtasAir.addStatus('Launcher ' + IntToStr(i+1) + ' Waypoint is Ready');
+                  addStatus('Launcher ' + IntToStr(i+1) + ' Waypoint is Ready');
 
                   case missile.Engagement of
                     meRipple:
@@ -4826,10 +4628,7 @@ begin
             end;
             simMgrClient.netSend_CmdSyncBOLW(RecSend2);
 
-            frmTacticalDisplay.addStatus('BOLW is Ready To Inplant in Missile');
-
-            if Assigned (frmRightAtasAir) then
-              frmRightAtasAir.addStatus('BOLW is Ready To Inplant in Missile');
+            addStatus('BOLW is Ready To Inplant in Missile');
           end;
         end;
       end;
@@ -5167,9 +4966,7 @@ procedure TfmWeapon.btnSurfaceToSurfaceMissileLauncherMoreClick(
 begin
   if not simMgrClient.IsGameStart then
   begin
-    if Assigned (frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Game Frozen');
-    frmTacticalDisplay.addStatus('Game Frozen');
+    addStatus('Game Frozen');
     Exit;
   end;
 
@@ -5194,10 +4991,7 @@ var
 begin
   if not simMgrClient.IsGameStart then
   begin
-    if Assigned (frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Game Frozen');
-      
-    frmTacticalDisplay.addStatus('Game Frozen');
+    addStatus('Game Frozen');
     Exit;
   end;
 
@@ -5249,18 +5043,12 @@ begin
       begin
         if not Assigned(FControlled) then
         begin
-          if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Vehicle Sender Not Found');
-            
-          frmTacticalDisplay.addStatus('Vehicle Sender Not Found');
+          addStatus('Vehicle Sender Not Found');
           Exit;
         end;
         if not Assigned(focused_platform) then
         begin
-          if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Vehicle Target Not Found');
-            
-          frmTacticalDisplay.addStatus('Vehicle Target Not Found');
+          addStatus('Vehicle Target Not Found');
           Exit;
         end;
 
@@ -5271,10 +5059,7 @@ begin
 
         if target.PlatformDomain <> 2 then //if Sub-surface
         begin
-          if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Target Domain Not Same With Weapon');
-            
-          frmTacticalDisplay.addStatus('Target Domain Not Same With Weapon');
+          addStatus('Target Domain Not Same With Weapon');
           editVectacTargetTrack.Text := '';
           Exit;
         end;
@@ -5288,10 +5073,7 @@ begin
         end
         else
         begin
-          if Assigned (frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Cant Track Own Vehicle');
-            
-          frmTacticalDisplay.addStatus('Cant Track Own Vehicle');
+          addStatus('Cant Track Own Vehicle');
           editVectacTargetTrack.Text := '';
         end;
       end;
@@ -5318,10 +5100,7 @@ begin
       begin
         if not Assigned(vectac.WeaponCarrier) then
         begin
-          if Assigned (frmRightAtasAir) then
-              frmRightAtasAir.addStatus('No Weapon Carrier Selected');
-              
-          frmTacticalDisplay.addStatus('No Weapon Carrier Selected');
+          addStatus('No Weapon Carrier Selected');
           Exit;
         end;
 
@@ -5629,18 +5408,11 @@ begin
     else
     if tDestruckRange > missile.WeaponRange then
     begin
-      if Assigned (frmRightAtasAir) then
-         frmRightAtasAir.addStatus('Input Reach Maximum Seeker On');
-         
-      frmTacticalDisplay.addStatus('Input Reach Maximum Seeker On');
-     
+      addStatus('Input Reach Maximum Seeker On');
     end
     else
     begin
-      if Assigned (frmRightAtasAir) then
-         frmRightAtasAir.addStatus('Input Reach Minimum Seeker On');
-         
-      frmTacticalDisplay.addStatus('Input Reach Minimum Seeker On');
+      addStatus('Input Reach Minimum Seeker On');
     end;
   end;
 end;
@@ -5661,10 +5433,7 @@ var
 begin
   if not simMgrClient.IsGameStart then
   begin
-    if Assigned (frmRightAtasAir)then
-      frmRightAtasAir.addStatus('Game Frozen');
-      
-    frmTacticalDisplay.addStatus('Game Frozen');
+    addStatus('Game Frozen');
     Exit;
   end;
 
@@ -5678,10 +5447,7 @@ var
 begin
   if not simMgrClient.IsGameStart then
   begin
-    if Assigned (frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Game Frozen');
-      
-    frmTacticalDisplay.addStatus('Game Frozen');
+    addStatus('Game Frozen');
     Exit;
   end;
 
@@ -5741,37 +5507,25 @@ begin
 
   if not simMgrClient.IsGameStart then
   begin
-    if Assigned (frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Game Frozen');
-      
-    frmTacticalDisplay.addStatus('Game Frozen');
+    addStatus('Game Frozen');
     Exit;
   end;
 
   if focused_weapon = nil then
   begin
-    if Assigned (frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Not Found Selected Weapon');
-      
-    frmTacticalDisplay.addStatus('Not Found Selected Weapon');
+    addStatus('Not Found Selected Weapon');
     Exit;
   end;
 
   if not(focused_weapon is TT3TorpedoesOnVehicle)then
   begin
-    if Assigned (frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Selected Weapon Is Not Torpedo');
-      
-    frmTacticalDisplay.addStatus('Selected Weapon Is Not Torpedo');
+    addStatus('Selected Weapon Is Not Torpedo');
     Exit;
   end;
 
   if TT3TorpedoesOnVehicle(focused_weapon).WeaponStatus = wsDamaged then
   begin
-    if Assigned (frmRightAtasAir) then
-       frmRightAtasAir.addStatus('Selected Weapon Is Damaged');
-
-    frmTacticalDisplay.addStatus('Selected Weapon Is Damaged');
+    addStatus('Selected Weapon Is Damaged');
     Exit;
   end;
 
@@ -5813,10 +5567,7 @@ begin
                 EdtATTargetTrack.Text := '';
               end
               else begin
-                if Assigned (frmRightAtasAir) then
-                   frmRightAtasAir.addStatus('Controlled platform not defined');
-
-                frmTacticalDisplay.addStatus('Controlled platform not defined');
+                addStatus('Controlled platform not defined');
                 exit;
               end;
 
@@ -5825,10 +5576,7 @@ begin
               begin
                 if not TorpedoTargetCheck() then
                 begin
-                  if Assigned (frmRightAtasAir) then
-                    frmRightAtasAir.addStatus('Invalid target domain');
-
-                  frmTacticalDisplay.addStatus('Invalid target domain');
+                  addStatus('Invalid target domain');
                   exit;
                 end;
 
@@ -5868,10 +5616,7 @@ begin
               end
               else
               begin
-                if Assigned (frmRightAtasAir) then
-                  frmRightAtasAir.addStatus('Target platform not defined');
-
-                frmTacticalDisplay.addStatus('Target platform not defined');
+                addStatus('Target platform not defined');
                 exit;
               end;
 
@@ -5926,10 +5671,7 @@ begin
               end
               else
               begin
-                frmTacticalDisplay.addStatus('Cannot target own platform');
-
-                if Assigned (frmRightAtasAir) then
-                  frmRightAtasAir.addStatus('Cannot target own platform');
+                addStatus('Cannot target own platform');
                 exit;
               end;
             end;
@@ -6055,10 +5797,7 @@ begin
         begin
            if (focusTarget = nil) or (EdtATTargetTrack.Text = '')then
            begin
-              frmTacticalDisplay.addStatus('Target is not selected!');
-
-              if Assigned (frmRightAtasAir) then
-                frmRightAtasAir.addStatus('Target is not selected!');
+              addStatus('Target is not selected!');
               exit;
            end;
 
@@ -6216,16 +5955,10 @@ begin
 
 
         if Range <= HybridMissile.HybridDefinition.FMissile_Def.Min_Range then
-          frmTacticalDisplay.addStatus('Target is too close')
-        else
-        if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Target is too close')
+          addStatus('Target is too close')
         else
         if Range >= HybridMissile.HybridDefinition.FMissile_Def.Max_Range then
-          frmTacticalDisplay.addStatus('Target is too far')
-        else
-        if Assigned (frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Target is too far')
+          addStatus('Target is too far')
         else begin
           if HybridMissile.Quantity <> 0 then
           begin
@@ -6770,11 +6503,7 @@ var
 begin
   if not simMgrClient.IsGameStart then
   begin
-    frmTacticalDisplay.addStatus('Game Frozen');
-
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Game Frozen');
-
+    addStatus('Game Frozen');
     Exit;
   end;
 
@@ -8033,19 +7762,12 @@ begin
 
       simMgrClient.netSend_CmdLaunch_Missile(rMis);
 
-      frmTacticalDisplay.addStatus('Lauch Missile Number ' + IntToStr(FRippleTimer) + ' On Launcer '
-                                              + IntToStr(launcherIndex));
-
-      if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Lauch Missile Number ' + IntToStr(FRippleTimer) + ' On Launcer '
+      addStatus('Lauch Missile Number ' + IntToStr(FRippleTimer) + ' On Launcer '
                                               + IntToStr(launcherIndex));
     end
     else
     begin
-      frmTacticalDisplay.addStatus('Missile Empty');
-
-      if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Missile Empty');
+      addStatus('Missile Empty');
     end;
   end
   else
@@ -9038,11 +8760,7 @@ begin
 
   if Missile.WeaponStatus = wsDamaged then
   begin
-    frmTacticalDisplay.addStatus('Weapon Status is Damage');
-
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Weapon Status is Damage');
-
+    addStatus('Weapon Status is Damage');
     Exit;
   end;
 
@@ -9055,18 +8773,12 @@ begin
 
                   if Range <= TMissile_On_Board(Missile.UnitDefinition).FDef.Min_Range then
                   begin
-                    frmTacticalDisplay.addStatus('Target is to close');
-
-                    if Assigned(frmRightAtasAir) then
-                      frmRightAtasAir.addStatus('Target is to close');
+                    addStatus('Target is to close');
                   end
                   else
                   if Range >= TMissile_On_Board(Missile.UnitDefinition).FDef.Max_Range then
                   begin
-                    frmTacticalDisplay.addStatus('Target is too far');
-
-                    if Assigned(frmRightAtasAir) then
-                      frmRightAtasAir.addStatus('Target is too far');
+                    addStatus('Target is too far');
                   end
                   else
                   if (Range > TMissile_On_Board(Missile.UnitDefinition).FDef.Min_Range) and
@@ -9110,18 +8822,12 @@ begin
 
                   if Range <= TMissile_On_Board(Missile.UnitDefinition).FDef.Min_Range then
                   begin
-                    frmTacticalDisplay.addStatus('Target is to close');
-
-                    if Assigned(frmRightAtasAir) then
-                      frmRightAtasAir.addStatus('Target is to close');
+                    addStatus('Target is to close');
                   end
                   else
                   if Range >= TMissile_On_Board(Missile.UnitDefinition).FDef.Max_Range then
                   begin
-                    frmTacticalDisplay.addStatus('Target is too far');
-
-                    if Assigned(frmRightAtasAir) then
-                      frmRightAtasAir.addStatus('Target is too far');
+                    addStatus('Target is too far');
                   end
                   else
                   if (Range > TMissile_On_Board(Missile.UnitDefinition).FDef.Min_Range) and
@@ -9316,10 +9022,7 @@ begin
 
   if not Assigned(FControlled) then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Vehicle Sender Not Found');
-
-    frmTacticalDisplay.addStatus('Vehicle Sender Not Found');
+    addStatus('Vehicle Sender Not Found');
     rMis.TargetPlatformID := 0;
     FisTrack := False;
     Exit;
@@ -9327,10 +9030,7 @@ begin
 
   if not Assigned(focused_weapon) then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Weapon Not Defined');
-
-    frmTacticalDisplay.addStatus('Weapon Not Defined');
+    addStatus('Weapon Not Defined');
     rMis.TargetPlatformID := 0;
     FisTrack := False;
     Exit;
@@ -9338,10 +9038,7 @@ begin
 
   if not Assigned(focused_platform) then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Vehicle Target Not Found');
-
-    frmTacticalDisplay.addStatus('Vehicle Target Not Found');
+    addStatus('Vehicle Target Not Found');
     rMis.TargetPlatformID := 0;
     FisTrack := False;
     Exit;
@@ -9349,10 +9046,7 @@ begin
 
   if TT3PlatformInstance(focused_platform) = TT3PlatformInstance(FControlled) then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Cant Track Own Vehicle');
-
-    frmTacticalDisplay.addStatus('Cant Track Own Vehicle');
+    addStatus('Cant Track Own Vehicle');
     rMis.TargetPlatformID := 0;
     FisTrack := False;
     Exit;
@@ -9360,10 +9054,7 @@ begin
 
   if not (TT3PlatformInstance(focused_platform) is TT3Vehicle) then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Vehicle Target Not Available');
-
-    frmTacticalDisplay.addStatus('Vehicle Target Not Available');
+    addStatus('Vehicle Target Not Available');
     rMis.TargetPlatformID := 0;
     FisTrack := False;
     Exit;
@@ -9419,10 +9110,7 @@ begin
       end
       else
       begin
-        if Assigned(frmRightAtasAir) then
-          frmRightAtasAir.addStatus('Cant Trak Own Vehicle');
-
-        frmTacticalDisplay.addStatus('Cant Trak Own Vehicle');
+        addStatus('Cant Trak Own Vehicle');
         editTacticalMissileTargetTrack.Text := '';
         rMis.TargetPlatformID := 0;
         Exit;
@@ -9430,10 +9118,7 @@ begin
     end
     else
     begin
-      if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Target Domain Not Same With Missile');
-
-      frmTacticalDisplay.addStatus('Target Domain Not Same With Missile');
+      addStatus('Target Domain Not Same With Missile');
       editTacticalMissileTargetTrack.Text := '';
       rMis.TargetPlatformID := 0;
       Exit;
@@ -10331,10 +10016,7 @@ begin
           {$REGION ' Target belum diselect '}
           if not Assigned(focused_platform) then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Target platform not defined');
-
-            frmTacticalDisplay.addStatus('Target platform not defined');
+            addStatus('Target platform not defined');
             exit;
           end;
           {$ENDREGION}
@@ -10342,10 +10024,7 @@ begin
           {$REGION ' Target harus sesuai capability '}
           if not TorpedoTargetCheck() then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Invalid target domain');
-
-            frmTacticalDisplay.addStatus('Invalid target domain');
+            addStatus('Invalid target domain');
             exit;
           end;
           {$ENDREGION}
@@ -10353,10 +10032,7 @@ begin
           {$REGION ' Target tidak boleh kapal sendiri '}
           if TT3PlatformInstance(FControlled).InstanceIndex = TorpedoTarget.InstanceIndex then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Cannot target own platform');
-
-            frmTacticalDisplay.addStatus('Cannot target own platform');
+            addStatus('Cannot target own platform');
             exit;
           end;
           {$ENDREGION}
@@ -10518,10 +10194,7 @@ begin
           {$REGION ' Target belum diselect '}
           if not Assigned(focused_platform) then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Target platform not defined');
-
-            frmTacticalDisplay.addStatus('Target platform not defined');
+            addStatus('Target platform not defined');
             exit;
           end;
           {$ENDREGION}
@@ -10529,10 +10202,7 @@ begin
           {$REGION ' Target harus sesuai capability '}
           if not TorpedoTargetCheck() then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Invalid target domain');
-
-            frmTacticalDisplay.addStatus('Invalid target domain');
+            addStatus('Invalid target domain');
             exit;
           end;
           {$ENDREGION}
@@ -10540,10 +10210,7 @@ begin
           {$REGION ' Target tidak boleh kapal sendiri '}
           if TT3PlatformInstance(FControlled).InstanceIndex = TorpedoTarget.InstanceIndex then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Cannot target own platform');
-
-            frmTacticalDisplay.addStatus('Cannot target own platform');
+            addStatus('Cannot target own platform');
             exit;
           end;
           {$ENDREGION}
@@ -10707,10 +10374,7 @@ begin
           {$REGION ' Target belum diselect '}
           if not Assigned(focused_platform) then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Target platform not defined');
-
-            frmTacticalDisplay.addStatus('Target platform not defined');
+            addStatus('Target platform not defined');
             exit;
           end;
           {$ENDREGION}
@@ -10718,10 +10382,7 @@ begin
           {$REGION ' Target harus sesuai capability '}
           if not TorpedoTargetCheck() then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Invalid target domain');
-
-            frmTacticalDisplay.addStatus('Invalid target domain');
+            addStatus('Invalid target domain');
             exit;
           end;
           {$ENDREGION}
@@ -10729,10 +10390,7 @@ begin
           {$REGION ' Target tidak boleh kapal sendiri '}
           if TT3PlatformInstance(FControlled).InstanceIndex = TorpedoTarget.InstanceIndex then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Cannot target own platform');
-
-            frmTacticalDisplay.addStatus('Cannot target own platform');
+            addStatus('Cannot target own platform');
             exit;
           end;
           {$ENDREGION}
@@ -10918,10 +10576,7 @@ begin
           {$REGION ' Target belum diselect '}
           if not Assigned(focused_platform) then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Target platform not defined');
-
-            frmTacticalDisplay.addStatus('Target platform not defined');
+            addStatus('Target platform not defined');
             exit;
           end;
           {$ENDREGION}
@@ -10929,10 +10584,7 @@ begin
           {$REGION ' Target harus sesuai capability '}
           if not TorpedoTargetCheck() then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Invalid target domain');
-
-            frmTacticalDisplay.addStatus('Invalid target domain');
+            addStatus('Invalid target domain');
             exit;
           end;
           {$ENDREGION}
@@ -10940,10 +10592,7 @@ begin
           {$REGION ' Target tidak boleh kapal sendiri '}
           if TT3PlatformInstance(FControlled).InstanceIndex = TorpedoTarget.InstanceIndex then
           begin
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Cannot target own platform');
-
-            frmTacticalDisplay.addStatus('Cannot target own platform');
+            addStatus('Cannot target own platform');
             exit;
           end;
           {$ENDREGION}
@@ -11123,10 +10772,7 @@ begin
           {$REGION ' Target tidak boleh kapal sendiri '}
           if TT3PlatformInstance(FControlled).InstanceIndex = TorpedoTarget.InstanceIndex then
           begin
-            if Assigned (frmRightAtasAir) then
-               frmRightAtasAir.addStatus('Cannot target own platform');
-
-            frmTacticalDisplay.addStatus('Cannot target own platform');
+            addStatus('Cannot target own platform');
             exit;
           end;
           {$ENDREGION}
@@ -11310,10 +10956,7 @@ end;
 
 procedure TfmWeapon.AddStatus(Command: string);
 begin
-  frmTacticalDisplay.addStatus(Command);
-
-  if Assigned(frmRightAtasAir) then
-    frmRightAtasAir.addStatus(Command);
+  addStatus(Command);
 end;
 
 procedure TfmWeapon.ADKeyPress(Sender: TObject; var Key: Char);
@@ -11376,10 +11019,7 @@ begin
   {$REGION ' Game Status '}
   if not simMgrClient.IsGameStart then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Game Frozen');
-
-    frmTacticalDisplay.addStatus('Game Frozen');
+    addStatus('Game Frozen');
     Exit;
   end;
   {$ENDREGION}
@@ -11387,10 +11027,7 @@ begin
   {$REGION ' Own Ship Status '}
   if not Assigned(FControlled) then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Controlled platform not defined');
-
-    frmTacticalDisplay.addStatus('Controlled platform not defined');
+    addStatus('Controlled platform not defined');
     exit;
   end;
   {$ENDREGION}
@@ -11398,28 +11035,19 @@ begin
   {$REGION ' Weapon Status '}
   if focused_weapon = nil then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Not Found Selected Weapon');
-
-    frmTacticalDisplay.addStatus('Not Found Selected Weapon');
+    addStatus('Not Found Selected Weapon');
     Exit;
   end;
 
   if TT3TorpedoesOnVehicle(focused_weapon).WeaponStatus = wsDamaged then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Selected Weapon Is Damaged');
-
-    frmTacticalDisplay.addStatus('Selected Weapon Is Damaged');
+    addStatus('Selected Weapon Is Damaged');
     Exit;
   end;
 
   if not(focused_weapon is TT3TorpedoesOnVehicle)then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Selected Weapon Is Not Torpedo');
-
-    frmTacticalDisplay.addStatus('Selected Weapon Is Not Torpedo');
+    addStatus('Selected Weapon Is Not Torpedo');
     Exit;
   end;
 
@@ -11783,10 +11411,7 @@ begin
   {$REGION ' Game Status '}
   if not simMgrClient.IsGameStart then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Game Frozen');
-
-    frmTacticalDisplay.addStatus('Game Frozen');
+    addStatus('Game Frozen');
     Exit;
   end;
   {$ENDREGION}
@@ -11794,10 +11419,7 @@ begin
   {$REGION ' Own Ship Status '}
   if not Assigned(FControlled) then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Controlled platform not defined');
-
-    frmTacticalDisplay.addStatus('Controlled platform not defined');
+    addStatus('Controlled platform not defined');
     exit;
   end;
   {$ENDREGION}
@@ -11805,28 +11427,19 @@ begin
   {$REGION ' Weapon Status '}
   if focused_weapon = nil then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Not Found Selected Weapon');
-
-    frmTacticalDisplay.addStatus('Not Found Selected Weapon');
+    addStatus('Not Found Selected Weapon');
     Exit;
   end;
 
   if TT3TorpedoesOnVehicle(focused_weapon).WeaponStatus = wsDamaged then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Selected Weapon Is Damaged');
-
-    frmTacticalDisplay.addStatus('Selected Weapon Is Damaged');
+    addStatus('Selected Weapon Is Damaged');
     Exit;
   end;
 
   if not(focused_weapon is TT3TorpedoesOnVehicle)then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Selected Weapon Is Torpedo');
-
-    frmTacticalDisplay.addStatus('Selected Weapon Is Not Torpedo');
+    addStatus('Selected Weapon Is Not Torpedo');
     Exit;
   end;
 
@@ -11844,10 +11457,7 @@ begin
   {$REGION ' Target Tidak boleh null '}
   if not(Assigned(TorpedoTarget)) then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Target is not selected ');
-
-    frmTacticalDisplay.addStatus('Target is not selected ');
+    addStatus('Target is not selected ');
     Result := false;
     exit;
   end;
@@ -11856,10 +11466,7 @@ begin
   {$REGION ' Quantity harus lebi dari salvo '}
   if (TT3TorpedoesOnVehicle(focused_weapon).SalvoSize < 0) then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Cek Salvo ');
-
-    frmTacticalDisplay.addStatus('Cek Salvo ');
+    addStatus('Cek Salvo ');
     Result := false;
     exit;
   end;
@@ -11868,10 +11475,7 @@ begin
   {$REGION ' Quantity harus lebi dari salvo '}
   if (TT3TorpedoesOnVehicle(focused_weapon).Quantity < TT3TorpedoesOnVehicle(focused_weapon).SalvoSize) then
   begin
-    if Assigned(frmRightAtasAir) then
-      frmRightAtasAir.addStatus('Cek Quantity ');
-
-    frmTacticalDisplay.addStatus('Cek Quantity ');
+    addStatus('Cek Quantity ');
     Result := false;
     exit;
   end;

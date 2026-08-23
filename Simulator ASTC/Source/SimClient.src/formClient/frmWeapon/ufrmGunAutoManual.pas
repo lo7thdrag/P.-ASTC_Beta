@@ -174,7 +174,7 @@ uses uT3Gun, uT3CounterMeasure,
 { TfrmGunAutoManual }
 procedure TfrmGunAutoManual.AddStatus(Command: string);
 begin
-  AddStatus(Command);
+   frmTacticalDisplay.addStatus(Command);
 end;
 
 procedure TfrmGunAutoManual.ApplyAssigned(Value : boolean);

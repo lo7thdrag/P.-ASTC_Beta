@@ -89,7 +89,7 @@ uses uT3Gun, uT3CounterMeasure,
 
 procedure TfrmGunCIWS.AddStatus(Command: string);
 begin
-  AddStatus(Command);
+   frmTacticalDisplay.addStatus(Command);
 end;
 
 procedure TfrmGunCIWS.ApplyCeaseFire(Value: boolean);

@@ -1163,7 +1163,7 @@ begin
     Missile    := TT3MissilesOnVehicle(focused_weapon)
   else
   begin
-    frmTacticalDisplay.addStatus('No Weapon Assigned !!');
+    addStatus('No Weapon Assigned !!');
     Exit;
   end;
 

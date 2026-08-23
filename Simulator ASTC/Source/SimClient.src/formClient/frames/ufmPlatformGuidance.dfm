@@ -92,255 +92,6 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
     ParentBackground = False
     ParentCtl3D = False
     TabOrder = 1
-    object gbWaypoint: TGroupBox
-      Left = 1
-      Top = 1
-      Width = 364
-      Height = 427
-      Align = alClient
-      ParentBackground = False
-      TabOrder = 0
-      object Label97: TLabel
-        Left = 15
-        Top = 30
-        Width = 33
-        Height = 16
-        Caption = 'Name'
-      end
-      object lbName: TLabel
-        Left = 180
-        Top = 30
-        Width = 15
-        Height = 16
-        Caption = '---'
-      end
-      object lblLongitude: TLabel
-        Left = 180
-        Top = 50
-        Width = 15
-        Height = 16
-        Caption = '---'
-      end
-      object Label103: TLabel
-        Left = 15
-        Top = 50
-        Width = 44
-        Height = 16
-        Caption = 'Position'
-      end
-      object lbGroundSpeed: TLabel
-        Left = 180
-        Top = 70
-        Width = 18
-        Height = 16
-        Caption = '0.0'
-      end
-      object Label104: TLabel
-        Left = 15
-        Top = 70
-        Width = 81
-        Height = 16
-        Caption = 'Ground Speed'
-      end
-      object lbEta: TLabel
-        Left = 180
-        Top = 110
-        Width = 15
-        Height = 16
-        Caption = '---'
-      end
-      object Label105: TLabel
-        Left = 15
-        Top = 90
-        Width = 82
-        Height = 16
-        Caption = 'Distance to Go'
-      end
-      object Label106: TLabel
-        Left = 260
-        Top = 90
-        Width = 18
-        Height = 16
-        Caption = 'nm'
-      end
-      object Label107: TLabel
-        Left = 15
-        Top = 145
-        Width = 132
-        Height = 16
-        Caption = 'Ordered Ground Speed'
-      end
-      object lbDistance: TLabel
-        Left = 180
-        Top = 90
-        Width = 21
-        Height = 16
-        Caption = '000'
-      end
-      object Label177: TLabel
-        Left = 260
-        Top = 145
-        Width = 30
-        Height = 16
-        Caption = 'knots'
-      end
-      object Label179: TLabel
-        Left = 260
-        Top = 165
-        Width = 30
-        Height = 16
-        Caption = 'knots'
-      end
-      object Label184: TLabel
-        Left = 260
-        Top = 70
-        Width = 30
-        Height = 16
-        Caption = 'knots'
-      end
-      object lblLatitude: TLabel
-        Left = 260
-        Top = 50
-        Width = 15
-        Height = 16
-        Caption = '---'
-      end
-      object lbActualGroundWaypoint: TLabel
-        Left = 180
-        Top = 165
-        Width = 18
-        Height = 16
-        Caption = '0.0'
-      end
-      object Bevel19: TBevel
-        Left = 100
-        Top = 18
-        Width = 220
-        Height = 3
-      end
-      object Bevel20: TBevel
-        Left = 10
-        Top = 135
-        Width = 310
-        Height = 3
-      end
-      object StaticText24: TStaticText
-        Left = 15
-        Top = 110
-        Width = 27
-        Height = 20
-        Caption = 'ETA'
-        TabOrder = 0
-        Transparent = False
-      end
-      object StaticText26: TStaticText
-        Left = 10
-        Top = 10
-        Width = 84
-        Height = 20
-        Caption = 'Next waypoint'
-        TabOrder = 1
-        Transparent = False
-      end
-      object StaticText27: TStaticText
-        Left = 15
-        Top = 165
-        Width = 124
-        Height = 20
-        Caption = 'Actual Ground Speed'
-        TabOrder = 2
-        Transparent = False
-      end
-      object btnWaypoint: TButton
-        Left = 200
-        Top = 200
-        Width = 120
-        Height = 25
-        Caption = 'Edit Waypoints..'
-        TabOrder = 3
-        OnClick = btnWaypointClick
-      end
-      object StaticText67: TStaticText
-        Left = 160
-        Top = 30
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 4
-        Transparent = False
-      end
-      object StaticText71: TStaticText
-        Left = 160
-        Top = 50
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 5
-        Transparent = False
-      end
-      object StaticText76: TStaticText
-        Left = 160
-        Top = 70
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 6
-        Transparent = False
-      end
-      object StaticText77: TStaticText
-        Left = 160
-        Top = 90
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 7
-        Transparent = False
-      end
-      object StaticText78: TStaticText
-        Left = 160
-        Top = 110
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 8
-        Transparent = False
-      end
-      object StaticText79: TStaticText
-        Left = 160
-        Top = 165
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 9
-        Transparent = False
-      end
-      object StaticText80: TStaticText
-        Left = 160
-        Top = 145
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 10
-        Transparent = False
-      end
-      object edtWaypointOrderedGroundSpeed: TEdit
-        Left = 180
-        Top = 142
-        Width = 60
-        Height = 22
-        BevelInner = bvNone
-        BevelOuter = bvNone
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        MaxLength = 9
-        ParentFont = False
-        TabOrder = 11
-        OnKeyPress = edtWaypointOrderedGroundSpeedKeyPress
-      end
-    end
     object grbEngagement: TGroupBox
       Left = 1
       Top = 1
@@ -880,215 +631,6 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
         Caption = ':'
         TabOrder = 3
         Transparent = False
-      end
-    end
-    object grbFormation: TGroupBox
-      Left = 1
-      Top = 1
-      Width = 364
-      Height = 427
-      Align = alClient
-      ParentBackground = False
-      TabOrder = 2
-      object Label323: TLabel
-        Left = 10
-        Top = 25
-        Width = 33
-        Height = 16
-        Caption = 'Name'
-      end
-      object Label324: TLabel
-        Left = 10
-        Top = 50
-        Width = 39
-        Height = 16
-        Caption = 'Leader'
-      end
-      object lblLeaderFormation: TLabel
-        Left = 150
-        Top = 50
-        Width = 76
-        Height = 16
-        Caption = 'Invicible R 05'
-      end
-      object lblNameFormation: TLabel
-        Left = 150
-        Top = 25
-        Width = 22
-        Height = 16
-        Caption = 'TF1'
-      end
-      object Label373: TLabel
-        Left = 10
-        Top = 100
-        Width = 43
-        Height = 16
-        Caption = 'Bearing'
-      end
-      object Label374: TLabel
-        Left = 10
-        Top = 125
-        Width = 36
-        Height = 16
-        Caption = 'Range'
-      end
-      object Label381: TLabel
-        Left = 245
-        Top = 126
-        Width = 18
-        Height = 16
-        Caption = 'nm'
-      end
-      object lblRangeFormation: TLabel
-        Left = 150
-        Top = 125
-        Width = 25
-        Height = 16
-        Caption = '0.00'
-      end
-      object lblBearingFormation: TLabel
-        Left = 150
-        Top = 100
-        Width = 21
-        Height = 16
-        Caption = '000'
-      end
-      object Label399: TLabel
-        Left = 245
-        Top = 100
-        Width = 58
-        Height = 16
-        Caption = 'degrees T'
-      end
-      object StaticText154: TStaticText
-        Left = 125
-        Top = 25
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 0
-        Transparent = False
-      end
-      object StaticText155: TStaticText
-        Left = 125
-        Top = 50
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 1
-        Transparent = False
-      end
-      object StaticText156: TStaticText
-        Left = 125
-        Top = 100
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 2
-        Transparent = False
-      end
-      object StaticText157: TStaticText
-        Left = 125
-        Top = 125
-        Width = 9
-        Height = 20
-        Caption = ':'
-        TabOrder = 3
-        Transparent = False
-      end
-      object btnQuickFormation: TButton
-        Left = 190
-        Top = 210
-        Width = 120
-        Height = 25
-        Caption = 'Quick Formation'
-        TabOrder = 6
-        Visible = False
-        OnClick = btnQuickFormationClick
-      end
-      object pnlDepth: TPanel
-        Left = 10
-        Top = 150
-        Width = 319
-        Height = 24
-        BevelOuter = bvNone
-        ParentColor = True
-        TabOrder = 5
-        Visible = False
-        object labelFormationDepth: TLabel
-          Left = 140
-          Top = 0
-          Width = 15
-          Height = 16
-          Caption = '---'
-        end
-        object Label42: TLabel
-          Left = 235
-          Top = 0
-          Width = 11
-          Height = 16
-          Caption = 'm'
-        end
-        object StaticText34: TStaticText
-          Left = 0
-          Top = 0
-          Width = 76
-          Height = 20
-          Caption = 'Actual Depth'
-          TabOrder = 0
-          Transparent = False
-        end
-        object StaticText36: TStaticText
-          Left = 115
-          Top = 0
-          Width = 9
-          Height = 20
-          Caption = ':'
-          TabOrder = 1
-          Transparent = False
-        end
-      end
-      object pnlAltitude: TPanel
-        Left = 10
-        Top = 150
-        Width = 319
-        Height = 26
-        BevelOuter = bvNone
-        ParentColor = True
-        TabOrder = 4
-        Visible = False
-        object labelFormationAltitude: TLabel
-          Left = 140
-          Top = 0
-          Width = 15
-          Height = 16
-          Caption = '---'
-        end
-        object Label38: TLabel
-          Left = 235
-          Top = 0
-          Width = 22
-          Height = 16
-          Caption = 'feet'
-        end
-        object StaticText31: TStaticText
-          Left = 0
-          Top = 0
-          Width = 86
-          Height = 20
-          Caption = 'Actual Altitude'
-          TabOrder = 0
-          Transparent = False
-        end
-        object StaticText33: TStaticText
-          Left = 115
-          Top = 0
-          Width = 9
-          Height = 20
-          Caption = ':'
-          TabOrder = 1
-          Transparent = False
-        end
       end
     end
     object grbHelm: TGroupBox
@@ -4127,6 +3669,255 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
         end
       end
     end
+    object gbWaypoint: TGroupBox
+      Left = 1
+      Top = 1
+      Width = 364
+      Height = 427
+      Align = alClient
+      ParentBackground = False
+      TabOrder = 0
+      object Label97: TLabel
+        Left = 15
+        Top = 30
+        Width = 33
+        Height = 16
+        Caption = 'Name'
+      end
+      object lbName: TLabel
+        Left = 180
+        Top = 30
+        Width = 15
+        Height = 16
+        Caption = '---'
+      end
+      object lblLongitude: TLabel
+        Left = 180
+        Top = 50
+        Width = 15
+        Height = 16
+        Caption = '---'
+      end
+      object Label103: TLabel
+        Left = 15
+        Top = 50
+        Width = 44
+        Height = 16
+        Caption = 'Position'
+      end
+      object lbGroundSpeed: TLabel
+        Left = 180
+        Top = 70
+        Width = 18
+        Height = 16
+        Caption = '0.0'
+      end
+      object Label104: TLabel
+        Left = 15
+        Top = 70
+        Width = 81
+        Height = 16
+        Caption = 'Ground Speed'
+      end
+      object lbEta: TLabel
+        Left = 180
+        Top = 110
+        Width = 15
+        Height = 16
+        Caption = '---'
+      end
+      object Label105: TLabel
+        Left = 15
+        Top = 90
+        Width = 82
+        Height = 16
+        Caption = 'Distance to Go'
+      end
+      object Label106: TLabel
+        Left = 260
+        Top = 90
+        Width = 18
+        Height = 16
+        Caption = 'nm'
+      end
+      object Label107: TLabel
+        Left = 15
+        Top = 145
+        Width = 132
+        Height = 16
+        Caption = 'Ordered Ground Speed'
+      end
+      object lbDistance: TLabel
+        Left = 180
+        Top = 90
+        Width = 21
+        Height = 16
+        Caption = '000'
+      end
+      object Label177: TLabel
+        Left = 260
+        Top = 145
+        Width = 30
+        Height = 16
+        Caption = 'knots'
+      end
+      object Label179: TLabel
+        Left = 260
+        Top = 165
+        Width = 30
+        Height = 16
+        Caption = 'knots'
+      end
+      object Label184: TLabel
+        Left = 260
+        Top = 70
+        Width = 30
+        Height = 16
+        Caption = 'knots'
+      end
+      object lblLatitude: TLabel
+        Left = 260
+        Top = 50
+        Width = 15
+        Height = 16
+        Caption = '---'
+      end
+      object lbActualGroundWaypoint: TLabel
+        Left = 180
+        Top = 165
+        Width = 18
+        Height = 16
+        Caption = '0.0'
+      end
+      object Bevel19: TBevel
+        Left = 100
+        Top = 18
+        Width = 220
+        Height = 3
+      end
+      object Bevel20: TBevel
+        Left = 10
+        Top = 135
+        Width = 310
+        Height = 3
+      end
+      object StaticText24: TStaticText
+        Left = 15
+        Top = 110
+        Width = 27
+        Height = 20
+        Caption = 'ETA'
+        TabOrder = 0
+        Transparent = False
+      end
+      object StaticText26: TStaticText
+        Left = 10
+        Top = 10
+        Width = 84
+        Height = 20
+        Caption = 'Next waypoint'
+        TabOrder = 1
+        Transparent = False
+      end
+      object StaticText27: TStaticText
+        Left = 15
+        Top = 165
+        Width = 124
+        Height = 20
+        Caption = 'Actual Ground Speed'
+        TabOrder = 2
+        Transparent = False
+      end
+      object btnWaypoint: TButton
+        Left = 200
+        Top = 200
+        Width = 120
+        Height = 25
+        Caption = 'Edit Waypoints..'
+        TabOrder = 3
+        OnClick = btnWaypointClick
+      end
+      object StaticText67: TStaticText
+        Left = 160
+        Top = 30
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 4
+        Transparent = False
+      end
+      object StaticText71: TStaticText
+        Left = 160
+        Top = 50
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 5
+        Transparent = False
+      end
+      object StaticText76: TStaticText
+        Left = 160
+        Top = 70
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 6
+        Transparent = False
+      end
+      object StaticText77: TStaticText
+        Left = 160
+        Top = 90
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 7
+        Transparent = False
+      end
+      object StaticText78: TStaticText
+        Left = 160
+        Top = 110
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 8
+        Transparent = False
+      end
+      object StaticText79: TStaticText
+        Left = 160
+        Top = 165
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 9
+        Transparent = False
+      end
+      object StaticText80: TStaticText
+        Left = 160
+        Top = 145
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 10
+        Transparent = False
+      end
+      object edtWaypointOrderedGroundSpeed: TEdit
+        Left = 180
+        Top = 142
+        Width = 60
+        Height = 22
+        BevelInner = bvNone
+        BevelOuter = bvNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 9
+        ParentFont = False
+        TabOrder = 11
+        OnKeyPress = edtWaypointOrderedGroundSpeedKeyPress
+      end
+    end
     object grpPersonelGuidance: TGroupBox
       Left = 1
       Top = 1
@@ -4462,6 +4253,215 @@ inherited fmPlatformGuidance: TfmPlatformGuidance
         ReadOnly = True
         TabOrder = 2
         OnKeyPress = edtPersonelGuidanceOrderedHeadingKeyPress
+      end
+    end
+    object grbFormation: TGroupBox
+      Left = 1
+      Top = 1
+      Width = 364
+      Height = 427
+      Align = alClient
+      ParentBackground = False
+      TabOrder = 2
+      object Label323: TLabel
+        Left = 10
+        Top = 25
+        Width = 33
+        Height = 16
+        Caption = 'Name'
+      end
+      object Label324: TLabel
+        Left = 10
+        Top = 50
+        Width = 39
+        Height = 16
+        Caption = 'Leader'
+      end
+      object lblLeaderFormation: TLabel
+        Left = 150
+        Top = 50
+        Width = 76
+        Height = 16
+        Caption = 'Invicible R 05'
+      end
+      object lblNameFormation: TLabel
+        Left = 150
+        Top = 25
+        Width = 22
+        Height = 16
+        Caption = 'TF1'
+      end
+      object Label373: TLabel
+        Left = 10
+        Top = 100
+        Width = 43
+        Height = 16
+        Caption = 'Bearing'
+      end
+      object Label374: TLabel
+        Left = 10
+        Top = 125
+        Width = 36
+        Height = 16
+        Caption = 'Range'
+      end
+      object Label381: TLabel
+        Left = 245
+        Top = 126
+        Width = 18
+        Height = 16
+        Caption = 'nm'
+      end
+      object lblRangeFormation: TLabel
+        Left = 150
+        Top = 125
+        Width = 25
+        Height = 16
+        Caption = '0.00'
+      end
+      object lblBearingFormation: TLabel
+        Left = 150
+        Top = 100
+        Width = 21
+        Height = 16
+        Caption = '000'
+      end
+      object Label399: TLabel
+        Left = 245
+        Top = 100
+        Width = 58
+        Height = 16
+        Caption = 'degrees T'
+      end
+      object StaticText154: TStaticText
+        Left = 125
+        Top = 25
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 0
+        Transparent = False
+      end
+      object StaticText155: TStaticText
+        Left = 125
+        Top = 50
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 1
+        Transparent = False
+      end
+      object StaticText156: TStaticText
+        Left = 125
+        Top = 100
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 2
+        Transparent = False
+      end
+      object StaticText157: TStaticText
+        Left = 125
+        Top = 125
+        Width = 9
+        Height = 20
+        Caption = ':'
+        TabOrder = 3
+        Transparent = False
+      end
+      object btnQuickFormation: TButton
+        Left = 190
+        Top = 210
+        Width = 120
+        Height = 25
+        Caption = 'Quick Formation'
+        TabOrder = 6
+        Visible = False
+        OnClick = btnQuickFormationClick
+      end
+      object pnlDepth: TPanel
+        Left = 10
+        Top = 150
+        Width = 319
+        Height = 24
+        BevelOuter = bvNone
+        ParentColor = True
+        TabOrder = 5
+        Visible = False
+        object labelFormationDepth: TLabel
+          Left = 140
+          Top = 0
+          Width = 15
+          Height = 16
+          Caption = '---'
+        end
+        object Label42: TLabel
+          Left = 235
+          Top = 0
+          Width = 11
+          Height = 16
+          Caption = 'm'
+        end
+        object StaticText34: TStaticText
+          Left = 0
+          Top = 0
+          Width = 76
+          Height = 20
+          Caption = 'Actual Depth'
+          TabOrder = 0
+          Transparent = False
+        end
+        object StaticText36: TStaticText
+          Left = 115
+          Top = 0
+          Width = 9
+          Height = 20
+          Caption = ':'
+          TabOrder = 1
+          Transparent = False
+        end
+      end
+      object pnlAltitude: TPanel
+        Left = 10
+        Top = 150
+        Width = 319
+        Height = 26
+        BevelOuter = bvNone
+        ParentColor = True
+        TabOrder = 4
+        Visible = False
+        object labelFormationAltitude: TLabel
+          Left = 140
+          Top = 0
+          Width = 15
+          Height = 16
+          Caption = '---'
+        end
+        object Label38: TLabel
+          Left = 235
+          Top = 0
+          Width = 22
+          Height = 16
+          Caption = 'feet'
+        end
+        object StaticText31: TStaticText
+          Left = 0
+          Top = 0
+          Width = 86
+          Height = 20
+          Caption = 'Actual Altitude'
+          TabOrder = 0
+          Transparent = False
+        end
+        object StaticText33: TStaticText
+          Left = 115
+          Top = 0
+          Width = 9
+          Height = 20
+          Caption = ':'
+          TabOrder = 1
+          Transparent = False
+        end
       end
     end
     object grbStraightLine: TGroupBox

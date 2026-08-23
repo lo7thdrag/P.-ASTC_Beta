@@ -550,10 +550,12 @@ type
 
     procedure SetMapPositionX(const Value: double);
     procedure SetMapPositionY(const Value: double);
+    procedure AddStatus(Command: string);
   protected
     procedure DisplayTab(const i: byte); override;
   public
     { Public declarations }
+    statusR_List,statusY_List : TList;
     focused_platform: TSimObject;
     FPlatformMultiSelectList : TList;
     GrpVehicle : T3GroupVehicle;
@@ -695,7 +697,7 @@ begin
       if TryStrToFloat(edtCircleOnTrackBearing.Text, bearing) then
         SimMgrClient.netSend_CmdPlatform(v.InstanceIndex,
         CORD_ID_MOVE, CORD_TYPE_CIRCLE_BEARING, bearing)
-      else frmTacticalDisplay.addStatus('It is not valid input');
+      else AddStatus('Input tidak valid');
     end;
   end;
 end;
@@ -719,7 +721,7 @@ begin
       if TryStrToFloat(edtCircleOnTrackRange.Text, range) then
         SimMgrClient.netSend_CmdPlatform(v.InstanceIndex,
         CORD_ID_MOVE, CORD_TYPE_CIRCLE_RANGE, range)
-      else frmTacticalDisplay.addStatus('It is not valid input');
+      else AddStatus('Input tidak valid');
     end;
   end;
 end;
@@ -745,9 +747,9 @@ begin
         if (v.FuelRemaining <= 0 ) and (v.UnitMotion.FData.Endurance_Type = 0) then
         begin
           if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-            frmTacticalDisplay.addStatus(v.TrackLabel+' Out of Fuel')
+            AddStatus(v.TrackLabel+' Bahan bakar habis ')
           else
-            frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Out of Fuel');
+            AddStatus(IntToStr(v.TrackNumber)+' Bahan bakar habis ');
 
           Exit;
         end;
@@ -757,9 +759,9 @@ begin
           edtCircleOrderedGroundSpeed.Text := FloatToStr(v.Mover.MaxSpeed);
 
           if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-            frmTacticalDisplay.addStatus(v.TrackLabel+' Over Speed = '+FloatToStr(Speed))
+            AddStatus(v.TrackLabel+' Kelebihan kecepatan = '+FloatToStr(Speed))
           else
-            frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Over Speed = '+FloatToStr(Speed));
+            AddStatus(IntToStr(v.TrackNumber)+' Kelebihan kecepatan = '+FloatToStr(Speed));
 
           Speed := v.Mover.MaxSpeed;     //mk test
         end
@@ -768,9 +770,9 @@ begin
           edtCircleOrderedGroundSpeed.Text := FloatToStr(v.Mover.MinSpeed);
 
           if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-            frmTacticalDisplay.addStatus(v.TrackLabel + ' MIN SPEED')
+            AddStatus(v.TrackLabel + ' Minimal kecepatan')
           else
-            frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber) + ' MIN SPEED');
+            AddStatus(IntToStr(v.TrackNumber) + ' Minimal kecepatan');
 
           Speed := v.Mover.MinSpeed;
         end;
@@ -780,7 +782,7 @@ begin
         SimMgrClient.netSend_CmdPlatform(v.InstanceIndex,
           CORD_ID_MOVE, CORD_TYPE_SPEED, Speed)
       end
-      else frmTacticalDisplay.addStatus('It is not valid input');
+      else addStatus('Input tidak valid');
     end;
   end;
 end;
@@ -808,9 +810,9 @@ begin
           SimMgrClient.netSend_CmdPlatform(v.InstanceIndex, CORD_ID_MOVE,
                                       CORD_TYPE_CIRCLE_RADIUS, radius);
         end
-        else frmTacticalDisplay.addStatus('Radius must more than zero');
+        else AddStatus('Radius tidak boleh Nol');
       end
-      else frmTacticalDisplay.addStatus('It is not valid input');
+      else AddStatus('Input tidak valid');
     end;
   end;
 end;
@@ -917,9 +919,9 @@ begin
           if (v.FuelRemaining <= 0 ) and (v.UnitMotion.FData.Endurance_Type = 0) then
           begin
             if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-              frmTacticalDisplay.addStatus(v.TrackLabel+' Out of Fuel')
+              AddStatus(v.TrackLabel+' Bahan bakar habis')
             else
-              frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Out of Fuel');
+              AddStatus(IntToStr(v.TrackNumber)+' Bahan bakar habis');
 
             Exit;
           end;
@@ -929,9 +931,9 @@ begin
             edtHelmOrderedGroundSpeed.Text := FloatToStr(v.Mover.MaxSpeed);
 
             if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-              frmTacticalDisplay.addStatus(v.TrackLabel+' OVER SPEED')
+              AddStatus(v.TrackLabel+' Kelebihan kecepatan')
             else
-              frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' OVER SPEED');
+              AddStatus(IntToStr(v.TrackNumber)+' Kelebihan kecepatan');
 
             Speed := v.Mover.MaxSpeed;     //mk test
           end
@@ -940,9 +942,9 @@ begin
             edtHelmOrderedGroundSpeed.Text := FloatToStr(v.Mover.MinSpeed);
 
             if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-              frmTacticalDisplay.addStatus(v.TrackLabel + ' MIN SPEED')
+              AddStatus(v.TrackLabel + ' Minimun kecepatan')
             else
-              frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber) + ' MIN SPEED');
+              AddStatus(IntToStr(v.TrackNumber) + ' Minimum kecepatan');
 
             Speed := v.Mover.MinSpeed;
           end;
@@ -964,9 +966,9 @@ begin
               if (v.FuelRemaining <= 0 ) and (v.UnitMotion.FData.Endurance_Type = 0) then
               begin
                 if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                  frmTacticalDisplay.addStatus(v.TrackLabel+' Out of Fuel')
+                  AddStatus(v.TrackLabel+' Bahan bakar habis')
                 else
-                  frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Out of Fuel');
+                  AddStatus(IntToStr(v.TrackNumber)+' Bahan bakar habis');
 
                 Exit;
               end;
@@ -976,9 +978,9 @@ begin
                 edtHelmOrderedGroundSpeed.Text := FloatToStr(v.Mover.MaxSpeed);
 
                 if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                  frmTacticalDisplay.addStatus(v.TrackLabel+' OVER SPEED')
+                  AddStatus(v.TrackLabel+' Kelebihan kecepatan')
                 else
-                  frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' OVER SPEED');
+                  AddStatus(IntToStr(v.TrackNumber)+' Kelebihan kecepatan');
 
                 Speed := v.Mover.MaxSpeed;     //mk test
               end
@@ -987,9 +989,9 @@ begin
                 edtHelmOrderedGroundSpeed.Text := FloatToStr(v.Mover.MinSpeed);
 
                 if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                  frmTacticalDisplay.addStatus(v.TrackLabel + ' MIN SPEED')
+                  AddStatus(v.TrackLabel + ' Minimum kecepatan')
                 else
-                  frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber) + ' MIN SPEED');
+                  AddStatus(IntToStr(v.TrackNumber) + ' Minimum kecepatan');
 
                 Speed := v.Mover.MinSpeed;
               end;
@@ -1274,9 +1276,9 @@ begin
       if (v.FuelRemaining <= 0 ) and (v.UnitMotion.FData.Endurance_Type = 0) then
       begin
         if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          frmTacticalDisplay.addStatus(v.TrackLabel + ' Out of Fuel')
+          AddStatus(v.TrackLabel + ' Bahan bakar habis')
         else
-          frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+ ' Out of Fuel');
+          AddStatus(IntToStr(v.TrackNumber)+ ' Bahan bakar habis');
         Exit;
       end;
 
@@ -1285,9 +1287,9 @@ begin
         edtWaypointOrderedGroundSpeed.Text := FloatToStr(v.Mover.MaxSpeed);
 
         if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          frmTacticalDisplay.addStatus(v.TrackLabel+' Over Speed = '+FloatToStr(Speed))
+          AddStatus(v.TrackLabel+' Kelebihan kecepatan = '+FloatToStr(Speed))
         else
-          frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Over Speed = '+FloatToStr(Speed));
+          AddStatus(IntToStr(v.TrackNumber)+' Kelebihan kecepatan = '+FloatToStr(Speed));
 
         Speed := v.Mover.MaxSpeed;     //mk test
       end
@@ -1296,9 +1298,9 @@ begin
         edtWaypointOrderedGroundSpeed.Text := FloatToStr(v.Mover.MinSpeed);
 
         if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          frmTacticalDisplay.addStatus(v.TrackLabel + ' MIN SPEED')
+          AddStatus(v.TrackLabel + ' Minimum kecepatan')
         else
-          frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber) + ' MIN SPEED');
+          AddStatus(IntToStr(v.TrackNumber) + ' Minimum kecepatan');
 
         Speed := v.Mover.MinSpeed;
       end;
@@ -1341,9 +1343,9 @@ begin
       if (v.FuelRemaining <= 0 ) and (v.UnitMotion.FData.Endurance_Type = 0) then
       begin
         if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          frmTacticalDisplay.addStatus(v.TrackLabel + ' Out of Fuel')
+          AddStatus(v.TrackLabel + ' Bahan bakar habis')
         else
-          frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Out of Fuel');
+          AddStatus(IntToStr(v.TrackNumber)+' Bahan bakar habis');
         Exit;
       end;
 
@@ -1352,9 +1354,9 @@ begin
         edtShadowOrdeeredGroundSpeed.Text := FloatToStr(v.Mover.MaxSpeed);
 
         if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          frmTacticalDisplay.addStatus(v.TrackLabel+' Over Speed = '+FloatToStr(Speed))
+          AddStatus(v.TrackLabel+' Kelebihan kecepatan = '+FloatToStr(Speed))
         else
-          frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Over Speed = '+FloatToStr(Speed));
+          AddStatus(IntToStr(v.TrackNumber)+' Kelebihan kecepatan = '+FloatToStr(Speed));
 
         Speed := v.Mover.MaxSpeed;     //mk test
       end
@@ -1363,9 +1365,9 @@ begin
         edtShadowOrdeeredGroundSpeed.Text := FloatToStr(v.Mover.MinSpeed);
 
         if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          frmTacticalDisplay.addStatus(v.TrackLabel + ' MIN SPEED')
+          AddStatus(v.TrackLabel + ' Minimum kecepatan')
         else
-          frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber) + ' MIN SPEED');
+          AddStatus(IntToStr(v.TrackNumber) + ' Minimum kecepatan');
 
         Speed := v.Mover.MinSpeed;
       end;
@@ -1420,13 +1422,13 @@ begin
                 else
                 begin
                   edtSinuationBasePeriod.Text := FormatFloat('0.00', v.PeriodSinuation);
-                  frmTacticalDisplay.addStatus('Sinuation Invalid Periode Value');
+                  AddStatus('Nilai Periode tidak valid');
                 end;
               end
               else
               begin
                 edtSinuationBasePeriod.Text := FormatFloat('0.00', v.PeriodSinuation);
-                frmTacticalDisplay.addStatus('Sinuation Invalid Periode Value');
+                AddStatus('Nilai Periode tidak valid');
               end;
 
             end;
@@ -1442,13 +1444,13 @@ begin
                 else
                 begin
                   edtSinuationAmplitude.Text := FormatFloat('0.00', v.AmplitudoSinuation);
-                  frmTacticalDisplay.addStatus('Sinuation Invalid Amplitudo Value');
+                  AddStatus('Nilai Amplitudo tidak valid');
                 end;
               end
               else
               begin
                 edtSinuationAmplitude.Text := FormatFloat('0.00', v.AmplitudoSinuation);
-                frmTacticalDisplay.addStatus('Sinuation Invalid Amplitudo Value');
+                AddStatus('Nilai Amplitudo tidak valid');
               end;
             end;
         4 : begin
@@ -1458,9 +1460,9 @@ begin
               if (v.FuelRemaining <= 0 ) and (v.UnitMotion.FData.Endurance_Type = 0) then
               begin
                 if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                  frmTacticalDisplay.addStatus(v.TrackLabel+' Out of Fuel')
+                  AddStatus(v.TrackLabel+' Bahan bakar habis')
                 else
-                  frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Out of Fuel');
+                  AddStatus(IntToStr(v.TrackNumber)+' Bahan bakar habis');
 
                 Exit;
               end;
@@ -1470,10 +1472,10 @@ begin
                 edtSinuationOrderedgroundSpeed.Text := FloatToStr(v.Mover.MaxSpeed);
 
                 if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                  frmTacticalDisplay.addStatus(v.TrackLabel+' Over Speed = '
+                  AddStatus(v.TrackLabel+' Kelebihan kecepatan = '
                                                + FloatToStr(Speed))
                 else
-                  frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Over Speed = '
+                  AddStatus(IntToStr(v.TrackNumber)+' Kelebihan kecepatan = '
                                                + FloatToStr(Speed));
 
                 Speed := v.Mover.MaxSpeed;     //mk test
@@ -1483,9 +1485,9 @@ begin
                 edtSinuationOrderedgroundSpeed.Text := FloatToStr(v.Mover.MinSpeed);
 
                 if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                  frmTacticalDisplay.addStatus(v.TrackLabel + ' MIN SPEED')
+                  AddStatus(v.TrackLabel + ' Minimum kecepatan')
                 else
-                  frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber) + ' MIN SPEED');
+                  AddStatus(IntToStr(v.TrackNumber) + ' Minimum kecepatan');
 
                 Speed := v.Mover.MinSpeed;
               end;
@@ -1615,9 +1617,9 @@ begin
         if (v.FuelRemaining <= 0 ) and (v.UnitMotion.FData.Endurance_Type = 0) then
         begin
           if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-            frmTacticalDisplay.addStatus(v.TrackLabel + ' Out of Fuel')
+            AddStatus(v.TrackLabel + ' Bahan bakar habis')
           else
-            frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+ ' Out of Fuel');
+            AddStatus(IntToStr(v.TrackNumber)+ ' Bahan bakar habis');
           Exit;
         end;
 
@@ -1626,9 +1628,9 @@ begin
           edtStraightLineOrderedGroundSpeed.Text := FloatToStr(v.Mover.MaxSpeed);
 
           if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-            frmTacticalDisplay.addStatus(v.TrackLabel+' Over Speed = '+FloatToStr(Speed))
+            AddStatus(v.TrackLabel+' Kelebihan kecepatan = '+FloatToStr(Speed))
           else
-            frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Over Speed = '+FloatToStr(Speed));
+            AddStatus(IntToStr(v.TrackNumber)+' Kelebihan kecepatan = '+FloatToStr(Speed));
 
           Speed := v.Mover.MaxSpeed;     //mk test
         end
@@ -1637,9 +1639,9 @@ begin
           edtStraightLineOrderedGroundSpeed.Text := FloatToStr(v.Mover.MinSpeed);
 
           if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-            frmTacticalDisplay.addStatus(v.TrackLabel + ' MIN SPEED')
+            AddStatus(v.TrackLabel + ' Minimum kecepatan')
           else
-            frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber) + ' MIN SPEED');
+            AddStatus(IntToStr(v.TrackNumber) + ' Minimum kecepatan');
 
           Speed := v.Mover.MinSpeed;
         end;
@@ -1754,13 +1756,13 @@ begin
                 else
                 begin
                   edtZigZagPeriod.Text := FormatFloat('0.00', v.PeriodZigzag);
-                  frmTacticalDisplay.addStatus('Zigzag Invalid Periode Value');
+                  AddStatus('Nilai periode zigzag tidak valid');
                 end;
               end
               else
               begin
                 edtZigZagPeriod.Text := FormatFloat('0.00', v.PeriodZigzag);
-                frmTacticalDisplay.addStatus('Zigzag Invalid Periode Value');
+                AddStatus('Nilai periode zigzag tidak valid');
               end;
             end;
         3 : begin
@@ -1775,13 +1777,13 @@ begin
                 else
                 begin
                   edtZigZagAmplitude.Text := FormatFloat('0.00', v.AmplitudoZigzag);
-                  frmTacticalDisplay.addStatus('Zigzag Invalid Amplitudo Value');
+                  AddStatus('Nilai Amplitudo tidak valid');
                 end;
               end
               else
               begin
                 edtZigZagAmplitude.Text := FormatFloat('0.00', v.AmplitudoZigzag);
-                frmTacticalDisplay.addStatus('Zigzag Invalid Amplitudo Value');
+                AddStatus('ZNilai Amplitudo tidak valid');
               end;
 
             end;
@@ -1792,9 +1794,9 @@ begin
               if (v.FuelRemaining <= 0 ) and (v.UnitMotion.FData.Endurance_Type = 0) then
               begin
                 if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                  frmTacticalDisplay.addStatus(v.TrackLabel+' Out of Fuel')
+                  AddStatus(v.TrackLabel+' Bahan bakar habis')
                 else
-                  frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Out of Fuel');
+                  AddStatus(IntToStr(v.TrackNumber)+' Bahan bakar habis');
 
                 Exit;
               end;
@@ -1804,10 +1806,10 @@ begin
                 edtZigZagOrderedGroundSpeed.Text := FloatToStr(v.Mover.MaxSpeed);
 
                 if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                  frmTacticalDisplay.addStatus(v.TrackLabel+' Over Speed = '
+                  AddStatus(v.TrackLabel+' Kelebihan kecepatan = '
                                                + FloatToStr(Speed))
                 else
-                  frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber)+' Over Speed = '
+                  AddStatus(IntToStr(v.TrackNumber)+' Kelebihan kecepatan = '
                                                + FloatToStr(Speed));
 
                 Speed := v.Mover.MaxSpeed;     //mk test
@@ -1817,9 +1819,9 @@ begin
                 edtZigZagOrderedGroundSpeed.Text := FloatToStr(v.Mover.MinSpeed);
 
                 if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-                  frmTacticalDisplay.addStatus(v.TrackLabel + ' MIN SPEED')
+                  AddStatus(v.TrackLabel + ' Minimun kecepatan')
                 else
-                  frmTacticalDisplay.addStatus(IntToStr(v.TrackNumber) + ' MIN SPEED');
+                  AddStatus(IntToStr(v.TrackNumber) + ' Minimun kecepatan');
 
                 Speed := v.Mover.MinSpeed;
               end;
@@ -1914,6 +1916,11 @@ begin
   FFirst := true;
 
   FPlatformMultiSelectList := TList.Create;
+end;
+
+procedure TfmPlatformGuidance.AddStatus(Command: string);
+begin
+  frmTacticalDisplay.addStatus(Command);
 end;
 
 procedure TfmPlatformGuidance.btnCircleDirectionClick(Sender: TObject);
@@ -2013,7 +2020,7 @@ begin
 
   if not Assigned(FControlled) or not (FControlled is TT3Vehicle) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform is not defined'); //mk
+    AddStatus('Controlled platform belum terdefinisikan'); //mk
     Exit;
   end;
 
@@ -2872,7 +2879,7 @@ var
 begin
   if not Assigned(FControlled) or not (FControlled is TT3Vehicle) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform is not defined'); //mk
+    AddStatus('Controlled platform belum terdefinisikan'); //mk
     Exit;
   end;
 
@@ -2902,7 +2909,7 @@ begin
 
   if not Assigned(focused_platform) then
   begin
-    frmTacticalDisplay.addStatus('Target is not selected'); //mk
+    AddStatus('Target belum dipilih'); //mk
     Exit;
   end;
 
@@ -2910,7 +2917,7 @@ begin
 
   if v.InstanceIndex = track.InstanceIndex then
   begin
-    frmTacticalDisplay.addStatus('Own platform can not be target');
+    AddStatus('Own platform tidak dapat dijadikan target');
     Exit;
   end;
 
@@ -2924,7 +2931,7 @@ begin
   end
   else
   begin
-    frmTacticalDisplay.addStatus('Target is not suitable'); //mk
+    AddStatus('Target tidak sesuai'); //mk
     Exit;
   end;
 
@@ -3263,7 +3270,7 @@ var
 begin
   if not Assigned(FControlled) or not (FControlled is TT3Vehicle) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform is not defined'); //mk
+    AddStatus('Controlled platform belum terdefinisikan'); //mk
     Exit;
   end;
 
@@ -3307,7 +3314,7 @@ var
 begin
   if not Assigned(FControlled) or not (FControlled is TT3Vehicle) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform is not defined'); //mk
+    AddStatus('Controlled platform belum terdefinisikan'); //mk
     Exit;
   end;
 
@@ -3387,24 +3394,24 @@ begin
       end
       else
       begin
-        frmTacticalDisplay.addStatus('Target is not suitable'); //mk
+        AddStatus('Target tidak sesuai'); //mk
         Exit;
       end;
 
       if TT3Vehicle(FControlled).InstanceIndex = track.InstanceIndex then
       begin
-        frmTacticalDisplay.addStatus('Own platform can not be target');
+        AddStatus('Own platform tidak bisa dijadikan target');
         Exit;
       end;
 
       SimMgrClient.netSend_CmdPlatform(TT3Vehicle(FControlled).InstanceIndex,
         CORD_ID_MOVE, CORD_TYPE_CIRCLE_TRACK, track.InstanceIndex);
     end
-    else frmTacticalDisplay.addStatus('Target is not selected'); //mk
+    else AddStatus('Target belum dipilih'); //mk
   end
   else
   begin
-    frmTacticalDisplay.addStatus('Controlled platform is not defined');
+    AddStatus('Controlled platform belum terdefinisikan');
     exit;
   end;
 end;
@@ -3419,18 +3426,18 @@ begin
 
   if not Assigned(FControlled) or not (FControlled is TT3Vehicle) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform not defined'); //mk
+    AddStatus('Controlled platform belum terdefinisikan'); //mk
     Exit;
   end;
 
   if not Assigned(focused_platform) then
   begin
-    frmTacticalDisplay.addStatus('Target not selected'); //mk
+    AddStatus('Target belum dipilih'); //mk
     Exit;
   end
   else if focused_platform is TT3NonRealVehicle then
   begin
-    frmTacticalDisplay.addStatus('Cant Targeting Non RT Platform');
+    AddStatus('tidak dapat menargetkan platform non-RT');
     Exit;
   end;
 
@@ -3440,7 +3447,7 @@ begin
 
   if v.InstanceIndex = target.InstanceIndex then
   begin
-    frmTacticalDisplay.addStatus('Own platform can not targeted');
+    AddStatus('Own platform tidak dapat menjadi target');
     Exit;
   end;
 
@@ -3476,13 +3483,13 @@ begin
       end
       else
       begin
-        frmTacticalDisplay.addStatus('Target is not suitable'); //mk
+        AddStatus('Target tidak sesuai'); //mk
         Exit;
       end;
 
       if TT3Vehicle(FControlled).InstanceIndex = track.InstanceIndex then
       begin
-        frmTacticalDisplay.addStatus('Own platform can not be target');
+        AddStatus('Own platform tidak bisa menjadi target');
         Exit;
       end;
 
@@ -3498,11 +3505,11 @@ begin
       SimMgrClient.netSend_CmdPlatform(TT3Vehicle(FControlled).InstanceIndex,
         CORD_ID_MOVE, CORD_TYPE_STATION_TRACK, track.InstanceIndex);
     end
-    else frmTacticalDisplay.addStatus('Target is not selected'); //mk
+    else AddStatus('Target tidak bisa dipilih'); //mk
   end
   else
   begin
-    frmTacticalDisplay.addStatus('Controlled platform is not defined');
+    AddStatus('Controlled platform belum terdefinisikan');
     exit;
   end;
 end;
@@ -3536,18 +3543,18 @@ begin
 
   if not Assigned(FControlled) or not (FControlled is TT3Vehicle) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform not defined'); //mk
+    AddStatus('Controlled platform belum terdefinisikan'); //mk
     Exit;
   end;
 
   if not Assigned(focused_platform) then
   begin
-    frmTacticalDisplay.addStatus('Target not selected'); //mk
+    AddStatus('Target belum dipilih'); //mk
     Exit;
   end
   else if focused_platform is TT3NonRealVehicle then
   begin
-    frmTacticalDisplay.addStatus('Cant Targeting Non RT Platform');
+    AddStatus('Tidak dapat menargetkan platform non-RT');
     Exit;
   end;
 
@@ -3557,7 +3564,7 @@ begin
 
   if v.InstanceIndex = target.InstanceIndex then
   begin
-    frmTacticalDisplay.addStatus('Own platform can not targeted');
+    AddStatus('Own platform tidak dapat menjadi target');
     Exit;
   end;
 
@@ -3619,18 +3626,18 @@ begin
 
   if not Assigned(FControlled) or not (FControlled is TT3Vehicle) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform not defined'); //mk
+    AddStatus('Controlled platform belum terdefinisikan'); //mk
     Exit;
   end;
 
   if not Assigned(focused_platform) then
   begin
-    frmTacticalDisplay.addStatus('Target not selected'); //mk
+    AddStatus('Target belum dipilih'); //mk
     Exit;
   end
   else if focused_platform is TT3NonRealVehicle then
   begin
-    frmTacticalDisplay.addStatus('Cant Targeting Non RT Platform');
+    AddStatus('Tidak dapat menargetkan platform non-RT');
     Exit;
   end;
 
@@ -3640,7 +3647,7 @@ begin
 
   if v.InstanceIndex = target.InstanceIndex then
   begin
-    frmTacticalDisplay.addStatus('Own platform can not targeted');
+    AddStatus('Own platform tidak dapat menjadi target');
     Exit;
   end;
 
@@ -3698,18 +3705,18 @@ begin
       end
       else
       begin
-        frmTacticalDisplay.addStatus('Target not suitable'); //mk
+        AddStatus('Target tidak sesuai'); //mk
         Exit;
       end;
 
       SimMgrClient.netSend_CmdPlatform(TT3Vehicle(FControlled).InstanceIndex, CORD_ID_MOVE,
         CORD_TYPE_SHADOW_TRACK, track.InstanceIndex);
     end
-    else frmTacticalDisplay.addStatus('Target not selected'); //mk
+    else AddStatus('Target belum dipilih'); //mk
   end
   else
   begin
-    frmTacticalDisplay.addStatus('Controlled platform not defined');
+    AddStatus('Controlled platform belum terdefinisikan');
     exit;
   end;
 end;

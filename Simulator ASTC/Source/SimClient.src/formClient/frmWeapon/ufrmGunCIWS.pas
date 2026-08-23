@@ -62,9 +62,11 @@ type
     procedure OnPropertyIntChange(Sender: TObject; Props: TPropsID; Value: integer);
     procedure OnPropertyDblChange(Sender: TObject; Props: TPropsID; Value: Double);
     procedure OnPropertyBoolChange(Sender: TObject; Props: TPropsID; Value: boolean);
+
 //    procedure OnPropertyByteChange(Sender: TObject; Props: TPropsID; Value: Byte);
     function  CheckGunCapability(Sender: TT3PlatformInstance): boolean;
     { Private declarations }
+    procedure AddStatus(Command: string);
   protected
     procedure Empty; override;
     procedure SetProperties; override;
@@ -84,6 +86,11 @@ uses uT3Gun, uT3CounterMeasure,
   uT3Radar, uT3Weapon, uMapXHandler, uT3DetectedTrack,
   uSimObjects, ufTacticalDisplay, ufrmRightAtasAir;
 {$R *.dfm}
+
+procedure TfrmGunCIWS.AddStatus(Command: string);
+begin
+  AddStatus(Command);
+end;
 
 procedure TfrmGunCIWS.ApplyCeaseFire(Value: boolean);
 begin
@@ -105,7 +112,7 @@ begin
   end
   else
   begin
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
+    AddStatus('Weapon belum terdefinisikan'); //mk
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
   end;
 end;
@@ -184,7 +191,7 @@ begin
   else
   begin
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
+    AddStatus('Weapon belum terdefinisikan'); //mk
     exit;
   end;
 end;
@@ -213,7 +220,7 @@ begin
   if (not Assigned(FWeapon)) or (not(FWeapon is TT3GunOnVehicle)) then
   begin
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
+    AddStatus('Weapon belum terdefinisikan'); //mk
     exit;
   end;
 
@@ -221,14 +228,14 @@ begin
   tgt := simMgrClient.FindT3PlatformByID(Value);
   if not Assigned(tgt) then
   begin
-    frmTacticalDisplay.addStatus('Targeted Platform must be set');
+    AddStatus('Target Platform belum diatur');
     //raise Exception.Create('Targeted Platform must be set');
     TT3GunOnVehicle(FWeapon).TargetObject := nil;
     exit;
   end
   else if tgt.FreeMe or tgt.Dormant then
   begin
-    frmTacticalDisplay.addStatus('Targeted is FreeMe');
+    AddStatus('Target adalah FreeMe');
     //raise Exception.Create('Targeted is FreeMe');
     TT3GunOnVehicle(FWeapon).TargetObject := nil;
     exit;
@@ -245,7 +252,7 @@ begin
   if (RangeGun > TT3GunOnVehicle(FWeapon).GunDefinition.FData.Max_Range)
     or isInsideBlindzoneGun then
   begin
-    frmTacticalDisplay.addStatus('Target in blindzone or out of range'); //mk
+    AddStatus('Target berada di luar jangkauan atau berada di blindzone'); //mk
     //raise Exception.Create('Target in blindzone or out of range');
     TT3GunOnVehicle(FWeapon).TargetObject := nil;
     Exit;
@@ -254,7 +261,7 @@ begin
   //4. cek gun capability
   if not CheckGunCapability(TT3PlatformInstance(tgt)) then
   begin
-    frmTacticalDisplay.addStatus('Target not suitable with Gun Capability'); //mk
+    AddStatus('Senjata yang digunakan tidak sesuai dengan target'); //mk
     //raise Exception.Create('Target not suitable with Gun Capability');
     TT3GunOnVehicle(FWeapon).TargetObject := nil;
     exit;
@@ -286,7 +293,7 @@ begin
   if (not Assigned(Weapon)) or not(Weapon is TT3GunOnVehicle) then
   begin
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
+    AddStatus('Weapon belum terdefinisikan'); //mk
     exit;
   end;
 
@@ -340,10 +347,7 @@ begin
   // 3. jika bukan GunOnVehicle maka keluar
   if (not Assigned(Weapon)) or not(Weapon is TT3GunOnVehicle) then
   begin
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
-
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Weapon not defined');
+    AddStatus('Weapon belum terdefinisikan');
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
     exit;
   end;
@@ -366,10 +370,7 @@ begin
   // 1. cek platform control
   if not(Assigned(FControlled)) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform not defined'); //mk
-
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Controlled platform not defined');
+    AddStatus('Controlled platform belum terdefinisikan');
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
     exit;
   end;
@@ -377,9 +378,7 @@ begin
   // 2. cek apakah platform control dorman / freeMe
   if (TT3PlatformInstance(FControlled).Dormant) or (TT3PlatformInstance(FControlled).FreeMe) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform is destroy'); //mk
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Controlled platform is destroy');
+    AddStatus('Controlled platform sudah dihancurkan');
     //raise Exception.Create('Controlled platform is destroy');
     exit;
   end;
@@ -387,9 +386,7 @@ begin
   // 3. jika bukan GunOnVehicle maka keluar
   if (not Assigned(FWeapon)) or (not(FWeapon is TT3GunOnVehicle)) then
   begin
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Weapon not defined');
+    AddStatus('Weapon belum terdefinisikan');
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
     exit;
   end;
@@ -403,9 +400,7 @@ begin
     editCIWSTargetTrack.Text := '';
 
     //raise Exception.Create('Target not selected yet');
-    frmTacticalDisplay.addStatus('Target not selected yet'); //mk
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Target not selected yet');
+    AddStatus('Target belum dipilih');
     Exit;
   end
   else
@@ -417,9 +412,7 @@ begin
       TargetId := TT3PlatformInstance(TT3GunOnVehicle(FWeapon).TargetObject).InstanceIndex
     else
     begin
-      frmTacticalDisplay.addStatus('Target not suitable'); //mk
-      if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Target not suitable');
+      AddStatus('Target tidak sesuai');
       //raise Exception.Create('Target not suitable');
       Exit;
     end;
@@ -427,9 +420,7 @@ begin
     tgt := simMgrClient.FindT3PlatformByID(TargetId);
     if not(Assigned(tgt)) then
     begin
-      frmTacticalDisplay.addStatus('Target not selected yet'); //mk
-      if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Target not selected yet');
+      AddStatus('Target belum dipilih');
       //raise Exception.Create('Target not selected yet');
       Exit;
     end;
@@ -449,9 +440,7 @@ begin
       editCIWSTargetTrack.Text := '';
 
       //raise Exception.Create('Target in blindzone or out of range');
-      frmTacticalDisplay.addStatus('Target in blindzone or out of range'); //mk
-      if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Target in blindzone or out of range');
+      AddStatus('Target berada di luar jangkauan atau berada di blindzone');
       Exit;
     end;
   end;
@@ -463,18 +452,14 @@ begin
         if not Assigned(TT3GunOnVehicle(Weapon).TargetObject) then
         begin
           //raise Exception.Create('Target not selected yet');
-          frmTacticalDisplay.addStatus('Target not selected yet'); //mk
-          if Assigned(frmRightAtasAir) then
-            frmRightAtasAir.addStatus('Target not selected yet');
+          AddStatus('Target belum dipilih');
           Exit;
         end
         else
         begin
           if TT3GunOnVehicle(FWeapon).Quantity <= 0 then
           begin
-            frmTacticalDisplay.addStatus('Weapon quantity <= 0'); //mk
-            if Assigned(frmRightAtasAir) then
-              frmRightAtasAir.addStatus('Weapon quantity <= 0');
+            AddStatus('Jumlah weapon <= 0');
             //raise Exception.Create('Weapon quantity <= 0');
             Exit;
           end;
@@ -536,7 +521,7 @@ begin
     myTrackId := TT3PlatformInstance(FControlled).Track_ID
   else
   begin
-    frmTacticalDisplay.addStatus('Controlled platform not defined'); //mk
+    AddStatus('Controlled platform belum terdefinisikan'); //mk
     //raise Exception.Create('Controlled platform not defined');
     exit;
   end;
@@ -544,7 +529,7 @@ begin
   // 1. cek platform control dorman / freeMe
   if (TT3PlatformInstance(FControlled).Dormant) or (TT3PlatformInstance(FControlled).FreeMe) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform is destroy'); //mk
+    AddStatus('Controlled platform sudah dihancurkan'); //mk
     //raise Exception.Create('Controlled platform is destroy');
     exit;
   end;
@@ -553,14 +538,14 @@ begin
   if (not Assigned(Weapon)) or (not(Weapon is TT3GunOnVehicle)) then
   begin
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
+    AddStatus('Weapon belum terdefinisikan'); //mk
     exit;
   end;
 
   // 3. cek apakah gun sedang fire
   if TT3GunOnVehicle(FWeapon).WeaponStatus = wsFiring then
   begin
-    frmTacticalDisplay.addStatus('Weapon is firing, please stop its before!'); //mk
+    AddStatus('Weapon dalam penembakan, Tolong segera berhenti!'); //mk
     //raise Exception.Create('Weapon is firing, please stop its before!');
     exit;
   end;
@@ -569,7 +554,7 @@ begin
   if not Assigned(FTargeted) then
   begin
     //raise Exception.Create('Targeted Platform must be set on ' + Self.Caption + ' form');
-    frmTacticalDisplay.addStatus('Targeted Platform must be set on'); //mk
+    AddStatus('Tentukan target terlebih dahulu'); //mk
     exit;
   end
   // 4b. cek platform apakah sama dengan own platform
@@ -592,7 +577,7 @@ begin
     if myTrackId = targetTrackId then
     begin
       //raise Exception.Create('Own platform can not targeted ' + Self.Caption + ' form');
-      frmTacticalDisplay.addStatus('Own platform can not targeted'); //mks
+      AddStatus('Own platform tidak dapat dijadikan target'); //mks
       exit;
     end;
   end;
@@ -662,7 +647,7 @@ begin
   if (not Assigned(FWeapon)) or (not(FWeapon is TT3GunOnVehicle)) then
   begin
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
+    AddStatus('Weapon belum didefinisikan'); //mk
     exit;
   end;
 
@@ -721,7 +706,7 @@ begin
     // 2. cek apakah platform control dorman / freeMe
     if (TT3PlatformInstance(FControlled).Dormant) or (TT3PlatformInstance(FControlled).FreeMe) then
     begin
-      frmTacticalDisplay.addStatus('Controlled platform is destroy'); //mk
+      AddStatus('Controlled platform sudah dihancurkan'); //mk
       //raise Exception.Create('Controlled platform is destroy');
       exit;
     end;
@@ -729,7 +714,7 @@ begin
     // 3. jika bukan GunOnVehicle maka keluar
     if (not Assigned(FWeapon)) or (not(FWeapon is TT3GunOnVehicle)) then
     begin
-      frmTacticalDisplay.addStatus('Weapon not defined'); //mk
+      AddStatus('Weapon belum terdefinisikan'); //mk
       //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
       exit;
     end;
@@ -737,7 +722,7 @@ begin
     // 4. cek apakah gun sedang fire
     if TT3GunOnVehicle(FWeapon).WeaponStatus = wsFiring then
     begin
-      frmTacticalDisplay.addStatus('Weapon is firing, please stop its before!'); //mk
+      AddStatus('Weapon dalam penembakan, Tolong segera berhenti!'); //mk
       //raise Exception.Create('Weapon is firing, please stop its before!');
       exit;
     end;
@@ -771,7 +756,7 @@ begin
       // 1. cek platform control
       if not(Assigned(FControlled)) then
       begin
-        frmTacticalDisplay.addStatus('Controlled platform not defined'); //mk
+        AddStatus('Controlled platform belum terdefinisikan'); //mk
         //raise Exception.Create('Controlled platform not defined');
         exit;
       end;
@@ -779,7 +764,7 @@ begin
       // 2. cek apakah platform control dorman / freeMe
       if (TT3PlatformInstance(FControlled).Dormant) or (TT3PlatformInstance(FControlled).FreeMe) then
       begin
-        frmTacticalDisplay.addStatus('Controlled platform is destroy'); //mk
+        AddStatus('Controlled platform Sudah dihancurkan'); //mk
         //raise Exception.Create('Controlled platform is destroy');
         exit;
       end;
@@ -787,14 +772,14 @@ begin
       // 3. jika bukan GunOnVehicle maka keluar
       if (not Assigned(FWeapon)) or (not(FWeapon is TT3GunOnVehicle)) then
       begin
-        frmTacticalDisplay.addStatus('Weapon not defined'); //mk
+        AddStatus('Weapon belum terdefinisikan'); //mk
         //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
         exit;
       end;
 
       // 4. cek apakah gun sedang fire
       if TT3GunOnVehicle(FWeapon).WeaponStatus = wsFiring then begin
-        frmTacticalDisplay.addStatus('Weapon is firing, please stop its before!'); //mk
+        AddStatus('Weapon dalam penembakan, Tolong segera berhenti!'); //mk
         //raise Exception.Create('Weapon is firing, please stop its before!');
         exit;
       end;
@@ -987,10 +972,8 @@ begin
   // 1. cek platform control
   if not(Assigned(FControlled)) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform not defined'); //mk
+    AddStatus('Controlled platform belum terdefinisikan');
 
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Controlled platform not defined');
     //raise Exception.Create('Controlled platform not defined');
     exit;
   end;
@@ -998,10 +981,7 @@ begin
   // 2. cek apakah platform control dorman / freeMe
   if (TT3PlatformInstance(FControlled).Dormant) or (TT3PlatformInstance(FControlled).FreeMe) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform is destroy'); //mk
-
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Controlled platform is destroy');
+    AddStatus('Controlled platform sudah dihancurkan');
     //raise Exception.Create('Controlled platform is destroy');
     exit;
   end;
@@ -1009,20 +989,14 @@ begin
   // 3. jika bukan GunOnVehicle maka keluar
   if (not Assigned(Weapon)) or (not(Weapon is TT3GunOnVehicle)) then
   begin
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
-
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Weapon not defined');
+    AddStatus('Weapon belum terdefinisikan');
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
     exit;
   end;
 
   // 4. cek apakah gun sedang fire
   if TT3GunOnVehicle(FWeapon).WeaponStatus = wsFiring then begin
-    frmTacticalDisplay.addStatus('Weapon is firing, please stop its before!'); //mk
-
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Weapon is firing, please stop its before!');
+    AddStatus('Weapon dalam penembakan, Tolong segera berhenti!');
     //raise Exception.Create('Weapon is firing, please stop its before!');
     exit;
   end;
@@ -1052,10 +1026,7 @@ begin
   // 1. cek platform control
   if not(Assigned(FControlled)) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform not defined'); //mk
-
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Controlled platform not defined');
+    AddStatus('Controlled platform belum terdefinisikan');
     //raise Exception.Create('Controlled platform not defined');
     exit;
   end;
@@ -1063,10 +1034,7 @@ begin
   // 2. cek apakah platform control dorman / freeMe
   if (TT3PlatformInstance(FControlled).Dormant) or (TT3PlatformInstance(FControlled).FreeMe) then
   begin
-    frmTacticalDisplay.addStatus('Controlled platform is destroy'); //mk
-
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Controlled platform is destroy');
+    AddStatus('Controlled platform sudah dihancurkan');
     //raise Exception.Create('Controlled platform is destroy');
     exit;
   end;
@@ -1074,10 +1042,7 @@ begin
   // 3. jika bukan GunOnVehicle maka keluar
   if (not Assigned(Weapon)) or (not(Weapon is TT3GunOnVehicle)) then
   begin
-    frmTacticalDisplay.addStatus('Weapon not defined'); //mk
-
-    if Assigned(frmRightAtasAir) then
-        frmRightAtasAir.addStatus('Weapon not defined');
+    AddStatus('Weapon belum terdefinisikan');
     //raise Exception.Create('Weapon not set on ' + Self.Caption + ' form');
     exit;
   end;

@@ -10956,7 +10956,10 @@ end;
 
 procedure TfmWeapon.AddStatus(Command: string);
 begin
-  addStatus(Command);
+  frmTacticalDisplay.addStatus(Command);
+
+  if Assigned(frmRightAtasAir) then
+    frmRightAtasAir.addStatus(Command);
 end;
 
 procedure TfmWeapon.ADKeyPress(Sender: TObject; var Key: Char);

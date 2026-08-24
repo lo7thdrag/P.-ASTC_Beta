@@ -974,10 +974,10 @@ begin
     DecodeTime(sun_rise, riseHour, riseMin, riseSec, riseMilli);
     DecodeTime(sun_set, setHour, setMin, setSec, setMilli);
 
-    if (FmyHour >= riseHour) and (FmyHour < setHour) then
-       visualSensor := daytime/100;
-    if (FmyHour >= setHour) and (FmyHour < riseHour) then
-       visualSensor := nighttime/100;
+//    if (FmyHour >= riseHour) and (FmyHour < setHour) then
+//       visualSensor := daytime/100;
+//    if (FmyHour >= setHour) and (FmyHour < riseHour) then
+//       visualSensor := nighttime/100;
 
     FRangeView.Range  := FDetectionRange*visualSensor;
     FRangeView.mX     := FParent.getPositionX;

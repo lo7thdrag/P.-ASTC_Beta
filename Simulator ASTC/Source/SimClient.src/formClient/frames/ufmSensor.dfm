@@ -1038,119 +1038,6 @@ inherited fmSensor: TfmSensor
           end
         end
       end
-      object grbVisualDetectorSensor: TGroupBox
-        Left = 3
-        Top = 3
-        Width = 370
-        Height = 316
-        Align = alClient
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 6
-        object Label257: TLabel
-          Left = 5
-          Top = 3
-          Width = 40
-          Height = 16
-          Caption = 'Display'
-        end
-        object Bevel51: TBevel
-          Left = 55
-          Top = 10
-          Width = 255
-          Height = 3
-        end
-        object Label258: TLabel
-          Left = 195
-          Top = 30
-          Width = 69
-          Height = 16
-          Caption = 'Blind Zones '
-        end
-        object Label259: TLabel
-          Left = 75
-          Top = 30
-          Width = 36
-          Height = 16
-          Caption = 'Range'
-        end
-        object sbVisualDetectorDisplayRangeShow: TSpeedButton
-          Tag = 1
-          Left = 56
-          Top = 50
-          Width = 76
-          Height = 22
-          HelpContext = 1
-          AllowAllUp = True
-          GroupIndex = 2
-          Caption = 'Show'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          OnClick = sbVisualSensorClick
-        end
-        object sbVisualDetectorDisplayRangeHide: TSpeedButton
-          Tag = 2
-          Left = 56
-          Top = 75
-          Width = 76
-          Height = 22
-          AllowAllUp = True
-          GroupIndex = 2
-          Down = True
-          Caption = 'Hide'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          OnClick = sbVisualSensorClick
-        end
-        object sbVisualDetectorDisplayBlindZonesShow: TSpeedButton
-          Tag = 3
-          Left = 190
-          Top = 50
-          Width = 76
-          Height = 22
-          HelpContext = 1
-          AllowAllUp = True
-          GroupIndex = 1
-          Caption = 'Show'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          OnClick = sbVisualSensorClick
-        end
-        object sbVisualDetectorDisplayBlindZonesHide: TSpeedButton
-          Tag = 4
-          Left = 190
-          Top = 75
-          Width = 76
-          Height = 22
-          AllowAllUp = True
-          GroupIndex = 1
-          Down = True
-          Caption = 'Hide'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          OnClick = sbVisualSensorClick
-        end
-      end
       object grbAnomalyDetectorSensor: TGroupBox
         Left = 3
         Top = 3
@@ -2391,6 +2278,119 @@ inherited fmSensor: TfmSensor
             ParentFont = False
             OnClick = sbElectroOpticalSensorOnClick
           end
+        end
+      end
+      object grbVisualDetectorSensor: TGroupBox
+        Left = 3
+        Top = 3
+        Width = 370
+        Height = 316
+        Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 6
+        object Label257: TLabel
+          Left = 5
+          Top = 3
+          Width = 40
+          Height = 16
+          Caption = 'Display'
+        end
+        object Bevel51: TBevel
+          Left = 55
+          Top = 10
+          Width = 255
+          Height = 3
+        end
+        object Label258: TLabel
+          Left = 195
+          Top = 30
+          Width = 69
+          Height = 16
+          Caption = 'Blind Zones '
+        end
+        object Label259: TLabel
+          Left = 75
+          Top = 30
+          Width = 36
+          Height = 16
+          Caption = 'Range'
+        end
+        object sbVisualDetectorDisplayRangeShow: TSpeedButton
+          Tag = 1
+          Left = 56
+          Top = 50
+          Width = 76
+          Height = 22
+          HelpContext = 1
+          AllowAllUp = True
+          GroupIndex = 2
+          Caption = 'Show'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = sbVisualSensorClick
+        end
+        object sbVisualDetectorDisplayRangeHide: TSpeedButton
+          Tag = 2
+          Left = 56
+          Top = 75
+          Width = 76
+          Height = 22
+          AllowAllUp = True
+          GroupIndex = 2
+          Down = True
+          Caption = 'Hide'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = sbVisualSensorClick
+        end
+        object sbVisualDetectorDisplayBlindZonesShow: TSpeedButton
+          Tag = 3
+          Left = 190
+          Top = 50
+          Width = 76
+          Height = 22
+          HelpContext = 1
+          AllowAllUp = True
+          GroupIndex = 1
+          Caption = 'Show'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = sbVisualSensorClick
+        end
+        object sbVisualDetectorDisplayBlindZonesHide: TSpeedButton
+          Tag = 4
+          Left = 190
+          Top = 75
+          Width = 76
+          Height = 22
+          AllowAllUp = True
+          GroupIndex = 1
+          Down = True
+          Caption = 'Hide'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = sbVisualSensorClick
         end
       end
     end

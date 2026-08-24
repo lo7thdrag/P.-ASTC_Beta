@@ -35,6 +35,7 @@ type
     FVehicle : TVehicle_Definition;
     FPlatformInstance : TPlatform_Instance;
     FForce : Integer;
+    FmodelPath : string;
 
     FSelectedPIIdent : TPlatform_Instance_Identifier;
 
@@ -100,7 +101,7 @@ begin
     FData.Track_ID := edtTrackId.Text;
 
     if FSelectedPIIdent <> nil then
-      FData.vbs_class_name := FSelectedPIIdent.FData.vbs_class_name;
+      FData.vbs_class_name := FmodelPath;
 
     if FData.Platform_Instance_Index = 0 then
     begin
@@ -137,6 +138,7 @@ end;
 procedure TfrmResourceAllocationInputName.cbbNameChange(Sender: TObject);
 begin
   FSelectedPIIdent := TPlatform_Instance_Identifier(cbbName.Items.Objects[cbbName.ItemIndex]);
+  FmodelPath := FSelectedPIIdent.FData.model_path;
 end;
 
 procedure TfrmResourceAllocationInputName.UpdatePlatformIstanceData;

@@ -880,60 +880,37 @@ begin
   begin
     recLBN := RPLListFromDB.Items[i];
 
-    for j := 0 to recLBN.FPlatform_Library_Entry.Count - 1 do
+    if Assigned(recLBN.FPlatform_Library_Entry) then
     begin
-      objPLE := recLBN.FPlatform_Library_Entry.Items[j];
+      for j := 0 to recLBN.FPlatform_Library_Entry.Count - 1 do
+      begin
+        objPLE := recLBN.FPlatform_Library_Entry.Items[j];
 
-      if objPLE.FData.Vehicle_Index = id then begin
-        Result := objPLE;
-        f := objPLE.FData.Vehicle_Index = id;
-        Break;
-      end;
+        if objPLE.FData.Vehicle_Index = id then begin
+          Result := objPLE;
+          f := objPLE.FData.Vehicle_Index = id;
+          Break;
+        end;
 
-      if objPLE.FData.Missile_Index = id then begin
-        Result := objPLE;
-        f := objPLE.FData.Missile_Index = id;
-        Break;
-      end;
+        if objPLE.FData.Missile_Index = id then begin
+          Result := objPLE;
+          f := objPLE.FData.Missile_Index = id;
+          Break;
+        end;
 
-      if objPLE.FData.Mine_Index = id then begin
-        Result := objPLE;
-        f := objPLE.FData.Mine_Index = id;
-        Break;
-      end;
+        if objPLE.FData.Mine_Index = id then begin
+          Result := objPLE;
+          f := objPLE.FData.Mine_Index = id;
+          Break;
+        end;
 
-      if objPLE.FData.Torpedo_Index = id then begin
-        Result := objPLE;
-        f := objPLE.FData.Torpedo_Index = id;
-        Break;
+        if objPLE.FData.Torpedo_Index = id then begin
+          Result := objPLE;
+          f := objPLE.FData.Torpedo_Index = id;
+          Break;
+        end;
       end;
     end;
-
-//    while not f and (j < recLBN.FPlatform_Library_Entry.Count) do begin
-//      objPLE  := recLBN.FPlatform_Library_Entry.Items[j];
-//
-//      if objPLE.FData.Vehicle_Index = id then begin
-//        Result := objPLE;
-//        f := objPLE.FData.Vehicle_Index = id;
-//      end;
-//
-//      if objPLE.FData.Missile_Index = id then begin
-//        Result := objPLE;
-//        f := objPLE.FData.Missile_Index = id;
-//      end;
-//
-//      if objPLE.FData.Mine_Index = id then begin
-//        Result := objPLE;
-//        f := objPLE.FData.Mine_Index = id;
-//      end;
-//
-//      if objPLE.FData.Torpedo_Index = id then begin
-//        Result := objPLE;
-//        f := objPLE.FData.Torpedo_Index = id;
-//      end;
-//
-//      Inc(j);
-//    end;
 
     if f then
       Break;
@@ -1030,62 +1007,65 @@ begin
 
     if ObjRPL <> nil then
     begin
-      for j := 0 to ObjRPL.FPlatform_Library_Entry.Count - 1 do
+      if Assigned(ObjRPL.FPlatform_Library_Entry) then
       begin
-        objPLE := TPlatform_Library_Entry(ObjRPL.FPlatform_Library_Entry.Items[j]);
-
-        {$REGION ' Vehicle '}
-        if objPLE.FData.Vehicle_Index <> 0 then
+        for j := 0 to ObjRPL.FPlatform_Library_Entry.Count - 1 do
         begin
-          if not FDictionaryPlatformInstanceRP.ContainsKey(objPLE.FData.Vehicle_Index) then
-          begin
-            Pi := TPlatform_Instance.Create;
-            Pi.FData.Vehicle_Index := objPLE.FData.Vehicle_Index;
-            LoadPlatformDefinition(Pi);
-            FDictionaryPlatformInstanceRP.Add(objPLE.FData.Vehicle_Index, Pi);
-          end;
-        end
-        {$ENDREGION}
+          objPLE := TPlatform_Library_Entry(ObjRPL.FPlatform_Library_Entry.Items[j]);
 
-        {$REGION ' Missile '}
-        else if objPLE.FData.Missile_Index <> 0 then
-        begin
-          if not FDictionaryPlatformInstanceRP.ContainsKey(objPLE.FData.Missile_Index) then
+          {$REGION ' Vehicle '}
+          if objPLE.FData.Vehicle_Index <> 0 then
           begin
-            Pi := TPlatform_Instance.Create;
-            Pi.FData.Missile_Index := objPLE.FData.Missile_Index;
-            LoadPlatformDefinition(Pi);
-            FDictionaryPlatformInstanceRP.Add(objPLE.FData.Missile_Index, Pi);
-          end;
-        end
-        {$ENDREGION}
+            if not FDictionaryPlatformInstanceRP.ContainsKey(objPLE.FData.Vehicle_Index) then
+            begin
+              Pi := TPlatform_Instance.Create;
+              Pi.FData.Vehicle_Index := objPLE.FData.Vehicle_Index;
+              LoadPlatformDefinition(Pi);
+              FDictionaryPlatformInstanceRP.Add(objPLE.FData.Vehicle_Index, Pi);
+            end;
+          end
+          {$ENDREGION}
 
-        {$REGION ' Torpedo '}
-        else if objPLE.FData.Torpedo_Index <> 0 then
-        begin
-          if not FDictionaryPlatformInstanceRP.ContainsKey(objPLE.FData.Torpedo_Index) then
+          {$REGION ' Missile '}
+          else if objPLE.FData.Missile_Index <> 0 then
           begin
-            Pi := TPlatform_Instance.Create;
-            Pi.FData.Torpedo_Index := objPLE.FData.Torpedo_Index;
-            LoadPlatformDefinition(Pi);
-            FDictionaryPlatformInstanceRP.Add(objPLE.FData.Torpedo_Index, Pi);
-          end;
-        end
-        {$ENDREGION}
+            if not FDictionaryPlatformInstanceRP.ContainsKey(objPLE.FData.Missile_Index) then
+            begin
+              Pi := TPlatform_Instance.Create;
+              Pi.FData.Missile_Index := objPLE.FData.Missile_Index;
+              LoadPlatformDefinition(Pi);
+              FDictionaryPlatformInstanceRP.Add(objPLE.FData.Missile_Index, Pi);
+            end;
+          end
+          {$ENDREGION}
 
-        {$REGION ' Mine '}
-        else if objPLE.FData.Mine_Index <> 0 then
-        begin
-          if not FDictionaryPlatformInstanceRP.ContainsKey(objPLE.FData.Mine_Index) then
+          {$REGION ' Torpedo '}
+          else if objPLE.FData.Torpedo_Index <> 0 then
           begin
-            Pi := TPlatform_Instance.Create;
-            Pi.FData.Mine_Index := objPLE.FData.Mine_Index;
-            LoadPlatformDefinition(Pi);
-            FDictionaryPlatformInstanceRP.Add(objPLE.FData.Mine_Index, Pi);
+            if not FDictionaryPlatformInstanceRP.ContainsKey(objPLE.FData.Torpedo_Index) then
+            begin
+              Pi := TPlatform_Instance.Create;
+              Pi.FData.Torpedo_Index := objPLE.FData.Torpedo_Index;
+              LoadPlatformDefinition(Pi);
+              FDictionaryPlatformInstanceRP.Add(objPLE.FData.Torpedo_Index, Pi);
+            end;
+          end
+          {$ENDREGION}
+
+          {$REGION ' Mine '}
+          else if objPLE.FData.Mine_Index <> 0 then
+          begin
+            if not FDictionaryPlatformInstanceRP.ContainsKey(objPLE.FData.Mine_Index) then
+            begin
+              Pi := TPlatform_Instance.Create;
+              Pi.FData.Mine_Index := objPLE.FData.Mine_Index;
+              LoadPlatformDefinition(Pi);
+              FDictionaryPlatformInstanceRP.Add(objPLE.FData.Mine_Index, Pi);
+            end;
           end;
+          {$ENDREGION}
+
         end;
-        {$ENDREGION}
-
       end;
     end;
   end;

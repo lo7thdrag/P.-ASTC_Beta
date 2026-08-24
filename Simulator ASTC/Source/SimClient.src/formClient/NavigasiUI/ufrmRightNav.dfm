@@ -13899,8 +13899,6 @@ object frmRightNav: TfrmRightNav
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitWidth = 333
-          ExplicitHeight = 483
           inline fmSensor1: TfmSensor
             Left = 0
             Top = 0
@@ -13912,7 +13910,7 @@ object frmRightNav: TfrmRightNav
             ParentColor = False
             TabOrder = 0
             ExplicitWidth = 331
-            ExplicitHeight = 420
+            ExplicitHeight = 435
             inherited PanelSensorChoices: TPanel [0]
               Width = 331
               Height = 90
@@ -13932,33 +13930,34 @@ object frmRightNav: TfrmRightNav
                     Caption = 'Status'
                     Width = 90
                   end>
-                ExplicitWidth = 331
+                ExplicitWidth = 329
+                ExplicitHeight = 88
               end
             end
             inherited PanelALL: TPanel [1]
               Top = 90
               Width = 331
               Height = 345
-              ExplicitTop = 115
-              ExplicitWidth = 333
-              ExplicitHeight = 368
+              ExplicitTop = 90
+              ExplicitWidth = 331
+              ExplicitHeight = 345
               inherited PanelSensorControl: TPanel
                 Width = 331
                 Height = 345
-                ExplicitWidth = 333
-                ExplicitHeight = 368
+                ExplicitWidth = 331
+                ExplicitHeight = 345
                 inherited grbIFFTransponderControl: TGroupBox [0]
                   Width = 325
                   Height = 339
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
+                  ExplicitWidth = 325
+                  ExplicitHeight = 339
                   inherited ScrollBox6: TScrollBox
                     Width = 321
                     Height = 319
-                    ExplicitWidth = 323
-                    ExplicitHeight = 342
+                    ExplicitWidth = 321
+                    ExplicitHeight = 319
                     inherited Bevel8: TBevel
                       Left = 54
                       ExplicitLeft = 54
@@ -14029,8 +14028,8 @@ object frmRightNav: TfrmRightNav
                 inherited grbAnomalyDetectorSensor: TGroupBox [1]
                   Width = 325
                   Height = 339
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
+                  ExplicitWidth = 325
+                  ExplicitHeight = 339
                   inherited Label225: TLabel
                     Left = 8
                     Top = 22
@@ -14069,13 +14068,13 @@ object frmRightNav: TfrmRightNav
                 inherited grbElectroOpticalSensor: TGroupBox [2]
                   Width = 325
                   Height = 339
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
+                  ExplicitWidth = 325
+                  ExplicitHeight = 339
                   inherited ScrollBox3: TScrollBox
                     Width = 321
                     Height = 319
-                    ExplicitWidth = 323
-                    ExplicitHeight = 342
+                    ExplicitWidth = 321
+                    ExplicitHeight = 319
                     inherited Label1: TLabel
                       Left = 8
                       ExplicitLeft = 8
@@ -14133,13 +14132,13 @@ object frmRightNav: TfrmRightNav
                 inherited grbESMSensorControl: TGroupBox [3]
                   Width = 325
                   Height = 339
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
+                  ExplicitWidth = 325
+                  ExplicitHeight = 339
                   inherited ScrollBox4: TScrollBox
                     Width = 321
                     Height = 319
-                    ExplicitWidth = 323
-                    ExplicitHeight = 342
+                    ExplicitWidth = 321
+                    ExplicitHeight = 319
                     inherited Label6: TLabel
                       Left = 8
                       ExplicitLeft = 8
@@ -14187,13 +14186,13 @@ object frmRightNav: TfrmRightNav
                 inherited grbIFFInterrogatorControl: TGroupBox [4]
                   Width = 325
                   Height = 339
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
+                  ExplicitWidth = 325
+                  ExplicitHeight = 339
                   inherited ScrollBox5: TScrollBox
                     Width = 321
                     Height = 319
-                    ExplicitWidth = 323
-                    ExplicitHeight = 342
+                    ExplicitWidth = 321
+                    ExplicitHeight = 319
                     inherited Bevel5: TBevel
                       Left = 54
                       ExplicitLeft = 54
@@ -14324,8 +14323,8 @@ object frmRightNav: TfrmRightNav
                   Height = 339
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
+                  ExplicitWidth = 325
+                  ExplicitHeight = 339
                   inherited ScrollBox1: TScrollBox
                     Width = 321
                     Height = 319
@@ -14667,13 +14666,13 @@ object frmRightNav: TfrmRightNav
                   Height = 339
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
+                  ExplicitWidth = 325
+                  ExplicitHeight = 339
                   inherited ScrollBox7: TScrollBox
                     Width = 321
                     Height = 319
-                    ExplicitWidth = 323
-                    ExplicitHeight = 342
+                    ExplicitWidth = 321
+                    ExplicitHeight = 319
                     inherited Bevel10: TBevel
                       Left = 49
                       ExplicitLeft = 49
@@ -14776,8 +14775,8 @@ object frmRightNav: TfrmRightNav
                   Height = 339
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
+                  ExplicitWidth = 325
+                  ExplicitHeight = 339
                   inherited Label257: TLabel
                     Left = 8
                     Top = 21
@@ -14823,13 +14822,13 @@ object frmRightNav: TfrmRightNav
                   Height = 339
                   ParentBackground = False
                   ParentColor = False
-                  ExplicitWidth = 327
-                  ExplicitHeight = 362
+                  ExplicitWidth = 325
+                  ExplicitHeight = 339
                   inherited ScrollBox2: TScrollBox
                     Width = 321
                     Height = 319
-                    ExplicitWidth = 323
-                    ExplicitHeight = 342
+                    ExplicitWidth = 321
+                    ExplicitHeight = 319
                     inherited Bevel37: TBevel
                       Left = 54
                       ExplicitLeft = 54
@@ -15086,7 +15085,8 @@ object frmRightNav: TfrmRightNav
               Top = 90
               Width = 331
               Height = 0
-              ExplicitWidth = 333
+              ExplicitTop = 90
+              ExplicitWidth = 331
               ExplicitHeight = 0
             end
             inherited pmModeSonobuoy: TPopupMenu
@@ -15105,8 +15105,6 @@ object frmRightNav: TfrmRightNav
           Color = 4012086
           ParentBackground = False
           TabOrder = 2
-          ExplicitWidth = 333
-          ExplicitHeight = 483
           inline fmPlatformGuidance1: TfmPlatformGuidance
             Left = 0
             Top = 0
@@ -15123,13 +15121,13 @@ object frmRightNav: TfrmRightNav
             ParentColor = False
             ParentFont = False
             TabOrder = 0
-            ExplicitWidth = 333
-            ExplicitHeight = 483
+            ExplicitWidth = 331
+            ExplicitHeight = 435
             inherited PanelGuidanceControlChoices: TPanel
               Width = 331
               BevelOuter = bvRaised
               Color = 2695445
-              ExplicitWidth = 333
+              ExplicitWidth = 331
               inherited SpeedButton2: TSpeedButton
                 Left = 300
                 Top = 10
@@ -15147,13 +15145,13 @@ object frmRightNav: TfrmRightNav
               Width = 331
               Height = 394
               Color = 2695445
-              ExplicitWidth = 333
-              ExplicitHeight = 442
+              ExplicitWidth = 331
+              ExplicitHeight = 394
               inherited grbEvasion: TGroupBox [0]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label318: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -15198,8 +15196,8 @@ object frmRightNav: TfrmRightNav
               inherited grbOutrun: TGroupBox [1]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label310: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -15244,8 +15242,8 @@ object frmRightNav: TfrmRightNav
               inherited grbReturnToBase: TGroupBox [2]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label327: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -15322,8 +15320,8 @@ object frmRightNav: TfrmRightNav
               inherited grbShadow: TGroupBox [3]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label173: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -15384,8 +15382,8 @@ object frmRightNav: TfrmRightNav
               inherited grbSinuation: TGroupBox [4]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label206: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -15454,8 +15452,8 @@ object frmRightNav: TfrmRightNav
               inherited grbZigZag: TGroupBox [5]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label145: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -15524,13 +15522,13 @@ object frmRightNav: TfrmRightNav
               inherited grpCircle: TGroupBox [6]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited ScrollBox1: TScrollBox
                   Width = 327
                   Height = 374
-                  ExplicitWidth = 329
-                  ExplicitHeight = 422
+                  ExplicitWidth = 327
+                  ExplicitHeight = 374
                   inherited Label3: TLabel
                     Font.Color = clWhite
                     ParentFont = False
@@ -15616,8 +15614,8 @@ object frmRightNav: TfrmRightNav
               inherited grbHelm: TGroupBox [7]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label120: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -15750,8 +15748,8 @@ object frmRightNav: TfrmRightNav
               inherited grpPersonelGuidance: TGroupBox [8]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited whHeadingPersonel: TVrWheel
                   Left = 118
                   Top = 9
@@ -16490,8 +16488,8 @@ object frmRightNav: TfrmRightNav
               inherited grbEngagement: TGroupBox [9]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label300: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -16543,17 +16541,25 @@ object frmRightNav: TfrmRightNav
                 inherited pnlDepthEngagement: TPanel
                   Font.Color = clWhite
                   ParentFont = False
+                  inherited Edit2: TEdit
+                    Height = 21
+                    ExplicitHeight = 21
+                  end
                 end
                 inherited pnlAltitudeEngagement: TPanel
                   Font.Color = clWhite
                   ParentFont = False
+                  inherited edtAltitudeEngagement: TEdit
+                    Height = 21
+                    ExplicitHeight = 21
+                  end
                 end
               end
               inherited grpStation: TGroupBox [10]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label154: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -16586,8 +16592,8 @@ object frmRightNav: TfrmRightNav
               inherited gbWaypoint: TGroupBox [11]
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label97: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -16709,8 +16715,8 @@ object frmRightNav: TfrmRightNav
               inherited grbFormation: TGroupBox
                 Width = 329
                 Height = 392
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited Label323: TLabel
                   Font.Color = clWhite
                   ParentFont = False
@@ -16781,15 +16787,15 @@ object frmRightNav: TfrmRightNav
                 Height = 392
                 Color = 2695445
                 ParentColor = False
-                ExplicitWidth = 331
-                ExplicitHeight = 440
+                ExplicitWidth = 329
+                ExplicitHeight = 392
                 inherited ScrollBox5: TScrollBox
                   Width = 327
                   Height = 374
                   Color = 2695445
                   ParentColor = False
-                  ExplicitWidth = 329
-                  ExplicitHeight = 422
+                  ExplicitWidth = 327
+                  ExplicitHeight = 374
                   inherited whHeading: TVrWheel
                     Left = 116
                     Top = 9
@@ -17662,8 +17668,6 @@ object frmRightNav: TfrmRightNav
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitLeft = 0
-          ExplicitHeight = 412
         end
       end
     end

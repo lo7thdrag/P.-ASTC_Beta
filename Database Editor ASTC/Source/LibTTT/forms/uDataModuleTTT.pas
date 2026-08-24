@@ -3974,6 +3974,7 @@ begin
         6: SQL.Add(', Satellite_Index = ' + IntToStr(Satellite_Index));
       end;
 
+      SQL.Add(', vbs_class_name = ' + QuotedStr(vbs_class_name));
       SQL.Add(', Instance_Name = ' + QuotedStr(Instance_Name));
       SQL.Add(', Force_Designation = ' + IntToStr(Force_Designation));
       SQL.Add(', Track_ID = ' + QuotedStr(Track_ID));

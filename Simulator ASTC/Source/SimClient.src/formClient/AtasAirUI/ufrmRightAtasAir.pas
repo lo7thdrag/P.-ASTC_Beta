@@ -497,8 +497,13 @@ end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnADTargetTrackClick(Sender: TObject);
 begin
-  fmWeapon1.btnAirDroppedTorpedoOnClick(Sender);
+  if Assigned(Sender)then
+  begin
+    if (Sender is TSpeedButton) and (TSpeedButton(Sender).Tag = 5) then
+      frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
 
+    fmWeapon1.btnAirDroppedTorpedoOnClick(Sender);
+  end;
 end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnAPGBilndHideClick(Sender: TObject);
@@ -553,8 +558,13 @@ end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnBombTargetClick(Sender: TObject);
 begin
-  fmWeapon1.btnBombOnClick(Sender);
+  if Assigned(Sender)then
+  begin
+    if (Sender is TSpeedButton) and (TSpeedButton(Sender).Tag = 1) then
+      frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
 
+    fmWeapon1.btnBombOnClick(Sender);
+  end;
 end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnCancelATClick(Sender: TObject);
@@ -756,20 +766,24 @@ end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnSRTargetTrackClick(Sender: TObject);
 begin
-  fmWeapon1.btnStraightTorpedoOnClick(Sender);
+  if Assigned(Sender)then
+  begin
+    if (Sender is TSpeedButton) and (TSpeedButton(Sender).Tag = 5) then
+      frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
 
+    fmWeapon1.btnStraightTorpedoOnClick(Sender);
+  end;
 end;
 
-procedure TfrmRightAtasAir.fmWeapon1btnSurfaceToAirTargetTrackClick(
-  Sender: TObject);
+procedure TfrmRightAtasAir.fmWeapon1btnSurfaceToAirTargetTrackClick(Sender: TObject);
 begin
   if Assigned(Sender)then
   begin
     if (Sender is TSpeedButton) and (TSpeedButton(Sender).Tag = 5) then
       frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
 
-  fmWeapon1.btnSurfaceToAirOnClick(Sender);
-end;
+    fmWeapon1.btnSurfaceToAirOnClick(Sender);
+  end;
 end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnSurfaceToSurfaceCancelClick(
@@ -896,7 +910,6 @@ begin
     frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
     fmWeapon1.btnTacticalMissileTargetTrackClick(Sender);
   end;
-
 end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnTargetDetailsClick(Sender: TObject);
@@ -907,8 +920,13 @@ end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnTargetTrackAPGClick(Sender: TObject);
 begin
-  fmWeapon1.btnActivePasiveTorpedoOnClick(Sender);
+  if Assigned(Sender)then
+  begin
+    if (Sender is TSpeedButton) and (TSpeedButton(Sender).Tag = 5) then
+      frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
 
+    fmWeapon1.btnActivePasiveTorpedoOnClick(Sender);
+  end;
 end;
 
 procedure TfrmRightAtasAir.fmWeapon1btntControlGyroAdvisedClick(
@@ -965,8 +983,13 @@ end;
 procedure TfrmRightAtasAir.fmWeapon1btnWakeHomingTargetTrackClick(
   Sender: TObject);
 begin
-  fmWeapon1.btnWakeHomingTorpedoOnClick(Sender);
+  if Assigned(Sender)then
+  begin
+    if (Sender is TSpeedButton) and (TSpeedButton(Sender).Tag = 1) then
+      frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
 
+    fmWeapon1.btnWakeHomingTorpedoOnClick(Sender);
+  end;
 end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnWeaponClick(Sender: TObject);
@@ -1009,8 +1032,13 @@ end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnWGTargetTrackClick(Sender: TObject);
 begin
-  fmWeapon1.btnWireGuidedTorpedoOnClick(Sender);
+  if Assigned(Sender)then
+  begin
+    if (Sender is TSpeedButton) and (TSpeedButton(Sender).Tag = 5) then
+      frmTacticalDisplay.SetWeaponTargetObject(focusedTrack);
 
+    fmWeapon1.btnWireGuidedTorpedoOnClick(Sender);
+  end;
 end;
 
 procedure TfrmRightAtasAir.fmWeapon1btnWHBlindHideClick(Sender: TObject);
@@ -1488,7 +1516,6 @@ begin
 //    frmWeapon.Caption := 'Weapon ' + pit.InstanceName;
 //  end;
 end;
-
 
 procedure TfrmRightAtasAir.tmrWarningTimer(Sender: TObject);
 begin

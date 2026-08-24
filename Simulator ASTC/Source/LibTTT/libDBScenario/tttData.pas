@@ -2427,6 +2427,7 @@ end;
     Instance_Ident_Index   : integer;
     Vehicle_Index          : integer;
     Instance_Identifier    : string[60];
+    model_path             : string[60];
   end;
 
   ////====================================================

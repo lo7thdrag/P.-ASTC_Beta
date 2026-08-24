@@ -1921,7 +1921,6 @@ begin
     fmFireControl1.SetControlledObject(pit);
     fmCounterMeasure1.SetControlledObject(pit);
     fmEMCON1.SetControlledObject(pit);
-//    fmLogisticCalculation1.SetControlledObject(pit);
 
     {$REGION ' Navigasi '}
 
@@ -1932,7 +1931,6 @@ begin
     {$REGION ' Atas Air '}
     if Assigned(frmRightAtasAir)  then
     begin
-//      frmRightAtasAir.focusedTrack := pit;
       frmRightAtasAir.fmWeapon1.SetControlledObject(pit);
     end;
 
@@ -8063,7 +8061,6 @@ begin
                 UnSelectAllBOLWPointTrack;
                 UnSelectAllPlatformTrack;
                 UnSelectAllNRPlatformTrack;
-                UnselectAllDetectedTrack;
 
                 TT3DetectedTrack(aObject).Selected := true;
 
@@ -9785,8 +9782,8 @@ begin
       begin
         if det.DetailedDetectionShowed.Plat_Name_Recog_Capability then
         begin
-//          lbNameHook.Caption      := v.InstanceName;
-          lbNameHook.Caption      := det.TrackName;
+          lbNameHook.Caption      := v.InstanceName;
+//          lbNameHook.Caption      := det.TrackName;
         end
         else
         begin

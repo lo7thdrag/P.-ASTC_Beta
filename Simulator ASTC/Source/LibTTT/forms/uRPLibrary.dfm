@@ -604,7 +604,7 @@ object frmRPLibrary: TfrmRPLibrary
         end
         object rgForceDesignation: TRadioGroup
           Left = 106
-          Top = 17
+          Top = 12
           Width = 158
           Height = 166
           Caption = 'Force Designation  :  '

@@ -141,7 +141,8 @@ begin
   range   := CalcRange(FPosition.X,FPosition.Y,
            aObject.getPositionX,aObject.getPositionY);
 
-  result := range <= DetectionRange;
+//  result := range <= DetectionRange;
+  Result := (range <= FRangeWithVisualEffect);
 end;
 
 function TT3Visual.ParentSensor(aObject: TSimObject): Boolean;  //add andik, buat ngecek parent sensor subsurface
@@ -331,8 +332,8 @@ begin
   range   := CalcRange(FPosition.X, FPosition.Y,
            aObject.getPositionX, aObject.getPositionY);
 
-  //tambahan sementara 310212012
   Result := (range <= DetailDetectionRange);
+  Result := (range <= FRangeWithVisualEffect);
 
   {if Result then
   begin

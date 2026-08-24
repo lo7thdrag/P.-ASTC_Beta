@@ -317,7 +317,7 @@ begin
   Application.CreateForm(TfrmKeyboard, frmKeyboard);
   Application.CreateForm(TfmDisembarkWith, fmDisembarkWith);
   Application.CreateForm(TfrmGroupName1, frmGroupName1);
-  Application.CreateForm(TfrmViewWasdal, frmViewWasdal);
+//  Application.CreateForm(TfrmViewWasdal, frmViewWasdal);
   Application.CreateForm(TfrmRightToolsPlotter, frmRightToolsPlotter);
   Application.CreateForm(TfrmPlatformBaseDetail, frmPlatformBaseDetail);
 //  Application.CreateForm(TfrmLeftNav, frmLeftNav);

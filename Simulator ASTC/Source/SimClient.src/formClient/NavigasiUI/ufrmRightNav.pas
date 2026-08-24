@@ -618,12 +618,12 @@ begin
       begin
         if det.DetailedDetectionShowed.Plat_Name_Recog_Capability then
         begin
-//          lbNameHook.Caption      := v.InstanceName;
-          lblNameHook.Caption      := det.TrackName;
+          lblNameHook.Caption      := v.InstanceName;
+//          lblNameHook.Caption      := det.TrackName;
         end
         else
         begin
-//          lbNameHook.Caption      := 'Unknown';
+//          lblNameHook.Caption      := 'Unknown';
           lblNameHook.Caption      := det.TrackName;
         end;
 

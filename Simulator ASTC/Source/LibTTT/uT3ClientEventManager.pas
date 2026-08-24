@@ -786,7 +786,8 @@ begin
     2, 3:
     begin
       {$REGION ' Atas Air '}
-      frmLeftAtasAir.fmSensor1.UpdateIFFSensorList(sensor, value);
+      if Assigned(frmLeftAtasAir) then
+        frmLeftAtasAir.fmSensor1.UpdateIFFSensorList(sensor, value);
       {$ENDREGION}
     end;
   end;
@@ -844,10 +845,13 @@ begin
       2, 3:
       begin
         {$REGION ' Atas Air '}
-        if frmLeftAtasAir.fmCounterMeasure1.SelectedECM = jammer then
+        if Assigned(frmLeftAtasAir) then
         begin
-          frmLeftAtasAir.fmCounterMeasure1.UpdateNoiseJammer(jammer);
-          frmLeftAtasAir.fmCounterMeasure1. UpdateRadarNoiseJammerList(TT3RadarNoiseJammerOnVehicle(jammer), value);
+          if frmLeftAtasAir.fmCounterMeasure1.SelectedECM = jammer then
+          begin
+            frmLeftAtasAir.fmCounterMeasure1.UpdateNoiseJammer(jammer);
+            frmLeftAtasAir.fmCounterMeasure1. UpdateRadarNoiseJammerList(TT3RadarNoiseJammerOnVehicle(jammer), value);
+          end;
         end;
         {$ENDREGION}
       end;
@@ -1003,7 +1007,14 @@ begin
     if (Assigned(simMgrClient.ControlledPlatform)) and (simMgrClient.ControlledPlatform is TT3Vehicle) then
     begin
       if TT3Vehicle(Sender) = TT3Vehicle(simMgrClient.ControlledPlatform) then
+      begin
         frmTacticalDisplay.fmWeapon1.setThisLauncherState;
+
+        if Assigned(frmRightAtasAir)  then
+        begin
+          frmRightAtasAir.fmWeapon1.setThisLauncherState;
+        end;
+      end;
     end;
   end;
 end;
@@ -1246,9 +1257,12 @@ begin
       2, 3:
       begin
         {$REGION ' Atas Air '}
-        if frmLeftAtasAir.fmCounterMeasure1.SelectedECM = JammerObj then
+        if Assigned(frmLeftAtasAir) then
         begin
-          frmLeftAtasAir.fmCounterMeasure1.UpdateOnBoardSelfDefence(JammerObj);
+          if frmLeftAtasAir.fmCounterMeasure1.SelectedECM = JammerObj then
+          begin
+            frmLeftAtasAir.fmCounterMeasure1.UpdateOnBoardSelfDefence(JammerObj);
+          end;
         end;
         {$ENDREGION}
       end;
@@ -1746,6 +1760,10 @@ begin
           if Assigned(wpn) and (wpn is TT3MissilesOnVehicle) and (wpn.TargetObject = pf) then
           begin
             frmTacticalDisplay.fmWeapon1.btnSurfaceToSurfaceCancel.Click;
+
+            if Assigned(frmRightAtasAir) then
+              frmRightAtasAir.fmWeapon1.btnSurfaceToSurfaceCancel.Click;
+
           end;
         end;
       end;
@@ -3562,13 +3580,15 @@ begin
     1:
     begin
       {$REGION ' Navigasi '}
-      frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+      if Assigned(frmRightNav) then
+        frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
       {$ENDREGION}
     end;
     2,3:
     begin
       {$REGION ' Atas Air '}
-      frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+      if Assigned(frmLeftAtasAir) then
+        frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
       {$ENDREGION}
     end;
 //    3:
@@ -3771,17 +3791,21 @@ begin
       1:
       begin
         {$REGION ' Navigasi '}
-        frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        if Assigned(frmRightNav) then
+          frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
         {$ENDREGION}
       end;
       2, 3:
       begin
         {$REGION ' Atas Air '}
-        frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
-
-        if sender is TT3Radar then
+        if Assigned(frmLeftAtasAir) then
         begin
-          frmLeftAtasAir.fmFireControl1.UpdateFCList(TT3Radar(Sender));
+          frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+
+          if sender is TT3Radar then
+          begin
+            frmLeftAtasAir.fmFireControl1.UpdateFCList(TT3Radar(Sender));
+          end;
         end;
         {$ENDREGION}
       end;
@@ -3855,13 +3879,15 @@ begin
     1:
     begin
       {$REGION ' Navigasi '}
-      frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+      if Assigned(frmRightNav) then
+        frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
       {$ENDREGION}
     end;
     2, 3:
     begin
       {$REGION ' Atas Air '}
-       frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+       if Assigned(frmLeftAtasAir) then
+          frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
       {$ENDREGION}
     end;
 //    3:
@@ -3906,13 +3932,15 @@ begin
       1:
       begin
         {$REGION ' Navigasi '}
-        frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        if Assigned(frmRightNav) then
+          frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
         {$ENDREGION}
       end;
       2, 3:
       begin
         {$REGION ' Atas Air '}
-        frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        if Assigned(frmLeftAtasAir) then
+          frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
         {$ENDREGION}
       end;
 //      3:
@@ -3969,13 +3997,15 @@ begin
       1:
       begin
         {$REGION ' Navigasi '}
-        frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        if Assigned(frmRightNav) then
+          frmRightNav.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
         {$ENDREGION}
       end;
       2, 3:
       begin
         {$REGION ' Atas Air '}
-        frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
+        if Assigned(frmLeftAtasAir) then
+          frmLeftAtasAir.fmSensor1.UpdateSensorForm(TT3Sensor(Sender));
         {$ENDREGION}
       end;
 //      3:
@@ -5577,18 +5607,21 @@ begin
             2, 3:
             begin
               {$REGION ' Atas Air '}
-              frmRightAtasAir.fmWeapon1.EdtSRTargetTrack.Text
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
-              frmRightAtasAir.fmWeapon1.lblSRTargetIdentity.Caption
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
-              frmRightAtasAir.fmWeapon1.lblSRTargetCourse.Caption
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
-              frmRightAtasAir.fmWeapon1.lblSRTargetSpeed.Caption
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
-              frmRightAtasAir.fmWeapon1.lblSRTargetDepth.Caption
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
-              frmRightAtasAir.fmWeapon1.btnSRLaunch.Enabled
-                 := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              if Assigned(frmRightAtasAir) then
+              begin
+                frmRightAtasAir.fmWeapon1.EdtSRTargetTrack.Text
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+                frmRightAtasAir.fmWeapon1.lblSRTargetIdentity.Caption
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
+                frmRightAtasAir.fmWeapon1.lblSRTargetCourse.Caption
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
+                frmRightAtasAir.fmWeapon1.lblSRTargetSpeed.Caption
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
+                frmRightAtasAir.fmWeapon1.lblSRTargetDepth.Caption
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
+                frmRightAtasAir.fmWeapon1.btnSRLaunch.Enabled
+                   := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              end;
               {$ENDREGION}
             end;
           end;
@@ -5659,45 +5692,48 @@ begin
             2, 3:
             begin
               {$REGION ' Atas Air '}
-              frmRightAtasAir.fmWeapon1.EdtATTargetTrack.Text := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+              if Assigned(frmRightAtasAir) then
+              begin
+                frmRightAtasAir.fmWeapon1.EdtATTargetTrack.Text := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
 
-              if (TT3TorpedoesOnVehicle(Focused_weapon).FiringMode = 1) then
-                frmRightAtasAir.fmWeapon1.EdtFiringModeAT.Text := 'Deliberate'
-              else
-                frmRightAtasAir.fmWeapon1.EdtFiringModeAT.Text := 'Urgent';
+                if (TT3TorpedoesOnVehicle(Focused_weapon).FiringMode = 1) then
+                  frmRightAtasAir.fmWeapon1.EdtFiringModeAT.Text := 'Deliberate'
+                else
+                  frmRightAtasAir.fmWeapon1.EdtFiringModeAT.Text := 'Urgent';
 
-              if (TT3TorpedoesOnVehicle(Focused_weapon).RunOutMode = 1) then
-                frmRightAtasAir.fmWeapon1.EdtRunOutAT.Text := 'RunOut'
-              else
-                frmRightAtasAir.fmWeapon1.EdtRunOutAT.Text := 'No RunOut';
+                if (TT3TorpedoesOnVehicle(Focused_weapon).RunOutMode = 1) then
+                  frmRightAtasAir.fmWeapon1.EdtRunOutAT.Text := 'RunOut'
+                else
+                  frmRightAtasAir.fmWeapon1.EdtRunOutAT.Text := 'No RunOut';
 
-              frmRightAtasAir.fmWeapon1.EdtSearchRadiusAT.Text
-                 := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchRadius);
-              frmRightAtasAir.fmWeapon1.EdtSearchDepthAT.Text
-                 := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchDepth);
-              frmRightAtasAir.fmWeapon1.EdtSafetyCeilingAT.Text
-                 := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SafetyCeiling);
-              frmRightAtasAir.fmWeapon1.EdtSeekerRangeAT.Text
-                 := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
-              frmRightAtasAir.fmWeapon1.EdtGyroAngleAT.Text
-                 := IntToStr(TT3TorpedoesOnVehicle(Focused_weapon).GyroAngle);
+                frmRightAtasAir.fmWeapon1.EdtSearchRadiusAT.Text
+                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchRadius);
+                frmRightAtasAir.fmWeapon1.EdtSearchDepthAT.Text
+                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchDepth);
+                frmRightAtasAir.fmWeapon1.EdtSafetyCeilingAT.Text
+                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SafetyCeiling);
+                frmRightAtasAir.fmWeapon1.EdtSeekerRangeAT.Text
+                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
+                frmRightAtasAir.fmWeapon1.EdtGyroAngleAT.Text
+                   := IntToStr(TT3TorpedoesOnVehicle(Focused_weapon).GyroAngle);
 
-              frmRightAtasAir.fmWeapon1.btnTube1AT.Enabled := True;
-              frmRightAtasAir.fmWeapon1.btnTube2AT.Enabled := True;
-              frmRightAtasAir.fmWeapon1.btnTube3AT.Enabled := True;
-              frmRightAtasAir.fmWeapon1.btnTube4AT.Enabled := True;
+                frmRightAtasAir.fmWeapon1.btnTube1AT.Enabled := True;
+                frmRightAtasAir.fmWeapon1.btnTube2AT.Enabled := True;
+                frmRightAtasAir.fmWeapon1.btnTube3AT.Enabled := True;
+                frmRightAtasAir.fmWeapon1.btnTube4AT.Enabled := True;
 
-              case TT3TorpedoesOnVehicle(Focused_weapon).TubeOn of
-                1 : frmRightAtasAir.fmWeapon1.btnTube1AT.Enabled := False;
-                2 : frmRightAtasAir.fmWeapon1.btnTube2AT.Enabled := False;
-                3 : frmRightAtasAir.fmWeapon1.btnTube3AT.Enabled := False;
-                4 : frmRightAtasAir.fmWeapon1.btnTube4AT.Enabled := False;
+                case TT3TorpedoesOnVehicle(Focused_weapon).TubeOn of
+                  1 : frmRightAtasAir.fmWeapon1.btnTube1AT.Enabled := False;
+                  2 : frmRightAtasAir.fmWeapon1.btnTube2AT.Enabled := False;
+                  3 : frmRightAtasAir.fmWeapon1.btnTube3AT.Enabled := False;
+                  4 : frmRightAtasAir.fmWeapon1.btnTube4AT.Enabled := False;
+                end;
+
+                frmRightAtasAir.fmWeapon1.btnPlanAT.Enabled
+                   := TT3TorpedoesOnVehicle(Focused_weapon).ButtonPlan;
+                frmRightAtasAir.fmWeapon1.btnLaunchAT.Enabled
+                   := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
               end;
-
-              frmRightAtasAir.fmWeapon1.btnPlanAT.Enabled
-                 := TT3TorpedoesOnVehicle(Focused_weapon).ButtonPlan;
-              frmRightAtasAir.fmWeapon1.btnLaunchAT.Enabled
-                 := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
               {$ENDREGION}
             end;
           end;
@@ -5767,18 +5803,21 @@ begin
             2, 3:
             begin
               {$REGION ' Atas Air '}
-              frmRightAtasAir.fmWeapon1.EdtWGTargetTrack.Text
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
-              frmRightAtasAir.fmWeapon1.lblWGTargetIdentity.Caption
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
-              frmRightAtasAir.fmWeapon1.lblWGTargetCourse.Caption
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
-              frmRightAtasAir.fmWeapon1.lblWGTargetSpeed.Caption
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
-              frmRightAtasAir.fmWeapon1.lblWGTargetDepth.Caption
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
-              frmRightAtasAir.fmWeapon1.btnWGLaunch.Enabled
-                 := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              if Assigned(frmRightAtasAir) then
+              begin
+                frmRightAtasAir.fmWeapon1.EdtWGTargetTrack.Text
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+                frmRightAtasAir.fmWeapon1.lblWGTargetIdentity.Caption
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
+                frmRightAtasAir.fmWeapon1.lblWGTargetCourse.Caption
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
+                frmRightAtasAir.fmWeapon1.lblWGTargetSpeed.Caption
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
+                frmRightAtasAir.fmWeapon1.lblWGTargetDepth.Caption
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
+                frmRightAtasAir.fmWeapon1.btnWGLaunch.Enabled
+                   := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              end;
               {$ENDREGION}
             end;
           end;
@@ -5822,20 +5861,23 @@ begin
             2, 3:
             begin
               {$REGION ' Atas Air '}
-              frmRightAtasAir.fmWeapon1.EdtWHSalvo.Text
-                 := IntToStr(TT3TorpedoesOnVehicle(Focused_weapon).SalvoSize);
-              frmRightAtasAir.fmWeapon1.EdtWHTargetTrack.Text
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
-              frmRightAtasAir.fmWeapon1.lblWHTargetIdentity.Caption
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
-              frmRightAtasAir.fmWeapon1.lblWHTargetBearing.Caption
-                 := TT3TorpedoesOnVehicle(Focused_weapon).TargetBearing;
-              frmRightAtasAir.fmWeapon1.EdtWHLaunchBearing.Text
-                 := IntToStr(round(TT3TorpedoesOnVehicle(Focused_weapon).LaunchBearing));
-              frmRightAtasAir.fmWeapon1.EdtWHSeekerRange.Text
-                 := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
-              frmRightAtasAir.fmWeapon1.btnWHLaunch.Enabled
-                := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              if Assigned(frmRightAtasAir) then
+              begin
+                frmRightAtasAir.fmWeapon1.EdtWHSalvo.Text
+                   := IntToStr(TT3TorpedoesOnVehicle(Focused_weapon).SalvoSize);
+                frmRightAtasAir.fmWeapon1.EdtWHTargetTrack.Text
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+                frmRightAtasAir.fmWeapon1.lblWHTargetIdentity.Caption
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
+                frmRightAtasAir.fmWeapon1.lblWHTargetBearing.Caption
+                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetBearing;
+                frmRightAtasAir.fmWeapon1.EdtWHLaunchBearing.Text
+                   := IntToStr(round(TT3TorpedoesOnVehicle(Focused_weapon).LaunchBearing));
+                frmRightAtasAir.fmWeapon1.EdtWHSeekerRange.Text
+                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
+                frmRightAtasAir.fmWeapon1.btnWHLaunch.Enabled
+                  := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              end;
               {$ENDREGION}
             end;
           end;
@@ -5884,18 +5926,21 @@ begin
               2, 3:
               begin
                 {$REGION ' Atas Air '}
-                frmRightAtasAir.fmWeapon1.EdtAPGTargetTrack.Text
-                   := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
-                frmRightAtasAir.fmWeapon1.EdtAPGSearchRadius.Text
-                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchRadius);
-                frmRightAtasAir.fmWeapon1.EdtAPGSearchDepth.Text
-                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchDepth);
-                frmRightAtasAir.fmWeapon1.EdtAPGSafetyCeiling.Text
-                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SafetyCeiling);
-                frmRightAtasAir.fmWeapon1.EdtAPGSeekerRange.Text
-                   := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
-                frmRightAtasAir.fmWeapon1.btnAPGLaunch.Enabled
-                   := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+                if Assigned(frmRightAtasAir) then
+                begin
+                  frmRightAtasAir.fmWeapon1.EdtAPGTargetTrack.Text
+                     := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+                  frmRightAtasAir.fmWeapon1.EdtAPGSearchRadius.Text
+                     := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchRadius);
+                  frmRightAtasAir.fmWeapon1.EdtAPGSearchDepth.Text
+                     := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchDepth);
+                  frmRightAtasAir.fmWeapon1.EdtAPGSafetyCeiling.Text
+                     := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SafetyCeiling);
+                  frmRightAtasAir.fmWeapon1.EdtAPGSeekerRange.Text
+                     := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
+                  frmRightAtasAir.fmWeapon1.btnAPGLaunch.Enabled
+                     := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+                end;
                 {$ENDREGION}
               end;
             end;
@@ -5948,29 +5993,32 @@ begin
             2, 3:
             begin
               {$REGION ' Atas Air '}
-              frmRightAtasAir.fmWeapon1.EdtADSearchRadius.Text
-                  := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchRadius*C_NauticalMile_To_Yards);
-              frmRightAtasAir.fmWeapon1.EdtADSearchDepth.Text
-                  := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchDepth);
-              frmRightAtasAir.fmWeapon1.EdtADSafetyCeiling.Text
-                  := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SafetyCeiling);
-              frmRightAtasAir.fmWeapon1.EdtADTargetTrack.Text
-                  := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
-              frmRightAtasAir.fmWeapon1.lblADTargetForce.Caption
-                  := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
-              frmRightAtasAir.fmWeapon1.lblADTargetCourse.Caption
-                  := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
-              frmRightAtasAir.fmWeapon1.lblADTargetSpeed.Caption
-                  := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
-              frmRightAtasAir.fmWeapon1.lblADTargetDepth.Caption
-                  := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
-              frmRightAtasAir.fmWeapon1.chkADUseLaunchPlatformHeading.Checked
-                  := TT3TorpedoesOnVehicle(Focused_weapon).EnableLaunchBearing;
-              frmRightAtasAir.fmWeapon1.chkADLaunchWhithoutTarget.Checked
-                  := TT3TorpedoesOnVehicle(Focused_weapon).LaunchWhithoutTarget;
-              frmRightAtasAir.fmWeapon1.EdtADLaunchBearing.Enabled := False;
-              frmRightAtasAir.fmWeapon1.btnADLaunch.Enabled
-                  := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              if Assigned(frmRightAtasAir) then
+              begin
+                frmRightAtasAir.fmWeapon1.EdtADSearchRadius.Text
+                    := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchRadius*C_NauticalMile_To_Yards);
+                frmRightAtasAir.fmWeapon1.EdtADSearchDepth.Text
+                    := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SearchDepth);
+                frmRightAtasAir.fmWeapon1.EdtADSafetyCeiling.Text
+                    := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SafetyCeiling);
+                frmRightAtasAir.fmWeapon1.EdtADTargetTrack.Text
+                    := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
+                frmRightAtasAir.fmWeapon1.lblADTargetForce.Caption
+                    := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
+                frmRightAtasAir.fmWeapon1.lblADTargetCourse.Caption
+                    := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
+                frmRightAtasAir.fmWeapon1.lblADTargetSpeed.Caption
+                    := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
+                frmRightAtasAir.fmWeapon1.lblADTargetDepth.Caption
+                    := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
+                frmRightAtasAir.fmWeapon1.chkADUseLaunchPlatformHeading.Checked
+                    := TT3TorpedoesOnVehicle(Focused_weapon).EnableLaunchBearing;
+                frmRightAtasAir.fmWeapon1.chkADLaunchWhithoutTarget.Checked
+                    := TT3TorpedoesOnVehicle(Focused_weapon).LaunchWhithoutTarget;
+                frmRightAtasAir.fmWeapon1.EdtADLaunchBearing.Enabled := False;
+                frmRightAtasAir.fmWeapon1.btnADLaunch.Enabled
+                    := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+              end;
               {$ENDREGION}
             end;
           end;

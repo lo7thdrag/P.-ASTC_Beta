@@ -72,6 +72,7 @@ type
     pnlDataLink: TPanel;
     pnlData: TPanel;
     pnlVersion: TPanel;
+    img1: TImage;
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure btnStartClick(Sender: TObject);
@@ -96,6 +97,7 @@ type
     procedure imgWatcherClick(Sender: TObject);
     procedure imgCloseClick(Sender: TObject);
     procedure imgMinimizeClick(Sender: TObject);
+    procedure img1Click(Sender: TObject);
   private
     { Private declarations }
     FLastS : string;
@@ -396,6 +398,14 @@ procedure TfMainGServer.FormDestroy(Sender: TObject);
 begin
   if Assigned(FLogFile) then
     FLogFile.Free;
+end;
+
+procedure TfMainGServer.img1Click(Sender: TObject);
+begin
+  if Self.BorderStyle = bsSingle then
+    Self.BorderStyle := bsNone
+  else
+    Self.BorderStyle := bsSingle;
 end;
 
 procedure TfMainGServer.imgBackgroundMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);

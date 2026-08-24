@@ -1630,7 +1630,7 @@ begin
           if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
             AddStatus(v.TrackLabel+' Kelebihan kecepatan = '+FloatToStr(Speed))
           else
-            AddStatus(IntToStr(v.TrackNumber)+' Kelebihan kecepatan = '+FloatToStr(Speed));
+            AddStatus('Kelebihan kecepatan = '+FloatToStr(Speed));
 
           Speed := v.Mover.MaxSpeed;     //mk test
         end
@@ -1641,7 +1641,7 @@ begin
           if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
             AddStatus(v.TrackLabel + ' Minimum kecepatan')
           else
-            AddStatus(IntToStr(v.TrackNumber) + ' Minimum kecepatan');
+            AddStatus('Minimum kecepatan');
 
           Speed := v.Mover.MinSpeed;
         end;

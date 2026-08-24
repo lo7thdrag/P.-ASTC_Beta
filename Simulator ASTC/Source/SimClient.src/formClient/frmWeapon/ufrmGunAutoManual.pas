@@ -175,6 +175,9 @@ uses uT3Gun, uT3CounterMeasure,
 procedure TfrmGunAutoManual.AddStatus(Command: string);
 begin
    frmTacticalDisplay.addStatus(Command);
+
+   if Assigned(frmRightAtasAir) then
+    frmRightAtasAir.addStatus(Command);
 end;
 
 procedure TfrmGunAutoManual.ApplyAssigned(Value : boolean);

@@ -169,6 +169,10 @@ type
     lblShipName: TLabel;
     pnlControllerBody: TPanel;
     lbl26: TLabel;
+    Panel1: TPanel;
+    Image1: TImage;
+    pnlStatusRed: TPanel;
+    tmrWarning: TTimer;
     procedure THButtonClick(Sender: TObject);
     procedure TDCPButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -185,20 +189,20 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure fmPlatformGuidance1btnWaypointClick(Sender: TObject);
     procedure fmSensor1sbIFFTransponderControlModeOnClick(Sender: TObject);
+    procedure tmrWarningTimer(Sender: TObject);
+    procedure pnlStatusRedClick(Sender: TObject);
   protected
     FControlled: TObject;
 
   private
+    tmrFlag : Integer;
     { Private declarations }
   public
   focusedTrack: TSimObject;
 //  statusR_List,statusY_List : TList;
-
-//    procedure updateStatus;
-//    procedure updateStatus_Yellow;
     procedure GetNameAndClass(const obj: TSimObject; var n, c: string);
-
     procedure Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);
+
     {HOOK-IFF}
     procedure UpdateTabHooked(aTrack: TSimObject);
     procedure UpdateHookedInfo(Sender: TObject);
@@ -211,6 +215,7 @@ type
     procedure InitCreate(sender: TForm);
     procedure UpdateFormData;
     procedure SetControlledObject(pit : TT3PlatformInstance);
+    procedure addStatus(status: String);
 
 
     { Public declarations }
@@ -396,6 +401,22 @@ begin
   end;
 end;
 
+procedure TfrmRightNav.tmrWarningTimer(Sender: TObject);
+begin
+  if tmrFlag > 8 then
+  begin
+    {menghilangkan tmr}
+    pnlStatusRed.Caption := '';
+    pnlStatusRed.Visible := False;
+    tmrWarning.Enabled := False;
+    tmrFlag := 0;
+  end
+  else
+  begin
+    tmrFlag := tmrFlag + 1;
+  end;
+end;
+
 procedure TfrmRightNav.UpdateFormData;
 var
   i: Integer;
@@ -434,6 +455,7 @@ begin
  InitTabHookedInfo;
 
   if not Assigned(Sender) then
+
     exit;
 
   if pnlTabHook.Tag = 1 then
@@ -807,6 +829,14 @@ begin
 
   lblBearingHook.Caption   := FormatCourse(b); ;
   lblRangeHook.Caption     := FormatFloat('000.00', d);
+end;
+
+procedure TfrmRightNav.addStatus(status: String);
+begin
+  pnlStatusRed.Caption := status;
+  pnlStatusRed.Visible := True;
+
+  tmrWarning.Enabled := True;
 end;
 
 procedure TfrmRightNav.DisplayTabDetail(Sender: TObject);
@@ -1511,6 +1541,12 @@ begin
 //  lbTrackIff.Caption := 'Unknown';
 //  lbNameIff.Caption  := 'Unknown';
 //  lbClassIff.Caption := 'Unknown';
+end;
+
+procedure TfrmRightNav.pnlStatusRedClick(Sender: TObject);
+begin
+  pnlStatusRed.Caption := '';
+  pnlStatusRed.Visible := False;
 end;
 
 procedure TfrmRightNav.Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);

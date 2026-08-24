@@ -599,7 +599,7 @@ uses
   uBaseCoordSystem, tttData, uWaypointEditor,
   uSimMgr_Client, uGameData_TTT, uT3Vehicle,
   uDBAsset_Vehicle, ufTacticalDisplay, uLaunchPlatform, ufToteDisplay,
-  DateUtils, Math, uMapXHandler, uDBFormation;
+  DateUtils, Math, uMapXHandler, uDBFormation, ufrmRightNav;
 
 function getTabIndex(const vgt: TVehicleGuidanceType): byte;
 const CVGT: array[TVehicleGuidanceType] of byte =
@@ -1921,6 +1921,9 @@ end;
 procedure TfmPlatformGuidance.AddStatus(Command: string);
 begin
   frmTacticalDisplay.addStatus(Command);
+
+  if Assigned(frmRightNav) then
+    frmRightNav.addStatus(Command);
 end;
 
 procedure TfmPlatformGuidance.btnCircleDirectionClick(Sender: TObject);

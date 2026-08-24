@@ -7545,16 +7545,11 @@ begin
       SQL.Add(', Known_Cross_Section = ' + FloatToStr(Known_Cross_Section));
       SQL.Add(', Max_Unambig_Detect_Range = ' + FloatToStr(Max_Unambig_Detect_Range));
       SQL.Add(', IFF_Capability = ' + BoolToStr(IFF_Capability));
-      SQL.Add(', Altitude_Data_Capability = ' +
-        BoolToStr(Altitude_Data_Capability));
-      SQL.Add(', Ground_Speed_Data_Capability = ' +
-        BoolToStr(Ground_Speed_Data_Capability));
-      SQL.Add(', Heading_Data_Capability = ' +
-        BoolToStr(Heading_Data_Capability));
-      SQL.Add(', Plat_Type_Recog_Capability = ' +
-        BoolToStr(Plat_Type_Recog_Capability));
-      SQL.Add(', Plat_Class_Recog_Capability = ' +
-        BoolToStr(Plat_Class_Recog_Capability));
+      SQL.Add(', Altitude_Data_Capability = ' + BoolToStr(Altitude_Data_Capability));
+      SQL.Add(', Ground_Speed_Data_Capability = ' + BoolToStr(Ground_Speed_Data_Capability));
+      SQL.Add(', Heading_Data_Capability = ' + BoolToStr(Heading_Data_Capability));
+      SQL.Add(', Plat_Type_Recog_Capability = ' + BoolToStr(Plat_Type_Recog_Capability));
+      SQL.Add(', Plat_Class_Recog_Capability = ' + BoolToStr(Plat_Class_Recog_Capability));
       SQL.Add(', Clutter_Rejection = ' + FloatToStr(Clutter_Rejection));
       SQL.Add(', Anti_Jamming_Capable = ' + BoolToStr(Anti_Jamming_Capable));
       SQL.Add(', Curve_Definition_Index = ' + IntToStr(Curve_Definition_Index));
@@ -7562,24 +7557,18 @@ begin
       SQL.Add(', Jamming_A_Resistant = ' + BoolToStr(Jamming_A_Resistant));
       SQL.Add(', Jamming_B_Resistant = ' + BoolToStr(Jamming_B_Resistant));
       SQL.Add(', Jamming_C_Resistant = ' + BoolToStr(Jamming_C_Resistant));
-      SQL.Add(', Anti_Jamming_A_Resistant = ' +
-        BoolToStr(Anti_Jamming_A_Resistant));
-      SQL.Add(', Anti_Jamming_B_Resistant = ' +
-        BoolToStr(Anti_Jamming_B_Resistant));
-      SQL.Add(', Anti_Jamming_C_Resistant = ' +
-        BoolToStr(Anti_Jamming_C_Resistant));
-      SQL.Add(', Anti_Jamming_Range_Reduction = ' +
-        FloatToStr(Anti_Jamming_Range_Reduction));
+      SQL.Add(', Anti_Jamming_A_Resistant = ' + BoolToStr(Anti_Jamming_A_Resistant));
+      SQL.Add(', Anti_Jamming_B_Resistant = ' + BoolToStr(Anti_Jamming_B_Resistant));
+      SQL.Add(', Anti_Jamming_C_Resistant = ' + BoolToStr(Anti_Jamming_C_Resistant));
+      SQL.Add(', Anti_Jamming_Range_Reduction = ' + FloatToStr(Anti_Jamming_Range_Reduction));
       SQL.Add(', Beam_Width = ' + FloatToStr(Beam_Width));
       SQL.Add(', Sector_Scan_Capable = ' + BoolToStr(Sector_Scan_Capable));
-      SQL.Add(', Off_Axis_Jammer_Reduction = ' +
-        FloatToStr(Off_Axis_Jammer_Reduction));
+      SQL.Add(', Off_Axis_Jammer_Reduction = ' + FloatToStr(Off_Axis_Jammer_Reduction));
       SQL.Add(', Num_FCR_Channels = ' + IntToStr(Num_FCR_Channels));
       SQL.Add(', Radar_Spot_Number = ' + IntToStr(Radar_Spot_Number));
       SQL.Add(', Radar_Horizon_Factor = ' + FloatToStr(Radar_Horizon_Factor));
       SQL.Add(', Main_Lobe_Gain = ' + FloatToStr(Main_Lobe_Gain));
-      SQL.Add(', Counter_Detection_Factor = ' +
-        FloatToStr(Counter_Detection_Factor));
+      SQL.Add(', Counter_Detection_Factor = ' + FloatToStr(Counter_Detection_Factor));
       SQL.Add(', ECCM_Type = ' + IntToStr(ECCM_Type));
       SQL.Add(', MTI_Capable = ' + BoolToStr(MTI_Capable));
       SQL.Add(', MTI_MinTargetSpeed = ' + FloatToStr(MTI_MinTargetSpeed));

@@ -6699,68 +6699,49 @@ begin
   pnlContainerBottom.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
-  if not Assigned(frmLeftAtasAir) then
-    frmLeftAtasAir := TfrmLeftAtasAir.Create(Application);
-
-  frmRightAtasAir.Map1 := Map1;
-
-  frmLeftAtasAir.Parent := nil;
-  frmLeftAtasAir.Align  := alLeft;
-  frmLeftAtasAir.Parent := Self;
-  frmLeftAtasAir.Show;
-  frmLeftAtasAir.BringToFront;
-
+  {$REGION ' Create Form Top '}
   if not Assigned(frmTopNav) then
     frmTopNav := TfrmTopNav.Create(Application);
 
-  frmTopNav.Parent := nil;
-  frmTopNav.Align  := alTop;
-  frmTopNav.Parent := Self;
-  frmTopNav.Show;
-  frmTopNav.BringToFront;
-//
+   if Assigned(frmTopNav) then
+  begin
+    frmTopNav.Parent := nil;
+    frmTopNav.Align  := alTop;
+    frmTopNav.Parent := Self;
+    frmTopNav.Show;
+    frmTopNav.BringToFront;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Create Form Left '}
+  if not Assigned(frmLeftAtasAir) then
+    frmLeftAtasAir := TfrmLeftAtasAir.Create(Application);
+
+  if Assigned(frmLeftAtasAir) then
+  begin
+    frmLeftAtasAir.Parent := nil;
+    frmLeftAtasAir.Align  := alLeft;
+    frmLeftAtasAir.Parent := Self;
+    frmLeftAtasAir.Show;
+    frmLeftAtasAir.BringToFront;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Create Form Right '}
   if not Assigned(frmRightAtasAir) then
     frmRightAtasAir := TfrmRightAtasAir.Create(Application);
 
-  frmRightAtasAir.Parent := nil;
-  frmRightAtasAir.Align  := alRight;
-  frmRightAtasAir.Parent := Self;
-  frmRightAtasAir.Show;
-  frmRightAtasAir.BringToFront;
-//  pnl1ToolbarGeneral.Visible    := False;
-//  pnlBottom.Visible := False;
-//  pnlLeft.Visible   := False;
-//  pnlContainerBottom.Visible := True;
-//  Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
-//
-//  if not Assigned(frmLeftAtasAir) then
-//    frmLeftAtasAir := TfrmLeftAtasAir.Create(Application);
-//
-//  frmRightAtasAir.Map1 := Map1;
-//
-//  frmLeftAtasAir.Parent := nil;
-//  frmLeftAtasAir.Align  := alLeft;
-//  frmLeftAtasAir.Parent := Self;
-//  frmLeftAtasAir.Show;
-//  frmLeftAtasAir.BringToFront;
-//
-//  if not Assigned(frmTopNav) then
-//    frmTopNav := TfrmTopNav.Create(Application);
-//
-//  frmTopNav.Parent := nil;
-//  frmTopNav.Align  := alTop;
-//  frmTopNav.Parent := Self;
-//  frmTopNav.Show;
-//  frmTopNav.BringToFront;
-////
-//  if not Assigned(frmRightAtasAir) then
-//    frmRightAtasAir := TfrmRightAtasAir.Create(Application);
-//
-//  frmRightAtasAir.Parent := nil;
-//  frmRightAtasAir.Align  := alRight;
-//  frmRightAtasAir.Parent := Self;
-//  frmRightAtasAir.Show;
-//  frmRightAtasAir.BringToFront;
+  if Assigned(frmLeftAtasAir) then
+  begin
+    frmRightAtasAir.Parent := nil;
+    frmRightAtasAir.Align  := alRight;
+    frmRightAtasAir.Parent := Self;
+    frmRightAtasAir.Show;
+    frmRightAtasAir.BringToFront;
+
+    frmRightAtasAir.Map1 := Map1;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmTacticalDisplay.SetUpNavigasiUI;

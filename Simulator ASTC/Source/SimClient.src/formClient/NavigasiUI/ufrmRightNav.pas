@@ -614,12 +614,12 @@ begin
 
     if Assigned(v) then
     begin
-      if det.IsDetailViewed then
-      begin
+//      if det.IsDetailViewed then
+//      begin
         if det.DetailedDetectionShowed.Plat_Name_Recog_Capability then
         begin
-          lblNameHook.Caption      := v.InstanceName;
-//          lblNameHook.Caption      := det.TrackName;
+//          lblNameHook.Caption      := v.InstanceName;
+          lblNameHook.Caption      := det.TrackName;
         end
         else
         begin
@@ -673,7 +673,7 @@ begin
         end
         else
           lblAltitude.Caption    := '---';
-      end;
+//      end;
 
       if det.DetailedDetectionShowed.Track_ID then
         lblTrackHook.Caption := FormatTrackNumber(det.trackNumber)

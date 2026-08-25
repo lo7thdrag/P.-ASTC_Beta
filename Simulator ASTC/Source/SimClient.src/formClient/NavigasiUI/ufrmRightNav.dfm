@@ -14661,7 +14661,7 @@ object frmRightNav: TfrmRightNav
                     end
                   end
                 end
-                inherited grbSonobuoyControl: TGroupBox [6]
+                inherited grbSonobuoyControl: TGroupBox
                   Width = 325
                   Height = 339
                   ParentBackground = False

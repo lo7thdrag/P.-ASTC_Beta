@@ -11309,7 +11309,12 @@ begin
 
     sObject := simMgrClient.findDetectedTrack(focused_platform);
     if Assigned(sObject) then
-      strTargetID := FormatTrackNumber(TT3DetectedTrack(sObject).TrackNumber)
+    begin
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        strTargetID := TT3PlatformInstance(focused_platform).Track_ID
+      else
+        strTargetID := FormatTrackNumber(TT3DetectedTrack(sObject).TrackNumber)
+    end
     else
     begin
       strTargetID := TT3PlatformInstance(focused_platform).TrackLabel;

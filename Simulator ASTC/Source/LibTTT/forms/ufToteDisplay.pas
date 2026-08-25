@@ -2383,127 +2383,36 @@ begin
 
   with ge.FData do
   begin
-    lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);
-    lblDirectionWindTrue.Caption          := FormatCourse(Wind_Direction);
- //   lblAttenuationFactorsRain.Caption     := IntToStr(Rain_Rate);
-//    lblAttenuationFactorsCloud.Caption    := IntToStr(Cloud_Attenuation);
 
-    lblDayVisual.Caption                  := FormatFloat('0.00', Daytime_Visual_Modifier) + '%';
-    lblNightimeVisual.Caption             := FormatFloat('0.00', Nighttime_Visual_Modifier) + '%';
-    lblDaytimeInfrared.Caption            := FormatFloat('0.00', Daytime_Infrared_Modifier) + '%';
-    lblNightimeInfrared.Caption           := FormatFloat('0.00', Nighttime_Infrared_Modifier) + '%';
+    {$REGION ' Visibility Factor '}
+    {Environtment Status}
+    lblDayVisual.Caption                  := FormatFloat('0', Daytime_Visual_Modifier) + '%';
+    lblNightimeVisual.Caption             := FormatFloat('0', Nighttime_Visual_Modifier) + '%';
+    lblDaytimeInfrared.Caption            := FormatFloat('0', Daytime_Infrared_Modifier) + '%';
+    lblNightimeInfrared.Caption           := FormatFloat('0', Nighttime_Infrared_Modifier) + '%';
+    {$ENDREGION}
 
-    lblAtmosphere.Caption                 := FormatFloat('0.00', Atmospheric_Refract_Modifier) + '%';
-    lblCloudAttenuation.Caption           := IntToStr(Cloud_Attenuation);
+    {$REGION ' Athmospheric Sub '}
+    {Environtment Status}
+    lblAtmosphere.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
+    {$ENDREGION}
 
-    lblSeaState.Caption                   := IntToStr(Sea_State);
-    lblSurfaceTemp.Caption                := FormatFloat('0.00', Surface_Temperature) + 'C';
+    {$REGION ' Wind Velocity '}
+    {Environtment Status}
+    lblDirectionWindTrue.Caption := FormatCourse(Wind_Direction);
+    lblSpeedWIndTrue.Caption := FormatSpeed(Wind_Speed);
+    DrawSeaNeedle(StrToFloat(lblDirectionWindTrue.Caption), imgWindNeedle.Canvas);
+    {$ENDREGION}
 
-	  lblAttenuationFactorsRain.Caption 	  := IntToStr(Rain_Rate);
-    lblAttenuationFactorsCloud.Caption    := FormatFloat('0.00', Cloud_Base_Height);
-//    lblWindRelativeDirection.Caption := FormatFloat('0.00', TT3Vehicle(controlle).CourseEnvi);
-//    lblWindRelativeSpeed.Caption := FormatFloat('0.00', TT3Vehicle(controlle).SpeedEnvi);
+    {$REGION ' Ocean Current '}
+    {Environtment Status}
+    lblOceanCurrentDirection.Caption := FormatCourse(Ocean_Current_Direction);
+    lblOceanCurrentSpeed.Caption := FormatSpeed(Ocean_Current_Speed);
+    DrawSeaNeedle(StrToFloat(lblOceanCurrentDirection.Caption), imgOceanNeedle.Canvas);
+    {$ENDREGION}
 
-    // lblVisibilityactorsTime.Caption :=
-    // lblVisibilityFactorsElectroOptical
-    // lblVisibilityFactorsnfrared
-    StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
-    SecondTime := TimeStringToSecond(StrTime);
-
-    if (SecondTime >= Sunrise) and (SecondTime <= Sunset) then
-    begin
-      lblVisibilityactorsTime.Caption := 'DayTime';
-      lblVisibilityFactorsElectroOptical.Caption := FormatFloat('0.00', Daytime_Visual_Modifier) + '%';
-      lblVisibilityFactorsnfrared.Caption := FormatFloat('0.00', Daytime_Infrared_Modifier) + '%';
-    end
-    else
-    begin
-      lblVisibilityactorsTime.Caption := 'NightTime';
-      lblVisibilityFactorsElectroOptical.Caption := FormatFloat('0.00', Nighttime_Visual_Modifier) + '%';
-      lblVisibilityFactorsnfrared.Caption := FormatFloat('0.00', Nighttime_Infrared_Modifier) + '%';
-    end;
-
-    lblOtherAirTemp.Caption               := FormatFloat('00.0', Air_Temperature);
-    lblOtherBarometric.Caption            := FormatFloat('000.0', Barometric_Pressure);
-    lblOceanCurrentSpeed.Caption          := FormatFloat('00.0', Ocean_Current_Speed);
-    lblOceanCurrentDirection.Caption      := FormatFloat('000.0', Ocean_Current_Direction);
-
-    case Sound_Velocity_Type of
-      0 :
-        begin
-          lblSoundVelocityProfile.Caption := 'Positive';
-        end;
-      1 :
-        begin
-          lblSoundVelocityProfile.Caption := 'Negative';
-        end;
-      2 :
-        begin
-          lblSoundVelocityProfile.Caption := 'Positive over negative';
-        end;
-      3 :
-        begin
-          lblSoundVelocityProfile.Caption := 'Negative over positive';
-        end;
-    end;
-
-//    lblSoundVelocityProfile.Caption       := IntToStr(Sound_Velocity_Type);
-    lblSoundVelocityLayer.Caption         := FormatFloat('0.0', Thermal_Layer_Depth);
-    lblSoundVelocityAverageBottom.Caption := FormatFloat('0.0', Ave_Ocean_Depth);
-
-    case Sea_State of
-      0 :
-      begin
-        lblSeaStatDesc.Caption           := 'Calm (glassy)';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
-      end;
-      1 :
-      begin
-        lblSeaStatDesc.Caption           := 'Calm (rippled)';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
-      end;
-      2 :
-      begin
-        lblSeaStatDesc.Caption           := 'Smooth (wavelets)';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
-      end;
-      3 :
-      begin
-        lblSeaStatDesc.Caption           := 'Slight';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
-      end;
-      4 :
-      begin
-        lblSeaStatDesc.Caption           := 'Moderate';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
-      end;
-      5 :
-      begin
-        lblSeaStatDesc.Caption           := 'Rough';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
-      end;
-      6 :
-      begin
-        lblSeaStatDesc.Caption           := 'Very rough';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
-      end;
-      7 :
-      begin
-        lblSeaStatDesc.Caption           := 'High';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
-      end;
-      8 :
-      begin
-        lblSeaStatDesc.Caption           := 'Very high';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
-      end;
-      9,10 :
-      begin
-        lblSeaStatDesc.Caption        := 'Phenomenal';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
-      end;
-    end;
-
+    {$REGION ' Rain Intensity '}
+    {Environtment Status}
     case Rain_Rate of
       0 :
       begin
@@ -2533,7 +2442,10 @@ begin
         imgRainDisplay.Visible := True;
       end;
     end;
+    {$ENDREGION}
 
+    {$REGION ' Cloud Attenuation '}
+    {Environtment Status}
     case Cloud_Attenuation of
       0 :
       begin
@@ -2620,8 +2532,111 @@ begin
         end;
       end;
     end;
+    {$ENDREGION}
 
-//    lblSeaState.Caption                   := IntToStr(Sea_State);
+    {$REGION ' Sea State '}
+    {Environtment Status}
+    case Sea_State of
+      0 :
+      begin
+        lblSeaStatDesc.Caption           := 'Calm (glassy)';
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
+      end;
+      1 :
+      begin
+        lblSeaStatDesc.Caption           := 'Calm (rippled)';
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
+      end;
+      2 :
+      begin
+        lblSeaStatDesc.Caption           := 'Smooth (wavelets)';
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
+      end;
+      3 :
+      begin
+        lblSeaStatDesc.Caption           := 'Slight';
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
+      end;
+      4 :
+      begin
+        lblSeaStatDesc.Caption           := 'Moderate';
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
+      end;
+      5 :
+      begin
+        lblSeaStatDesc.Caption           := 'Rough';
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
+      end;
+      6 :
+      begin
+        lblSeaStatDesc.Caption           := 'Very rough';
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
+      end;
+      7 :
+      begin
+        lblSeaStatDesc.Caption           := 'High';
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+      8 :
+      begin
+        lblSeaStatDesc.Caption           := 'Very high';
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+      9,10 :
+      begin
+        lblSeaStatDesc.Caption        := 'Phenomenal';
+        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+    end;
+    {$ENDREGION}
+
+    lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);
+    lblCloudAttenuation.Caption           := IntToStr(Cloud_Attenuation);
+    lblSeaState.Caption                   := IntToStr(Sea_State);
+    lblSurfaceTemp.Caption                := FormatFloat('0.00', Surface_Temperature) + 'C';
+	  lblAttenuationFactorsRain.Caption 	  := IntToStr(Rain_Rate);
+    lblAttenuationFactorsCloud.Caption    := FormatFloat('0.00', Cloud_Base_Height);
+
+    StrTime := FormatDateTime('HH:NN:SS', simMgrClient.GameTIME);
+    SecondTime := TimeStringToSecond(StrTime);
+
+    if (SecondTime >= Sunrise) and (SecondTime <= Sunset) then
+    begin
+      lblVisibilityactorsTime.Caption := 'DayTime';
+      lblVisibilityFactorsElectroOptical.Caption := FormatFloat('0.00', Daytime_Visual_Modifier) + '%';
+      lblVisibilityFactorsnfrared.Caption := FormatFloat('0.00', Daytime_Infrared_Modifier) + '%';
+    end
+    else
+    begin
+      lblVisibilityactorsTime.Caption := 'NightTime';
+      lblVisibilityFactorsElectroOptical.Caption := FormatFloat('0.00', Nighttime_Visual_Modifier) + '%';
+      lblVisibilityFactorsnfrared.Caption := FormatFloat('0.00', Nighttime_Infrared_Modifier) + '%';
+    end;
+
+    lblOtherAirTemp.Caption               := FormatFloat('00.0', Air_Temperature);
+    lblOtherBarometric.Caption            := FormatFloat('000.0', Barometric_Pressure);
+
+    case Sound_Velocity_Type of
+      0 :
+        begin
+          lblSoundVelocityProfile.Caption := 'Positive';
+        end;
+      1 :
+        begin
+          lblSoundVelocityProfile.Caption := 'Negative';
+        end;
+      2 :
+        begin
+          lblSoundVelocityProfile.Caption := 'Positive over negative';
+        end;
+      3 :
+        begin
+          lblSoundVelocityProfile.Caption := 'Negative over positive';
+        end;
+    end;
+
+    lblSoundVelocityLayer.Caption         := FormatFloat('0.0', Thermal_Layer_Depth);
+    lblSoundVelocityAverageBottom.Caption := FormatFloat('0.0', Ave_Ocean_Depth);
     lblSurfaceTemp.Caption                := FormatFloat('0.0', Surface_Temperature);
 
     //lOAD FOR DISPLAY
@@ -2631,9 +2646,7 @@ begin
     imgSunDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Sun\' + '1.png');
   end;
 
-//  SetImageAlpha(img1,200);
   DrawSeaNeedle(StrToFloat(lblOceanCurrentDirection.Caption), imgOceanNeedle.Canvas);
-  DrawSeaNeedle(StrToFloat(lblDirectionWindTrue.Caption), imgWindNeedle.Canvas);
   tmrEnviDisplay.Enabled := True;
 end;
 
@@ -8979,7 +8992,7 @@ begin
       0:
       begin
         {$REGION ' Plotter '}
-  //            SetUpPlotterUI;
+        Self.Hide;
         {$ENDREGION}
       end;
       1:

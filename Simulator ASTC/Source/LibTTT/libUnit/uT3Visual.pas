@@ -332,7 +332,7 @@ begin
   range   := CalcRange(FPosition.X, FPosition.Y,
            aObject.getPositionX, aObject.getPositionY);
 
-  Result := (range <= DetailDetectionRange);
+//  Result := (range <= DetailDetectionRange);
   Result := (range <= FRangeWithVisualEffect);
 
   {if Result then

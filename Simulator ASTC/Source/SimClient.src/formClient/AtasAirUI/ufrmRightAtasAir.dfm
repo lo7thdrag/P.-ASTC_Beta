@@ -26442,208 +26442,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbGunEngagementAutomaticManualMode: TGroupBox
-              Width = 345
-              Height = 474
-              ParentBackground = False
-              ParentColor = False
-              ExplicitWidth = 345
-              ExplicitHeight = 474
-            end
-            inherited grbGunEngagementChaffMode: TGroupBox
-              Width = 345
-              Height = 474
-              ParentBackground = False
-              ParentColor = False
-              ExplicitWidth = 345
-              ExplicitHeight = 474
-              inherited ScrollBox9: TScrollBox
-                Width = 341
-                Height = 454
-                ExplicitWidth = 341
-                ExplicitHeight = 454
-                inherited Label348: TLabel
-                  Left = 13
-                  ParentFont = False
-                  ExplicitLeft = 13
-                end
-                inherited Bevel97: TBevel
-                  Left = 63
-                  ExplicitLeft = 63
-                end
-                inherited Label364: TLabel
-                  Left = 155
-                  ParentFont = False
-                  ExplicitLeft = 155
-                end
-                inherited Label365: TLabel
-                  Left = 33
-                  Top = 142
-                  ParentFont = False
-                  ExplicitLeft = 33
-                  ExplicitTop = 142
-                end
-                inherited Label366: TLabel
-                  Left = 33
-                  Top = 167
-                  ParentFont = False
-                  ExplicitLeft = 33
-                  ExplicitTop = 167
-                end
-                inherited Label466: TLabel
-                  Left = 33
-                  Top = 192
-                  ParentFont = False
-                  ExplicitLeft = 33
-                  ExplicitTop = 192
-                end
-                inherited Label467: TLabel
-                  Left = 33
-                  Top = 217
-                  ParentFont = False
-                  ExplicitLeft = 33
-                  ExplicitTop = 217
-                end
-                inherited lbChaffControlQuantity: TLabel
-                  Left = 153
-                  Top = 167
-                  ParentFont = False
-                  ExplicitLeft = 153
-                  ExplicitTop = 167
-                end
-                inherited Label469: TLabel
-                  Left = 208
-                  Top = 217
-                  ParentFont = False
-                  ExplicitLeft = 208
-                  ExplicitTop = 217
-                end
-                inherited Label470: TLabel
-                  Left = 13
-                  Top = 250
-                  ParentFont = False
-                  ExplicitLeft = 13
-                  ExplicitTop = 250
-                end
-                inherited Bevel98: TBevel
-                  Left = 70
-                  Top = 258
-                  ExplicitLeft = 70
-                  ExplicitTop = 258
-                end
-                inherited Label471: TLabel
-                  Left = 92
-                  Top = 276
-                  ParentFont = False
-                  ExplicitLeft = 92
-                  ExplicitTop = 276
-                end
-                inherited Label472: TLabel
-                  Left = 202
-                  Top = 276
-                  ParentFont = False
-                  ExplicitLeft = 202
-                  ExplicitTop = 276
-                end
-                inherited btnChaffType: TSpeedButton
-                  Left = 235
-                  Top = 140
-                  OnClick = fmWeapon1btnChaffTypeClick
-                  ExplicitLeft = 235
-                  ExplicitTop = 140
-                end
-                inherited btnChaffBloomPosition: TSpeedButton
-                  Left = 235
-                  Top = 189
-                  ExplicitLeft = 235
-                  ExplicitTop = 189
-                end
-                inherited sbGunEngagementChaffContolAuto: TSpeedButton
-                  Left = 130
-                  OnClick = fmWeapon1sbGunEngagementChaffContolAutoClick
-                  ExplicitLeft = 130
-                end
-                inherited sbGunEngagementChaffContolManual: TSpeedButton
-                  Left = 130
-                  OnClick = fmWeapon1sbGunEngagementChaffContolManualClick
-                  ExplicitLeft = 130
-                end
-                inherited sbChaffDisplayShow: TSpeedButton
-                  Left = 69
-                  Top = 297
-                  OnClick = fmWeapon1sbChaffDisplayShowClick
-                  ExplicitLeft = 69
-                  ExplicitTop = 297
-                end
-                inherited sbChaffDisplayHide: TSpeedButton
-                  Left = 69
-                  Top = 322
-                  OnClick = fmWeapon1sbChaffDisplayHideClick
-                  ExplicitLeft = 69
-                  ExplicitTop = 322
-                end
-                inherited sbChaffBlindZoneShow: TSpeedButton
-                  Left = 192
-                  Top = 297
-                  OnClick = fmWeapon1sbChaffBlindZoneShowClick
-                  ExplicitLeft = 192
-                  ExplicitTop = 297
-                end
-                inherited sbChaffBlindZoneHide: TSpeedButton
-                  Left = 192
-                  Top = 322
-                  OnClick = fmWeapon1sbChaffBlindZoneHideClick
-                  ExplicitLeft = 192
-                  ExplicitTop = 322
-                end
-                inherited sbGunEngagementChaffContolChaff: TSpeedButton
-                  Left = 130
-                  OnClick = fmWeapon1sbGunEngagementChaffContolChaffClick
-                  ExplicitLeft = 130
-                end
-                inherited editChaffControlChaff: TEdit
-                  Left = 153
-                  Top = 140
-                  ExplicitLeft = 153
-                  ExplicitTop = 140
-                end
-                inherited editChaffControlBloomPosition: TEdit
-                  Left = 153
-                  Top = 190
-                  ExplicitLeft = 153
-                  ExplicitTop = 190
-                end
-                inherited editChaffControlBloomAltitude: TEdit
-                  Left = 153
-                  Top = 215
-                  ExplicitLeft = 153
-                  ExplicitTop = 215
-                end
-                inherited btnChaffFire: TButton
-                  Left = 167
-                  Top = 390
-                  OnClick = fmWeapon1btnChaffFireClick
-                  ExplicitLeft = 167
-                  ExplicitTop = 390
-                end
-                inherited btnChaffCeaseFire: TButton
-                  Left = 250
-                  Top = 390
-                  OnClick = fmWeapon1btnChaffCeaseFireClick
-                  ExplicitLeft = 250
-                  ExplicitTop = 390
-                end
-              end
-            end
-            inherited grbGunEngagementCIWS: TGroupBox [7]
-              Width = 345
-              Height = 474
-              ParentBackground = False
-              ParentColor = False
-              ExplicitWidth = 345
-              ExplicitHeight = 474
-            end
-            inherited grbHybridMissile: TGroupBox [8]
+            inherited grbHybridMissile: TGroupBox [5]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -26855,7 +26654,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbMines: TGroupBox [9]
+            inherited grbMines: TGroupBox [6]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -26985,7 +26784,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 ExplicitTop = 189
               end
             end
-            inherited grbStraightRunningTorpedos: TGroupBox [10]
+            inherited grbStraightRunningTorpedos: TGroupBox [7]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -27215,7 +27014,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbSurfaceToAirMissile: TGroupBox [11]
+            inherited grbSurfaceToAirMissile: TGroupBox [8]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -27590,7 +27389,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbSurfaceToSurfaceMissile: TGroupBox [12]
+            inherited grbSurfaceToSurfaceMissile: TGroupBox [9]
               Width = 345
               Height = 474
               ExplicitWidth = 345
@@ -27967,7 +27766,15 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbTacticalAcousticTorpedos: TGroupBox [13]
+            inherited grbGunEngagementAutomaticManualMode: TGroupBox [10]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 345
+              ExplicitHeight = 474
+            end
+            inherited grbTacticalAcousticTorpedos: TGroupBox [11]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -28097,7 +27904,192 @@ object frmRightAtasAir: TfrmRightAtasAir
                 ExplicitLeft = 135
               end
             end
-            inherited grbTacticalMissiles: TGroupBox [14]
+            inherited grbGunEngagementChaffMode: TGroupBox [12]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 345
+              ExplicitHeight = 474
+              inherited ScrollBox9: TScrollBox
+                Width = 341
+                Height = 454
+                ExplicitWidth = 341
+                ExplicitHeight = 454
+                inherited Label348: TLabel
+                  Left = 13
+                  ParentFont = False
+                  ExplicitLeft = 13
+                end
+                inherited Bevel97: TBevel
+                  Left = 63
+                  ExplicitLeft = 63
+                end
+                inherited Label364: TLabel
+                  Left = 155
+                  ParentFont = False
+                  ExplicitLeft = 155
+                end
+                inherited Label365: TLabel
+                  Left = 33
+                  Top = 142
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 142
+                end
+                inherited Label366: TLabel
+                  Left = 33
+                  Top = 167
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 167
+                end
+                inherited Label466: TLabel
+                  Left = 33
+                  Top = 192
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 192
+                end
+                inherited Label467: TLabel
+                  Left = 33
+                  Top = 217
+                  ParentFont = False
+                  ExplicitLeft = 33
+                  ExplicitTop = 217
+                end
+                inherited lbChaffControlQuantity: TLabel
+                  Left = 153
+                  Top = 167
+                  ParentFont = False
+                  ExplicitLeft = 153
+                  ExplicitTop = 167
+                end
+                inherited Label469: TLabel
+                  Left = 208
+                  Top = 217
+                  ParentFont = False
+                  ExplicitLeft = 208
+                  ExplicitTop = 217
+                end
+                inherited Label470: TLabel
+                  Left = 13
+                  Top = 250
+                  ParentFont = False
+                  ExplicitLeft = 13
+                  ExplicitTop = 250
+                end
+                inherited Bevel98: TBevel
+                  Left = 70
+                  Top = 258
+                  ExplicitLeft = 70
+                  ExplicitTop = 258
+                end
+                inherited Label471: TLabel
+                  Left = 92
+                  Top = 276
+                  ParentFont = False
+                  ExplicitLeft = 92
+                  ExplicitTop = 276
+                end
+                inherited Label472: TLabel
+                  Left = 202
+                  Top = 276
+                  ParentFont = False
+                  ExplicitLeft = 202
+                  ExplicitTop = 276
+                end
+                inherited btnChaffType: TSpeedButton
+                  Left = 235
+                  Top = 140
+                  OnClick = fmWeapon1btnChaffTypeClick
+                  ExplicitLeft = 235
+                  ExplicitTop = 140
+                end
+                inherited btnChaffBloomPosition: TSpeedButton
+                  Left = 235
+                  Top = 189
+                  ExplicitLeft = 235
+                  ExplicitTop = 189
+                end
+                inherited sbGunEngagementChaffContolAuto: TSpeedButton
+                  Left = 130
+                  OnClick = fmWeapon1sbGunEngagementChaffContolAutoClick
+                  ExplicitLeft = 130
+                end
+                inherited sbGunEngagementChaffContolManual: TSpeedButton
+                  Left = 130
+                  OnClick = fmWeapon1sbGunEngagementChaffContolManualClick
+                  ExplicitLeft = 130
+                end
+                inherited sbChaffDisplayShow: TSpeedButton
+                  Left = 69
+                  Top = 297
+                  OnClick = fmWeapon1sbChaffDisplayShowClick
+                  ExplicitLeft = 69
+                  ExplicitTop = 297
+                end
+                inherited sbChaffDisplayHide: TSpeedButton
+                  Left = 69
+                  Top = 322
+                  OnClick = fmWeapon1sbChaffDisplayHideClick
+                  ExplicitLeft = 69
+                  ExplicitTop = 322
+                end
+                inherited sbChaffBlindZoneShow: TSpeedButton
+                  Left = 192
+                  Top = 297
+                  OnClick = fmWeapon1sbChaffBlindZoneShowClick
+                  ExplicitLeft = 192
+                  ExplicitTop = 297
+                end
+                inherited sbChaffBlindZoneHide: TSpeedButton
+                  Left = 192
+                  Top = 322
+                  OnClick = fmWeapon1sbChaffBlindZoneHideClick
+                  ExplicitLeft = 192
+                  ExplicitTop = 322
+                end
+                inherited sbGunEngagementChaffContolChaff: TSpeedButton
+                  Left = 130
+                  OnClick = fmWeapon1sbGunEngagementChaffContolChaffClick
+                  ExplicitLeft = 130
+                end
+                inherited editChaffControlChaff: TEdit
+                  Left = 153
+                  Top = 140
+                  ExplicitLeft = 153
+                  ExplicitTop = 140
+                end
+                inherited editChaffControlBloomPosition: TEdit
+                  Left = 153
+                  Top = 190
+                  ExplicitLeft = 153
+                  ExplicitTop = 190
+                end
+                inherited editChaffControlBloomAltitude: TEdit
+                  Left = 153
+                  Top = 215
+                  ExplicitLeft = 153
+                  ExplicitTop = 215
+                end
+                inherited btnChaffFire: TButton
+                  Left = 167
+                  Top = 390
+                  OnClick = fmWeapon1btnChaffFireClick
+                  ExplicitLeft = 167
+                  ExplicitTop = 390
+                end
+                inherited btnChaffCeaseFire: TButton
+                  Left = 250
+                  Top = 390
+                  OnClick = fmWeapon1btnChaffCeaseFireClick
+                  ExplicitLeft = 250
+                  ExplicitTop = 390
+                end
+              end
+            end
+            inherited grbTacticalMissiles: TGroupBox [13]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -28382,7 +28374,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbWakeHomingTorpedos: TGroupBox [15]
+            inherited grbWakeHomingTorpedos: TGroupBox [14]
               Width = 345
               Height = 474
               ParentBackground = False
@@ -28583,7 +28575,7 @@ object frmRightAtasAir: TfrmRightAtasAir
                 end
               end
             end
-            inherited grbWireGuidedTorpedo: TGroupBox
+            inherited grbWireGuidedTorpedo: TGroupBox [15]
               Width = 345
               Height = 474
               ParentColor = False
@@ -28855,6 +28847,14 @@ object frmRightAtasAir: TfrmRightAtasAir
                   ExplicitWidth = 60
                 end
               end
+            end
+            inherited grbGunEngagementCIWS: TGroupBox [16]
+              Width = 345
+              Height = 474
+              ParentBackground = False
+              ParentColor = False
+              ExplicitWidth = 345
+              ExplicitHeight = 474
             end
           end
         end

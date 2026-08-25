@@ -9778,12 +9778,12 @@ begin
 
     if Assigned(v) then
     begin
-      if det.IsDetailViewed then
-      begin
+//      if det.IsDetailViewed then
+//      begin
         if det.DetailedDetectionShowed.Plat_Name_Recog_Capability then
         begin
-          lbNameHook.Caption      := v.InstanceName;
-//          lbNameHook.Caption      := det.TrackName;
+//          lbNameHook.Caption      := v.InstanceName;
+          lbNameHook.Caption      := det.TrackName;
         end
         else
         begin
@@ -9837,7 +9837,7 @@ begin
         end
         else
           lbAltitude.Caption    := '---';
-      end;
+//      end;
 
       if det.DetailedDetectionShowed.Track_ID then
         lbTrackHook.Caption := FormatTrackNumber(det.trackNumber)
@@ -10083,8 +10083,6 @@ begin
       {$REGION ' Jk yg di hook detected track '}
       GetNameAndClass(det, dName, dClass);
 
-      {Navigasi}
-      frmTopNav.lblTrackID.Caption := FormatTrackNumber(det.trackNumber);
       lbTrackDetails.Caption := FormatTrackNumber(det.trackNumber);
       lbNameDetails.Caption  := det.TrackName;
       lbClassDetails.Caption := det.TrackClass;
@@ -14580,23 +14578,26 @@ begin
   pnlStatusYellow.Visible := False;
   Label22.Visible := False;
 
-  frmTopPlotter := TfrmTopPlotter.Create(nil);
+  if not Assigned(frmTopPlotter) then
+    frmTopPlotter := TfrmTopPlotter.Create(Application);
+
   frmTopPlotter.Parent := Self;
-//  frmRightToolsPlotter.align := alRight;
   frmTopPlotter.pnlContent.Visible := False;
   frmTopPlotter.Left := Screen.Width - 27;
   frmTopPlotter.Show;
 
-  frmRightToolsPlotter := TfrmRightToolsPlotter.Create(nil);
+  if not Assigned(frmRightToolsPlotter) then
+    frmRightToolsPlotter := TfrmRightToolsPlotter.Create(Application);
+
   frmRightToolsPlotter.Parent := Self;
-//  frmRightToolsPlotter.align := alRight;
   frmRightToolsPlotter.pnlContent.Visible := False;
   frmRightToolsPlotter.Left := 1;
   frmRightToolsPlotter.Show;
 
-  frmLeftToolsPlotter := TfrmLeftToolsPlotter.Create(nil);
+  if not Assigned(frmLeftToolsPlotter) then
+    frmLeftToolsPlotter := TfrmLeftToolsPlotter.Create(Application);
+
   frmLeftToolsPlotter.Parent := Self;
-//  frmLeftToolsPlotter.align := alLeft;
   frmLeftToolsPlotter.pnlContent.Visible := False;
   frmLeftToolsPlotter.Left := 1;
   frmLeftToolsPlotter.Show;

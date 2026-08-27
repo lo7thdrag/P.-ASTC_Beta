@@ -778,8 +778,8 @@ begin
 
     if (det.TrackDomain = vhdSubsurface) then
     begin
-      lbl5.Caption := 'Depth';
-      lbl4.Caption := 'meter';
+      txtlb5.Caption := 'Depth';
+      lbllb4.Caption := 'meter';
 
       if v.Altitude <> 0 then
         lblAltitude.Caption := FormatAltitude(v.Altitude)
@@ -788,8 +788,8 @@ begin
     end
     else
     begin
-      lbl5.Caption := 'Altitude';
-      lbl4.Caption := 'feet';
+      txtlb5.Caption := 'Altitude';
+      lbllb4.Caption := 'feet';
 
       if v.Altitude <> 0 then
        lblAltitude.Caption    := FormatAltitude(v.Altitude * C_Meter_To_Feet)
@@ -837,8 +837,8 @@ begin
         begin
           if (det.TrackDomain = vhdSubsurface) then
           begin
-            lbl5.Caption := 'Depth';
-            lbl4.Caption := 'meter';
+            txtlb5.Caption := 'Depth';
+            lbllb4.Caption := 'meter';
 
             if v.Altitude <> 0 then
               lblAltitude.Caption    := FormatAltitude(v.Altitude)
@@ -847,8 +847,8 @@ begin
           end
           else
           begin
-            lbl5.Caption := 'Altitude';
-            lbl4.Caption := 'feet';
+            txtlb5.Caption := 'Altitude';
+            lbllb4.Caption := 'feet';
 
             if v.Altitude <> 0 then
              lblAltitude.Caption    := FormatAltitude(v.Altitude * C_Meter_To_Feet)

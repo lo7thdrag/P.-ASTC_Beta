@@ -13,11 +13,13 @@ type
     imgBackground: TImage;
     imgShow: TImage;
     pnlContent: TPanel;
+    btnPrint: TRzBmpButton;
     procedure btnKeyboardClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btnOverlayEditorClick(Sender: TObject);
     procedure btnPlottingClick(Sender: TObject);
     procedure imgShowClick(Sender: TObject);
+    procedure btnPrintClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -47,6 +49,11 @@ end;
 procedure TfrmRightToolsPlotter.btnPlottingClick(Sender: TObject);
 begin
 //  frmTacticalDisplay.btnPlottingClick(nil);
+end;
+
+procedure TfrmRightToolsPlotter.btnPrintClick(Sender: TObject);
+begin
+  frmTacticalDisplay.PrintTacticalMap;
 end;
 
 procedure TfrmRightToolsPlotter.FormActivate(Sender: TObject);

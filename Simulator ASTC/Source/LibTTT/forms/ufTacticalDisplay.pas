@@ -1302,7 +1302,9 @@ type
     procedure SetUpNavigasiUI;
     procedure setUpASWUI;
     procedure setUpAsuwoUI;
+
   public
+
     // move to public, use by wasdal UI
     FLastMapCenterX, FLastMapCenterY : double;
     FAnchorFilterEnabled: Boolean;
@@ -1336,6 +1338,8 @@ type
     startMoveY : Integer;
     endMoveX : Double;
     endMoveY : Double;
+
+    procedure PrintTacticalMap;
 
     // move to public, use by wasdal UI
     procedure SetWeaponTargetObject(obj: TSimObject);
@@ -6042,6 +6046,167 @@ begin
       TT3DetectedTrack(aObject).Selected := true;
 
     Map1.Repaint;
+  end;
+end;
+
+procedure TfrmTacticalDisplay.PrintTacticalMap;
+var
+  TopVisible: Boolean;
+  RightVisible: Boolean;
+  LeftVisible: Boolean;
+
+  PrintDlg: TPrintDialog;
+  Bmp: TBitmap;
+  DC: HDC;
+
+  FormW, FormH: Integer;
+  PageW, PageH: Integer;
+  DrawW, DrawH: Integer;
+  PosX, PosY: Integer;
+
+  Ratio: Double;
+begin
+  { SIMPAN KONDISI 3 TOOLBAR }
+  TopVisible :=
+    Assigned(frmTopPlotter) and frmTopPlotter.Visible;
+
+  RightVisible :=
+    Assigned(frmRightToolsPlotter) and
+    frmRightToolsPlotter.Visible;
+
+  LeftVisible :=
+    Assigned(frmLeftToolsPlotter) and
+    frmLeftToolsPlotter.Visible;
+
+  PrintDlg := nil;
+  Bmp := nil;
+
+  try
+    { Hanya Hide 3 Toolbar}
+
+    if Assigned(frmTopPlotter) then
+      frmTopPlotter.Hide;
+
+    if Assigned(frmRightToolsPlotter) then
+      frmRightToolsPlotter.Hide;
+
+    if Assigned(frmLeftToolsPlotter) then
+      frmLeftToolsPlotter.Hide;
+
+    { StatusBar Tidak di Hide }
+
+    Application.ProcessMessages;
+
+    Sleep(100);
+
+    Application.ProcessMessages;
+
+
+    { Ukuran Form Tactical Display }
+
+    FormW := ClientWidth;
+    FormH := ClientHeight;
+
+    if (FormW <= 0) or (FormH <= 0) then
+      Exit;
+
+
+    { Buat Bitmap }
+    Bmp := TBitmap.Create;
+    Bmp.PixelFormat := pf24bit;
+    Bmp.Width := FormW;
+    Bmp.Height := FormH;
+
+
+    { Capture Tactical Display }
+    DC := GetDC(Self.Handle);
+    try
+      BitBlt(
+        Bmp.Canvas.Handle,
+        0,
+        0,
+        FormW,
+        FormH,
+        DC,
+        0,
+        0,
+        SRCCOPY
+      );
+    finally
+      ReleaseDC(Self.Handle, DC);
+    end;
+
+    { Print Dialog }
+    PrintDlg := TPrintDialog.Create(Self);
+
+    if not PrintDlg.Execute then
+      Exit;
+
+    { Printer }
+    Printer.Orientation := poLandscape;
+    Printer.Copies := 1;
+    Printer.Title := 'Tactical Display';
+
+    Printer.BeginDoc;
+    try
+      { Ukuran kertas }
+      PageW := Printer.PageWidth - 200;
+      PageH := Printer.PageHeight - 200;
+
+
+      { Aspect Ratio }
+      Ratio := FormW / FormH;
+
+      DrawW := PageW;
+      DrawH := Round(DrawW / Ratio);
+
+      if DrawH > PageH then
+      begin
+        DrawH := PageH;
+        DrawW := Round(DrawH * Ratio);
+      end;
+
+
+      { Posisi Tengah }
+      PosX := (Printer.PageWidth - DrawW) div 2;
+      PosY := (Printer.PageHeight - DrawH) div 2;
+
+
+      { Cetak }
+      Printer.Canvas.StretchDraw(
+        Rect(
+          PosX,
+          PosY,
+          PosX + DrawW,
+          PosY + DrawH
+        ),
+        Bmp
+      );
+
+    finally
+      Printer.EndDoc;
+    end;
+
+  finally
+
+    { Kembalikan 3 Toolbar }
+    if Assigned(frmTopPlotter) then
+      frmTopPlotter.Visible := TopVisible;
+
+    if Assigned(frmRightToolsPlotter) then
+      frmRightToolsPlotter.Visible := RightVisible;
+
+    if Assigned(frmLeftToolsPlotter) then
+      frmLeftToolsPlotter.Visible := LeftVisible;
+
+    Application.ProcessMessages;
+
+    if Assigned(Bmp) then
+      Bmp.Free;
+
+    if Assigned(PrintDlg) then
+      PrintDlg.Free;
+
   end;
 end;
 
@@ -14607,10 +14772,10 @@ begin
   // default full screen
   btnFullScreenClick(nil);
 
-  Panel1.Color := StringToColor('$005B4216');
+  Panel1.Color := StringToColor('$00292115');
   Panel1.Font.Color := clBtnFace;
 
-  pnlBottom.Color := StringToColor('$005B4216');
+  pnlBottom.Color := StringToColor('$00292115');
 
   pnlBottom.BevelInner := bvNone;
   pnlBottom.BevelKind := bkNone;

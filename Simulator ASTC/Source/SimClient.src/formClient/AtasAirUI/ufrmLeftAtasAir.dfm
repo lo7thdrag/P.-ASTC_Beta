@@ -25440,7 +25440,7 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             end
           end
         end
-        object pnlContentDetails: TPanel
+        object pnlContentNone: TPanel
           Left = 1
           Top = 1
           Width = 338
@@ -25449,498 +25449,7 @@ object frmLeftAtasAir: TfrmLeftAtasAir
           BevelOuter = bvNone
           Color = 2695445
           ParentBackground = False
-          TabOrder = 2
-          object pnlDetails: TPanel
-            Left = 0
-            Top = 0
-            Width = 338
-            Height = 247
-            Align = alClient
-            BevelOuter = bvNone
-            Color = 2695445
-            ParentBackground = False
-            TabOrder = 0
-            object lblTrackDetails: TLabel
-              Left = 145
-              Top = 12
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl2: TLabel
-              Left = 15
-              Top = 33
-              Width = 33
-              Height = 16
-              Caption = 'Name'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblNameDetails: TLabel
-              Left = 145
-              Top = 33
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblClassdetails: TLabel
-              Left = 145
-              Top = 52
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl3: TLabel
-              Left = 15
-              Top = 52
-              Width = 30
-              Height = 16
-              Caption = 'Class'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl4: TLabel
-              Left = 15
-              Top = 71
-              Width = 28
-              Height = 16
-              Caption = 'Type'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl5: TLabel
-              Left = 15
-              Top = 90
-              Width = 43
-              Height = 16
-              Caption = 'Domain'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblDomain: TLabel
-              Left = 145
-              Top = 90
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lbl6: TLabel
-              Left = 50
-              Top = 105
-              Width = 4
-              Height = 16
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblPropulsion: TLabel
-              Left = 145
-              Top = 134
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblIdentifier: TLabel
-              Left = 145
-              Top = 111
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblDoppler: TLabel
-              Left = 145
-              Top = 159
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblSonarClass: TLabel
-              Left = 145
-              Top = 181
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblTrackType: TLabel
-              Left = 145
-              Top = 203
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblTypeDetails: TLabel
-              Left = 145
-              Top = 71
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-            end
-            object lblMergeStatus: TLabel
-              Left = 145
-              Top = 226
-              Width = 15
-              Height = 16
-              Caption = '---'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              Visible = False
-            end
-            object txt1: TStaticText
-              Left = 15
-              Top = 10
-              Width = 36
-              Height = 20
-              Caption = 'Track'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 0
-              Transparent = False
-            end
-            object txt3: TStaticText
-              Left = 15
-              Top = 109
-              Width = 55
-              Height = 20
-              Caption = 'Identifier'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 1
-              Transparent = False
-            end
-            object txt4: TStaticText
-              Left = 15
-              Top = 132
-              Width = 95
-              Height = 20
-              Caption = 'Propulsion Type'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 2
-              Transparent = False
-            end
-            object txt5: TStaticText
-              Left = 15
-              Top = 155
-              Width = 48
-              Height = 20
-              Caption = 'Doppler'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 3
-              Transparent = False
-            end
-            object txt6: TStaticText
-              Left = 15
-              Top = 178
-              Width = 72
-              Height = 20
-              Caption = 'Sonar Class'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 4
-              Transparent = False
-            end
-            object txt7: TStaticText
-              Left = 15
-              Top = 201
-              Width = 68
-              Height = 20
-              Caption = 'Track Type'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 5
-              Transparent = False
-            end
-            object txt8: TStaticText
-              Left = 15
-              Top = 224
-              Width = 80
-              Height = 20
-              Caption = 'Merge Status'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 6
-              Transparent = False
-              Visible = False
-            end
-            object txt9: TStaticText
-              Left = 120
-              Top = 10
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 7
-              Transparent = False
-            end
-            object txt10: TStaticText
-              Left = 120
-              Top = 31
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 8
-              Transparent = False
-            end
-            object txt11: TStaticText
-              Left = 120
-              Top = 50
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 9
-              Transparent = False
-            end
-            object txt12: TStaticText
-              Left = 120
-              Top = 69
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 10
-              Transparent = False
-            end
-            object txt13: TStaticText
-              Left = 120
-              Top = 88
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 11
-              Transparent = False
-            end
-            object txt14: TStaticText
-              Left = 120
-              Top = 109
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 12
-              Transparent = False
-            end
-            object txt15: TStaticText
-              Left = 120
-              Top = 155
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 13
-              Transparent = False
-            end
-            object txt16: TStaticText
-              Left = 120
-              Top = 178
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 14
-              Transparent = False
-            end
-            object txt17: TStaticText
-              Left = 120
-              Top = 201
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 15
-              Transparent = False
-            end
-            object txt18: TStaticText
-              Left = 120
-              Top = 132
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 16
-              Transparent = False
-            end
-            object txt19: TStaticText
-              Left = 120
-              Top = 224
-              Width = 9
-              Height = 20
-              Caption = ':'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWhite
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 17
-              Transparent = False
-              Visible = False
-            end
-          end
+          TabOrder = 4
         end
         object pnlContentHook: TPanel
           Left = 1
@@ -26517,7 +26026,7 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             end
           end
         end
-        object pnlContentNone: TPanel
+        object pnlContentDetails: TPanel
           Left = 1
           Top = 1
           Width = 338
@@ -26526,7 +26035,498 @@ object frmLeftAtasAir: TfrmLeftAtasAir
           BevelOuter = bvNone
           Color = 2695445
           ParentBackground = False
-          TabOrder = 4
+          TabOrder = 2
+          object pnlDetails: TPanel
+            Left = 0
+            Top = 0
+            Width = 338
+            Height = 247
+            Align = alClient
+            BevelOuter = bvNone
+            Color = 2695445
+            ParentBackground = False
+            TabOrder = 0
+            object lblTrackDetails: TLabel
+              Left = 145
+              Top = 12
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lbl2: TLabel
+              Left = 15
+              Top = 33
+              Width = 33
+              Height = 16
+              Caption = 'Name'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblNameDetails: TLabel
+              Left = 145
+              Top = 33
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblClassdetails: TLabel
+              Left = 145
+              Top = 52
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lbl3: TLabel
+              Left = 15
+              Top = 52
+              Width = 30
+              Height = 16
+              Caption = 'Class'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lbl4: TLabel
+              Left = 15
+              Top = 71
+              Width = 28
+              Height = 16
+              Caption = 'Type'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lbl5: TLabel
+              Left = 15
+              Top = 90
+              Width = 43
+              Height = 16
+              Caption = 'Domain'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblDomain: TLabel
+              Left = 145
+              Top = 90
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lbl6: TLabel
+              Left = 50
+              Top = 105
+              Width = 4
+              Height = 16
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblPropulsion: TLabel
+              Left = 145
+              Top = 134
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblIdentifier: TLabel
+              Left = 145
+              Top = 111
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblDoppler: TLabel
+              Left = 145
+              Top = 159
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblSonarClass: TLabel
+              Left = 145
+              Top = 181
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblTrackType: TLabel
+              Left = 145
+              Top = 203
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblTypeDetails: TLabel
+              Left = 145
+              Top = 71
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblMergeStatus: TLabel
+              Left = 145
+              Top = 226
+              Width = 15
+              Height = 16
+              Caption = '---'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              Visible = False
+            end
+            object txt1: TStaticText
+              Left = 15
+              Top = 10
+              Width = 36
+              Height = 20
+              Caption = 'Track'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              Transparent = False
+            end
+            object txt3: TStaticText
+              Left = 15
+              Top = 109
+              Width = 55
+              Height = 20
+              Caption = 'Identifier'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 1
+              Transparent = False
+            end
+            object txt4: TStaticText
+              Left = 15
+              Top = 132
+              Width = 95
+              Height = 20
+              Caption = 'Propulsion Type'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 2
+              Transparent = False
+            end
+            object txt5: TStaticText
+              Left = 15
+              Top = 155
+              Width = 48
+              Height = 20
+              Caption = 'Doppler'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 3
+              Transparent = False
+            end
+            object txt6: TStaticText
+              Left = 15
+              Top = 178
+              Width = 72
+              Height = 20
+              Caption = 'Sonar Class'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 4
+              Transparent = False
+            end
+            object txt7: TStaticText
+              Left = 15
+              Top = 201
+              Width = 68
+              Height = 20
+              Caption = 'Track Type'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 5
+              Transparent = False
+            end
+            object txt8: TStaticText
+              Left = 15
+              Top = 224
+              Width = 80
+              Height = 20
+              Caption = 'Merge Status'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 6
+              Transparent = False
+              Visible = False
+            end
+            object txt9: TStaticText
+              Left = 120
+              Top = 10
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 7
+              Transparent = False
+            end
+            object txt10: TStaticText
+              Left = 120
+              Top = 31
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 8
+              Transparent = False
+            end
+            object txt11: TStaticText
+              Left = 120
+              Top = 50
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 9
+              Transparent = False
+            end
+            object txt12: TStaticText
+              Left = 120
+              Top = 69
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 10
+              Transparent = False
+            end
+            object txt13: TStaticText
+              Left = 120
+              Top = 88
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 11
+              Transparent = False
+            end
+            object txt14: TStaticText
+              Left = 120
+              Top = 109
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 12
+              Transparent = False
+            end
+            object txt15: TStaticText
+              Left = 120
+              Top = 155
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 13
+              Transparent = False
+            end
+            object txt16: TStaticText
+              Left = 120
+              Top = 178
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 14
+              Transparent = False
+            end
+            object txt17: TStaticText
+              Left = 120
+              Top = 201
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 15
+              Transparent = False
+            end
+            object txt18: TStaticText
+              Left = 120
+              Top = 132
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 16
+              Transparent = False
+            end
+            object txt19: TStaticText
+              Left = 120
+              Top = 224
+              Width = 9
+              Height = 20
+              Caption = ':'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 17
+              Transparent = False
+              Visible = False
+            end
+          end
         end
       end
     end

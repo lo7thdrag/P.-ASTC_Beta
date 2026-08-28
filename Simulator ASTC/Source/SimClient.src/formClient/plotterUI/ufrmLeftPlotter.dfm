@@ -5,7 +5,7 @@ object frmLeftPlotter: TfrmLeftPlotter
   Caption = 'frmLeftPlotter'
   ClientHeight = 504
   ClientWidth = 140
-  Color = 141979
+  Color = 2695445
   TransparentColor = True
   TransparentColorValue = 3091499
   Font.Charset = DEFAULT_CHARSET
@@ -24,7 +24,7 @@ object frmLeftPlotter: TfrmLeftPlotter
     Height = 504
     Align = alClient
     BevelOuter = bvNone
-    Color = 6111773
+    Color = 2695445
     ParentBackground = False
     TabOrder = 0
   end

@@ -6,7 +6,7 @@ object frmRuler: TfrmRuler
   Caption = 'Ruler'
   ClientHeight = 315
   ClientWidth = 307
-  Color = 5980694
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -349,7 +349,7 @@ object frmRuler: TfrmRuler
     end
     object lbl2: TLabel
       Left = 14
-      Top = 157
+      Top = 158
       Width = 29
       Height = 14
       Caption = 'End :'
@@ -363,7 +363,7 @@ object frmRuler: TfrmRuler
     object btn2: TSpeedButton
       Tag = 2
       Left = 222
-      Top = 174
+      Top = 175
       Width = 45
       Height = 45
       GroupIndex = 2
@@ -702,7 +702,7 @@ object frmRuler: TfrmRuler
     end
     object lbl5: TLabel
       Left = 14
-      Top = 178
+      Top = 179
       Width = 17
       Height = 14
       Caption = 'Lat'
@@ -715,7 +715,7 @@ object frmRuler: TfrmRuler
     end
     object lbl6: TLabel
       Left = 14
-      Top = 202
+      Top = 203
       Width = 27
       Height = 14
       Caption = 'Long'
@@ -783,7 +783,7 @@ object frmRuler: TfrmRuler
     end
     object edtRulerEndPosLat: TEdit
       Left = 57
-      Top = 174
+      Top = 175
       Width = 155
       Height = 22
       Font.Charset = DEFAULT_CHARSET
@@ -798,7 +798,7 @@ object frmRuler: TfrmRuler
     end
     object edtRulerEndPosLong: TEdit
       Left = 57
-      Top = 198
+      Top = 199
       Width = 155
       Height = 22
       Font.Charset = DEFAULT_CHARSET

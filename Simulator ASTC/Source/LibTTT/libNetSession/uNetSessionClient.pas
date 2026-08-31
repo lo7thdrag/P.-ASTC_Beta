@@ -562,6 +562,11 @@ begin
             if CubicleGroupAssign.Count > 0 then
             FAppGame.Executes;
           end
+          else
+          begin
+            if CompareStr(vAppSetting.GameClientName, 'GameTime.exe') = 0 then
+              FAppGame.Executes;
+          end;
 
 //          if not IsController then
 //          begin

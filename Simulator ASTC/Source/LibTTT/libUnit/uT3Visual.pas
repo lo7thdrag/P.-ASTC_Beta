@@ -329,48 +329,10 @@ var
 begin
   inherited;
 
-  range   := CalcRange(FPosition.X, FPosition.Y,
-           aObject.getPositionX, aObject.getPositionY);
+  range   := CalcRange(FPosition.X, FPosition.Y, aObject.getPositionX, aObject.getPositionY);
 
 //  Result := (range <= DetailDetectionRange);
   Result := (range <= FRangeWithVisualEffect);
-
-  {if Result then
-  begin
-    if aObject is TT3PlatformInstance then
-    begin
-      with TT3PlatformInstance(aObject) do
-      begin
-        rec.IFF_Capability := True;
-        rec.Altitude_Data_Capability := True;
-        rec.Ground_Speed_Data_Capability := True;
-        rec.Heading_Data_Capability := True;
-        rec.Plat_Type_Recog_Capability := True;
-        rec.Plat_Class_Recog_Capability := True;
-        rec.Track_ID := True;
-
-        DetailedDetectionShowed := rec;
-      end;
-    end;
-  end
-  else
-  begin
-    if aObject is TT3PlatformInstance then
-    begin
-      with TT3PlatformInstance(aObject) do
-      begin
-        rec.IFF_Capability := False;
-        rec.Altitude_Data_Capability := False;
-        rec.Ground_Speed_Data_Capability := False;
-        rec.Heading_Data_Capability := False;
-        rec.Plat_Type_Recog_Capability := False;
-        rec.Plat_Class_Recog_Capability := False;
-        rec.Track_ID := True;
-
-        DetailedDetectionShowed := rec;
-      end;
-    end;
-  end;}
 end;
 
 function TT3Visual.GetSnapshotData : _SS_TT3Visual ;

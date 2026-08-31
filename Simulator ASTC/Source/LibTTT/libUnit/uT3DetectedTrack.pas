@@ -292,7 +292,9 @@ begin
     for j := 0 to FTrackDetectedBy.Count - 1 do
     begin
       sensor := FTrackDetectedBy.Items[j];
-      if not(Assigned(sensor)) then Continue;
+
+      if not(Assigned(sensor)) then
+        Continue;
 
       if sensor is TT3Visual then
       begin
@@ -307,6 +309,7 @@ begin
 
     if found and showDetail then
     begin
+      {$REGION ' Visual '}
       rec.IFF_Capability := true;
       rec.Altitude_Data_Capability := true;
       rec.Ground_Speed_Data_Capability := true;
@@ -317,40 +320,38 @@ begin
       rec.Track_ID  := True;
 
       DetailedDetectionShowed := rec;
+      {$ENDREGION}
     end
     else if device is TT3Radar then
     begin
-      rec.IFF_Capability := TT3Radar(device).RadarDefinition.FDef.IFF_Capability
-                              or DetailedDetectionShowed.IFF_Capability;
-      rec.Altitude_Data_Capability := TT3Radar(device).RadarDefinition.FDef.Altitude_Data_Capability
-                                      or DetailedDetectionShowed.Altitude_Data_Capability;
-      rec.Ground_Speed_Data_Capability := TT3Radar(device).RadarDefinition.FDef.Ground_Speed_Data_Capability
-                                          or DetailedDetectionShowed.Ground_Speed_Data_Capability;
-      rec.Heading_Data_Capability := TT3Radar(device).RadarDefinition.FDef.Heading_Data_Capability
-                                      or DetailedDetectionShowed.Heading_Data_Capability;
-      rec.Plat_Type_Recog_Capability := TT3Radar(device).RadarDefinition.FDef.Plat_Type_Recog_Capability
-                                        or DetailedDetectionShowed.Plat_Type_Recog_Capability;
-      rec.Plat_Class_Recog_Capability := TT3Radar(device).RadarDefinition.FDef.Plat_Class_Recog_Capability
-                                          or DetailedDetectionShowed.Plat_Class_Recog_Capability;
+      {$REGION ' Radar '}
+      rec.IFF_Capability := TT3Radar(device).RadarDefinition.FDef.IFF_Capability or DetailedDetectionShowed.IFF_Capability;
+      rec.Altitude_Data_Capability := TT3Radar(device).RadarDefinition.FDef.Altitude_Data_Capability or DetailedDetectionShowed.Altitude_Data_Capability;
+      rec.Ground_Speed_Data_Capability := TT3Radar(device).RadarDefinition.FDef.Ground_Speed_Data_Capability or DetailedDetectionShowed.Ground_Speed_Data_Capability;
+      rec.Heading_Data_Capability := TT3Radar(device).RadarDefinition.FDef.Heading_Data_Capability or DetailedDetectionShowed.Heading_Data_Capability;
+      rec.Plat_Type_Recog_Capability := TT3Radar(device).RadarDefinition.FDef.Plat_Type_Recog_Capability or DetailedDetectionShowed.Plat_Type_Recog_Capability;
+      rec.Plat_Class_Recog_Capability := TT3Radar(device).RadarDefinition.FDef.Plat_Class_Recog_Capability or DetailedDetectionShowed.Plat_Class_Recog_Capability;
       rec.Plat_Name_Recog_Capability := DetailedDetectionShowed.Plat_Name_Recog_Capability;
       rec.Track_ID  := True;
 
       DetailedDetectionShowed := rec;
+      {$ENDREGION}
     end
-    {untuk datalink, perlu dicek lagi. smntara true semua dulu detailnya}
-    else
-    if device is TT3DataLink then
+    else if device is TT3DataLink then
     begin
-        rec.IFF_Capability := true;
-        rec.Altitude_Data_Capability := true;
-        rec.Ground_Speed_Data_Capability := true;
-        rec.Heading_Data_Capability := true;
-        rec.Plat_Type_Recog_Capability := true;
-        rec.Plat_Class_Recog_Capability := true;
-        rec.Plat_Name_Recog_Capability := true;
-        rec.Track_ID  := True;
+      {$REGION ' Datalink '}
+      {untuk datalink, perlu dicek lagi. smntara true semua dulu detailnya}
+      rec.IFF_Capability := true;
+      rec.Altitude_Data_Capability := true;
+      rec.Ground_Speed_Data_Capability := true;
+      rec.Heading_Data_Capability := true;
+      rec.Plat_Type_Recog_Capability := true;
+      rec.Plat_Class_Recog_Capability := true;
+      rec.Plat_Name_Recog_Capability := true;
+      rec.Track_ID  := True;
 
-        DetailedDetectionShowed := rec;
+      DetailedDetectionShowed := rec;
+      {$ENDREGION}
     end
     else
     begin

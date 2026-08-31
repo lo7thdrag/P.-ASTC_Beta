@@ -10917,7 +10917,6 @@ object frmRightAtasAir: TfrmRightAtasAir
         Height = 25
         Alignment = taLeftJustify
         BevelOuter = bvNone
-        Caption = '  Track Information'
         Color = 2695445
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite

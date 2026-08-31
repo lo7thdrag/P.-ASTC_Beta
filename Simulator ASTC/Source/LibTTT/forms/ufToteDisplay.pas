@@ -923,52 +923,52 @@ type
     ScrollBox5: TScrollBox;
     pnlEnvironmentDisplay: TPanel;
     imgSunDisplay: TImage;
-    imgRainStateDisplay: TImage;
+    imgRainStateDisplayGen: TImage;
     pnlOceanWind: TPanel;
     pnlWindDisplay: TPanel;
-    imgWindIndicator: TImage;
+    imgWindIndicatorGen: TImage;
     imgWindDirection: TImage;
     imgWindSpeed: TImage;
-    imgWindNeedle: TImage;
-    lblWindDirection: TLabel;
-    lblWindSpeed: TLabel;
-    lblDirectionWindTrue: TLabel;
-    lblSpeedWIndTrue: TLabel;
+    imgWindNeedleGen: TImage;
+    lblWindDirectionGen: TLabel;
+    lblWindSpeedGen: TLabel;
+    lblDirectionWindTrueGen: TLabel;
+    lblSpeedWIndTrueGen: TLabel;
     pnlOceandDisplay: TPanel;
     imgOceanDirection: TImage;
-    imgOceanIndicator: TImage;
-    imgOceanNeedle: TImage;
+    imgOceanIndicatorGen: TImage;
+    imgOceanNeedleGen: TImage;
     imgOceanSpeed: TImage;
-    lbl20: TLabel;
-    lbl22: TLabel;
-    lblOceanCurrentDirection: TLabel;
-    lblOceanCurrentSpeed: TLabel;
+    lbl20Gen: TLabel;
+    lbl22Gen: TLabel;
+    lblOceanCurrentDirectionGen: TLabel;
+    lblOceanCurrentSpeedGen: TLabel;
     pnlOtherIndicator: TPanel;
     imgBackgroundOther: TImage;
-    lblDaytimeInfrared: TLabel;
-    lblDayVisual: TLabel;
-    lblNightimeInfrared: TLabel;
-    lblNightimeVisual: TLabel;
-    lblAtmosphere: TLabel;
-    lblAthmospher: TLabel;
-    lblNightTimeInfra: TLabel;
-    lblDaytimeInfra: TLabel;
-    lblNightTimeVisual: TLabel;
-    lblDaytimeVisual: TLabel;
+    lblDaytimeInfraredGen: TLabel;
+    lblDayVisualGen: TLabel;
+    lblNightimeInfraredGen: TLabel;
+    lblNightimeVisualGen: TLabel;
+    lblAtmosphereGen: TLabel;
+    lblAthmospherGen: TLabel;
+    lblNightTimeInfraGen: TLabel;
+    lblDaytimeInfraGen: TLabel;
+    lblNightTimeVisualGen: TLabel;
+    lblDaytimeVisualGen: TLabel;
     pnlStateDisplay: TPanel;
     imgBgState: TImage;
-    imgRainState: TImage;
-    imgCloudState: TImage;
-    imgSeaState: TImage;
-    lblRainRate: TLabel;
-    lblRainRateDesc: TLabel;
-    lblCloudAtten: TLabel;
-    lblCloudAttenDesc: TLabel;
-    lblSeaStat: TLabel;
-    lblSeaStatDesc: TLabel;
+    imgRainStateGen: TImage;
+    imgCloudStateGen: TImage;
+    imgSeaStateGen: TImage;
+    lblRainRateGen: TLabel;
+    lblRainRateDescGen: TLabel;
+    lblCloudAttenGen: TLabel;
+    lblCloudAttenDescGen: TLabel;
+    lblSeaStatGen: TLabel;
+    lblSeaStatDescGen: TLabel;
     pnlRainDisplay: TPanel;
-    imgRainDisplay: TImage;
-    imgSeaStateDisplay: TImage;
+    imgRainDisplayGen: TImage;
+    imgSeaStateDisplayGen: TImage;
     pnl2: TPanel;
     pnlWindTrue: TPanel;
     lbl23: TLabel;
@@ -1337,22 +1337,22 @@ type
     Label110: TLabel;
     lblCurrentWeightHangerNav: TLabel;
     pnlContactSheet: TPanel;
-    pnlGeneral: TPanel;
-    pnlAir: TPanel;
-    pnlPersonelT: TPanel;
-    pnlLanding: TPanel;
-    pnlAmphibi: TPanel;
+    pnlGeneralNav: TPanel;
+    pnlAirNav: TPanel;
+    pnlPersonelTNav: TPanel;
+    pnlLandingNav: TPanel;
+    pnlAmphibiNav: TPanel;
     pnlLandingCraftPlatformNav: TPanel;
     Label28Nav: TLabel;
     TreeView1Nav: TTreeView;
     Panel34Nav: TPanel;
-    Label111: TLabel;
+    lblMaxCapacityNav: TLabel;
     Label112: TLabel;
     Label42Nav: TLabel;
-    Label114: TLabel;
+    lblFreeCapacityNav: TLabel;
     Label115: TLabel;
-    Label48Nav: TLabel;
-    Label116: TLabel;
+    lblFreeCapacityNaf: TLabel;
+    lblCurrentWeightNav: TLabel;
     Label117: TLabel;
     Label65Nav: TLabel;
     Panel101Nav: TPanel;
@@ -1499,11 +1499,11 @@ type
     Label85: TLabel;
     Label86: TLabel;
     lblWindSpeedNav: TLabel;
-    lblWindDir: TLabel;
+    lblWindDirNav: TLabel;
     Label95: TLabel;
-    lblCurrentSpeed: TLabel;
+    lblCurrentSpeedNav: TLabel;
     Label97: TLabel;
-    lblCurrentDir: TLabel;
+    lblCurrentDirNav: TLabel;
     Image22: TImage;
     Image23: TImage;
     Image24: TImage;
@@ -1536,6 +1536,293 @@ type
     Label264: TLabel;
     vrWind: TVrWheel;
     vrCurrent: TVrWheel;
+    pnlMainFiring: TPanel;
+    pnlFiring: TPanel;
+    Panel92: TPanel;
+    Image44: TImage;
+    Label94: TLabel;
+    Panel108: TPanel;
+    Image45: TImage;
+    Label265: TLabel;
+    Label266: TLabel;
+    lblDayVisualFiring: TLabel;
+    lblNightimeVisualFiring: TLabel;
+    Label269: TLabel;
+    lblDaytimeInfraredFiring: TLabel;
+    Label271: TLabel;
+    lblNightimeInfraredFiring: TLabel;
+    Image46: TImage;
+    Image47: TImage;
+    Image48: TImage;
+    Image49: TImage;
+    Image50: TImage;
+    Image51: TImage;
+    Image52: TImage;
+    Image53: TImage;
+    Image54: TImage;
+    Panel109: TPanel;
+    Image55: TImage;
+    Label273: TLabel;
+    lblAtmosphereFiring: TLabel;
+    Image56: TImage;
+    Image57: TImage;
+    Image58: TImage;
+    Panel111: TPanel;
+    Image59: TImage;
+    Panel113: TPanel;
+    Panel115: TPanel;
+    Image60: TImage;
+    imgRainStateFiring: TImage;
+    Label275: TLabel;
+    lblRainstateFiring: TLabel;
+    imgSeaStateFiring: TImage;
+    Label277: TLabel;
+    lblSeaStatDescFiring: TLabel;
+    imgCloudStateFiring: TImage;
+    Label279: TLabel;
+    lblCloudAttenDescFising: TLabel;
+    Panel116: TPanel;
+    Image64: TImage;
+    Label281: TLabel;
+    Label282: TLabel;
+    lblWindSpeedFiring: TLabel;
+    lblWindDirFiring: TLabel;
+    Label286: TLabel;
+    lblCurrentSpeedFiring: TLabel;
+    Label288: TLabel;
+    lblCurrentDirFiring: TLabel;
+    Image65: TImage;
+    Image66: TImage;
+    Image67: TImage;
+    Image68: TImage;
+    Image69: TImage;
+    Image70: TImage;
+    Image71: TImage;
+    Image72: TImage;
+    Image73: TImage;
+    Panel117: TPanel;
+    Image74: TImage;
+    Label290: TLabel;
+    lvSystemStateFiring: TListView;
+    Panel118: TPanel;
+    Image75: TImage;
+    Label291: TLabel;
+    tvCountermeasuresFiring: TTreeView;
+    Panel123: TPanel;
+    Image76: TImage;
+    Label292: TLabel;
+    tvWeaponFiring: TTreeView;
+    Panel124: TPanel;
+    Image77: TImage;
+    Label293: TLabel;
+    lvSensorFiring: TListView;
+    Panel130: TPanel;
+    Image78: TImage;
+    Label294: TLabel;
+    Panel131: TPanel;
+    lvLogisticPlatformFiring: TListView;
+    Panel132: TPanel;
+    Image79: TImage;
+    Label295: TLabel;
+    Label296: TLabel;
+    Label297: TLabel;
+    Image80: TImage;
+    Label298: TLabel;
+    Label299: TLabel;
+    Label300: TLabel;
+    Label301: TLabel;
+    Label302: TLabel;
+    Label303: TLabel;
+    Label304: TLabel;
+    Label305: TLabel;
+    Label306: TLabel;
+    Label307: TLabel;
+    Label308: TLabel;
+    Label309: TLabel;
+    Label310: TLabel;
+    Label311: TLabel;
+    Label312: TLabel;
+    Label313: TLabel;
+    Label314: TLabel;
+    Label315: TLabel;
+    Label316: TLabel;
+    Label317: TLabel;
+    Label318: TLabel;
+    Label319: TLabel;
+    Label320: TLabel;
+    Label321: TLabel;
+    Label322: TLabel;
+    Label323: TLabel;
+    Label324: TLabel;
+    Label325: TLabel;
+    Label326: TLabel;
+    Label327: TLabel;
+    Label328: TLabel;
+    Label329: TLabel;
+    Panel133: TPanel;
+    Image81: TImage;
+    Panel134: TPanel;
+    Panel135: TPanel;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    Panel136: TPanel;
+    ListView5: TListView;
+    TabSheet2: TTabSheet;
+    Panel137: TPanel;
+    ListView6: TListView;
+    TabSheet3: TTabSheet;
+    Panel138: TPanel;
+    ListView7: TListView;
+    Panel139: TPanel;
+    Panel140: TPanel;
+    Memo1: TMemo;
+    Panel141: TPanel;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Panel142: TPanel;
+    Panel143: TPanel;
+    Image82: TImage;
+    Label330: TLabel;
+    Panel144: TPanel;
+    pnlGeneralFiring: TPanel;
+    pnlAirFiring: TPanel;
+    pnlPersonelTFiring: TPanel;
+    pnlLandingFiring: TPanel;
+    pnlAmphibiFiring: TPanel;
+    Panel150: TPanel;
+    Panel151: TPanel;
+    Label331: TLabel;
+    Panel152: TPanel;
+    SpeedButton7: TSpeedButton;
+    Label332: TLabel;
+    ListView8: TListView;
+    Panel153: TPanel;
+    Label333: TLabel;
+    Label334: TLabel;
+    Label335: TLabel;
+    Label336: TLabel;
+    Label337: TLabel;
+    Label338: TLabel;
+    Label339: TLabel;
+    Label340: TLabel;
+    Label341: TLabel;
+    Panel154: TPanel;
+    Label342: TLabel;
+    TreeView5: TTreeView;
+    Panel155: TPanel;
+    Label343: TLabel;
+    Label344: TLabel;
+    Label345: TLabel;
+    Label346: TLabel;
+    Label347: TLabel;
+    Label348: TLabel;
+    Label349: TLabel;
+    Label350: TLabel;
+    Label351: TLabel;
+    Panel156: TPanel;
+    SpeedButton9: TSpeedButton;
+    SpeedButton15: TSpeedButton;
+    Label352: TLabel;
+    ListView9: TListView;
+    Panel157: TPanel;
+    Label353: TLabel;
+    ListView10: TListView;
+    Panel158: TPanel;
+    Label354: TLabel;
+    Label355: TLabel;
+    Label356: TLabel;
+    Label357: TLabel;
+    Label358: TLabel;
+    Label359: TLabel;
+    Label360: TLabel;
+    Label361: TLabel;
+    Label362: TLabel;
+    Panel159: TPanel;
+    SpeedButton16: TSpeedButton;
+    SpeedButton18: TSpeedButton;
+    Label363: TLabel;
+    Label364: TLabel;
+    Button9: TButton;
+    Panel160: TPanel;
+    Panel161: TPanel;
+    Label365: TLabel;
+    Label366: TLabel;
+    Label367: TLabel;
+    Label368: TLabel;
+    SpeedButton19: TSpeedButton;
+    Label369: TLabel;
+    Label370: TLabel;
+    Label371: TLabel;
+    Label372: TLabel;
+    Panel162: TPanel;
+    Label373: TLabel;
+    Label374: TLabel;
+    Label375: TLabel;
+    Label376: TLabel;
+    Label377: TLabel;
+    Label378: TLabel;
+    Button10: TButton;
+    Button11: TButton;
+    Button12: TButton;
+    Panel163: TPanel;
+    Label379: TLabel;
+    Panel164: TPanel;
+    Panel165: TPanel;
+    Label380: TLabel;
+    Panel166: TPanel;
+    Panel167: TPanel;
+    Panel168: TPanel;
+    Panel169: TPanel;
+    Panel170: TPanel;
+    Button13: TButton;
+    Panel171: TPanel;
+    Label381: TLabel;
+    Panel172: TPanel;
+    Panel173: TPanel;
+    Panel174: TPanel;
+    Panel175: TPanel;
+    Panel176: TPanel;
+    Button14: TButton;
+    Panel177: TPanel;
+    Label382: TLabel;
+    Panel178: TPanel;
+    Panel179: TPanel;
+    Panel180: TPanel;
+    Panel181: TPanel;
+    Panel182: TPanel;
+    Button15: TButton;
+    Panel183: TPanel;
+    Label383: TLabel;
+    Panel184: TPanel;
+    Panel185: TPanel;
+    Panel186: TPanel;
+    Panel187: TPanel;
+    Panel188: TPanel;
+    Button16: TButton;
+    Panel189: TPanel;
+    Panel190: TPanel;
+    Label384: TLabel;
+    TreeView6: TTreeView;
+    Panel191: TPanel;
+    Label385: TLabel;
+    Label386: TLabel;
+    lblMaxCapacityFiring: TLabel;
+    Label388: TLabel;
+    Label389: TLabel;
+    lblFreeCapacityFiring: TLabel;
+    lblCurrentWeightFiring: TLabel;
+    Label392: TLabel;
+    Label393: TLabel;
+    Panel192: TPanel;
+    SpeedButton20: TSpeedButton;
+    SpeedButton21: TSpeedButton;
+    Label394: TLabel;
+    lvLandingCraftCarriedFiring: TListView;
 
 
 
@@ -2386,29 +2673,29 @@ begin
 
     {$REGION ' Visibility Factor '}
     {Environtment Status}
-    lblDayVisual.Caption                  := FormatFloat('0', Daytime_Visual_Modifier) + '%';
-    lblNightimeVisual.Caption             := FormatFloat('0', Nighttime_Visual_Modifier) + '%';
-    lblDaytimeInfrared.Caption            := FormatFloat('0', Daytime_Infrared_Modifier) + '%';
-    lblNightimeInfrared.Caption           := FormatFloat('0', Nighttime_Infrared_Modifier) + '%';
+    lblDayVisualGen.Caption                  := FormatFloat('0', Daytime_Visual_Modifier) + '%';
+    lblNightimeVisualGen.Caption             := FormatFloat('0', Nighttime_Visual_Modifier) + '%';
+    lblDaytimeInfraredGen.Caption            := FormatFloat('0', Daytime_Infrared_Modifier) + '%';
+    lblNightimeInfraredGen.Caption           := FormatFloat('0', Nighttime_Infrared_Modifier) + '%';
     {$ENDREGION}
 
     {$REGION ' Athmospheric Sub '}
     {Environtment Status}
-    lblAtmosphere.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
+    lblAtmosphereGen.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
     {$ENDREGION}
 
     {$REGION ' Wind Velocity '}
     {Environtment Status}
-    lblDirectionWindTrue.Caption := FormatCourse(Wind_Direction);
-    lblSpeedWIndTrue.Caption := FormatSpeed(Wind_Speed);
-    DrawSeaNeedle(StrToFloat(lblDirectionWindTrue.Caption), imgWindNeedle.Canvas);
+    lblDirectionWindTrueGen.Caption := FormatCourse(Wind_Direction);
+    lblSpeedWIndTrueGen.Caption := FormatSpeed(Wind_Speed);
+    DrawSeaNeedle(StrToFloat(lblDirectionWindTrueGen.Caption), imgWindNeedleGen.Canvas);
     {$ENDREGION}
 
     {$REGION ' Ocean Current '}
     {Environtment Status}
-    lblOceanCurrentDirection.Caption := FormatCourse(Ocean_Current_Direction);
-    lblOceanCurrentSpeed.Caption := FormatSpeed(Ocean_Current_Speed);
-    DrawSeaNeedle(StrToFloat(lblOceanCurrentDirection.Caption), imgOceanNeedle.Canvas);
+    lblOceanCurrentDirectionGen.Caption := FormatCourse(Ocean_Current_Direction);
+    lblOceanCurrentSpeedGen.Caption := FormatSpeed(Ocean_Current_Speed);
+    DrawSeaNeedle(StrToFloat(lblOceanCurrentDirectionGen.Caption), imgOceanNeedleGen.Canvas);
     {$ENDREGION}
 
     {$REGION ' Rain Intensity '}
@@ -2416,30 +2703,30 @@ begin
     case Rain_Rate of
       0 :
       begin
-        lblRainRateDesc.Caption     := 'Sunny';
-        imgRainState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Rain.png');
+        lblRainRateDescGen.Caption     := 'Sunny';
+        imgRainStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Rain.png');
         imgSunDisplay.Visible := True;
         pnlEnvironmentDisplay.Color := $00FFFDDD;
         pnlRainDisplay.Color := $00FFFDDD;
-        imgRainDisplay.Visible := False;
+        imgRainDisplayGen.Visible := False;
       end;
       1 :
       begin
-        lblRainRateDesc.Caption     := 'Light Rain';
-        imgRainState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Rain.png');
+        lblRainRateDescGen.Caption     := 'Light Rain';
+        imgRainStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Rain.png');
         imgSunDisplay.Visible := True;
         pnlEnvironmentDisplay.Color := $00BAB9A5;
         pnlRainDisplay.Color := $00BAB9A5;
-        imgRainDisplay.Visible := True;
+        imgRainDisplayGen.Visible := True;
       end;
       2 :
       begin
-        lblRainRateDesc.Caption     := 'Heavy Rain';
-        imgRainState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Rain.png');
+        lblRainRateDescGen.Caption     := 'Heavy Rain';
+        imgRainStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Rain.png');
         imgSunDisplay.Visible := False;
         pnlEnvironmentDisplay.Color := $00969585;
         pnlRainDisplay.Color := $00969585;
-        imgRainDisplay.Visible := True;
+        imgRainDisplayGen.Visible := True;
       end;
     end;
     {$ENDREGION}
@@ -2449,8 +2736,8 @@ begin
     case Cloud_Attenuation of
       0 :
       begin
-        lblCloudAttenDesc.Caption     := 'No Fog';
-        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
+        lblCloudAttenDescGen.Caption     := 'No Fog';
+        imgCloudStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
         Fogstate:= 'FOG1';
         if Rain_Rate = 0 then
         begin
@@ -2470,8 +2757,8 @@ begin
       end;
       1 :
       begin
-        lblCloudAttenDesc.Caption     := 'Slightly Foggy';
-        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Cloud.png');
+        lblCloudAttenDescGen.Caption     := 'Slightly Foggy';
+        imgCloudStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Cloud.png');
         Fogstate:= 'FOG2';
         if Rain_Rate = 0 then
         begin
@@ -2491,8 +2778,8 @@ begin
       end;
       2 :
       begin
-        lblCloudAttenDesc.Caption     := 'Foggy';
-        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Cloud.png');
+        lblCloudAttenDescGen.Caption     := 'Foggy';
+        imgCloudStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Cloud.png');
         Fogstate:= 'FOG2';
         if Rain_Rate = 0 then
         begin
@@ -2512,8 +2799,8 @@ begin
       end;
       3 :
       begin
-        lblCloudAttenDesc.Caption     := 'Very Foggy';
-        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Cloud.png');
+        lblCloudAttenDescGen.Caption     := 'Very Foggy';
+        imgCloudStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Cloud.png');
         Fogstate:= 'FOG3';
         if Rain_Rate = 0 then
         begin
@@ -2539,58 +2826,58 @@ begin
     case Sea_State of
       0 :
       begin
-        lblSeaStatDesc.Caption           := 'Calm (glassy)';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Calm (glassy)';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
       end;
       1 :
       begin
-        lblSeaStatDesc.Caption           := 'Calm (rippled)';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Calm (rippled)';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
       end;
       2 :
       begin
-        lblSeaStatDesc.Caption           := 'Smooth (wavelets)';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Smooth (wavelets)';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
       end;
       3 :
       begin
-        lblSeaStatDesc.Caption           := 'Slight';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Slight';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
       end;
       4 :
       begin
-        lblSeaStatDesc.Caption           := 'Moderate';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Moderate';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
       end;
       5 :
       begin
-        lblSeaStatDesc.Caption           := 'Rough';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Rough';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
       end;
       6 :
       begin
-        lblSeaStatDesc.Caption           := 'Very rough';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Very rough';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
       end;
       7 :
       begin
-        lblSeaStatDesc.Caption           := 'High';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+        lblSeaStatDescGen.Caption           := 'High';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
       end;
       8 :
       begin
-        lblSeaStatDesc.Caption           := 'Very high';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Very high';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
       end;
       9,10 :
       begin
-        lblSeaStatDesc.Caption        := 'Phenomenal';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+        lblSeaStatDescGen.Caption        := 'Phenomenal';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
       end;
     end;
     {$ENDREGION}
 
-    lblSpeedWIndTrue.Caption              := FormatSpeed(Wind_Speed);
+    lblSpeedWIndTrueGen.Caption              := FormatSpeed(Wind_Speed);
     lblCloudAttenuation.Caption           := IntToStr(Cloud_Attenuation);
     lblSeaState.Caption                   := IntToStr(Sea_State);
     lblSurfaceTemp.Caption                := FormatFloat('0.00', Surface_Temperature) + 'C';
@@ -2640,13 +2927,13 @@ begin
     lblSurfaceTemp.Caption                := FormatFloat('0.0', Surface_Temperature);
 
     //lOAD FOR DISPLAY
-    imgRainStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\cloud\' + (Rain_Rate + 1).ToString + '.png');
-    imgSeaStateDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\wave\' + (Sea_State + 1).ToString + '.png');
-    imgRainDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Rain\' + (Rain_Rate + 1).ToString + '.png');
+    imgRainStateDisplayGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\cloud\' + (Rain_Rate + 1).ToString + '.png');
+    imgSeaStateDisplayGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\wave\' + (Sea_State + 1).ToString + '.png');
+    imgRainDisplayGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Rain\' + (Rain_Rate + 1).ToString + '.png');
     imgSunDisplay.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\' + Fogstate + '\Sun\' + '1.png');
   end;
 
-  DrawSeaNeedle(StrToFloat(lblOceanCurrentDirection.Caption), imgOceanNeedle.Canvas);
+  DrawSeaNeedle(StrToFloat(lblOceanCurrentDirectionGen.Caption), imgOceanNeedleGen.Canvas);
   tmrEnviDisplay.Enabled := True;
 end;
 
@@ -5493,35 +5780,35 @@ begin
     pnlEnvironmentDisplay.Width := 1332;
     pnlRainDisplay.Height := pnlRainDisplay.Height - 85;
     pnlRainDisplay.Width := 1332;
-    imgSeaStateDisplay.Top := imgSeaStateDisplay.Top - 85;
+    imgSeaStateDisplayGen.Top := imgSeaStateDisplayGen.Top - 85;
     pnlStateDisplay.Top := pnlStateDisplay.Top - 85;
     pnlStateDisplay.Height := 135;
     pnlStateDisplay.Width := 1332;
-    imgCloudState.Height := imgCloudState.Height -15;
-    imgRainState.Height := imgRainState.Height -15;
-    imgSeaState.Height := imgSeaState.Height -15;
-    imgCloudState.Width := imgCloudState.Width -15;
-    imgRainState.Width := imgRainState.Width -15;
-    imgSeaState.Width := imgSeaState.Width -15;
-    imgCloudState.Left := imgCloudState.Left -56;
-    imgSeaState.Left := imgSeaState.Left -112;
-    lblCloudAtten.Left := lblCloudAtten.Left - 56;
-    lblCloudAttenDesc.Left := lblCloudAttenDesc.Left -56;
-    lblSeaStat.Left := lblSeaStat.Left - 112;
-    lblSeaStatDesc.Left := lblSeaStatDesc.Left -112;
-    lblCloudAtten.Top := lblCloudAtten.Top - 7;
-    lblCloudAttenDesc.Top := lblCloudAttenDesc.Top -7;
-    lblSeaStat.Top := lblSeaStat.Top - 7;
-    lblSeaStatDesc.Top := lblSeaStatDesc.Top -7;
+    imgCloudStateGen.Height := imgCloudStateGen.Height -15;
+    imgRainStateGen.Height := imgRainStateGen.Height -15;
+    imgSeaStateGen.Height := imgSeaStateGen.Height -15;
+    imgCloudStateGen.Width := imgCloudStateGen.Width -15;
+    imgRainStateGen.Width := imgRainStateGen.Width -15;
+    imgSeaStateGen.Width := imgSeaStateGen.Width -15;
+    imgCloudStateGen.Left := imgCloudStateGen.Left -56;
+    imgSeaStateGen.Left := imgSeaStateGen.Left -112;
+    lblCloudAttenGen.Left := lblCloudAttenGen.Left - 56;
+    lblCloudAttenDescGen.Left := lblCloudAttenDescGen.Left -56;
+    lblSeaStatGen.Left := lblSeaStatGen.Left - 112;
+    lblSeaStatDescGen.Left := lblSeaStatDescGen.Left -112;
+    lblCloudAttenGen.Top := lblCloudAttenGen.Top - 7;
+    lblCloudAttenDescGen.Top := lblCloudAttenDescGen.Top -7;
+    lblSeaStatGen.Top := lblSeaStatGen.Top - 7;
+    lblSeaStatDescGen.Top := lblSeaStatDescGen.Top -7;
     pnlOceanWind.Top := pnlOceanWind.Top - 100;
     imgWindDirection.Left := imgWindDirection.Left - 56;
     imgWindSpeed.Left := imgWindSpeed.Left - 56;
-    lblWindDirection.Left := lblWindDirection.Left - 56;
-    lblWindSpeed.Left := lblWindSpeed.Left - 56;
-    lblDirectionWindTrue.Left := lblDirectionWindTrue.Left - 56;
-    lblSpeedWIndTrue.Left := lblSpeedWIndTrue.Left - 56;
-    imgOceanIndicator.Left := imgOceanIndicator.Left - 56;
-    imgOceanNeedle.Left := imgOceanNeedle.Left - 56;
+    lblWindDirectionGen.Left := lblWindDirectionGen.Left - 56;
+    lblWindSpeedGen.Left := lblWindSpeedGen.Left - 56;
+    lblDirectionWindTrueGen.Left := lblDirectionWindTrueGen.Left - 56;
+    lblSpeedWIndTrueGen.Left := lblSpeedWIndTrueGen.Left - 56;
+    imgOceanIndicatorGen.Left := imgOceanIndicatorGen.Left - 56;
+    imgOceanNeedleGen.Left := imgOceanNeedleGen.Left - 56;
     pnlWindDisplay.Width := pnlWindDisplay.Width - 56;
     pnlOtherIndicator.Top := pnlOtherIndicator.Top - 125;
     pnlOtherIndicator.Left := 310;
@@ -16415,93 +16702,93 @@ begin
   panel := Sender as Tpanel;
   PanelTag := panel.Tag;
 
-  if panel = pnlGeneral then
+  if panel = pnlGeneralNav then
   begin
     if PanelTag = 0 then
     begin
-      pnlGeneral.Color := RGB(29, 81, 103);
+      pnlGeneralNav.Color := RGB(29, 81, 103);
       pnlInfoKapalNav.BringToFront;
-      pnlGeneral.Tag := 1;
-      pnlAir.Tag := 0;
-      pnlPersonelT.Tag := 0;
-      pnlLanding.Tag := 0;
-      pnlAmphibi.Tag := 0;
-      pnlAir.Color := RGB(16, 46, 58);
-      pnlPersonelT.Color := RGB(16, 46, 58);
-      pnlLanding.Color := RGB(16, 46, 58);
-      pnlAmphibi.Color := RGB(16, 46, 58);
+      pnlGeneralNav.Tag := 1;
+      pnlAirNav.Tag := 0;
+      pnlPersonelTNav.Tag := 0;
+      pnlLandingNav.Tag := 0;
+      pnlAmphibiNav.Tag := 0;
+      pnlAirNav.Color := RGB(16, 46, 58);
+      pnlPersonelTNav.Color := RGB(16, 46, 58);
+      pnlLandingNav.Color := RGB(16, 46, 58);
+      pnlAmphibiNav.Color := RGB(16, 46, 58);
     end;
   end
 
-  else if panel = pnlAir then
+  else if panel = pnlAirNav then
   begin
     if PanelTag = 0 then
     begin
-      pnlAir.Color := RGB(29, 81, 103);
+      pnlAirNav.Color := RGB(29, 81, 103);
       pnlAirPlatformNav.BringToFront;
-      pnlAir.Tag := 1;
-      pnlGeneral.Tag := 0;
-      pnlPersonelT.Tag := 0;
-      pnlLanding.Tag := 0;
-      pnlAmphibi.Tag := 0;
-      pnlLanding.Color := RGB(16, 46, 58);
-      pnlPersonelT.Color := RGB(16, 46, 58);
-      pnlGeneral.Color := RGB(16, 46, 58);
-      pnlAmphibi.Color := RGB(16, 46, 58);
+      pnlAirNav.Tag := 1;
+      pnlGeneralNav.Tag := 0;
+      pnlPersonelTNav.Tag := 0;
+      pnlLandingNav.Tag := 0;
+      pnlAmphibiNav.Tag := 0;
+      pnlLandingNav.Color := RGB(16, 46, 58);
+      pnlPersonelTNav.Color := RGB(16, 46, 58);
+      pnlGeneralNav.Color := RGB(16, 46, 58);
+      pnlAmphibiNav.Color := RGB(16, 46, 58);
     end;
   end
 
-  else if panel = pnlPersonelT then
+  else if panel = pnlPersonelTNav then
   begin
     if PanelTag = 0 then
     begin
-      pnlPersonelT.Color := RGB(29, 81, 103);
+      pnlPersonelTNav.Color := RGB(29, 81, 103);
       pnlPersonelPlatformNav.BringToFront;
-      pnlPersonelT.Tag := 1;
-      pnlGeneral.Tag := 0;
-      pnlAir.Tag := 0;
-      pnlLanding.Tag := 0;
-      pnlAmphibi.Tag := 0;
-      pnlLanding.Color := RGB(16, 46, 58);
-      pnlAir.Color := RGB(16, 46, 58);
-      pnlGeneral.Color := RGB(16, 46, 58);
-      pnlAmphibi.Color := RGB(16, 46, 58);
+      pnlPersonelTNav.Tag := 1;
+      pnlGeneralNav.Tag := 0;
+      pnlAirNav.Tag := 0;
+      pnlLandingNav.Tag := 0;
+      pnlAmphibiNav.Tag := 0;
+      pnlLandingNav.Color := RGB(16, 46, 58);
+      pnlAirNav.Color := RGB(16, 46, 58);
+      pnlGeneralNav.Color := RGB(16, 46, 58);
+      pnlAmphibiNav.Color := RGB(16, 46, 58);
     end;
   end
 
-  else if panel = pnlAmphibi then
+  else if panel = pnlAmphibiNav then
   begin
     if PanelTag = 0 then
     begin
-      pnlAmphibi.Color := RGB(29, 81, 103);
+      pnlAmphibiNav.Color := RGB(29, 81, 103);
       pnlAmphibiousPlatformNav.BringToFront;
-      pnlAmphibi.Tag := 1;
-      pnlGeneral.Tag := 0;
-      pnlAir.Tag := 0;
-      pnlLanding.Tag := 0;
-      pnlPersonelT.Tag := 0;
-      pnlLanding.Color := RGB(16, 46, 58);
-      pnlAir.Color := RGB(16, 46, 58);
-      pnlGeneral.Color := RGB(16, 46, 58);
-      pnlPersonelT.Color := RGB(16, 46, 58);
+      pnlAmphibiNav.Tag := 1;
+      pnlGeneralNav.Tag := 0;
+      pnlAirNav.Tag := 0;
+      pnlLandingNav.Tag := 0;
+      pnlPersonelTNav.Tag := 0;
+      pnlLandingNav.Color := RGB(16, 46, 58);
+      pnlAirNav.Color := RGB(16, 46, 58);
+      pnlGeneralNav.Color := RGB(16, 46, 58);
+      pnlPersonelTNav.Color := RGB(16, 46, 58);
     end;
   end
 
-  else if panel = pnlLanding then
+  else if panel = pnlLandingNav then
   begin
     if PanelTag = 0 then
     begin
-      pnlLanding.Color := RGB(29, 81, 103);
+      pnlLandingNav.Color := RGB(29, 81, 103);
       pnlLandingCraftPlatformNav.BringToFront;
-      pnlLanding.Tag := 1;
-      pnlGeneral.Tag := 0;
-      pnlAir.Tag := 0;
-      pnlAmphibi.Tag := 0;
-      pnlPersonelT.Tag := 0;
-      pnlAmphibi.Color := RGB(16, 46, 58);
-      pnlAir.Color := RGB(16, 46, 58);
-      pnlGeneral.Color := RGB(16, 46, 58);
-      pnlPersonelT.Color := RGB(16, 46, 58);
+      pnlLandingNav.Tag := 1;
+      pnlGeneralNav.Tag := 0;
+      pnlAirNav.Tag := 0;
+      pnlAmphibiNav.Tag := 0;
+      pnlPersonelTNav.Tag := 0;
+      pnlAmphibiNav.Color := RGB(16, 46, 58);
+      pnlAirNav.Color := RGB(16, 46, 58);
+      pnlGeneralNav.Color := RGB(16, 46, 58);
+      pnlPersonelTNav.Color := RGB(16, 46, 58);
     end;
   end;
 end;
@@ -20741,25 +21028,25 @@ end;
 
 procedure TfrmToteDisplay.tmrEnviDisplayTimer(Sender: TObject);
 begin
-  if imgSeaStateDisplay.Left <> -1200 then
-    imgSeaStateDisplay.Left := imgSeaStateDisplay.Left - 1
-  else if imgSeaStateDisplay.Left = -1200 then
-    imgSeaStateDisplay.Left := 0;
+  if imgSeaStateDisplayGen.Left <> -1200 then
+    imgSeaStateDisplayGen.Left := imgSeaStateDisplayGen.Left - 1
+  else if imgSeaStateDisplayGen.Left = -1200 then
+    imgSeaStateDisplayGen.Left := 0;
 
-  if imgRainStateDisplay.Left <> -1200 then
-    imgRainStateDisplay.Left := imgRainStateDisplay.Left - 1
-  else if imgRainStateDisplay.Left = -1200 then
-    imgRainStateDisplay.Left := 0;
+  if imgRainStateDisplayGen.Left <> -1200 then
+    imgRainStateDisplayGen.Left := imgRainStateDisplayGen.Left - 1
+  else if imgRainStateDisplayGen.Left = -1200 then
+    imgRainStateDisplayGen.Left := 0;
 
-  if imgRainDisplay.Left <> -250 then
-    imgRainDisplay.Left := imgRainDisplay.Left - 1
-  else if imgRainDisplay.Left = -250 then
-    imgRainDisplay.Left := 0;
+  if imgRainDisplayGen.Left <> -250 then
+    imgRainDisplayGen.Left := imgRainDisplayGen.Left - 1
+  else if imgRainDisplayGen.Left = -250 then
+    imgRainDisplayGen.Left := 0;
 
-  if imgRainDisplay.Top <> 0 then
-    imgRainDisplay.Top := imgRainDisplay.Top + 1
-  else if imgRainDisplay.Top = 0 then
-    imgRainDisplay.Top := -250;
+  if imgRainDisplayGen.Top <> 0 then
+    imgRainDisplayGen.Top := imgRainDisplayGen.Top + 1
+  else if imgRainDisplayGen.Top = 0 then
+    imgRainDisplayGen.Top := -250;
 end;
 
 procedure TfrmToteDisplay.SidebarButtonClick(Sender: TObject);
@@ -20982,10 +21269,10 @@ begin
     edtNightInfra.Text := FormatFloat('0', Nighttime_Infrared_Modifier);
 
     {Environtment Status}
-    lblDayVisual.Caption                  := FormatFloat('0', Daytime_Visual_Modifier) + '%';
-    lblNightimeVisual.Caption             := FormatFloat('0', Nighttime_Visual_Modifier) + '%';
-    lblDaytimeInfrared.Caption            := FormatFloat('0', Daytime_Infrared_Modifier) + '%';
-    lblNightimeInfrared.Caption           := FormatFloat('0', Nighttime_Infrared_Modifier) + '%';
+    lblDayVisualGen.Caption                  := FormatFloat('0', Daytime_Visual_Modifier) + '%';
+    lblNightimeVisualGen.Caption             := FormatFloat('0', Nighttime_Visual_Modifier) + '%';
+    lblDaytimeInfraredGen.Caption            := FormatFloat('0', Daytime_Infrared_Modifier) + '%';
+    lblNightimeInfraredGen.Caption           := FormatFloat('0', Nighttime_Infrared_Modifier) + '%';
 
     {Environtment Role Navigasi}
     lblDayVisualNav.Caption         := FormatFloat('0', Daytime_Visual_Modifier) + ' %';
@@ -21000,7 +21287,7 @@ begin
     edtAtmRefract.Text := FormatFloat('000', Atmospheric_Refract_Modifier);
 
     {Environtment Status}
-    lblAtmosphere.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
+    lblAtmosphereGen.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
 
     {Environtment Role Navigasi}
     lblAtmosphereNav.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
@@ -21017,12 +21304,12 @@ begin
       vrWind.Position := (Round(Wind_Direction) - 180);
 
     {Environtment Status}
-    lblDirectionWindTrue.Caption := FormatCourse(Wind_Direction);
-    lblSpeedWIndTrue.Caption := FormatSpeed(Wind_Speed);
-    DrawSeaNeedle(StrToFloat(lblDirectionWindTrue.Caption), imgWindNeedle.Canvas);
+    lblDirectionWindTrueGen.Caption := FormatCourse(Wind_Direction);
+    lblSpeedWIndTrueGen.Caption := FormatSpeed(Wind_Speed);
+    DrawSeaNeedle(StrToFloat(lblDirectionWindTrueGen.Caption), imgWindNeedleGen.Canvas);
 
     {Environtment Role Navigasi}
-    lblWindDir.Caption := FormatCourse(Wind_Direction);
+    lblWindDirNav.Caption := FormatCourse(Wind_Direction);
     lblWindSpeedNav.Caption := FormatSpeed(Wind_Speed);
     {$ENDREGION}
 
@@ -21037,13 +21324,13 @@ begin
       vrCurrent.Position := (Round(Ocean_Current_Direction) - 180);
 
     {Environtment Status}
-    lblOceanCurrentDirection.Caption := FormatCourse(Ocean_Current_Direction);
-    lblOceanCurrentSpeed.Caption := FormatSpeed(Ocean_Current_Speed);
-    DrawSeaNeedle(StrToFloat(lblOceanCurrentDirection.Caption), imgOceanNeedle.Canvas);
+    lblOceanCurrentDirectionGen.Caption := FormatCourse(Ocean_Current_Direction);
+    lblOceanCurrentSpeedGen.Caption := FormatSpeed(Ocean_Current_Speed);
+    DrawSeaNeedle(StrToFloat(lblOceanCurrentDirectionGen.Caption), imgOceanNeedleGen.Canvas);
 
     {Environtment Role Navigasi}
-    lblCurrentDir.Caption := FormatCourse(Ocean_Current_Direction);
-    lblCurrentSpeed.Caption := FormatSpeed(Ocean_Current_Speed);
+    lblCurrentDirNav.Caption := FormatCourse(Ocean_Current_Direction);
+    lblCurrentSpeedNav.Caption := FormatSpeed(Ocean_Current_Speed);
 
     {$ENDREGION}
 
@@ -21059,30 +21346,30 @@ begin
     case Rain_Rate of
       0 :
       begin
-        lblRainRateDesc.Caption     := 'Sunny';
-        imgRainState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Rain.png');
+        lblRainRateDescGen.Caption     := 'Sunny';
+        imgRainStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Rain.png');
         imgSunDisplay.Visible := True;
         pnlEnvironmentDisplay.Color := $00FFFDDD;
         pnlRainDisplay.Color := $00FFFDDD;
-        imgRainDisplay.Visible := False;
+        imgRainDisplayGen.Visible := False;
       end;
       1 :
       begin
-        lblRainRateDesc.Caption     := 'Light Rain';
-        imgRainState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Rain.png');
+        lblRainRateDescGen.Caption     := 'Light Rain';
+        imgRainStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Rain.png');
         imgSunDisplay.Visible := True;
         pnlEnvironmentDisplay.Color := $00BAB9A5;
         pnlRainDisplay.Color := $00BAB9A5;
-        imgRainDisplay.Visible := True;
+        imgRainDisplayGen.Visible := True;
       end;
       2 :
       begin
-        lblRainRateDesc.Caption     := 'Heavy Rain';
-        imgRainState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Rain.png');
+        lblRainRateDescGen.Caption     := 'Heavy Rain';
+        imgRainStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Rain.png');
         imgSunDisplay.Visible := False;
         pnlEnvironmentDisplay.Color := $00969585;
         pnlRainDisplay.Color := $00969585;
-        imgRainDisplay.Visible := True;
+        imgRainDisplayGen.Visible := True;
       end;
     end;
 
@@ -21119,8 +21406,8 @@ begin
     case Cloud_Attenuation of
       0 :
       begin
-        lblCloudAttenDesc.Caption     := 'No Fog';
-        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
+        lblCloudAttenDescGen.Caption     := 'No Fog';
+        imgCloudStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
         Fogstate:= 'FOG1';
         if Rain_Rate = 0 then
         begin
@@ -21140,8 +21427,8 @@ begin
       end;
       1 :
       begin
-        lblCloudAttenDesc.Caption     := 'Slightly Foggy';
-        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Cloud.png');
+        lblCloudAttenDescGen.Caption     := 'Slightly Foggy';
+        imgCloudStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Cloud.png');
         Fogstate:= 'FOG2';
         if Rain_Rate = 0 then
         begin
@@ -21161,8 +21448,8 @@ begin
       end;
       2 :
       begin
-        lblCloudAttenDesc.Caption     := 'Foggy';
-        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Cloud.png');
+        lblCloudAttenDescGen.Caption     := 'Foggy';
+        imgCloudStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Cloud.png');
         Fogstate:= 'FOG2';
         if Rain_Rate = 0 then
         begin
@@ -21182,8 +21469,8 @@ begin
       end;
       3 :
       begin
-        lblCloudAttenDesc.Caption     := 'Very Foggy';
-        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Cloud.png');
+        lblCloudAttenDescGen.Caption     := 'Very Foggy';
+        imgCloudStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Cloud.png');
         Fogstate:= 'FOG3';
         if Rain_Rate = 0 then
         begin
@@ -21207,8 +21494,8 @@ begin
     case Cloud_Attenuation of
       0 :
       begin
-        lblCloudAttenDesc.Caption     := 'No Fog';
-        imgCloudState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
+        lblCloudAttenDescNav.Caption     := 'No Fog';
+        imgCloudStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
         Fogstate:= 'FOG1';
       end;
       1 :
@@ -21249,53 +21536,53 @@ begin
     case Sea_State of
       0 :
       begin
-        lblSeaStatDesc.Caption           := 'Calm (glassy)';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Calm (glassy)';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
       end;
       1 :
       begin
-        lblSeaStatDesc.Caption           := 'Calm (rippled)';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Calm (rippled)';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
       end;
       2 :
       begin
-        lblSeaStatDesc.Caption           := 'Smooth (wavelets)';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Smooth (wavelets)';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
       end;
       3 :
       begin
-        lblSeaStatDesc.Caption           := 'Slight';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Slight';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
       end;
       4 :
       begin
-        lblSeaStatDesc.Caption           := 'Moderate';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Moderate';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
       end;
       5 :
       begin
-        lblSeaStatDesc.Caption           := 'Rough';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Rough';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
       end;
       6 :
       begin
-        lblSeaStatDesc.Caption           := 'Very rough';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Very rough';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
       end;
       7 :
       begin
-        lblSeaStatDesc.Caption           := 'High';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+        lblSeaStatDescGen.Caption           := 'High';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
       end;
       8 :
       begin
-        lblSeaStatDesc.Caption           := 'Very high';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+        lblSeaStatDescGen.Caption           := 'Very high';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
       end;
       9,10 :
       begin
-        lblSeaStatDesc.Caption        := 'Phenomenal';
-        imgSeaState.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+        lblSeaStatDescGen.Caption        := 'Phenomenal';
+        imgSeaStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
       end;
     end;
 
@@ -21381,8 +21668,8 @@ begin
 
     lblOtherAirTemp.Caption               := FormatFloat('00.0', Air_Temperature);
     lblOtherBarometric.Caption            := FormatFloat('000.0', Barometric_Pressure);
-    lblOceanCurrentSpeed.Caption          := FormatFloat('00.0', Ocean_Current_Speed);
-    lblOceanCurrentDirection.Caption      := FormatCourse(Ocean_Current_Direction);
+    lblOceanCurrentSpeedGen.Caption          := FormatFloat('00.0', Ocean_Current_Speed);
+    lblOceanCurrentDirectionGen.Caption      := FormatCourse(Ocean_Current_Direction);
 
     case Sound_Velocity_Type of
       0 :

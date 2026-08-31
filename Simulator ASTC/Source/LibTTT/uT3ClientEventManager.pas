@@ -432,7 +432,7 @@ begin
       frmTacticalDisplay.Label21.Caption := FormatSpeed(Value * C_MS_To_KNOTS);
 
       {Environtment Status}
-      frmToteDisplay.lblSpeedWIndTrue.Caption := FormatSpeed(Value);
+      frmToteDisplay.lblSpeedWIndTrueGen.Caption := FormatSpeed(Value);
       frmToteDisplay.lblWindRelativeSpeed.Caption := FormatSpeed(Value);
 
       {Environtment Control}
@@ -447,11 +447,11 @@ begin
       frmTacticalDisplay.Label10.Caption := FormatFloat('0.00', Value);
 
       {Environtment Status}
-      frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
+      frmToteDisplay.lblDirectionWindTrueGen.Caption := FormatCourse(Value);
       frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
 
       {Environtment Status}
-      frmToteDisplay.lblDirectionWindTrue.Caption := FormatCourse(Value);
+      frmToteDisplay.lblDirectionWindTrueGen.Caption := FormatCourse(Value);
       frmToteDisplay.lblWindRelativeDirection.Caption := FormatCourse(Value);
 
       {Environtment Control}
@@ -608,7 +608,7 @@ begin
     begin
       {$REGION ' Ocean Current Speed '}
       {Environtment Status}
-      frmToteDisplay.lblOceanCurrentSpeed.Caption := FormatSpeed(Value);
+      frmToteDisplay.lblOceanCurrentSpeedGen.Caption := FormatSpeed(Value);
 
       {Environtment Control}
       frmToteDisplay.edtOceanCurrentSpeed.Text := FormatSpeed(Value);
@@ -618,7 +618,7 @@ begin
     begin
       {$REGION ' Ocean Current Direction '}
       {Environtment Status}
-      frmToteDisplay.lblOceanCurrentDirection.Caption := FormatCourse(Value);
+      frmToteDisplay.lblOceanCurrentDirectionGen.Caption := FormatCourse(Value);
 
       {Environtment Control}
       frmToteDisplay.edtOceanCurrentDirection.Text := FormatCourse(Value);

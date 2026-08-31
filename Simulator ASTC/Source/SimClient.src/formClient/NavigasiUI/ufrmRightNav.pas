@@ -199,7 +199,7 @@ type
     { Private declarations }
   public
   focusedTrack: TSimObject;
-//  statusR_List,statusY_List : TList;
+  statusR_List,statusY_List : TList;
     procedure GetNameAndClass(const obj: TSimObject; var n, c: string);
     procedure Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);
 
@@ -593,8 +593,8 @@ begin
 
     if (det.TrackDomain = vhdSubsurface) then
     begin
-      lbl5.Caption := 'Depth';
-      lbl4.Caption := 'meter';
+      txtlb5.Caption := 'Depth';
+      lbllb4.Caption := 'meter';
 
       if v.Altitude <> 0 then
         lblAltitude.Caption := FormatAltitude(v.Altitude)
@@ -603,8 +603,8 @@ begin
     end
     else
     begin
-      lbl5.Caption := 'Altitude';
-      lbl4.Caption := 'feet';
+      txtlb5.Caption := 'Altitude';
+      lbllb4.Caption := 'feet';
 
       if v.Altitude <> 0 then
        lblAltitude.Caption    := FormatAltitude(v.Altitude * C_Meter_To_Feet)
@@ -652,8 +652,8 @@ begin
         begin
           if (det.TrackDomain = vhdSubsurface) then
           begin
-            lbl5.Caption := 'Depth';
-            lbl4.Caption := 'meter';
+            txtlb5.Caption := 'Depth';
+            lbllb4.Caption := 'meter';
 
             if v.Altitude <> 0 then
               lblAltitude.Caption    := FormatAltitude(v.Altitude)
@@ -662,8 +662,8 @@ begin
           end
           else
           begin
-            lbl5.Caption := 'Altitude';
-            lbl4.Caption := 'feet';
+            txtlb5.Caption := 'Altitude';
+            lbllb4.Caption := 'feet';
 
             if v.Altitude <> 0 then
              lblAltitude.Caption    := FormatAltitude(v.Altitude * C_Meter_To_Feet)
@@ -1544,9 +1544,31 @@ begin
 end;
 
 procedure TfrmRightNav.pnlStatusRedClick(Sender: TObject);
+var
+  CmdStatus : TStatus;
 begin
   pnlStatusRed.Caption := '';
   pnlStatusRed.Visible := False;
+  if statusR_List.Count > 0 then
+  begin
+    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
+    if LowerCase(CmdStatus.state) = 'receive message' then
+    begin
+      frmToteDisplay.pnlSMS.BringToFront;
+//      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
+//      frmToteDisplay.pnlContentReceived.BringToFront;
+//      frmToteDisplay.pnlTabReceived.Tag := 1;
+//      frmToteDisplay.pnlTabDraft.Tag := 0;
+//      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
+//      frmToteDisplay.pnlTabSent.Tag := 0;
+//      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
+
+//      frmToteDisplay.pcReceived.ActivePageIndex := 0;
+    end;
+
+    statusR_List.Delete(statusR_List.Count-1);
+    frmTacticalDisplay.updateStatus;
+  end;
 end;
 
 procedure TfrmRightNav.Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);

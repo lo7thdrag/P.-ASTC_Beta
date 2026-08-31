@@ -14661,7 +14661,54 @@ object frmRightNav: TfrmRightNav
                     end
                   end
                 end
-                inherited grbSonobuoyControl: TGroupBox
+                inherited grbVisualDetectorSensor: TGroupBox [6]
+                  Width = 325
+                  Height = 339
+                  ParentBackground = False
+                  ParentColor = False
+                  ExplicitWidth = 325
+                  ExplicitHeight = 339
+                  inherited Label257: TLabel
+                    Left = 8
+                    Top = 21
+                    ParentFont = False
+                    ExplicitLeft = 8
+                    ExplicitTop = 21
+                  end
+                  inherited Bevel51: TBevel
+                    Left = 53
+                    Top = 28
+                    ExplicitLeft = 53
+                    ExplicitTop = 28
+                  end
+                  inherited Label258: TLabel
+                    Top = 50
+                    ParentFont = False
+                    ExplicitTop = 50
+                  end
+                  inherited Label259: TLabel
+                    Top = 50
+                    ParentFont = False
+                    ExplicitTop = 50
+                  end
+                  inherited sbVisualDetectorDisplayRangeShow: TSpeedButton
+                    Top = 73
+                    ExplicitTop = 73
+                  end
+                  inherited sbVisualDetectorDisplayRangeHide: TSpeedButton
+                    Top = 95
+                    ExplicitTop = 95
+                  end
+                  inherited sbVisualDetectorDisplayBlindZonesShow: TSpeedButton
+                    Top = 73
+                    ExplicitTop = 73
+                  end
+                  inherited sbVisualDetectorDisplayBlindZonesHide: TSpeedButton
+                    Top = 95
+                    ExplicitTop = 95
+                  end
+                end
+                inherited grbSonobuoyControl: TGroupBox [7]
                   Width = 325
                   Height = 339
                   ParentBackground = False
@@ -14768,53 +14815,6 @@ object frmRightNav: TfrmRightNav
                       Left = 69
                       ExplicitLeft = 69
                     end
-                  end
-                end
-                inherited grbVisualDetectorSensor: TGroupBox [7]
-                  Width = 325
-                  Height = 339
-                  ParentBackground = False
-                  ParentColor = False
-                  ExplicitWidth = 325
-                  ExplicitHeight = 339
-                  inherited Label257: TLabel
-                    Left = 8
-                    Top = 21
-                    ParentFont = False
-                    ExplicitLeft = 8
-                    ExplicitTop = 21
-                  end
-                  inherited Bevel51: TBevel
-                    Left = 53
-                    Top = 28
-                    ExplicitLeft = 53
-                    ExplicitTop = 28
-                  end
-                  inherited Label258: TLabel
-                    Top = 50
-                    ParentFont = False
-                    ExplicitTop = 50
-                  end
-                  inherited Label259: TLabel
-                    Top = 50
-                    ParentFont = False
-                    ExplicitTop = 50
-                  end
-                  inherited sbVisualDetectorDisplayRangeShow: TSpeedButton
-                    Top = 73
-                    ExplicitTop = 73
-                  end
-                  inherited sbVisualDetectorDisplayRangeHide: TSpeedButton
-                    Top = 95
-                    ExplicitTop = 95
-                  end
-                  inherited sbVisualDetectorDisplayBlindZonesShow: TSpeedButton
-                    Top = 73
-                    ExplicitTop = 73
-                  end
-                  inherited sbVisualDetectorDisplayBlindZonesHide: TSpeedButton
-                    Top = 95
-                    ExplicitTop = 95
                   end
                 end
                 inherited grbSonarControl: TGroupBox [8]

@@ -4,7 +4,7 @@ object fSelectRecipient: TfSelectRecipient
   Caption = 'Select Recipient'
   ClientHeight = 449
   ClientWidth = 530
-  Color = 5980694
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -137,7 +137,7 @@ object fSelectRecipient: TfSelectRecipient
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 4
     OnClick = btnAddToClick
@@ -152,7 +152,7 @@ object fSelectRecipient: TfSelectRecipient
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 5
     OnClick = btnRemoveToClick
@@ -167,7 +167,7 @@ object fSelectRecipient: TfSelectRecipient
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 6
     OnClick = btnAddInfoClick
@@ -182,7 +182,7 @@ object fSelectRecipient: TfSelectRecipient
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 7
     OnClick = btnRemoveInfoClick
@@ -197,7 +197,7 @@ object fSelectRecipient: TfSelectRecipient
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 8
     OnClick = btnOkClick
@@ -212,7 +212,7 @@ object fSelectRecipient: TfSelectRecipient
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 9
     OnClick = btnCancelClick

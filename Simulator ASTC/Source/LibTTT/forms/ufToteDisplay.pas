@@ -1289,210 +1289,16 @@ type
     Panel112: TPanel;
     Panel114: TPanel;
     lvLogisticPlatformNav: TListView;
-    pnlImage: TPanel;
-    lblShipNAme: TLabel;
-    lblClass: TLabel;
-    pnlImageShip: TPanel;
-    imgShip: TImage;
-    pnlSMS: TPanel;
-    Panel25Nav: TPanel;
-    pcReceivedNav: TPageControl;
-    TabSheet1Nav: TTabSheet;
-    Panel74Nav: TPanel;
-    lvReceiveNav: TListView;
-    TabSheet2Nav: TTabSheet;
-    Panel78Nav: TPanel;
-    lvSentNav: TListView;
-    TabSheet3Nav: TTabSheet;
-    Panel82Nav: TPanel;
-    lvDraftNav: TListView;
-    Panel20Nav: TPanel;
-    Panel75Nav: TPanel;
-    mmoMessageNav: TMemo;
-    Panel49Nav: TPanel;
-    btnNewNav: TButton;
-    btnRemoveNav: TButton;
-    btnReplyNav: TButton;
-    btnForwardNav: TButton;
-    btnSendNav: TButton;
-    btnEditNav: TButton;
-    btnPrintNav: TButton;
-    Panel129: TPanel;
-    pnlTransportNav: TPanel;
-    pnlNone: TPanel;
-    pnlAirPlatformNav: TPanel;
-    Label103: TLabel;
-    Panel121: TPanel;
-    btnTakeoffNav: TSpeedButton;
-    Label104: TLabel;
-    lvAirCarriedNav: TListView;
-    Panel122: TPanel;
-    Label105: TLabel;
-    Label106: TLabel;
-    lblMaxCapacityHangerNav: TLabel;
-    Label107: TLabel;
-    Label108: TLabel;
-    lblFreeCapacityHangerNav: TLabel;
-    Label109: TLabel;
-    Label110: TLabel;
-    lblCurrentWeightHangerNav: TLabel;
-    pnlContactSheet: TPanel;
-    pnlGeneralNav: TPanel;
-    pnlAirNav: TPanel;
-    pnlPersonelTNav: TPanel;
-    pnlLandingNav: TPanel;
-    pnlAmphibiNav: TPanel;
-    pnlLandingCraftPlatformNav: TPanel;
-    Label28Nav: TLabel;
-    TreeView1Nav: TTreeView;
-    Panel34Nav: TPanel;
-    lblMaxCapacityNav: TLabel;
-    Label112: TLabel;
-    Label42Nav: TLabel;
-    lblFreeCapacityNav: TLabel;
-    Label115: TLabel;
-    lblFreeCapacityNaf: TLabel;
-    lblCurrentWeightNav: TLabel;
-    Label117: TLabel;
-    Label65Nav: TLabel;
-    Panel101Nav: TPanel;
-    btnLandingCraftDisembarkNav: TSpeedButton;
-    btnLandingCraftDisembarkWithNav: TSpeedButton;
-    Label118: TLabel;
-    lvLandingCraftCarriedNav: TListView;
-    pnlPersonelPlatformNav: TPanel;
-    Label119: TLabel;
-    TreeView2: TTreeView;
-    Panel125: TPanel;
-    Label120: TLabel;
-    Label121: TLabel;
-    lblMaxCapacityPersonelNav: TLabel;
-    Label146: TLabel;
-    Label154: TLabel;
-    lblFreeCapacityPersonelNav: TLabel;
-    Label161: TLabel;
-    Label162: TLabel;
-    lblCurrentWeightPersonelNav: TLabel;
-    Panel126: TPanel;
-    btnPersonelDebarkasiNav: TSpeedButton;
-    btnPersonelDebarkasiWithNav: TSpeedButton;
-    Label174: TLabel;
-    lvPersonelCarriedNav: TListView;
-    pnlAmphibiousPlatformNav: TPanel;
-    Label176: TLabel;
-    lvAmphibiousandLandCarriedNav: TListView;
-    Panel127: TPanel;
-    Label232: TLabel;
-    Label233: TLabel;
-    lblMaxSpaceHullNav: TLabel;
-    Label234: TLabel;
-    Label235: TLabel;
-    lblFreeSpaceHullNav: TLabel;
-    Label236: TLabel;
-    Label237: TLabel;
-    lblCurrentWeightHullNav: TLabel;
-    Panel128: TPanel;
-    btnAmphibiousLandDisembarkNav: TSpeedButton;
-    btnAmphibiousLandDisembarkWithNav: TSpeedButton;
-    lblDisembarkStatusNav: TLabel;
-    Label238: TLabel;
-    btnOpenHullViewNav: TButton;
-    pnlInfoKapalNav: TPanel;
-    pnlPlatformDetailsNav: TPanel;
-    lbClassNav: TLabel;
-    lblMaxWeightNav: TLabel;
-    lblTotalWeightNav: TLabel;
-    lblVehicleNameNav: TLabel;
-    btnTransportEmbarkasiNav: TSpeedButton;
-    lbl7Nav: TLabel;
-    lbl8Nav: TLabel;
-    lbl10Nav: TLabel;
-    lbl9Nav: TLabel;
-    pnlEmbarkStatusNav: TPanel;
-    lbl17Nav: TLabel;
-    lbl18Nav: TLabel;
-    lblHostPlatformNav: TLabel;
-    lblHostPlatformClassNav: TLabel;
-    lbl21Nav: TLabel;
-    lblPlatformEmbarkStatusNav: TLabel;
-    btnHullViewNav: TButton;
-    btnMemberTakeOffNav: TButton;
-    btnMemberDisembarkNav: TButton;
-    pnlRampStatusNav: TPanel;
-    lbl11Nav: TLabel;
-    pnlRampDetailsNav: TPanel;
-    pnlRampStarboardNav: TPanel;
-    lbl12Nav: TLabel;
-    pnlRampStarboardImageNav: TPanel;
-    pnlRampStarboardLeftNav: TPanel;
-    pnlRampStarboardRightNav: TPanel;
-    pnlRampStarboardUpNav: TPanel;
-    pnlRampStarboardDoorNav: TPanel;
-    btnStarboardRampNav: TButton;
-    pnlRampPortNav: TPanel;
-    lbl14Nav: TLabel;
-    pnlRampPortImageNav: TPanel;
-    pnlRampPortLeftNav: TPanel;
-    pnlRampPortRightNav: TPanel;
-    pnlRampPortUpNav: TPanel;
-    pnlRampPortDoorNav: TPanel;
-    btnPortRampNav: TButton;
-    pnlRampBackNav: TPanel;
-    lbl15Nav: TLabel;
-    pnlRampBackImageNav: TPanel;
-    pnlRampBackLeftNav: TPanel;
-    pnlRampBackRightNav: TPanel;
-    pnlRampBackUpNav: TPanel;
-    pnlRampBackDoorNav: TPanel;
-    btnBackRampNav: TButton;
-    pnlRampFrontNav: TPanel;
-    lbl16Nav: TLabel;
-    pnlRampFrontImageNav: TPanel;
-    pnlRampFrontLeftNav: TPanel;
-    pnlRampFrontRightNav: TPanel;
-    pnlRampFrontUpNav: TPanel;
-    pnlRampFrontDoorNav: TPanel;
-    btnFrontRampNav: TButton;
     imgTransportNav: TImage;
     Image7: TImage;
-    pnlNoneTransport: TPanel;
     Image33: TImage;
     Image34: TImage;
     Image2: TImage;
     Image37: TImage;
     Label252: TLabel;
-    Image39: TImage;
-    Image40: TImage;
-    Label253: TLabel;
     Image41: TImage;
     Label254: TLabel;
     Image42: TImage;
-    Label87: TLabel;
-    Image31: TImage;
-    Label89: TLabel;
-    Label99: TLabel;
-    Label100: TLabel;
-    Label96: TLabel;
-    edtLengthDimension: TLabel;
-    edtWidthDimension: TLabel;
-    Label98: TLabel;
-    Label101: TLabel;
-    Label255: TLabel;
-    Label256: TLabel;
-    Label257: TLabel;
-    Label258: TLabel;
-    edtHeightDimension: TLabel;
-    edtWeightDimension: TLabel;
-    Label261: TLabel;
-    Label262: TLabel;
-    Label248: TLabel;
-    Label246: TLabel;
-    Label245: TLabel;
-    edtMaxSpeed: TLabel;
-    edtMinSpeed: TLabel;
-    Label247: TLabel;
-    Label244: TLabel;
-    Label249: TLabel;
     Image38: TImage;
     pnlWindCurrent: TPanel;
     Image36: TImage;
@@ -1513,14 +1319,6 @@ type
     Image28: TImage;
     Image29: TImage;
     Image30: TImage;
-    Label102: TLabel;
-    Label239: TLabel;
-    Label240: TLabel;
-    Label241: TLabel;
-    Label242: TLabel;
-    Label243: TLabel;
-    lblTinght: TLabel;
-    lblStandart: TLabel;
     imgSeaStateNav: TImage;
     Label13: TLabel;
     lblSeaStatDescNav: TLabel;
@@ -1823,6 +1621,206 @@ type
     SpeedButton21: TSpeedButton;
     Label394: TLabel;
     lvLandingCraftCarriedFiring: TListView;
+    pnlImage: TPanel;
+    Image39: TImage;
+    lblShipNAme: TLabel;
+    lblClass: TLabel;
+    Label87: TLabel;
+    Image31: TImage;
+    Label89: TLabel;
+    Label99: TLabel;
+    Label100: TLabel;
+    Label96: TLabel;
+    edtLengthDimension: TLabel;
+    edtWidthDimension: TLabel;
+    Label98: TLabel;
+    Label101: TLabel;
+    Label255: TLabel;
+    Label256: TLabel;
+    Label257: TLabel;
+    Label258: TLabel;
+    edtHeightDimension: TLabel;
+    edtWeightDimension: TLabel;
+    Label261: TLabel;
+    Label262: TLabel;
+    Label248: TLabel;
+    Label246: TLabel;
+    Label245: TLabel;
+    edtMaxSpeed: TLabel;
+    edtMinSpeed: TLabel;
+    Label247: TLabel;
+    Label244: TLabel;
+    Label249: TLabel;
+    Label102: TLabel;
+    Label239: TLabel;
+    Label240: TLabel;
+    Label241: TLabel;
+    Label242: TLabel;
+    Label243: TLabel;
+    lblTinght: TLabel;
+    lblStandart: TLabel;
+    pnlImageShip: TPanel;
+    imgShip: TImage;
+    pnlTransportOrSMS: TPanel;
+    Image40: TImage;
+    pnlTransportNav: TPanel;
+    Image62: TImage;
+    Label253: TLabel;
+    pnlContactSheet: TPanel;
+    pnlGeneralNav: TPanel;
+    pnlAirNav: TPanel;
+    pnlPersonelTNav: TPanel;
+    pnlLandingNav: TPanel;
+    pnlAmphibiNav: TPanel;
+    pnlAirPlatformNav: TPanel;
+    Label103: TLabel;
+    Panel121: TPanel;
+    btnTakeoffNav: TSpeedButton;
+    Label104: TLabel;
+    Panel122: TPanel;
+    Label105: TLabel;
+    Label106: TLabel;
+    lblMaxCapacityHangerNav: TLabel;
+    Label107: TLabel;
+    Label108: TLabel;
+    lblFreeCapacityHangerNav: TLabel;
+    Label109: TLabel;
+    Label110: TLabel;
+    lblCurrentWeightHangerNav: TLabel;
+    lvAirCarriedNav: TListView;
+    pnlAmphibiousPlatformNav: TPanel;
+    Label176: TLabel;
+    Panel127: TPanel;
+    Label232: TLabel;
+    Label233: TLabel;
+    lblMaxSpaceHullNav: TLabel;
+    Label234: TLabel;
+    Label235: TLabel;
+    lblFreeSpaceHullNav: TLabel;
+    Label236: TLabel;
+    Label237: TLabel;
+    lblCurrentWeightHullNav: TLabel;
+    Panel128: TPanel;
+    btnAmphibiousLandDisembarkNav: TSpeedButton;
+    btnAmphibiousLandDisembarkWithNav: TSpeedButton;
+    lblDisembarkStatusNav: TLabel;
+    Label238: TLabel;
+    btnOpenHullViewNav: TButton;
+    lvAmphibiousandLandCarriedNav: TListView;
+    pnlPersonelPlatformNav: TPanel;
+    Label119: TLabel;
+    Panel125: TPanel;
+    Label120: TLabel;
+    Label121: TLabel;
+    lblMaxCapacityPersonelNav: TLabel;
+    Label146: TLabel;
+    Label154: TLabel;
+    lblFreeCapacityPersonelNav: TLabel;
+    Label161: TLabel;
+    Label162: TLabel;
+    lblCurrentWeightPersonelNav: TLabel;
+    Panel126: TPanel;
+    btnPersonelDebarkasiNav: TSpeedButton;
+    btnPersonelDebarkasiWithNav: TSpeedButton;
+    Label174: TLabel;
+    lvPersonelCarriedNav: TListView;
+    pnlLandingCraftPlatformNav: TPanel;
+    Label28Nav: TLabel;
+    Panel34Nav: TPanel;
+    Label111: TLabel;
+    Label112: TLabel;
+    Label42Nav: TLabel;
+    Label114: TLabel;
+    Label115: TLabel;
+    Label48Nav: TLabel;
+    Label116: TLabel;
+    Label117: TLabel;
+    Label65Nav: TLabel;
+    Panel101Nav: TPanel;
+    btnLandingCraftDisembarkNav: TSpeedButton;
+    btnLandingCraftDisembarkWithNav: TSpeedButton;
+    Label118: TLabel;
+    lvLandingCraftCarriedNav: TListView;
+    pnlInfoKapalNav: TPanel;
+    pnlEmbarkStatusNav: TPanel;
+    lbl17Nav: TLabel;
+    lbl18Nav: TLabel;
+    lblHostPlatformNav: TLabel;
+    lblHostPlatformClassNav: TLabel;
+    lbl21Nav: TLabel;
+    lblPlatformEmbarkStatusNav: TLabel;
+    btnHullViewNav: TButton;
+    btnMemberTakeOffNav: TButton;
+    btnMemberDisembarkNav: TButton;
+    pnlRampStatusNav: TPanel;
+    lbl11Nav: TLabel;
+    pnlRampBackNav: TPanel;
+    lbl15Nav: TLabel;
+    pnlRampBackImageNav: TPanel;
+    pnlRampBackLeftNav: TPanel;
+    pnlRampBackRightNav: TPanel;
+    pnlRampBackUpNav: TPanel;
+    pnlRampBackDoorNav: TPanel;
+    btnBackRampNav: TButton;
+    pnlRampFrontNav: TPanel;
+    lbl16Nav: TLabel;
+    pnlRampFrontImageNav: TPanel;
+    pnlRampFrontLeftNav: TPanel;
+    pnlRampFrontRightNav: TPanel;
+    pnlRampFrontUpNav: TPanel;
+    pnlRampFrontDoorNav: TPanel;
+    btnFrontRampNav: TButton;
+    pnlRampPortNav: TPanel;
+    lbl14Nav: TLabel;
+    pnlRampPortImageNav: TPanel;
+    pnlRampPortLeftNav: TPanel;
+    pnlRampPortRightNav: TPanel;
+    pnlRampPortUpNav: TPanel;
+    pnlRampPortDoorNav: TPanel;
+    btnPortRampNav: TButton;
+    pnlRampStarboardNav: TPanel;
+    lbl12Nav: TLabel;
+    pnlRampStarboardImageNav: TPanel;
+    pnlRampStarboardLeftNav: TPanel;
+    pnlRampStarboardRightNav: TPanel;
+    pnlRampStarboardUpNav: TPanel;
+    pnlRampStarboardDoorNav: TPanel;
+    btnStarboardRampNav: TButton;
+    pnlPlatformDetailsNav: TPanel;
+    lbClassNav: TLabel;
+    lblMaxWeightNav: TLabel;
+    lblTotalWeightNav: TLabel;
+    lblVehicleNameNav: TLabel;
+    btnTransportEmbarkasiNav: TSpeedButton;
+    lbl7Nav: TLabel;
+    lbl8Nav: TLabel;
+    lbl10Nav: TLabel;
+    lbl9Nav: TLabel;
+    pnlNone: TPanel;
+    pnlSMS: TPanel;
+    Image63: TImage;
+    Label267: TLabel;
+    Panel25Nav: TPanel;
+    pcReceivedNav: TPageControl;
+    TabSheet1Nav: TTabSheet;
+    Panel74Nav: TPanel;
+    lvReceiveNav: TListView;
+    TabSheet2Nav: TTabSheet;
+    Panel78Nav: TPanel;
+    lvSentNav: TListView;
+    TabSheet3Nav: TTabSheet;
+    Panel82Nav: TPanel;
+    lvDraftNav: TListView;
+    mmoMessageNav: TMemo;
+    Panel49Nav: TPanel;
+    btnNewNav: TButton;
+    btnRemoveNav: TButton;
+    btnReplyNav: TButton;
+    btnForwardNav: TButton;
+    btnSendNav: TButton;
+    btnEditNav: TButton;
+    btnPrintNav: TButton;
+    Image61: TImage;
 
 
 
@@ -2157,6 +2155,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure vrCurrentMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Image40Click(Sender: TObject);
 
 //    procedure Panel56Click(Sender: TObject);
 
@@ -9382,12 +9381,14 @@ procedure TfrmToteDisplay.SetUpToteGeneralUI;
 begin
   pnlMainGeneral.Visible := True;
   pnlMainNavigasi.Visible := False;
+  pnlMainFiring.Visible := False;
 end;
 
 procedure TfrmToteDisplay.SetUpToteNavigasiUI;
 var
   pi: TT3PlatformInstance;
 begin
+  pnlMainFiring.Visible := False;
   pnlMainGeneral.Visible := False;
   pnlMainNavigasi.Visible := True;
   RefreshEnvironment;
@@ -9757,6 +9758,11 @@ begin
   for I := Low(FSidePanels) to High(FSidePanels) do
     FSidePanels[I].Visible := False;
 
+end;
+
+procedure TfrmToteDisplay.Image40Click(Sender: TObject);
+begin
+  pnlSMS.BringToFront;
 end;
 
 procedure TfrmToteDisplay.imgTransportNavClick(Sender: TObject);
@@ -12857,6 +12863,7 @@ var
   MessageHandling : TMessageHandling;
   RecSendMessage : TRecSendMessage;
 begin
+  {$REGION ' Other Role '}
   if Assigned(fNewMessage) then
     fNewMessage.Close;
 
@@ -12875,7 +12882,7 @@ begin
       fNewMessage.edtSubject.Text := MessageHandling.FData.Subject;
       fNewMessage.cbbPrior.ItemIndex := MessageHandling.FData.Priority;
       fNewMessage.mmoDisplay.Lines.Add(MessageHandling.FData.MessageHandling);
-      
+
       MessageHandling.FData.OrderID := 2;
       MessageHandling.FData.Messagetype := 4;
       RecSendMessage := MessageHandling.FData;
@@ -12890,6 +12897,43 @@ begin
       fNewMessage.Show;
     end;
   end;
+  {$ENDREGION}
+
+  {$REGION ' Navigasi '}
+  if Assigned(fNewMessage) then
+    fNewMessage.Close;
+
+  if lvDraftNav.Selected <> nil then
+  begin
+    if lvDraftNav.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvDraft.Selected.Data);
+
+      if not Assigned(fNewMessage) then
+        fNewMessage := TfNewMessage.Create(self);
+
+      fNewMessage.isNew := False;
+      fNewMessage.mmoDisplay.Lines.Clear;
+      fNewMessage.edtTo.Text := MessageHandling.FData.RecipientList;
+      fNewMessage.edtSubject.Text := MessageHandling.FData.Subject;
+      fNewMessage.cbbPrior.ItemIndex := MessageHandling.FData.Priority;
+      fNewMessage.mmoDisplay.Lines.Add(MessageHandling.FData.MessageHandling);
+
+      MessageHandling.FData.OrderID := 2;
+      MessageHandling.FData.Messagetype := 4;
+      RecSendMessage := MessageHandling.FData;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        MessageHandling.FData.SendFrom := 0
+      else
+        MessageHandling.FData.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+
+      fNewMessage.Show;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.btnSendClick(sender: TObject);
@@ -12901,6 +12945,7 @@ var
   SendToCub : TStrings;
   grp : T3CubicleGroup;
 begin
+  {$REGION ' Other Role '}
   if lvDraft.Selected <> nil then
   begin
     if lvDraft.Selected.Data <> nil then
@@ -12910,7 +12955,7 @@ begin
       SendToCub := TStringList.Create;
       SendToCub.Delimiter := ';';
       SendToCub.DelimitedText := MessageHandling.FData.RecipientList;
-      
+
       RecSendMessage.RecipientList := SendToCub.DelimitedText;
       RecSendMessage.OrderID := 0;
 
@@ -12983,7 +13028,7 @@ begin
         SendToCub.Free;
       end;
 
-      
+
       MessageHandling.FData.OrderID := 2;
       MessageHandling.FData.Messagetype := 4;
       RecSendMessage := MessageHandling.FData;
@@ -12995,6 +13040,104 @@ begin
       simMgrClient.netSend_MessageHandling(RecSendMessage);
     end;
   end;
+  {$ENDREGION}
+
+  {$REGION '  Navigasi '}
+  if lvDraftNav.Selected <> nil then
+  begin
+    if lvDraftNav.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvDraftNav.Selected.Data);
+
+      SendToCub := TStringList.Create;
+      SendToCub.Delimiter := ';';
+      SendToCub.DelimitedText := MessageHandling.FData.RecipientList;
+
+      RecSendMessage.RecipientList := SendToCub.DelimitedText;
+      RecSendMessage.OrderID := 0;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        RecSendMessage.SendFrom := 0
+      else
+        RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      RecSendMessage.Subject := MessageHandling.FData.Subject;
+      RecSendMessage.Priority := MessageHandling.FData.Priority;
+      RecSendMessage.Band := MessageHandling.FData.band;
+      RecSendMessage.MessageHandling := MessageHandling.FData.MessageHandling;
+      RecSendMessage.Messagetype := 0;
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+
+      //Add to Queue Message -> Send after time is ready
+      for i := 0 to SendToCub.Count - 1 do
+      begin
+        RecSendMessage.Sendto := 0;
+
+        for j := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+        begin
+          grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[j] as T3CubicleGroup;
+          if grp <> nil then
+          begin
+            if LowerCase(SendToCub[i]) = 'controller' then
+            begin
+              RecSendMessage.Sendto := 0;
+              Break;
+            end
+            else
+            if LowerCase(grp.FData.Group_Identifier) = LowerCase(SendToCub[i]) then
+            begin
+              RecSendMessage.Sendto := grp.FData.Group_Index;
+              Break;
+            end;
+          end;
+        end;
+
+        RecSendMessage.RecipientList := SendToCub.DelimitedText;
+        RecSendMessage.OrderID := 0;
+        RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+        RecSendMessage.Subject := MessageHandling.FData.Subject;
+        RecSendMessage.Priority := MessageHandling.FData.Priority;
+        RecSendMessage.Band := MessageHandling.FData.band;
+        RecSendMessage.MessageHandling := MessageHandling.FData.MessageHandling;
+        RecSendMessage.Messagetype := 2;
+        simMgrClient.AddListQueueMessage(RecSendMessage);
+      end;
+
+      //Add to Queue Message -> Send after time is ready -> for controller
+      RecSendMessage.RecipientList := SendToCub.DelimitedText;
+      RecSendMessage.OrderID := 0;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        RecSendMessage.SendFrom := 0
+      else
+        RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      RecSendMessage.Subject := MessageHandling.FData.Subject;
+      RecSendMessage.Priority := MessageHandling.FData.Priority;
+      RecSendMessage.Band := MessageHandling.FData.band;
+      RecSendMessage.MessageHandling := MessageHandling.FData.MessageHandling;
+      RecSendMessage.Messagetype := 3;
+      simMgrClient.AddListQueueMessage(RecSendMessage);
+
+      if Assigned(SendToCub) then
+      begin
+        SendToCub.Clear;
+        SendToCub.Free;
+      end;
+
+
+      MessageHandling.FData.OrderID := 2;
+      MessageHandling.FData.Messagetype := 4;
+      RecSendMessage := MessageHandling.FData;
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        MessageHandling.FData.SendFrom := 0
+      else
+        MessageHandling.FData.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.btnRefreshClick(Sender: TObject);
@@ -13011,6 +13154,7 @@ var
   MessageHandling : TMessageHandling;
   RecSendMessage : TRecSendMessage;
 begin
+  {$REGION ' Other Role '}
   if lvReceive.Selected <> nil then
   begin
     if lvReceive.Selected.Data <> nil then
@@ -13065,14 +13209,72 @@ begin
       simMgrClient.netSend_MessageHandling(RecSendMessage);
     end;
   end;
-end;
+  {$ENDREGION}
 
+  {$REGION ' Navigasi '}
+  if lvReceiveNav.Selected <> nil then
+  begin
+    if lvReceiveNav.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvReceive.Selected.Data);
+      MessageHandling.FData.OrderID := 1;
+      MessageHandling.FData.Messagetype := 4;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        MessageHandling.FData.SendFrom := 0
+      else
+        MessageHandling.FData.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      RecSendMessage := MessageHandling.FData;
+
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+    end;
+  end
+  else
+  if lvDraftNav.Selected <> nil then
+  begin
+    if lvDraftNav.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvDraft.Selected.Data);
+      MessageHandling.FData.OrderID := 2;
+      MessageHandling.FData.Messagetype := 4;
+      RecSendMessage := MessageHandling.FData;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        MessageHandling.FData.SendFrom := 0
+      else
+        MessageHandling.FData.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+    end;
+  end
+  else
+  if lvSentNav.Selected <> nil then
+  begin
+    if lvSentNav.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvSent.Selected.Data);
+      MessageHandling.FData.OrderID := 3;
+      MessageHandling.FData.Messagetype := 4;
+      RecSendMessage := MessageHandling.FData;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        MessageHandling.FData.SendFrom := 0
+      else
+        MessageHandling.FData.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+    end;
+  end;
+  {$ENDREGION}
+end;
 procedure TfrmToteDisplay.btnReplyClick(sender: TObject);
 var
   i : integer;
   MessageHandling : TMessageHandling;
   grp : T3CubicleGroup;
 begin
+  {$REGION ' Other Role '}
   if Assigned(fNewMessage) then
     fNewMessage.Close;
 
@@ -13112,12 +13314,56 @@ begin
       fNewMessage.Show;
     end;
   end;
+  {$ENDREGION}
+
+  {$REGION ' Navigasi '}
+  if Assigned(fNewMessage) then
+    fNewMessage.Close;
+
+  if lvReceiveNav.Selected <> nil then
+  begin
+    if lvReceiveNav.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvReceiveNav.Selected.Data);
+
+      if not Assigned(fNewMessage) then
+        fNewMessage := TfNewMessage.Create(self);
+
+      fNewMessage.isNew := False;
+      fNewMessage.mmoDisplay.Lines.Clear;
+
+      if MessageHandling.FData.SendFrom = 0 then
+      begin
+        fNewMessage.edtTo.Text := 'Controller';
+      end
+      else
+      begin
+        for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+        begin
+          grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.items[i] as T3CubicleGroup;
+          if grp.FData.Group_Index = MessageHandling.FData.SendFrom then
+          begin
+            fNewMessage.edtTo.Text := grp.FData.Group_Identifier;
+          end;
+        end;
+      end;
+
+      fNewMessage.cbbPrior.ItemIndex := MessageHandling.FData.Priority;
+      fNewMessage.mmoDisplay.Lines.Add('-------------------------------------');
+      fNewMessage.mmoDisplay.Lines.Add(MessageHandling.FData.MessageHandling);
+      fNewMessage.mmoDisplay.Lines.Add('-------------------------------------');
+
+      fNewMessage.Show;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.btnForwardClick(sender: TObject);
 var
   MessageHandling : TMessageHandling;
 begin
+  {$REGION ' Other Role '}
   if Assigned(fNewMessage) then
     fNewMessage.Close;
 
@@ -13142,6 +13388,34 @@ begin
       fNewMessage.Show;
     end;
   end;
+  {$ENDREGION}
+
+  {$REGION ' Navigasi '}
+  if Assigned(fNewMessage) then
+    fNewMessage.Close;
+
+  if lvReceiveNav.Selected <> nil then
+  begin
+    if lvReceiveNav.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvReceive.Selected.Data);
+
+      if not Assigned(fNewMessage) then
+        fNewMessage := TfNewMessage.Create(self);
+
+      fNewMessage.isNew := False;
+      fNewMessage.mmoDisplay.Lines.Clear;
+
+      fNewMessage.edtTo.Text := ' ';
+      fNewMessage.cbbPrior.ItemIndex := MessageHandling.FData.Priority;
+      fNewMessage.mmoDisplay.Lines.Add('-------------------------------------');
+      fNewMessage.mmoDisplay.Lines.Add(MessageHandling.FData.MessageHandling);
+      fNewMessage.mmoDisplay.Lines.Add('-------------------------------------');
+
+      fNewMessage.Show;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.btnPrintClick(sender: TObject);
@@ -17533,11 +17807,11 @@ begin
     {$REGION 'Show panel platform detail'}
     pnlRampStatus.Visible := False;
     pnlRampStatusNav.Visible := False;
-    pnlEmbarkStatusNav.Height := 427;
-    pnlPlatformDetailsNav.Height := 427;
+    pnlEmbarkStatusNav.Height := 101;
+    pnlPlatformDetailsNav.Height := 101;
     pnlEmbarkStatus.Visible := False;
-    pnlPlatformDetails.Height := 105;
-    pnlInfoKapal.Height := 280;
+    pnlPlatformDetails.Height := 101;
+    pnlInfoKapal.Height := 101;
 
     if (not sender.StateTransport) and (isHaveRampTemp) then
     begin
@@ -17555,8 +17829,8 @@ begin
       pnlEmbarkStatus.Visible := True;
       pnlRampStatusNav.Visible := False;
       pnlEmbarkStatusNav.Visible := True;
-      pnlEmbarkStatusNav.Height := 192;
-      pnlPlatformDetailsNav.Height := 192;
+      pnlEmbarkStatusNav.Height := 101;
+      pnlPlatformDetailsNav.Height := 101;
 
       lblHostPlatformNav.Caption := hostShipTemp.InstanceName;
       lblHostPlatform.Caption := hostShipTemp.InstanceName;

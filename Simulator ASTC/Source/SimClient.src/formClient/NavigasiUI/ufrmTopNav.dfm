@@ -10137,10 +10137,10 @@ object frmTopNav: TfrmTopNav
         27E1AA27E1AA27E1AA27E1AA27E1AA27E1AA27D29F26AE84225D481A29211529
         2115}
       Stretch = True
-      ExplicitLeft = 1
+      ExplicitTop = -6
     end
     object Label1: TLabel
-      Left = 1630
+      Left = 1632
       Top = 5
       Width = 18
       Height = 19
@@ -10166,7 +10166,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 1329
+      Left = 1313
       Top = 5
       Width = 32
       Height = 19
@@ -10179,7 +10179,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object Label7: TLabel
-      Left = 1779
+      Left = 1778
       Top = 5
       Width = 31
       Height = 19
@@ -10968,7 +10968,7 @@ object frmTopNav: TfrmTopNav
       Stretch = True
     end
     object Label2: TLabel
-      Left = 909
+      Left = 906
       Top = 5
       Width = 56
       Height = 19
@@ -10981,7 +10981,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblLong1: TLabel
-      Left = 1003
+      Left = 1002
       Top = 27
       Width = 119
       Height = 19

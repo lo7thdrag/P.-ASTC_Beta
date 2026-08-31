@@ -1555,13 +1555,6 @@ begin
     if LowerCase(CmdStatus.state) = 'receive message' then
     begin
       frmToteDisplay.pnlSMS.BringToFront;
-//      frmToteDisplay.pnlTabReceived.Color := RGB(44, 127, 161);
-//      frmToteDisplay.pnlContentReceived.BringToFront;
-//      frmToteDisplay.pnlTabReceived.Tag := 1;
-//      frmToteDisplay.pnlTabDraft.Tag := 0;
-//      frmToteDisplay.pnlTabDraft.Color := RGB(29, 81, 103);
-//      frmToteDisplay.pnlTabSent.Tag := 0;
-//      frmToteDisplay.pnlTabSent.Color := RGB(29, 81, 103);
 
 //      frmToteDisplay.pcReceived.ActivePageIndex := 0;
     end;

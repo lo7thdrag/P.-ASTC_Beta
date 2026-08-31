@@ -6,7 +6,7 @@ object frmTransportEmbarkasi: TfrmTransportEmbarkasi
   Caption = 'Transport Embarkasi'
   ClientHeight = 620
   ClientWidth = 990
-  Color = 6770973
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11

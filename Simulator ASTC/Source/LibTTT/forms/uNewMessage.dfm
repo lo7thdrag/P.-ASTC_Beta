@@ -4,7 +4,7 @@ object fNewMessage: TfNewMessage
   Caption = 'New Message'
   ClientHeight = 444
   ClientWidth = 533
-  Color = 5980694
+  Color = 2695445
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -132,7 +132,7 @@ object fNewMessage: TfNewMessage
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 4
     OnClick = btnSaveClick
@@ -147,7 +147,7 @@ object fNewMessage: TfNewMessage
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 5
     OnClick = btnSendClick
@@ -162,7 +162,7 @@ object fNewMessage: TfNewMessage
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 6
     OnClick = btnCancelClick

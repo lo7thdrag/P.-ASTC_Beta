@@ -17971,8 +17971,8 @@ begin
     pnlEmbarkStatusNav.Height := 101;
     pnlPlatformDetailsNav.Height := 101;
     pnlEmbarkStatus.Visible := False;
-    pnlPlatformDetails.Height := 101;
-    pnlInfoKapal.Height := 101;
+    pnlPlatformDetails.Height := 105;
+    pnlInfoKapal.Height := 280;
 
     if (not sender.StateTransport) and (isHaveRampTemp) then
     begin

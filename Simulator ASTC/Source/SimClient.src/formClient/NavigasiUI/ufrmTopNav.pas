@@ -15,10 +15,10 @@ type
     Panel1: TPanel;
     Panel10: TPanel;
     pnlTop: TPanel;
-    Label1: TLabel;
+    lblLTCap: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    Label7: TLabel;
+    lblUTCCap: TLabel;
     lblClass: TLabel;
     lblDate: TLabel;
     lblLMT: TLabel;
@@ -64,7 +64,7 @@ implementation
 
 uses
   ufTacticalDisplay,uMapXHandler, uT3Unit, uT3Vehicle, uBaseCoordSystem, uDBAsset_Vehicle,
-  uSimMgr_Client, uSettingCoordinate, ufToteDisplay;
+  uSimMgr_Client, uSettingCoordinate, ufToteDisplay, uLibSettingTTT;
 
 {$R *.dfm}
 
@@ -185,7 +185,36 @@ end;
 
 procedure TfrmTopNav.Timer1Timer(Sender: TObject);
 begin
-  lblLMT.Caption := FormatDateTime('hh:mm:ss', gTime);
+  case vGameDataSetting.Role of
+    0:
+    begin
+      {$REGION ' Plotter '}
+
+      {$ENDREGION}
+    end;
+    1:
+    begin
+      {$REGION ' Navigasi '}
+      lblLMT.Caption := FormatDateTime('hh:mm:ss', gTime);
+      {$ENDREGION}
+    end;
+    2, 3:
+    begin
+      {$REGION ' Atas Air '}
+      lblLTCap.Caption := 'SOG';
+      with TT3PlatformInstance(simMgrClient.ControlledPlatform) do
+      begin
+        lblLMT.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).Speed) + 'Deg T';
+      end;
+      {$ENDREGION}
+    end;
+    4:
+    begin
+      {$REGION ' General '}
+      {$ENDREGION}
+    end;
+  end;
+//  lblLMT.Caption := FormatDateTime('hh:mm:ss', gTime);
 end;
 
 procedure TfrmTopNav.tmr2Timer(Sender: TObject);
@@ -197,8 +226,39 @@ procedure TfrmTopNav.tmrUTCTimer(Sender: TObject);
 var
   WaktuUTC: TDateTime;
 begin
-  WaktuUTC := TTimeZone.Local.ToUniversalTime(gTime);
-  lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
+  case vGameDataSetting.Role of
+    0:
+    begin
+      {$REGION ' Plotter '}
+
+      {$ENDREGION}
+    end;
+    1:
+    begin
+      {$REGION ' Navigasi '}
+      WaktuUTC := TTimeZone.Local.ToUniversalTime(gTime);
+      lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
+      lblUTCCap.Caption := 'UTC';
+      {$ENDREGION}
+    end;
+    2, 3:
+    begin
+      {$REGION ' Atas Air '}
+      lblUTCCap.Caption := 'Heading';
+      with TT3PlatformInstance(simMgrClient.ControlledPlatform) do
+      begin
+        lblTime.Caption := FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).Heading) + 'Deg T';
+      end;
+      {$ENDREGION}
+    end;
+    4:
+    begin
+      {$REGION ' General '}
+      {$ENDREGION}
+    end;
+  end;
+//  WaktuUTC := TTimeZone.Local.ToUniversalTime(gTime);
+//  lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
 end;
 
 procedure TfrmTopNav.UpdateFormData;

@@ -10139,7 +10139,7 @@ object frmTopNav: TfrmTopNav
       Stretch = True
       ExplicitTop = -6
     end
-    object Label1: TLabel
+    object lblLTCap: TLabel
       Left = 1632
       Top = 5
       Width = 18
@@ -10178,7 +10178,7 @@ object frmTopNav: TfrmTopNav
       Font.Style = []
       ParentFont = False
     end
-    object Label7: TLabel
+    object lblUTCCap: TLabel
       Left = 1778
       Top = 5
       Width = 31

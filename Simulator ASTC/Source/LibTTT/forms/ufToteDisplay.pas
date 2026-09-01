@@ -1661,142 +1661,6 @@ type
     lblStandart: TLabel;
     pnlImageShip: TPanel;
     imgShip: TImage;
-    pnlTransportOrSMS: TPanel;
-    Image40: TImage;
-    pnlTransportNav: TPanel;
-    Image62: TImage;
-    Label253: TLabel;
-    pnlContactSheet: TPanel;
-    pnlGeneralNav: TPanel;
-    pnlAirNav: TPanel;
-    pnlPersonelTNav: TPanel;
-    pnlLandingNav: TPanel;
-    pnlAmphibiNav: TPanel;
-    pnlAirPlatformNav: TPanel;
-    Label103: TLabel;
-    Panel121: TPanel;
-    btnTakeoffNav: TSpeedButton;
-    Label104: TLabel;
-    Panel122: TPanel;
-    Label105: TLabel;
-    Label106: TLabel;
-    lblMaxCapacityHangerNav: TLabel;
-    Label107: TLabel;
-    Label108: TLabel;
-    lblFreeCapacityHangerNav: TLabel;
-    Label109: TLabel;
-    Label110: TLabel;
-    lblCurrentWeightHangerNav: TLabel;
-    lvAirCarriedNav: TListView;
-    pnlAmphibiousPlatformNav: TPanel;
-    Label176: TLabel;
-    Panel127: TPanel;
-    Label232: TLabel;
-    Label233: TLabel;
-    lblMaxSpaceHullNav: TLabel;
-    Label234: TLabel;
-    Label235: TLabel;
-    lblFreeSpaceHullNav: TLabel;
-    Label236: TLabel;
-    Label237: TLabel;
-    lblCurrentWeightHullNav: TLabel;
-    Panel128: TPanel;
-    btnAmphibiousLandDisembarkNav: TSpeedButton;
-    btnAmphibiousLandDisembarkWithNav: TSpeedButton;
-    lblDisembarkStatusNav: TLabel;
-    Label238: TLabel;
-    btnOpenHullViewNav: TButton;
-    lvAmphibiousandLandCarriedNav: TListView;
-    pnlPersonelPlatformNav: TPanel;
-    Label119: TLabel;
-    Panel125: TPanel;
-    Label120: TLabel;
-    Label121: TLabel;
-    lblMaxCapacityPersonelNav: TLabel;
-    Label146: TLabel;
-    Label154: TLabel;
-    lblFreeCapacityPersonelNav: TLabel;
-    Label161: TLabel;
-    Label162: TLabel;
-    lblCurrentWeightPersonelNav: TLabel;
-    Panel126: TPanel;
-    btnPersonelDebarkasiNav: TSpeedButton;
-    btnPersonelDebarkasiWithNav: TSpeedButton;
-    Label174: TLabel;
-    lvPersonelCarriedNav: TListView;
-    pnlLandingCraftPlatformNav: TPanel;
-    Label28Nav: TLabel;
-    Panel34Nav: TPanel;
-    Label111: TLabel;
-    Label112: TLabel;
-    Label42Nav: TLabel;
-    Label114: TLabel;
-    Label115: TLabel;
-    Label48Nav: TLabel;
-    Label116: TLabel;
-    Label117: TLabel;
-    Label65Nav: TLabel;
-    Panel101Nav: TPanel;
-    btnLandingCraftDisembarkNav: TSpeedButton;
-    btnLandingCraftDisembarkWithNav: TSpeedButton;
-    Label118: TLabel;
-    lvLandingCraftCarriedNav: TListView;
-    pnlInfoKapalNav: TPanel;
-    pnlEmbarkStatusNav: TPanel;
-    lbl17Nav: TLabel;
-    lbl18Nav: TLabel;
-    lblHostPlatformNav: TLabel;
-    lblHostPlatformClassNav: TLabel;
-    lbl21Nav: TLabel;
-    lblPlatformEmbarkStatusNav: TLabel;
-    btnHullViewNav: TButton;
-    btnMemberTakeOffNav: TButton;
-    btnMemberDisembarkNav: TButton;
-    pnlRampStatusNav: TPanel;
-    lbl11Nav: TLabel;
-    pnlRampBackNav: TPanel;
-    lbl15Nav: TLabel;
-    pnlRampBackImageNav: TPanel;
-    pnlRampBackLeftNav: TPanel;
-    pnlRampBackRightNav: TPanel;
-    pnlRampBackUpNav: TPanel;
-    pnlRampBackDoorNav: TPanel;
-    btnBackRampNav: TButton;
-    pnlRampFrontNav: TPanel;
-    lbl16Nav: TLabel;
-    pnlRampFrontImageNav: TPanel;
-    pnlRampFrontLeftNav: TPanel;
-    pnlRampFrontRightNav: TPanel;
-    pnlRampFrontUpNav: TPanel;
-    pnlRampFrontDoorNav: TPanel;
-    btnFrontRampNav: TButton;
-    pnlRampPortNav: TPanel;
-    lbl14Nav: TLabel;
-    pnlRampPortImageNav: TPanel;
-    pnlRampPortLeftNav: TPanel;
-    pnlRampPortRightNav: TPanel;
-    pnlRampPortUpNav: TPanel;
-    pnlRampPortDoorNav: TPanel;
-    btnPortRampNav: TButton;
-    pnlRampStarboardNav: TPanel;
-    lbl12Nav: TLabel;
-    pnlRampStarboardImageNav: TPanel;
-    pnlRampStarboardLeftNav: TPanel;
-    pnlRampStarboardRightNav: TPanel;
-    pnlRampStarboardUpNav: TPanel;
-    pnlRampStarboardDoorNav: TPanel;
-    btnStarboardRampNav: TButton;
-    pnlPlatformDetailsNav: TPanel;
-    lbClassNav: TLabel;
-    lblMaxWeightNav: TLabel;
-    lblTotalWeightNav: TLabel;
-    lblVehicleNameNav: TLabel;
-    btnTransportEmbarkasiNav: TSpeedButton;
-    lbl7Nav: TLabel;
-    lbl8Nav: TLabel;
-    lbl10Nav: TLabel;
-    lbl9Nav: TLabel;
-    pnlNone: TPanel;
     pnlSMS: TPanel;
     Image63: TImage;
     Label267: TLabel;
@@ -1818,7 +1682,6 @@ type
     btnSendNav: TButton;
     btnEditNav: TButton;
     btnPrintNav: TButton;
-    Image61: TImage;
     lvSentNav: TListView;
 
 
@@ -2142,19 +2005,10 @@ type
     procedure btnRainClick(Sender: TObject);
     procedure btnCloudClick(Sender: TObject);
     procedure Panel56Click(Sender: TObject);
-    procedure Panel55Click(Sender: TObject);
-    procedure imgTransportNavClick(Sender: TObject);
-    procedure btnTransport(Sender: TObject);
-    procedure lvAmphibiousandLandCarriedNavSelectItem(Sender: TObject;
-      Item: TListItem; Selected: Boolean);
-    procedure lvLandingCraftCarriedNavSelectItem(Sender: TObject;
-      Item: TListItem; Selected: Boolean);
-    procedure btnPersonelDebarkasiWithNavClick(Sender: TObject);
     procedure vrWindMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure vrCurrentMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure Image40Click(Sender: TObject);
 
 //    procedure Panel56Click(Sender: TObject);
 
@@ -7356,7 +7210,6 @@ begin
   {$ENDREGION}
 
   btnLandingCraftDisembark.Enabled := False;
-  btnLandingCraftDisembarkNav.Enabled := False;
 end;
 
 procedure TfrmToteDisplay.btnLaunchClick(Sender: TObject);
@@ -9759,16 +9612,6 @@ begin
 
 end;
 
-procedure TfrmToteDisplay.Image40Click(Sender: TObject);
-begin
-  pnlSMS.BringToFront;
-end;
-
-procedure TfrmToteDisplay.imgTransportNavClick(Sender: TObject);
-begin
-  pnlTransportNav.BringToFront;
-end;
-
 procedure TfrmToteDisplay.Inactive1Click(Sender: TObject);
 begin
   //sementra
@@ -10603,10 +10446,6 @@ end;
       end;
     end;
   end;
-end;
-procedure TfrmToteDisplay.Panel55Click(Sender: TObject);
-begin
-  pnlTransportNav.BringToFront;
 end;
 
 procedure TfrmToteDisplay.Panel56Click(Sender: TObject);
@@ -16840,37 +16679,6 @@ begin
   LogisticWPCalculation;
 end;
 
-procedure TfrmToteDisplay.lvLandingCraftCarriedNavSelectItem(Sender: TObject;
-  Item: TListItem; Selected: Boolean);
-var
-  HostShip : TT3PlatformInstance;
-begin
-  {$REGION ' Reset button '}
-  DisableBtnTransportOnShip;
-  {$ENDREGION}
-
-  {$REGION ' Pengecekan kapal yang mengeluarkan '}
-  HostShip := TT3PlatformInstance(simMgrClient.SimPlatforms.getObjectByInstanceIndex(TransportHostShipID));
-
-  if not Assigned(HostShip) then
-    Exit;
-
-  if HostShip = nil then
-  begin
-    ResetTransportPanel;
-
-    MessageDlg('Please re-select The transport platfrom', mtInformation, [mbOK], 0);
-    Exit
-  end;
-  {$ENDREGION}
-
-  if Selected then
-  begin
-    TransportMemberShipID := StrToInt(lvLandingCraftCarried.Selected.Caption);
-    btnLandingCraftDisembarkNav.Enabled := True;
-  end
-end;
-
 procedure TfrmToteDisplay.lvLandingCraftCarriedSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 var
   HostShip : TT3PlatformInstance;
@@ -17124,106 +16932,6 @@ begin
       pnlTabVolume.Tag := 1;
       pnlTabInjection.Tag := 0;
       pnlTabInjection.Color := RGB(16, 46, 58);
-    end;
-  end;
-end;
-
-
-procedure TfrmToteDisplay.btnTransport(Sender: TObject);
-var
-  PanelTag: integer;
-  Panel: Tpanel;
-begin
-  panel := Sender as Tpanel;
-  PanelTag := panel.Tag;
-
-  if panel = pnlGeneralNav then
-  begin
-    if PanelTag = 0 then
-    begin
-      pnlGeneralNav.Color := RGB(29, 81, 103);
-      pnlInfoKapalNav.BringToFront;
-      pnlGeneralNav.Tag := 1;
-      pnlAirNav.Tag := 0;
-      pnlPersonelTNav.Tag := 0;
-      pnlLandingNav.Tag := 0;
-      pnlAmphibiNav.Tag := 0;
-      pnlAirNav.Color := RGB(16, 46, 58);
-      pnlPersonelTNav.Color := RGB(16, 46, 58);
-      pnlLandingNav.Color := RGB(16, 46, 58);
-      pnlAmphibiNav.Color := RGB(16, 46, 58);
-    end;
-  end
-
-  else if panel = pnlAirNav then
-  begin
-    if PanelTag = 0 then
-    begin
-      pnlAirNav.Color := RGB(29, 81, 103);
-      pnlAirPlatformNav.BringToFront;
-      pnlAirNav.Tag := 1;
-      pnlGeneralNav.Tag := 0;
-      pnlPersonelTNav.Tag := 0;
-      pnlLandingNav.Tag := 0;
-      pnlAmphibiNav.Tag := 0;
-      pnlLandingNav.Color := RGB(16, 46, 58);
-      pnlPersonelTNav.Color := RGB(16, 46, 58);
-      pnlGeneralNav.Color := RGB(16, 46, 58);
-      pnlAmphibiNav.Color := RGB(16, 46, 58);
-    end;
-  end
-
-  else if panel = pnlPersonelTNav then
-  begin
-    if PanelTag = 0 then
-    begin
-      pnlPersonelTNav.Color := RGB(29, 81, 103);
-      pnlPersonelPlatformNav.BringToFront;
-      pnlPersonelTNav.Tag := 1;
-      pnlGeneralNav.Tag := 0;
-      pnlAirNav.Tag := 0;
-      pnlLandingNav.Tag := 0;
-      pnlAmphibiNav.Tag := 0;
-      pnlLandingNav.Color := RGB(16, 46, 58);
-      pnlAirNav.Color := RGB(16, 46, 58);
-      pnlGeneralNav.Color := RGB(16, 46, 58);
-      pnlAmphibiNav.Color := RGB(16, 46, 58);
-    end;
-  end
-
-  else if panel = pnlAmphibiNav then
-  begin
-    if PanelTag = 0 then
-    begin
-      pnlAmphibiNav.Color := RGB(29, 81, 103);
-      pnlAmphibiousPlatformNav.BringToFront;
-      pnlAmphibiNav.Tag := 1;
-      pnlGeneralNav.Tag := 0;
-      pnlAirNav.Tag := 0;
-      pnlLandingNav.Tag := 0;
-      pnlPersonelTNav.Tag := 0;
-      pnlLandingNav.Color := RGB(16, 46, 58);
-      pnlAirNav.Color := RGB(16, 46, 58);
-      pnlGeneralNav.Color := RGB(16, 46, 58);
-      pnlPersonelTNav.Color := RGB(16, 46, 58);
-    end;
-  end
-
-  else if panel = pnlLandingNav then
-  begin
-    if PanelTag = 0 then
-    begin
-      pnlLandingNav.Color := RGB(29, 81, 103);
-      pnlLandingCraftPlatformNav.BringToFront;
-      pnlLandingNav.Tag := 1;
-      pnlGeneralNav.Tag := 0;
-      pnlAirNav.Tag := 0;
-      pnlAmphibiNav.Tag := 0;
-      pnlPersonelTNav.Tag := 0;
-      pnlAmphibiNav.Color := RGB(16, 46, 58);
-      pnlAirNav.Color := RGB(16, 46, 58);
-      pnlGeneralNav.Color := RGB(16, 46, 58);
-      pnlPersonelTNav.Color := RGB(16, 46, 58);
     end;
   end;
 end;
@@ -17617,13 +17325,9 @@ procedure TfrmToteDisplay.ResetTransportPanel;
 begin
   lblVehicleName.Caption  := '---';
   lbClass.Caption         := '---';
-  lblVehicleNameNav.Caption  := '---';
-  lbClassNav.Caption         := '---';
 
   lblMaxWeight.Caption    := '---';
   lblTotalWeight.Caption  := '---';
-  lblMaxWeightNav.Caption    := '---';
-  lblTotalWeightNav.Caption  := '---';
 
   {$REGION ' Air Platform Carried Section'}
   lblMaxCapacityHanger.Caption := '---';
@@ -17647,31 +17351,6 @@ begin
   lblFreeSpaceHull.Caption := '---';
   lblCurrentWeightHull.Caption := '---';
   lvAmphibiousandLandCarried.Items.Clear;
-  {$ENDREGION}
-
-  {$REGION ' NAVIGASI '}
-
-  {$REGION ' Air Platform Carried Section'}
-  lblMaxCapacityHangerNav.Caption := '---';
-  lblFreeCapacityHangerNav.Caption := '---';
-  lblCurrentWeightHangerNav.Caption := '---';
-  lvAirCarriedNav.Items.Clear;
-  {$ENDREGION}
-
-  {$REGION ' Personel Platform Carried Section'}
-  lblMaxCapacityPersonelNav.Caption := '---';
-  lblFreeCapacityPersonelNav.Caption := '---';
-  lblCurrentWeightPersonelNav.Caption := '---';
-  lvPersonelCarriedNav.Items.Clear;
-  {$ENDREGION}
-
-  {$REGION ' Amphibious & Land Platform Carried Section'}
-  lblMaxSpaceHullNav.Caption := '---';
-  lblFreeSpaceHullNav.Caption := '---';
-  lblCurrentWeightHullNav.Caption := '---';
-  lvAmphibiousandLandCarriedNav.Items.Clear;
-  {$ENDREGION}
-
   {$ENDREGION}
 
   DisableBtnTransportOnShip;
@@ -17746,9 +17425,6 @@ begin
     {$ENDREGION}
 
     {$REGION ' Paltform Info '}
-    lblVehicleNameNav.Caption := TT3PlatformInstance(sender).InstanceName;
-    lbClassNav.Caption := TT3PlatformInstance(sender).InstanceClass;
-
     lblVehicleName.Caption := TT3PlatformInstance(sender).InstanceName;
     lbClass.Caption := TT3PlatformInstance(sender).InstanceClass;
 
@@ -17756,13 +17432,6 @@ begin
                                                (TT3Vehicle(sender).UnitCapability.FData.Max_Personnel_Capacity * 0.7)));
 
     lblTotalWeight.Caption := FormatFloat('0.##',(TT3Vehicle(sender).CurrentHanggarWeight +
-                                                  TT3Vehicle(sender).CurrentHullWeight + TT3Vehicle(sender).CurrentPersonelWeight));
-
-
-    lblMaxWeightNav.Caption := FormatFloat('0.##',(TT3Vehicle(sender).UnitCapability.FData.Max_Hangar_Weight + TT3Vehicle(sender).UnitCapability.FData.Max_Deck_Weight +
-                                               (TT3Vehicle(sender).UnitCapability.FData.Max_Personnel_Capacity * 0.7)));
-
-    lblTotalWeightNav.Caption := FormatFloat('0.##',(TT3Vehicle(sender).CurrentHanggarWeight +
                                                   TT3Vehicle(sender).CurrentHullWeight + TT3Vehicle(sender).CurrentPersonelWeight));
 
     {$REGION ' Capability Rampa '}
@@ -17870,106 +17539,8 @@ begin
 
     {$ENDREGION}
 
-    {$REGION ' State Rampa NAVIGASI '}
-    for i := 0 to TT3Vehicle(sender).RampList.Count-1 do
-    begin
-      rampTemp := TT3Vehicle(sender).RampList[i];
-
-      case i of
-        0: {Depan}
-        begin
-          if rampTemp.State then
-          begin
-            pnlRampFrontDoorNav.Color := clLime;
-            pnlRampFrontUpNav.Color := clLime;
-            pnlRampFrontLeftNav.Color := clLime;
-            pnlRampFrontRightNav.Color := clLime;
-            btnFrontRampNav.Caption := 'Close';
-            pnlRampFrontDoorNav.Top := 82;
-          end
-          else
-          begin
-            pnlRampFrontDoorNav.Color := clRed;
-            pnlRampFrontUpNav.Color := clRed;
-            pnlRampFrontLeft.Color := clRed;
-            pnlRampFrontRightNav.Color := clRed;
-            btnFrontRampNav.Caption := 'Open';
-            pnlRampFrontDoorNav.Top := 25;
-          end;
-        end;
-        1: {Kanan}
-        begin
-          if rampTemp.State then
-          begin
-            pnlRampStarboardDoorNav.Color := clLime;
-            pnlRampStarboardUpNav.Color := clLime;
-            pnlRampStarboardLeftNav.Color := clLime;
-            pnlRampStarboardRightNav.Color := clLime;
-            btnStarboardRampNav.Caption := 'Close';
-            pnlRampStarboardDoorNav.Top := 82;
-          end
-          else
-          begin
-            pnlRampStarboardDoorNav.Color := clRed;
-            pnlRampStarboardUpNav.Color := clRed;
-            pnlRampStarboardLeftNav.Color := clRed;
-            pnlRampStarboardRightNav.Color := clRed;
-            btnStarboardRampNav.Caption := 'Open';
-            pnlRampStarboardDoorNav.Top := 25;
-          end;
-        end;
-        2: {Belakang}
-        begin
-          if rampTemp.State then
-          begin
-            pnlRampBackDoorNav.Color := clLime;
-            pnlRampBackUpNav.Color := clLime;
-            pnlRampBackLeftNav.Color := clLime;
-            pnlRampBackRightNav.Color := clLime;
-            btnBackRampNav.Caption := 'Close';
-            pnlRampBackDoorNav.Top := 82;
-          end
-          else
-          begin
-            pnlRampBackDoorNav.Color := clRed;
-            pnlRampBackUpNav.Color := clRed;
-            pnlRampBackLeftNav.Color := clRed;
-            pnlRampBackRightNav.Color := clRed;
-            btnBackRampNav.Caption := 'Open';
-            pnlRampBackDoorNav.Top := 25;
-          end;
-        end;
-        3: {Kiri}
-        begin
-          if rampTemp.State then
-          begin
-            pnlRampPortDoorNav.Color := clLime;
-            pnlRampPortUpNav.Color := clLime;
-            pnlRampPortLeftNav.Color := clLime;
-            pnlRampPortRightNav.Color := clLime;
-            btnPortRampNav.Caption := 'Close';
-            pnlRampPortDoorNav.Top := 82;
-          end
-          else
-          begin
-            pnlRampPortDoorNav.Color := clRed;
-            pnlRampPortUpNav.Color := clRed;
-            pnlRampPortLeftNav.Color := clRed;
-            pnlRampPortRightNav.Color := clRed;
-            btnPortRampNav.Caption := 'Open';
-            pnlRampPortDoorNav.Top := 25;
-          end;
-        end;
-      end;
-    end;
-
-    {$ENDREGION}
-
     {$REGION 'Show panel platform detail'}
     pnlRampStatus.Visible := False;
-    pnlRampStatusNav.Visible := False;
-    pnlEmbarkStatusNav.Height := 101;
-    pnlPlatformDetailsNav.Height := 101;
     pnlEmbarkStatus.Visible := False;
     pnlPlatformDetails.Height := 105;
     pnlInfoKapal.Height := 280;
@@ -17978,8 +17549,6 @@ begin
     begin
       pnlRampStatus.Visible := True;
       pnlEmbarkStatus.Visible := False;
-      pnlRampStatusNav.Visible := True;
-      pnlEmbarkStatusNav.Visible := False;
     end
     else if sender.StateTransport then
     begin
@@ -17988,28 +17557,15 @@ begin
         Exit;
       pnlRampStatus.Visible := False;
       pnlEmbarkStatus.Visible := True;
-      pnlRampStatusNav.Visible := False;
-      pnlEmbarkStatusNav.Visible := True;
-      pnlEmbarkStatusNav.Height := 101;
-      pnlPlatformDetailsNav.Height := 101;
 
-      lblHostPlatformNav.Caption := hostShipTemp.InstanceName;
       lblHostPlatform.Caption := hostShipTemp.InstanceName;
       lblHostPlatformClass.Caption := hostShipTemp.InstanceClass;
-      lblHostPlatformClassNav.Caption := hostShipTemp.InstanceClass;
 
       case sender.MemberLoadState of
         0:  lblPlatformEmbarkStatus.Caption := 'Queue';
         1:  lblPlatformEmbarkStatus.Caption := 'Embark Process';
         2:  lblPlatformEmbarkStatus.Caption := 'Standby';
         3:  lblPlatformEmbarkStatus.Caption := 'Ready';
-      end;
-
-      case sender.MemberLoadState of
-        0:  lblPlatformEmbarkStatusNav.Caption := 'Queue';
-        1:  lblPlatformEmbarkStatusNav.Caption := 'Embark Process';
-        2:  lblPlatformEmbarkStatusNav.Caption := 'Standby';
-        3:  lblPlatformEmbarkStatusNav.Caption := 'Ready';
       end;
 
       case sender.PlatformDomain of
@@ -18045,43 +17601,6 @@ begin
           btnHullView.Visible := True;
           btnMemberTakeOff.Visible := False;
           btnMemberDisembark.Visible := False;
-        end;
-      end;
-
-      {NAVIGASI}
-      case sender.PlatformDomain of
-        vhdAir:
-        begin
-          btnHullViewNav.Visible := False;
-          btnMemberTakeOffNav.Visible := True;
-          btnMemberDisembarkNav.Visible := False;
-        end;
-        vhdSurface, vhdSubsurface :
-        begin
-          btnHullViewNav.Visible := False;
-          btnMemberTakeOffNav.Visible := False;
-          btnMemberDisembarkNav.Visible := True;
-        end;
-        vhdLand:
-        begin
-          if (sender.PlatformCategory = 2) and (sender.PlatformType = 0) then
-          begin
-            btnHullViewNav.Visible := False;
-            btnMemberTakeOffNav.Visible := False;
-            btnMemberDisembarkNav.Visible := True;
-          end
-          else
-          begin
-            btnHullViewNav.Visible := True;
-            btnMemberTakeOffNav.Visible := False;
-            btnMemberDisembarkNav.Visible := False;
-          end;
-        end;
-        vhdAmphibious:
-        begin
-          btnHullViewNav.Visible := True;
-          btnMemberTakeOffNav.Visible := False;
-          btnMemberDisembarkNav.Visible := False;
         end;
       end;
     end
@@ -18136,16 +17655,6 @@ begin
   lblCurrentWeightHanger.Caption := FormatFloat('0.##',hostShipTemp.CurrentHanggarWeight) + ' Ton';
   {$ENDREGION}
 
-  {$REGION ' NAVIGASI '}
-
-  {$REGION ' Header Info '}
-  lblMaxCapacityHangerNav.Caption := IntToStr(hostShipTemp.UnitCapability.FData.Max_Hangar_Capacity);
-  lblFreeCapacityHangerNav.Caption := IntToStr(hostShipTemp.UnitCapability.FData.Max_Hangar_Capacity - hostShipTemp.CurrentHanggarCapacity) ;
-  lblCurrentWeightHangerNav.Caption := FormatFloat('0.##',hostShipTemp.CurrentHanggarWeight) + ' Ton';
-  {$ENDREGION}
-
-  {$ENDREGION}
-
   for i := 0 to hostShipTemp.MemberTransportList.Count - 1 do
   begin
     memberShipTemp := TT3Vehicle(hostShipTemp).MemberTransportList.Items[i];
@@ -18170,22 +17679,6 @@ begin
     end;
     {$ENDREGION}
 
-    {$REGION ' Memasukkan data kedalam list item NAVIGASI '}
-    with lvAirCarriedNav.Items.Add do
-    begin
-      Caption := IntToStr(memberShipTemp.InstanceIndex);
-      SubItems.Add(memberShipTemp.InstanceName);
-      SubItems.Add(memberShipTemp.Track_ID);
-      SubItems.Add(FormatFloat('0.##',memberShipTemp.SumCurrentWeight));
-
-      case memberShipTemp.MemberLoadState of
-        0 : SubItems.Add('Queue');
-        1 : SubItems.Add('Embark Process');
-        2 : SubItems.Add('Standby');
-        3 : SubItems.Add('Ready');
-      end;
-    end;
-    {$ENDREGION}
   end;
 end;
 
@@ -18265,55 +17758,6 @@ begin
   lblMaxSpaceHull.Caption     := FormatFloat('0.##',maxSpaceHullTemp) + ' Feet²';
   lblFreeSpaceHull.Caption := FormatFloat('0.##',maxSpaceHullTemp - TT3Vehicle(hostShipTemp).CurrentHullSpace) + ' Feet²';
   lblCurrentWeightHull.Caption := FormatFloat('0.##',TT3Vehicle(hostShipTemp).CurrentHullWeight) + ' Ton';
-  {$ENDREGION}
-
-  {Navigasi}
-  {$REGION ' Header Info '}
-  lblMaxSpaceHullNav.Caption     := FormatFloat('0.##',maxSpaceHullTemp) + ' Feet²';
-  lblFreeSpaceHullNav.Caption := FormatFloat('0.##',maxSpaceHullTemp - TT3Vehicle(hostShipTemp).CurrentHullSpace) + ' Feet²';
-  lblCurrentWeightHullNav.Caption := FormatFloat('0.##',TT3Vehicle(hostShipTemp).CurrentHullWeight) + ' Ton';
-
-  if (hostShipTemp <> nil) and (hostShipTemp is TT3Vehicle) then
-  begin
-    lblDisembarkStatusNav.Caption := hostShipTemp.InstanceName;
-    memberShipTemp := TT3Vehicle(hostShipTemp);
-  end
-  else
-  begin
-    lblDisembarkStatusNav.Caption := 'Unknown';
-    memberShipTemp := nil;
-  end;
-
-  // 2. Update status disembark berdasarkan memberShipTemp yang baru diisi
-  if memberShipTemp <> nil then
-  begin
-    if memberShipTemp.isInDisembarkArea then
-    begin
-      case memberShipTemp.MemberPosDisembark of
-        0: lblDisembarkStatusNav.Caption := 'Platform is in front ramp disembark area';
-        1: lblDisembarkStatusNav.Caption := 'Platform is in starboard ramp disembark area';
-        2: lblDisembarkStatusNav.Caption := 'Platform is in back ramp disembark area';
-        3: lblDisembarkStatusNav.Caption := 'Platform is in port ramp disembark area';
-      else
-        lblDisembarkStatusNav.Caption := 'Platform is in disembark area';
-      end;
-
-      btnAmphibiousLandDisembarkNav.Enabled := True;
-      btnAmphibiousLandDisembarkWithNav.Enabled := True;
-    end
-    else
-    begin
-      lblDisembarkStatusNav.Caption := 'Platform is not in disembark area';
-      btnAmphibiousLandDisembarkNav.Enabled := False;
-      btnAmphibiousLandDisembarkWithNav.Enabled := False;
-    end;
-  end
-  else
-  begin
-    lblDisembarkStatusNav.Caption := 'No selected platform';
-    btnAmphibiousLandDisembarkNav.Enabled := False;
-    btnAmphibiousLandDisembarkWithNav.Enabled := False;
-  end;
   {$ENDREGION}
 
   for i := 0 to TT3Vehicle(hostShipTemp).MemberTransportList.Count - 1 do
@@ -18426,67 +17870,7 @@ begin
   begin
     TransportMemberShipID := StrToInt(lvAirCarried.Selected.Caption);
     btnTakeoff.Enabled := True;
-    btnTakeoffNav.Enabled := True;
   end
-end;
-
-procedure TfrmToteDisplay.lvAmphibiousandLandCarriedNavSelectItem(
-  Sender: TObject; Item: TListItem; Selected: Boolean);
-var
-  HostShip : TT3PlatformInstance;
-  TempPlatform : TT3Vehicle;
-begin
-  {$REGION ' Reset button '}
-  DisableBtnTransportOnShip;
-  {$ENDREGION}
-
-  {$REGION ' Pengecekan kapal yang mengeluarkan '}
-  HostShip := TT3PlatformInstance(simMgrClient.SimPlatforms.getObjectByInstanceIndex(TransportHostShipID));
-
-  if not Assigned(HostShip) then
-    Exit;
-
-  if HostShip = nil then
-  begin
-    ResetTransportPanel;
-
-    MessageDlg('Please re-select The transport platfrom', mtInformation, [mbOK], 0);
-    Exit
-  end;
-  {$ENDREGION}
-
-  if Selected then
-  begin
-    TransportMemberShipID := StrToInt(lvAmphibiousandLandCarried.Selected.Caption);
-    TempPlatform := TT3Vehicle(simMgrClient.SimPlatforms.getObjectByInstanceIndex(TransportMemberShipID));
-
-    if TempPlatform.isInDisembarkArea then
-    begin
-      case TempPlatform.MemberPosDisembark of
-        0: lblDisembarkStatusNav.Caption := 'Platform is in front ramp disembark area';
-        1: lblDisembarkStatusNav.Caption := 'Platform is in starboard ramp disembark area';
-        2: lblDisembarkStatusNav.Caption := 'Platform is in back ramp disembark area';
-        3: lblDisembarkStatusNav.Caption := 'Platform is in port ramp disembark area';
-      end;
-
-      btnAmphibiousLandDisembarkNav.Enabled := True;
-      btnAmphibiousLandDisembarkWithNav.Enabled := True;
-    end
-    else
-    begin
-      lblDisembarkStatusNav.Caption := 'Platform is not in disembark area';
-      btnAmphibiousLandDisembarkNav.Enabled := False;
-      btnAmphibiousLandDisembarkWithNav.Enabled := False;
-    end;
-  end
-  else
-  begin
-    lblDisembarkStatusNav.Caption := 'No selected platform';
-    btnAmphibiousLandDisembarkNav.Enabled := False;
-    btnAmphibiousLandDisembarkWithNav.Enabled := False;
-  end;
-
-  btnTransportEmbarkasiNav.Enabled := True;
 end;
 
 procedure TfrmToteDisplay.lvAmphibiousandLandCarriedSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
@@ -18574,7 +17958,6 @@ begin
   begin
     TransportMemberShipID := StrToInt(lvPersonelCarried.Selected.Caption);
     btnPersonelDebarkasi.Enabled := True;
-    btnPersonelDebarkasiNav.Enabled := True;
   end;
 end;
 
@@ -18941,8 +18324,6 @@ begin
   {$ENDREGION}
 
   btnMemberDisembark.Visible := False;
-  btnMemberDisembarkNav.Visible := False;
-
 end;
 
 procedure TfrmToteDisplay.btnMemberTakeOffClick(Sender: TObject);
@@ -19000,7 +18381,6 @@ begin
   {$ENDREGION}
 
   btnTakeoff.Visible := False;
-  btnTakeoffNav.Visible := False;
 end;
 
 procedure TfrmToteDisplay.btnAmphibiousLandDisembarkClick(Sender: TObject);
@@ -19254,8 +18634,6 @@ begin
   {$ENDREGION}
 
   btnPersonelDebarkasi.Enabled := False;
-  btnPersonelDebarkasiNav.Enabled := False;
-
 end;
 
 procedure TfrmToteDisplay.btnPersonelDebarkasiWithClick(Sender: TObject);
@@ -19337,88 +18715,6 @@ begin
   {$ENDREGION}
 
   btnPersonelDebarkasiWith.Enabled := False;
-  isSender := True;
-end;
-
-procedure TfrmToteDisplay.btnPersonelDebarkasiWithNavClick(Sender: TObject);
-var
-  hostShipTemp : TT3PlatformInstance;
-begin
-  {$REGION ' Pengecekan kapal yang mengeluarkan '}
-  hostShipTemp := TT3PlatformInstance(simMgrClient.SimPlatforms.getObjectByInstanceIndex(TransportHostShipID));
-
-  if not Assigned(hostShipTemp) then
-    Exit;
-
-  if hostShipTemp = nil then
-  begin
-    ResetTransportPanel;
-
-    MessageDlg('Please re-select The transport platfrom', mtInformation, [mbOK], 0);
-    Exit
-  end;
-  {$ENDREGION}
-
-  {$REGION ' Pengecekan pemilihan personel '}
-  if PersonelOnShipSelected = nil then
-  begin
-    MessageDlg('Please re-select The Group Personel', mtInformation, [mbOK], 0);
-    Exit;
-  end;
-  {$ENDREGION}
-
-  {$REGION ' Setting button Disembark With '}
-  if btnPersonelDebarkasiWith.Caption = 'Disembark with' then
-  begin
-    btnPersonelDebarkasiWithNav.Caption := 'OK';
-    btnPersonelDebarkasiNav.Enabled := False;
-
-    Exit;
-  end
-  else
-  begin
-    btnPersonelDebarkasiWithNav.Caption := 'Disembark with';
-  end;
-  {$ENDREGION}
-
-  {$REGION ' Mengirim Paket '}
-  RecDisembark.SessionID        := simMgrClient.SessionID;
-  RecDisembark.ParentPlatformID := hostShipTemp.InstanceIndex;
-  RecDisembark.EmbarkPlatformID := 0;
-  RecDisembark.IDPlatformClass  := LandingPlatformID;
-  RecDisembark.Hosted_Index     := 0;
-
-  StrToChar(LandingPlatformName, RecDisembark.LaunchName);
-  StrToChar(LandingPlatformName, RecDisembark.TrackIdent);
-
-  RecDisembark.QueueNum         := TransportMemberShipID-1;
-  RecDisembark.GrpID            := simMgrClient.FMyCubGroup.FData.Group_Index;
-
-  {Pinjem variabel}
-  RecDisembark.Quantity         := 101; {100: u/disembark; 101: disembarkwith}
-  RecDisembark.Quantity_Group_Personal := PersonelOnShipSelected.Id; {u/ id group personel yg di disembark}
-
-  {$REGION ' Penentuan arah keluar '}
-  case TT3Vehicle(ToteSelectedPlatform).VehicleDefinition.FData.GangwayPosition of
-    0 : //front Door
-      begin
-        RecDisembark.InitCourse := ToteSelectedPlatform.Course;
-        RecDisembark.InitSpeed  := 2;
-      end;
-    1 : //Back Door
-      begin
-        RecDisembark.InitCourse := ValidateDegree(ToteSelectedPlatform.Course + 180);
-        RecDisembark.InitSpeed  := 2;
-      end;
-  end;
-  {$ENDREGION}
-
-  RecDisembark.OrderID := CORD_ID_INITIATE;
-
-  simMgrClient.netSend_CmdDisembarkTransport(RecDisembark);
-  {$ENDREGION}
-
-  btnPersonelDebarkasiWithNav.Enabled := False;
   isSender := True;
 end;
 
@@ -19581,95 +18877,6 @@ begin
       end;
     end;
   end;
-
-  {$REGION ' NAVIGASI '}
-  case Ramp of
-    0:
-    begin
-      if tempRamp.State then
-      begin
-        while pnlRampFrontDoorNav.Top <> 25 do
-        begin
-          pnlRampFrontDoorNav.Top := pnlRampFrontDoorNav.Top - 19;
-          Sleep(300);
-        end;
-        Result:= True;
-      end
-      else
-      begin
-        while pnlRampFrontDoorNav.Top <> 82 do
-        begin
-          pnlRampFrontDoorNav.Top := pnlRampFrontDoorNav.Top + 19;
-          Sleep(300);
-        end;
-        Result:= True;
-      end;
-    end;
-    1:
-    begin
-      if tempRamp.State then
-      begin
-        while pnlRampStarboardDoorNav.Top <> 25 do
-        begin
-          pnlRampStarboardDoorNav.Top := pnlRampStarboardDoorNav.Top - 19;
-          Sleep(300);
-        end;
-        Result:= True;
-      end
-      else
-      begin
-        while pnlRampStarboardDoorNav.Top <> 82 do
-        begin
-          pnlRampStarboardDoorNav.Top := pnlRampStarboardDoorNav.Top + 19;
-          Sleep(300);
-        end;
-        Result:= True;
-      end;
-    end;
-    2:
-    begin
-      if tempRamp.State then
-      begin
-        while pnlRampBackDoorNav.Top <> 25 do
-        begin
-          pnlRampBackDoorNav.Top := pnlRampBackDoorNav.Top - 19;
-          Sleep(300);
-        end;
-        Result:= True;
-      end
-      else
-      begin
-        while pnlRampBackDoorNav.Top <> 82 do
-        begin
-          pnlRampBackDoorNav.Top := pnlRampBackDoorNav.Top + 19;
-          Sleep(300);
-        end;
-        Result:= True;
-      end;
-    end;
-    3:
-    begin
-      if tempRamp.State then
-      begin
-        while pnlRampPortDoorNav.Top <> 25 do
-        begin
-          pnlRampPortDoorNav.Top := pnlRampPortDoorNav.Top - 19;
-          Sleep(300);
-        end;
-        Result:= True;
-      end
-      else
-      begin
-        while pnlRampPortDoorNav.Top <> 82 do
-        begin
-          pnlRampPortDoorNav.Top := pnlRampPortDoorNav.Top + 19;
-          Sleep(300);
-        end;
-        Result:= True;
-      end;
-    end;
-  end;
-  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.btnEmbarkClick(Sender: TObject);

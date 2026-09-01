@@ -404,7 +404,7 @@ end;
 
 procedure TfrmRightNav.tmrWarningTimer(Sender: TObject);
 begin
-  if tmrFlag > 8 then
+  if tmrFlag > 10 then
   begin
     {menghilangkan tmr}
     pnlStatusRed.Caption := '';

@@ -215,7 +215,7 @@ type
     procedure InitCreate(sender: TForm);
     procedure UpdateFormData;
     procedure SetControlledObject(pit : TT3PlatformInstance);
-    procedure addStatus(status: String);
+    procedure addStatus(Command: String);
 
 
     { Public declarations }
@@ -831,12 +831,16 @@ begin
   lblRangeHook.Caption     := FormatFloat('000.00', d);
 end;
 
-procedure TfrmRightNav.addStatus(status: String);
+procedure TfrmRightNav.addStatus(Command: String);
 begin
-  pnlStatusRed.Caption := status;
-  pnlStatusRed.Visible := True;
+//  frmTacticalDisplay.addStatus(Command);
+//
+//  if Assigned(frmRightNav) then
+//    frmRightNav.addStatus(Command);
+//  pnlStatusRed.Caption := status;
+//  pnlStatusRed.Visible := True;
 
-  tmrWarning.Enabled := True;
+//  tmrWarning.Enabled := True;
 end;
 
 procedure TfrmRightNav.DisplayTabDetail(Sender: TObject);

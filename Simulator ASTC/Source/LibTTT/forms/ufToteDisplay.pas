@@ -1807,8 +1807,6 @@ type
     lvReceiveNav: TListView;
     TabSheet2Nav: TTabSheet;
     Panel78Nav: TPanel;
-    lvSentNav: TListView;
-    TabSheet3Nav: TTabSheet;
     Panel82Nav: TPanel;
     lvDraftNav: TListView;
     mmoMessageNav: TMemo;
@@ -1821,6 +1819,7 @@ type
     btnEditNav: TButton;
     btnPrintNav: TButton;
     Image61: TImage;
+    lvSentNav: TListView;
 
 
 
@@ -13216,7 +13215,7 @@ begin
   begin
     if lvReceiveNav.Selected.Data <> nil then
     begin
-      MessageHandling := TMessageHandling(lvReceive.Selected.Data);
+      MessageHandling := TMessageHandling(lvReceiveNav.Selected.Data);
       MessageHandling.FData.OrderID := 1;
       MessageHandling.FData.Messagetype := 4;
 
@@ -13235,7 +13234,7 @@ begin
   begin
     if lvDraftNav.Selected.Data <> nil then
     begin
-      MessageHandling := TMessageHandling(lvDraft.Selected.Data);
+      MessageHandling := TMessageHandling(lvDraftNav.Selected.Data);
       MessageHandling.FData.OrderID := 2;
       MessageHandling.FData.Messagetype := 4;
       RecSendMessage := MessageHandling.FData;
@@ -13253,7 +13252,7 @@ begin
   begin
     if lvSentNav.Selected.Data <> nil then
     begin
-      MessageHandling := TMessageHandling(lvSent.Selected.Data);
+      MessageHandling := TMessageHandling(lvSentNav.Selected.Data);
       MessageHandling.FData.OrderID := 3;
       MessageHandling.FData.Messagetype := 4;
       RecSendMessage := MessageHandling.FData;
@@ -13267,7 +13266,9 @@ begin
     end;
   end;
   {$ENDREGION}
+
 end;
+
 procedure TfrmToteDisplay.btnReplyClick(sender: TObject);
 var
   i : integer;
@@ -13447,6 +13448,7 @@ procedure TfrmToteDisplay.lvSentClick(sender: TObject);
 var
   MessageHandling : TMessageHandling;
 begin
+  {$REGION ' Other Role '}
   btnReply.Enabled := false;
   btnForward.Enabled := false;
   btnRemove.Enabled := false;
@@ -13480,6 +13482,43 @@ begin
       mmoMessage.Lines.Add(MessageHandling.FData.MessageHandling);
     end;
   end;
+  {$ENDREGION}
+
+  {$REGION ' Navigasi '}
+  btnReplyNav.Enabled := false;
+  btnForwardNav.Enabled := false;
+  btnRemoveNav.Enabled := false;
+  btnSendNav.Enabled := false;
+  btnEditNav.Enabled := false;
+  btnPrintNav.Enabled := false;
+
+  if lvSentNav.Selected <> nil then
+  begin
+    if lvsentNav.Selected.Data <> nil then
+    begin
+      btnRemoveNav.Enabled := true;
+
+      lvReceiveNav.Selected := nil;
+      lvDraftNav.Selected := nil;
+
+      MessageHandling := TMessageHandling(lvSentNav.Selected.Data);
+      mmoMessageNav.Lines.Clear;
+
+      mmoMessageNav.Lines.Add('To : ' + MessageHandling.FData.RecipientList);
+      mmoMessageNav.Lines.Add('Subject : ' + MessageHandling.FData.Subject);
+
+      case MessageHandling.FData.Priority of
+        0 : mmoMessageNav.Lines.Add('Priority : ' + 'FLASH');
+        1 : mmoMessageNav.Lines.Add('Priority : ' + 'IMMED');
+        2 : mmoMessageNav.Lines.Add('Priority : ' + 'PRIORITY');
+        3 : mmoMessageNav.Lines.Add('Priority : ' + 'ROUTINE');
+      end;
+
+      mmoMessageNav.Lines.Add('Original Message : ');
+      mmoMessageNav.Lines.Add(MessageHandling.FData.MessageHandling);
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.lvDraftClick(sender: TObject);
@@ -13488,6 +13527,7 @@ var
   MessageHandling : TMessageHandling;
   grp : T3CubicleGroup;
 begin
+  {$REGION ' Other Role '}
   btnReply.Enabled := false;
   btnForward.Enabled := false;
   btnRemove.Enabled := false;
@@ -13541,7 +13581,65 @@ begin
       mmoMessage.Lines.Add('Original Message : ');
       mmoMessage.Lines.Add(MessageHandling.FData.MessageHandling);
     end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Navigasi '}
+  btnReplyNav.Enabled := false;
+  btnForwardNav.Enabled := false;
+  btnRemoveNav.Enabled := false;
+  btnSendNav.Enabled := false;
+  btnEditNav.Enabled := false;
+  btnPrintNav.Enabled := false;
+
+  if lvDraftNav.Selected <> nil then
+  begin
+    if lvDraftNav.Selected.Data <> nil then
+    begin
+      btnRemoveNav.Enabled := true;
+      btnSendNav.Enabled := true;
+      btnEditNav.Enabled := true;
+
+      lvSentNav.Selected := nil;
+      lvReceiveNav.Selected := nil;
+
+      MessageHandling := TMessageHandling(lvDraftNav.Selected.Data);
+      mmoMessageNav.Lines.Clear;
+
+      if MessageHandling.FData.SendFrom = 0 then
+        mmoMessageNav.Lines.Add('From ' + 'Controller')
+
+      else
+      begin
+        for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+        begin
+          grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.items[i] as T3CubicleGroup;
+          if grp <> nil then begin
+            if grp.FData.Group_Index = MessageHandling.FData.SendFrom then
+            begin
+              mmoMessageNav.Lines.Add('From ' + grp.FData.Group_Identifier);
+              Break;
+            end;
+          end;
+        end;
+      end;
+
+      mmoMessageNav.Lines.Add('To : ' + MessageHandling.FData.RecipientList);
+      mmoMessageNav.Lines.Add('');
+      mmoMessageNav.Lines.Add('Subject : ' + MessageHandling.FData.Subject);
+
+      case MessageHandling.FData.Priority of
+        0 : mmoMessageNav.Lines.Add('Priority : ' + 'FLASH');
+        1 : mmoMessageNav.Lines.Add('Priority : ' + 'IMMED');
+        2 : mmoMessageNav.Lines.Add('Priority : ' + 'PRIORITY');
+        3 : mmoMessageNav.Lines.Add('Priority : ' + 'ROUTINE');
+      end;
+
+      mmoMessageNav.Lines.Add('Original Message : ');
+      mmoMessageNav.Lines.Add(MessageHandling.FData.MessageHandling);
+    end;
   end
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.lvReceiveClick(sender: TObject);
@@ -13550,6 +13648,7 @@ var
   MessageHandling : TMessageHandling;
   grp : T3CubicleGroup;
 begin
+  {$REGION ' Other Role '}
   btnReply.Enabled := false;
   btnForward.Enabled := false;
   btnRemove.Enabled := false;
@@ -13608,6 +13707,68 @@ begin
       end;
     end;
   end;
+  {$ENDREGION}
+
+  {$REGION ' Navigasi '}
+  btnReplyNav.Enabled := false;
+  btnForwardNav.Enabled := false;
+  btnRemoveNav.Enabled := false;
+  btnSendNav.Enabled := false;
+  btnEditNav.Enabled := false;
+  btnPrintNav.Enabled := false;
+
+  if lvReceiveNav.Selected <> nil then
+  begin
+    if lvReceiveNav.Selected.Data <> nil then
+    begin
+      btnReplyNav.Enabled := true;
+      btnForwardNav.Enabled := true;
+      btnRemoveNav.Enabled := true;
+
+      lvSentNav.Selected := nil;
+      lvDraftNav.Selected := nil;
+
+      MessageHandling := TMessageHandling(lvReceiveNav.Selected.Data);
+      mmoMessageNav.Lines.Clear;
+
+      if MessageHandling.FData.SendFrom = 0 then
+        mmoMessageNav.Lines.Add('From ' + 'Controller')
+      else
+      begin
+        for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+        begin
+          grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.items[i] as T3CubicleGroup;
+          if grp <> nil then
+          begin
+            if grp.FData.Group_Index = MessageHandling.FData.SendFrom then
+            begin
+              mmoMessageNav.Lines.Add('From ' + grp.FData.Group_Identifier);
+              Break;
+            end;
+          end;
+        end;
+      end;
+
+      mmoMessageNav.Lines.Add('Subject : ' + MessageHandling.FData.Subject);
+
+      case MessageHandling.FData.Priority of
+        0 : mmoMessageNav.Lines.Add('Priority : ' + 'FLASH');
+        1 : mmoMessageNav.Lines.Add('Priority : ' + 'IMMED');
+        2 : mmoMessageNav.Lines.Add('Priority : ' + 'PRIORITY');
+        3 : mmoMessageNav.Lines.Add('Priority : ' + 'ROUTINE');
+      end;
+
+      mmoMessageNav.Lines.Add('Original Message : ');
+      mmoMessageNav.Lines.Add(MessageHandling.FData.MessageHandling);
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+      begin
+        mmoMessageNav.Lines.Add('');
+        mmoMessageNav.Lines.Add('To : ' + MessageHandling.FData.RecipientList);
+      end;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.lvRecordInCompare(Sender: TObject; Item1,
@@ -18111,6 +18272,48 @@ begin
   lblMaxSpaceHullNav.Caption     := FormatFloat('0.##',maxSpaceHullTemp) + ' Feet²';
   lblFreeSpaceHullNav.Caption := FormatFloat('0.##',maxSpaceHullTemp - TT3Vehicle(hostShipTemp).CurrentHullSpace) + ' Feet²';
   lblCurrentWeightHullNav.Caption := FormatFloat('0.##',TT3Vehicle(hostShipTemp).CurrentHullWeight) + ' Ton';
+
+  if (hostShipTemp <> nil) and (hostShipTemp is TT3Vehicle) then
+  begin
+    lblDisembarkStatusNav.Caption := hostShipTemp.InstanceName;
+    memberShipTemp := TT3Vehicle(hostShipTemp);
+  end
+  else
+  begin
+    lblDisembarkStatusNav.Caption := 'Unknown';
+    memberShipTemp := nil;
+  end;
+
+  // 2. Update status disembark berdasarkan memberShipTemp yang baru diisi
+  if memberShipTemp <> nil then
+  begin
+    if memberShipTemp.isInDisembarkArea then
+    begin
+      case memberShipTemp.MemberPosDisembark of
+        0: lblDisembarkStatusNav.Caption := 'Platform is in front ramp disembark area';
+        1: lblDisembarkStatusNav.Caption := 'Platform is in starboard ramp disembark area';
+        2: lblDisembarkStatusNav.Caption := 'Platform is in back ramp disembark area';
+        3: lblDisembarkStatusNav.Caption := 'Platform is in port ramp disembark area';
+      else
+        lblDisembarkStatusNav.Caption := 'Platform is in disembark area';
+      end;
+
+      btnAmphibiousLandDisembarkNav.Enabled := True;
+      btnAmphibiousLandDisembarkWithNav.Enabled := True;
+    end
+    else
+    begin
+      lblDisembarkStatusNav.Caption := 'Platform is not in disembark area';
+      btnAmphibiousLandDisembarkNav.Enabled := False;
+      btnAmphibiousLandDisembarkWithNav.Enabled := False;
+    end;
+  end
+  else
+  begin
+    lblDisembarkStatusNav.Caption := 'No selected platform';
+    btnAmphibiousLandDisembarkNav.Enabled := False;
+    btnAmphibiousLandDisembarkWithNav.Enabled := False;
+  end;
   {$ENDREGION}
 
   for i := 0 to TT3Vehicle(hostShipTemp).MemberTransportList.Count - 1 do

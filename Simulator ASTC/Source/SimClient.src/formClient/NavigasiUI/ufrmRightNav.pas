@@ -630,8 +630,8 @@ begin
 
         if det.DetailedDetectionShowed.Plat_Class_Recog_Capability then
         begin
-//          lblClassHook.Caption     := v.InstanceClass;
-          lblClassHook.Caption      := det.TrackClass;
+          lblClassHook.Caption     := v.InstanceClass;
+//          lblClassHook.Caption      := det.TrackClass;
         end
         else
         begin

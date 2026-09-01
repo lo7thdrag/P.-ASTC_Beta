@@ -138,8 +138,10 @@ begin
 
         if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
           RecSendMessage.SendFrom := 0
+        else if Assigned(simMgrClient.FMyCubGroup) then
+          RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index
         else
-          RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+          RecSendMessage.SendFrom := 0;
 
         if edtSubject.Text = '' then
           RecSendMessage.Subject := 'None'
@@ -149,71 +151,30 @@ begin
         RecSendMessage.Priority := cbbPrior.ItemIndex;
         RecSendMessage.Band := cbbBand.ItemIndex;
         RecSendMessage.MessageHandling := MessageCub;
+
         RecSendMessage.Messagetype := 0;
         simMgrClient.netSend_MessageHandling(RecSendMessage);
 
-        //Add to Queue Message -> Send after time is ready
         for i := 0 to ToCub.Count - 1 do
         begin
-          for j := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
-          begin
-            grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[j] as T3CubicleGroup;
+          RecSendMessage.Sendto := 0;
 
-            if LowerCase(ToCub[i]) = 'controller' then
+          if LowerCase(ToCub[i]) <> 'controller' then
+          begin
+            for j := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
             begin
-              RecSendMessage.Sendto := 0;
-              Break;
-            end
-            else
-            if grp <> nil then
-            begin
-              if LowerCase(grp.FData.Group_Identifier) = LowerCase(ToCub[i]) then
+              grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[j] as T3CubicleGroup;
+              if (grp <> nil) and (LowerCase(grp.FData.Group_Identifier) = LowerCase(ToCub[i])) then
               begin
                 RecSendMessage.Sendto := grp.FData.Group_Index;
                 Break;
               end;
-            end
-            else
-            begin
-              RecSendMessage.Sendto := 0;
-              Break;
             end;
           end;
 
-          RecSendMessage.RecipientList := ToCub.DelimitedText;
-          RecSendMessage.OrderID := 0;
-          RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
-          if edtSubject.Text = '' then
-            RecSendMessage.Subject := 'None'
-          else
-            RecSendMessage.Subject := edtSubject.Text;
-
-          RecSendMessage.Priority := cbbPrior.ItemIndex;
-          RecSendMessage.Band := cbbBand.ItemIndex;
-          RecSendMessage.MessageHandling := MessageCub;
           RecSendMessage.Messagetype := 2;
           simMgrClient.AddListQueueMessage(RecSendMessage);
         end;
-
-        //Add to Queue Message -> Send after time is ready -> for controller
-        RecSendMessage.RecipientList := ToCub.DelimitedText;
-        RecSendMessage.OrderID := 0;
-
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          RecSendMessage.SendFrom := 0
-        else
-          RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
-
-        if edtSubject.Text = '' then
-          RecSendMessage.Subject := 'None'
-        else
-          RecSendMessage.Subject := edtSubject.Text;
-
-        RecSendMessage.Priority := cbbPrior.ItemIndex;
-        RecSendMessage.Band := cbbBand.ItemIndex;
-        RecSendMessage.MessageHandling := MessageCub;
-        RecSendMessage.Messagetype := 3;
-        simMgrClient.AddListQueueMessage(RecSendMessage);
 
         Close;
       end;

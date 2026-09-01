@@ -1,0 +1,41 @@
+CATATAN ASTC
+
+DB EDITOR
+1. 
+
+SIMULATOR
+1. Cek ulang interface Navigasi 
+2. Monitor Student masih belum  bisa digunakan dan Instruktur 1-3 tidak usah dalam list
+3. Class pada hook harusnya unknown sebelum di edit
+4. Transport bagian Amphibius and Land ada open Hull View minta tolong cek apakah controllernya seperti itu?
+6. Penembakan di general perlu di cek lagi.
+
+YANG SUDAH
+
+DB EDITOR
+1. Overlay tidak bisa tersimpan saat aplikasi dishutdown
+2. Titik Polygon tidak terlihat
+3. Pada taampilan overlay Dynamic minta dijelaskan position sama grid apakah digunakan
+4. Panel Cursor Overlay Dynamic
+5. OwnShip tidak mau mengikuti arah Waypoint yang sudah dibuat
+6. Rectangle sama Arc masih belum bisa diwarna fillnya (Masalah dulu)
+7. RPL belum bisa
+
+SIMULATOR
+1. Nilai Bearing dan Range belum dapat (katanya ini nilai kapal)
+2. Klik kanan belum bisa digunakan (Penggunaan menamai ownship)
+3. Tampilan RPL masih lama dan belum bisa digunakan
+4. Pada bagian Force Designation jangan dikasih pilihan karna itu milik instruktur
+5. Penggunaan multiselect belum terdaftar pada tracktable dan track control
+
+
+Masukan/Saran Dari Instruktur :
+
+1. Alokasi senjata dan Sensor di sesuaikan dengan fungsi consol
+   ( Ada perbedaan antara Atas Air, Bawah Air, dan Navigasi ).
+2. Kalau bisa ditambahkan Ownship.
+3. Position di bagian Top Atas Air, Bawah Air Ditambahkan SOG dan HDG. 
+4. Di bagian buttom ditambahkan Bearing dan Range ( Atas Air, Bawah Air, dan Navigasi )
+5. Kalau bisa filter cursor dan Anchor cursor dihapus, jadi bearing sama rangenya otomatis. 
+6. ketika kapal selam di selamkan, sebelum hilang harusnya simbol/kapal berkedip.
+

@@ -775,6 +775,11 @@ type
     lblTime: TLabel;
     imgOverlay: TImage;
     Image2: TImage;
+    pnlRangedanBearing: TPanel;
+    Label30: TLabel;
+    lblBearingMap: TLabel;
+    Label32: TLabel;
+    lblRangeMap: TLabel;
 
 //    ToolBtnComm: TToolButton;
 
@@ -6550,6 +6555,7 @@ end;
 procedure TfrmTacticalDisplay.SetRoleClient(rc: Integer);
 begin
   pnlContainerBottom.Visible := False;
+  pnlRangedanBearing.Visible := False;
   case rc of
     crpInstruktur:
     begin
@@ -6807,6 +6813,7 @@ begin
   pnlBottom.Visible := False;
   pnlLeft.Visible   := False;
   pnlContainerBottom.Visible := True;
+  pnlRangedanBearing.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   {$REGION ' Create Form Top '}
@@ -6860,6 +6867,7 @@ begin
   pnlBottom.Visible := False;
   pnlLeft.Visible   := False;
   pnlContainerBottom.Visible := True;
+  pnlRangedanBearing.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   {$REGION ' Create Form Top '}
@@ -6913,6 +6921,7 @@ begin
   pnlBottom.Visible := False;
   pnlLeft.Visible   := False;
   pnlContainerBottom.Visible := True;
+  pnlRangedanBearing.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   if not Assigned(frmLeftNav) then

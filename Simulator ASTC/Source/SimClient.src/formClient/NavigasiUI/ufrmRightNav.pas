@@ -215,7 +215,8 @@ type
     procedure InitCreate(sender: TForm);
     procedure UpdateFormData;
     procedure SetControlledObject(pit : TT3PlatformInstance);
-    procedure addStatus(Command: String);
+    procedure addStatus1(status: String);
+    procedure AddStatus(command: String);
 
 
     { Public declarations }
@@ -831,16 +832,20 @@ begin
   lblRangeHook.Caption     := FormatFloat('000.00', d);
 end;
 
-procedure TfrmRightNav.addStatus(Command: String);
+procedure TfrmRightNav.AddStatus(command: String);
 begin
-//  frmTacticalDisplay.addStatus(Command);
-//
-//  if Assigned(frmRightNav) then
-//    frmRightNav.addStatus(Command);
-//  pnlStatusRed.Caption := status;
-//  pnlStatusRed.Visible := True;
+    frmTacticalDisplay.addStatus(Command);
 
-//  tmrWarning.Enabled := True;
+  if Assigned(frmRightNav) then
+    frmRightNav.addStatus1(Command);
+end;
+
+procedure TfrmRightNav.addStatus1(status: String);
+begin
+  pnlStatusRed.Caption := status;
+  pnlStatusRed.Visible := True;
+
+  tmrWarning.Enabled := True;
 end;
 
 procedure TfrmRightNav.DisplayTabDetail(Sender: TObject);
@@ -1553,19 +1558,7 @@ var
 begin
   pnlStatusRed.Caption := '';
   pnlStatusRed.Visible := False;
-  if statusR_List.Count > 0 then
-  begin
-    CmdStatus := TStatus(statusR_List.Items[statusR_List.Count-1]);
-    if LowerCase(CmdStatus.state) = 'receive message' then
-    begin
-      frmToteDisplay.pnlSMS.BringToFront;
-
-//      frmToteDisplay.pcReceived.ActivePageIndex := 0;
-    end;
-
-    statusR_List.Delete(statusR_List.Count-1);
-    frmTacticalDisplay.updateStatus;
-  end;
+  frmToteDisplay.pnlSMS.BringToFront;
 end;
 
 procedure TfrmRightNav.Refresh_Controller(aIsGuidanceOpen: Boolean; aIsWasdal: Boolean);

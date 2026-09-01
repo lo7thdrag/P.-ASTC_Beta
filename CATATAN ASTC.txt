@@ -10,6 +10,17 @@ SIMULATOR
 4. Transport bagian Amphibius and Land ada open Hull View minta tolong cek apakah controllernya seperti itu?
 6. Penembakan di general perlu di cek lagi.
 
+Masukan/Saran Dari Instruktur :
+
+1. Alokasi senjata dan Sensor di sesuaikan dengan fungsi consol
+   ( Ada perbedaan antara Atas Air, Bawah Air, dan Navigasi ).
+2. Kalau bisa ditambahkan Ownship.
+3. Position di bagian Top Atas Air, Bawah Air Ditambahkan SOG dan HDG. 
+4. Di bagian buttom ditambahkan Bearing dan Range ( Atas Air, Bawah Air, dan Navigasi )
+5. Kalau bisa filter cursor dan Anchor cursor dihapus, jadi bearing sama rangenya otomatis. 
+6. ketika kapal selam di selamkan, sebelum hilang harusnya simbol/kapal berkedip.
+
+
 YANG SUDAH
 
 DB EDITOR
@@ -29,13 +40,4 @@ SIMULATOR
 5. Penggunaan multiselect belum terdaftar pada tracktable dan track control
 
 
-Masukan/Saran Dari Instruktur :
-
-1. Alokasi senjata dan Sensor di sesuaikan dengan fungsi consol
-   ( Ada perbedaan antara Atas Air, Bawah Air, dan Navigasi ).
-2. Kalau bisa ditambahkan Ownship.
-3. Position di bagian Top Atas Air, Bawah Air Ditambahkan SOG dan HDG. 
-4. Di bagian buttom ditambahkan Bearing dan Range ( Atas Air, Bawah Air, dan Navigasi )
-5. Kalau bisa filter cursor dan Anchor cursor dihapus, jadi bearing sama rangenya otomatis. 
-6. ketika kapal selam di selamkan, sebelum hilang harusnya simbol/kapal berkedip.
 

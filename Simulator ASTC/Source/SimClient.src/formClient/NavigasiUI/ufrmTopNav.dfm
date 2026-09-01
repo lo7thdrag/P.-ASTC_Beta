@@ -10218,10 +10218,11 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblLMT: TLabel
-      Left = 1655
+      Left = 1632
       Top = 27
-      Width = 86
+      Width = 133
       Height = 23
+      Alignment = taCenter
       Caption = '18:55:69'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -10244,10 +10245,11 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblTime: TLabel
-      Left = 1811
+      Left = 1778
       Top = 27
-      Width = 86
+      Width = 133
       Height = 23
+      Alignment = taCenter
       Caption = '18:55:69'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite

@@ -12906,7 +12906,7 @@ begin
   begin
     if lvDraftNav.Selected.Data <> nil then
     begin
-      MessageHandling := TMessageHandling(lvDraft.Selected.Data);
+      MessageHandling := TMessageHandling(lvDraftNav.Selected.Data);
 
       if not Assigned(fNewMessage) then
         fNewMessage := TfNewMessage.Create(self);
@@ -13399,7 +13399,7 @@ begin
   begin
     if lvReceiveNav.Selected.Data <> nil then
     begin
-      MessageHandling := TMessageHandling(lvReceive.Selected.Data);
+      MessageHandling := TMessageHandling(lvReceiveNav.Selected.Data);
 
       if not Assigned(fNewMessage) then
         fNewMessage := TfNewMessage.Create(self);

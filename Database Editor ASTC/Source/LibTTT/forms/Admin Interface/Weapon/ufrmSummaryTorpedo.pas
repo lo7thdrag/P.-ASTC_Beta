@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, Buttons, ComCtrls, Vcl.Imaging.pngimage, tttData,
 
-  uDBAsset_Weapon, uDBAsset_MotionCharacteristics;
+  uDBAsset_Weapon, uDBAsset_MotionCharacteristics, Vcl.Imaging.jpeg;
 
 type
   TfrmSummaryTorpedo = class(TForm)
@@ -213,6 +213,10 @@ type
     btnOK: TButton;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
+    tsModel: TTabSheet;
+    Label21: TLabel;
+    ImageModel: TImage;
+    btnUpload: TButton;
 
     procedure FormShow(Sender: TObject);
 

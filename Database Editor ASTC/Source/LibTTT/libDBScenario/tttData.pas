@@ -1542,6 +1542,7 @@ end;
   TRecGun_Definition =  record
     Gun_Index                    : integer;
     Gun_Identifier               : string[60];
+    Wbs_class_name               : string[255];
     Gun_Category                 : byte;
     Rate_of_Fire                 : integer;
     Lethality_per_Round          : integer;

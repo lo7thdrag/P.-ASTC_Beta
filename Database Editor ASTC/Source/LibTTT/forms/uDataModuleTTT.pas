@@ -14030,7 +14030,7 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('INSERT INTO Gun_Definition');
-    SQL.Add('(Gun_Identifier, Gun_Category, Rate_of_Fire,');
+    SQL.Add('(Gun_Identifier, Wbs_class_name, Gun_Category, Rate_of_Fire,');
     SQL.Add('Lethality_per_Round, Min_Range, Max_Range, Air_Min_Range,');
     SQL.Add('Air_Max_Range, Fire_Cntl_Director_Req, Chaff_Capable_Gun,');
     SQL.Add('Anti_Sur_Capable, Anti_Land_Capable, Anti_Air_Capable,');
@@ -14048,6 +14048,7 @@ begin
     with aRec do
     begin
       SQL.Add(QuotedStr(Gun_Identifier) + ', ');
+      SQL.Add(QuotedStr(Wbs_class_name) + ', ');
       SQL.Add(IntToStr(Gun_Category) + ', ');
       SQL.Add(IntToStr(Rate_of_Fire) + ', ');
       SQL.Add(IntToStr(Lethality_per_Round) + ', ');

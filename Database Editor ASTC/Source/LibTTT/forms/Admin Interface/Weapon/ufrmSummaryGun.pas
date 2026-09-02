@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ComCtrls, ExtCtrls, Vcl.Imaging.pngimage,
 
-  uDBAsset_Weapon, tttData;
+  uDBAsset_Weapon, tttData, Vcl.Imaging.jpeg, System.IOUtils;
 
 type
   TfrmSummaryGun = class(TForm)
@@ -97,6 +97,11 @@ type
     btnOK: TButton;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
+    tsModel: TTabSheet;
+    ImageModel: TImage;
+    lbl23: TLabel;
+    btnUpload: TButton;
+    UploadImage: TOpenDialog;
 
     procedure FormShow(Sender: TObject);
 
@@ -124,9 +129,12 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure edtClassChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnBrowseModelClick(Sender: TObject);
+    procedure btnUploadClick(Sender: TObject);
 
   private
     FSelectedGun : TGun_Definition;
+    FAddressPath : string;
 
     function CekInput: Boolean;
     function GetWeaponCategory(sValue : string): Integer;
@@ -203,6 +211,46 @@ begin
     Close;
 end;
 
+procedure TfrmSummaryGun.btnUploadClick(Sender: TObject);
+var
+ SourceFile, DestFile, FileName: string;
+
+begin
+  UploadImage := TOpenDialog.Create(self);
+  try
+    UploadImage.Filter := 'Image Files(*.png)|*.png';
+    UploadImage.DefaultExt := 'png';
+    UploadImage.FilterIndex := 1;
+
+   if UploadImage.Execute then
+   begin
+      SourceFile := UploadImage.FileName;
+
+      // Ambil nama file saja
+      FileName := ExtractFileName(SourceFile);
+
+      // Tentukan folder tujuan (folder project exe + folder GambarKapal)
+      DestFile := ExtractFilePath(Application.ExeName) + 'data\Image DBEditor\Interface\weapon\' + FileName;
+
+      // Buat folder kalau belum ada
+      ForceDirectories(ExtractFilePath(DestFile));
+
+      // Copy file ke folder tujuan
+      TFile.Copy(SourceFile, DestFile, True);
+
+      // Simpan path baru
+      FAddressPath := DestFile;
+
+      // Tampilkan gambar dari folder tujuan
+      ImageModel.Picture.LoadFromFile(DestFile);
+
+      btnApply.Enabled := True;
+    end;
+    finally
+      UploadImage.Free;
+    end;
+end;
+
 procedure TfrmSummaryGun.btnApplyClick(Sender: TObject);
 begin
 
@@ -241,6 +289,9 @@ begin
     FData.NGS_Capable := Ord(chkNavalGunSupport.Checked);
 
     FData.Lethality_per_Round := trckbrLethality.Position;
+
+    if FAddressPath <> '' then
+      FData.Wbs_class_name := FAddressPath;
     {$ENDREGION}
 
     {$REGION ' Naval Gunfire Support '}
@@ -296,6 +347,17 @@ begin
   AfterClose := True;
   btnApply.Enabled := False;
   btnCancel.Enabled := False;
+end;
+
+procedure TfrmSummaryGun.btnBrowseModelClick(Sender: TObject);
+  begin
+//  if OpenPictureDialog1.Execute then
+//  begin
+//    imgModel.Picture.LoadFromFile(OpenPictureDialog1.FileName);
+//
+//    edtModelImage.Text :=
+//      ExtractFileName(OpenPictureDialog1.FileName);
+//end;
 end;
 
 procedure TfrmSummaryGun.btnCancelClick(Sender: TObject);

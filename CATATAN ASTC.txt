@@ -15,7 +15,6 @@ Masukan/Saran Dari Instruktur :
 1. Alokasi senjata dan Sensor di sesuaikan dengan fungsi consol
    ( Ada perbedaan antara Atas Air, Bawah Air, dan Navigasi ).
 2. Kalau bisa ditambahkan Ownship.
-3. Position di bagian Top Atas Air, Bawah Air Ditambahkan SOG dan HDG. 
 4. Di bagian buttom ditambahkan Bearing dan Range ( Atas Air, Bawah Air, dan Navigasi )
 5. Kalau bisa filter cursor dan Anchor cursor dihapus, jadi bearing sama rangenya otomatis. 
 6. ketika kapal selam di selamkan, sebelum hilang harusnya simbol/kapal berkedip.
@@ -38,6 +37,7 @@ SIMULATOR
 3. Tampilan RPL masih lama dan belum bisa digunakan
 4. Pada bagian Force Designation jangan dikasih pilihan karna itu milik instruktur
 5. Penggunaan multiselect belum terdaftar pada tracktable dan track control
+6. Position di bagian Top Atas Air, Bawah Air Ditambahkan SOG dan HDG. 
 
 
 

@@ -1,29 +1,27 @@
-unit ufrmTopNav;
+unit ufrmTopAtasAir;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, RzBmpBtn, Vcl.ExtCtrls,
-  Vcl.Imaging.pngimage, System.DateUtils, Vcl.Buttons, ufmControlled;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.StdCtrls,
+  Vcl.ExtCtrls;
 
 type
-  TfrmTopNav = class(TForm)
-    Timer1: TTimer;
-    tmr2: TTimer;
-    tmrUTC: TTimer;
+  TfrmTopAtasAir = class(TForm)
     Panel1: TPanel;
     Panel10: TPanel;
     pnlTop: TPanel;
-    lblLTCap: TLabel;
+    Image1: TImage;
+    lblHeadingCap: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    lblUTCCap: TLabel;
+    lblSOGCap: TLabel;
     lblClass: TLabel;
     lblDate: TLabel;
-    lblLMT: TLabel;
+    lblHeading: TLabel;
     lblName: TLabel;
-    lblTime: TLabel;
+    lblSOG: TLabel;
     lblTrackID: TLabel;
     Image2: TImage;
     Label2: TLabel;
@@ -32,33 +30,26 @@ type
     lblLat1: TLabel;
     Label6: TLabel;
     Label5: TLabel;
+    Image3: TImage;
     Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
     Panel6: TPanel;
     Panel5: TPanel;
     Panel7: TPanel;
-    Image1: TImage;
-    Image3: TImage;
-    procedure Timer1Timer(Sender: TObject);
-    procedure tmr2Timer(Sender: TObject);
-    procedure tmrUTCTimer(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-  protected
+    protected
     FControlled: TObject;
-
   private
     { Private declarations }
   public
-    gTime: TDateTime;
-//    procedure InitCreate(sender: TForm);
-    procedure UpdateFormData;
+    Procedure Refresh_OwnShipTab(Sender: TObject);
     procedure SetControlledObject(ctrlObj: TObject);
-    procedure Refresh_OwnShipTab(Sender: TObject);
+    procedure UpdateFormData;
+    { Public declarations }
   end;
 
 var
-  frmTopNav: TfrmTopNav;
+  frmTopAtasAir: TfrmTopAtasAir;
 
 implementation
 
@@ -68,18 +59,9 @@ uses
 
 {$R *.dfm}
 
+{ TfrmTopAtasAir }
 
-procedure TfrmTopNav.FormCreate(Sender: TObject);
-begin
-//
-end;
-
-//procedure TfrmTopNav.InitCreate(sender: TForm);
-//begin
-////  FControlled := nil;
-//end;
-
-procedure TfrmTopNav.Refresh_OwnShipTab(Sender: TObject);
+procedure TfrmTopAtasAir.Refresh_OwnShipTab(Sender: TObject);
 var
   idCoordinat: integer;
   long, lat: double;
@@ -175,33 +157,25 @@ begin
       end;
     end;
   end;
+
+  if (simMgrClient <> nil) and (simMgrClient.ControlledPlatform <> nil) and
+    (simMgrClient.ControlledPlatform is TT3Vehicle) then
+  begin
+  with TT3PlatformInstance(simMgrClient.ControlledPlatform) do
+  begin
+    lblHeading.Caption := FormatCourse(TT3Vehicle(simMgrClient.ControlledPlatform).Heading) + ' Deg T';
+    lblSOG.Caption := FormatSpeed(TT3Vehicle(simMgrClient.ControlledPlatform).Speed) + ' Knot';
+  end;
+  end;
 end;
 
-procedure TfrmTopNav.SetControlledObject(ctrlObj: TObject);
+procedure TfrmTopAtasAir.SetControlledObject(ctrlObj: TObject);
 begin
   FControlled := ctrlObj;
   Refresh_OwnShipTab(FControlled);
 end;
 
-procedure TfrmTopNav.Timer1Timer(Sender: TObject);
-begin
-  lblLMT.Caption := FormatDateTime('hh:mm:ss', gTime);
-end;
-
-procedure TfrmTopNav.tmr2Timer(Sender: TObject);
-begin
-  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', gTime);
-end;
-
-procedure TfrmTopNav.tmrUTCTimer(Sender: TObject);
-var
-  WaktuUTC: TDateTime;
-begin
-  WaktuUTC := TTimeZone.Local.ToUniversalTime(gTime);
-  lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
-end;
-
-procedure TfrmTopNav.UpdateFormData;
+procedure TfrmTopAtasAir.UpdateFormData;
 begin
   Refresh_OwnShipTab(FControlled);
 end;

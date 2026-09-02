@@ -1,8 +1,8 @@
-object frmTopNav: TfrmTopNav
+object frmTopAtasAir: TfrmTopAtasAir
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  Caption = 'frmTopNav'
+  Caption = 'frmTopAtasAir'
   ClientHeight = 60
   ClientWidth = 1920
   Color = clBtnFace
@@ -12,7 +12,6 @@ object frmTopNav: TfrmTopNav
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -25,6 +24,7 @@ object frmTopNav: TfrmTopNav
     Color = 3616028
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = 54
   end
   object Panel10: TPanel
     Left = 350
@@ -10139,12 +10139,12 @@ object frmTopNav: TfrmTopNav
       Stretch = True
       ExplicitTop = -6
     end
-    object lblLTCap: TLabel
+    object lblHeadingCap: TLabel
       Left = 1632
       Top = 5
-      Width = 18
+      Width = 58
       Height = 19
-      Caption = 'LT'
+      Caption = 'Heading'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -16
@@ -10178,12 +10178,12 @@ object frmTopNav: TfrmTopNav
       Font.Style = []
       ParentFont = False
     end
-    object lblUTCCap: TLabel
+    object lblSOGCap: TLabel
       Left = 1778
       Top = 5
-      Width = 31
+      Width = 32
       Height = 19
-      Caption = 'UTC'
+      Caption = 'SOG'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -16
@@ -10217,13 +10217,13 @@ object frmTopNav: TfrmTopNav
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object lblLMT: TLabel
-      Left = 1652
+    object lblHeading: TLabel
+      Left = 1651
       Top = 27
-      Width = 86
+      Width = 54
       Height = 23
       Alignment = taCenter
-      Caption = '18:55:69'
+      Caption = '000.0'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -10244,13 +10244,13 @@ object frmTopNav: TfrmTopNav
       Font.Style = []
       ParentFont = False
     end
-    object lblTime: TLabel
-      Left = 1798
+    object lblSOG: TLabel
+      Left = 1797
       Top = 27
-      Width = 86
+      Width = 54
       Height = 23
       Alignment = taCenter
-      Caption = '18:55:69'
+      Caption = '000.0'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -11215,20 +11215,5 @@ object frmTopNav: TfrmTopNav
       ParentBackground = False
       TabOrder = 5
     end
-  end
-  object Timer1: TTimer
-    OnTimer = Timer1Timer
-    Left = 44
-    Top = 12
-  end
-  object tmr2: TTimer
-    OnTimer = tmr2Timer
-    Left = 10
-    Top = 12
-  end
-  object tmrUTC: TTimer
-    OnTimer = tmrUTCTimer
-    Left = 78
-    Top = 12
   end
 end

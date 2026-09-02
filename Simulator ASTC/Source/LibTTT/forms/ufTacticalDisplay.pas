@@ -1455,7 +1455,7 @@ uses
   uDBAsset_Deploy, uDBAsset_Cubicle, uSaveAsOverlay,
 
   ufrmLeftNav, ufrmRightNav, ufrmTopNav,
-  ufrmLeftAtasAir, ufrmRightAtasAir ;
+  ufrmLeftAtasAir, ufrmRightAtasAir, ufrmTopAtasAir ;
 
 {$R *.dfm}
 
@@ -6407,11 +6407,6 @@ begin
     fmEMCON1.SetControlledObject(pit);
 //    fmLogisticCalculation1.SetControlledObject(pit);
 
-    {$REGION ' Navigasi '}
-
-
-    {$ENDREGION}
-
     case vGameDataSetting.Role of
       0:
       begin
@@ -6438,9 +6433,9 @@ begin
       2, 3:
       begin
         {$REGION ' Atas Air '}
-        if Assigned(frmTopNav) then
+        if Assigned(frmTopAtasAir) then
         begin
-          frmTopNav.SetControlledObject(pit);
+          frmTopAtasAir.SetControlledObject(pit);
         end;
 
         if Assigned(frmLeftAtasAir) then
@@ -6817,16 +6812,16 @@ begin
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   {$REGION ' Create Form Top '}
-  if not Assigned(frmTopNav) then
-    frmTopNav := TfrmTopNav.Create(Application);
+  if not Assigned(frmTopAtasAir) then
+    frmTopAtasAir := TfrmTopAtasAir.Create(Application);
 
-   if Assigned(frmTopNav) then
+   if Assigned(frmTopAtasAir) then
   begin
-    frmTopNav.Parent := nil;
-    frmTopNav.Align  := alTop;
-    frmTopNav.Parent := Self;
-    frmTopNav.Show;
-    frmTopNav.BringToFront;
+    frmTopAtasAir.Parent := nil;
+    frmTopAtasAir.Align  := alTop;
+    frmTopAtasAir.Parent := Self;
+    frmTopAtasAir.Show;
+    frmTopAtasAir.BringToFront;
   end;
   {$ENDREGION}
 
@@ -6871,16 +6866,16 @@ begin
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   {$REGION ' Create Form Top '}
-  if not Assigned(frmTopNav) then
-    frmTopNav := TfrmTopNav.Create(Application);
+  if not Assigned(frmTopAtasAir) then
+    frmTopAtasAir := TfrmTopAtasAir.Create(Application);
 
-   if Assigned(frmTopNav) then
+   if Assigned(frmTopAtasAir) then
   begin
-    frmTopNav.Parent := nil;
-    frmTopNav.Align  := alTop;
-    frmTopNav.Parent := Self;
-    frmTopNav.Show;
-    frmTopNav.BringToFront;
+    frmTopAtasAir.Parent := nil;
+    frmTopAtasAir.Align  := alTop;
+    frmTopAtasAir.Parent := Self;
+    frmTopAtasAir.Show;
+    frmTopAtasAir.BringToFront;
   end;
   {$ENDREGION}
 
@@ -9080,9 +9075,9 @@ begin // ini procedure update yg dipanggil dari sim client
       2,3 :
       begin
         {$REGION ' Atas Air '}
-        if Assigned(frmTopNav) then
+        if Assigned(frmTopAtasAir) then
         begin
-          frmTopNav.UpdateFormData;
+          frmTopAtasAir.UpdateFormData;
         end;
 
         if Assigned(frmRightAtasAir) then

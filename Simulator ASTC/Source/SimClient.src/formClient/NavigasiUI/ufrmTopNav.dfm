@@ -10983,7 +10983,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblLong1: TLabel
-      Left = 1002
+      Left = 992
       Top = 27
       Width = 119
       Height = 19
@@ -10996,7 +10996,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lbl1: TLabel
-      Left = 1126
+      Left = 1116
       Top = 27
       Width = 6
       Height = 19
@@ -11009,7 +11009,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblLat1: TLabel
-      Left = 1178
+      Left = 1168
       Top = 27
       Width = 90
       Height = 19
@@ -11022,7 +11022,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 1139
+      Left = 1129
       Top = 27
       Width = 32
       Height = 19
@@ -11035,7 +11035,7 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 950
+      Left = 940
       Top = 27
       Width = 46
       Height = 19

@@ -238,7 +238,8 @@ type
     Map1 : TMapXTouch;
 //    statusR_List,statusY_List : TList;
 
-    procedure addStatus(status: String);
+    procedure addStatus1(status: String);
+    procedure AddStatus(command: String);
 
 //    procedure updateStatus;
     procedure SetControlledObject(pit : TT3PlatformInstance);
@@ -261,7 +262,15 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmRightAtasAir.addStatus(status: String);
+procedure TfrmRightAtasAir.addStatus(command: String);
+begin
+  frmTacticalDisplay.addStatus(Command);
+
+  if Assigned(frmRightAtasAir) then
+    frmRightAtasAir.addStatus1(Command);
+end;
+
+procedure TfrmRightAtasAir.addStatus1(status: String);
 begin
   pnlStatusRed.Caption := status;
   pnlStatusRed.Visible := True;

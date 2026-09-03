@@ -24,7 +24,6 @@ object frmTopAtasAir: TfrmTopAtasAir
     Color = 3616028
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 54
   end
   object Panel10: TPanel
     Left = 350
@@ -10153,7 +10152,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 763
+      Left = 764
       Top = 5
       Width = 59
       Height = 19
@@ -10259,7 +10258,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       ParentFont = False
     end
     object lblTrackID: TLabel
-      Left = 800
+      Left = 801
       Top = 27
       Width = 43
       Height = 23

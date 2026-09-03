@@ -13838,6 +13838,7 @@ begin
         begin
           Gun_Index := FieldByName('Gun_Index').AsInteger;
           Gun_Identifier := FieldByName('Gun_Identifier').AsString;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Gun_Category := FieldByName('Gun_Category').AsInteger;
           Rate_of_Fire := FieldByName('Rate_of_Fire').AsInteger;
           Lethality_per_Round := FieldByName('Lethality_per_Round').AsInteger;
@@ -13935,6 +13936,7 @@ begin
         begin
           Gun_Index := FieldByName('Gun_Index').AsInteger;
           Gun_Identifier := FieldByName('Gun_Identifier').AsString;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Gun_Category := FieldByName('Gun_Category').AsInteger;
           Rate_of_Fire := FieldByName('Rate_of_Fire').AsInteger;
           Lethality_per_Round := FieldByName('Lethality_per_Round').AsInteger;
@@ -14119,6 +14121,7 @@ begin
     begin
       SQL.Add('SET Gun_Identifier = ' + QuotedStr(Gun_Identifier));
       SQL.Add(', Gun_Category = ' + IntToStr(Gun_Category));
+      SQL.Add(', Wbs_class_name = ' + QuotedStr(Wbs_class_name));
       SQL.Add(', Rate_of_Fire = ' + IntToStr(Rate_of_Fire));
       SQL.Add(', Lethality_per_Round = ' + IntToStr(Lethality_per_Round));
       SQL.Add(', Min_Range = ' + FloatToStr(Min_Range));

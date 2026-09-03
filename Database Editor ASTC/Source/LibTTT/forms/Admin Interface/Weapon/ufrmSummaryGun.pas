@@ -188,6 +188,7 @@ end;
 procedure TfrmSummaryGun.FormShow(Sender: TObject);
 begin
   tsGeneral.Show;
+
   UpdateGunData;
 
   with FSelectedGun.FData do
@@ -290,8 +291,9 @@ begin
 
     FData.Lethality_per_Round := trckbrLethality.Position;
 
-    if FAddressPath <> '' then
-      FData.Wbs_class_name := FAddressPath;
+    if Trim(FAddressPath) <> '' then
+       FData.Wbs_class_name := ExtractFileName(FAddressPath);
+
     {$ENDREGION}
 
     {$REGION ' Naval Gunfire Support '}
@@ -323,6 +325,7 @@ begin
     FNote.Notes := mmoNotes.Text;
     {$ENDREGION}
 
+
     if FData.Gun_Index = 0 then
     begin
       if dmTTT.InsertGunDef(FData) then
@@ -340,6 +343,7 @@ begin
       end;
     end;
   end;
+
 
   UpdateGunData;
 
@@ -437,6 +441,9 @@ begin
 end;
 
 procedure TfrmSummaryGun.UpdateGunData;
+var
+  ImagePath: string;
+  ImageFolder: string;
 begin
   with FSelectedGun do
   begin
@@ -472,6 +479,16 @@ begin
     chkNavalGunSupport.Checked := Boolean(FData.NGS_Capable);
 
     trckbrLethality.Position := FData.Lethality_per_Round;
+
+    ImageFolder := ExtractFilePath(Application.ExeName) +
+               'data\Image DBEditor\Interface\Weapon\';
+
+    ImagePath := ImageFolder + FData.Wbs_class_name;
+
+    if FileExists(ImagePath) then
+      ImageModel.Picture.LoadFromFile(ImagePath)
+    else
+      ImageModel.Picture.LoadFromFile(ImageFolder + 'imgNoModel.jpg');
     {$ENDREGION}
 
     {$REGION ' Naval Gunfire Support '}

@@ -1336,291 +1336,6 @@ type
     vrCurrent: TVrWheel;
     pnlMainFiring: TPanel;
     pnlFiring: TPanel;
-    Panel92: TPanel;
-    Image44: TImage;
-    Label94: TLabel;
-    Panel108: TPanel;
-    Image45: TImage;
-    Label265: TLabel;
-    Label266: TLabel;
-    lblDayVisualFiring: TLabel;
-    lblNightimeVisualFiring: TLabel;
-    Label269: TLabel;
-    lblDaytimeInfraredFiring: TLabel;
-    Label271: TLabel;
-    lblNightimeInfraredFiring: TLabel;
-    Image46: TImage;
-    Image47: TImage;
-    Image48: TImage;
-    Image49: TImage;
-    Image50: TImage;
-    Image51: TImage;
-    Image52: TImage;
-    Image53: TImage;
-    Image54: TImage;
-    Panel109: TPanel;
-    Image55: TImage;
-    Label273: TLabel;
-    lblAtmosphereFiring: TLabel;
-    Image56: TImage;
-    Image57: TImage;
-    Image58: TImage;
-    Panel111: TPanel;
-    Image59: TImage;
-    Panel113: TPanel;
-    Panel115: TPanel;
-    Image60: TImage;
-    imgRainStateFiring: TImage;
-    Label275: TLabel;
-    lblRainstateFiring: TLabel;
-    imgSeaStateFiring: TImage;
-    Label277: TLabel;
-    lblSeaStatDescFiring: TLabel;
-    imgCloudStateFiring: TImage;
-    Label279: TLabel;
-    lblCloudAttenDescFising: TLabel;
-    Panel116: TPanel;
-    Image64: TImage;
-    Label281: TLabel;
-    Label282: TLabel;
-    lblWindSpeedFiring: TLabel;
-    lblWindDirFiring: TLabel;
-    Label286: TLabel;
-    lblCurrentSpeedFiring: TLabel;
-    Label288: TLabel;
-    lblCurrentDirFiring: TLabel;
-    Image65: TImage;
-    Image66: TImage;
-    Image67: TImage;
-    Image68: TImage;
-    Image69: TImage;
-    Image70: TImage;
-    Image71: TImage;
-    Image72: TImage;
-    Image73: TImage;
-    Panel117: TPanel;
-    Image74: TImage;
-    Label290: TLabel;
-    lvSystemStateFiring: TListView;
-    Panel118: TPanel;
-    Image75: TImage;
-    Label291: TLabel;
-    tvCountermeasuresFiring: TTreeView;
-    Panel123: TPanel;
-    Image76: TImage;
-    Label292: TLabel;
-    tvWeaponFiring: TTreeView;
-    Panel124: TPanel;
-    Image77: TImage;
-    Label293: TLabel;
-    lvSensorFiring: TListView;
-    Panel130: TPanel;
-    Image78: TImage;
-    Label294: TLabel;
-    Panel131: TPanel;
-    lvLogisticPlatformFiring: TListView;
-    Panel132: TPanel;
-    Image79: TImage;
-    Label295: TLabel;
-    Label296: TLabel;
-    Label297: TLabel;
-    Image80: TImage;
-    Label298: TLabel;
-    Label299: TLabel;
-    Label300: TLabel;
-    Label301: TLabel;
-    Label302: TLabel;
-    Label303: TLabel;
-    Label304: TLabel;
-    Label305: TLabel;
-    Label306: TLabel;
-    Label307: TLabel;
-    Label308: TLabel;
-    Label309: TLabel;
-    Label310: TLabel;
-    Label311: TLabel;
-    Label312: TLabel;
-    Label313: TLabel;
-    Label314: TLabel;
-    Label315: TLabel;
-    Label316: TLabel;
-    Label317: TLabel;
-    Label318: TLabel;
-    Label319: TLabel;
-    Label320: TLabel;
-    Label321: TLabel;
-    Label322: TLabel;
-    Label323: TLabel;
-    Label324: TLabel;
-    Label325: TLabel;
-    Label326: TLabel;
-    Label327: TLabel;
-    Label328: TLabel;
-    Label329: TLabel;
-    Panel133: TPanel;
-    Image81: TImage;
-    Panel134: TPanel;
-    Panel135: TPanel;
-    PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
-    Panel136: TPanel;
-    ListView5: TListView;
-    TabSheet2: TTabSheet;
-    Panel137: TPanel;
-    ListView6: TListView;
-    TabSheet3: TTabSheet;
-    Panel138: TPanel;
-    ListView7: TListView;
-    Panel139: TPanel;
-    Panel140: TPanel;
-    Memo1: TMemo;
-    Panel141: TPanel;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
-    Button5: TButton;
-    Button6: TButton;
-    Button7: TButton;
-    Button8: TButton;
-    Panel142: TPanel;
-    Panel143: TPanel;
-    Image82: TImage;
-    Label330: TLabel;
-    Panel144: TPanel;
-    pnlGeneralFiring: TPanel;
-    pnlAirFiring: TPanel;
-    pnlPersonelTFiring: TPanel;
-    pnlLandingFiring: TPanel;
-    pnlAmphibiFiring: TPanel;
-    Panel150: TPanel;
-    Panel151: TPanel;
-    Label331: TLabel;
-    Panel152: TPanel;
-    SpeedButton7: TSpeedButton;
-    Label332: TLabel;
-    ListView8: TListView;
-    Panel153: TPanel;
-    Label333: TLabel;
-    Label334: TLabel;
-    Label335: TLabel;
-    Label336: TLabel;
-    Label337: TLabel;
-    Label338: TLabel;
-    Label339: TLabel;
-    Label340: TLabel;
-    Label341: TLabel;
-    Panel154: TPanel;
-    Label342: TLabel;
-    TreeView5: TTreeView;
-    Panel155: TPanel;
-    Label343: TLabel;
-    Label344: TLabel;
-    Label345: TLabel;
-    Label346: TLabel;
-    Label347: TLabel;
-    Label348: TLabel;
-    Label349: TLabel;
-    Label350: TLabel;
-    Label351: TLabel;
-    Panel156: TPanel;
-    SpeedButton9: TSpeedButton;
-    SpeedButton15: TSpeedButton;
-    Label352: TLabel;
-    ListView9: TListView;
-    Panel157: TPanel;
-    Label353: TLabel;
-    ListView10: TListView;
-    Panel158: TPanel;
-    Label354: TLabel;
-    Label355: TLabel;
-    Label356: TLabel;
-    Label357: TLabel;
-    Label358: TLabel;
-    Label359: TLabel;
-    Label360: TLabel;
-    Label361: TLabel;
-    Label362: TLabel;
-    Panel159: TPanel;
-    SpeedButton16: TSpeedButton;
-    SpeedButton18: TSpeedButton;
-    Label363: TLabel;
-    Label364: TLabel;
-    Button9: TButton;
-    Panel160: TPanel;
-    Panel161: TPanel;
-    Label365: TLabel;
-    Label366: TLabel;
-    Label367: TLabel;
-    Label368: TLabel;
-    SpeedButton19: TSpeedButton;
-    Label369: TLabel;
-    Label370: TLabel;
-    Label371: TLabel;
-    Label372: TLabel;
-    Panel162: TPanel;
-    Label373: TLabel;
-    Label374: TLabel;
-    Label375: TLabel;
-    Label376: TLabel;
-    Label377: TLabel;
-    Label378: TLabel;
-    Button10: TButton;
-    Button11: TButton;
-    Button12: TButton;
-    Panel163: TPanel;
-    Label379: TLabel;
-    Panel164: TPanel;
-    Panel165: TPanel;
-    Label380: TLabel;
-    Panel166: TPanel;
-    Panel167: TPanel;
-    Panel168: TPanel;
-    Panel169: TPanel;
-    Panel170: TPanel;
-    Button13: TButton;
-    Panel171: TPanel;
-    Label381: TLabel;
-    Panel172: TPanel;
-    Panel173: TPanel;
-    Panel174: TPanel;
-    Panel175: TPanel;
-    Panel176: TPanel;
-    Button14: TButton;
-    Panel177: TPanel;
-    Label382: TLabel;
-    Panel178: TPanel;
-    Panel179: TPanel;
-    Panel180: TPanel;
-    Panel181: TPanel;
-    Panel182: TPanel;
-    Button15: TButton;
-    Panel183: TPanel;
-    Label383: TLabel;
-    Panel184: TPanel;
-    Panel185: TPanel;
-    Panel186: TPanel;
-    Panel187: TPanel;
-    Panel188: TPanel;
-    Button16: TButton;
-    Panel189: TPanel;
-    Panel190: TPanel;
-    Label384: TLabel;
-    TreeView6: TTreeView;
-    Panel191: TPanel;
-    Label385: TLabel;
-    Label386: TLabel;
-    lblMaxCapacityFiring: TLabel;
-    Label388: TLabel;
-    Label389: TLabel;
-    lblFreeCapacityFiring: TLabel;
-    lblCurrentWeightFiring: TLabel;
-    Label392: TLabel;
-    Label393: TLabel;
-    Panel192: TPanel;
-    SpeedButton20: TSpeedButton;
-    SpeedButton21: TSpeedButton;
-    Label394: TLabel;
-    lvLandingCraftCarriedFiring: TListView;
     pnlImage: TPanel;
     Image39: TImage;
     lblShipNAme: TLabel;
@@ -1683,6 +1398,152 @@ type
     btnEditNav: TButton;
     btnPrintNav: TButton;
     lvSentNav: TListView;
+    Panel22: TPanel;
+    Image40: TImage;
+    Label94: TLabel;
+    Panel54: TPanel;
+    Image44: TImage;
+    Label103: TLabel;
+    Label104: TLabel;
+    lblDayVisualFiring: TLabel;
+    lblNightimeVisualFiring: TLabel;
+    Label107: TLabel;
+    lblDaytimeInfraredFiring: TLabel;
+    Label109: TLabel;
+    lblNightimeInfraredFiring: TLabel;
+    Image45: TImage;
+    Image46: TImage;
+    Image47: TImage;
+    Image48: TImage;
+    Image49: TImage;
+    Image50: TImage;
+    Image51: TImage;
+    Image52: TImage;
+    Image53: TImage;
+    Panel92: TPanel;
+    Image54: TImage;
+    Label111: TLabel;
+    lblAtmosphereFiring: TLabel;
+    Image55: TImage;
+    Image56: TImage;
+    Image57: TImage;
+    Panel108: TPanel;
+    Image58: TImage;
+    Panel109: TPanel;
+    Panel111: TPanel;
+    Image59: TImage;
+    imgRainStateFiring: TImage;
+    Label114: TLabel;
+    lblRainstateFiring: TLabel;
+    imgSeaStateFiring: TImage;
+    Label116: TLabel;
+    lblSeaStatDescFiring: TLabel;
+    imgCloudStateFiring: TImage;
+    Label118: TLabel;
+    lblCloudAttenDescFiring: TLabel;
+    Panel113: TPanel;
+    Image64: TImage;
+    Label120: TLabel;
+    Label121: TLabel;
+    lblWindSpeedFiring: TLabel;
+    lblWindDirFiring: TLabel;
+    Label161: TLabel;
+    lblCurrentSpeedFiring: TLabel;
+    Label174: TLabel;
+    lblCurrentDirFiring: TLabel;
+    Image65: TImage;
+    Image66: TImage;
+    Image67: TImage;
+    Image68: TImage;
+    Image69: TImage;
+    Image70: TImage;
+    Image71: TImage;
+    Image72: TImage;
+    Image73: TImage;
+    pnlSMSFiring: TPanel;
+    Image60: TImage;
+    Label105: TLabel;
+    Panel116: TPanel;
+    pcReceivedFiring: TPageControl;
+    TabSheet1: TTabSheet;
+    Panel117: TPanel;
+    lvReceiveFiring: TListView;
+    TabSheet2: TTabSheet;
+    Panel118: TPanel;
+    lvSentFiring: TListView;
+    TabSheet3: TTabSheet;
+    Panel121: TPanel;
+    lvDraftFiring: TListView;
+    mmoMessageFiring: TMemo;
+    Panel122: TPanel;
+    btnNewFiring: TButton;
+    btnRemoveFiring: TButton;
+    btnReplyFiring: TButton;
+    btnForwardFiring: TButton;
+    btnSendFiring: TButton;
+    btnEditFiring: TButton;
+    btnPrintFiring: TButton;
+    Panel115: TPanel;
+    Image61: TImage;
+    Label106: TLabel;
+    Label108: TLabel;
+    Label110: TLabel;
+    Image62: TImage;
+    Label112: TLabel;
+    Label115: TLabel;
+    Label117: TLabel;
+    Label119: TLabel;
+    Label146: TLabel;
+    Label154: TLabel;
+    Label162: TLabel;
+    Label176: TLabel;
+    Label232: TLabel;
+    Label233: TLabel;
+    Label234: TLabel;
+    Label235: TLabel;
+    Label236: TLabel;
+    Label237: TLabel;
+    Label238: TLabel;
+    Label253: TLabel;
+    Label265: TLabel;
+    Label266: TLabel;
+    Label268: TLabel;
+    Label269: TLabel;
+    Label270: TLabel;
+    Label271: TLabel;
+    Label272: TLabel;
+    Label273: TLabel;
+    Label274: TLabel;
+    Label275: TLabel;
+    Label276: TLabel;
+    Label277: TLabel;
+    Label278: TLabel;
+    Label279: TLabel;
+    Label280: TLabel;
+    Label281: TLabel;
+    Panel123: TPanel;
+    imgSenjata: TImage;
+    pnlCountermeasuresFiring: TPanel;
+    Image74: TImage;
+    Label282: TLabel;
+    lvCountermeasuresFiring: TTreeView;
+    pnlSystemStateFiring: TPanel;
+    Image75: TImage;
+    Label283: TLabel;
+    lvSystemStateFiring: TListView;
+    pnlWeaponsFiring: TPanel;
+    Image76: TImage;
+    Label285: TLabel;
+    lvWeaponFiring: TTreeView;
+    pnlSensorFiring: TPanel;
+    Image77: TImage;
+    Label286: TLabel;
+    lvSensorFiring: TListView;
+    pnlLogisticFiring: TPanel;
+    Image78: TImage;
+    Label287: TLabel;
+    Panel129: TPanel;
+    lvLogisticPlatformFiring: TListView;
 
 
 
@@ -1972,9 +1833,6 @@ type
     procedure SidebarButtonClick(Sender: TObject);
     procedure btnDetailLogisticClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure btnSensorsClick(Sender: TObject);
-    procedure btnWeaponsClick(Sender: TObject);
-    procedure btnCountermeasuresClick(Sender: TObject);
     procedure btnPlatformClick(Sender: TObject);
 
     procedure lvSensorMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -2108,6 +1966,9 @@ type
 
     //GENERAL
     procedure SetUpToteGeneralUI;
+
+    //FIRING
+    procedure SetUpToteFiring;
 
   protected
     FControlled: TObject;
@@ -2932,11 +2793,6 @@ begin
   //gbCommunicationsChannelDefinition.BringToFront;
 end;
 
-procedure TfrmToteDisplay.btnCountermeasuresClick(Sender: TObject);
-begin
-//  lvCountermeasuresNav.Items.Assign(tvCountermeasures.Items);
-end;
-
 procedure TfrmToteDisplay.btnCommInterfeceneClick(sender: TObject);
 begin
   gbCommunicationsInterference.BringToFront;
@@ -3093,11 +2949,6 @@ begin
     lvSensorOverride.ItemIndex := 0
   else
     lvSensorOverride.ItemIndex := -1;
-end;
-
-procedure TfrmToteDisplay.btnSensorsClick(Sender: TObject);
-begin
-//  lvSensorNav.Items.Assign(lvPlatforms.Items);
 end;
 
 procedure TfrmToteDisplay.Label156Click(sender: TObject);
@@ -3886,21 +3737,6 @@ begin
   lvPlatforms.Selected.Focused := true;
   Invalidate;
   UpdateSensorVehicle(TT3Vehicle(lvPlatforms.Selected.Data));
-
-  {$REGION 'Navigasi'}
-//  if (lvSensorNav.Selected = nil) or (lvSensorNav.ItemIndex = -1) then
-//    Exit;
-//
-//  with simMgrClient do
-//  begin
-//     TT3Sensor(lvSensorNav.Selected.Data).OperationalStatus := sopOff;
-//  end;
-//
-//  lvPlatformsSelectItem(lvSensorNav, lvSensorNav.Selected, True);
-//  lvSensorNav.Selected.Focused := true;
-//  Invalidate;
-//  UpdateSensorVehicle(TT3Vehicle(lvSensorNav.Selected.Data));
-  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.UpdateTrackList(sender: TObject);
@@ -4364,11 +4200,6 @@ begin
   lvWeaponEngagement.Columns[2].Width := 200;
   lvWeaponEngagement.Columns[3].Width := 200;
   lvWeaponEngagement.Columns[4].Width := 200;
-end;
-
-procedure TfrmToteDisplay.btnWeaponsClick(Sender: TObject);
-begin
-//  lvWeaponNav.Items.Assign(tvWeapons.Items);
 end;
 
 procedure TfrmToteDisplay.btSetTimeApplyClick(sender: TObject);
@@ -5837,24 +5668,28 @@ end;
 
 procedure TfrmToteDisplay.StatusOperationClick(sender: TObject);
 begin
+  lvSystemStateFiring.Selected.SubItems[0] := 'Operation';
   lvSystemStateNav.Selected.SubItems[0] := 'Operation';
   lvSystemState.Selected.SubItems[0] := 'Operation';
 end;
 
 procedure TfrmToteDisplay.StatusPercentageClick(sender: TObject);
 begin
+  lvSystemStateFiring.Selected.Focused := true;
   lvSystemStateNav.Selected.Focused := true;
   lvSystemState.Selected.Focused := true;
 end;
 
 procedure TfrmToteDisplay.StatusEnableClick(sender: TObject);
 begin
+  lvSystemStateFiring.Selected.SubItems[0] := 'On';
   lvSystemStateNav.Selected.SubItems[0] := 'On';
   lvSystemState.Selected.SubItems[0] := 'On';
 end;
 
 procedure TfrmToteDisplay.StatusPendingClick(sender: TObject);
 begin
+  lvSystemStateFiring.Selected.SubItems[0] := 'Pending';
   lvSystemStateNav.Selected.SubItems[0] := 'Pending';
   lvSystemState.Selected.SubItems[0] := 'Pending';
 end;
@@ -6052,6 +5887,7 @@ end;
 
 procedure TfrmToteDisplay.StatusDisableClick(sender: TObject);
 begin
+  lvSystemStateFiring.Selected.SubItems[0] := 'Off';
   lvSystemStateNav.Selected.SubItems[0] := 'Off';
   lvSystemState.Selected.SubItems[0] := 'Off';
 end;
@@ -6186,6 +6022,9 @@ begin
       Exit;
 
     if (lvSystemStateNav.Selected = nil) or (lvSystemStateNav.ItemIndex = -1) then
+      Exit;
+
+    if (lvSystemStateFiring.Selected = nil) or (lvSystemStateFiring.ItemIndex = -1) then
       Exit;
 
     // if percentage status
@@ -6490,6 +6329,133 @@ begin
 
     // expand all
     lvWeaponNav.FullExpand;
+    {$ENDREGION}
+
+    {$REGION ' Firing Role '}
+
+    lvWeaponFiring.Items.Clear;
+
+    for i := 0 to weapons.Count - 1 do
+    begin
+      tn := TTreeNode.Create(lvWeaponFiring.Items);
+
+      case TT3Weapon(weapons[I]).WeaponStatus of
+        wsAvailable : status := 'Available';
+        wsUnavailable : status := 'Unavailable';
+        wsDamaged : status := 'Damage';
+        wsTooHigh : status := 'Too High';
+      end;
+
+      if (TT3Weapon(weapons.Items[i]) is TT3MissilesOnVehicle) then
+      begin
+        {$REGION ' Missile '}
+        tn.Text := TT3MissilesOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 1;
+        tn.Data := TT3MissilesOnVehicle(weapons.Items[i]);
+        lvWeaponFiring.Items.AddObject(nil, (tn.Text + ' : ' + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity)), tn.Data);
+
+        for j := 0 to TT3MissilesOnVehicle(weapons.Items[i]).MissileDefinition.FLaunchs.Count - 1 do
+        begin
+          MissileLauncher := TFitted_Weap_Launcher_On_Board(TT3MissilesOnVehicle(weapons.Items[i]).MissileDefinition.FLaunchs.Items[j]);
+
+          temp      := TTreeNode.Create(lvWeaponFiring.Items);
+          temp.Data := MissileLauncher;
+
+          if MissileLauncher.FData.Launcher_Type > 8 then
+            launcherNumber :=  MissileLauncher.FData.Launcher_Type - 8
+          else
+            launcherNumber := MissileLauncher.FData.Launcher_Type;
+
+          temp.Text := 'Launcher ' + IntToStr(launcherNumber);
+          temp      := FindText(lvWeaponFiring, tn.Text + ' : ' + IntToStr(TT3MissilesOnVehicle(tn.Data).Quantity));
+          lvWeaponFiring.Items.AddChild(temp, 'Launcher ' + IntToStr(launcherNumber) + ' : ' + IntToStr(MissileLauncher.FData.Launcher_Qty));
+        end;
+        {$ENDREGION}
+      end
+      else if (TT3Weapon(weapons.Items[i]) is TT3TorpedoesOnVehicle) then
+      begin
+        {$REGION ' Torpedo '}
+        tn.Text := TT3TorpedoesOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 0;
+        tn.Data := TT3TorpedoesOnVehicle(weapons.Items[i]);
+        lvWeaponFiring.Items.AddObject(nil, tn.Text + ' : ' + IntToStr (TT3TorpedoesOnVehicle(tn.Data).Quantity), tn.Data);
+
+        for j := 0 to TT3TorpedoesOnVehicle(weapons.Items[i]).Quantity - 1 do
+        begin
+          TorpedoLauncher := TFitted_Weap_Launcher_On_Board(TT3TorpedoesOnVehicle(weapons.Items[i]).TorpedoDefinition.FLaunchs.Items[j]);
+
+          temp := TTreeNode.Create(lvWeaponFiring.Items);
+          temp.Data := MissileLauncher;
+
+          if TorpedoLauncher.FData.Launcher_Type > 8 then
+            launcherNumber :=  TorpedoLauncher.FData.Launcher_Type - 8
+          else
+            launcherNumber := TorpedoLauncher.FData.Launcher_Type;
+
+          temp.Text := 'Launcher ' + IntToStr(launcherNumber);
+          temp := FindText(tvWeapons, tn.Text + ' : ' + IntToStr(TT3TorpedoesOnVehicle(tn.Data).Quantity));
+          lvWeaponFiring.Items.AddChild(temp, 'Launcher ' + IntToStr(launcherNumber) + ' : ' + IntToStr(MissileLauncher.FData.Launcher_Qty));
+        end;
+        {$ENDREGION}
+      end
+      else if (TT3Weapon(weapons.Items[i]) is TT3BombONVehicle) then
+      begin
+        {$REGION ' Bomb '}
+        tn.Text := TT3BombONVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 4;
+        tn.Data := TT3BombONVehicle(weapons.Items[i]);
+        lvWeaponFiring.Items.AddObject(nil, tn.Text, tn.Data);
+
+        temp := TTreeNode.Create(lvWeaponFiring.Items);
+        temp.Text := IntToStr(TT3BombONVehicle(tn.Data).Quantity);
+        temp := FindText(lvWeaponFiring, tn.Text);
+
+        if temp.HasChildren then
+          temp := temp.getNextSibling;
+
+        lvWeaponFiring.Items.AddChildObject(temp, IntToStr(TT3BombONVehicle(tn.Data).Quantity), tn.Data);
+        {$ENDREGION}
+      end
+      else if (TT3Weapon(weapons.Items[i]) is TT3MineOnVehicle) then
+      begin
+        {$REGION ' Mine '}
+        tn.Text := TT3MineOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 2;
+        tn.Data := TT3MineOnVehicle(weapons.Items[i]);
+        lvWeaponFiring.Items.AddObject(nil, tn.Text, tn.Data);
+
+        temp := TTreeNode.Create(lvWeaponFiring.Items);
+        temp.Text := IntToStr(TT3MineOnVehicle(tn.Data).Quantity);
+        temp := FindText(lvWeaponFiring, tn.Text);
+
+        if temp.HasChildren then
+          temp := temp.getNextSibling;
+
+        lvWeaponFiring.Items.AddChildObject(temp, IntToStr(TT3MineOnVehicle(tn.Data).Quantity), tn.Data);
+        {$ENDREGION}
+      end
+      else  if (TT3Weapon(weapons.Items[i]) is TT3GunOnVehicle) then
+      begin
+        {$REGION ' Gun '}
+        tn.Text := TT3GunOnVehicle(weapons.Items[i]).InstanceName + ' : ' + status;
+        tn.StateIndex := 3;
+        tn.Data := TT3GunOnVehicle(weapons.Items[i]);
+        lvWeaponFiring.Items.AddObject(nil, tn.Text, tn.Data);
+
+        temp := TTreeNode.Create(lvWeaponFiring.Items);
+        temp.Text := IntToStr(TT3GunOnVehicle(tn.Data).Quantity);
+        temp := FindText(lvWeaponFiring, tn.Text);
+
+        if temp.HasChildren then
+          temp := temp.getNextSibling;
+
+        lvWeaponFiring.Items.AddChildObject(temp,IntToStr(TT3GunOnVehicle(tn.Data).Quantity), tn.Data);
+        {$ENDREGION}
+      end;
+    end;
+
+    // expand all
+    lvWeaponFiring.FullExpand;
     {$ENDREGION}
   end;
 
@@ -7053,12 +7019,7 @@ begin
 //  w := lvSensors.Width;
 //  lvSensors.Column[0].Width := Round(0.6 * w);
 //  lvSensors.Column[1].Width := Round(0.3 * w);
-//
-//  {$REGION 'Navigasi'}
-//  w := lvSensorNav.Width;
-//  lvSensorNav.Column[0].Width := Round(0.6 * w);
-//  lvSensorNav.Column[1].Width := Round(0.3 * w);
-//  {$ENDREGION}
+
 
   // gbEnvironmentStatus.member
   // gbWeaponEngagementsSUmmary.member
@@ -9142,11 +9103,13 @@ begin
       2:
       begin
         {$REGION ' Atas Air '}
+        SetUpToteFiring;
         {$ENDREGION}
       end;
       3:
       begin
         {$REGION ' BawahAir '}
+        SetUpToteFiring;
         {$ENDREGION}
       end;
       4:
@@ -9228,6 +9191,14 @@ begin
   ArrangeSidebar;
 end;
 
+
+procedure TfrmToteDisplay.SetUpToteFiring;
+begin
+  pnlMainGeneral.Visible := False;
+  pnlMainNavigasi.Visible := False;
+  pnlMainFiring.Visible := True;
+  RefreshEnvironment;
+end;
 
 procedure TfrmToteDisplay.SetUpToteGeneralUI;
 begin
@@ -9524,20 +9495,6 @@ begin
   lvPlatforms.Selected.Focused := true;
   Invalidate;
   UpdateSensorVehicle(TT3Vehicle(lvPlatforms.Selected.Data));
-
-  {$REGION 'Navigasi'}
-//  if (lvSensorNav.Selected = nil) or (lvSensorNav.ItemIndex = -1) then
-//    Exit;
-//
-//  with simMgrClient do
-//  begin
-//    TT3Sensor(lvSensorNav.Selected.Data).OperationalStatus := sopDamage;
-//  end;
-//  lvPlatformsSelectItem(lvPlatforms, lvPlatforms.Selected, True);
-//  lvPlatforms.Selected.Focused := true;
-//  Invalidate;
-//  UpdateSensorVehicle(TT3Vehicle(lvPlatforms.Selected.Data));
-  {$ENDREGION}
 end;
 
 function TfrmToteDisplay.getValueNodeSettingItems(node: TTreeNode): String;
@@ -12772,6 +12729,42 @@ begin
     end;
   end;
   {$ENDREGION}
+
+  {$REGION ' Firing '}
+  if Assigned(fNewMessage) then
+    fNewMessage.Close;
+
+  if lvDraftFiring.Selected <> nil then
+  begin
+    if lvDraftFiring.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvDraftFiring.Selected.Data);
+
+      if not Assigned(fNewMessage) then
+        fNewMessage := TfNewMessage.Create(self);
+
+      fNewMessage.isNew := False;
+      fNewMessage.mmoDisplay.Lines.Clear;
+      fNewMessage.edtTo.Text := MessageHandling.FData.RecipientList;
+      fNewMessage.edtSubject.Text := MessageHandling.FData.Subject;
+      fNewMessage.cbbPrior.ItemIndex := MessageHandling.FData.Priority;
+      fNewMessage.mmoDisplay.Lines.Add(MessageHandling.FData.MessageHandling);
+
+      MessageHandling.FData.OrderID := 2;
+      MessageHandling.FData.Messagetype := 4;
+      RecSendMessage := MessageHandling.FData;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        MessageHandling.FData.SendFrom := 0
+      else
+        MessageHandling.FData.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+
+      fNewMessage.Show;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.btnSendClick(sender: TObject);
@@ -12886,6 +12879,103 @@ begin
     if lvDraftNav.Selected.Data <> nil then
     begin
       MessageHandling := TMessageHandling(lvDraftNav.Selected.Data);
+
+      SendToCub := TStringList.Create;
+      SendToCub.Delimiter := ';';
+      SendToCub.DelimitedText := MessageHandling.FData.RecipientList;
+
+      RecSendMessage.RecipientList := SendToCub.DelimitedText;
+      RecSendMessage.OrderID := 0;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        RecSendMessage.SendFrom := 0
+      else
+        RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      RecSendMessage.Subject := MessageHandling.FData.Subject;
+      RecSendMessage.Priority := MessageHandling.FData.Priority;
+      RecSendMessage.Band := MessageHandling.FData.band;
+      RecSendMessage.MessageHandling := MessageHandling.FData.MessageHandling;
+      RecSendMessage.Messagetype := 0;
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+
+      //Add to Queue Message -> Send after time is ready
+      for i := 0 to SendToCub.Count - 1 do
+      begin
+        RecSendMessage.Sendto := 0;
+
+        for j := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+        begin
+          grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[j] as T3CubicleGroup;
+          if grp <> nil then
+          begin
+            if LowerCase(SendToCub[i]) = 'controller' then
+            begin
+              RecSendMessage.Sendto := 0;
+              Break;
+            end
+            else
+            if LowerCase(grp.FData.Group_Identifier) = LowerCase(SendToCub[i]) then
+            begin
+              RecSendMessage.Sendto := grp.FData.Group_Index;
+              Break;
+            end;
+          end;
+        end;
+
+        RecSendMessage.RecipientList := SendToCub.DelimitedText;
+        RecSendMessage.OrderID := 0;
+        RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+        RecSendMessage.Subject := MessageHandling.FData.Subject;
+        RecSendMessage.Priority := MessageHandling.FData.Priority;
+        RecSendMessage.Band := MessageHandling.FData.band;
+        RecSendMessage.MessageHandling := MessageHandling.FData.MessageHandling;
+        RecSendMessage.Messagetype := 2;
+        simMgrClient.AddListQueueMessage(RecSendMessage);
+      end;
+
+      //Add to Queue Message -> Send after time is ready -> for controller
+      RecSendMessage.RecipientList := SendToCub.DelimitedText;
+      RecSendMessage.OrderID := 0;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        RecSendMessage.SendFrom := 0
+      else
+        RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      RecSendMessage.Subject := MessageHandling.FData.Subject;
+      RecSendMessage.Priority := MessageHandling.FData.Priority;
+      RecSendMessage.Band := MessageHandling.FData.band;
+      RecSendMessage.MessageHandling := MessageHandling.FData.MessageHandling;
+      RecSendMessage.Messagetype := 3;
+      simMgrClient.AddListQueueMessage(RecSendMessage);
+
+      if Assigned(SendToCub) then
+      begin
+        SendToCub.Clear;
+        SendToCub.Free;
+      end;
+
+
+      MessageHandling.FData.OrderID := 2;
+      MessageHandling.FData.Messagetype := 4;
+      RecSendMessage := MessageHandling.FData;
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        MessageHandling.FData.SendFrom := 0
+      else
+        MessageHandling.FData.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION '  Firing '}
+  if lvDraftFiring.Selected <> nil then
+  begin
+    if lvDraftFiring.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvDraftFiring.Selected.Data);
 
       SendToCub := TStringList.Create;
       SendToCub.Delimiter := ';';
@@ -13106,6 +13196,63 @@ begin
   end;
   {$ENDREGION}
 
+  {$REGION ' Firing '}
+  if lvReceiveFiring.Selected <> nil then
+  begin
+    if lvReceiveFiring.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvReceiveFiring.Selected.Data);
+      MessageHandling.FData.OrderID := 1;
+      MessageHandling.FData.Messagetype := 4;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        MessageHandling.FData.SendFrom := 0
+      else
+        MessageHandling.FData.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      RecSendMessage := MessageHandling.FData;
+
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+    end;
+  end
+  else
+  if lvDraftFiring.Selected <> nil then
+  begin
+    if lvDraftFiring.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvDraftFiring.Selected.Data);
+      MessageHandling.FData.OrderID := 2;
+      MessageHandling.FData.Messagetype := 4;
+      RecSendMessage := MessageHandling.FData;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        MessageHandling.FData.SendFrom := 0
+      else
+        MessageHandling.FData.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+    end;
+  end
+  else
+  if lvSentFiring.Selected <> nil then
+  begin
+    if lvSentFiring.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvSentFiring.Selected.Data);
+      MessageHandling.FData.OrderID := 3;
+      MessageHandling.FData.Messagetype := 4;
+      RecSendMessage := MessageHandling.FData;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        MessageHandling.FData.SendFrom := 0
+      else
+        MessageHandling.FData.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      simMgrClient.netSend_MessageHandling(RecSendMessage);
+    end;
+  end;
+  {$ENDREGION}
+
 end;
 
 procedure TfrmToteDisplay.btnReplyClick(sender: TObject);
@@ -13197,6 +13344,48 @@ begin
     end;
   end;
   {$ENDREGION}
+
+  {$REGION ' Firing '}
+  if Assigned(fNewMessage) then
+    fNewMessage.Close;
+
+  if lvReceiveFiring.Selected <> nil then
+  begin
+    if lvReceiveFiring.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvReceiveFiring.Selected.Data);
+
+      if not Assigned(fNewMessage) then
+        fNewMessage := TfNewMessage.Create(self);
+
+      fNewMessage.isNew := False;
+      fNewMessage.mmoDisplay.Lines.Clear;
+
+      if MessageHandling.FData.SendFrom = 0 then
+      begin
+        fNewMessage.edtTo.Text := 'Controller';
+      end
+      else
+      begin
+        for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+        begin
+          grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.items[i] as T3CubicleGroup;
+          if grp.FData.Group_Index = MessageHandling.FData.SendFrom then
+          begin
+            fNewMessage.edtTo.Text := grp.FData.Group_Identifier;
+          end;
+        end;
+      end;
+
+      fNewMessage.cbbPrior.ItemIndex := MessageHandling.FData.Priority;
+      fNewMessage.mmoDisplay.Lines.Add('-------------------------------------');
+      fNewMessage.mmoDisplay.Lines.Add(MessageHandling.FData.MessageHandling);
+      fNewMessage.mmoDisplay.Lines.Add('-------------------------------------');
+
+      fNewMessage.Show;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.btnForwardClick(sender: TObject);
@@ -13239,6 +13428,33 @@ begin
     if lvReceiveNav.Selected.Data <> nil then
     begin
       MessageHandling := TMessageHandling(lvReceiveNav.Selected.Data);
+
+      if not Assigned(fNewMessage) then
+        fNewMessage := TfNewMessage.Create(self);
+
+      fNewMessage.isNew := False;
+      fNewMessage.mmoDisplay.Lines.Clear;
+
+      fNewMessage.edtTo.Text := ' ';
+      fNewMessage.cbbPrior.ItemIndex := MessageHandling.FData.Priority;
+      fNewMessage.mmoDisplay.Lines.Add('-------------------------------------');
+      fNewMessage.mmoDisplay.Lines.Add(MessageHandling.FData.MessageHandling);
+      fNewMessage.mmoDisplay.Lines.Add('-------------------------------------');
+
+      fNewMessage.Show;
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Firing '}
+  if Assigned(fNewMessage) then
+    fNewMessage.Close;
+
+  if lvReceiveFiring.Selected <> nil then
+  begin
+    if lvReceiveFiring.Selected.Data <> nil then
+    begin
+      MessageHandling := TMessageHandling(lvReceiveFiring.Selected.Data);
 
       if not Assigned(fNewMessage) then
         fNewMessage := TfNewMessage.Create(self);
@@ -13355,6 +13571,42 @@ begin
 
       mmoMessageNav.Lines.Add('Original Message : ');
       mmoMessageNav.Lines.Add(MessageHandling.FData.MessageHandling);
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Firing '}
+  btnReplyFiring.Enabled := false;
+  btnForwardFiring.Enabled := false;
+  btnRemoveFiring.Enabled := false;
+  btnSendFiring.Enabled := false;
+  btnEditFiring.Enabled := false;
+  btnPrintFiring.Enabled := false;
+
+  if lvSentFiring.Selected <> nil then
+  begin
+    if lvsentFiring.Selected.Data <> nil then
+    begin
+      btnRemoveFiring.Enabled := true;
+
+      lvReceiveFiring.Selected := nil;
+      lvDraftFiring.Selected := nil;
+
+      MessageHandling := TMessageHandling(lvSentFiring.Selected.Data);
+      mmoMessageFiring.Lines.Clear;
+
+      mmoMessageFiring.Lines.Add('To : ' + MessageHandling.FData.RecipientList);
+      mmoMessageFiring.Lines.Add('Subject : ' + MessageHandling.FData.Subject);
+
+      case MessageHandling.FData.Priority of
+        0 : mmoMessageFiring.Lines.Add('Priority : ' + 'FLASH');
+        1 : mmoMessageFiring.Lines.Add('Priority : ' + 'IMMED');
+        2 : mmoMessageFiring.Lines.Add('Priority : ' + 'PRIORITY');
+        3 : mmoMessageFiring.Lines.Add('Priority : ' + 'ROUTINE');
+      end;
+
+      mmoMessageFiring.Lines.Add('Original Message : ');
+      mmoMessageFiring.Lines.Add(MessageHandling.FData.MessageHandling);
     end;
   end;
   {$ENDREGION}
@@ -13476,6 +13728,63 @@ begin
 
       mmoMessageNav.Lines.Add('Original Message : ');
       mmoMessageNav.Lines.Add(MessageHandling.FData.MessageHandling);
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Firing '}
+  btnReplyFiring.Enabled := false;
+  btnForwardFiring.Enabled := false;
+  btnRemoveFiring.Enabled := false;
+  btnSendFiring.Enabled := false;
+  btnEditFiring.Enabled := false;
+  btnPrintFiring.Enabled := false;
+
+  if lvDraftFiring.Selected <> nil then
+  begin
+    if lvDraftFiring.Selected.Data <> nil then
+    begin
+      btnRemoveFiring.Enabled := true;
+      btnSendFiring.Enabled := true;
+      btnEditFiring.Enabled := true;
+
+      lvSentFiring.Selected := nil;
+      lvReceiveFiring.Selected := nil;
+
+      MessageHandling := TMessageHandling(lvDraftFiring.Selected.Data);
+      mmoMessageFiring.Lines.Clear;
+
+      if MessageHandling.FData.SendFrom = 0 then
+        mmoMessageFiring.Lines.Add('From ' + 'Controller')
+
+      else
+      begin
+        for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+        begin
+          grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.items[i] as T3CubicleGroup;
+          if grp <> nil then begin
+            if grp.FData.Group_Index = MessageHandling.FData.SendFrom then
+            begin
+              mmoMessageFiring.Lines.Add('From ' + grp.FData.Group_Identifier);
+              Break;
+            end;
+          end;
+        end;
+      end;
+
+      mmoMessageFiring.Lines.Add('To : ' + MessageHandling.FData.RecipientList);
+      mmoMessageFiring.Lines.Add('');
+      mmoMessageFiring.Lines.Add('Subject : ' + MessageHandling.FData.Subject);
+
+      case MessageHandling.FData.Priority of
+        0 : mmoMessageFiring.Lines.Add('Priority : ' + 'FLASH');
+        1 : mmoMessageFiring.Lines.Add('Priority : ' + 'IMMED');
+        2 : mmoMessageFiring.Lines.Add('Priority : ' + 'PRIORITY');
+        3 : mmoMessageFiring.Lines.Add('Priority : ' + 'ROUTINE');
+      end;
+
+      mmoMessageFiring.Lines.Add('Original Message : ');
+      mmoMessageFiring.Lines.Add(MessageHandling.FData.MessageHandling);
     end;
   end
   {$ENDREGION}
@@ -13608,6 +13917,67 @@ begin
     end;
   end;
   {$ENDREGION}
+
+  {$REGION ' Firing '}
+  btnReplyFiring.Enabled := false;
+  btnForwardFiring.Enabled := false;
+  btnRemoveFiring.Enabled := false;
+  btnSendFiring.Enabled := false;
+  btnEditFiring.Enabled := false;
+  btnPrintFiring.Enabled := false;
+
+  if lvReceiveFiring.Selected <> nil then
+  begin
+    if lvReceiveFiring.Selected.Data <> nil then
+    begin
+      btnReplyFiring.Enabled := true;
+      btnForwardFiring.Enabled := true;
+      btnRemoveFiring.Enabled := true;
+
+      lvSentFiring.Selected := nil;
+      lvDraftFiring.Selected := nil;
+
+      MessageHandling := TMessageHandling(lvReceiveFiring.Selected.Data);
+      mmoMessageFiring.Lines.Clear;
+
+      if MessageHandling.FData.SendFrom = 0 then
+        mmoMessageFiring.Lines.Add('From ' + 'Controller')
+      else
+      begin
+        for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+        begin
+          grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.items[i] as T3CubicleGroup;
+          if grp <> nil then
+          begin
+            if grp.FData.Group_Index = MessageHandling.FData.SendFrom then
+            begin
+              mmoMessageFiring.Lines.Add('From ' + grp.FData.Group_Identifier);
+              Break;
+            end;
+          end;
+        end;
+      end;
+
+      mmoMessageFiring.Lines.Add('Subject : ' + MessageHandling.FData.Subject);
+
+      case MessageHandling.FData.Priority of
+        0 : mmoMessageFiring.Lines.Add('Priority : ' + 'FLASH');
+        1 : mmoMessageFiring.Lines.Add('Priority : ' + 'IMMED');
+        2 : mmoMessageFiring.Lines.Add('Priority : ' + 'PRIORITY');
+        3 : mmoMessageFiring.Lines.Add('Priority : ' + 'ROUTINE');
+      end;
+
+      mmoMessageFiring.Lines.Add('Original Message : ');
+      mmoMessageFiring.Lines.Add(MessageHandling.FData.MessageHandling);
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+      begin
+        mmoMessageFiring.Lines.Add('');
+        mmoMessageFiring.Lines.Add('To : ' + MessageHandling.FData.RecipientList);
+      end;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.lvRecordInCompare(Sender: TObject; Item1,
@@ -13686,9 +14056,14 @@ begin
     result := lvSystemState.Items[row];
 
   if lvSystemStateNav.Items.Count <= row then
-    result := lvSystemState.Items.Add
+    result := lvSystemStateNav.Items.Add
   else
-    result := lvSystemState.Items[row];
+    result := lvSystemStateNav.Items[row];
+
+  if lvSystemStateFiring.Items.Count <= row then
+    result := lvSystemStateFiring.Items.Add
+  else
+    result := lvSystemStateFiring.Items[row];
 
   result.Caption := Caption;
 
@@ -13904,6 +14279,78 @@ begin
     end;
   end;
   {$ENDREGION}
+
+  {$REGION ' Firing Role '}
+
+  lvSensorFiring.Items.Clear;
+
+  if Assigned(sender.Devices) then
+  begin
+    for i := 0 to sender.Devices.Count - 1 do
+    begin
+      du := sender.Devices.Items[i];
+
+      if du is TT3Sensor then
+      begin
+        sensor := TT3Sensor(du);
+
+        li := lvSensorFiring.Items.Add;
+
+        if sensor is TT3Radar then
+          li.StateIndex := 1
+        else if sensor is TT3Sonar then
+          li.StateIndex := 0
+        else if sensor is TT3Visual then
+          li.StateIndex := 2
+        else if sensor is TT3MADSensor then
+          li.StateIndex := 4
+        else if sensor is TT3ESMSensor then
+          li.StateIndex := 3
+        else if sensor is TT3EOSensor then
+          li.StateIndex := 4
+        else if sensor is TT3IFFSensor then
+          li.StateIndex := 5
+        else
+          li.StateIndex := 0;
+
+        if sensor.EmconOperationalStatus = EmconOff then
+        begin
+          case sensor.OperationalStatus of
+            sopOff, sopOffIFF:
+              li.SubItems.Add('Off');
+            sopOn:
+              li.SubItems.Add('On');
+            sopDamage:
+              li.SubItems.Add('Damaged');
+            sopTooDeep:
+              li.SubItems.Add('Too Deep');
+            sopEMCON:
+              li.SubItems.Add('EMCON');
+            sopActive:
+              li.SubItems.Add('Active');
+            sopPassive:
+              li.SubItems.Add('Passive');
+            sopTooFast:
+              li.SubItems.Add('Too Fast');
+            sopDeploying:
+              li.SubItems.Add('Deploying');
+            sopDeployed:
+              li.SubItems.Add('Deployed');
+            sopStowing:
+              li.SubItems.Add('Stowing');
+            sopStowed:
+              li.SubItems.Add('Stowed');
+          end;
+        end
+        else
+          li.SubItems.Add('EMCON');
+
+        li.Caption := sensor.InstanceName;
+        li.Data := sensor;
+      end;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.UpdateShipDataVehicle(sender: TT3Vehicle);
@@ -14024,6 +14471,29 @@ begin
   li.SubItems.Add(IntToStr(sender.DamagePercentSpeed)  +' %');
 
   {$ENDREGION}
+
+  {$REGION ' Firing Role '}
+  lvSystemStateFiring.Items.Clear;
+
+  li := lvSystemStateFiring.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Overall Damage';
+  li.SubItems.Add(IntToStr(sender.DamageOverall) + ' %');
+
+  li := lvSystemStateFiring.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Propulsion';
+  if sender.DamagePropulsion then
+    li.SubItems.Add('Damage')
+  else
+    li.SubItems.Add('Operational');
+
+  li := lvSystemStateFiring.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Speed';
+  li.SubItems.Add(IntToStr(sender.DamagePercentSpeed)  +' %');
+
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.UpdateSystemState(sender: TObject; const dmgType: TDamageItemType);
@@ -14130,10 +14600,10 @@ var li: TListItem;
     tn, temp : TTreeNode;
     ecmstatus : string;
 begin
+  {$REGION ' Other Role '}
   if lvPlatforms.Selected = nil then exit;
 
   li := lvPlatforms.Selected;
-  li := lvSensorNav.Selected;
   u := li.Data;
   if sender <> u then
     exit;
@@ -14145,8 +14615,8 @@ begin
 
   // sensors
   //lvSensors.Items.Clear;
+
   tvCountermeasures.Items.Clear;
-  lvCountermeasuresNav.Items.Clear;
   if Assigned(ve.Devices) then
   begin
     for i := 0 to ve.Devices.Count - 1 do
@@ -14238,7 +14708,6 @@ begin
         else if (TT3DeviceUnit(Devices[i]) is TT3CounterMeasure) then
         begin
           tn := TTreeNode.Create(tvCountermeasures.Items);
-          tn := TTreeNode.Create(lvCountermeasuresNav.Items);
 
           if (TT3CounterMeasure(Devices.Items[i]) is TT3ChaffOnVehicle) then
             tn.StateIndex := 1
@@ -14280,11 +14749,6 @@ begin
           temp := FindText(tvCountermeasures, tn.Text);
 
           tvCountermeasures.Items.AddChild(temp, ecmStatus);
-
-          lvCountermeasuresNav.Items.AddObject(nil, tn.Text, tn.Data);
-          temp := FindText(lvCountermeasuresNav, tn.Text);
-
-          lvCountermeasuresNav.Items.AddChild(temp, ecmStatus);
         end;
       end;
     end;
@@ -14329,6 +14793,7 @@ begin
       end;
     end;
   end;
+  {$ENDREGION}
 
   {$REGION 'Navigasi'}
   if lvPlatforms.Selected = nil then exit;
@@ -14346,7 +14811,6 @@ begin
 
   // sensors
   //lvSensors.Items.Clear;
-  tvCountermeasures.Items.Clear;
   lvCountermeasuresNav.Items.Clear;
   if Assigned(ve.Devices) then
   begin
@@ -14436,7 +14900,6 @@ begin
         //countermeasure
         else if (TT3DeviceUnit(Devices[i]) is TT3CounterMeasure) then
         begin
-          tn := TTreeNode.Create(tvCountermeasures.Items);
           tn := TTreeNode.Create(lvCountermeasuresNav.Items);
 
           if (TT3CounterMeasure(Devices.Items[i]) is TT3ChaffOnVehicle) then
@@ -14474,11 +14937,6 @@ begin
 
           tn.Text := TT3CounterMeasure(Devices.Items[I]).InstanceName + ' : ' + ecmStatus;
           tn.Data := TT3CounterMeasure(Devices.Items[i]);
-
-          tvCountermeasures.Items.AddObject(nil, tn.Text, tn.Data);
-          temp := FindText(tvCountermeasures, tn.Text);
-
-          tvCountermeasures.Items.AddChild(temp, ecmStatus);
 
           lvCountermeasuresNav.Items.AddObject(nil, tn.Text, tn.Data);
           temp := FindText(lvCountermeasuresNav, tn.Text);
@@ -14518,6 +14976,186 @@ begin
   end;
   {$ENDREGION}
 
+  {$REGION ' Firing '}
+  if lvPlatforms.Selected = nil then exit;
+
+  li := lvPlatforms.Selected;
+  li := lvSensorFiring.Selected;
+  u := li.Data;
+  if sender <> u then
+    exit;
+
+  if not (u is TT3Vehicle) then
+    exit;
+
+  ve := u as TT3Vehicle;
+
+  // sensors
+  //lvSensors.Items.Clear;
+  lvCountermeasuresFiring.Items.Clear;
+  if Assigned(ve.Devices) then
+  begin
+    for i := 0 to ve.Devices.Count - 1 do
+    begin
+      with TT3Vehicle(ve) do
+      begin
+        if (TT3DeviceUnit(Devices[i]) is TT3Sensor) then
+        begin
+          li := findLVItem(lvSensorFiring,TT3DeviceUnit(Devices[i]).InstanceName);
+
+          if (TT3DeviceUnit(Devices[i]) is TT3Radar) then
+          begin
+            li.StateIndex := 1;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3Sonar) then
+          begin
+            li.StateIndex := 0;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3Visual) then
+          begin
+            li.StateIndex := 2;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3MADSensor) then
+          begin
+            li.StateIndex := 4;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3ESMSensor) then
+          begin
+            li.StateIndex := 3;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3EOSensor) then
+          begin
+            li.StateIndex := 4;
+          end
+          else if (TT3DeviceUnit(Devices[i]) is TT3IFFSensor) then
+          begin
+            li.StateIndex := 5;
+          end
+          else
+          begin
+            li.StateIndex := 0;
+          end;
+
+          case TT3Sensor(Devices[i]).OperationalStatus of
+            sopOff, sopOffIFF:
+              li.SubItems[0] := 'Off';
+              //li.SubItems.Add('Off');
+            sopOn:
+              li.SubItems[0] := 'On';
+              //li.SubItems.Add('On');
+            sopDamage:
+              li.SubItems[0] := 'Damaged';
+              //li.SubItems.Add('Damaged');
+            sopTooDeep:
+              li.SubItems[0] := 'Too Deep';
+              //li.SubItems.Add('Too Deep');
+            sopEMCON:
+              li.SubItems[0] := 'EMCON';
+              //li.SubItems.Add('EMCON');
+            sopActive:
+              li.SubItems[0] := 'Active';
+              //li.SubItems.Add('Active');
+            sopPassive:
+              li.SubItems[0] := 'Passive';
+              //li.SubItems.Add('Passive');
+            sopTooFast:
+              li.SubItems[0] := 'Too Fast';
+              //li.SubItems.Add('Too Fast');
+            //------------------------------  //17042012 mk
+            sopDeploying:
+              li.SubItems[0] := 'Deploying';
+              //li.SubItems.Add('Deploying');
+            sopDeployed:
+              li.SubItems[0] := 'Deployed';
+              //li.SubItems.Add('Deployed');
+            sopStowing:
+              li.SubItems[0] := 'Stowing';
+              //li.SubItems.Add('Stowing');
+            sopStowed:
+              li.SubItems[0] := 'Stowed';
+              //li.SubItems.Add('Stowed');
+            //------------------------------  //17042012 mk
+          end;
+          li.Data := TT3Sensor(TT3Sensor(Devices[I]));
+        end
+        //countermeasure
+        else if (TT3DeviceUnit(Devices[i]) is TT3CounterMeasure) then
+        begin
+          tn := TTreeNode.Create(lvCountermeasuresFiring.Items);
+
+          if (TT3CounterMeasure(Devices.Items[i]) is TT3ChaffOnVehicle) then
+            tn.StateIndex := 1
+          else if (TT3CounterMeasure(Devices.Items[i])
+              is TT3AcousticDecoyOnVehicle) then
+            tn.StateIndex := 2
+          else
+            tn.StateIndex := 0;
+
+          case TT3CounterMeasure(Devices.Items[i]).Status of
+            esAvailable:
+              ecmStatus := 'Available';
+            esUnavailable:
+              ecmStatus := 'Unavailable';
+            esLaunchingChaff:
+              ecmStatus := 'Launching Chaff';
+            esDamaged:
+              ecmStatus := 'Damage';
+            esOn:
+              ecmStatus := 'On';
+            esOff:
+              ecmStatus := 'Off';
+            esEMCON:
+              ecmStatus := 'EMCON';
+            esAutomatic:
+              ecmStatus := 'Automatic';
+            esManual:
+              ecmStatus := 'Manual';
+            esDeployed:
+              ecmStatus := 'Deployed';
+            esStowed:
+              ecmStatus := 'Stowed';
+          end;
+
+          tn.Text := TT3CounterMeasure(Devices.Items[I]).InstanceName + ' : ' + ecmStatus;
+          tn.Data := TT3CounterMeasure(Devices.Items[i]);
+
+          lvCountermeasuresFiring.Items.AddObject(nil, tn.Text, tn.Data);
+          temp := FindText(lvCountermeasuresFiring, tn.Text);
+
+          lvCountermeasuresFiring.Items.AddChild(temp, ecmStatus);
+        end;
+      end;
+    end;
+  end;
+
+  // weapons
+  UpdateWeaponVehicle(ve);
+
+  // embark platform
+  tvEmbarkedPlatforms.Items.Clear;
+  if Assigned(ve.EmbarkedVehicles) then
+  begin
+    for i := 0 to ve.EmbarkedVehicles.Count - 1 do
+    begin
+      with ve do
+      begin
+        temp := TTreeNode.Create(tvEmbarkedPlatforms.Items);
+        temp.Text := (TT3EmbarkedVehicle(EmbarkedVehicles[i])
+            .EmbarkedIdentifier);
+        temp.StateIndex := 0;
+        tvEmbarkedPlatforms.Items.InsertNode(temp, nil, temp.Text,
+          TT3EmbarkedVehicle(EmbarkedVehicles[i]));
+        temp := FindText(tvEmbarkedPlatforms,
+          TT3EmbarkedVehicle(EmbarkedVehicles[i]).EmbarkedIdentifier);
+        tvEmbarkedPlatforms.Items.AddChildFirst(temp,
+          'Quantity : ' + IntToStr
+            (TT3EmbarkedVehicle(EmbarkedVehicles[i]).Quantity)
+          );
+        tvEmbarkedPlatforms.Items.AddChild(temp, 'Readying Time : ' + '2');
+      end;
+    end;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.updateInfoTree(PropID: TPropsID; IntVal: integer;
@@ -14813,6 +15451,108 @@ begin
   end;
   {$ENDREGION}
 
+  {$REGION ' Firing Role '}
+  lvWeaponFiring.Items.Clear;
+
+  if Assigned(sender.Weapons) then
+  begin
+    for i := 0 to sender.Weapons.Count - 1 do
+    begin
+      weapon := TT3Weapon(sender.Weapons.Items[i]);
+      if not(Assigned(weapon)) then Continue;
+
+      case weapon.WeaponStatus of
+        wsAvailable   : status := 'Available';
+        wsUnavailable : status := 'Unavailable';
+        wsDamaged     : status := 'Damage';
+        wsTooHigh     : status := 'Too High';
+      end;
+
+      if weapon is TT3MissilesOnVehicle then
+      begin
+        {$REGION ' Missile '}
+        WeaponText := TT3MissilesOnVehicle(weapon).InstanceName + ' : ' + status + ' : ' + IntToStr(TT3MissilesOnVehicle(weapon).Quantity);
+        tnParent := lvWeaponFiring.Items.AddObject(nil, WeaponText, TT3MissilesOnVehicle(weapon));
+
+        if Assigned(TT3MissilesOnVehicle(weapon).MissileDefinition) then
+        begin
+          for j := 0 to TT3MissilesOnVehicle(weapon).MissileDefinition.FLaunchs.Count - 1 do
+          begin
+            WeaponLauncher := TFitted_Weap_Launcher_On_Board(TT3MissilesOnVehicle(weapon).MissileDefinition.FLaunchs.Items[j]);
+            if not(Assigned(WeaponLauncher)) then Continue;
+
+            if WeaponLauncher.FData.Launcher_Type > 8 then
+              launcherNumber :=  WeaponLauncher.FData.Launcher_Type - 8
+            else
+              launcherNumber := WeaponLauncher.FData.Launcher_Type;
+
+            LauncherText := 'Launcher ' + IntToStr(launcherNumber) + ' : ' + IntToStr(WeaponLauncher.FData.Launcher_Qty);
+            lvWeaponFiring.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
+          end;
+        end;
+        {$ENDREGION}
+      end
+      else if weapon is TT3TorpedoesOnVehicle then
+      begin
+        {$REGION ' Torpedo '}
+        WeaponText := TT3TorpedoesOnVehicle(weapon).InstanceName + ' : ' + status + ' : ' + IntToStr(TT3TorpedoesOnVehicle(weapon).Quantity);
+        tnParent := lvWeaponFiring.Items.AddObject(nil, WeaponText, TT3TorpedoesOnVehicle(weapon));
+
+        if Assigned(TT3TorpedoesOnVehicle(weapon).TorpedoDefinition) then
+        begin
+          for j := 0 to TT3TorpedoesOnVehicle(weapon).TorpedoDefinition.FLaunchs.Count - 1 do
+          begin
+            WeaponLauncher := TFitted_Weap_Launcher_On_Board(TT3TorpedoesOnVehicle(weapon).TorpedoDefinition.FLaunchs.Items[j]);
+            if not(Assigned(WeaponLauncher)) then Continue;
+
+            if WeaponLauncher.FData.Launcher_Type > 8 then
+              launcherNumber :=  WeaponLauncher.FData.Launcher_Type - 8
+            else
+              launcherNumber := WeaponLauncher.FData.Launcher_Type;
+
+            LauncherText := 'Tube ' + IntToStr(launcherNumber) + ' : ' + IntToStr(WeaponLauncher.FData.Launcher_Qty);
+            lvWeaponFiring.Items.AddChildObject(tnParent, LauncherText, WeaponLauncher);
+          end;
+        end;
+        {$ENDREGION}
+      end
+      else if weapon is TT3BombONVehicle then
+      begin
+        {$REGION ' Bonb '}
+        WeaponText := TT3BombONVehicle(weapon).InstanceName + ' : ' + status;
+        tnParent := lvWeaponFiring.Items.AddObject(nil, WeaponText, TT3BombONVehicle(weapon));
+        lvWeaponFiring.Items.AddChildObject(tnParent, IntToStr(TT3BombONVehicle(weapon).Quantity), TT3BombONVehicle(weapon));
+        {$ENDREGION}
+      end
+      else if weapon is TT3MineOnVehicle then
+      begin
+        {$REGION ' Mine '}
+        WeaponText := TT3MineOnVehicle(weapon).InstanceName + ' : ' + status;
+        tnParent := lvWeaponFiring.Items.AddObject(nil, WeaponText, TT3MineOnVehicle(weapon));
+        lvWeaponFiring.Items.AddChildObject(tnParent, IntToStr(TT3MineOnVehicle(weapon).Quantity), TT3MineOnVehicle(weapon));
+        {$ENDREGION}
+      end
+      else if weapon is TT3GunOnVehicle then
+      begin
+        {$REGION ' Gun '}
+        WeaponText := TT3GunOnVehicle(weapon).InstanceName + ' : ' + status;
+        tnParent := lvWeaponFiring.Items.AddObject(nil, WeaponText, TT3GunOnVehicle(weapon));
+        lvWeaponFiring.Items.AddChildObject(tnParent, IntToStr(TT3GunOnVehicle(weapon).Quantity), TT3GunOnVehicle(weapon));
+        {$ENDREGION}
+      end
+      else if weapon is TT3HybridOnVehicle then
+      begin
+        {$REGION ' Hybrid Missile '}
+        WeaponText := TT3HybridOnVehicle(weapon).InstanceName + ' : ' + status;
+        tnParent := lvWeaponFiring.Items.AddObject(nil, WeaponText, TT3HybridOnVehicle(weapon));
+        lvWeaponFiring.Items.AddChildObject(tnParent, IntToStr(TT3HybridOnVehicle(weapon).Quantity), TT3HybridOnVehicle(weapon));
+        {$ENDREGION}
+      end;
+    end;
+    lvWeaponFiring.FullExpand;
+  end;
+  {$ENDREGION}
+
 end;
 
 procedure TfrmToteDisplay.UpdateCountermeasureVehicle(sender: TT3Vehicle);
@@ -14915,6 +15655,53 @@ begin
 
         tn.Text := counter.InstanceName + ' : ' + ecmstatus;
         lvCountermeasuresNav.Items.AddChildObject(tn, tn.Text, counter);
+      end;
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Firing Role '}
+  lvCountermeasuresFiring.Items.Clear;
+
+  if Assigned(sender.Devices) then
+  begin
+    tn := TTreeNode.Create(lvCountermeasuresFiring.Items);
+
+    for i := 0 to sender.Devices.Count - 1 do
+    begin
+      du := sender.Devices.Items[i];
+
+      if du is TT3CounterMeasure then
+      begin
+        counter := TT3CounterMeasure(du);
+
+        case counter.Status of
+          esAvailable:
+            ecmStatus := 'Available';
+          esUnavailable:
+            ecmStatus := 'Unavailable';
+          esLaunchingChaff:
+            ecmStatus := 'Launching Chaff';
+          esDamaged:
+            ecmStatus := 'Damaged';
+          esOn:
+            ecmStatus := 'On';
+          esOff:
+            ecmStatus := 'Off';
+          esEMCON:
+            ecmStatus := 'EMCON';
+          esAutomatic:
+            ecmStatus := 'Automatic';
+          esManual:
+            ecmStatus := 'Manual';
+          esDeployed:
+            ecmStatus := 'Deployed';
+          esStowed:
+            ecmStatus := 'Stowed';
+        end;
+
+        tn.Text := counter.InstanceName + ' : ' + ecmstatus;
+        lvCountermeasuresFiring.Items.AddChildObject(tn, tn.Text, counter);
       end;
     end;
   end;
@@ -15713,13 +16500,11 @@ begin
       sopStowed              : li.SubItems[0] := 'Stowed';
     end;
   end;
-  {$ENDREGION}
 
   //======= ini untuk mengupdate item tree view ecm ===============
   if (Sender is TT3CounterMeasure) and (Assigned(TT3CounterMeasure(Sender).Parent)) and
     TT3PlatformInstance(TT3CounterMeasure(Sender).Parent).Equals(ToteSelectedPlatform) then
   begin
-    tn := GetNodeByData(tvCountermeasures,Sender);
     tn := GetNodeByData(lvCountermeasuresNav,Sender);
 
     if Assigned(tn) then
@@ -15751,6 +16536,66 @@ begin
       end;
     end;
   end;
+  {$ENDREGION}
+
+  {$REGION 'Firing'}
+  if (Sender is TT3Sensor) and (Assigned(TT3Sensor(Sender).Parent)) and
+    TT3PlatformInstance(TT3Sensor(Sender).Parent).Equals(ToteSelectedPlatform) then
+  begin
+    li := findLVItem(lvSensorFiring,TT3Sensor(Sender).InstanceName);
+    case TSensorOperationalStatus(Value) of
+      sopOff, sopOffIFF      : li.SubItems[0] := 'Off';
+      sopOn                  : li.SubItems[0] := 'On';
+      sopDamage              : li.SubItems[0] := 'Damaged';
+      sopTooDeep             : li.SubItems[0] := 'Too Deep';
+      sopEMCON               : li.SubItems[0] := 'EMCON';
+      sopActive              : li.SubItems[0] := 'Active';
+      sopPassive             : li.SubItems[0] := 'Passive';
+      sopTooFast             : li.SubItems[0] := 'Too Fast';
+      sopDeploying           : li.SubItems[0] := 'Deploying';
+      sopDeployed            : li.SubItems[0] := 'Deployed';
+      sopStowing             : li.SubItems[0] := 'Stowing';
+      sopStowed              : li.SubItems[0] := 'Stowed';
+    end;
+  end;
+
+  //======= ini untuk mengupdate item tree view ecm ===============
+  if (Sender is TT3CounterMeasure) and (Assigned(TT3CounterMeasure(Sender).Parent)) and
+    TT3PlatformInstance(TT3CounterMeasure(Sender).Parent).Equals(ToteSelectedPlatform) then
+  begin
+    tn := GetNodeByData(lvCountermeasuresFiring,Sender);
+
+    if Assigned(tn) then
+    begin
+      case Props of
+        psCMStatus :
+        begin
+          name := TT3CounterMeasure(Sender).InstanceName;
+          case TECMStatus(Value) of
+            esAvailable     : ecmStatus := 'Available';
+            esUnavailable   : ecmStatus := 'Unavailable';
+            esLaunchingChaff: ecmStatus := 'Launching Chaff';
+            esDamaged       : ecmStatus := 'Damage';
+            esOn            : ecmStatus := 'On';
+            esOff           : ecmStatus := 'Off';
+            esEMCON         : ecmStatus := 'EMCON';
+            esAutomatic     : ecmStatus := 'Automatic';
+            esManual        : ecmStatus := 'Manual';
+            esDeployed      : ecmStatus := 'Deployed';
+            esStowed        : ecmStatus := 'Stowed';
+          end;
+
+          tn.Text := name + ' : ' + ecmStatus;
+
+          node := tn.getFirstChild;
+          if Assigned(node) then
+            node.Text := ecmStatus;
+        end;
+      end;
+    end;
+  end;
+  {$ENDREGION}
+
 end;
 //==========================
 
@@ -16149,6 +16994,7 @@ begin
   if not Assigned(sender) then
     Exit;
 
+  {$REGION ' OTHER '}
   lvLogisticPlatform.Items.Clear;
 
   {$REGION ' Fuel '}
@@ -16215,7 +17061,9 @@ begin
 //  li.SubItems.Add('ton');
   {$ENDREGION}
 
-  {NAVIGASI}
+  {$ENDREGION}
+
+  {$REGION ' NAVIGASI '}
   lvLogisticPlatformNav.Items.Clear;
 
   {$REGION ' Fuel '}
@@ -16282,6 +17130,76 @@ begin
 //  li.SubItems.Add('ton');
   {$ENDREGION}
 
+  {$ENDREGION}
+
+  {$REGION ' FIRING '}
+  lvLogisticPlatformFiring.Items.Clear;
+
+  {$REGION ' Fuel '}
+  li := lvLogisticPlatformFiring.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Fuel';
+
+  case TT3PlatformInstance(sender).UnitMotion.FData.Endurance_Type of
+    byte(entFuel):
+    begin
+      li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FuelCapacity) + ' m3');
+//      li.SubItems.Add('m3');
+      li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FuelRemaining)+ ' m3');
+//      li.SubItems.Add('m3');
+    end;
+    byte(entTime):
+    begin
+      li.SubItems.Add('Time');
+      li.SubItems.Add('Time');
+    end;
+    byte(entRange):
+    begin
+      li.SubItems.Add('Range');
+      li.SubItems.Add('Range');
+    end;
+    byte(entUnlimited):
+    begin
+      li.SubItems.Add('Unlimited');
+      li.SubItems.Add('Unlimited');
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Lubricants '}
+  li := lvLogisticPlatformFiring.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Lubricants';
+
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).MLCapacity) + ' m3');
+//  li.SubItems.Add('m3');
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).MLRemaining) + ' m3');
+//  li.SubItems.Add('m3');
+  {$ENDREGION}
+
+  {$REGION ' Water '}
+  li := lvLogisticPlatformFiring.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Water';
+
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).ATCapacity) + ' m3');
+//  li.SubItems.Add('m3');
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).ATRemaining) + ' m3');
+//  li.SubItems.Add('m3');
+  {$ENDREGION}
+
+  {$REGION ' Food '}
+  li := lvLogisticPlatformFiring.Items.Add;
+  li.Data := TT3PlatformInstance(sender);
+  li.Caption := 'Food';
+
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FoodCapacity) + ' ton');
+//  li.SubItems.Add('ton');
+  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FoodRemaining) + ' ton');
+//  li.SubItems.Add('ton');
+  {$ENDREGION}
+
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.RefreshNearestBaseLogistic(sender : TT3Vehicle);
@@ -20963,6 +21881,12 @@ begin
     lblNightimeVisualNav.Caption    := FormatFloat('0', Nighttime_Visual_Modifier) + ' %';
     lblDaytimeInfraredNav.Caption   := FormatFloat('0', Daytime_Infrared_Modifier) + ' %';
     lblNightimeInfraredNav.Caption  := FormatFloat('0', Nighttime_Infrared_Modifier) + ' %';
+
+    {Environtment Role Firing}
+    lblDayVisualFiring.Caption         := FormatFloat('0', Daytime_Visual_Modifier) + ' %';
+    lblNightimeVisualFiring.Caption    := FormatFloat('0', Nighttime_Visual_Modifier) + ' %';
+    lblDaytimeInfraredFiring.Caption   := FormatFloat('0', Daytime_Infrared_Modifier) + ' %';
+    lblNightimeInfraredFiring.Caption  := FormatFloat('0', Nighttime_Infrared_Modifier) + ' %';
     {$ENDREGION}
 
     {$REGION ' Athmospheric Sub '}
@@ -20975,6 +21899,9 @@ begin
 
     {Environtment Role Navigasi}
     lblAtmosphereNav.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
+
+    {Environtment Role Firing}
+    lblAtmosphereFiring.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
     {$ENDREGION}
 
     {$REGION ' Wind Velocity '}
@@ -20995,6 +21922,10 @@ begin
     {Environtment Role Navigasi}
     lblWindDirNav.Caption := FormatCourse(Wind_Direction);
     lblWindSpeedNav.Caption := FormatSpeed(Wind_Speed);
+
+    {Environtment Role Firing}
+    lblWindDirFiring.Caption := FormatCourse(Wind_Direction);
+    lblWindSpeedFiring.Caption := FormatSpeed(Wind_Speed);
     {$ENDREGION}
 
     {$REGION ' Ocean Current '}
@@ -21015,6 +21946,10 @@ begin
     {Environtment Role Navigasi}
     lblCurrentDirNav.Caption := FormatCourse(Ocean_Current_Direction);
     lblCurrentSpeedNav.Caption := FormatSpeed(Ocean_Current_Speed);
+
+    {Environtment Role Firing}
+    lblCurrentDirFiring.Caption := FormatCourse(Ocean_Current_Direction);
+    lblCurrentSpeedFiring.Caption := FormatSpeed(Ocean_Current_Speed);
 
     {$ENDREGION}
 
@@ -21073,6 +22008,25 @@ begin
       begin
         lblRainstateNav.Caption     := 'Heavy Rain';
         imgRainStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Rain.png');
+      end;
+    end;
+
+    {Environtment Role Firing}
+    case Rain_Rate of
+      0 :
+      begin
+        lblRainstateFiring.Caption     := 'Sunny';
+        imgRainStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Rain.png');
+      end;
+      1 :
+      begin
+        lblRainstateFiring.Caption     := 'Light Rain';
+        imgRainStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Rain.png');
+      end;
+      2 :
+      begin
+        lblRainstateFiring.Caption     := 'Heavy Rain';
+        imgRainStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Rain.png');
       end;
     end;
     {$ENDREGION}
@@ -21179,7 +22133,7 @@ begin
       0 :
       begin
         lblCloudAttenDescNav.Caption     := 'No Fog';
-        imgCloudStateGen.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
+        imgCloudStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
         Fogstate:= 'FOG1';
       end;
       1 :
@@ -21198,6 +22152,34 @@ begin
       begin
         lblCloudAttenDescNav.Caption     := 'Very Foggy';
         imgCloudStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Cloud.png');
+        Fogstate:= 'FOG3';
+      end;
+    end;
+
+    {Environtment Role Firing}
+    case Cloud_Attenuation of
+      0 :
+      begin
+        lblCloudAttenDescFiring.Caption     := 'No Fog';
+        imgCloudStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Cloud.png');
+        Fogstate:= 'FOG1';
+      end;
+      1 :
+      begin
+        lblCloudAttenDescFiring.Caption     := 'Slightly Foggy';
+        imgCloudStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Cloud.png');
+        Fogstate:= 'FOG2';
+      end;
+      2 :
+      begin
+        lblCloudAttenDescFiring.Caption     := 'Foggy';
+        imgCloudStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Cloud.png');
+        Fogstate:= 'FOG2';
+      end;
+      3 :
+      begin
+        lblCloudAttenDescFiring.Caption     := 'Very Foggy';
+        imgCloudStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Cloud.png');
         Fogstate:= 'FOG3';
       end;
     end;
@@ -21321,6 +22303,60 @@ begin
       begin
         lblSeaStatDescNav.Caption        := 'Phenomenal';
         imgSeaStateNav.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+    end;
+
+    {Environtment Role Firing}
+    case Sea_State of
+      0 :
+      begin
+        lblSeaStatDescFiring.Caption           := 'Calm (glassy)';
+        imgSeaStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\1_Sea.png');
+      end;
+      1 :
+      begin
+        lblSeaStatDescFiring.Caption           := 'Calm (rippled)';
+        imgSeaStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\2_Sea.png');
+      end;
+      2 :
+      begin
+        lblSeaStatDescFiring.Caption           := 'Smooth (wavelets)';
+        imgSeaStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\3_Sea.png');
+      end;
+      3 :
+      begin
+        lblSeaStatDescFiring.Caption           := 'Slight';
+        imgSeaStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\4_Sea.png');
+      end;
+      4 :
+      begin
+        lblSeaStatDescFiring.Caption           := 'Moderate';
+        imgSeaStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\5_Sea.png');
+      end;
+      5 :
+      begin
+        lblSeaStatDescFiring.Caption           := 'Rough';
+        imgSeaStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\6_Sea.png');
+      end;
+      6 :
+      begin
+        lblSeaStatDescFiring.Caption           := 'Very rough';
+        imgSeaStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\7_Sea.png');
+      end;
+      7 :
+      begin
+        lblSeaStatDescFiring.Caption           := 'High';
+        imgSeaStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+      8 :
+      begin
+        lblSeaStatDescFiring.Caption           := 'Very high';
+        imgSeaStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
+      end;
+      9,10 :
+      begin
+        lblSeaStatDescFiring.Caption        := 'Phenomenal';
+        imgSeaStateFiring.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Tote\MiniPic\8_Sea.png');
       end;
     end;
     {$ENDREGION}

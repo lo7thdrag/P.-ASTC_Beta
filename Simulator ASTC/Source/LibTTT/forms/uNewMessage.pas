@@ -47,7 +47,7 @@ var
 
 implementation
 
-uses ufToteDisplay, ufTacticalDisplay, uCommTTT, ufrmRightNav, uLibSettingTTT;
+uses ufToteDisplay, ufTacticalDisplay, uCommTTT, ufrmRightNav, uLibSettingTTT, ufrmRightAtasAir;
 
 
 {$R *.dfm}
@@ -180,16 +180,70 @@ begin
       end;
       {$ENDREGION}
     end;
-    2:
+    2,3:
     begin
-      {$REGION ' Atas Air '}
+      {$REGION ' Firing '}
+      MessageCub := mmoDisplay.Text;
 
-      {$ENDREGION}
-    end;
-    3:
-    begin
-      {$REGION ' BawahAir '}
+      if edtTo.Text = '' then
+      begin
+        frmRightAtasAir.addStatus('Send To Or Send Info is Blank, Please Fill The Recipient');
+      end
+      else
+      if mmoDisplay.Text = '' then
+      begin
+        frmRightAtasAir.addStatus('Message is Blank, Please Write the Message');
+      end
+      else
+      begin
+        ToCub.DelimitedText := edtTo.Text;
 
+        //Send Message -> Sync Message Send to Same Cubicle
+        RecSendMessage.RecipientList := ToCub.DelimitedText;
+        RecSendMessage.OrderID := 0;
+
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          RecSendMessage.SendFrom := 0
+        else if Assigned(simMgrClient.FMyCubGroup) then
+          RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index
+        else
+          RecSendMessage.SendFrom := 0;
+
+        if edtSubject.Text = '' then
+          RecSendMessage.Subject := 'None'
+        else
+          RecSendMessage.Subject := edtSubject.Text;
+
+        RecSendMessage.Priority := cbbPrior.ItemIndex;
+        RecSendMessage.Band := cbbBand.ItemIndex;
+        RecSendMessage.MessageHandling := MessageCub;
+
+        RecSendMessage.Messagetype := 0;
+        simMgrClient.netSend_MessageHandling(RecSendMessage);
+
+        for i := 0 to ToCub.Count - 1 do
+        begin
+          RecSendMessage.Sendto := 0;
+
+          if LowerCase(ToCub[i]) <> 'controller' then
+          begin
+            for j := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+            begin
+              grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[j] as T3CubicleGroup;
+              if (grp <> nil) and (LowerCase(grp.FData.Group_Identifier) = LowerCase(ToCub[i])) then
+              begin
+                RecSendMessage.Sendto := grp.FData.Group_Index;
+                Break;
+              end;
+            end;
+          end;
+
+          RecSendMessage.Messagetype := 2;
+          simMgrClient.AddListQueueMessage(RecSendMessage);
+        end;
+
+        Close;
+      end;
       {$ENDREGION}
     end;
     4:

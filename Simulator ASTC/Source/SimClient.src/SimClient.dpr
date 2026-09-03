@@ -265,7 +265,8 @@ uses
   ufrmRightNav in 'formClient\NavigasiUI\ufrmRightNav.pas' {frmRightNav},
   uMapLayerDB in '..\AOPRSupportMap\uMapLayerDB.pas',
   ufrmRightAtasAir in 'formClient\AtasAirUI\ufrmRightAtasAir.pas' {frmRightAtasAir},
-  ufrmLeftAtasAir in 'formClient\AtasAirUI\ufrmLeftAtasAir.pas' {frmLeftAtasAir};
+  ufrmLeftAtasAir in 'formClient\AtasAirUI\ufrmLeftAtasAir.pas' {frmLeftAtasAir},
+  ufrmTopAtasAir in 'formClient\AtasAirUI\ufrmTopAtasAir.pas' {frmTopAtasAir};
 
 {$R *.res}
 
@@ -317,7 +318,8 @@ begin
   Application.CreateForm(TfrmKeyboard, frmKeyboard);
   Application.CreateForm(TfmDisembarkWith, fmDisembarkWith);
   Application.CreateForm(TfrmGroupName1, frmGroupName1);
-//  Application.CreateForm(TfrmViewWasdal, frmViewWasdal);
+  Application.CreateForm(TfrmTopAtasAir, frmTopAtasAir);
+  //  Application.CreateForm(TfrmViewWasdal, frmViewWasdal);
 //  Application.CreateForm(TfrmRightToolsPlotter, frmRightToolsPlotter);
   Application.CreateForm(TfrmPlatformBaseDetail, frmPlatformBaseDetail);
 //  Application.CreateForm(TfrmLeftNav, frmLeftNav);

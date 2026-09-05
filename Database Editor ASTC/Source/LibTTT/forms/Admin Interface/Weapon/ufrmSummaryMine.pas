@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ComCtrls, ExtCtrls, Vcl.Imaging.pngimage,
 
-  uDBAsset_Weapon, tttData;
+  uDBAsset_Weapon, tttData, System.IOUtils, Vcl.Imaging.jpeg;
 
 type
   TfrmSummaryMine = class(TForm)
@@ -70,6 +70,11 @@ type
     Label7: TLabel;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
+    tsModel: TTabSheet;
+    lbl23: TLabel;
+    ImageModel: TImage;
+    btnUpload: TButton;
+    UploadImage: TOpenDialog;
 
     procedure FormShow(Sender: TObject);
 
@@ -90,9 +95,11 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnUploadClick(Sender: TObject);
 
   private
     FSelectedMine : TMine_On_Board;
+    FAddressPath : string;
 
     function CekInput:Boolean;
     procedure UpdateMineData;
@@ -160,6 +167,47 @@ begin
   if isOk then
     Close;
 end;
+
+procedure TfrmSummaryMine.btnUploadClick(Sender: TObject);
+var
+ SourceFile, DestFile, FileName: string;
+
+begin
+  UploadImage := TOpenDialog.Create(self);
+  try
+    UploadImage.Filter := 'Image Files(*.png)|*.png';
+    UploadImage.DefaultExt := 'png';
+    UploadImage.FilterIndex := 1;
+
+   if UploadImage.Execute then
+   begin
+      SourceFile := UploadImage.FileName;
+
+      // Ambil nama file saja
+      FileName := ExtractFileName(SourceFile);
+
+      // Tentukan folder tujuan (folder project exe + folder GambarKapal)
+      DestFile := ExtractFilePath(Application.ExeName) + 'data\Image DBEditor\Interface\weapon\' + FileName;
+
+      // Buat folder kalau belum ada
+      ForceDirectories(ExtractFilePath(DestFile));
+
+      // Copy file ke folder tujuan
+      TFile.Copy(SourceFile, DestFile, True);
+
+      // Simpan path baru
+      FAddressPath := DestFile;
+
+      // Tampilkan gambar dari folder tujuan
+      ImageModel.Picture.LoadFromFile(DestFile);
+
+      btnApply.Enabled := True;
+    end;
+    finally
+      UploadImage.Free;
+    end;
+end;
+
 
 procedure TfrmSummaryMine.btnApplyClick(Sender: TObject);
 begin

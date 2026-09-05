@@ -45471,14 +45471,14 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
           Caption = 'Model'
           ImageIndex = 5
           object Label21: TLabel
-            Left = 49
+            Left = 62
             Top = 35
             Width = 83
             Height = 14
             Caption = 'Default Model :'
           end
           object ImageModel: TImage
-            Left = 49
+            Left = 62
             Top = 69
             Width = 517
             Height = 356
@@ -61776,7 +61776,7 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
             Stretch = True
           end
           object btnUpload: TButton
-            Left = 632
+            Left = 619
             Top = 213
             Width = 104
             Height = 36
@@ -61788,6 +61788,7 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
+            OnClick = btnUploadClick
           end
         end
         object tsPhysical: TTabSheet
@@ -63210,5 +63211,9 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
         OnClick = btnOKClick
       end
     end
+  end
+  object UploadImage: TOpenDialog
+    Left = 744
+    Top = 328
   end
 end

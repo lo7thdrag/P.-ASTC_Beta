@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, Buttons, ComCtrls, Vcl.Imaging.pngimage, tttData,
 
-  uDBAsset_Weapon, uDBAsset_MotionCharacteristics, Vcl.Imaging.jpeg;
+  uDBAsset_Weapon, uDBAsset_MotionCharacteristics, Vcl.Imaging.jpeg,System.IOUtils;
 
 type
   TfrmSummaryTorpedo = class(TForm)
@@ -217,6 +217,7 @@ type
     Label21: TLabel;
     ImageModel: TImage;
     btnUpload: TButton;
+    UploadImage: TOpenDialog;
 
     procedure FormShow(Sender: TObject);
 
@@ -253,10 +254,12 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure btnUploadClick(Sender: TObject);
 
   private
     FSelectedTorpedo : TTorpedo_On_Board;
     FSelectedMotion : TMotion_Characteristics;
+    FAddressPath    : string;
 
     function CekInput: Boolean;
     function GetWeaponCategory(sValue : string): Integer;
@@ -342,6 +345,46 @@ begin
 
   if isOk then
     Close;
+end;
+
+procedure TfrmSummaryTorpedo.btnUploadClick(Sender: TObject);
+var
+ SourceFile, DestFile, FileName: string;
+
+begin
+  UploadImage := TOpenDialog.Create(self);
+  try
+    UploadImage.Filter := 'Image Files(*.png)|*.png';
+    UploadImage.DefaultExt := 'png';
+    UploadImage.FilterIndex := 1;
+
+   if UploadImage.Execute then
+   begin
+      SourceFile := UploadImage.FileName;
+
+      // Ambil nama file saja
+      FileName := ExtractFileName(SourceFile);
+
+      // Tentukan folder tujuan (folder project exe + folder GambarKapal)
+      DestFile := ExtractFilePath(Application.ExeName) + 'data\Image DBEditor\Interface\weapon\' + FileName;
+
+      // Buat folder kalau belum ada
+      ForceDirectories(ExtractFilePath(DestFile));
+
+      // Copy file ke folder tujuan
+      TFile.Copy(SourceFile, DestFile, True);
+
+      // Simpan path baru
+      FAddressPath := DestFile;
+
+      // Tampilkan gambar dari folder tujuan
+      ImageModel.Picture.LoadFromFile(DestFile);
+
+      btnApply.Enabled := True;
+    end;
+    finally
+      UploadImage.Free;
+    end;
 end;
 
 procedure TfrmSummaryTorpedo.btnApplyClick(Sender: TObject);

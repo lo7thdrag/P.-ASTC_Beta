@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, ComCtrls, Vcl.Imaging.pngimage, tttData,
 
-  uDBAsset_Weapon, uDBAsset_MotionCharacteristics;
+  uDBAsset_Weapon, uDBAsset_MotionCharacteristics, Vcl.Imaging.jpeg,System.IOUtils;
 
 type
 
@@ -260,6 +260,11 @@ type
     Label33: TLabel;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
+    tsModel: TTabSheet;
+    lbl23: TLabel;
+    ImageModel: TImage;
+    btnUpload: TButton;
+    UploadImage: TOpenDialog;
 
     procedure FormShow(Sender: TObject);
 
@@ -297,11 +302,13 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure btnUploadClick(Sender: TObject);
 
   private
     FSelectedMissile : TMissile_On_Board;
     FSelectedHybrid : THybrid_On_Board;
     FSelectedMotion : TMotion_Characteristics;
+    FAddressPath    : string;
 
     function CekInput: Boolean;
     function GetWeaponCategory(sValue : string): Integer;
@@ -385,6 +392,46 @@ begin
 
   if isOk then
     Close;
+end;
+
+procedure TfrmSummaryMissile.btnUploadClick(Sender: TObject);
+var
+ SourceFile, DestFile, FileName: string;
+
+begin
+  UploadImage := TOpenDialog.Create(self);
+  try
+    UploadImage.Filter := 'Image Files(*.png)|*.png';
+    UploadImage.DefaultExt := 'png';
+    UploadImage.FilterIndex := 1;
+
+   if UploadImage.Execute then
+   begin
+      SourceFile := UploadImage.FileName;
+
+      // Ambil nama file saja
+      FileName := ExtractFileName(SourceFile);
+
+      // Tentukan folder tujuan (folder project exe + folder GambarKapal)
+      DestFile := ExtractFilePath(Application.ExeName) + 'data\Image DBEditor\Interface\weapon\' + FileName;
+
+      // Buat folder kalau belum ada
+      ForceDirectories(ExtractFilePath(DestFile));
+
+      // Copy file ke folder tujuan
+      TFile.Copy(SourceFile, DestFile, True);
+
+      // Simpan path baru
+      FAddressPath := DestFile;
+
+      // Tampilkan gambar dari folder tujuan
+      ImageModel.Picture.LoadFromFile(DestFile);
+
+      btnApply.Enabled := True;
+    end;
+    finally
+      UploadImage.Free;
+    end;
 end;
 
 procedure TfrmSummaryMissile.btnApplyClick(Sender: TObject);

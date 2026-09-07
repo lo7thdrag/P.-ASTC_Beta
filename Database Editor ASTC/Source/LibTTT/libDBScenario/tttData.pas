@@ -1756,6 +1756,7 @@ end;
   TRecMissile_Definition =  record
     Missile_Index                    : integer;
     Class_Identifier                 : string[60];
+    Wbs_class_name                   : string[255];
     Platform_Domain                  : byte;
     Platform_Category                : byte;
     Platform_Type                    : byte;

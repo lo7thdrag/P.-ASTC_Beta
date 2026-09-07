@@ -477,6 +477,9 @@ begin
     FDef.Damage_Capacity := trckbrDamageSustainability.Position;
     FDef.Prob_of_Hit := trckbrProbabilityOfHit.Position/100;
 
+    if Trim(FAddressPath) <> '' then
+       FDef.Wbs_class_name   := ExtractFileName(FAddressPath);
+
     {$ENDREGION}
 
     {$REGION ' Physical '}
@@ -614,6 +617,8 @@ begin
       else if (FData.Hybrid_Index <> 0) and (FTorpedo_Def.Torpedo_Index <> 0)then
         dmTTT.updateHybrid(FSelectedHybrid);
     end;
+
+    UpdateMissileData;
   end;
 
   isOK := True;
@@ -847,8 +852,10 @@ begin
 end;
 
 procedure TfrmSummaryMissile.UpdateMissileData;
-//var
+var
 //  hybrid : THybrid_On_Board;
+  ImagePath: string;
+  ImageFolder: string;
 
 begin
   with FSelectedMissile do
@@ -891,6 +898,16 @@ begin
     trckbrProbabilityOfHit.Position := Round(FDef.Prob_of_Hit * 100);
 
     {$ENDREGION}
+
+     ImageFolder := ExtractFilePath(Application.ExeName) +
+               'data\Image DBEditor\Interface\Weapon\';
+
+    ImagePath := ImageFolder + FDef.Wbs_class_name;
+
+    if FileExists(ImagePath) then
+      ImageModel.Picture.LoadFromFile(ImagePath)
+    else
+      ImageModel.Picture.LoadFromFile(ImageFolder + 'imgNoModel.jpg');
 
     {$REGION ' Physical '}
     UpdateMotionData;

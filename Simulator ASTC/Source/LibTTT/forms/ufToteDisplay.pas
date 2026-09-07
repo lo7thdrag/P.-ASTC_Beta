@@ -1527,10 +1527,6 @@ type
     Image74: TImage;
     Label282: TLabel;
     lvCountermeasuresFiring: TTreeView;
-    pnlSystemStateFiring: TPanel;
-    Image75: TImage;
-    Label283: TLabel;
-    lvSystemStateFiring: TListView;
     pnlWeaponsFiring: TPanel;
     Image76: TImage;
     Label285: TLabel;
@@ -1539,11 +1535,6 @@ type
     Image77: TImage;
     Label286: TLabel;
     lvSensorFiring: TListView;
-    pnlLogisticFiring: TPanel;
-    Image78: TImage;
-    Label287: TLabel;
-    Panel129: TPanel;
-    lvLogisticPlatformFiring: TListView;
 
 
 
@@ -5668,28 +5659,24 @@ end;
 
 procedure TfrmToteDisplay.StatusOperationClick(sender: TObject);
 begin
-  lvSystemStateFiring.Selected.SubItems[0] := 'Operation';
   lvSystemStateNav.Selected.SubItems[0] := 'Operation';
   lvSystemState.Selected.SubItems[0] := 'Operation';
 end;
 
 procedure TfrmToteDisplay.StatusPercentageClick(sender: TObject);
 begin
-  lvSystemStateFiring.Selected.Focused := true;
   lvSystemStateNav.Selected.Focused := true;
   lvSystemState.Selected.Focused := true;
 end;
 
 procedure TfrmToteDisplay.StatusEnableClick(sender: TObject);
 begin
-  lvSystemStateFiring.Selected.SubItems[0] := 'On';
   lvSystemStateNav.Selected.SubItems[0] := 'On';
   lvSystemState.Selected.SubItems[0] := 'On';
 end;
 
 procedure TfrmToteDisplay.StatusPendingClick(sender: TObject);
 begin
-  lvSystemStateFiring.Selected.SubItems[0] := 'Pending';
   lvSystemStateNav.Selected.SubItems[0] := 'Pending';
   lvSystemState.Selected.SubItems[0] := 'Pending';
 end;
@@ -5887,7 +5874,6 @@ end;
 
 procedure TfrmToteDisplay.StatusDisableClick(sender: TObject);
 begin
-  lvSystemStateFiring.Selected.SubItems[0] := 'Off';
   lvSystemStateNav.Selected.SubItems[0] := 'Off';
   lvSystemState.Selected.SubItems[0] := 'Off';
 end;
@@ -6022,9 +6008,6 @@ begin
       Exit;
 
     if (lvSystemStateNav.Selected = nil) or (lvSystemStateNav.ItemIndex = -1) then
-      Exit;
-
-    if (lvSystemStateFiring.Selected = nil) or (lvSystemStateFiring.ItemIndex = -1) then
       Exit;
 
     // if percentage status
@@ -14060,11 +14043,6 @@ begin
   else
     result := lvSystemStateNav.Items[row];
 
-  if lvSystemStateFiring.Items.Count <= row then
-    result := lvSystemStateFiring.Items.Add
-  else
-    result := lvSystemStateFiring.Items[row];
-
   result.Caption := Caption;
 
   if result.SubItems.Count < 1 then
@@ -14466,29 +14444,6 @@ begin
     li.SubItems.Add('Operational');
 
   li := lvSystemStateNav.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Speed';
-  li.SubItems.Add(IntToStr(sender.DamagePercentSpeed)  +' %');
-
-  {$ENDREGION}
-
-  {$REGION ' Firing Role '}
-  lvSystemStateFiring.Items.Clear;
-
-  li := lvSystemStateFiring.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Overall Damage';
-  li.SubItems.Add(IntToStr(sender.DamageOverall) + ' %');
-
-  li := lvSystemStateFiring.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Propulsion';
-  if sender.DamagePropulsion then
-    li.SubItems.Add('Damage')
-  else
-    li.SubItems.Add('Operational');
-
-  li := lvSystemStateFiring.Items.Add;
   li.Data := TT3PlatformInstance(sender);
   li.Caption := 'Speed';
   li.SubItems.Add(IntToStr(sender.DamagePercentSpeed)  +' %');
@@ -17132,74 +17087,6 @@ begin
 
   {$ENDREGION}
 
-  {$REGION ' FIRING '}
-  lvLogisticPlatformFiring.Items.Clear;
-
-  {$REGION ' Fuel '}
-  li := lvLogisticPlatformFiring.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Fuel';
-
-  case TT3PlatformInstance(sender).UnitMotion.FData.Endurance_Type of
-    byte(entFuel):
-    begin
-      li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FuelCapacity) + ' m3');
-//      li.SubItems.Add('m3');
-      li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FuelRemaining)+ ' m3');
-//      li.SubItems.Add('m3');
-    end;
-    byte(entTime):
-    begin
-      li.SubItems.Add('Time');
-      li.SubItems.Add('Time');
-    end;
-    byte(entRange):
-    begin
-      li.SubItems.Add('Range');
-      li.SubItems.Add('Range');
-    end;
-    byte(entUnlimited):
-    begin
-      li.SubItems.Add('Unlimited');
-      li.SubItems.Add('Unlimited');
-    end;
-  end;
-  {$ENDREGION}
-
-  {$REGION ' Lubricants '}
-  li := lvLogisticPlatformFiring.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Lubricants';
-
-  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).MLCapacity) + ' m3');
-//  li.SubItems.Add('m3');
-  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).MLRemaining) + ' m3');
-//  li.SubItems.Add('m3');
-  {$ENDREGION}
-
-  {$REGION ' Water '}
-  li := lvLogisticPlatformFiring.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Water';
-
-  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).ATCapacity) + ' m3');
-//  li.SubItems.Add('m3');
-  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).ATRemaining) + ' m3');
-//  li.SubItems.Add('m3');
-  {$ENDREGION}
-
-  {$REGION ' Food '}
-  li := lvLogisticPlatformFiring.Items.Add;
-  li.Data := TT3PlatformInstance(sender);
-  li.Caption := 'Food';
-
-  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FoodCapacity) + ' ton');
-//  li.SubItems.Add('ton');
-  li.SubItems.Add(FormatFloat('#,##0.00',TT3PlatformInstance(sender).FoodRemaining) + ' ton');
-//  li.SubItems.Add('ton');
-  {$ENDREGION}
-
-  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.RefreshNearestBaseLogistic(sender : TT3Vehicle);

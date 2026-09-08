@@ -12574,6 +12574,7 @@ begin
           Class_Identifier := FieldByName('Class_Identifier').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
           Max_Range := FieldByName('Max_Range').AsSingle;
           Min_Range := FieldByName('Min_Range').AsSingle;
@@ -12724,6 +12725,7 @@ begin
           Class_Identifier := FieldByName('Class_Identifier').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
+          Wbs_class_name :=FieldByName('Wbs_class_name').AsString;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
           Max_Range := FieldByName('Max_Range').AsSingle;
           Min_Range := FieldByName('Min_Range').AsSingle;
@@ -12857,7 +12859,7 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('INSERT INTO Torpedo_Definition');
-    SQL.Add('(Class_Identifier, Platform_Domain, Platform_Category,');
+    SQL.Add('(Class_Identifier, Wbs_class_name, Platform_Domain, Platform_Category,');
     SQL.Add('Platform_Type, Max_Range, Min_Range, Motion_Index,');
     SQL.Add('Seeker_TurnOn_Range, Lethality, Damage_Capacity, Default_Depth,');
     SQL.Add('Length, Width, Height, Front_Acoustic_Cross,');
@@ -12889,6 +12891,7 @@ begin
       SQL.Add(QuotedStr(Class_Identifier) + ', ');
       SQL.Add(IntToStr(Platform_Domain) + ', ');
       SQL.Add(IntToStr(Platform_Category) + ', ');
+      SQL.Add(QuotedStr(Wbs_class_name)+ ', ');
       SQL.Add(IntToStr(Platform_Type) + ', ');
       SQL.Add(FloatToStr(Max_Range) + ', ');
       SQL.Add(FloatToStr(Min_Range) + ', ');
@@ -12987,6 +12990,7 @@ begin
       SQL.Add('SET Class_Identifier = ' + QuotedStr(Class_Identifier));
       SQL.Add(', Platform_Domain = ' + IntToStr(Platform_Domain));
       SQL.Add(', Platform_Category = ' + IntToStr(Platform_Category));
+      SQL.Add(', Wbs_class_name = ' + QuotedStr(Wbs_class_name)) ;
       SQL.Add(', Platform_Type = ' + IntToStr(Platform_Type));
       SQL.Add(', Max_Range = ' + FloatToStr(Max_Range));
       SQL.Add(', Min_Range = ' + FloatToStr(Min_Range));

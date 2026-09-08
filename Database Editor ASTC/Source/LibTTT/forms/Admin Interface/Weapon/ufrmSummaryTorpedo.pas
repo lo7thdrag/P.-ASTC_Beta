@@ -426,6 +426,9 @@ begin
     FDef.Opt_Launch_Range_Nuc_Sub := trckbrNuclearSubmarine.Position / 100;
     FDef.Opt_Launch_Range_Conv_Sub := trckbrConventionalSubmarine.Position / 100;
     FDef.Opt_Launch_Range_Other := trckbrOtherSubmarine.Position / 100;
+
+    if Trim(FAddressPath) <> '' then
+       FDef.Wbs_class_name := ExtractFileName(FAddressPath);
     {$ENDREGION}
 
     {$REGION ' Physical '}
@@ -520,6 +523,8 @@ begin
       end;
     end;
   end;
+
+  UpdateTorpedoData;
 
   isOK := True;
   AfterClose := True;
@@ -771,6 +776,9 @@ begin
 end;
 
 procedure TfrmSummaryTorpedo.UpdateTorpedoData;
+var
+  ImagePath   : string;
+  ImageFolder : string;
 begin
   with FSelectedTorpedo do
   begin
@@ -803,6 +811,17 @@ begin
     trckbrNuclearSubmarine.Position := Round(FDef.Opt_Launch_Range_Nuc_Sub * 100);
     trckbrConventionalSubmarine.Position := Round(FDef.Opt_Launch_Range_Conv_Sub * 100);
     trckbrOtherSubmarine.Position := Round(FDef.Opt_Launch_Range_Other * 100);
+
+
+    ImageFolder := ExtractFilePath(Application.ExeName) +
+               'data\Image DBEditor\Interface\Weapon\';
+
+    ImagePath := ImageFolder + FDef.Wbs_class_name;
+
+    if FileExists(ImagePath) then
+      ImageModel.Picture.LoadFromFile(ImagePath)
+    else
+      ImageModel.Picture.LoadFromFile(ImageFolder + 'imgNoModel.jpg');
     {$ENDREGION}
 
     {$REGION ' Physical '}

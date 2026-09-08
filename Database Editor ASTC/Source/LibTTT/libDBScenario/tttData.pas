@@ -699,6 +699,7 @@ type
   TRecBomb_Definition =  record
     Bomb_Index           : integer;
     Bomb_Identifier      : string[60];
+    Wbs_class_name       : string[255];
     Bomb_Type            : byte;
     Lethality            : integer;
     Min_Range            : single;

@@ -14426,6 +14426,7 @@ begin
         begin
           Bomb_Index := FieldByName('Bomb_Index').AsInteger;
           Bomb_Identifier := FieldByName('Bomb_Identifier').AsString;
+          Wbs_class_name  := FieldByName('Wbs_class_name').AsString;
           Bomb_Type := FieldByName('Bomb_Type').AsInteger;
           Lethality := FieldByName('Lethality').AsInteger;
           Min_Range := FieldByName('Min_Range').AsSingle;
@@ -14502,6 +14503,7 @@ begin
         begin
           Bomb_Index := FieldByName('Bomb_Index').AsInteger;
           Bomb_Identifier := FieldByName('Bomb_Identifier').AsString;
+          Wbs_class_name  := FieldByName('Wbs_class_name').AsString;
           Bomb_Type := FieldByName('Bomb_Type').AsInteger;
           Lethality := FieldByName('Lethality').AsInteger;
           Min_Range := FieldByName('Min_Range').AsSingle;
@@ -14560,7 +14562,7 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('INSERT INTO Bomb_Definition');
-    SQL.Add('(Bomb_Identifier, Bomb_Type, Lethality, Min_Range, Max_Range,');
+    SQL.Add('(Bomb_Identifier, Bomb_Type, Wbs_class_name, Lethality, Min_Range, Max_Range,');
     SQL.Add('Rocket_Launcher, Anti_Sur_Capable, Anti_SubSur_Capable, Anti_Land_Capable,');
     SQL.Add('Anti_Amphibious_Capable)');
     SQL.Add('VALUES (');
@@ -14569,6 +14571,7 @@ begin
     begin
       SQL.Add(QuotedStr(Bomb_Identifier) + ', ');
       SQL.Add(IntToStr(Bomb_Type) + ', ');
+      SQL.Add(QuotedStr(Wbs_class_name) + ', ');
       SQL.Add(IntToStr(Lethality) + ', ');
       SQL.Add(FloatToStr(Min_Range) + ', ');
       SQL.Add(FloatToStr(Max_Range) + ', ');
@@ -14615,6 +14618,7 @@ begin
     begin
       SQL.Add('SET Bomb_Identifier = ' + QuotedStr(Bomb_Identifier));
       SQL.Add(', Bomb_Type = ' + IntToStr(Bomb_Type));
+      SQL.Add(', Wbs_class_name = ' + QuotedStr(Wbs_class_name));
       SQL.Add(', Lethality = ' + IntToStr(Lethality));
       SQL.Add(', Min_Range = ' + FloatToStr(Min_Range));
       SQL.Add(', Max_Range = ' + FloatToStr(Max_Range));

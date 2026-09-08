@@ -214,6 +214,9 @@ begin
     FData.Max_Range := StrToFloat(edtRangeMax.Text);
 
     FData.Lethality := trckbrLethality.Position;
+
+    if Trim(FAddressPath) <> '' then
+       FData.Wbs_class_name := ExtractFileName(FAddressPath);
     {$ENDREGION}
 
     {$REGION ' Notes '}
@@ -299,6 +302,9 @@ begin
 end;
 
 procedure TfrmSummaryBomb.UpdateBombData;
+var
+  ImagePath: string;
+  ImageFolder: string;
 begin
   with FSelectedBomb do
   begin
@@ -322,6 +328,16 @@ begin
     btnEditPOH.Enabled := FData.Bomb_Index <> 0;
 
     trckbrLethality.Position := FData.Lethality;
+
+    ImageFolder := ExtractFilePath(Application.ExeName) +
+               'data\Image DBEditor\Interface\Weapon\';
+
+    ImagePath := ImageFolder + FData.Wbs_class_name;
+
+    if FileExists(ImagePath) then
+      ImageModel.Picture.LoadFromFile(ImagePath)
+    else
+      ImageModel.Picture.LoadFromFile(ImageFolder + 'imgNoModel.jpg');
     {$ENDREGION}
 
     {$REGION ' Notes '}

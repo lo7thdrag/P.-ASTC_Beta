@@ -98,6 +98,8 @@ type
     procedure imgCloseClick(Sender: TObject);
     procedure imgMinimizeClick(Sender: TObject);
     procedure img1Click(Sender: TObject);
+    procedure img1MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
     FLastS : string;
@@ -408,7 +410,27 @@ begin
     Self.BorderStyle := bsSingle;
 end;
 
+procedure TfMainGServer.img1MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+const
+  {F012 nilai kombinasi dari delphi untuk move}
+  {F012 dari SC_MOVE ($F010) + HTCAPTION ($0002)}
+  SC_DRAGMOVE = $F012;
+begin
+  if Button = mbLeft then
+  begin
+    {Kunci kursor}
+    ReleaseCapture;
+    {WM_SYSCOMMAND = disystem, 0 = koordinatnya}
+    Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
+  end;
+end;
+
 procedure TfMainGServer.imgBackgroundMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+const
+  {F012 nilai kombinasi dari delphi untuk move}
+  {F012 dari SC_MOVE ($F010) + HTCAPTION ($0002)}
+  SC_DRAGMOVE = $F012;
 begin
   case Button of
   mbLeft: begin
@@ -419,6 +441,14 @@ begin
         btnFlush.Visible := not btnFlush.Visible;
       end;
     end;
+  end;
+
+  if Button = mbLeft then
+  begin
+    {Kunci kursor}
+    ReleaseCapture;
+    {WM_SYSCOMMAND = disystem, 0 = koordinatnya}
+    Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
   end;
 end;
 

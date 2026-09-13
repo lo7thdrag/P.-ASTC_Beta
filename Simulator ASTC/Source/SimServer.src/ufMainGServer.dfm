@@ -16371,6 +16371,7 @@ object fMainGServer: TfMainGServer
       Height = 25
       Cursor = crHandPoint
       OnClick = img1Click
+      OnMouseDown = img1MouseDown
     end
     object btnPercepatan: TBitBtn
       Left = 1000

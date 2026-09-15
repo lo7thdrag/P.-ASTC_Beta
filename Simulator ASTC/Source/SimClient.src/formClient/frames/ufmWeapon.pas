@@ -6252,6 +6252,10 @@ begin
     _weaponCategory :=  _vehicle.getWeaponType(_weaponName);
     _initWeapon := _vehicle.getWeapon(_weaponName);
 
+    if Assigned(frmToteDisplay) and Assigned(_initWeapon) then
+    begin
+      frmToteDisplay.UpdateWeaponData(_initWeapon);
+
     {$REGION ' Jk Weapon yg dipilih torpedo active pasive '}
     if _weaponCategory = wcTorpedoActivePassive then
     begin
@@ -6346,6 +6350,7 @@ begin
     end;
     {$ENDREGION}
   end;
+end;
 end;
 
 { TODO 1 : Cek baris berikut, OnChaffTypeItemSelected di komen dulu karena perubahan di frmweapon }

@@ -14,7 +14,7 @@ uses
   uBrigadePersonel,
   uSlidingTrans, ufrmWeapon, uDataModuleTTT,uMainLogisticTemplate,ufmLogisticCalculation,
   System.ImageList, RzBmpBtn, Vcl.Imaging.pngimage, Vcl.Imaging.jpeg,
-  VrControls, VrTrackBar, uDBAsset_MotionCharacteristics, VrWheel{,
+  VrControls, VrTrackBar, uDBAsset_MotionCharacteristics, VrWheel {,
   frxClass};
 
 type
@@ -2187,6 +2187,7 @@ public
     procedure UpdateLogisticToteDisplay (sender : TT3Vehicle);
 
     procedure UpdateShipDataVehicle(sender : TT3Vehicle);
+    procedure UpdateWeaponData(sender: TObject);
 
     procedure RefreshStatusLogistic(sender : TT3Vehicle);
     procedure RefreshShipLogistic(sender : TT3Vehicle);
@@ -15173,6 +15174,35 @@ begin
   UpdateLogisticToteDisplay(sender);
 
   UpdateShipDataVehicle(sender);
+end;
+
+procedure TfrmToteDisplay.UpdateWeaponData(sender: TObject);
+var
+  BaseAppPath, ImagePath: string;
+  weaponObj: TT3Weapon;
+begin
+  if not Assigned(sender) or not (sender is TT3Weapon) then
+  Exit;
+
+  weaponObj := TT3Weapon(sender);
+
+  lblShipNAme.Caption := weaponObj.InstanceName;
+  lblClass.Caption    := weaponObj.ClassName;
+
+  BaseAppPath := ExtractFilePath(ParamStr(0));
+  ImagePath := ExpandFileName(BaseAppPath + '..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\' + weaponObj.ClassName + '.png');
+
+  if not FileExists(ImagePath) then
+    ImagePath := ExpandFileName(BaseAppPath + '..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\' + weaponObj.InstanceName + '.png');
+
+  try
+    if FileExists(ImagePath) then
+      imgShip.Picture.LoadFromFile(ImagePath)
+    else
+      imgShip.Picture.LoadFromFile(BaseAppPath + 'data\NoModel.bmp');
+  except
+    imgShip.Picture.LoadFromFile(BaseAppPath + 'data\NoModel.bmp');
+  end;
 end;
 
 procedure TfrmToteDisplay.UpdateWeaponVehicle(sender : TT3Vehicle);

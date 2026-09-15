@@ -7,7 +7,9 @@ uses
   Dialogs, StdCtrls, ExtCtrls, ComCtrls, uDBEditSetting, uGameData_TTT, uDBAssetObject,
   Buttons, uMainOverlay, uMainStaticShape, uMainDynamicShape, uSimObjects, uT3DetectedTrack,
   uFormula, uDataTypes,
-  ColorGrd,  U_Helper,uDrawOverlay, Vcl.Imaging.pngimage, RzBmpBtn{, acPNG};
+  ColorGrd,  U_Helper,uDrawOverlay, Vcl.Imaging.pngimage, RzBmpBtn{, acPNG},
+
+  uCoordConvertor;
 
 type
   E_ShapeColor = (scOutline, scFill);
@@ -609,6 +611,8 @@ type
     FControlled: TObject;
 
   public
+    CoordConverter: TCoordConverter;
+
     Flatt : string;
     Flong : string;
 
@@ -1472,7 +1476,7 @@ end;
 
 procedure TfmOverlayEditor.btnAttachClick(Sender: TObject);
 begin
-//  pnlType.Visible := False;
+  pnlType.Visible := False;
   pnlTrackSelection.BringToFront;
   btnTrackSelectionOK.Enabled := False;
   edtTrack.Text := '';
@@ -1722,7 +1726,7 @@ begin
       isMoveOverlay := False;
 
       if StateOverlay = osDynamic then
-        frmTacticalDisplay.Map1.CurrentTool := mtEditOverlayStatic
+        frmTacticalDisplay.Map1.CurrentTool := mtEditOverlayDynamic
       else
         frmTacticalDisplay.Map1.CurrentTool := mtEditOverlayStatic;
 
@@ -1825,7 +1829,8 @@ begin
     end;
     6:{Ok Track Selection}
     begin
-//      pnlType.BringToFront;
+      pnlType.BringToFront;
+      btnEdit.Enabled := True;
       AddTrackSelection;
     end;
     7:{Cancel Track Selection}
@@ -3280,7 +3285,8 @@ begin
       rbStatic.Checked  := (TipeOverlay = osStatic);
       rbDynamic.Checked := (TipeOverlay = osDynamic);
 
-      if TipeOverlay = 1 then
+//      if TipeOverlay = 1 then
+      if TipeOverlay = osStatic then
       begin
         lblState.Caption := 'STATIC';
         pnlStatic.Visible := True;
@@ -4209,6 +4215,9 @@ end;
 
 procedure TfmOverlayEditor.FormCreate(Sender: TObject);
 begin
+  CoordConverter := TCoordConverter.Create;
+  CoordConverter.FMap := frmTacticalDisplay.Map1;
+
   Temporary := TList.Create;
   TemporaryD := TList.Create;
   idxDrawOverlay := -1;
@@ -4217,6 +4226,7 @@ end;
 
 procedure TfmOverlayEditor.FormDestroy(Sender: TObject);
 begin
+  CoordConverter.Free;
   Temporary.Free;
   TemporaryD.Free;
 end;

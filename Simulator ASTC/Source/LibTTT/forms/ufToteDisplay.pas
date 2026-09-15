@@ -1535,6 +1535,8 @@ type
     Image77: TImage;
     Label286: TLabel;
     lvSensorFiring: TListView;
+    pnlSMS1: TPanel;
+    Image75: TImage;
 
 
 
@@ -21672,6 +21674,14 @@ begin
 
       frmTacticalDisplay.Show;
       frmTacticalDisplay.BringToFront;
+    end;
+    10:
+    begin
+      DisablePrevious;
+      btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\8a.bmp') ;
+      LastButton := 10;
+
+      gbMessageHandlingSystem.BringToFront;
     end;
   end;
 end;

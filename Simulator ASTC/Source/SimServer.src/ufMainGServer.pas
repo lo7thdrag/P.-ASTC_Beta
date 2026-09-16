@@ -100,6 +100,8 @@ type
     procedure img1Click(Sender: TObject);
     procedure img1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure lvPlatformCustomDrawItem(Sender: TCustomListView; Item: TListItem;
+      State: TCustomDrawState; var DefaultDraw: Boolean);
   private
     { Private declarations }
     FLastS : string;
@@ -454,7 +456,7 @@ end;
 
 procedure TfMainGServer.imgCloseClick(Sender: TObject);
 begin
-  Close
+  Close;
 end;
 
 procedure TfMainGServer.imgMinimizeClick(Sender: TObject);
@@ -512,6 +514,15 @@ begin
     FLastS := strBody;
 //  FLastS := str;
   end;
+end;
+
+procedure TfMainGServer.lvPlatformCustomDrawItem(Sender: TCustomListView;
+  Item: TListItem; State: TCustomDrawState; var DefaultDraw: Boolean);
+begin
+  if Item.Index mod 2 = 0 then
+    Sender.Canvas.Brush.Color := RGB(0, 10, 35)   // Baris Genap
+  else
+    Sender.Canvas.Brush.Color := RGB(8, 36, 75);
 end;
 
 procedure TfMainGServer.lvVersionDrawItem(Sender: TCustomListView; Item: TListItem; Rect: TRect; State: TOwnerDrawState);

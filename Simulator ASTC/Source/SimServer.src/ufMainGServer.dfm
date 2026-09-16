@@ -16866,6 +16866,7 @@ object fMainGServer: TfMainGServer
           ParentFont = False
           TabOrder = 0
           ViewStyle = vsReport
+          OnCustomDrawItem = lvPlatformCustomDrawItem
         end
       end
       object pnlHeaderWatcher: TPanel

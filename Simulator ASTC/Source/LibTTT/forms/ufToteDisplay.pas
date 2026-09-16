@@ -14,7 +14,9 @@ uses
   uBrigadePersonel,
   uSlidingTrans, ufrmWeapon, uDataModuleTTT,uMainLogisticTemplate,ufmLogisticCalculation,
   System.ImageList, RzBmpBtn, Vcl.Imaging.pngimage, Vcl.Imaging.jpeg,
-  VrControls, VrTrackBar, uDBAsset_MotionCharacteristics, VrWheel {,
+  VrControls, VrTrackBar, uDBAsset_MotionCharacteristics, VrWheel,
+  VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series, VCLTee.TeeProcs,
+  VCLTee.Chart {,
   frxClass};
 
 type
@@ -1537,6 +1539,8 @@ type
     lvSensorFiring: TListView;
     pnlSMS1: TPanel;
     Image75: TImage;
+    chtLogistic: TChart;
+    Series1: TBarSeries;
 
 
 
@@ -16976,7 +16980,8 @@ end;
 procedure TfrmToteDisplay.RefreshShipLogistic(sender : TT3Vehicle);
 var
   li      : TListItem;
-
+  SenderObj: TT3PlatformInstance;
+  FuelRem, LubeRem, WaterRem, FoodRem: Double;
 begin
   if not Assigned(sender) then
     Exit;
@@ -17119,6 +17124,56 @@ begin
 
   {$ENDREGION}
 
+  if (sender = nil) or not (sender is TT3PlatformInstance) then
+  Exit;
+
+  SenderObj := TT3PlatformInstance(sender);
+
+  {$REGION ' DIAGRAM LOGISTIC '}
+  if (chtLogistic = nil) or (chtLogistic.SeriesCount = 0) then
+    Exit;
+
+  chtLogistic.Series[0].Clear;
+
+  {Mengambil nilai Remaining Fuel berdasarkan tipenya}
+  FuelRem := 0;
+  case SenderObj.UnitMotion.FData.Endurance_Type of
+    byte(entFuel):
+    begin
+      FuelRem := SenderObj.FuelRemaining;
+    end;
+    byte(entTime):
+    begin
+      FuelRem := 0;
+    end;
+    byte(entRange):
+    begin
+      FuelRem := 0;
+    end;
+    byte(entUnlimited):
+    begin
+      FuelRem := 0;
+    end;
+  end;
+
+  LubeRem  := SenderObj.MLRemaining;
+  WaterRem := SenderObj.ATRemaining;
+  FoodRem  := SenderObj.FoodRemaining;
+
+  with TBarSeries(chtLogistic.Series[0]) do
+  begin
+    Add(FuelRem, 'Fuel', RGB(35, 95, 155));
+    Add(LubeRem, 'Lub', RGB(35, 95, 155));
+    Add(WaterRem, 'Water', RGB(35, 95, 155));
+    Add(FoodRem, 'Food', RGB(35, 95, 155));
+
+    Marks.Visible := True;
+    Marks[0].Text.Text := FormatFloat('#,##0.00', FuelRem) + ' m3';
+    Marks[1].Text.Text := FormatFloat('#,##0.00', LubeRem) + ' m3';
+    Marks[2].Text.Text := FormatFloat('#,##0.00', WaterRem) + ' m3';
+    Marks[3].Text.Text := FormatFloat('#,##0.00', FoodRem) + ' ton';
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmToteDisplay.RefreshNearestBaseLogistic(sender : TT3Vehicle);

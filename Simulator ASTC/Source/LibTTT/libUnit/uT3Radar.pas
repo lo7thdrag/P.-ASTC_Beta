@@ -58,6 +58,7 @@ type
     constructor Create; override;
     destructor Destroy; override;
 
+    function GetRadarType: byte;
     function GetSnapshotData : _SS_TT3Radar ;
     procedure SetSnapshotData(const ss : _SS_TT3Radar);
 
@@ -547,6 +548,11 @@ begin
   basicLOS := TargetHeight + AntenaHeight;
 
   Result := basicLOS;
+end;
+
+function TT3Radar.GetRadarType: byte;
+begin
+  Result := FRadarDefinition.FDef.Radar_Type;
 end;
 
 procedure TT3Radar.SetControlMode(const Value: TRadarControlMode);

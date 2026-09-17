@@ -297,7 +297,7 @@ implementation
 {$R *.dfm}
 
 uses
-  tttData, uSimMgr_Client,  uT3Vehicle, math, ufToteDisplay;
+  tttData, uSimMgr_Client,  uT3Vehicle, math, ufToteDisplay, uLibSettingTTT;
 
 //type
 //  RecIFF = class (TSimObject)
@@ -1528,6 +1528,7 @@ var
 
   sensor : TT3Sensor;
   device : TT3DeviceUnit;
+  radar: TT3Radar;
 begin
   lstSensor.Items.Clear;
 
@@ -1540,6 +1541,17 @@ begin
     if not(Assigned(device)) or not(device is TT3Sensor) then continue;
 
     sensor := TT3Sensor(device);
+
+    if not (sensor is TT3Radar) then
+      continue;
+
+    radar := TT3Radar(sensor);
+
+    if vGameDataSetting.Role = 1 then
+    begin
+      if (radar.GetRadarType <> 3) and (radar.GetRadarType <> 4) then
+        continue;
+    end;
 
     if sensor is TT3IFFSensor then
     begin

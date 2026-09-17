@@ -3947,6 +3947,13 @@ begin
 //            simMgrClient.Converter.ConvertToScreen(mx, my, pos.X, pos.Y);
             fmOverlayEditor.SelectShape(pos)
             {$ENDREGION}
+          end;
+          mtEditOverlayDynamic :
+          begin
+            {$REGION ' Select Overlay Static '}
+//            simMgrClient.Converter.ConvertToScreen(mx, my, pos.X, pos.Y);
+            fmOverlayEditor.SelectShape(pos)
+            {$ENDREGION}
 
           end;
           mtEditLogistic :

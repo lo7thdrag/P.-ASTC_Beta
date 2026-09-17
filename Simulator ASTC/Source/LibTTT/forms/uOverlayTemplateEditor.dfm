@@ -57760,7 +57760,7 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object lb2: TLabel
           Left = 24
-          Top = 57
+          Top = 81
           Width = 67
           Height = 15
           Caption = 'Range offset'
@@ -57774,7 +57774,7 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object lb3: TLabel
           Left = 24
-          Top = 79
+          Top = 106
           Width = 73
           Height = 15
           Caption = 'Bearing offset'
@@ -57788,7 +57788,7 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object lb4: TLabel
           Left = 160
-          Top = 57
+          Top = 81
           Width = 17
           Height = 15
           Caption = 'nm'
@@ -57802,7 +57802,7 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object lb5: TLabel
           Left = 160
-          Top = 79
+          Top = 106
           Width = 20
           Height = 15
           Caption = 'deg'
@@ -57816,7 +57816,7 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object lb6: TLabel
           Left = 24
-          Top = 101
+          Top = 56
           Width = 78
           Height = 15
           Caption = 'Rotation angle'
@@ -57829,7 +57829,7 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object lb7: TLabel
           Left = 160
-          Top = 101
+          Top = 56
           Width = 20
           Height = 15
           Caption = 'deg'
@@ -57963,7 +57963,7 @@ object fmOverlayEditor: TfmOverlayEditor
           ParentFont = False
         end
         object Label18: TLabel
-          Left = 99
+          Left = 105
           Top = 57
           Width = 3
           Height = 15
@@ -57976,8 +57976,8 @@ object fmOverlayEditor: TfmOverlayEditor
           ParentFont = False
         end
         object Label19: TLabel
-          Left = 99
-          Top = 79
+          Left = 105
+          Top = 81
           Width = 3
           Height = 15
           Caption = ':'
@@ -57989,8 +57989,8 @@ object fmOverlayEditor: TfmOverlayEditor
           ParentFont = False
         end
         object Label20: TLabel
-          Left = 99
-          Top = 101
+          Left = 105
+          Top = 106
           Width = 3
           Height = 15
           Caption = ':'
@@ -58002,11 +58002,11 @@ object fmOverlayEditor: TfmOverlayEditor
           ParentFont = False
         end
         object Label24: TLabel
-          Left = 65
+          Left = 69
           Top = 129
-          Width = 3
+          Width = 9
           Height = 15
-          Caption = ':'
+          Caption = ' : '
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
           Font.Height = -13
@@ -58041,7 +58041,7 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object edtRange: TEdit
           Left = 119
-          Top = 53
+          Top = 78
           Width = 35
           Height = 21
           MaxLength = 5
@@ -58051,7 +58051,7 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object edtBearing: TEdit
           Left = 119
-          Top = 75
+          Top = 103
           Width = 30
           Height = 21
           MaxLength = 3
@@ -58061,7 +58061,7 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object edtRotation: TEdit
           Left = 119
-          Top = 97
+          Top = 53
           Width = 30
           Height = 21
           MaxLength = 3
@@ -58088,8 +58088,8 @@ object fmOverlayEditor: TfmOverlayEditor
         end
         object rbTrueOrientation: TRadioButton
           Left = 43
-          Top = 146
-          Width = 113
+          Top = 150
+          Width = 54
           Height = 17
           Caption = 'True'
           Checked = True
@@ -58103,9 +58103,9 @@ object fmOverlayEditor: TfmOverlayEditor
           TabStop = True
         end
         object rbRelativeOrientation: TRadioButton
-          Left = 43
-          Top = 167
-          Width = 113
+          Left = 115
+          Top = 150
+          Width = 78
           Height = 17
           Caption = 'Relative'
           Font.Charset = ANSI_CHARSET

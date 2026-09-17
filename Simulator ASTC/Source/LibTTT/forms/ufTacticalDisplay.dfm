@@ -193,7 +193,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             ParentFont = False
@@ -248,7 +247,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
-            Items.ItemData = {}
             MultiSelect = True
             ReadOnly = True
             RowSelect = True
@@ -12871,7 +12869,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             Caption = 'Name'
             Width = 235
           end>
-        Items.ItemData = {}
         ReadOnly = True
         TabOrder = 0
         ViewStyle = vsReport

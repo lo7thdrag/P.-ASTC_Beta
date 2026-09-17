@@ -5004,8 +5004,9 @@ begin
       if not simMgrClient.IsWasdal and not simMgrClient.ISInstructor then     //dng
       begin
         if simMgrClient.FMyCubGroup.FData.Force_Designation <> OverlayTemplate.force then
-        exit
+          exit
       end;
+
       if r.IdAction = 3 then
       begin
         OverlayTemplate.DynamicList.Delete(r.IdSelectShape);

@@ -188,19 +188,19 @@ end;
 
 procedure TfrmTopNav.Timer1Timer(Sender: TObject);
 begin
-  lblLMT.Caption := FormatDateTime('hh:mm:ss', gTime);
+  lblLMT.Caption := FormatDateTime('hh:mm:ss', Now);
 end;
 
 procedure TfrmTopNav.tmr2Timer(Sender: TObject);
 begin
-  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', gTime);
+  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', Now);
 end;
 
 procedure TfrmTopNav.tmrUTCTimer(Sender: TObject);
 var
   WaktuUTC: TDateTime;
 begin
-  WaktuUTC := TTimeZone.Local.ToUniversalTime(gTime);
+  WaktuUTC := TTimeZone.Local.ToUniversalTime(Now);
   lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
 end;
 

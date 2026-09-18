@@ -6840,7 +6840,6 @@ begin
   pnlBottom.Visible := False;
   pnlLeft.Visible   := False;
   pnlContainerBottom.Visible := True;
-//  pnlRangedanBearing.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   {$REGION ' Create Form Top '}
@@ -6894,7 +6893,6 @@ begin
   pnlBottom.Visible := False;
   pnlLeft.Visible   := False;
   pnlContainerBottom.Visible := True;
-//  pnlRangedanBearing.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   {$REGION ' Create Form Top '}
@@ -6948,7 +6946,6 @@ begin
   pnlBottom.Visible := False;
   pnlLeft.Visible   := False;
   pnlContainerBottom.Visible := True;
-//  pnlRangedanBearing.Visible := True;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   if not Assigned(frmLeftNav) then

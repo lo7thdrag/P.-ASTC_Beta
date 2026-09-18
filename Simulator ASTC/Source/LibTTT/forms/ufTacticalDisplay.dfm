@@ -18688,69 +18688,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnChange = cbbSetScaleChange
       end
     end
-    object pnlRangedanBearing: TPanel
-      Left = 5
-      Top = 85
-      Width = 1216
-      Height = 25
-      Align = alTop
-      BevelOuter = bvNone
-      Color = 2695445
-      ParentBackground = False
-      TabOrder = 2
-      object Label30: TLabel
-        Left = 408
-        Top = 5
-        Width = 49
-        Height = 16
-        Caption = 'Bearing'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object lblBearingMap: TLabel
-        Left = 467
-        Top = 5
-        Width = 15
-        Height = 16
-        Caption = '---'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label32: TLabel
-        Left = 742
-        Top = 5
-        Width = 41
-        Height = 16
-        Caption = 'Range'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object lblRangeMap: TLabel
-        Left = 793
-        Top = 5
-        Width = 15
-        Height = 16
-        Caption = '---'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-    end
   end
   object pnlHorizontalSparator1: TPanel
     Left = 0

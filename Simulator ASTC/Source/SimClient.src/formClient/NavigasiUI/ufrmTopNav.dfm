@@ -10970,8 +10970,8 @@ object frmTopNav: TfrmTopNav
       Stretch = True
     end
     object Label2: TLabel
-      Left = 906
-      Top = 5
+      Left = 902
+      Top = 18
       Width = 56
       Height = 19
       Caption = 'Position'
@@ -10983,66 +10983,53 @@ object frmTopNav: TfrmTopNav
       ParentFont = False
     end
     object lblLong1: TLabel
-      Left = 992
-      Top = 27
-      Width = 119
-      Height = 19
+      Left = 1033
+      Top = 12
+      Width = 79
+      Height = 13
       Caption = '112o 32'#39' 07.9" E'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-    end
-    object lbl1: TLabel
-      Left = 1116
-      Top = 27
-      Width = 6
-      Height = 19
-      Caption = '/'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -16
+      Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
     end
     object lblLat1: TLabel
-      Left = 1168
-      Top = 27
-      Width = 90
-      Height = 19
+      Left = 1035
+      Top = 33
+      Width = 61
+      Height = 13
       Caption = '05.34.384'#39' S'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -16
+      Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 1129
-      Top = 27
-      Width = 32
-      Height = 19
+      Left = 985
+      Top = 33
+      Width = 22
+      Height = 13
       Caption = 'Lat :'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -16
+      Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 940
-      Top = 27
-      Width = 46
-      Height = 19
+      Left = 983
+      Top = 12
+      Width = 30
+      Height = 13
       Caption = 'Long :'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -16
+      Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
@@ -11154,6 +11141,58 @@ object frmTopNav: TfrmTopNav
         2C21}
       Stretch = True
       Transparent = True
+    end
+    object Label70: TLabel
+      Left = 1148
+      Top = 12
+      Width = 43
+      Height = 13
+      Caption = 'Bearing :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label68: TLabel
+      Left = 1148
+      Top = 33
+      Width = 38
+      Height = 13
+      Caption = 'Range :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lbBearingAnchor: TLabel
+      Left = 1211
+      Top = 12
+      Width = 12
+      Height = 13
+      Caption = '---'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lbRangeAnchor: TLabel
+      Left = 1211
+      Top = 33
+      Width = 12
+      Height = 13
+      Caption = '---'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object Panel2: TPanel
       Left = 752

@@ -28,7 +28,6 @@ type
     Image2: TImage;
     Label2: TLabel;
     lblLong1: TLabel;
-    lbl1: TLabel;
     lblLat1: TLabel;
     Label6: TLabel;
     Label5: TLabel;
@@ -40,6 +39,10 @@ type
     Panel7: TPanel;
     Image1: TImage;
     Image3: TImage;
+    Label70: TLabel;
+    Label68: TLabel;
+    lbBearingAnchor: TLabel;
+    lbRangeAnchor: TLabel;
     procedure Timer1Timer(Sender: TObject);
     procedure tmr2Timer(Sender: TObject);
     procedure tmrUTCTimer(Sender: TObject);

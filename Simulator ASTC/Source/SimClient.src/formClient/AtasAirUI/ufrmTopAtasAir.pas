@@ -26,7 +26,6 @@ type
     Image2: TImage;
     Label2: TLabel;
     lblLong1: TLabel;
-    lbl1: TLabel;
     lblLat1: TLabel;
     Label6: TLabel;
     Label5: TLabel;
@@ -37,6 +36,10 @@ type
     Panel6: TPanel;
     Panel5: TPanel;
     Panel7: TPanel;
+    Label70: TLabel;
+    Label68: TLabel;
+    lbRangeAnchor: TLabel;
+    lbBearingAnchor: TLabel;
     protected
     FControlled: TObject;
   private

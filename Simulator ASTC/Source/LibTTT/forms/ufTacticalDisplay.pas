@@ -4663,35 +4663,62 @@ begin
   lblUTM.Caption := hasilUTM;
   lblMGRS.Caption := hasilMGRS;
 
-  {$REGION ' Range Bearing untuk Top Navigasi'}
-  if Assigned(simMgrClient) and Assigned(simMgrClient.LineVisual) then
+
+  {$REGION ' Range Bearing untuk Top Navigasi & Atas Air'}
+if Assigned(simMgrClient) and Assigned(simMgrClient.LineVisual) then
+begin
+  if Assigned(anchorTrack) then
   begin
-    if Assigned(anchorTrack) then
-    begin
-      startX := anchorTrack.getPositionX;
-      startY := anchorTrack.getPositionY;
-    end
-    else
-    begin
-      startX := simMgrClient.LineVisual.X1;
-      startY := simMgrClient.LineVisual.Y1;
-    end;
-
-    r := CalcRange(startX, startY, mx, my);
-    b := CalcBearing(startX, startY, mx, my);
-
-    simMgrClient.LineVisual.Range := r;
-    simMgrClient.LineVisual.Bearing := b;
-
-    frmTopNav.lbRangeAnchor.Caption  := FormatFloat('00.00', r);
-    frmTopNav.lbBearingAnchor.Caption := FormatCourse(b);
+    startX := anchorTrack.getPositionX;
+    startY := anchorTrack.getPositionY;
   end
   else
   begin
-    frmTopNav.lbRangeAnchor.Caption  := '---';
-    frmTopNav.lbBearingAnchor.Caption := '---';
+    startX := simMgrClient.LineVisual.X1;
+    startY := simMgrClient.LineVisual.Y1;
   end;
+
+  r := CalcRange(startX, startY, mx, my);
+  b := CalcBearing(startX, startY, mx, my);
+
+  simMgrClient.LineVisual.Range := r;
+  simMgrClient.LineVisual.Bearing := b;
+
+  if vGameDataSetting.Role = 1 then // Role Navigasi
+  begin
+    if Assigned(frmTopNav) then
+    begin
+      if Assigned(frmTopNav.lbRangeAnchor) then
+        frmTopNav.lbRangeAnchor.Caption := FormatFloat('00.00', r);
+      if Assigned(frmTopNav.lbBearingAnchor) then
+        frmTopNav.lbBearingAnchor.Caption := FormatCourse(b);
+    end;
+  end
+  else if vGameDataSetting.Role = 2 then // Role Atas Air
+  begin
+    if Assigned(frmTopAtasAir) then
+    begin
+      if Assigned(frmTopAtasAir.lbRangeAnchor) then
+        frmTopAtasAir.lbRangeAnchor.Caption := FormatFloat('00.00', r);
+      if Assigned(frmTopAtasAir.lbBearingAnchor) then
+        frmTopAtasAir.lbBearingAnchor.Caption := FormatCourse(b);
+    end;
+  end;
+end
+else
+begin
+  if Assigned(frmTopNav) and Assigned(frmTopNav.lbRangeAnchor) then
+    frmTopNav.lbRangeAnchor.Caption := '---';
+  if Assigned(frmTopNav) and Assigned(frmTopNav.lbBearingAnchor) then
+    frmTopNav.lbBearingAnchor.Caption := '---';
+
+  if Assigned(frmTopAtasAir) and Assigned(frmTopAtasAir.lbRangeAnchor) then
+    frmTopAtasAir.lbRangeAnchor.Caption := '---';
+  if Assigned(frmTopAtasAir) and Assigned(frmTopAtasAir.lbBearingAnchor) then
+    frmTopAtasAir.lbBearingAnchor.Caption := '---';
+end;
   {$ENDREGION}
+
   {ruler mode}
 //  if FLeftMouseDown and (Map1.CurrentTool = mtRuler) then
 //  begin
@@ -4855,6 +4882,7 @@ begin
   FLastPos.X := X;
   FLastPos.Y := Y;
 end;
+
 
 procedure TfrmTacticalDisplay.MapMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; x, y: Integer);

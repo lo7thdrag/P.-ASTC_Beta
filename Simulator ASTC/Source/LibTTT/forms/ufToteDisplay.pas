@@ -1541,6 +1541,15 @@ type
     Image75: TImage;
     chtLogistic: TChart;
     Series1: TBarSeries;
+    lblMaxCap: TLabel;
+    Label283: TLabel;
+    Label287: TLabel;
+    Label288: TLabel;
+    Label289: TLabel;
+    lblMaxFuel: TLabel;
+    lblMaxWater: TLabel;
+    lblMaxFood: TLabel;
+    lblMaxLub: TLabel;
 
 
 
@@ -17172,6 +17181,20 @@ begin
     Marks[1].Text.Text := FormatFloat('#,##0.00', LubeRem) + ' m3';
     Marks[2].Text.Text := FormatFloat('#,##0.00', WaterRem) + ' m3';
     Marks[3].Text.Text := FormatFloat('#,##0.00', FoodRem) + ' ton';
+  end;
+
+  if Assigned(Sender) and (Sender is TT3PlatformInstance) then
+  begin
+    SenderObj := TT3PlatformInstance(Sender);
+
+    if SenderObj.UnitMotion.FData.Endurance_Type = byte(entFuel) then
+      lblMaxFuel.Caption := FormatFloat('#,##0.00', SenderObj.FuelCapacity) + ' m3'
+    else
+      lblMaxFuel.Caption := 'N/A';
+
+    lblMaxWater.Caption := FormatFloat('#,##0.00', SenderObj.ATCapacity) + ' m3';
+    lblMaxFood.Caption := FormatFloat('#,##0.00', SenderObj.FoodCapacity) + ' ton';
+    lblMaxLub.Caption := FormatFloat('#,##0.00', SenderObj.MLCapacity) + ' m3';
   end;
   {$ENDREGION}
 end;

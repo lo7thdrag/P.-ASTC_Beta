@@ -3982,7 +3982,7 @@ begin
             fmOverlayEditor.PostY := my;
             fmOverlayEditor.FillEditText;
 
-            if fmOverlayEditor.ShapeType = ovPolygon then
+            if fmOverlayEditor.ObjectType = ovPolygon then
             begin
               if fmOverlayEditor.SpeedButton10.Down then
               begin

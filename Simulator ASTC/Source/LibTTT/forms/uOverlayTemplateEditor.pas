@@ -601,9 +601,8 @@ type
     FTagTombolPosition : Integer;
     FTrackPlatform: TSimObject;
 
-    FShapeType : Integer;
+    FObjectType : Integer;
     FShapeColor : E_ShapeColor;
-
 
     procedure SetTrackPlatform(const Value: TSimObject);    { Private declarations }
 
@@ -702,7 +701,7 @@ type
     function GetInput(s : string): Boolean;
 
     property TrackPlatform: TSimObject read FTrackPlatform write  SetTrackPlatform;
-    property ShapeType : Integer read FShapeType write  FShapeType;
+    property ObjectType : Integer read FObjectType write  FObjectType;
   end;
 
 var
@@ -780,16 +779,11 @@ begin
 
     if Assigned(FSelectedOverlay) then
     begin
-      StateOverlay := FSelectedOverlay.Tipe;
 
       chkShowAllOverlayTemplate.Checked := False;
       chkHideAllOverlayTemplate.Checked := False;
-      chkShowOverlayTemplate.Checked := FSelectedOverlay.isShow;
 
       pnlType.BringToFront;
-//      pnlType.Visible := True;
-//      pnlCreateNew.Visible := False;
-      btnEdit.Enabled := True;
       btnDelete.Enabled := True;
 
       SelectTemplate;
@@ -1283,7 +1277,7 @@ end;
 
 procedure TfmOverlayEditor.Apply;
 begin
-  case FShapeType of
+  case FObjectType of
     ovText : GbrText;
     ovLine : GbrLine;
     ovRectangle : GbrRectangle;
@@ -1720,8 +1714,8 @@ begin
     osStatic : pnlStatic.Visible := True;
   end;
 
-  FShapeType := TSpeedButton(Sender).Tag;
-  case FShapeType of
+  FObjectType := TRzBmpButton(Sender).Tag;
+  case FObjectType of
     0: {New}
     begin
       lblShape.Caption := '---';
@@ -1847,7 +1841,7 @@ end;
 
 procedure TfmOverlayEditor.btnNoFillClick(Sender: TObject);
 begin
-  case FShapeType of
+  case FObjectType of
     ovText, ovLine, ovArc, ovGrid :
     begin
       SetNoFill(True)
@@ -1958,7 +1952,7 @@ begin
     {$REGION ' Dynamic Section '}
     osDynamic:
       begin
-        case ShapeType of
+        case FObjectType of
           ovText: { Text }
             begin
               {$REGION ' Text '}
@@ -2163,7 +2157,7 @@ begin
     {$REGION ' Static Section '}
     osStatic:
       begin
-        case ShapeType of
+        case FObjectType of
           ovText: { Text }
             begin
               {$REGION ' Text '}
@@ -3175,7 +3169,7 @@ begin
         recShapeDynamic.IdAction := 3;
         recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
         recShapeDynamic.IdSelectShape := NoShapeInList;
-        recShapeDynamic.ShapeID := FShapeType;
+        recShapeDynamic.ShapeID := FObjectType;
 
         if simMgrClient.ISWasdal or simMgrClient.ISInstructor then
         begin
@@ -3198,7 +3192,7 @@ begin
         recShapeStatic.IdAction := caDelete;
         recShapeStatic.TemplateId := FSelectedOverlay.OverlayIndex;
         recShapeStatic.IdSelectShape := NoShapeInList;
-        recShapeStatic.ShapeType := FShapeType;
+        recShapeStatic.ShapeType := FObjectType;
 
         if simMgrClient.ISWasdal or simMgrClient.ISInstructor then
         begin
@@ -3338,7 +3332,7 @@ begin
       if FSelectedOverlay.Tipe = 0 then
       begin
 //        simMgrClient.SimOverlayTemplate.SelectShapeDynamic(NoShapeInList, FSelectedOverlay.Idx, IdSelectedTrack ,pos)
-        SelectShapeDynamic(NoShapeInList, FSelectedOverlay.Idx, IdSelectedTrack ,pos)
+        SelectShapeDynamic(NoShapeInList, FSelectedOverlay.OverlayIndex, IdSelectedTrack ,pos)
       end
       else
       begin
@@ -3399,6 +3393,7 @@ var
 
 begin
   OverlayTemplate := simMgrClient.SimOverlayTemplate.GetOverlayTemplate(IdTemplate);
+
   for i := 0 to OverlayTemplate.DynamicList.Count - 1 do
   begin
     item := OverlayTemplate.DynamicList[i];
@@ -3421,8 +3416,6 @@ begin
     item.BearingOffset := Ship.BearingOffset;
     item.RotationOffset := Ship.Rotation;
     item.Orientation := Ship.Orientation;
-
-//    itemSelected := item;
 
     if item is TTextDynamic then
     begin
@@ -3457,436 +3450,369 @@ begin
 
         if ptToArea(rect1, ptPos) then
         begin
-          IsFind := True;
-          OText.isSelected := true;
-
-//          pointParent := pParent;
-//          pointSShape := pSShape;
-//          postStartSelected := postStart;
+          ShapeType   := ovText;
+          IsFind      := True;
+          isSelected  := true;
 
           edtTextRange.Text     := FloatToStr(postStart.Range);
           edtTextBearing.Text   := FloatToStr(postStart.Bearing);
           edtTextFieldD.Text    := words;
           cbbTextSizeD.Text     := IntToStr(OText.size);
+          pnlOutline.Color      := Color;
 
-//          fmOverlayEditor.txtColorSelect.Color := OText.Color;
-//          fmOverlayEditor.txtFillColor.Color := OText.Color;
-
-          cbbDashesPen.Enabled := False;
-          cbbWeightPen.Enabled := False;
-
-//          fmOverlayEditor.pnlNoFill.Visible := False;
-          pnlPenEditing.Visible := True;
-//          fmOverlayEditor.btnFillEditing.Enabled := False;
-//          fmOverlayEditor.btnFrameEditing.Enabled := True;
           NoShapeInList := countList;
-//          isFillEmpty := False;
 
-          TagObject := ovText;
-          lblShape.Caption := 'Text';
-          grpTextD.BringToFront;
-//          ShapeType := 1;
-//          idxOverlay := TBaseShape(OText).orderId;
+          LoadPanelText;
+
           break;
         end;
       end;
       {$ENDREGION}
-    end;
-
-    if item is TLineDynamic then
+    end
+    else if item is TLineDynamic then
     begin
       {$REGION ' Line Section '}
-//      OLine := TLineDynamic(item);
-//
-//      with OLine do
-//      begin
-//        if not FindParent(OLine.Parent, pParent) then
-//          Exit;
-//
-//        {Find Point offset from Ship}
-//        FindPoint(pParent, pOffset, RangeOffset, BearingOffset);
-//
-//        {Find Shape from Point offset}
-//        BSShape := postStart.Bearing + RotationOffset;
-//        BEShape := postEnd.Bearing + RotationOffset;
-//        FindPoint(pOffset, pSShape, postStart.Range, BSShape);
-//        FindPoint(pOffset, pEShape, postEnd.Range, BEShape);
-//
-//        {Find Shape from Ship}
-//        rngShipToShapeS := CalcRange(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
-//        brgShipToShapeS := CalcBearing(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
-//        rngShipToShapeE := CalcRange(pParent.X, pParent.Y, pEShape.X, pEShape.Y);
-//        brgShipToShapeE := CalcBearing(pParent.X, pParent.Y, pEShape.X, pEShape.Y);
-//
-//        case Orientation of
-//          0 :
-//          begin
-//            brgShipToShapeS := ValidateDegree(Parent.Heading + brgShipToShapeS);
-//            brgShipToShapeE := ValidateDegree(Parent.Heading + brgShipToShapeE);
-//          end;
-//          1 :
-//          begin
-//            brgShipToShapeS := ValidateDegree(brgShipToShapeS);
-//            brgShipToShapeE := ValidateDegree(brgShipToShapeE);
-//          end;
-//        end;
-//
-//        FindPoint(pParent, pSShape, rngShipToShapeS, brgShipToShapeS);
-//        FindPoint(pParent, pEShape, rngShipToShapeE, brgShipToShapeE);
-//
-//        Converter.ConvertToScreen(pSShape.X, pSShape.Y, x1, y1);
-//        Converter.ConvertToScreen(pEShape.X, pEShape.Y, x2, y2);
-//
-//        IptS  := FFormula.PointTo2D(x1, y1);
-//        IptE  := FFormula.PointTo2D(x2, y2);
-//
-//        if ptToLine(IptS,IptE,ptPos) then
-//        begin
-//          IsFind := True;
-//          OLine.isSelected := true;
-//          pointParent := pParent;
-//          postStartSelected := postStart;
-//          postEndSelected := postEnd;
-//          pointSShape := pSShape;
-//          pointEShape := pEShape;
-//
-//          fmOverlayEditor.edtLineStartRange.Text    := FloatToStr(postStart.Range);
-//          fmOverlayEditor.edtLineStartBearing.Text  := FloatToStr(postStart.Bearing);
-//          fmOverlayEditor.edtLineEndRange.Text      := FloatToStr(postEnd.Range);
-//          fmOverlayEditor.edtLineEndBearing.Text    := FloatToStr(postEnd.Bearing);
-////          fmOverlayEditor.txtColorSelect.Color := OLine.Color;
-//
-//          fmOverlayEditor.cbbDashesPen.Text :=  lineTypeChoice(OLine.LineType);
-//          fmOverlayEditor.cbbWeightPen.Text := IntToStr(OLine.weight);
-//          NoShapeInList := countList;
-//
-////          fmOverlayEditor.pnlNoFill.Visible := True;
-////          isFillEmpty := True;
-//          fmOverlayEditor.pnlPenEditing.Visible := True;
-////          fmOverlayEditor.btnFillEditing.Enabled := False;
-////          fmOverlayEditor.btnFrameEditing.Enabled := True;
-//          fmOverlayEditor.cbbDashesPen.Enabled := True;
-//          fmOverlayEditor.cbbWeightPen.Enabled := True;
-//
-//          fmOverlayEditor.TagObject := ovLine;
-//          fmOverlayEditor.lblShape.Caption := 'Line';
-//          fmOverlayEditor.grpLineD.BringToFront;
-////          ShapeType := 2;
-//          idxOverlay := TBaseShape(OLine).orderId;
-//          break;
-//        end;
-//      end;
-      {$ENDREGION}
-    end;
+      OLine := TLineDynamic(item);
 
-    if item is TRectangleDynamic then
+      with OLine do
+      begin
+        if not FindParent(OLine.Parent, pParent) then
+          Exit;
+
+        {Find Point offset from Ship}
+        FindPoint(pParent, pOffset, RangeOffset, BearingOffset);
+
+        {Find Shape from Point offset}
+        BSShape := postStart.Bearing + RotationOffset;
+        BEShape := postEnd.Bearing + RotationOffset;
+        FindPoint(pOffset, pSShape, postStart.Range, BSShape);
+        FindPoint(pOffset, pEShape, postEnd.Range, BEShape);
+
+        {Find Shape from Ship}
+        rngShipToShapeS := CalcRange(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
+        brgShipToShapeS := CalcBearing(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
+        rngShipToShapeE := CalcRange(pParent.X, pParent.Y, pEShape.X, pEShape.Y);
+        brgShipToShapeE := CalcBearing(pParent.X, pParent.Y, pEShape.X, pEShape.Y);
+
+        case Orientation of
+          0 :
+          begin
+            brgShipToShapeS := ValidateDegree(Parent.Heading + brgShipToShapeS);
+            brgShipToShapeE := ValidateDegree(Parent.Heading + brgShipToShapeE);
+          end;
+          1 :
+          begin
+            brgShipToShapeS := ValidateDegree(brgShipToShapeS);
+            brgShipToShapeE := ValidateDegree(brgShipToShapeE);
+          end;
+        end;
+
+        FindPoint(pParent, pSShape, rngShipToShapeS, brgShipToShapeS);
+        FindPoint(pParent, pEShape, rngShipToShapeE, brgShipToShapeE);
+
+        Converter.ConvertToScreen(pSShape.X, pSShape.Y, x1, y1);
+        Converter.ConvertToScreen(pEShape.X, pEShape.Y, x2, y2);
+
+        IptS  := FFormula.PointTo2D(x1, y1);
+        IptE  := FFormula.PointTo2D(x2, y2);
+
+        if ptToLine(IptS,IptE,ptPos) then
+        begin
+          ShapeType   := ovLine;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtLineStartRange.Text    := FloatToStr(postStart.Range);
+          edtLineStartBearing.Text  := FloatToStr(postStart.Bearing);
+          edtLineEndRange.Text      := FloatToStr(postEnd.Range);
+          edtLineEndBearing.Text    := FloatToStr(postEnd.Bearing);
+
+          pnlOutline.Color      := Color;
+
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          NoShapeInList := countList;
+
+          LoadPanelLine;
+
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TRectangleDynamic then
     begin
       {$REGION ' Rectangle Section '}
-//      ORectangle := TRectangleDynamic(item);
-//      with ORectangle do
-//      begin
-//        if not FindParent(Parent, pParent) then
-//          Exit;
-//
-//        {Find Point offset from Ship}
-//        FindPoint(pParent, pOffset, RangeOffset, BearingOffset);
-//
-//        {Find Shape from Point offset}
-//        BSShape := postStart.Bearing;
-//        BEShape := postEnd.Bearing;
-//        FindPoint(pOffset, pSShape, postStart.Range, BSShape);
-//        FindPoint(pOffset, pEShape, postEnd.Range, BEShape);
-//
-//        //Point Center
-//        Rx := CalcRange(pSShape.X, pSShape.Y, pEShape.X, pSShape.Y);
-//        Ry := CalcRange(pSShape.X, pSShape.Y, pSShape.X, pEShape.Y);
-//        RCenterToPoint  := CalcRange(pSShape.X, pSShape.Y, pEShape.X, pEShape.Y)/2;
-//        BCenterToPoint  := CalcBearing(pSShape.X, pSShape.Y, pEShape.X, pEShape.Y);
-//
-//        FindPoint(pSShape, ptCen, RCenterToPoint, BCenterToPoint);
-//
-//        //Point Kiri Atas
-//        IptS.X := ptCen.X - (Rx/60/2);
-//        IptS.Y := ptCen.Y + (Ry/60/2);
-//
-//        //Point Kanan Atas
-//        IptE.X := ptCen.X + (Rx/60/2);
-//        IptE.Y := ptCen.Y + (Ry/60/2);
-//
-//        //Point Kanan Bawah
-//        OptE.X := ptCen.X + (Rx/60/2);
-//        OptE.Y := ptCen.Y - (Ry/60/2);
-//
-//        //Point Kiri Bawah
-//        OptS.X := ptCen.X - (Rx/60/2);
-//        OptS.Y := ptCen.Y - (Ry/60/2);
-//
-//        {Find Shape from Ship}
-//        brgShipToShape := CalcBearing(pParent.X, pParent.Y, ptCen.X, ptCen.Y);
-//        BKiAts  := CalcBearing(ptCen.X, ptCen.Y, IptS.X, IptS.Y);
-//        BKaAts  := CalcBearing(ptCen.X, ptCen.Y, IptE.X, IptE.Y);
-//        BKaBwh  := CalcBearing(ptCen.X, ptCen.Y, OptE.X, OptE.Y);
-//        BKiBwh  := CalcBearing(ptCen.X, ptCen.Y, OptS.X, OptS.Y);
-//
-//        rngShipToShape := CalcRange(pParent.X, pParent.Y, ptCen.X, ptCen.Y);
-//        RKiAts  := CalcRange(ptCen.X, ptCen.Y, IptS.X, IptS.Y);
-//        RKaAts  := CalcRange(ptCen.X, ptCen.Y, IptE.X, IptE.Y);
-//        RKaBwh  := CalcRange(ptCen.X, ptCen.Y, OptE.X, OptE.Y);
-//        RKiBwh  := CalcRange(ptCen.X, ptCen.Y, OptS.X, OptS.Y);
-//
-//        case Orientation of
-//          0 :
-//          begin
-//            brgShipToShape := ValidateDegree(Parent.Heading + brgShipToShape);
-//            BKiAts  := ValidateDegree(Parent.Heading + BKiAts);
-//            BKaAts  := ValidateDegree(Parent.Heading + BKaAts);
-//            BKaBwh  := ValidateDegree(Parent.Heading + BKaBwh);
-//            BKiBwh  := ValidateDegree(Parent.Heading + BKiBwh);
-//          end;
-//          1 :
-//          begin
-//            brgShipToShape := ValidateDegree(brgShipToShape);
-//            BKiAts  := ValidateDegree(BKiAts);
-//            BKaAts  := ValidateDegree(BKaAts);
-//            BKaBwh  := ValidateDegree(BKaBwh);
-//            BKiBwh  := ValidateDegree(BKiBwh);
-//          end;
-//        end;
-//
-//        FindPoint(pParent, ptCen, rngShipToShape, brgShipToShape + RotationOffset);
-//        FindPoint(ptCen, IptS, RKiAts, BKiAts + RotationOffset);
-//        FindPoint(ptCen, IptE, RKaAts, BKaAts + RotationOffset);
-//        FindPoint(ptCen, OptE, RKaBwh, BKaBwh + RotationOffset);
-//        FindPoint(ptCen, OptS, RKiBwh, BKiBwh + RotationOffset);
-//
-//        Converter.ConvertToScreen(IptS.X, IptS.Y, x1, y1);
-//        Converter.ConvertToScreen(OptE.X, OptE.Y, x2, y2);
-//
-//        rect1.Left    := x1;
-//        rect1.Top     := Y1;
-//        rect1.Right   := x2;
-//        rect1.Bottom  := Y2;
-//
-//        rect2 := FFormula.checkXYPosition(rect1.Left, rect1.Top, rect1.Right, rect1.Bottom);
-//
-//        if ptToArea(rect2, ptPos) then
-//        begin
-//          IsFind := True;
-//          ORectangle.isSelected := true;
-//          pointParent := pParent;
-//          postStartSelected := postStart;
-//          postEndSelected := postEnd;
-//
-//          pointSShape := pSShape;
-//          pointEShape := pEShape;
-//
-//          fmOverlayEditor.edtRecStartRange.Text   := FloatToStr(postStart.Range);
-//          fmOverlayEditor.edtRecStartBearing.Text := FloatToStr(postStart.Bearing);
-//          fmOverlayEditor.edtRecEndRange.Text     := FloatToStr(postEnd.Range);
-//          fmOverlayEditor.edtRecEndBearing.Text   := FloatToStr(postEnd.Bearing);
-////          fmOverlayEditor.txtColorSelect.Color    := ORectangle.Color;
-//
-//          fmOverlayEditor.cbbDashesPen.Text :=  lineTypeChoice(ORectangle.LineType);;
-//
-//          fmOverlayEditor.cbbWeightPen.Text := IntToStr(ORectangle.weight);
-//          NoShapeInList := countList;
-//
-////          fmOverlayEditor.pnlNoFill.Visible := True;
-////          isFillEmpty := True;
-//          fmOverlayEditor.pnlPenEditing.Visible := True;
-////          fmOverlayEditor.btnFillEditing.Enabled := False;
-////          fmOverlayEditor.btnFrameEditing.Enabled := True;
-//          fmOverlayEditor.cbbDashesPen.Enabled := True;
-//          fmOverlayEditor.cbbWeightPen.Enabled := True;
-//
-//          fmOverlayEditor.TagObject := ovRectangle;
-//          fmOverlayEditor.lblShape.Caption := 'Rectangle';
-//          fmOverlayEditor.grpRectangleD.BringToFront;
-//
-////          ShapeType := 3;
-//          idxOverlay := TBaseShape(ORectangle).orderId;
-//          break;
-//        end;
-//      end;
-      {$ENDREGION}
-    end;
+      ORectangle := TRectangleDynamic(item);
+      with ORectangle do
+      begin
+        if not FindParent(Parent, pParent) then
+          Exit;
 
-    if item is TCircleDynamic then
+        {Find Point offset from Ship}
+        FindPoint(pParent, pOffset, RangeOffset, BearingOffset);
+
+        {Find Shape from Point offset}
+        BSShape := postStart.Bearing;
+        BEShape := postEnd.Bearing;
+        FindPoint(pOffset, pSShape, postStart.Range, BSShape);
+        FindPoint(pOffset, pEShape, postEnd.Range, BEShape);
+
+        //Point Center
+        Rx := CalcRange(pSShape.X, pSShape.Y, pEShape.X, pSShape.Y);
+        Ry := CalcRange(pSShape.X, pSShape.Y, pSShape.X, pEShape.Y);
+        RCenterToPoint  := CalcRange(pSShape.X, pSShape.Y, pEShape.X, pEShape.Y)/2;
+        BCenterToPoint  := CalcBearing(pSShape.X, pSShape.Y, pEShape.X, pEShape.Y);
+
+        FindPoint(pSShape, ptCen, RCenterToPoint, BCenterToPoint);
+
+        //Point Kiri Atas
+        IptS.X := ptCen.X - (Rx/60/2);
+        IptS.Y := ptCen.Y + (Ry/60/2);
+
+        //Point Kanan Atas
+        IptE.X := ptCen.X + (Rx/60/2);
+        IptE.Y := ptCen.Y + (Ry/60/2);
+
+        //Point Kanan Bawah
+        OptE.X := ptCen.X + (Rx/60/2);
+        OptE.Y := ptCen.Y - (Ry/60/2);
+
+        //Point Kiri Bawah
+        OptS.X := ptCen.X - (Rx/60/2);
+        OptS.Y := ptCen.Y - (Ry/60/2);
+
+        {Find Shape from Ship}
+        brgShipToShape := CalcBearing(pParent.X, pParent.Y, ptCen.X, ptCen.Y);
+        BKiAts  := CalcBearing(ptCen.X, ptCen.Y, IptS.X, IptS.Y);
+        BKaAts  := CalcBearing(ptCen.X, ptCen.Y, IptE.X, IptE.Y);
+        BKaBwh  := CalcBearing(ptCen.X, ptCen.Y, OptE.X, OptE.Y);
+        BKiBwh  := CalcBearing(ptCen.X, ptCen.Y, OptS.X, OptS.Y);
+
+        rngShipToShape := CalcRange(pParent.X, pParent.Y, ptCen.X, ptCen.Y);
+        RKiAts  := CalcRange(ptCen.X, ptCen.Y, IptS.X, IptS.Y);
+        RKaAts  := CalcRange(ptCen.X, ptCen.Y, IptE.X, IptE.Y);
+        RKaBwh  := CalcRange(ptCen.X, ptCen.Y, OptE.X, OptE.Y);
+        RKiBwh  := CalcRange(ptCen.X, ptCen.Y, OptS.X, OptS.Y);
+
+        case Orientation of
+          0 :
+          begin
+            brgShipToShape := ValidateDegree(Parent.Heading + brgShipToShape);
+            BKiAts  := ValidateDegree(Parent.Heading + BKiAts);
+            BKaAts  := ValidateDegree(Parent.Heading + BKaAts);
+            BKaBwh  := ValidateDegree(Parent.Heading + BKaBwh);
+            BKiBwh  := ValidateDegree(Parent.Heading + BKiBwh);
+          end;
+          1 :
+          begin
+            brgShipToShape := ValidateDegree(brgShipToShape);
+            BKiAts  := ValidateDegree(BKiAts);
+            BKaAts  := ValidateDegree(BKaAts);
+            BKaBwh  := ValidateDegree(BKaBwh);
+            BKiBwh  := ValidateDegree(BKiBwh);
+          end;
+        end;
+
+        FindPoint(pParent, ptCen, rngShipToShape, brgShipToShape + RotationOffset);
+        FindPoint(ptCen, IptS, RKiAts, BKiAts + RotationOffset);
+        FindPoint(ptCen, IptE, RKaAts, BKaAts + RotationOffset);
+        FindPoint(ptCen, OptE, RKaBwh, BKaBwh + RotationOffset);
+        FindPoint(ptCen, OptS, RKiBwh, BKiBwh + RotationOffset);
+
+        Converter.ConvertToScreen(IptS.X, IptS.Y, x1, y1);
+        Converter.ConvertToScreen(OptE.X, OptE.Y, x2, y2);
+
+        rect1.Left    := x1;
+        rect1.Top     := Y1;
+        rect1.Right   := x2;
+        rect1.Bottom  := Y2;
+
+        rect2 := FFormula.checkXYPosition(rect1.Left, rect1.Top, rect1.Right, rect1.Bottom);
+
+        if ptToArea(rect2, ptPos) then
+        begin
+          ShapeType   := ovRectangle;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtRecStartRange.Text   := FloatToStr(postStart.Range);
+          edtRecStartBearing.Text := FloatToStr(postStart.Bearing);
+          edtRecEndRange.Text     := FloatToStr(postEnd.Range);
+          edtRecEndBearing.Text   := FloatToStr(postEnd.Bearing);
+
+          pnlOutline.Color      := Color;
+
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          if BrushStyle = bsClear then
+          begin
+            SetNoFill(True);
+          end
+          else
+          begin
+            SetNoFill(False);
+            PnlFill.Color := ColorFill;
+          end;
+
+          NoShapeInList := countList;
+
+          LoadPanelRectangle;
+
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TCircleDynamic then
     begin
       {$REGION ' Circle Section '}
-//      OCircle := TCircleDynamic(item);
-//      with OCircle do
-//      begin
-//        if not FindParent(Parent, pParent) then
-//          Exit;
-//
-//        {Find Point offset from Ship}
-//        FindPoint(pParent, pOffset, RangeOffset, BearingOffset);
-//
-//        {Find Shape from Point offset}
-//        BSShape := postCenter.Bearing + RotationOffset;
-//        FindPoint(pOffset, pSShape, postCenter.Range, BSShape);
-//
-//        {Find Shape from Ship}
-//        rngShipToShape := CalcRange(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
-//        brgShipToShape := CalcBearing(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
-//
-//        case Orientation of
-//          0 : BOffset := ValidateDegree(Parent.Heading + BearingOffset);
-//          1 : BOffset := ValidateDegree(BearingOffset);
-//        end;
-//
-//        case Orientation of
-//          0 : brgShipToShape := ValidateDegree(Parent.Heading + brgShipToShape);
-//          1 : brgShipToShape := ValidateDegree(brgShipToShape);
-//        end;
-//
-//        FindPoint(pParent, pSShape, rngShipToShape, brgShipToShape);
-//
-//        Converter.ConvertToMap(pos.X, pos.Y, ptPos.X, ptPos.Y);
-//
-//        if ptToCircle(pSShape, ptPos, radius) then
-//        begin
-//          IsFind := True;
-//          OCircle.isSelected := true;
-//          pointParent := pParent;
-//          pointSShape := pSShape;
-//          postCenterSelected := postCenter;
-//
-//          fmOverlayEditor.edtCircleRange.Text   := FloatToStr(postCenter.Range);
-//          fmOverlayEditor.edtCircleBearing.Text := FloatToStr(postCenter.Bearing);
-//          fmOverlayEditor.edtCircleRadiusD.Text := FloatToStr(radius);
-////          fmOverlayEditor.txtColorSelect.Color  := OCircle.Color;
-//
-//          fmOverlayEditor.cbbDashesPen.Text :=  lineTypeChoice(OCircle.LineType);
-//
-//          fmOverlayEditor.cbbWeightPen.Text := IntToStr(OCircle.weight);
-//
-//          if OCircle.BrushStyle = bsClear then
-//          begin
-////           fmOverlayEditor.pnlNoFill.Visible := True;
-////           isFillEmpty := True;
-//          end
-//          else
-//          begin
-////            fmOverlayEditor.txtFillColor.Color := OCircle.ColorFill;
-////            fmOverlayEditor.pnlNoFill.Visible := False;
-////            isFillEmpty := False;
-//          end;
-//
-//          fmOverlayEditor.pnlPenEditing.Visible := True;
-////          fmOverlayEditor.btnFillEditing.Enabled := True;
-////          fmOverlayEditor.btnFrameEditing.Enabled := True;
-//          fmOverlayEditor.cbbDashesPen.Enabled := True;
-//          fmOverlayEditor.cbbWeightPen.Enabled := True;
-//          NoShapeInList := countList;
-//
-//          fmOverlayEditor.TagObject := ovCircle;
-//          fmOverlayEditor.lblShape.Caption := 'Circle';
-//          fmOverlayEditor.grpCircleD.BringToFront;
-//
-////          ShapeType := 4;
-//          idxOverlay := TBaseShape(OCircle).orderId;
-//          break;
-//        end;
-//      end;
-      {$ENDREGION}
-    end;
+      OCircle := TCircleDynamic(item);
+      with OCircle do
+      begin
+        if not FindParent(Parent, pParent) then
+          Exit;
 
-    if item is TEllipseDynamic then
+        {Find Point offset from Ship}
+        FindPoint(pParent, pOffset, RangeOffset, BearingOffset);
+
+        {Find Shape from Point offset}
+        BSShape := postCenter.Bearing + RotationOffset;
+        FindPoint(pOffset, pSShape, postCenter.Range, BSShape);
+
+        {Find Shape from Ship}
+        rngShipToShape := CalcRange(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
+        brgShipToShape := CalcBearing(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
+
+        case Orientation of
+          0 : BOffset := ValidateDegree(Parent.Heading + BearingOffset);
+          1 : BOffset := ValidateDegree(BearingOffset);
+        end;
+
+        case Orientation of
+          0 : brgShipToShape := ValidateDegree(Parent.Heading + brgShipToShape);
+          1 : brgShipToShape := ValidateDegree(brgShipToShape);
+        end;
+
+        FindPoint(pParent, pSShape, rngShipToShape, brgShipToShape);
+
+        Converter.ConvertToMap(pos.X, pos.Y, ptPos.X, ptPos.Y);
+
+        if ptToCircle(pSShape, ptPos, radius) then
+        begin
+          ShapeType   := ovCircle;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtCircleRange.Text   := FloatToStr(postCenter.Range);
+          edtCircleBearing.Text := FloatToStr(postCenter.Bearing);
+          edtCircleRadiusD.Text := FloatToStr(radius);
+
+          pnlOutline.Color      := Color;
+
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          if BrushStyle = bsClear then
+          begin
+            SetNoFill(True);
+          end
+          else
+          begin
+            SetNoFill(False);
+            pnlFill.Color := ColorFill;
+          end;
+
+          NoShapeInList := countList;
+
+          LoadPanelCircle;
+
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TEllipseDynamic then
     begin
       {$REGION ' Ellipse Section '}
-//      OEllipse := TEllipseDynamic(item);
-//
-//      with OEllipse do
-//      begin
-//        if not FindParent(Parent, pParent) then
-//          Exit;
-//
-//        {Find Point offset from Ship}
-//        FindPoint(pParent, pOffset, RangeOffset, BearingOffset);
-//
-//        {Find Shape from Point offset}
-//        BSShape := postCenter.Bearing + RotationOffset;
-//        FindPoint(pOffset, pSShape, postCenter.Range, BSShape);
-//
-//        {Find Shape from Ship}
-//        rngShipToShape := CalcRange(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
-//        brgShipToShape := CalcBearing(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
-//
-//        case Orientation of
-//          0 : brgShipToShape := ValidateDegree(Parent.Heading + brgShipToShape);
-//          1 : brgShipToShape := ValidateDegree(brgShipToShape);
-//        end;
-//
-//        FindPoint(pParent, pSShape, rngShipToShape, brgShipToShape);
-//
-//        Idx := pSShape.X + Hradius/60;
-//        Idy := pSShape.Y + Vradius/60;
-//
-//        Converter.ConvertToScreen(pSShape.X, pSShape.Y, x1, y1);
-//        Converter.ConvertToScreen(Idx, Idy, x2, y2);
-//
-//        Hr := Abs(x1 - x2);
-//        Vr := Abs(y1 - y2);
-//
-//        rect1.Left    := x1 - Hr;
-//        rect1.Top     := Y1 - Vr;
-//        rect1.Right   := x1 + Hr;
-//        rect1.Bottom  := Y1 + Vr;
-//
-//        rect2 := FFormula.checkXYPosition(rect1.Left, rect1.Top, rect1.Right, rect1.Bottom);
-//
-//        if ptToArea(rect2, ptPos) then
-//        begin
-//          IsFind := True;
-//          OEllipse.isSelected := true;
-//          pointParent := pParent;
-//          postCenterSelected := postCenter;
-//          pointSShape := pSShape;
-//
-//          fmOverlayEditor.edtEllipseRange.Text        := FloatToStr(postCenter.Range);
-//          fmOverlayEditor.edtEllipseBearing.Text      := FloatToStr(postCenter.Bearing);
-//          fmOverlayEditor.edtEllipseHorizontalD.Text  := FloatToStr(OEllipse.Hradius);
-//          fmOverlayEditor.edtEllipseVerticalD.Text    := FloatToStr(OEllipse.Vradius);
-////          fmOverlayEditor.txtColorSelect.Color        := OEllipse.Color;
-//
-//          fmOverlayEditor.cbbDashesPen.Text :=  lineTypeChoice(OEllipse.LineType);
-//
-//          fmOverlayEditor.cbbWeightPen.Text := IntToStr(OEllipse.weight);
-//
-//          if OEllipse.BrushStyle = bsClear then
-//          begin
-////            fmOverlayEditor.pnlNoFill.Visible := True;
-////            isFillEmpty := True;
-//          end
-//          else
-//          begin
-////            fmOverlayEditor.txtFillColor.Color := OEllipse.ColorFill;
-////            fmOverlayEditor.pnlNoFill.Visible := False;
-////            isFillEmpty := False;
-//          end;
-//
-//          fmOverlayEditor.pnlPenEditing.Visible := True;
-////          fmOverlayEditor.btnFillEditing.Enabled := True;
-////          fmOverlayEditor.btnFrameEditing.Enabled := True;
-//          NoShapeInList := countList;
-//          fmOverlayEditor.cbbDashesPen.Enabled := True;
-//          fmOverlayEditor.cbbWeightPen.Enabled := True;
-//
-//          idxOverlay := TBaseShape(OEllipse).orderId;
-//          fmOverlayEditor.TagObject := ovEllipse;
-//          fmOverlayEditor.lblShape.Caption := 'Ellipse';
-//          fmOverlayEditor.grpEllipseD.BringToFront;
-//
-////          ShapeType := 5;
-//          break;
-//        end;
-//      end;
-      {$ENDREGION}
-    end;
+      OEllipse := TEllipseDynamic(item);
 
-    if item is TArcDynamic then
+      with OEllipse do
+      begin
+        if not FindParent(Parent, pParent) then
+          Exit;
+
+        {Find Point offset from Ship}
+        FindPoint(pParent, pOffset, RangeOffset, BearingOffset);
+
+        {Find Shape from Point offset}
+        BSShape := postCenter.Bearing + RotationOffset;
+        FindPoint(pOffset, pSShape, postCenter.Range, BSShape);
+
+        {Find Shape from Ship}
+        rngShipToShape := CalcRange(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
+        brgShipToShape := CalcBearing(pParent.X, pParent.Y, pSShape.X, pSShape.Y);
+
+        case Orientation of
+          0 : brgShipToShape := ValidateDegree(Parent.Heading + brgShipToShape);
+          1 : brgShipToShape := ValidateDegree(brgShipToShape);
+        end;
+
+        FindPoint(pParent, pSShape, rngShipToShape, brgShipToShape);
+
+        Idx := pSShape.X + Hradius/60;
+        Idy := pSShape.Y + Vradius/60;
+
+        Converter.ConvertToScreen(pSShape.X, pSShape.Y, x1, y1);
+        Converter.ConvertToScreen(Idx, Idy, x2, y2);
+
+        Hr := Abs(x1 - x2);
+        Vr := Abs(y1 - y2);
+
+        rect1.Left    := x1 - Hr;
+        rect1.Top     := Y1 - Vr;
+        rect1.Right   := x1 + Hr;
+        rect1.Bottom  := Y1 + Vr;
+
+        rect2 := FFormula.checkXYPosition(rect1.Left, rect1.Top, rect1.Right, rect1.Bottom);
+
+        if ptToArea(rect2, ptPos) then
+        begin
+          ShapeType   := ovEllipse;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtEllipseRange.Text        := FloatToStr(postCenter.Range);
+          edtEllipseBearing.Text      := FloatToStr(postCenter.Bearing);
+          edtEllipseHorizontalD.Text  := FloatToStr(OEllipse.Hradius);
+          edtEllipseVerticalD.Text    := FloatToStr(OEllipse.Vradius);
+
+          pnlOutline.Color        := Color;
+
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          if BrushStyle = bsClear then
+          begin
+            SetNoFill(True);
+          end
+          else
+          begin
+            SetNoFill(False);
+            pnlFill.Color := ColorFill;
+          end;
+
+          NoShapeInList := countList;
+
+          LoadPanelEllipse;
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TArcDynamic then
     begin
       {$REGION ' Arc Section '}
 //      OArc := TArcDynamic(item);
@@ -3973,9 +3899,8 @@ begin
 //        end;
 //      end;
       {$ENDREGION}
-    end;
-
-    if item is TSectorDynamic then
+    end
+    else if item is TSectorDynamic then
     begin
       {$REGION ' Sector Section '}
 //      OSector := TSectorDynamic(item);
@@ -4071,9 +3996,8 @@ begin
 //        end;
 //      end;
       {$ENDREGION}
-    end;
-
-    if item is TGridDynamic then
+    end
+    else if item is TGridDynamic then
     begin
       {$REGION ' Grid Section '}
 //      OGrid := TGridDynamic(item);
@@ -4178,9 +4102,8 @@ begin
 //        end;
 //      end;
       {$ENDREGION}
-    end;
-
-    if item is TPolygonDynamic then
+    end
+    else if item is TPolygonDynamic then
     begin
       {$REGION ' Polygon Section '}
 //      OPolygon := TPolygonDynamic(item);
@@ -4293,45 +4216,17 @@ begin
 
   if IsFind then
   begin
-    with fmOverlayEditor do
-    begin
-      btnObjectDelete.Enabled := True;
-      btnObjectApply.Enabled := True;
-      pnlDynamic.Visible := True;
-      IsEditObject := True;
-
-//      if idEditTemplate = IdTemplate then
-//      begin
-//        pnlDynamic.Visible := True;
-//        btnObjectDelete.Enabled := True;
-//        btnObjectApply.Enabled := True;
-//        IsEditObject := True;
-//        pnlWarningEdit.Visible := False;
-//        frmTacticalDisplay.overlayeditpopup := True;
-//        item.isReposOverlay := True;
-//      end
-//      else
-//      begin
-//        pnlWarningEdit.Visible := True;
-//        lblShape.Caption := '---';
-//        pnlStatic.Visible := False;
-//        pnlDynamic.Visible := False;
-//        frmTacticalDisplay.overlayeditpopup := False;
-//        item.isReposOverlay := False;
-//      end;
-    end;
+    btnObjectDelete.Enabled := True;
+    btnObjectApply.Enabled := True;
+    pnlDynamic.Visible := True;
+    IsEditObject := True;
   end
   else
   begin
-    with fmOverlayEditor do
-    begin
-      lblShape.Caption := '---';
-      pnlStatic.Visible := False;
-      pnlDynamic.Visible := False;
-      pnlWarningEdit.Visible := False;
-      IsEditObject := False;
-      pnlWarningEdit.Visible := False;
-    end;
+    lblShape.Caption := '---';
+    pnlStatic.Visible := False;
+    pnlDynamic.Visible := False;
+    pnlWarningEdit.Visible := False;
   end;
 end;
 
@@ -4369,6 +4264,7 @@ var
 
 begin
   OverlayTemplate := simMgrClient.SimOverlayTemplate.GetOverlayTemplate(IdTemplate);
+
   for i := 0 to OverlayTemplate.StaticList.Count - 1 do
   begin
     item := OverlayTemplate.StaticList[i];
@@ -4383,496 +4279,486 @@ begin
 
     item := OverlayTemplate.StaticList[countList];
 
-    {$REGION ' Text Section '}
     if item is TTextStatic then
     begin
+      {$REGION ' Text Section '}
       OText := TTextStatic(item);
 
-      simMgrClient.Converter.ConvertToScreen(OText.postStart.X, OText.postStart.Y, x1, y1);
-      rect1 := FFormula.checkText(x1, y1, OText.Size, OText.words);
-
-      if ptToArea(rect1, ptPos) then
+      with OText do
       begin
-        IsFind := True;
-        LoadPanelText;
-
-        ShapeType := ovText;
-        edtTextPosLat.Text  := formatDMS_latt(OText.postStart.Y);
-        edtTextPosLong.Text := formatDMS_long(OText.postStart.X);
-        cbbTextSize.Text    := IntToStr(OText.size);
-        edtTextField.Text   := OText.words;
-        pnlOutline.Color    := OText.Color;
-        OText.isSelected    := true;
-
-        NoShapeInList := countList;
-
-        break;
-      end;
-    end;
-    {$ENDREGION}
-
-    {$REGION ' Line Section '}
-    if item is TLineStatic then
-    begin
-      OLine := TLineStatic(item);
-
-      simMgrClient.Converter.ConvertToScreen(OLine.postStart.X, OLine.postStart.Y, x1, y1);
-      simMgrClient.Converter.ConvertToScreen(OLine.postEnd.X, OLine.postEnd.Y, x2, y2 );
-
-      IptS  := FFormula.PointTo2D(x1, y1);
-      IptE  := FFormula.PointTo2D(x2, y2);
-
-      if ptToLine(IptS,IptE,ptPos) then
-      begin
-        IsFind := True;
-        OLine.isSelected := true;
-
-        LoadPanelLine;
-
-        ShapeType := ovLine;
-        edtLineStartPosLat.Text := formatDMS_latt(OLine.postStart.Y);
-        edtLineStartPosLong.Text := formatDMS_long(OLine.postStart.X);
-        edtLineEndPosLat.Text := formatDMS_latt(OLine.postEnd.Y);
-        edtLineEndPosLong.Text := formatDMS_long(OLine.postEnd.X);
-        pnlOutline.Color := OLine.Color;
-        cbbDashesPen.Text :=  lineTypeChoice(OLine.LineType);
-        cbbWeightPen.Text := IntToStr(OLine.weight);
-
-        NoShapeInList := countList;
-
-        break;
-      end;
-    end;
-    {$ENDREGION}
-
-    {$REGION ' Rectangle Section '}
-    if item is TRectangleStatic then
-    begin
-      ORectangle := TRectangleStatic(item);
-
-      simMgrClient.Converter.ConvertToScreen(ORectangle.postStart.X, ORectangle.postStart.Y, x1, y1);
-      simMgrClient.Converter.ConvertToScreen(ORectangle.postEnd.X, ORectangle.postEnd.Y, x2, y2 );
-
-      rect1.Left    := x1;
-      rect1.Top     := Y1;
-      rect1.Right   := x2;
-      rect1.Bottom  := Y2;
-
-      rect2 := FFormula.checkXYPosition(rect1.Left, rect1.Top, rect1.Right, rect1.Bottom);
-
-      if ptToArea(rect2, ptPos) then
-      begin
-        IsFind := True;
-        ORectangle.isSelected := true;
-
-        LoadPanelRectangle;
-
-        ShapeType := ovRectangle;
-        edtRectStartPosLong.Text  := formatDMS_long(ORectangle.postStart.X);
-        edtRectStartPosLat.Text   := formatDMS_latt(ORectangle.postStart.Y);
-        edtRectEndPosLong.Text    := formatDMS_long(ORectangle.postEnd.X);
-        edtRectEndPosLat.Text     := formatDMS_latt(ORectangle.postEnd.Y);
-        pnlOutline.Color      := ORectangle.Color;
-
-        cbbDashesPen.Text :=  lineTypeChoice(ORectangle.LineType);
-        cbbWeightPen.Text := IntToStr(ORectangle.weight);
-
-        if ORectangle.BrushStyle = bsClear then
-        begin
-          SetNoFill(True);
-        end
-        else
-        begin
-          SetNoFill(False);
-          PnlFill.Color := ORectangle.ColorFill;
-        end;
-
-        NoShapeInList := countList;
-
-        break;
-      end;
-    end;
-    {$ENDREGION}
-
-    {$REGION ' Circle Section '}
-    if item is TCircleStatic then
-    begin
-      OCircle := TCircleStatic(item);
-
-      simMgrClient.Converter.ConvertToMap(pos.X, pos.Y, ptPos.X, ptPos.Y);
-
-      if ptToCircle(OCircle.postCenter, ptPos, OCircle.radius) then
-      begin
-        IsFind := True;
-        OCircle.isSelected := true;
-
-        LoadPanelCircle;
-
-        ShapeType := ovCircle;
-        edtCirclePosLong.Text := formatDMS_long(OCircle.postCenter.X);
-        edtCirclePosLat.Text := formatDMS_latt(OCircle.postCenter.Y);
-        edtCircleRadius.Text := FloatToStr(OCircle.radius);
-        pnlOutline.Color := OCircle.Color;
-
-        cbbDashesPen.Text :=  lineTypeChoice(OCircle.LineType);
-        cbbWeightPen.Text := IntToStr(OCircle.weight);
-
-        if OCircle.BrushStyle = bsClear then
-        begin
-          SetNoFill(True);
-        end
-        else
-        begin
-        SetNoFill(False);
-        pnlFill.Color := OCircle.ColorFill;
-        end;
-
-        NoShapeInList := countList;
-
-        break;
-      end;
-    end;
-    {$ENDREGION}
-
-    {$REGION ' Ellipse Section '}
-    if item is TEllipseStatic then
-    begin
-      OEllipse := TEllipseStatic(item);
-
-      Idx := OEllipse.postCenter.X + OEllipse.Hradius/60;
-      Idy := OEllipse.postCenter.Y + OEllipse.Vradius/60;
-
-      simMgrClient.Converter.ConvertToScreen(OEllipse.postCenter.X, OEllipse.postCenter.Y, x1, y1);
-      simMgrClient.Converter.ConvertToScreen(Idx, Idy, x2, y2);
-
-      Hr := Abs(x1 - x2);
-      Vr := Abs(y1 - y2);
-
-      rect1.Left    := x1 - Hr;
-      rect1.Top     := Y1 - Vr;
-      rect1.Right   := x1 + Hr;
-      rect1.Bottom  := Y1 + Vr;
-
-      rect2 := FFormula.checkXYPosition(rect1.Left, rect1.Top, rect1.Right, rect1.Bottom);
-
-      if ptToArea(rect2, ptPos) then
-      begin
-        IsFind := True;
-        OEllipse.isSelected := true;
-
-        LoadPanelEllipse;
-
-        ShapeType := ovEllipse;
-        edtEllipsePosLong.Text  := formatDMS_long(OEllipse.postCenter.X);
-        edtEllipsePosLat.Text   := formatDMS_latt(OEllipse.postCenter.Y);
-        edtHorizontal.Text      := FloatToStr(OEllipse.Hradius);
-        edtVertical.Text        := FloatToStr(OEllipse.Vradius);
-        pnlOutline.Color    := OEllipse.Color;
-
-        cbbDashesPen.Text :=  lineTypeChoice(OEllipse.LineType);
-        cbbWeightPen.Text := IntToStr(OEllipse.weight);
-
-        if OEllipse.BrushStyle = bsClear then
-        begin
-          SetNoFill(True);
-        end
-        else
-        begin
-          SetNoFill(False);
-          pnlFill.Color := OEllipse.ColorFill;
-        end;
-
-        NoShapeInList := countList;
-
-        break;
-      end;
-    end;
-    {$ENDREGION}
-
-    {$REGION ' Arc Section '}
-    if item is TArcStatic then
-    begin
-      OArc := TArcStatic(item);
-
-      simMgrClient.Converter.ConvertToMap(pos.X, pos.Y, ptPos.X, ptPos.Y);
-
-      if ptToArc(OArc.postCenter, ptPos, OArc.radius, OArc.radius, OArc.StartAngle, OArc.EndAngle, 1) then
-      begin
-        IsFind := True;
-        OArc.isSelected  := true;
-
-        LoadPanelArc;
-
-        ShapeType := ovArc;
-        edtArcPosLong.Text := formatDMS_long(OArc.postCenter.X);
-        edtArcPosLat.Text := formatDMS_latt(OArc.postCenter.Y);
-        edtArcRadius.Text := FloatToStr(OArc.radius);
-        edtArcStartAngle.Text := IntToStr(OArc.StartAngle);
-        edtArcEndAngle.Text := IntToStr(OArc.EndAngle);
-        pnlOutline.Color := OArc.Color;
-        cbbDashesPen.Text :=  lineTypeChoice(OArc.LineType);
-        cbbWeightPen.Text := IntToStr(OArc.weight);
-
-        NoShapeInList := countList;
-
-        break;
-      end;
-    end;
-    {$ENDREGION}
-
-    {$REGION ' Sector Section '}
-    if item is TSectorStatic then
-    begin
-      OSector := TSectorStatic(item);
-
-      simMgrClient.Converter.ConvertToMap(pos.X, pos.Y, ptPos.X, ptPos.Y);
-
-      if ptToArc(OSector.postCenter, ptPos, OSector.Iradius, OSector.Oradius, OSector.StartAngle, OSector.EndAngle, 2) then
-      begin
-        IsFind := True;
-        OSector.isSelected  := true;
-
-        LoadPanelSector;
-
-        ShapeType := ovSector;
-        edtSectorPosLong.Text     := formatDMS_long(OSector.postCenter.X);
-        edtSectorPosLat.Text      := formatDMS_latt(OSector.postCenter.Y);
-        edtSectorInner.Text       := FloatToStr(OSector.Iradius);
-        edtSectorOuter.Text       := FloatToStr(OSector.Oradius);
-        edtSectorStartAngle.Text  := IntToStr(OSector.StartAngle);
-        edtSectorEndAngle.Text    := IntToStr(OSector.EndAngle);
-        pnlOutline.Color      := OSector.Color;
-
-        cbbDashesPen.Text :=  lineTypeChoice(OSector.LineType);
-        cbbWeightPen.Text := IntToStr(OSector.weight);
-
-        NoShapeInList := countList;
-
-        break;
-      end;
-    end;
-    {$ENDREGION}
-
-    {$REGION ' Grid Section '}
-    if item is TGridStatic then
-    begin
-      OGrid := TGridStatic(item);
-
-      //Point Kiri Atas
-      IptS.X := OGrid.postCenter.X - ((OGrid.Width/60)*(OGrid.WCount/2));
-      IptS.Y := OGrid.postCenter.Y + ((OGrid.Height/60)*(OGrid.HCount)/2);
-
-      //Point Kanan Atas
-      IptE.X := OGrid.postCenter.X + ((OGrid.Width/60)*(OGrid.WCount/2));
-      IptE.Y := OGrid.postCenter.Y + ((OGrid.Height/60)*(OGrid.HCount)/2);
-
-      //Point Kanan Bawah
-      OptS.X := OGrid.postCenter.X + ((OGrid.Width/60)*(OGrid.WCount/2));
-      OptS.Y := OGrid.postCenter.Y - ((OGrid.Height/60)*(OGrid.HCount)/2);
-
-      //Point Kiri Bawah
-      OptE.X := OGrid.postCenter.X - ((OGrid.Width/60)*(OGrid.WCount/2));
-      OptE.Y := OGrid.postCenter.Y - ((OGrid.Height/60)*(OGrid.HCount)/2);
-
-      BKiAts   := CalcBearing(OGrid.postCenter.X, OGrid.postCenter.Y, IptS.X, IptS.Y);
-      BKaAts  := CalcBearing(OGrid.postCenter.X, OGrid.postCenter.Y, IptE.X, IptE.Y);
-      BKaBwh := CalcBearing(OGrid.postCenter.X, OGrid.postCenter.Y, OptS.X, OptS.Y);
-      BKiBwh  := CalcBearing(OGrid.postCenter.X, OGrid.postCenter.Y, OptE.X, OptE.Y);
-
-      RKiAts     := CalcRange(OGrid.postCenter.X, OGrid.postCenter.Y, IptS.X, IptS.Y);
-      RKaAts    := CalcRange(OGrid.postCenter.X, OGrid.postCenter.Y, IptE.X, IptE.Y);
-      RKaBwh   := CalcRange(OGrid.postCenter.X, OGrid.postCenter.Y, OptS.X, OptS.Y);
-      RKiBwh    := CalcRange(OGrid.postCenter.X, OGrid.postCenter.Y, OptE.X, OptE.Y);
-
-      FindPoint(OGrid.postCenter, IptS, RKiAts, BKiAts + OGrid.Rotation);
-      FindPoint(OGrid.postCenter, IptE, RKaAts, BKaAts + OGrid.Rotation);
-      FindPoint(OGrid.postCenter, OptS, RKaBwh, BKaBwh + OGrid.Rotation);
-      FindPoint(OGrid.postCenter, OptE, RKiBwh, BKiBwh + OGrid.Rotation);
-
-      simMgrClient.Converter.ConvertToScreen(IptS.X, IptS.Y, x1, y1);
-      simMgrClient.Converter.ConvertToScreen(IptE.X, IptE.Y, x2, y2);
-      simMgrClient.Converter.ConvertToScreen(OptS.X, OptS.Y, x3, y3);
-      simMgrClient.Converter.ConvertToScreen(OptE.X, OptE.Y, x4, y4);
-
-      rect1 := FFormula.assignRect(x1, y1);
-      rect2 := FFormula.assignRect(x2, y2);
-      rect3 := FFormula.assignRect(x3, y3);
-      rect4 := FFormula.assignRect(x4, y4);
-
-      rect1.Left    := x1;
-      rect1.Top     := Y1;
-      rect1.Right   := x3;
-      rect1.Bottom  := Y3;
-
-      rect2 := FFormula.checkXYPosition(rect1.Left, rect1.Top, rect1.Right, rect1.Bottom);
-
-      if ptToArea(rect2, ptPos) then
-      begin
-        IsFind := True;
-        OGrid.isSelected := true;
-
-        LoadPanelGrid;
-
-        ShapeType := ovGrid;
-        edtTablePosLong.Text        := formatDMS_long(OGrid.postCenter.X);
-        edtTablePosLat.Text         := formatDMS_latt(OGrid.postCenter.Y);
-        edtTableColumn.Text         := IntToStr(OGrid.HCount);
-        edtTableRow.Text            := IntToStr(OGrid.WCount);
-        edtTableWidth.Text          := FloatToStr(OGrid.Width);
-        edtTableHeight.Text         := FloatToStr(OGrid.Height);
-        edtTableRotationAngle.Text  := IntToStr(OGrid.Rotation);
-        pnlOutline.Color        := OGrid.Color;
-
-        cbbDashesPen.Text :=  lineTypeChoice(OGrid.LineType);
-        cbbWeightPen.Text := IntToStr(OGrid.weight);
-
-        NoShapeInList := countList;
-
-        break;
-      end;
-    end;
-    {$ENDREGION}
-
-    {$REGION ' Polygon Section '}
-    if item is TPolygonStatic then
-    begin
-      OPolygon := TPolygonStatic(item);
-
-      SetLength(polyPoint, OPolygon.polyList.Count);
-
-      for j := 0 to OPolygon.polyList.Count - 1 do
-      begin
-        point := OPolygon.polyList.Items[j];
-
-        simMgrClient.Converter.ConvertToScreen(point.X, point.Y, x1, y1);
-        polyPoint[j].x := x1;
-        polyPoint[j].y := y1;
-      end;
-
-      for j := 0 to OPolygon.polyList.Count - 1 do
-      begin
-        rect1 := FFormula.assignRect(polyPoint[j].x, polyPoint[j].y);
+        simMgrClient.Converter.ConvertToScreen(postStart.X, postStart.Y, x1, y1);
+        rect1 := FFormula.checkText(x1, y1, Size, words);
 
         if ptToArea(rect1, ptPos) then
         begin
-          IsFind := True;
-          OPolygon.isSelected := true;
+          ShapeType   := ovText;
+          IsFind      := True;
+          isSelected  := True;
 
-          LoadPanelPolygon;
-          lvPolyVertex.Clear;
+          edtTextPosLat.Text  := formatDMS_latt(postStart.Y);
+          edtTextPosLong.Text := formatDMS_long(postStart.X);
+          cbbTextSize.Text    := IntToStr(size);
+          edtTextField.Text   := words;
 
-          ShapeType := ovPolygon;
+          pnlOutline.Color    := Color;
 
-          for k := 0 to OPolygon.polyList.Count - 1 do
-          begin
-            point := OPolygon.polyList.Items[k];
+          NoShapeInList := countList;
 
-            with lvPolyVertex.Items.Add do
-            begin
-              SubItems.Add(formatDMS_long(point.X));
-              SubItems.Add(formatDMS_latt(point.Y));
-            end;
-          end;
+          LoadPanelText;
 
-          lvPolyVertex.Items.BeginUpdate;
-          try
-           for k := 0 to lvPolyVertex.Items.Count-1 do
-             lvPolyVertex.Items.Item[k].Caption:=IntToStr(k+1);
-          finally
-            lvPolyVertex.Items.EndUpdate;
-          end;
-          pnlOutline.Color := OPolygon.Color;
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TLineStatic then
+    begin
+      {$REGION ' Line Section '}
+      OLine := TLineStatic(item);
 
-          cbbDashesPen.Text :=  lineTypeChoice(OPolygon.LineType);
-          cbbWeightPen.Text := IntToStr(OPolygon.weight);
+      with OLine do
+      begin
+        simMgrClient.Converter.ConvertToScreen(postStart.X, postStart.Y, x1, y1);
+        simMgrClient.Converter.ConvertToScreen(postEnd.X, postEnd.Y, x2, y2 );
 
-          if OPolygon.BrushStyle = bsClear then
+        IptS  := FFormula.PointTo2D(x1, y1);
+        IptE  := FFormula.PointTo2D(x2, y2);
+
+        if ptToLine(IptS,IptE,ptPos) then
+        begin
+          ShapeType   := ovLine;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtLineStartPosLat.Text := formatDMS_latt(postStart.Y);
+          edtLineStartPosLong.Text := formatDMS_long(postStart.X);
+          edtLineEndPosLat.Text := formatDMS_latt(postEnd.Y);
+          edtLineEndPosLong.Text := formatDMS_long(postEnd.X);
+
+          pnlOutline.Color := Color;
+
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          NoShapeInList := countList;
+
+          LoadPanelLine;
+
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TRectangleStatic then
+    begin
+      {$REGION ' Rectangle Section '}
+      ORectangle := TRectangleStatic(item);
+
+      with ORectangle do
+      begin
+        simMgrClient.Converter.ConvertToScreen(postStart.X, postStart.Y, x1, y1);
+        simMgrClient.Converter.ConvertToScreen(postEnd.X, postEnd.Y, x2, y2 );
+
+        rect1.Left    := x1;
+        rect1.Top     := Y1;
+        rect1.Right   := x2;
+        rect1.Bottom  := Y2;
+
+        rect2 := FFormula.checkXYPosition(rect1.Left, rect1.Top, rect1.Right, rect1.Bottom);
+
+        if ptToArea(rect2, ptPos) then
+        begin
+          ShapeType   := ovRectangle;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtRectStartPosLong.Text  := formatDMS_long(postStart.X);
+          edtRectStartPosLat.Text   := formatDMS_latt(postStart.Y);
+          edtRectEndPosLong.Text    := formatDMS_long(postEnd.X);
+          edtRectEndPosLat.Text     := formatDMS_latt(postEnd.Y);
+          pnlOutline.Color          := Color;
+
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          if BrushStyle = bsClear then
           begin
             SetNoFill(True);
           end
           else
           begin
             SetNoFill(False);
-            pnlFill.Color := OPolygon.ColorFill;
+            PnlFill.Color := ColorFill;
           end;
 
           NoShapeInList := countList;
 
+          LoadPanelRectangle;
+
           break;
         end;
       end;
-    end;
+      {$ENDREGION}
+    end
+    else if item is TCircleStatic then
+    begin
+      {$REGION ' Circle Section '}
+      OCircle := TCircleStatic(item);
 
-    if IsFind then
-      break;
+      with OCircle do
+      begin
+
+        simMgrClient.Converter.ConvertToMap(pos.X, pos.Y, ptPos.X, ptPos.Y);
+
+        if ptToCircle(postCenter, ptPos, radius) then
+        begin
+          ShapeType   := ovCircle;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtCirclePosLong.Text := formatDMS_long(postCenter.X);
+          edtCirclePosLat.Text := formatDMS_latt(postCenter.Y);
+          edtCircleRadius.Text := FloatToStr(radius);
+          pnlOutline.Color := Color;
+
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          if BrushStyle = bsClear then
+          begin
+            SetNoFill(True);
+          end
+          else
+          begin
+            SetNoFill(False);
+            pnlFill.Color := ColorFill;
+          end;
+
+          NoShapeInList := countList;
+
+          LoadPanelCircle;
+
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TEllipseStatic then
+    begin
+      {$REGION ' Ellipse Section '}
+      OEllipse := TEllipseStatic(item);
+
+      with OEllipse do
+      begin
+        Idx := postCenter.X + Hradius/60;
+        Idy := postCenter.Y + Vradius/60;
+
+        simMgrClient.Converter.ConvertToScreen(postCenter.X, postCenter.Y, x1, y1);
+        simMgrClient.Converter.ConvertToScreen(Idx, Idy, x2, y2);
+
+        Hr := Abs(x1 - x2);
+        Vr := Abs(y1 - y2);
+
+        rect1.Left    := x1 - Hr;
+        rect1.Top     := Y1 - Vr;
+        rect1.Right   := x1 + Hr;
+        rect1.Bottom  := Y1 + Vr;
+
+        rect2 := FFormula.checkXYPosition(rect1.Left, rect1.Top, rect1.Right, rect1.Bottom);
+
+        if ptToArea(rect2, ptPos) then
+        begin
+          ShapeType   := ovEllipse;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtEllipsePosLong.Text  := formatDMS_long(postCenter.X);
+          edtEllipsePosLat.Text   := formatDMS_latt(postCenter.Y);
+          edtHorizontal.Text      := FloatToStr(Hradius);
+          edtVertical.Text        := FloatToStr(Vradius);
+          pnlOutline.Color        := Color;
+
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          if BrushStyle = bsClear then
+          begin
+            SetNoFill(True);
+          end
+          else
+          begin
+            SetNoFill(False);
+            pnlFill.Color := ColorFill;
+          end;
+
+          NoShapeInList := countList;
+
+          LoadPanelEllipse;
+
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TArcStatic then
+    begin
+      {$REGION ' Arc Section '}
+      OArc := TArcStatic(item);
+
+      with OArc do
+      begin
+        simMgrClient.Converter.ConvertToMap(pos.X, pos.Y, ptPos.X, ptPos.Y);
+
+        if ptToArc(postCenter, ptPos, radius, radius, StartAngle, EndAngle, 1) then
+        begin
+          ShapeType   := ovArc;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtArcPosLong.Text := formatDMS_long(postCenter.X);
+          edtArcPosLat.Text := formatDMS_latt(postCenter.Y);
+          edtArcRadius.Text := FloatToStr(radius);
+          edtArcStartAngle.Text := IntToStr(StartAngle);
+          edtArcEndAngle.Text := IntToStr(EndAngle);
+          pnlOutline.Color := Color;
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          NoShapeInList := countList;
+
+          LoadPanelArc;
+
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TSectorStatic then
+    begin
+      {$REGION ' Sector Section '}
+      OSector := TSectorStatic(item);
+
+      with OSector do
+      begin
+        simMgrClient.Converter.ConvertToMap(pos.X, pos.Y, ptPos.X, ptPos.Y);
+
+        if ptToArc(postCenter, ptPos, Iradius, Oradius, StartAngle, EndAngle, 2) then
+        begin
+          ShapeType   := ovSector;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtSectorPosLong.Text     := formatDMS_long(postCenter.X);
+          edtSectorPosLat.Text      := formatDMS_latt(postCenter.Y);
+          edtSectorInner.Text       := FloatToStr(Iradius);
+          edtSectorOuter.Text       := FloatToStr(Oradius);
+          edtSectorStartAngle.Text  := IntToStr(StartAngle);
+          edtSectorEndAngle.Text    := IntToStr(EndAngle);
+          pnlOutline.Color          := Color;
+
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          NoShapeInList := countList;
+
+          LoadPanelSector;
+
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TGridStatic then
+    begin
+      {$REGION ' Grid Section '}
+      OGrid := TGridStatic(item);
+
+      with OGrid do
+      begin
+        //Point Kiri Atas
+        IptS.X := postCenter.X - ((Width/60)*(WCount/2));
+        IptS.Y := postCenter.Y + ((Height/60)*(HCount)/2);
+
+        //Point Kanan Atas
+        IptE.X := postCenter.X + ((Width/60)*(WCount/2));
+        IptE.Y := postCenter.Y + ((Height/60)*(HCount)/2);
+
+        //Point Kanan Bawah
+        OptS.X := postCenter.X + ((Width/60)*(WCount/2));
+        OptS.Y := postCenter.Y - ((Height/60)*(HCount)/2);
+
+        //Point Kiri Bawah
+        OptE.X := postCenter.X - ((Width/60)*(WCount/2));
+        OptE.Y := postCenter.Y - ((Height/60)*(HCount)/2);
+
+        BKiAts   := CalcBearing(postCenter.X, postCenter.Y, IptS.X, IptS.Y);
+        BKaAts  := CalcBearing(postCenter.X, postCenter.Y, IptE.X, IptE.Y);
+        BKaBwh := CalcBearing(postCenter.X, postCenter.Y, OptS.X, OptS.Y);
+        BKiBwh  := CalcBearing(postCenter.X, postCenter.Y, OptE.X, OptE.Y);
+
+        RKiAts     := CalcRange(postCenter.X, postCenter.Y, IptS.X, IptS.Y);
+        RKaAts    := CalcRange(postCenter.X, postCenter.Y, IptE.X, IptE.Y);
+        RKaBwh   := CalcRange(postCenter.X, postCenter.Y, OptS.X, OptS.Y);
+        RKiBwh    := CalcRange(postCenter.X, postCenter.Y, OptE.X, OptE.Y);
+
+        FindPoint(postCenter, IptS, RKiAts, BKiAts + Rotation);
+        FindPoint(postCenter, IptE, RKaAts, BKaAts + Rotation);
+        FindPoint(postCenter, OptS, RKaBwh, BKaBwh + Rotation);
+        FindPoint(postCenter, OptE, RKiBwh, BKiBwh + Rotation);
+
+        simMgrClient.Converter.ConvertToScreen(IptS.X, IptS.Y, x1, y1);
+        simMgrClient.Converter.ConvertToScreen(IptE.X, IptE.Y, x2, y2);
+        simMgrClient.Converter.ConvertToScreen(OptS.X, OptS.Y, x3, y3);
+        simMgrClient.Converter.ConvertToScreen(OptE.X, OptE.Y, x4, y4);
+
+        rect1 := FFormula.assignRect(x1, y1);
+        rect2 := FFormula.assignRect(x2, y2);
+        rect3 := FFormula.assignRect(x3, y3);
+        rect4 := FFormula.assignRect(x4, y4);
+
+        rect1.Left    := x1;
+        rect1.Top     := Y1;
+        rect1.Right   := x3;
+        rect1.Bottom  := Y3;
+
+        rect2 := FFormula.checkXYPosition(rect1.Left, rect1.Top, rect1.Right, rect1.Bottom);
+
+        if ptToArea(rect2, ptPos) then
+        begin
+          ShapeType   := ovGrid;
+          IsFind      := True;
+          isSelected  := True;
+
+          edtTablePosLong.Text        := formatDMS_long(postCenter.X);
+          edtTablePosLat.Text         := formatDMS_latt(postCenter.Y);
+          edtTableColumn.Text         := IntToStr(HCount);
+          edtTableRow.Text            := IntToStr(WCount);
+          edtTableWidth.Text          := FloatToStr(Width);
+          edtTableHeight.Text         := FloatToStr(Height);
+          edtTableRotationAngle.Text  := IntToStr(Rotation);
+          pnlOutline.Color            := Color;
+
+          cbbDashesPen.Text :=  lineTypeChoice(LineType);
+          cbbWeightPen.Text := IntToStr(weight);
+
+          NoShapeInList := countList;
+
+          LoadPanelGrid;
+
+          break;
+        end;
+      end;
+      {$ENDREGION}
+    end
+    else if item is TPolygonStatic then
+    begin
+      {$REGION ' Polygon Section '}
+      OPolygon := TPolygonStatic(item);
+
+      with OPolygon do
+      begin
+        SetLength(polyPoint, polyList.Count);
+
+        for j := 0 to polyList.Count - 1 do
+        begin
+          point := polyList.Items[j];
+
+          simMgrClient.Converter.ConvertToScreen(point.X, point.Y, x1, y1);
+          polyPoint[j].x := x1;
+          polyPoint[j].y := y1;
+        end;
+
+        for j := 0 to polyList.Count - 1 do
+        begin
+          rect1 := FFormula.assignRect(polyPoint[j].x, polyPoint[j].y);
+
+          if ptToArea(rect1, ptPos) then
+          begin
+            ShapeType   := ovPolygon;
+            IsFind      := True;
+            isSelected  := True;
+
+            lvPolyVertex.Clear;
+
+            for k := 0 to polyList.Count - 1 do
+            begin
+              point := polyList.Items[k];
+
+              with lvPolyVertex.Items.Add do
+              begin
+                SubItems.Add(formatDMS_long(point.X));
+                SubItems.Add(formatDMS_latt(point.Y));
+              end;
+            end;
+
+            lvPolyVertex.Items.BeginUpdate;
+            try
+             for k := 0 to lvPolyVertex.Items.Count-1 do
+               lvPolyVertex.Items.Item[k].Caption:=IntToStr(k+1);
+            finally
+              lvPolyVertex.Items.EndUpdate;
+            end;
+            pnlOutline.Color := Color;
+
+            cbbDashesPen.Text :=  lineTypeChoice(LineType);
+            cbbWeightPen.Text := IntToStr(weight);
+
+            if BrushStyle = bsClear then
+            begin
+              SetNoFill(True);
+            end
+            else
+            begin
+              SetNoFill(False);
+              pnlFill.Color := ColorFill;
+            end;
+
+            NoShapeInList := countList;
+
+            LoadPanelPolygon;
+
+            break;
+          end;
+        end;
+      end;
+      {$ENDREGION}
+    end;
   end;
-  {$ENDREGION}
 
   if IsFind then
   begin
-    with fmOverlayEditor do
-    begin
-      btnObjectDelete.Enabled := True;
-      btnObjectApply.Enabled := True;
-      pnlStatic.Visible := True;
-      IsEditObject := True;
-    end;
+    btnObjectDelete.Enabled := True;
+    btnObjectApply.Enabled := True;
+    pnlStatic.Visible := True;
+    IsEditObject := True;
   end
   else
   begin
-    with fmOverlayEditor do
-    begin
-      lblShape.Caption := '---';
-      pnlStatic.Visible := False;
-      pnlDynamic.Visible := False;
-      pnlWarningEdit.Visible := False;
-    end;
+    lblShape.Caption := '---';
+    pnlStatic.Visible := False;
+    pnlDynamic.Visible := False;
+    pnlWarningEdit.Visible := False;
   end;
 end;
 
 procedure TfmOverlayEditor.SelectTemplate;
-var
-  OverlayTemplate : TMainOverlayTemplate;
 begin
-//  chkShowAllOverlayTemplate.Checked := False;
-//  chkHideAllOverlayTemplate.Checked := False;
-//  chkShowOverlayTemplate.Checked := FSelectedOverlay.isShow;
-
   grpStatic.Visible := False;
   grpDynamic.Visible := False;
 
-//  {dibuat IdSelectedRoute - 1, karena perbedaan penomoran antara Flisttemp dan listview}
-//  OverlayTemplate := simMgrClient.DrawOverlayTemplate.FList.Items[IdSelectedTemplate - 1];
-//  StateOverlay := OverlayTemplate.Tipe;
-//
   StateOverlay := FSelectedOverlay.Tipe;
+
   if StateOverlay = osDynamic then
   begin
     grpDynamic.Visible := True;
-//    grpStatic.Visible := False;
     RefreshDynamicTrack;
   end
   else
   begin
     grpStatic.Visible := True;
-//    grpDynamic.Visible := False;
     btnEdit.Enabled := True;
-
-//    case OverlayTemplate.Domain of
-//      vhdAir        : lbDomain.Caption := 'Air';
-//      vhdSurface    : lbDomain.Caption := 'Surface';
-//      vhdSubsurface : lbDomain.Caption := 'Subsurface';
-//      vhdLand       : lbDomain.Caption := 'Land';
-//      vhdGeneral    : lbDomain.Caption := 'General';
-//    end;
-
-//    chkShowOverlayTemplate.Checked := OverlayTemplate.isShow;
   end;
   chkShowOverlayTemplate.Checked := FSelectedOverlay.isShow;
-//  if OverlayTemplate.isShow then
-//    chkShowOverlayTemplate.Checked := True
-//  else
-//    chkShowOverlayTemplate.Checked := False;
 end;
 
 procedure TfmOverlayEditor.SetNoFill(val: Boolean);
@@ -5385,6 +5271,7 @@ end;
 
 procedure TfmOverlayEditor.LoadPanelText;
 begin
+  FObjectType := ovText;
   lblShape.Caption := 'Text';
 
   {$REGION ' Dynamic Handle '}
@@ -5406,6 +5293,7 @@ end;
 
 procedure TfmOverlayEditor.LoadPanelLine;
 begin
+  FObjectType := ovLine;
   lblShape.Caption := 'Line';
 
   {$REGION ' Dynamic Handle '}
@@ -5427,6 +5315,7 @@ end;
 
 procedure TfmOverlayEditor.LoadPanelCircle;
 begin
+  FObjectType := ovCircle;
   lblShape.Caption := 'Circle';
 
   {$REGION ' Dynamic Handle '}
@@ -5448,6 +5337,7 @@ end;
 
 procedure TfmOverlayEditor.LoadPanelEllipse;
 begin
+  FObjectType := ovEllipse;
   lblShape.Caption := 'Ellipse';
 
   {$REGION ' Dynamic Handle '}
@@ -5469,6 +5359,7 @@ end;
 
 procedure TfmOverlayEditor.LoadPanelRectangle;
 begin
+  FObjectType := ovRectangle;
   lblShape.Caption := 'Rectangle';
 
   {$REGION ' Dynamic Handle '}
@@ -5490,6 +5381,7 @@ end;
 
 procedure TfmOverlayEditor.LoadPanelArc;
 begin
+  FObjectType := ovArc;
   lblShape.Caption := 'Arc';
 
   {$REGION ' Dynamic Handle '}
@@ -5511,6 +5403,7 @@ end;
 
 procedure TfmOverlayEditor.LoadPanelGrid;
 begin
+  FObjectType := ovGrid;
   lblShape.Caption := 'Grid';
 
   {$REGION ' Dynamic Handle '}
@@ -5532,7 +5425,8 @@ end;
 
 procedure TfmOverlayEditor.LoadPanelPolygon;
 begin
-   lblShape.Caption := 'Polygon';
+  FObjectType := ovPolygon;
+  lblShape.Caption := 'Polygon';
 
   {$REGION ' Dynamic Handle '}
   grpPolygonD.BringToFront;

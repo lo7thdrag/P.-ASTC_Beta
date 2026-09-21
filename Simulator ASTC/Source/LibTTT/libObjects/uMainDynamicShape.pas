@@ -10,6 +10,7 @@ type
 
   TMainDynamicShape = class (TBaseShape)
   private
+    FShapeType : Integer;
     FColor: Integer;
     FSelected: Boolean;
     FConverter: TCoordConverter;
@@ -44,6 +45,7 @@ type
 
     function FindParent(iParent: TT3PlatformInstance; var postValue : t2DPoint): Boolean;
 
+    property ShapeType : Integer read FShapeType write FShapeType;
     property Color : Integer read FColor write SetColor;
     property isSelected : Boolean read FSelected write SetSelected;
     property Converter : TCoordConverter read FConverter write SetConverter;

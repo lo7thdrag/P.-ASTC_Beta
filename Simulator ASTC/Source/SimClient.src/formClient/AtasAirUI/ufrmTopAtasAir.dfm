@@ -10139,7 +10139,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       ExplicitTop = -6
     end
     object lblHeadingCap: TLabel
-      Left = 1632
+      Left = 1184
       Top = 5
       Width = 58
       Height = 19
@@ -10165,7 +10165,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 1313
+      Left = 1608
       Top = 5
       Width = 32
       Height = 19
@@ -10178,7 +10178,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       ParentFont = False
     end
     object lblSOGCap: TLabel
-      Left = 1778
+      Left = 1319
       Top = 5
       Width = 32
       Height = 19
@@ -10204,7 +10204,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       ParentFont = False
     end
     object lblDate: TLabel
-      Left = 1343
+      Left = 1638
       Top = 27
       Width = 255
       Height = 19
@@ -10217,15 +10217,15 @@ object frmTopAtasAir: TfrmTopAtasAir
       ParentFont = False
     end
     object lblHeading: TLabel
-      Left = 1651
+      Left = 1194
       Top = 27
-      Width = 54
-      Height = 23
+      Width = 45
+      Height = 19
       Alignment = taCenter
       Caption = '000.0'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
@@ -10244,15 +10244,15 @@ object frmTopAtasAir: TfrmTopAtasAir
       ParentFont = False
     end
     object lblSOG: TLabel
-      Left = 1797
+      Left = 1338
       Top = 27
-      Width = 54
-      Height = 23
+      Width = 45
+      Height = 19
       Alignment = taCenter
       Caption = '000.0'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
@@ -10969,7 +10969,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       Stretch = True
     end
     object Label2: TLabel
-      Left = 906
+      Left = 907
       Top = 18
       Width = 56
       Height = 19
@@ -11142,7 +11142,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       Transparent = True
     end
     object Label70: TLabel
-      Left = 1174
+      Left = 1448
       Top = 10
       Width = 53
       Height = 16
@@ -11155,7 +11155,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       ParentFont = False
     end
     object Label68: TLabel
-      Left = 1174
+      Left = 1448
       Top = 31
       Width = 45
       Height = 16
@@ -11168,7 +11168,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       ParentFont = False
     end
     object lbRangeAnchor: TLabel
-      Left = 1237
+      Left = 1511
       Top = 31
       Width = 18
       Height = 16
@@ -11181,7 +11181,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       ParentFont = False
     end
     object lbBearingAnchor: TLabel
-      Left = 1237
+      Left = 1511
       Top = 10
       Width = 18
       Height = 16
@@ -11214,7 +11214,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       TabOrder = 1
     end
     object Panel4: TPanel
-      Left = 1621
+      Left = 1169
       Top = 6
       Width = 1
       Height = 44
@@ -11224,7 +11224,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       TabOrder = 2
     end
     object Panel6: TPanel
-      Left = 1302
+      Left = 1304
       Top = 6
       Width = 1
       Height = 44
@@ -11234,7 +11234,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       TabOrder = 3
     end
     object Panel5: TPanel
-      Left = 1767
+      Left = 1592
       Top = 6
       Width = 1
       Height = 44
@@ -11252,6 +11252,16 @@ object frmTopAtasAir: TfrmTopAtasAir
       Color = 14789159
       ParentBackground = False
       TabOrder = 5
+    end
+    object Panel8: TPanel
+      Left = 1432
+      Top = 6
+      Width = 1
+      Height = 44
+      BevelOuter = bvNone
+      Color = 14789159
+      ParentBackground = False
+      TabOrder = 6
     end
   end
 end

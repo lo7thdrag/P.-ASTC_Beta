@@ -4703,6 +4703,16 @@ begin
       if Assigned(frmTopAtasAir.lbBearingAnchor) then
         frmTopAtasAir.lbBearingAnchor.Caption := FormatCourse(b);
     end;
+  end
+  else if vGameDataSetting.Role = 3 then // Role Bawah Air
+  begin
+    if Assigned(frmTopAtasAir) then
+    begin
+      if Assigned(frmTopAtasAir.lbRangeAnchor) then
+        frmTopAtasAir.lbRangeAnchor.Caption := FormatFloat('00.00', r);
+      if Assigned(frmTopAtasAir.lbBearingAnchor) then
+        frmTopAtasAir.lbBearingAnchor.Caption := FormatCourse(b);
+    end;
   end;
 end
 else

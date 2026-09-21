@@ -78,6 +78,7 @@ type
     function GetSnapshotData : _SS_TT3Sonar ;
     procedure SetSnapshotData(const ss : _SS_TT3Sonar);
 
+    function GetSonarCategory : Byte ;
     function TargetTypeEligiblity(aTarget: TObject): boolean; override;
     function InsideBlindZone(aObject: TSimObject): boolean; override;
     function InsideOtherMeasurement(aObject: TSimObject): boolean; override;
@@ -2128,6 +2129,14 @@ begin
   ss.DepthCable := DepthCable;
 
   Result := ss ;
+end;
+
+function TT3Sonar.GetSonarCategory: Byte;
+begin
+ Result := 0;
+
+  if Assigned(SonarDefinition) then
+    Result := SonarDefinition.FDef.Sonar_Category_Index;
 end;
 
 function TT3Sonar.GetSubArea(aObject: TSimObject): TSubArea_Enviro_Definition;

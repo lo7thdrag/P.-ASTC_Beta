@@ -1547,11 +1547,40 @@ begin
 
     radar := TT3Radar(sensor);
 
-    if vGameDataSetting.Role = 1 then
-    begin
-      if (radar.GetRadarType <> 3) and (radar.GetRadarType <> 4) then
+    case vGameDataSetting.Role of
+      1:
+      begin
+        {$REGION ' Navigasi '}
+         if (radar.GetRadarType <> 3) and (radar.GetRadarType <> 4) then
         continue;
+        {$ENDREGION}
+      end;
+      2:
+      begin
+        {$REGION ' Atas Air '}
+         if (radar.GetRadarType <> 0) and (radar.GetRadarType <> 1) and (radar.GetRadarType <> 2)then
+        continue;
+        {$ENDREGION}
+      end;
+      3:
+      begin
+        {$REGION ' Bawah Air '}
+
+        {$ENDREGION}
+      end;
+      4:
+      begin
+        {$REGION ' General '}
+
+        {$ENDREGION}
+      end;
     end;
+
+//    if vGameDataSetting.Role = 1 then
+//    begin
+//      if (radar.GetRadarType <> 3) and (radar.GetRadarType <> 4) then
+//        continue;
+//    end;
 
     if sensor is TT3IFFSensor then
     begin

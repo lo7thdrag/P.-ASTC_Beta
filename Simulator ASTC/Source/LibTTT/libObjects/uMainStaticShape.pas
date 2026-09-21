@@ -47,6 +47,7 @@ type
     property Color : Integer read FColor write SetColor;
     property isSelected : Boolean read FSelected write SetSelected;
     property Converter : TCoordConverter read FConverter write SetConverter;
+
     property ColorFill : Integer read FColorFill write SetColorFill;
     property LineType : TPenStyle read FLineType write SetLineType;
     property Weight : Integer read FWeight write SetWeight;

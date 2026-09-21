@@ -5669,24 +5669,26 @@ begin
     {$REGION ' Dynamic Section '}
     osDynamic :
     begin
-      recShapeDynamic.IdAction := Action;
-      recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-
       recShapeDynamic.ShapeID := ovLine;
+      recShapeDynamic.IdSelectShape := NoShapeInList;
+      recShapeDynamic.IdAction := Action;
+
       recShapeDynamic.PostStart.Bearing := StrToFloat(edtLineStartBearing.Text);
       recShapeDynamic.PostStart.Range := StrToFloat(edtLineStartRange.Text);
       recShapeDynamic.PostEnd.Bearing := StrToFloat(edtLineEndBearing.Text);
       recShapeDynamic.PostEnd.Range := StrToFloat(edtLineEndRange.Text);
+      recShapeDynamic.weight := StrToInt(cbbWeightPen.Text);
+      recShapeDynamic.lineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeDynamic.color := pnlOutline.color;
 
-      recShapeDynamic.lineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeDynamic.weight := StrToInt(cbbWeightPen.Text);
 
-      if Action = caEdit then
-        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
-      else
-        recShapeDynamic.idxDraw := idxDrawOverlay;
+
+
+//      if Action = caEdit then
+//        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
+//      else
+//        recShapeDynamic.idxDraw := idxDrawOverlay;
 
       {Kirim data disini}
       simMgrClient.netSend_CmdOverlayDynamicShape(recShapeDynamic);
@@ -5705,10 +5707,11 @@ begin
       recShapeStatic.postStart.Y := dmsToLatt(edtLineStartPosLat.Text);
       recShapeStatic.postEnd.X := dmsToLong(edtLineEndPosLong.Text);
       recShapeStatic.postEnd.Y := dmsToLatt(edtLineEndPosLat.Text);
-
-      recShapeStatic.color := pnlOutline.color;
-      recShapeStatic.lineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeStatic.weight := StrToInt(cbbWeightPen.Text);
+      recShapeStatic.lineType :=  TPenStyle(cbbDashesPen.ItemIndex);
+      recShapeStatic.color := pnlOutline.color;
+
+
 
 //      if Action = caEdit then
 //        recShapeStatic.idxDraw := simMgrClient.DrawOverlayTemplate.idxOverlay
@@ -5745,26 +5748,25 @@ begin
     {$REGION ' Dynamic Section '}
     osDynamic :
     begin
-      recShapeDynamic.IdAction := Action;
-      recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-
       recShapeDynamic.ShapeID := ovRectangle;
+      recShapeDynamic.IdSelectShape := NoShapeInList;
+      recShapeDynamic.IdAction := Action;
+
       recShapeDynamic.PostStart.Bearing := StrToFloat(edtRecStartBearing.Text);
       recShapeDynamic.PostStart.Range := StrToFloat(edtRecStartRange.Text);
       recShapeDynamic.PostEnd.Bearing := StrToFloat(edtRecEndBearing.Text);
       recShapeDynamic.PostEnd.Range := StrToFloat(edtRecEndRange.Text);
-
+      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeStatic.color := pnlOutline.Color;
+
       recShapeDynamic.BrushStyle := bsClear;
 
-      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
-
-      if Action = caEdit then
-        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
-      else
-        recShapeDynamic.idxDraw := idxDrawOverlay;
+//      if Action = caEdit then
+//        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
+//      else
+//        recShapeDynamic.idxDraw := idxDrawOverlay;
 
       {Kirim data disini}
       simMgrClient.netSend_CmdOverlayDynamicShape(recShapeDynamic);
@@ -5783,7 +5785,8 @@ begin
       recShapeStatic.postStart.Y := dmsToLatt(edtRectStartPosLat.Text);
       recShapeStatic.postEnd.X := dmsToLong(edtRectEndPosLong.Text);
       recShapeStatic.postEnd.Y := dmsToLatt(edtRectEndPosLat.Text);
-
+      recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeStatic.color := pnlOutline.Color;
 
       if FisNoFill  then
@@ -5795,9 +5798,6 @@ begin
         recShapeStatic.BrushStyle := bsSolid;
         recShapeStatic.ColorFill := pnlFill.Color;
       end;
-
-      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
 
 //      if Action = caEdit then
 //        recShapeStatic.idxDraw := simMgrClient.DrawOverlayTemplate.idxOverlay
@@ -5835,14 +5835,16 @@ begin
     {$REGION ' Dynamic Section '}
     osDynamic :
     begin
-      recShapeDynamic.IdAction := Action;
-      recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-
       recShapeDynamic.ShapeID := ovCircle;
+      recShapeDynamic.IdSelectShape := NoShapeInList;
+      recShapeDynamic.IdAction := Action;
+
       recShapeDynamic.PostStart.Bearing := StrToFloat(edtCircleBearing.Text);
       recShapeDynamic.PostStart.Range := StrToFloat(edtCircleRange.Text);
       recShapeDynamic.Radius1 := StrToFloat(edtCircleRadiusD.Text);
+      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeDynamic.Color := pnlOutline.Color;
 
       if FisNoFill  then
@@ -5853,13 +5855,10 @@ begin
         recShapeDynamic.ColorFill := pnlFill.Color;
       end;
 
-      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
-
-      if Action = caEdit then
-        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
-      else
-        recShapeDynamic.idxDraw := idxDrawOverlay;
+//      if Action = caEdit then
+//        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
+//      else
+//        recShapeDynamic.idxDraw := idxDrawOverlay;
 
       {Kirim data disini}
       simMgrClient.netSend_CmdOverlayDynamicShape(recShapeDynamic);
@@ -5877,6 +5876,8 @@ begin
       recShapeStatic.PostStart.X := dmsToLong(edtCirclePosLong.Text);
       recShapeStatic.PostStart.Y := dmsToLatt(edtCirclePosLat.Text);
       recShapeStatic.Radius1 := StrToFloat(edtCircleRadius.Text);
+      recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeStatic.color := pnlOutline.Color;
 
       if FisNoFill  then
@@ -5886,9 +5887,6 @@ begin
         recShapeStatic.BrushStyle := bsSolid;
         recShapeStatic.ColorFill := pnlFill.Color;
       end;
-
-      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
 
 //      if Action = caEdit then
 //        recShapeStatic.idxDraw := simMgrClient.DrawOverlayTemplate.idxOverlay
@@ -5926,15 +5924,17 @@ begin
     {$REGION ' Dynamic Section '}
     osDynamic :
     begin
-      recShapeDynamic.IdAction := Action;
-      recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-
       recShapeDynamic.ShapeID := ovEllipse;
+      recShapeDynamic.IdSelectShape := NoShapeInList;
+      recShapeDynamic.IdAction := Action;
+
       recShapeDynamic.PostStart.Bearing := StrToFloat(edtEllipseBearing.Text);
       recShapeDynamic.PostStart.Range := StrToFloat(edtEllipseRange.Text);
       recShapeDynamic.Radius2 := StrToFloat(edtEllipseVerticalD.Text);
       recShapeDynamic.Radius1 := StrToFloat(edtEllipseHorizontalD.Text);
+      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeDynamic.Color := pnlOutline.Color;
 
       if FisNoFill  then
@@ -5945,13 +5945,10 @@ begin
         recShapeDynamic.ColorFill := pnlFill.Color;
       end;
 
-      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
-
-      if Action = caEdit then
-        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
-      else
-        recShapeDynamic.idxDraw := idxDrawOverlay;
+//      if Action = caEdit then
+//        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
+//      else
+//        recShapeDynamic.idxDraw := idxDrawOverlay;
 
       {Kirim data disini}
       simMgrClient.netSend_CmdOverlayDynamicShape(recShapeDynamic);
@@ -5970,6 +5967,8 @@ begin
       recShapeStatic.PostStart.Y := dmsToLatt(edtEllipsePosLat.Text);
       recShapeStatic.Radius1 := StrToFloat(edtHorizontal.Text);
       recShapeStatic.Radius2 := StrToFloat(edtVertical.Text);
+      recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeStatic.color := pnlOutline.Color;
 
       if FisNoFill  then
@@ -5979,9 +5978,6 @@ begin
         recShapeStatic.BrushStyle := bsSolid;
         recShapeStatic.ColorFill := pnlFill.Color;
       end;
-
-      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
 
 //      if Action = caEdit then
 //        recShapeStatic.idxDraw := simMgrClient.DrawOverlayTemplate.idxOverlay
@@ -6019,25 +6015,24 @@ begin
     {$REGION ' Dynamic Section '}
     osDynamic :
     begin
-      recShapeDynamic.IdAction := Action;
-      recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-
       recShapeDynamic.ShapeID := ovArc;
+      recShapeDynamic.IdSelectShape := NoShapeInList;
+      recShapeDynamic.IdAction := Action;
+
       recShapeDynamic.PostStart.Bearing := StrToFloat(edtArcBearing.Text);
       recShapeDynamic.PostStart.Range := StrToFloat(edtArcRange.Text);
       recShapeDynamic.Radius1 := StrToFloat(edtArcRadiusD.Text);
       recShapeDynamic.StartAngle := StrToInt(edtArcStartAngleD.Text);
       recShapeDynamic.EndAngle := StrToInt(edtArcEndAngleD.Text);
+      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeDynamic.Color := pnlOutline.Color;
 
-      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
-
-      if Action = 2 then
-        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
-      else
-        recShapeDynamic.idxDraw := idxDrawOverlay;
+//      if Action = 2 then
+//        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
+//      else
+//        recShapeDynamic.idxDraw := idxDrawOverlay;
 
       {Kirim data disini}
       simMgrClient.netSend_CmdOverlayDynamicShape(recShapeDynamic);
@@ -6057,10 +6052,9 @@ begin
       recShapeStatic.radius1 := StrToFloat(edtArcRadius.Text);
       recShapeStatic.StartAngle := StrToInt(edtArcStartAngle.Text);
       recShapeStatic.EndAngle := StrToInt(edtArcEndAngle.Text);
-      recShapeStatic.color := pnlOutline.Color;
-
-      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
+      recShapeStatic.color := pnlOutline.Color;
 
 //      if Action = caEdit then
 //        recShapeStatic.idxDraw := simMgrClient.DrawOverlayTemplate.idxOverlay
@@ -6097,26 +6091,25 @@ begin
     {$REGION ' Dynamic Section '}
     osDynamic :
     begin
-      recShapeDynamic.IdAction := Action;
-      recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-
       recShapeDynamic.ShapeID := ovSector;
+      recShapeDynamic.IdSelectShape := NoShapeInList;
+      recShapeDynamic.IdAction := Action;
+
       recShapeDynamic.PostStart.Bearing := StrToFloat(edtSectorBearing.Text);
       recShapeDynamic.PostStart.Range := StrToFloat(edtSectorRange.Text);
       recShapeDynamic.Radius1 := StrToFloat(edtSectorOuterD.Text);
       recShapeDynamic.Radius2 := StrToFloat(edtSectorInnerD.Text);
       recShapeDynamic.StartAngle := StrToInt(edtSectorStartAngleD.Text);
       recShapeDynamic.EndAngle := StrToInt(edtSectorEndAngleD.Text);
+      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeDynamic.Color := pnlOutline.Color;
 
-      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
-
-      if Action = caEdit then
-        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
-      else
-        recShapeDynamic.idxDraw := idxDrawOverlay;
+//      if Action = caEdit then
+//        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
+//      else
+//        recShapeDynamic.idxDraw := idxDrawOverlay;
 
       {Kirim data disini}
       simMgrClient.netSend_CmdOverlayDynamicShape(recShapeDynamic);
@@ -6137,10 +6130,9 @@ begin
       recShapeStatic.Radius2 := StrToFloat(edtSectorInner.Text);
       recShapeStatic.StartAngle := StrToInt(edtSectorStartAngle.Text);
       recShapeStatic.EndAngle := StrToInt(edtSectorEndAngle.Text);
-      recShapeStatic.color := pnlOutline.Color;
-
-      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
+      recShapeStatic.color := pnlOutline.Color;
 
 //      if Action = caEdit then
 //        recShapeStatic.idxDraw := simMgrClient.DrawOverlayTemplate.idxOverlay
@@ -6177,11 +6169,11 @@ begin
     {$REGION ' Dynamic Section '}
     osDynamic :
     begin
-      recShapeDynamic.IdAction := Action;
-      recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-
       recShapeDynamic.ShapeID := ovGrid;
+      recShapeDynamic.IdSelectShape := NoShapeInList;
+      recShapeDynamic.IdAction := Action;
+
       recShapeDynamic.PostStart.Bearing := StrToFloat(edtTableBearing.Text);
       recShapeDynamic.PostStart.Range := StrToFloat(edtTableRange.Text);
       recShapeDynamic.Radius1 := StrToFloat(edtTableHeightD.Text);
@@ -6189,6 +6181,8 @@ begin
       recShapeDynamic.Kolom := StrToInt(edtTableColumnD.Text);
       recShapeDynamic.Baris := StrToInt(edtTableRowD.Text);
       recShapeDynamic.Rotasi := StrToInt(edtRotationAngleD.Text);
+      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeDynamic.Color := pnlOutline.Color;
 
       if FisNoFill  then
@@ -6199,13 +6193,10 @@ begin
         recShapeDynamic.ColorFill := pnlFill.Color;
       end;
 
-      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
-
-      if Action = caEdit then
-        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
-      else
-        recShapeDynamic.idxDraw := idxDrawOverlay;
+//      if Action = caEdit then
+//        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
+//      else
+//        recShapeDynamic.idxDraw := idxDrawOverlay;
 
       {Kirim data disini}
       simMgrClient.netSend_CmdOverlayDynamicShape(recShapeDynamic);
@@ -6227,6 +6218,8 @@ begin
       recShapeStatic.Kolom := StrToInt(edtTableColumn.Text);
       recShapeStatic.Baris := StrToInt(edtTableRow.Text);
       recShapeStatic.Rotasi := StrToInt(edtTableRotationAngle.Text);
+      recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeStatic.color := pnlOutline.Color;
 
       if FisNoFill  then
@@ -6236,9 +6229,6 @@ begin
         recShapeStatic.BrushStyle := bsSolid;
         recShapeStatic.ColorFill := pnlFill.Color;
       end;
-
-      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
 
 //      if Action = caEdit then
 //        recShapeStatic.idxDraw := simMgrClient.DrawOverlayTemplate.idxOverlay
@@ -6276,11 +6266,13 @@ begin
     {$REGION ' Dynamic Section '}
     osDynamic :
     begin
-      recShapeDynamic.IdAction := Action;
-      recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-
       recShapeDynamic.ShapeID := ovPolygon;
+      recShapeDynamic.IdSelectShape := NoShapeInList;
+      recShapeDynamic.IdAction := Action;
+
+      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeDynamic.Color := pnlOutline.Color;
 
       if FisNoFill  then
@@ -6291,13 +6283,10 @@ begin
         recShapeDynamic.ColorFill := pnlFill.Color;
       end;
 
-      recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
-
-      if Action = caEdit then
-        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
-      else
-        recShapeDynamic.idxDraw := idxDrawOverlay;
+//      if Action = caEdit then
+//        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
+//      else
+//        recShapeDynamic.idxDraw := idxDrawOverlay;
 
       recShapeDynamic.StatePoly := 0;
       for i := 0 to lvPolyVertexD.Items.Count - 1 do
@@ -6324,6 +6313,8 @@ begin
       recShapeStatic.IdSelectShape := NoShapeInList;
       recShapeStatic.IdAction := Action;
 
+      recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
+      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
       recShapeStatic.color := pnlOutline.Color;
 
       if FisNoFill  then
@@ -6335,9 +6326,6 @@ begin
         recShapeStatic.BrushStyle := bsSolid;
         recShapeStatic.ColorFill := pnlFill.Color;
       end;
-
-      recShapeStatic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeStatic.Weight := StrToInt(cbbWeightPen.Text);
 
 //      if Action = caEdit then
 //        recShapeStatic.idxDraw := simMgrClient.DrawOverlayTemplate.idxOverlay

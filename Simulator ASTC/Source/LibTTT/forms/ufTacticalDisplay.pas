@@ -4649,6 +4649,7 @@ var
   balloon : TPlatformInfoBalloon;
   hasilUTM, hasilMGRS : string;   //dng
   startX, startY: Double;
+  hasOwnShip: Boolean;
 begin
   simMgrClient.Converter.ConvertToMap(x, y, mx, my);
   lbLongitude.Caption := formatDMS_long(mx);
@@ -4665,68 +4666,46 @@ begin
 
 
   {$REGION ' Range Bearing untuk Top Navigasi & Atas Air'}
-if Assigned(simMgrClient) and Assigned(simMgrClient.LineVisual) then
-begin
-  if Assigned(anchorTrack) then
+  simMgrClient.Converter.ConvertToMap(x, y, mx, my);
+
+  hasOwnShip := False;
+
+  if Assigned(simMgrClient) and Assigned(simMgrClient.ControlledPlatform) then
   begin
-    startX := anchorTrack.getPositionX;
-    startY := anchorTrack.getPositionY;
-  end
-  else
-  begin
-    startX := simMgrClient.LineVisual.X1;
-    startY := simMgrClient.LineVisual.Y1;
+    startX := simMgrClient.ControlledPlatform.getPositionX;
+    startY := simMgrClient.ControlledPlatform.getPositionY;
+    hasOwnShip := True;
   end;
 
-  r := CalcRange(startX, startY, mx, my);
-  b := CalcBearing(startX, startY, mx, my);
+  if hasOwnShip then
+  begin
+    r := CalcRange(startX, startY, mx, my);
+    b := CalcBearing(startX, startY, mx, my);
 
-  simMgrClient.LineVisual.Range := r;
-  simMgrClient.LineVisual.Bearing := b;
+    case vGameDataSetting.Role of
+      1: // Navigasi
+      begin
+        if Assigned(frmTopNav) then
+        begin
+          if Assigned(frmTopNav.lbRangeAnchor) then
+            frmTopNav.lbRangeAnchor.Caption := FormatFloat('00.00', r);
+          if Assigned(frmTopNav.lbBearingAnchor) then
+            frmTopNav.lbBearingAnchor.Caption := FormatCourse(b);
+        end;
+      end;
 
-  if vGameDataSetting.Role = 1 then // Role Navigasi
-  begin
-    if Assigned(frmTopNav) then
-    begin
-      if Assigned(frmTopNav.lbRangeAnchor) then
-        frmTopNav.lbRangeAnchor.Caption := FormatFloat('00.00', r);
-      if Assigned(frmTopNav.lbBearingAnchor) then
-        frmTopNav.lbBearingAnchor.Caption := FormatCourse(b);
-    end;
-  end
-  else if vGameDataSetting.Role = 2 then // Role Atas Air
-  begin
-    if Assigned(frmTopAtasAir) then
-    begin
-      if Assigned(frmTopAtasAir.lbRangeAnchor) then
-        frmTopAtasAir.lbRangeAnchor.Caption := FormatFloat('00.00', r);
-      if Assigned(frmTopAtasAir.lbBearingAnchor) then
-        frmTopAtasAir.lbBearingAnchor.Caption := FormatCourse(b);
-    end;
-  end
-  else if vGameDataSetting.Role = 3 then // Role Bawah Air
-  begin
-    if Assigned(frmTopAtasAir) then
-    begin
-      if Assigned(frmTopAtasAir.lbRangeAnchor) then
-        frmTopAtasAir.lbRangeAnchor.Caption := FormatFloat('00.00', r);
-      if Assigned(frmTopAtasAir.lbBearingAnchor) then
-        frmTopAtasAir.lbBearingAnchor.Caption := FormatCourse(b);
+      2, 3: // Atas Air / Bawah Air
+      begin
+        if Assigned(frmTopAtasAir) then
+        begin
+          if Assigned(frmTopAtasAir.lbRangeAnchor) then
+            frmTopAtasAir.lbRangeAnchor.Caption := FormatFloat('00.00', r);
+          if Assigned(frmTopAtasAir.lbBearingAnchor) then
+            frmTopAtasAir.lbBearingAnchor.Caption := FormatCourse(b);
+        end;
+      end;
     end;
   end;
-end
-else
-begin
-  if Assigned(frmTopNav) and Assigned(frmTopNav.lbRangeAnchor) then
-    frmTopNav.lbRangeAnchor.Caption := '---';
-  if Assigned(frmTopNav) and Assigned(frmTopNav.lbBearingAnchor) then
-    frmTopNav.lbBearingAnchor.Caption := '---';
-
-  if Assigned(frmTopAtasAir) and Assigned(frmTopAtasAir.lbRangeAnchor) then
-    frmTopAtasAir.lbRangeAnchor.Caption := '---';
-  if Assigned(frmTopAtasAir) and Assigned(frmTopAtasAir.lbBearingAnchor) then
-    frmTopAtasAir.lbBearingAnchor.Caption := '---';
-end;
   {$ENDREGION}
 
   {ruler mode}

@@ -14125,6 +14125,7 @@ var
   li      : TListItem;
   du      : TT3DeviceUnit;
   sensor  : TT3Sensor;
+  radar: TT3Radar;
 begin
   if not Assigned(sender) then
     Exit;
@@ -14203,8 +14204,9 @@ begin
   {$ENDREGION}
 
   {$REGION ' Navigasi Role '}
-
-  lvSensorNav.Items.Clear;
+  if vGameDataSetting.Role = 1 then
+  begin
+    lvSensorNav.Items.Clear;
 
   if Assigned(sender.Devices) then
   begin
@@ -14215,6 +14217,12 @@ begin
       if du is TT3Sensor then
       begin
         sensor := TT3Sensor(du);
+        if sensor is TT3Radar then
+        begin
+          radar := TT3Radar(sensor);
+          if (radar.GetRadarType <> 3) and (radar.GetRadarType <> 4) then
+            continue;
+        end;
 
         li := lvSensorNav.Items.Add;
 
@@ -14271,6 +14279,7 @@ begin
         li.Data := sensor;
       end;
     end;
+  end;
   end;
   {$ENDREGION}
 

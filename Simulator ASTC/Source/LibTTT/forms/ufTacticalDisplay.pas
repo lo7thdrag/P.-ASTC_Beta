@@ -4688,9 +4688,9 @@ begin
         if Assigned(frmTopNav) then
         begin
           if Assigned(frmTopNav.lbRangeAnchor) then
-            frmTopNav.lbRangeAnchor.Caption := FormatFloat('00.00', r);
+            frmTopNav.lbRangeAnchor.Caption := FormatFloat('00.00', r) + ' NM';
           if Assigned(frmTopNav.lbBearingAnchor) then
-            frmTopNav.lbBearingAnchor.Caption := FormatCourse(b);
+            frmTopNav.lbBearingAnchor.Caption := FormatCourse(b) + '°';
         end;
       end;
 
@@ -4699,9 +4699,9 @@ begin
         if Assigned(frmTopAtasAir) then
         begin
           if Assigned(frmTopAtasAir.lbRangeAnchor) then
-            frmTopAtasAir.lbRangeAnchor.Caption := FormatFloat('00.00', r);
+            frmTopAtasAir.lbRangeAnchor.Caption := FormatFloat('00.00', r) + ' NM';
           if Assigned(frmTopAtasAir.lbBearingAnchor) then
-            frmTopAtasAir.lbBearingAnchor.Caption := FormatCourse(b);
+            frmTopAtasAir.lbBearingAnchor.Caption := FormatCourse(b)+ '°';
         end;
       end;
     end;
@@ -4733,8 +4733,8 @@ begin
         simMgrClient.LineVisual.Range := r;
         simMgrClient.LineVisual.Bearing := b;
 
-        lbRangeAnchor.Caption := FormatFloat('00.00', r);//FormatSpeed(r);
-        lbBearingAnchor.Caption := FormatCourse(b);
+        lbRangeAnchor.Caption := FormatFloat('00.00', r) + ' NM';
+        lbBearingAnchor.Caption := FormatCourse(b)+ '°';
       end;
 //    end;
   end;

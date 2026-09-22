@@ -41,6 +41,10 @@ type
     lbRangeAnchor: TLabel;
     lbBearingAnchor: TLabel;
     Panel8: TPanel;
+    Label1: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
     protected
     FControlled: TObject;
   private

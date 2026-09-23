@@ -89,7 +89,7 @@ uses
   ,uDataTypes, uT3Radar, ufmFireControl, uMapXhandler, uDBAsset_Vehicle, ufmDetailPlan,
   uT3CounterMeasure, uCoordConvertor, DateUtils,
   uT3MissileDetail, uT3MissileEnvironment, ufmWeaponCtrl, uMainStaticShape,
-  PlatformDefaultStyleActnCtrls, ActnPopup;//, ColorButton;
+  PlatformDefaultStyleActnCtrls, ActnPopup, uLibSettingTTT;//, ColorButton;
 
   {
   type
@@ -5149,8 +5149,11 @@ var
   I, J : Integer;
   det : TT3DetectedTrack;
   item : TMenuItem;
+  weapCategory: TWeapoonCategory; // <-- 1. Pastikan sudah dideklarasikan di sini
+  HasVisibleItem: Boolean;
 begin
-  GetCursorPos(pt);
+ GetCursorPos(pt);
+  HasVisibleItem := False;
 
   if Assigned(FControlled) then
   begin
@@ -5161,8 +5164,47 @@ begin
       for I := 0 to pmenuWeapon.Items.Count - 1 do
       begin
         item := pmenuWeapon.Items.Items[i];
-
         weapon := ve.getWeapon(DeleteAmpersand(item.Caption)) as TT3Weapon;
+
+        if not Assigned(weapon) then
+          continue;
+
+        weapCategory := ve.getWeaponType(DeleteAmpersand(item.Caption));
+
+        case vGameDataSetting.Role of
+          2:
+          begin
+            if (weapCategory >= wcTorpedoStraigth) and (weapCategory <= wcTorpedoAirDropped) then
+            begin
+              Item.Visible := False;
+              continue;
+            end
+            else
+            begin
+              Item.Visible := True;
+            end;
+          end;
+
+          3:
+          begin
+            if (weapCategory >= wcTorpedoStraigth) and (weapCategory <= wcTorpedoAirDropped) then
+            begin
+              Item.Visible := True;
+
+              if (edtWeaponName.Text = '') or
+                 not (ve.getWeaponType(edtWeaponName.Text) >= wcTorpedoStraigth) and
+                 (ve.getWeaponType(edtWeaponName.Text) <= wcTorpedoAirDropped) then
+              begin
+                edtWeaponName.Text := DeleteAmpersand(item.Caption);
+              end;
+            end
+            else
+            begin
+              Item.Visible := False;
+              continue;
+            end;
+          end;
+        end;
 
         if weapon.WeaponCategory = wcVectac then
         begin
@@ -5205,18 +5247,17 @@ begin
                 end;
               end;
             end;
-      //          else
-      //          begin
-      //            if weapon.WeaponCategory = wcVectac then
-      //              Item.Visible := False;
-      //          end;
           end;
         end;
+
+
+        if Item.Visible then
+          HasVisibleItem := True;
       end;
     end;
   end;
 
-  if pmenuWeapon.Items.Count > 0 then
+  if Assigned(pmenuWeapon) and (pmenuWeapon.Items.Count > 0) and (HasVisibleItem or (vGameDataSetting.Role = 2)) then
     pmenuWeapon.Popup(pt.X, pt.Y);
 end;
 
@@ -6252,9 +6293,9 @@ begin
     _weaponCategory :=  _vehicle.getWeaponType(_weaponName);
     _initWeapon := _vehicle.getWeapon(_weaponName);
 
-    if Assigned(frmToteDisplay) and Assigned(_initWeapon) then
-    begin
-      frmToteDisplay.UpdateWeaponData(_initWeapon);
+//    if Assigned(frmToteDisplay) and Assigned(_initWeapon) then
+//    begin
+//      frmToteDisplay.UpdateGunWeaponData(_initWeapon);
 
     {$REGION ' Jk Weapon yg dipilih torpedo active pasive '}
     if _weaponCategory = wcTorpedoActivePassive then
@@ -6351,7 +6392,7 @@ begin
     {$ENDREGION}
   end;
 end;
-end;
+
 
 { TODO 1 : Cek baris berikut, OnChaffTypeItemSelected di komen dulu karena perubahan di frmweapon }
 //procedure TfmWeapon.OnChaffTypeItemSelected(Sender: TObject);

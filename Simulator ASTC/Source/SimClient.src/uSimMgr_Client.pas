@@ -1072,6 +1072,12 @@ begin
   isFirstDraw := True;
 end;
 
+procedure TSimMgr_Client.CreateOverlayShapeDynamic(
+  rec: TRecCmd_OverlayDynamicShape);
+begin
+  inherited;
+end;
+
 procedure TSimMgr_Client.CreateOverlayShapeStatic(rec: TRecCmd_OverlayStaticShape);
 begin
   inherited;

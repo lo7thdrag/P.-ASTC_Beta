@@ -1538,7 +1538,7 @@ type
     Label286: TLabel;
     lvSensorFiring: TListView;
     pnlSMS1: TPanel;
-    Image75: TImage;
+    btnSMS: TImage;
     chtLogistic: TChart;
     Series1: TBarSeries;
     lblMaxCap: TLabel;
@@ -2740,7 +2740,9 @@ begin
   else if Sender = btnEnviControlNew then
     btnEnviControlNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\6a.bmp')
   else if Sender = btnTacticalNew then
-    btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\7a.bmp') ;
+    btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\7a.bmp')
+  else if Sender = btnSMS then
+    btnSMS.Picture.LoadFromFile('data\Image Simulator\Tote\left\8a.bmp') ;
 end;
 
 procedure TfrmToteDisplay.btnMouseLeave(sender: TObject);
@@ -2784,6 +2786,11 @@ begin
    begin
        if LastButton <> 9 then
        btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\7b.bmp') ;
+   end
+   else if Sender = btnTacticalNew then
+   begin
+       if LastButton <> 10 then
+       btnSMS.Picture.LoadFromFile('data\Image Simulator\Tote\left\8b.bmp') ;
    end
 end;
 
@@ -4503,6 +4510,7 @@ begin
     7: btnCubicleNew.Assign(FButtonImage[5].Hover);
     8: btnEnviControlNew.Assign(FButtonImage[6].Hover);
     9: btnTacticalNew.Assign(FButtonImage[7].Hover);
+    10: btnSMS.Assign(FButtonImage[8].Hover);
   end;
 end;
 
@@ -4524,6 +4532,7 @@ begin
     7: btnCubicle.Assign(FButtonImage[5].Normal);
     8: btnEnviControlNew.Assign(FButtonImage[6].Normal);
     9: btnTacticalNew.Assign(FButtonImage[7].Normal);
+    10: btnSMS.Assign(FButtonImage[8].Normal);
   end;
 end;
 
@@ -21765,7 +21774,7 @@ begin
     10:
     begin
       DisablePrevious;
-      btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\8a.bmp') ;
+      btnSMS.Picture.LoadFromFile('data\Image Simulator\Tote\left\8a.bmp') ;
       LastButton := 10;
 
       gbMessageHandlingSystem.BringToFront;
@@ -21803,6 +21812,9 @@ begin
 
     9:
     btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\7b.bmp');
+
+    10:
+    btnSMS.Picture.LoadFromFile('data\Image Simulator\Tote\left\7b.bmp');
 
 //    btnEnviNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\3b.bmp');
 

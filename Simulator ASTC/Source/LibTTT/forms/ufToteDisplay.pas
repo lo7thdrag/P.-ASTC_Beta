@@ -1538,7 +1538,7 @@ type
     Label286: TLabel;
     lvSensorFiring: TListView;
     pnlSMS1: TPanel;
-    btnSMS: TImage;
+    btnSMS : TImage;
     chtLogistic: TChart;
     Series1: TBarSeries;
     lblMaxCap: TLabel;
@@ -2251,6 +2251,8 @@ public
     procedure HideAllSidebar;
     procedure ArrangeSidebar;
     procedure SetUpSidebar (rc: Integer);
+
+    procedure UpdateWeaponImage(const AWeaponName: string);
 
 
     public
@@ -15235,6 +15237,23 @@ begin
       imgShip.Picture.LoadFromFile(BaseAppPath + 'data\NoModel.bmp');
   except
     imgShip.Picture.LoadFromFile(BaseAppPath + 'data\NoModel.bmp');
+  end;
+end;
+
+procedure TfrmToteDisplay.UpdateWeaponImage(const AWeaponName: string);
+var
+  filePath: string;
+begin
+ filePath := ExtractFilePath(ParamStr(0)) + '..\..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\' + AWeaponName + '.png';
+
+  if FileExists(filePath) then
+  begin
+    imgSenjata.Picture.LoadFromFile(filePath);
+  end
+  else
+  begin
+    imgSenjata.Picture.Graphic := nil;
+
   end;
 end;
 

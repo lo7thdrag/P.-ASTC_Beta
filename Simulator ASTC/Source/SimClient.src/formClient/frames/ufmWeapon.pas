@@ -5183,6 +5183,14 @@ begin
             else
             begin
               Item.Visible := True;
+
+              if edtWeaponName.Text = '' then
+              begin
+                edtWeaponName.Text := DeleteAmpersand(item.Caption);
+
+                if Assigned(frmToteDisplay) then
+                  frmToteDisplay.UpdateWeaponImage(edtWeaponName.Text);
+            end;
             end;
           end;
 
@@ -5197,6 +5205,9 @@ begin
                  (ve.getWeaponType(edtWeaponName.Text) <= wcTorpedoAirDropped) then
               begin
                 edtWeaponName.Text := DeleteAmpersand(item.Caption);
+
+                if Assigned(frmToteDisplay) then
+                  frmToteDisplay.UpdateWeaponImage(edtWeaponName.Text);
               end;
             end
             else
@@ -6286,6 +6297,11 @@ begin
   _weaponName := DeleteAmpersand(_weaponName);
   edtWeaponName.Text := _weaponName;
 
+  if Assigned(frmToteDisplay) then
+  begin
+    frmToteDisplay.UpdateWeaponImage(_weaponName);
+  end;
+
   if FControlled is TT3Vehicle then
   begin
     _vehicle := TT3Vehicle(FControlled);
@@ -6659,7 +6675,14 @@ begin
     {$ENDREGION}
 
     _weapon := TT3Weapon(_vehicle.Weapons.Items[_vehicle.LastWeaponsSelected]);
-    edtWeaponName.Text := _weapon.InstanceName;
+//    edtWeaponName.Text := _weapon.InstanceName;
+    _weaponName := _weapon.InstanceName;
+    edtWeaponName.Text := _weaponName;
+
+    if Assigned(frmToteDisplay) then
+    begin
+      frmToteDisplay.UpdateWeaponImage(_weaponName);
+    end;
 
     _weaponCategory := _vehicle.getWeaponType(_weapon.InstanceName);
     _initWeapon := _vehicle.getWeapon(_weapon.InstanceName);

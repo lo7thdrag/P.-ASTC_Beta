@@ -659,7 +659,8 @@ type
 
     {Overlay}
     procedure CreateOverlayTamplate (rec : TRecCmd_OverlayTemplate); override;
-    procedure CreateOverlayShape (rec : TRecCmd_OverlayStaticShape); override;
+    procedure CreateOverlayShapeStatic (rec : TRecCmd_OverlayStaticShape); override;
+    procedure CreateOverlayShapeDynamic (rec : TRecCmd_OverlayDynamicShape); override;
 
     procedure CreatePlotting (rec : TRecCmd_PlottingShape); override;
     procedure CreateShipingRoute (rec : TRecCmd_ShipingRoute); override;
@@ -1071,7 +1072,7 @@ begin
   isFirstDraw := True;
 end;
 
-procedure TSimMgr_Client.CreateOverlayShape(rec: TRecCmd_OverlayStaticShape);
+procedure TSimMgr_Client.CreateOverlayShapeStatic(rec: TRecCmd_OverlayStaticShape);
 begin
   inherited;
 end;
@@ -8919,7 +8920,7 @@ begin
   if r.SessionID <> FSessionID then
     Exit;
 
-  CreateOverlayShape(r^);
+  CreateOverlayShapeStatic(r^);
 
 end;
 
@@ -10729,7 +10730,7 @@ begin
         recOverlayStatic.PolyPoint[k]   := recSSOverlayStaticShape.PolyPoint[k];
       end;
 
-      CreateOverlayShape(recOverlayStatic);
+      CreateOverlayShapeStatic(recOverlayStatic);
     end;
   end;
   {$ENDREGION}

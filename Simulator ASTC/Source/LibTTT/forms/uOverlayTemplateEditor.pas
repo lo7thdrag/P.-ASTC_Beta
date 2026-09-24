@@ -3787,7 +3787,7 @@ begin
           edtEllipseBearing.Text      := FloatToStr(postCenter.Bearing);
           edtEllipseHorizontalD.Text  := FloatToStr(OEllipse.Hradius);
           edtEllipseVerticalD.Text    := FloatToStr(OEllipse.Vradius);
-          pnlOutline.Color        := Color;
+          pnlOutline.Color            := Color;
 
           cbbDashesPen.Text :=  lineTypeChoice(LineType);
           cbbWeightPen.Text := IntToStr(weight);
@@ -3857,16 +3857,14 @@ begin
           ShapeType := ovArc;
           IsFind := True;
           isSelected  := true;
-//          pointParent := pParent;
-//          postCenterSelected := postCenter;
-//          pointSShape := pSShape;
 
           edtArcRange.Text        := FloatToStr(postCenter.Range);
           edtArcBearing.Text      := FloatToStr(postCenter.Bearing);
           edtArcRadiusD.Text      := FloatToStr(radius);
           edtArcStartAngleD.Text  := FloatToStr(StartAngle);
           edtArcEndAngleD.Text    := FloatToStr(EndAngle);
-          pnlOutline.Color      := Color;
+          pnlOutline.Color        := Color;
+
           cbbDashesPen.Text :=  lineTypeChoice(OArc.LineType);
           cbbWeightPen.Text := IntToStr(OArc.weight);
 
@@ -3874,32 +3872,6 @@ begin
 
           LoadPanelArc;
 
-//          fmOverlayEditor.txtColorSelect.Color    := OArc.Color;
-//
-//          fmOverlayEditor.pnlNoFill.Visible       := False;
-
-
-
-//          fmOverlayEditor.pnlPenEditing.Visible := True;
-//          fmOverlayEditor.btnFillEditing.Enabled := False;
-//          fmOverlayEditor.btnFrameEditing.Enabled := True;
-
-//          isFillEmpty := False;
-
-//          fmOverlayEditor.pnlNoFill.Visible := True;
-//          isFillEmpty := True;
-          fmOverlayEditor.pnlPenEditing.Visible := True;
-//          fmOverlayEditor.btnFillEditing.Enabled := False;
-//          fmOverlayEditor.btnFrameEditing.Enabled := True;
-          fmOverlayEditor.cbbDashesPen.Enabled := True;
-          fmOverlayEditor.cbbWeightPen.Enabled := True;
-
-//          idxOverlay := TBaseShape(OArc).orderId;
-          fmOverlayEditor.TagObject := ovArc;
-          fmOverlayEditor.lblShape.Caption := 'Arc';
-          fmOverlayEditor.grpArcD.BringToFront;
-
-//          ShapeType := 6;
           break ;
         end;
       end;
@@ -3956,9 +3928,6 @@ begin
           ShapeType := ovSector;
           IsFind := True;
           isSelected  := True;
-//          pointParent := pParent;
-//          postCenterSelected := postCenter;
-//          pointSShape := pSShape;
 
           edtSectorRange.Text       := FloatToStr(postCenter.Range);
           edtSectorBearing.Text     := FloatToStr(postCenter.Bearing);
@@ -3975,33 +3944,6 @@ begin
 
           LoadPanelSector;
 
-          if OSector.BrushStyle = bsClear then
-          begin
-//            fmOverlayEditor.pnlNoFill.Visible := True;
-//            isFillEmpty := True;
-          end
-          else
-          begin
-//            fmOverlayEditor.txtFillColor.Color := OSector.ColorFill;
-//            fmOverlayEditor.pnlNoFill.Visible := False;
-//            isFillEmpty := False;
-          end;
-//          fmOverlayEditor.pnlNoFill.Visible := True;
-//          isFillEmpty := True;
-
-//          fmOverlayEditor.pnlPenEditing.Visible := True;
-//          fmOverlayEditor.btnFillEditing.Enabled := False;
-//          fmOverlayEditor.btnFrameEditing.Enabled := True;
-          fmOverlayEditor.cbbDashesPen.Enabled := True;
-          fmOverlayEditor.cbbWeightPen.Enabled := True;
-
-
-//          idxOverlay := TBaseShape(OSector).orderId;
-          fmOverlayEditor.TagObject := ovSector;
-          fmOverlayEditor.lblShape.Caption := 'Sector';
-          fmOverlayEditor.grpSectorD.BringToFront;
-//
-          ShapeType := 7;
           break;
         end;
       end;
@@ -4070,9 +4012,6 @@ begin
           ShapeType := ovGrid;
           IsFind := True;
           isSelected := true;
-//          pointParent := pParent;
-//          postCenterSelected := postCenter;
-//          pointSShape := pSShape;
 
           edtTableRange.Text        := FloatToStr(postCenter.Range);
           edtTableBearing.Text      := FloatToStr(postCenter.Bearing);
@@ -4090,33 +4029,6 @@ begin
 
           LoadPanelGrid;
 
-
-//          fmOverlayEditor.txtColorSelect.Color      := OGrid.Color;
-//
-//          fmOverlayEditor.pnlNoFill.Visible         := False;
-
-
-
-//          fmOverlayEditor.pnlPenEditing.Visible := True;
-//          fmOverlayEditor.btnFillEditing.Enabled := False;
-//          fmOverlayEditor.btnFrameEditing.Enabled := True;
-
-//          isFillEmpty := False;
-
-//          fmOverlayEditor.pnlNoFill.Visible := True;
-//          isFillEmpty := True;
-          fmOverlayEditor.pnlPenEditing.Visible := True;
-//          fmOverlayEditor.btnFillEditing.Enabled := False;
-//          fmOverlayEditor.btnFrameEditing.Enabled := True;
-          fmOverlayEditor.cbbDashesPen.Enabled := True;
-          fmOverlayEditor.cbbWeightPen.Enabled := True;
-
-//          idxOverlay := TBaseShape(OGrid).orderId;
-          fmOverlayEditor.TagObject := ovGrid;
-          fmOverlayEditor.lblShape.Caption := 'Grid';
-          fmOverlayEditor.grpGridD.BringToFront;
-
-          ShapeType := 8;
           break;
         end;
       end;
@@ -4126,6 +4038,7 @@ begin
     begin
       {$REGION ' Polygon Section '}
       OPolygon := TPolygonDynamic(item);
+
       with OPolygon do
       begin
         if not FindParent(Parent, pParent) then
@@ -4167,11 +4080,9 @@ begin
 
           if ptToArea(rect1, ptPos) then
           begin
-            ShapeType := ovPolygon;
-            IsFind := True;
-            isSelected := true;
-//            pointParent := pParent;
-//            pointSShape := pSShape;
+            ShapeType   := ovPolygon;
+            IsFind      := True;
+            isSelected  := true;
 
             lvPolyVertexD.Clear;
 
@@ -4199,40 +4110,22 @@ begin
 
             if OPolygon.BrushStyle = bsClear then
             begin
-//              fmOverlayEditor.pnlNoFill.Visible := True;
               SetNoFill( True);
             end
             else
             begin
               SetNoFill( False);
               pnlFill.Color := ColorFill;
-//              fmOverlayEditor.pnlNoFill.Visible := False;
-//
             end;
 
             NoShapeInList := countList;
 
             LoadPanelPolygon;
 
-            fmOverlayEditor.pnlPenEditing.Visible := True;
-//            fmOverlayEditor.btnFillEditing.Enabled := True;
-//            fmOverlayEditor.btnFrameEditing.Enabled := True;
-
-
-//            idxOverlay := TBaseShape(OPolygon).orderId;
-            fmOverlayEditor.cbbDashesPen.Enabled := True;
-            fmOverlayEditor.cbbWeightPen.Enabled := True;
-            fmOverlayEditor.TagObject := ovPolygon;
-            fmOverlayEditor.lblShape.Caption := 'Polygon';
-            fmOverlayEditor.grpPolygonD.BringToFront;
-
-//            ShapeType := 9;
             break;
           end;
         end;
       end;
-      if IsFind then
-          break;
       {$ENDREGION}
     end;
   end;

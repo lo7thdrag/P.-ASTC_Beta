@@ -404,7 +404,7 @@ type
 
     {$REGION ' Overlay Method '}
     procedure CreateOverlayTamplate (rec : TRecCmd_OverlayTemplate); virtual;
-    procedure CreateOverlayShape (rec : TRecCmd_OverlayStaticShape); virtual;
+    procedure CreateOverlayShapeStatic (rec : TRecCmd_OverlayStaticShape); virtual;
     {$ENDREGION}
 
     {$REGION ' Plotting Method '}
@@ -12219,7 +12219,7 @@ begin
   result := pi;
 end;
 
-procedure TT3SimManager.CreateOverlayShape(rec: TRecCmd_OverlayStaticShape);
+procedure TT3SimManager.CreateOverlayShapeStatic(rec: TRecCmd_OverlayStaticShape);
 var
   i, j : Integer;
   Point1 : TDotStatic;

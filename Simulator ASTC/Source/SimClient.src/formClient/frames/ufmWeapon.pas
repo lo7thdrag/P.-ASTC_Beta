@@ -912,7 +912,6 @@ type
       procedure onTorpedoRunOutClick(Sender : TObject);
       procedure onTorpedoGyroAngle(Sender : TObject);
 
-
       //---- coment dlu, tdk ada yg manggil ----//
       //Chaff Type
       //procedure OnChaffTypeItemSelected(Sender: TObject);
@@ -981,6 +980,8 @@ type
 
     procedure InitCreate(sender: TForm); override;
     procedure Refresh_VisibleTab;
+
+    procedure UpdateDefaultWeapon;
 
     procedure UpdateGunAutoManualTab(Sender: TObject);
     procedure UpdateGunCIWSTab(Sender: TObject);
@@ -9866,6 +9867,39 @@ begin
 //    btnBombDrop.Caption := 'Drop';
 //    uT3Bomb.BombTypes := 0;
 //  end;
+end;
+
+procedure TfmWeapon.UpdateDefaultWeapon;
+var
+  ve: TT3Vehicle;
+  i: Integer;
+  weapon: TT3Weapon;
+  activeCat: TWeapoonCategory;
+begin
+  if not Assigned(FControlled) then
+    Exit;
+
+  ve := TT3Vehicle(FControlled);
+
+  if vGameDataSetting.Role = 3 then
+  begin
+    activeCat := ve.getWeaponType(edtWeaponName.Text);
+
+    if not ((activeCat >= wcTorpedoStraigth) and (activeCat <= wcTorpedoAirDropped)) then
+    begin
+      for i := 0 to ve.Weapons.Count - 1 do
+      begin
+        weapon := TT3Weapon(ve.Weapons.Items[i]);
+        if Assigned(weapon) and
+           (weapon.WeaponCategory >= wcTorpedoStraigth) and
+           (weapon.WeaponCategory <= wcTorpedoAirDropped) then
+        begin
+          edtWeaponName.Text := weapon.InstanceName;
+          Break;
+        end;
+      end;
+    end;
+  end;
 end;
 
 procedure TfmWeapon.UpdateMinesTab(Sender: TObject);

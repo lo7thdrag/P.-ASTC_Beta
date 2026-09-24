@@ -6499,6 +6499,8 @@ begin
         begin
           frmRightAtasAir.fmWeapon1.SetControlledObject(pit);
           frmRightAtasAir.SetControlledObject(pit);
+
+          frmRightAtasAir.fmWeapon1.UpdateDefaultWeapon;
          end;
         {$ENDREGION}
       end;
@@ -6692,6 +6694,9 @@ begin
         begin
           {$REGION ' BawahAir '}
           setUpAsuwoUI;
+
+          if Assigned(frmRightAtasAir) then
+            frmRightAtasAir.fmWeapon1.UpdateDefaultWeapon;
           {$ENDREGION}
         end;
         4:

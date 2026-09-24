@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Classes, SysUtils, Graphics, Math, OverbyteIcsWSocket,
-  uRemoteData, ZLibEx  ;
+  uRemoteData, System.ZLib  ;
 
 type
   TRemoteScreen = class(TThread)

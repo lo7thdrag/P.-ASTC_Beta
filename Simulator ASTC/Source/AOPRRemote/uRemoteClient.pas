@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, Buttons, uRemoteData, uRemoteHost, ZLibEx,
+  Dialogs, StdCtrls, ExtCtrls, Buttons, uRemoteData, uRemoteHost, System.ZLib,
   OverbyteIcsWndControl, OverbyteIcsWSocket;
 
 type

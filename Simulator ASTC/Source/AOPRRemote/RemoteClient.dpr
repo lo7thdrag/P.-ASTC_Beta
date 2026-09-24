@@ -1,11 +1,10 @@
-program AOPRRClient;
+program RemoteClient;
 
 uses
   Forms,
   uRemoteClient in 'uRemoteClient.pas' {frmRemoteClient},
   uRemoteHost in 'uRemoteHost.pas' {frmRemoteHost},
-  uRemoteData in 'uRemoteData.pas',
-  ZLibEx in '..\SimFramework\LibComponent\ZLibEx\ZLibEx.pas';
+  uRemoteData in 'uRemoteData.pas';
 
 {$R *.res}
 

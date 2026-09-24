@@ -1,11 +1,10 @@
-program AOPRRServer;
+program RemoteServer;
 
 uses
   Forms,
   uRemoteServer in 'uRemoteServer.pas' {frmMain},
   uRemoteScreen in 'uRemoteScreen.pas',
-  uRemoteData in 'uRemoteData.pas',
-  ZLibEx in '..\SimFramework\LibComponent\ZLibEx\ZLibEx.pas';
+  uRemoteData in 'uRemoteData.pas';
 
 {$R *.res}
 

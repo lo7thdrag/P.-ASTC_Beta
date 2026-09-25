@@ -3621,7 +3621,7 @@ begin
     3 : s := 'Delete';
   end;
 
-  case r^.ShapeID of
+  case r^.ShapeType of
     1 : ss := 'Text';
     2 : ss := 'Line';
     3 : ss := 'Rectangle';
@@ -4302,7 +4302,7 @@ begin
     5 : s := 'SendToback';
   end;
 
-  case r^.ShapeID of
+  case r^.ShapeType of
     1 : ss := 'Text';
     2 : ss := 'Line';
     3 : ss := 'Rectangle';
@@ -4496,7 +4496,7 @@ begin
     4 : s := 'BringToFront';
   end;
 
-  case r^.ShapeID of
+  case r^.ShapeType of
     1 : ss := 'Text';
     2 : ss := 'Line';
     3 : ss := 'Rectangle';

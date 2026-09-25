@@ -876,7 +876,7 @@ type
     PolyPoint     : array[0..12] of t2DPoint;
     isSelected    : Boolean;
     role          : Byte;
-//    idxDraw       : Integer;
+    idxDraw       : Integer;
   end;
 
   //CPID_CMD_OVERLAYDYNAMICSHAPE
@@ -884,9 +884,8 @@ type
     pid           : TPacketID;
     SessionID     : Integer;
     Cubicle       : Integer;
-    ShapeID       : Byte;
+    ShapeType     : Byte;
     TemplateId    : Integer;
-//    TemplateName  : string[30];
     IdAction      : Byte;       {1: add; 2: Edit; 3: Delete 4:BringToFront 5:SendToBack}
     IdSelectShape : Byte;
     PostStart     : tRangeBearingPoint;   {PostStart/ PostCenter}
@@ -907,7 +906,9 @@ type
     BrushStyle    : TBrushStyle;
     ColorFill     : TColor;
     Editable      : Boolean;
+    PolyPoint     : array[0..12] of tRangeBearingPoint;
     role          : Byte;
+    isSelected    : Boolean;
     idxDraw       : Integer;
   end;
 

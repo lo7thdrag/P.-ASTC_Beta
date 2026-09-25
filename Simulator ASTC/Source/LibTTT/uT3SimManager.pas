@@ -12461,7 +12461,7 @@ begin
     case rec.IdAction of
       caAdd, caEdit:
       begin
-        case rec.ShapeID of
+        case rec.ShapeType of
           ovText :
           begin
             {$Region' Text '}
@@ -12698,12 +12698,12 @@ begin
 
             for i := 0 to 12 do
             begin
-              if (rec.polyPoint[i].X = 0) and (rec.polyPoint[i].Y = 0) then
-                Continue;
+              if i >= rec.StatePoly then
+                Break;
 
               Point1 := TDotDynamic.Create;
-              Point1.Range := rec.polyPoint[i].X;
-              Point1.Bearing := rec.polyPoint[i].Y;
+              Point1.Range := rec.polyPoint[i].Range;
+              Point1.Bearing := rec.polyPoint[i].Bearing;
               PolygonShape.polyList.Add(Point1);
             end;
 

@@ -3487,7 +3487,7 @@ begin
   r  := @apRec^;
   sip :=  LongIp_To_StrIp(r^.pid.ipSender);
 
-  CreateOverlayShape(r^);
+  CreateOverlayShapeStatic(r^);
 
   case r^.IdAction of
     1 : s := 'Create';
@@ -7253,7 +7253,7 @@ begin
         recOverlayStatic.PolyPoint[k]   := recSSOverlayStaticShape.PolyPoint[k];
       end;
 
-      CreateOverlayShape(recOverlayStatic);
+      CreateOverlayShapeStatic(recOverlayStatic);
     end;
   end;
   {$ENDREGION}

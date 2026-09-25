@@ -12701,7 +12701,7 @@ begin
               if (rec.polyPoint[i].X = 0) and (rec.polyPoint[i].Y = 0) then
                 Continue;
 
-              Point1 := TDotStatic.Create;
+              Point1 := TDotDynamic.Create;
               Point1.Range := rec.polyPoint[i].X;
               Point1.Bearing := rec.polyPoint[i].Y;
               PolygonShape.polyList.Add(Point1);

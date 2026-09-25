@@ -8934,27 +8934,42 @@ procedure TSimMgr_Client.netRecv_CmdOverlayDynamicShape(apRec: PAnsiChar; aSize:
 var
   r : ^TRecCmd_OverlayDynamicShape;
 begin
+  {$REGION ' LAMA'}
+//  r := @apRec^;
+//  LogEventRecv(r^.pid.recID);
+//
+//  if r = nil then
+//    Exit;
+//
+//  if r^.SessionID <> FSessionID then
+//    Exit;
+//
+//  if r.Cubicle = 0 then
+//  begin
+//    TT3ClientEventManager(EventManager).OnOverlayDynamicShape(r^);
+//  end
+//  else
+//  begin
+//    if FMyCubGroup <> nil then
+//    begin
+//      if FMyCubGroup.FData.Group_Index = r^.Cubicle then
+//        TT3ClientEventManager(EventManager).OnOverlayDynamicShape(r^);
+//    end;
+//  end;
+  {$ENDREGION}
+
+  {$REGION ' BARU'}
   r := @apRec^;
   LogEventRecv(r^.pid.recID);
 
   if r = nil then
     Exit;
 
-  if r^.SessionID <> FSessionID then
+  if r.SessionID <> FSessionID then
     Exit;
 
-  if r.Cubicle = 0 then
-  begin
-    TT3ClientEventManager(EventManager).OnOverlayDynamicShape(r^);
-  end
-  else
-  begin
-    if FMyCubGroup <> nil then
-    begin
-      if FMyCubGroup.FData.Group_Index = r^.Cubicle then
-        TT3ClientEventManager(EventManager).OnOverlayDynamicShape(r^);
-    end;
-  end;
+  CreateOverlayShapeDynamic(r^);
+  {$ENDREGION}
 end;
 
 procedure TSimMgr_Client.netRecv_Cmd_MergeTrack(apRec: PAnsiChar; aSize: word);

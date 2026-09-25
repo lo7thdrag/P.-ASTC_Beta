@@ -420,7 +420,7 @@ uses
   uDBAsset_Reference_Point, StrUtils, uBaseCoordSystem, uT3RadarNoiseJammer,
   uDataTypes, uSnapshotData, uMainLogisticTemplate, DateUtils,
   uDBAsset_Runtime_Platform_Library, Math, uMainOverlay, uMainStaticShape,
-  uMainPlottingShape, uMainDynamicShape, uSimMgr_Client, uOverlayTemplateEditor;
+  uMainPlottingShape, uMainDynamicShape;
 
 { TT3SimManager }
 
@@ -12468,7 +12468,7 @@ begin
             if rec.IdAction = 2 then
               TextShape := OverlayTemplate.DynamicList.Items[rec.IdSelectShape]
             else
-              TextShape := TTextDynamic.Create(simMgrClient.Converter);
+              TextShape := TTextDynamic.Create(Converter);
 
             TextShape.postStart   := rec.PostStart;
             TextShape.size        := rec.Size;
@@ -12491,7 +12491,7 @@ begin
             if rec.IdAction = 2 then
               LineShape := OverlayTemplate.DynamicList.Items[rec.IdSelectShape]
             else
-              LineShape := TLineDynamic.Create(simMgrClient.Converter);
+              LineShape := TLineDynamic.Create(Converter);
 
             LineShape.postStart   := rec.PostStart;
             LineShape.postEnd     := rec.PostEnd;
@@ -12516,7 +12516,7 @@ begin
             if rec.IdAction = 2 then
               RectangleShape := OverlayTemplate.DynamicList.Items[rec.IdSelectShape]
             else
-              RectangleShape := TRectangleDynamic.Create(simMgrClient.Converter);
+              RectangleShape := TRectangleDynamic.Create(Converter);
 
             RectangleShape.postStart  := rec.PostStart;
             RectangleShape.postEnd    := rec.PostEnd;
@@ -12542,7 +12542,7 @@ begin
             if rec.IdAction = 2 then
               CircleShape := OverlayTemplate.DynamicList.Items[rec.IdSelectShape]
             else
-              CircleShape := TCircleDynamic.Create(simMgrClient.Converter);
+              CircleShape := TCircleDynamic.Create(Converter);
 
             CircleShape.postCenter  := rec.PostStart;
             CircleShape.radius      := rec.Radius1;
@@ -12568,7 +12568,7 @@ begin
             if rec.IdAction = 2 then
               EllipseShape := OverlayTemplate.DynamicList.Items[rec.IdSelectShape]
             else
-              EllipseShape := TEllipseDynamic.Create(simMgrClient.Converter);
+              EllipseShape := TEllipseDynamic.Create(Converter);
 
             EllipseShape.postCenter := rec.PostStart;
             EllipseShape.Hradius    := rec.Radius1;
@@ -12595,7 +12595,7 @@ begin
             if rec.IdAction = 2 then
               ArcShape := OverlayTemplate.DynamicList.Items[rec.IdSelectShape]
             else
-              ArcShape := TArcDynamic.Create(simMgrClient.Converter);
+              ArcShape := TArcDynamic.Create(Converter);
 
             ArcShape.postCenter := rec.PostStart;
             ArcShape.radius     := rec.Radius1;
@@ -12622,7 +12622,7 @@ begin
             if rec.IdAction = 2 then
               SectorShape := OverlayTemplate.DynamicList.Items[rec.IdSelectShape]
             else
-              SectorShape := TSectorDynamic.Create(simMgrClient.Converter);
+              SectorShape := TSectorDynamic.Create(Converter);
 
             SectorShape.postCenter  := rec.PostStart;
             SectorShape.Oradius     := rec.Radius1;
@@ -12651,7 +12651,7 @@ begin
             if rec.IdAction = 2 then
               GridShape := OverlayTemplate.DynamicList.Items[rec.IdSelectShape]
             else
-              GridShape := TGridDynamic.Create(simMgrClient.Converter);
+              GridShape := TGridDynamic.Create(Converter);
 
             GridShape.postCenter  := rec.PostStart;
             GridShape.Height      := rec.Radius1;
@@ -12677,46 +12677,38 @@ begin
           ovPolygon  :
           begin
             {$Region' Polygon '}
-            Point1 := TDotDynamic.Create;
-            Point1.Range := rec.PostStart.Range;
-            Point1.Bearing := rec.PostStart.Bearing;
-            fmOverlayEditor.TemporaryD.Add(Point1);
-
-            if rec.StatePoly = 0 then
-              Exit;
-
-            if rec.IdAction = 2 then
-            begin
-              PolygonShape := OverlayTemplate.DynamicList.Items[rec.IdSelectShape];
-              PolygonShape.polyList.Clear;
-            end
-            else
-              PolygonShape := TPolygonDynamic.Create(simMgrClient.Converter);
-
-            {jika sdh kiriman terakhir}
-            for j := 0 to fmOverlayEditor.TemporaryD.Count - 1 do
-            begin
-              Point1 := fmOverlayEditor.TemporaryD.Items[j];
-              Point2 := Point1;
-              PolygonShape.polyList.Add(Point2);
+            case rec.IdAction of
+              caAdd:
+                begin
+                  PolygonShape := TPolygonDynamic.Create(Converter);
+                end;
+              caEdit:
+                begin
+                  PolygonShape := OverlayTemplate.DynamicList.Items[rec.IdSelectShape];
+                  PolygonShape.polyList.Clear;
+                end;
             end;
 
-            fmOverlayEditor.TemporaryD.Clear;
-
-            PolygonShape.Color      := rec.color;
-            PolygonShape.ColorFill  := rec.ColorFill;
-            PolygonShape.LineType   := rec.lineType;
+            PolygonShape.Color := rec.color;
+            PolygonShape.ColorFill := rec.ColorFill;
+            PolygonShape.LineType := rec.lineType;
+            PolygonShape.Weight := rec.weight;
             PolygonShape.BrushStyle := rec.BrushStyle;
-            PolygonShape.Weight     := rec.weight;
             PolygonShape.isSelected := False;
 
-            if rec.IdAction <> 2 then
+            for i := 0 to 12 do
             begin
+              if (rec.polyPoint[i].X = 0) and (rec.polyPoint[i].Y = 0) then
+                Continue;
+
+              Point1 := TDotStatic.Create;
+              Point1.Range := rec.polyPoint[i].X;
+              Point1.Bearing := rec.polyPoint[i].Y;
+              PolygonShape.polyList.Add(Point1);
+            end;
+
+            if rec.IdAction = caAdd then
               OverlayTemplate.DynamicList.Add(PolygonShape);
-      //              simMgrClient.OnLogStr('OnOverlayDynamicShape', IntToStr(r.pid.ipSender) + ' : Create Dynamic Polygon in ' + r.TemplateName);
-            end
-      //            else
-      //              simMgrClient.OnLogStr('OnOverlayDynamicShape', IntToStr(r.pid.ipSender) + ' : Edit Dynamic Polygon in ' + r.TemplateName);
             {$ENDREGION}
           end;
         end;

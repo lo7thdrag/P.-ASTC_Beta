@@ -432,6 +432,8 @@ var
   RKiAts, RKaAts, RKiBwh, RKaBwh,
   BKiAts, BKaAts, BKiBwh, BKaBwh : Double;
   rngShipToShape, brgShipToShape : Double;
+
+  tempPolyPoint : Array of TPoint;
 begin
   inherited;
   if not FindParent(Parent, pParent) then
@@ -508,10 +510,22 @@ begin
   FindPoint(Cent, OEnd, RKaBwh, BKaBwh + RotationOffset);
   FindPoint(Cent, OStart, RKiBwh, BKiBwh + RotationOffset);
 
+  SetLength(tempPolyPoint, 4);
   Converter.ConvertToScreen(IStart.X,  IStart.Y,  Isx , Isy);
+  tempPolyPoint[0].x := Isx;
+  tempPolyPoint[0].y := Isy;
+
   Converter.ConvertToScreen(IEnd.X,    IEnd.Y,    Iex, Iey);
+  tempPolyPoint[1].x := Iex;
+  tempPolyPoint[1].y := Iey;
+
   Converter.ConvertToScreen(OEnd.X,    OEnd.Y,    Oex, Oey);
+  tempPolyPoint[2].x := Oex;
+  tempPolyPoint[2].y := Oey;
+
   Converter.ConvertToScreen(OStart.X,  OStart.Y,  Osx, Osy);
+  tempPolyPoint[3].x := Osx;
+  tempPolyPoint[3].y := Osy;
 
   with aCnv do
   begin
@@ -533,10 +547,12 @@ begin
       Brush.Color := ColorFill;
     end;
 
-    MoveTo(Isx, Isy); LineTo(Iex, Iey);
-    MoveTo(Iex, Iey); LineTo(Oex, Oey);
-    MoveTo(Oex, Oey); LineTo(Osx, Osy);
-    MoveTo(Osx, Osy); LineTo(Isx, Isy);
+    Polygon(tempPolyPoint);
+
+//    MoveTo(Isx, Isy); LineTo(Iex, Iey);
+//    MoveTo(Iex, Iey); LineTo(Oex, Oey);
+//    MoveTo(Oex, Oey); LineTo(Osx, Osy);
+//    MoveTo(Osx, Osy); LineTo(Isx, Isy);
 
     Brush.Style := bsClear;
   end;

@@ -5569,9 +5569,15 @@ begin
       recShapeDynamic.PostEnd.Range := StrToFloat(edtRecEndRange.Text);
       recShapeDynamic.Weight := StrToInt(cbbWeightPen.Text);
       recShapeDynamic.LineType :=  TPenStyle(cbbDashesPen.ItemIndex);
-      recShapeStatic.color := pnlOutline.Color;
+      recShapeDynamic.color := pnlOutline.Color;
 
-      recShapeDynamic.BrushStyle := bsClear;
+      if FisNoFill  then
+        recShapeDynamic.BrushStyle := bsClear
+      else
+      begin
+        recShapeDynamic.BrushStyle := bsSolid;
+        recShapeDynamic.ColorFill := pnlFill.Color;
+      end;
 
 //      if Action = caEdit then
 //        recShapeDynamic.idxDraw := simMgrClient.SimOverlayTemplate.idxOverlay
@@ -6102,8 +6108,8 @@ begin
       for i := 0 to lvPolyVertexD.Items.Count - 1 do
       begin
         li := lvPolyVertexD.Items[i];
-        recShapeDynamic.PostStart.Range := StrToFloat(li.SubItems[0]);
-        recShapeDynamic.PostStart.Bearing := StrToFloat(li.SubItems[1]);
+        recShapeDynamic.PolyPoint[i].Range := StrToFloat(li.SubItems[0]);
+        recShapeDynamic.PolyPoint[i].Bearing := StrToFloat(li.SubItems[1]);
       end;
 
       simMgrClient.netSend_CmdOverlayDynamicShape(recShapeDynamic);

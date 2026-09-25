@@ -1530,6 +1530,7 @@ var
   device : TT3DeviceUnit;
   radar: TT3Radar;
   sonar: TT3Sonar;
+  visual: TT3Visual;
 begin
   lstSensor.Items.Clear;
 
@@ -1546,10 +1547,11 @@ begin
    case vGameDataSetting.Role of
       1, 2:
       begin
-        if not (sensor is TT3Radar) then
+        if not (sensor is TT3Radar) and not (sensor is TT3Visual)then
           continue;
 
         radar := TT3Radar(sensor);
+        visual := TT3Visual(Sensor);
 
         if vGameDataSetting.Role = 1 then
         begin
@@ -1561,7 +1563,8 @@ begin
         else if vGameDataSetting.Role = 2 then
         begin
           {$REGION ' Atas Air '}
-          if (radar.GetRadarType <> 0) and (radar.GetRadarType <> 1) and (radar.GetRadarType <> 2) then
+          if (radar.GetRadarType <> 0) and (radar.GetRadarType <> 1) and
+           (radar.GetRadarType <> 2) and (visual.GetVisual <> 0) then
             continue;
           {$ENDREGION}
         end;
@@ -1570,13 +1573,14 @@ begin
       3:
       begin
         {$REGION ' Bawah Air '}
-        if not (sensor is TT3Sonar) then
+        if not (sensor is TT3Sonar) and not (sensor is TT3Visual) then
           continue;
 
         sonar := TT3Sonar(sensor);
+        visual := TT3Visual(Sensor);
 
         if (sonar.GetSonarCategory <> 0) and (sonar.GetSonarCategory <> 1) and (sonar.GetSonarCategory <> 2)
-          and (sonar.GetSonarCategory <> 3) and (sonar.GetSonarCategory <> 4) then
+          and (sonar.GetSonarCategory <> 3) and (sonar.GetSonarCategory <> 4) and (visual.GetVisual <> 0) then
           continue;
         {$ENDREGION}
       end;

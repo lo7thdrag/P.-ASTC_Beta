@@ -17,6 +17,8 @@ type
     function  GetSnapshotData : _SS_TT3Visual ;
     procedure SetSnapshotData(const ss : _SS_TT3Visual);
 
+
+    function  GetVisual : Byte;
     function  InsideRange(aObject: TSimObject): boolean; override;
     function  InsideDetailRange(aObject : TSimObject) : Boolean; override;
     function  TargetTypeEligiblity(aTarget: TObject): boolean; override;
@@ -357,6 +359,12 @@ begin
     end;
   end;
   Result := ss ;
+end;
+
+function TT3Visual.GetVisual: Byte;
+begin
+   if Assigned(VisualDefinition) then
+    Result := VisualDefinition.FData.Instance_Type ;
 end;
 
 procedure TT3Visual.SetSnapshotData(const ss : _SS_TT3Visual);

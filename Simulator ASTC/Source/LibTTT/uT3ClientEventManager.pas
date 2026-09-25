@@ -5015,7 +5015,7 @@ begin
       end
       else
       begin
-        case r.ShapeID of
+        case r.ShapeType of
           ovText :
           begin
             if r.IdAction = 2 then
@@ -6226,7 +6226,7 @@ begin
       begin
 
         itemD := OverlayTemplate.DynamicList[r.IdSelectShape];
-        case r.ShapeID of
+        case r.ShapeType of
           ovText :
           begin
             TextShape := TTextDynamic(itemD);
@@ -6380,7 +6380,7 @@ begin
 
         itemD := OverlayTemplate.DynamicList[r.IdSelectShape];
         OverlayTemplate.DynamicList.Delete(r.IdSelectShape);
-        case r.ShapeID of
+        case r.ShapeType of
           ovText :
           begin
             TextShape := TTextDynamic(itemD);

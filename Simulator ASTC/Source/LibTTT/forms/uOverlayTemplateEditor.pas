@@ -1316,23 +1316,23 @@ begin
         recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
 
         if itemD is TTextDynamic then
-          recShapeDynamic.ShapeID := ovText
+          recShapeDynamic.ShapeType := ovText
         else if itemD is TLineDynamic then
-          recShapeDynamic.ShapeID := ovLine
+          recShapeDynamic.ShapeType := ovLine
         else if itemD is TRectangleDynamic then
-          recShapeDynamic.ShapeID := ovRectangle
+          recShapeDynamic.ShapeType := ovRectangle
         else if itemD is TCircleDynamic then
-          recShapeDynamic.ShapeID := ovCircle
+          recShapeDynamic.ShapeType := ovCircle
         else if itemD is TEllipseDynamic then
-          recShapeDynamic.ShapeID := ovEllipse
+          recShapeDynamic.ShapeType := ovEllipse
         else if itemD is TArcDynamic  then
-          recShapeDynamic.ShapeID := ovArc
+          recShapeDynamic.ShapeType := ovArc
         else if itemD is TSectorDynamic then
-          recShapeDynamic.ShapeID := ovSector
+          recShapeDynamic.ShapeType := ovSector
         else if itemD is TGridDynamic then
-          recShapeDynamic.ShapeID := ovGrid
+          recShapeDynamic.ShapeType := ovGrid
         else if itemD is TPolygonDynamic then
-          recShapeDynamic.ShapeID := ovPolygon;
+          recShapeDynamic.ShapeType := ovPolygon;
 
         if idAction = 4 then
         begin
@@ -3169,7 +3169,7 @@ begin
         recShapeDynamic.IdAction := 3;
         recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
         recShapeDynamic.IdSelectShape := NoShapeInList;
-        recShapeDynamic.ShapeID := FObjectType;
+        recShapeDynamic.ShapeType := FObjectType;
 
         if simMgrClient.ISWasdal or simMgrClient.ISInstructor then
         begin
@@ -5407,7 +5407,7 @@ begin
     osDynamic :
     begin
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-      recShapeDynamic.ShapeID := ovText;
+      recShapeDynamic.ShapeType := ovText;
       recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.IdAction := Action;
 
@@ -5480,7 +5480,7 @@ begin
     osDynamic :
     begin
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-      recShapeDynamic.ShapeID := ovLine;
+      recShapeDynamic.ShapeType := ovLine;
       recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.IdAction := Action;
 
@@ -5559,7 +5559,7 @@ begin
     osDynamic :
     begin
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-      recShapeDynamic.ShapeID := ovRectangle;
+      recShapeDynamic.ShapeType := ovRectangle;
       recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.IdAction := Action;
 
@@ -5646,7 +5646,7 @@ begin
     osDynamic :
     begin
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-      recShapeDynamic.ShapeID := ovCircle;
+      recShapeDynamic.ShapeType := ovCircle;
       recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.IdAction := Action;
 
@@ -5735,7 +5735,7 @@ begin
     osDynamic :
     begin
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-      recShapeDynamic.ShapeID := ovEllipse;
+      recShapeDynamic.ShapeType := ovEllipse;
       recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.IdAction := Action;
 
@@ -5826,7 +5826,7 @@ begin
     osDynamic :
     begin
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-      recShapeDynamic.ShapeID := ovArc;
+      recShapeDynamic.ShapeType := ovArc;
       recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.IdAction := Action;
 
@@ -5902,7 +5902,7 @@ begin
     osDynamic :
     begin
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-      recShapeDynamic.ShapeID := ovSector;
+      recShapeDynamic.ShapeType := ovSector;
       recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.IdAction := Action;
 
@@ -5980,7 +5980,7 @@ begin
     osDynamic :
     begin
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-      recShapeDynamic.ShapeID := ovGrid;
+      recShapeDynamic.ShapeType := ovGrid;
       recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.IdAction := Action;
 
@@ -6077,7 +6077,7 @@ begin
     osDynamic :
     begin
       recShapeDynamic.TemplateId := FSelectedOverlay.OverlayIndex;
-      recShapeDynamic.ShapeID := ovPolygon;
+      recShapeDynamic.ShapeType := ovPolygon;
       recShapeDynamic.IdSelectShape := NoShapeInList;
       recShapeDynamic.IdAction := Action;
 
@@ -6098,19 +6098,15 @@ begin
 //      else
 //        recShapeDynamic.idxDraw := idxDrawOverlay;
 
-      recShapeDynamic.StatePoly := 0;
+      recShapeDynamic.StatePoly := lvPolyVertexD.Items.Count;
       for i := 0 to lvPolyVertexD.Items.Count - 1 do
       begin
         li := lvPolyVertexD.Items[i];
         recShapeDynamic.PostStart.Range := StrToFloat(li.SubItems[0]);
         recShapeDynamic.PostStart.Bearing := StrToFloat(li.SubItems[1]);
-
-        {Kirim data disini}
-        simMgrClient.netSend_CmdOverlayDynamicShape(recShapeDynamic);
-
-        if (i+1) = lvPolyVertexD.Items.Count - 1 then
-          recShapeDynamic.StatePoly := 1;
       end;
+
+      simMgrClient.netSend_CmdOverlayDynamicShape(recShapeDynamic);
 
     end;
     {$ENDREGION}

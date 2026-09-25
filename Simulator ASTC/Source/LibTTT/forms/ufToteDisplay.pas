@@ -1538,7 +1538,6 @@ type
     Label286: TLabel;
     lvSensorFiring: TListView;
     pnlSMS1: TPanel;
-    btnSMS : TImage;
     chtLogistic: TChart;
     Series1: TBarSeries;
     lblMaxCap: TLabel;
@@ -1550,9 +1549,7 @@ type
     lblMaxWater: TLabel;
     lblMaxFood: TLabel;
     lblMaxLub: TLabel;
-
-
-
+    btnSMS: TImage;
 
     // pnlRightUp: TPanel;
     // pnlRightBottom: TPanel;
@@ -1896,7 +1893,7 @@ type
     CpItemPopUp : TMenuItem;
 
     FButtonImage : array[0..8] of TButtonImage;
-    FSidePanels: array[0..7] of TPanel;
+    FSidePanels: array[0..8] of TPanel;
 
 
 
@@ -5524,6 +5521,7 @@ begin
   FSidePanels[5] := pnlCubicleNew;
   FSidePanels[6] := pnlEnviControlNew;
   FSidePanels[7] := pnlTacticalNew;
+  FSidePanels[8] := pnlSMS1;
   end;
 end;
 
@@ -7330,6 +7328,9 @@ begin
   pnlEnviNew.Top := Y;
   Inc(Y, pnlEnviNew.Height + 35);
 
+  pnlSMS1.Top := Y;
+  Inc(Y, pnlSMS1.Height + 35);
+
   pnlTacticalNew.Top := Y;
 
   Panel119.Visible := True;
@@ -7341,6 +7342,7 @@ begin
   pnlEnviNew.Visible        := False;
   pnlEventNew.Visible       := False;
   pnlCubicleNew.Visible     := False;
+  pnlSMS1.Visible           := False;
   pnlEnviControlNew.Visible := False;
   pnlTacticalNew.Visible    := False;
 
@@ -7350,6 +7352,7 @@ begin
   pnlTransportNew.Visible   := True;
   pnlEnviNew.Visible        := True;
   pnlTacticalNew.Visible    := True;
+  pnlSMS1.Visible           := True;
 end;
 
 procedure TfrmToteDisplay.SetSidebarInstructor;
@@ -7362,6 +7365,7 @@ begin
   pnlEnviNew.Visible        := True;
   pnlEventNew.Visible       := True;
   pnlCubicleNew.Visible     := True;
+  pnlSMS1.Visible           := True;
   pnlEnviControlNew.Visible := True;
   pnlTacticalNew.Visible    := True;
 end;
@@ -9183,6 +9187,7 @@ begin
         pnlEnviNew.Visible       := True;
         pnlEventNew.Visible      := True;
         pnlCubicleNew.Visible    := True;
+        pnlSMS1.Visible          := True;
         pnlEnviControlNew.Visible:= True;
         pnlTacticalNew.Visible   := True;
       end;
@@ -9194,6 +9199,7 @@ begin
         pnlTransportNew.Visible  := True;
         pnlEnviNew.Visible       := True;
         pnlTacticalNew.Visible   := True;
+        pnlSMS1.Visible          := True;
       end;
 
   end;

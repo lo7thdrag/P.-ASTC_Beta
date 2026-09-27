@@ -875,6 +875,7 @@ type
   TRecBomb_Definition =  record
     Bomb_Index           : integer;
     Bomb_Identifier      : string[60];
+    Wbs_class_name       : string [60];
     Bomb_Type            : byte;
     Lethality            : integer;
     Min_Range            : single;
@@ -1738,6 +1739,7 @@ end;
   TRecGun_Definition =  record
     Gun_Index                    : integer;
     Gun_Identifier               : string[60];
+    Wbs_class_name               : string[60];
     Gun_Category                 : byte;
     Rate_of_Fire                 : integer;
     Lethality_per_Round          : integer;
@@ -1771,6 +1773,7 @@ end;
     NGS_MaxDamageRadius          : single;
     NGS_EffectiveRadius          : single;
     NGS_DamageRating             : integer;
+
   end;
 
   ////====================================================
@@ -1919,6 +1922,7 @@ end;
   TRecMine_Definition =  record
     Mine_Index             : integer;
     Mine_Identifier        : string[60];
+    Wbs_class_name         : string [60];
     Platform_Domain        : byte;
     Platform_Category      : byte;
     Platform_Type          : byte;
@@ -1949,6 +1953,7 @@ end;
   TRecMissile_Definition =  record
     Missile_Index                    : integer;
     Class_Identifier                 : string[60];
+    Wbs_class_name                   : String[60];
     Platform_Domain                  : byte;
     Platform_Category                : byte;
     Platform_Type                    : byte;
@@ -3090,6 +3095,7 @@ end;
   TRecTorpedo_Definition =  record
     Torpedo_Index                : integer;
     Class_Identifier             : string[60];
+    Wbs_class_name               : string [60];
     Platform_Domain              : byte;
     Platform_Category            : byte;
     Platform_Type                : byte;

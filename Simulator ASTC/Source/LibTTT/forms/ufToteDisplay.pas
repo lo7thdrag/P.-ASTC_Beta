@@ -16,7 +16,7 @@ uses
   System.ImageList, RzBmpBtn, Vcl.Imaging.pngimage, Vcl.Imaging.jpeg,
   VrControls, VrTrackBar, uDBAsset_MotionCharacteristics, VrWheel,
   VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series, VCLTee.TeeProcs,
-  VCLTee.Chart {,
+  VCLTee.Chart,uT3Weapon {,
   frxClass};
 
 type
@@ -1870,6 +1870,8 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure vrCurrentMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure lvWeaponFiringMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
 
 //    procedure Panel56Click(Sender: TObject);
 
@@ -2199,7 +2201,7 @@ public
     procedure UpdateLogisticToteDisplay (sender : TT3Vehicle);
 
     procedure UpdateShipDataVehicle(sender : TT3Vehicle);
-    procedure UpdateWeaponData(sender: TObject);
+    procedure UpdateWeaponData(AWeapon: TT3Weapon);
 
     procedure RefreshStatusLogistic(sender : TT3Vehicle);
     procedure RefreshShipLogistic(sender : TT3Vehicle);
@@ -2289,7 +2291,7 @@ uses
   uDBScenario, uDBAsset_Cubicle,
 
   uDBAssets_SubAreaEnviroDefinition, uT3Radar, uT3Sonar,
-  uT3Sensor, uT3Weapon, StrUtils, uT3OtherSensor, uDBCubicles,
+  uT3Sensor, StrUtils, uT3OtherSensor, uDBCubicles,
   uSimObjects, uT3Gun, uT3Mine, uT3Torpedo,
   uT3Bomb, uT3SimManager, uT3CounterMeasure, uT3Visual, DateUtils,
   uT3Common, uT3HybridOnVehicle, ufmInputTrackId, uGameSetting,
@@ -14082,6 +14084,74 @@ begin
     result.SubItems.add('');
 end;
 
+procedure TfrmToteDisplay.lvWeaponFiringMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  pos: TPoint;
+  tempWeapon: TT3Weapon;
+begin
+  if lvWeaponFiring.Selected = nil then
+    Exit;
+
+  if Button = mbLeft then
+  begin
+    tempWeapon := TT3Weapon(lvWeaponFiring.Selected.Data);
+    UpdateWeaponData(tempWeapon);
+  end;
+
+   if CategoryPanelStatusOp.Enabled then
+  begin
+    if lvWeaponFiring.Selected = nil then
+      Exit;
+
+    GetCursorPos(pos);
+
+    if Button = mbLeft then
+    begin
+      tempWeapon := lvWeaponFiring.Selected.Data;
+
+      if tempWeapon is TT3GunOnVehicle then
+      begin
+        ShowMessage(TT3GunOnVehicle(tempWeapon).GunDefinition.FData.Wbs_class_name);
+      end;
+    end;
+
+    if Button = mbRight then
+    begin
+      lvWeaponFiring.Selected := lvWeaponFiring.GetNodeAt(x, y);
+
+      if lvWeaponFiring.Selected <> nil then
+      begin
+        if lvWeaponFiring.Selected.Parent <> nil then
+        begin
+          dam1.Enabled := False;
+          Repair1.Enabled := False;
+        end
+        else
+        begin
+          if TT3Weapon(lvWeaponFiring.Selected.Data).WeaponStatus = wsDamaged then
+          begin
+            dam1.Enabled := False;
+            Repair1.Enabled := True;
+          end
+          else if TT3Weapon(lvWeaponFiring.Selected.Data).WeaponStatus = wsUnavailable then
+          begin
+            dam1.Enabled := False;
+            Repair1.Enabled := False;
+          end
+          else
+          begin
+            dam1.Enabled := True;
+            Repair1.Enabled := False;
+          end;
+        end;
+
+        pmWeapon.Popup(pos.X, pos.Y);
+      end;
+    end;
+  end;
+end;
+
 procedure TfrmToteDisplay.lvWeaponNavMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 var
@@ -15217,50 +15287,69 @@ begin
   UpdateShipDataVehicle(sender);
 end;
 
-procedure TfrmToteDisplay.UpdateWeaponData(sender: TObject);
+procedure TfrmToteDisplay.UpdateWeaponData(AWeapon: TT3Weapon);
 var
-  BaseAppPath, ImagePath: string;
-  weaponObj: TT3Weapon;
+  ImagePath, imageFileName: string;
+  BaseWeaponPath: string;
 begin
-  if not Assigned(sender) or not (sender is TT3Weapon) then
-  Exit;
+  if not Assigned(AWeapon) or not (AWeapon is TT3GunOnVehicle) then
+    Exit;
 
-  weaponObj := TT3Weapon(sender);
+  case vGameDataSetting.Role of
+    2, 3:
+      begin
+        with TT3GunOnVehicle(AWeapon) do
+        begin
+          if not Assigned(GunDefinition) then
+            Exit;
 
-  lblShipNAme.Caption := weaponObj.InstanceName;
-  lblClass.Caption    := weaponObj.ClassName;
 
-  BaseAppPath := ExtractFilePath(ParamStr(0));
-  ImagePath := ExpandFileName(BaseAppPath + '..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\' + weaponObj.ClassName + '.png');
+          if GunDefinition.FData.Wbs_class_name <> '' then
+            imageFileName := GunDefinition.FData.Wbs_class_name
+          else
+            imageFileName := IntToStr(GunDefinition.FData.Gun_Index) + '.PNG';
 
-  if not FileExists(ImagePath) then
-    ImagePath := ExpandFileName(BaseAppPath + '..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\' + weaponObj.InstanceName + '.png');
 
-  try
-    if FileExists(ImagePath) then
-      imgShip.Picture.LoadFromFile(ImagePath)
-    else
-      imgShip.Picture.LoadFromFile(BaseAppPath + 'data\NoModel.bmp');
-  except
-    imgShip.Picture.LoadFromFile(BaseAppPath + 'data\NoModel.bmp');
+          BaseWeaponPath := vGameDataSetting.DataPath + '..\..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\';
+          ImagePath := BaseWeaponPath + imageFileName;
+
+          try
+            if FileExists(ImagePath) then
+            begin
+              imgSenjata.Picture.LoadFromFile(ImagePath);
+            end
+            else
+            begin
+              imgSenjata.Picture.LoadFromFile(BaseWeaponPath + 'imgNoModel.png');
+            end;
+          except
+
+            try
+              imgSenjata.Picture.LoadFromFile(BaseWeaponPath + 'imgNoModel.png');
+            except
+
+            end;
+          end;
+        end;
+      end;
   end;
 end;
 
 procedure TfrmToteDisplay.UpdateWeaponImage(const AWeaponName: string);
-var
-  filePath: string;
+//var
+//  filePath: string;
 begin
- filePath := ExtractFilePath(ParamStr(0)) + '..\..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\' + AWeaponName + '.png';
-
-  if FileExists(filePath) then
-  begin
-    imgSenjata.Picture.LoadFromFile(filePath);
-  end
-  else
-  begin
-    imgSenjata.Picture.Graphic := nil;
-
-  end;
+// filePath := ExtractFilePath(ParamStr(0)) + '..\..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\' + AWeaponName + '.png';
+//
+//  if FileExists(filePath) then
+//  begin
+//    imgSenjata.Picture.LoadFromFile(filePath);
+//  end
+//  else
+//  begin
+//    imgSenjata.Picture.Graphic := nil;
+//
+//  end;
 end;
 
 procedure TfrmToteDisplay.UpdateWeaponVehicle(sender : TT3Vehicle);

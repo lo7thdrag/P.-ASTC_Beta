@@ -5187,9 +5187,6 @@ begin
               if edtWeaponName.Text = '' then
               begin
                 edtWeaponName.Text := DeleteAmpersand(item.Caption);
-
-                if Assigned(frmToteDisplay) then
-                  frmToteDisplay.UpdateWeaponImage(edtWeaponName.Text);
             end;
             end;
           end;
@@ -5206,8 +5203,8 @@ begin
               begin
                 edtWeaponName.Text := DeleteAmpersand(item.Caption);
 
-                if Assigned(frmToteDisplay) then
-                  frmToteDisplay.UpdateWeaponImage(edtWeaponName.Text);
+//                if Assigned(frmToteDisplay) and Assigned(weapon) then
+//                  frmToteDisplay.UpdateWeaponData(weapon);
               end;
             end
             else
@@ -6297,11 +6294,6 @@ begin
   _weaponName := DeleteAmpersand(_weaponName);
   edtWeaponName.Text := _weaponName;
 
-  if Assigned(frmToteDisplay) then
-  begin
-    frmToteDisplay.UpdateWeaponImage(_weaponName);
-  end;
-
   if FControlled is TT3Vehicle then
   begin
     _vehicle := TT3Vehicle(FControlled);
@@ -6312,7 +6304,8 @@ begin
 
 //    if Assigned(frmToteDisplay) and Assigned(_initWeapon) then
 //    begin
-//      frmToteDisplay.UpdateGunWeaponData(_initWeapon);
+//      frmToteDisplay.UpdateWeaponData(_initWeapon);
+//    end;
 
     {$REGION ' Jk Weapon yg dipilih torpedo active pasive '}
     if _weaponCategory = wcTorpedoActivePassive then
@@ -6679,13 +6672,13 @@ begin
     _weaponName := _weapon.InstanceName;
     edtWeaponName.Text := _weaponName;
 
-    if Assigned(frmToteDisplay) then
-    begin
-      frmToteDisplay.UpdateWeaponImage(_weaponName);
-    end;
-
     _weaponCategory := _vehicle.getWeaponType(_weapon.InstanceName);
     _initWeapon := _vehicle.getWeapon(_weapon.InstanceName);
+
+//    if Assigned(frmToteDisplay) and Assigned(_initWeapon) then
+//    begin
+//      frmToteDisplay.UpdateWeaponData(_initWeapon);
+//    end;
 
     {$REGION ' Jk Weapon yg dipilih torpedo active pasive '}
     if _weaponCategory = wcTorpedoActivePassive then

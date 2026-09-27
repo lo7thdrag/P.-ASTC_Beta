@@ -9878,6 +9878,7 @@ begin
         begin
           Missile_Index := FieldByName('Missile_Index').AsInteger;
           Class_Identifier := FieldByName('Class_Identifier').AsString;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
@@ -9885,12 +9886,9 @@ begin
           Min_Range := FieldByName('Min_Range').AsSingle;
           Motion_Index := FieldByName('Motion_Index').AsInteger;
           Seeker_TurnOn_Range := FieldByName('Seeker_TurnOn_Range').AsSingle;
-          Second_Seeker_Pattern_Capable := FieldByName
-            ('Second_Seeker_Pattern_Capable').AsInteger;
+          Second_Seeker_Pattern_Capable := FieldByName('Second_Seeker_Pattern_Capable').AsInteger;
           Seeker_Bias_Capable := FieldByName('Seeker_Bias_Capable').AsInteger;
-          Fixed_Seeker_Turn_On_Range := FieldByName
-            ('Fixed_Seeker_Turn_On_Range')
-            .AsInteger;
+          Fixed_Seeker_Turn_On_Range := FieldByName('Fixed_Seeker_Turn_On_Range').AsInteger;
           Lethality := FieldByName('Lethality').AsInteger;
           Prob_of_Hit := FieldByName('Prob_of_Hit').AsSingle;
           Damage_Capacity := FieldByName('Damage_Capacity').AsInteger;
@@ -9924,12 +9922,9 @@ begin
           Pulse_Rep_Freq := FieldByName('Pulse_Rep_Freq').AsSingle;
           Pulse_Width := FieldByName('Pulse_Width').AsSingle;
           Xmit_Power := FieldByName('Xmit_Power').AsSingle;
-          TARH_Jamming_A_Probability := FieldByName
-            ('TARH_Jamming_A_Probability').AsSingle;
-          TARH_Jamming_B_Probability := FieldByName
-            ('TARH_Jamming_B_Probability').AsSingle;
-          TARH_Jamming_C_Probability := FieldByName
-            ('TARH_Jamming_C_Probability').AsSingle;
+          TARH_Jamming_A_Probability := FieldByName('TARH_Jamming_A_Probability').AsSingle;
+          TARH_Jamming_B_Probability := FieldByName ('TARH_Jamming_B_Probability').AsSingle;
+          TARH_Jamming_C_Probability := FieldByName('TARH_Jamming_C_Probability').AsSingle;
           Wpt_Capable := FieldByName('Wpt_Capable').AsInteger;
           Max_Num_Wpts := FieldByName('Max_Num_Wpts').AsInteger;
           Min_Final_Leg_Length := FieldByName('Min_Final_Leg_Length').AsSingle;
@@ -9940,56 +9935,32 @@ begin
           Fly_Out_Required := FieldByName('Fly_Out_Required').AsInteger;
           Fly_Out_Range := FieldByName('Fly_Out_Range').AsSingle;
           Fly_Out_Altitude := FieldByName('Fly_Out_Altitude').AsSingle;
-          Booster_Separation_Required := FieldByName
-            ('Booster_Separation_Required').AsInteger;
-          Booster_Separation_Range := FieldByName('Booster_Separation_Range')
-            .AsSingle;
-          Booster_Separation_Box_Width := FieldByName
-            ('Booster_Separation_Box_Width').AsSingle;
-          Booster_Separation_Box_Length := FieldByName
-            ('Booster_Separation_Box_Length').AsSingle;
+          Booster_Separation_Required := FieldByName('Booster_Separation_Required').AsInteger;
+          Booster_Separation_Range := FieldByName('Booster_Separation_Range').AsSingle;
+          Booster_Separation_Box_Width := FieldByName('Booster_Separation_Box_Width').AsSingle;
+          Booster_Separation_Box_Length := FieldByName('Booster_Separation_Box_Length').AsSingle;
           Term_Guide_Azimuth := FieldByName('Term_Guide_Azimuth').AsSingle;
           Term_Guide_Elevation := FieldByName('Term_Guide_Elevation').AsSingle;
           Term_Guide_Range := FieldByName('Term_Guide_Range').AsSingle;
-          Terminal_Guidance_Capability := FieldByName
-            ('Terminal_Guidance_Capability').AsInteger;
-          Terminal_Altitude_Required := FieldByName
-            ('Terminal_Altitude_Required')
-            .AsInteger;
-          Terminal_Acquisition_Altitude := FieldByName
-            ('Terminal_Acquisition_Altitude').AsSingle;
-          Terminal_Sinuation_Start_Range := FieldByName
-            ('Terminal_Sinuation_Start_Range').AsSingle;
-          Terminal_Sinuation_Period := FieldByName('Terminal_Sinuation_Period')
-            .AsSingle;
-          Terminal_Sinuation_Amplitude := FieldByName
-            ('Terminal_Sinuation_Amplitude').AsSingle;
-          Terminal_Pop_Up_Range := FieldByName('Terminal_Pop_Up_Range')
-            .AsSingle;
-          Terminal_Pop_Up_Altitude := FieldByName('Terminal_Pop_Up_Altitude')
-            .AsSingle;
-          Mid_Course_Update_Mode := FieldByName('Mid_Course_Update_Mode')
-            .AsInteger;
-          Home_On_Jam_Type_A_Capable := FieldByName
-            ('Home_On_Jam_Type_A_Capable')
-            .AsInteger;
-          Home_On_Jam_Type_B_Capable := FieldByName
-            ('Home_On_Jam_Type_B_Capable')
-            .AsInteger;
-          Home_On_Jam_Type_C_Capable := FieldByName
-            ('Home_On_Jam_Type_C_Capable')
-            .AsInteger;
+          Terminal_Guidance_Capability := FieldByName('Terminal_Guidance_Capability').AsInteger;
+          Terminal_Altitude_Required := FieldByName('Terminal_Altitude_Required').AsInteger;
+          Terminal_Acquisition_Altitude := FieldByName('Terminal_Acquisition_Altitude').AsSingle;
+          Terminal_Sinuation_Start_Range := FieldByName('Terminal_Sinuation_Start_Range').AsSingle;
+          Terminal_Sinuation_Period := FieldByName('Terminal_Sinuation_Period').AsSingle;
+          Terminal_Sinuation_Amplitude := FieldByName('Terminal_Sinuation_Amplitude').AsSingle;
+          Terminal_Pop_Up_Range := FieldByName('Terminal_Pop_Up_Range').AsSingle;
+          Terminal_Pop_Up_Altitude := FieldByName('Terminal_Pop_Up_Altitude').AsSingle;
+          Mid_Course_Update_Mode := FieldByName('Mid_Course_Update_Mode').AsInteger;
+          Home_On_Jam_Type_A_Capable := FieldByName('Home_On_Jam_Type_A_Capable').AsInteger;
+          Home_On_Jam_Type_B_Capable := FieldByName('Home_On_Jam_Type_B_Capable').AsInteger;
+          Home_On_Jam_Type_C_Capable := FieldByName('Home_On_Jam_Type_C_Capable').AsInteger;
           Launch_Method := FieldByName('Launch_Method').AsInteger;
           Data_Entry_Method := FieldByName('Data_Entry_Method').AsInteger;
           Launch_Speed := FieldByName('Launch_Speed').AsInteger;
-          Max_Target_Altitude_Delta := FieldByName('Max_Target_Altitude_Delta')
-            .AsInteger;
-          Term_Guide_Azimuth_Narrow := FieldByName('Term_Guide_Azimuth_Narrow')
-            .AsSingle;
-          Term_Guide_Elevation_Narrow := FieldByName
-            ('Term_Guide_Elevation_Narrow').AsSingle;
-          Term_Guide_Range_Narrow := FieldByName('Term_Guide_Range_Narrow')
-            .AsSingle;
+          Max_Target_Altitude_Delta := FieldByName('Max_Target_Altitude_Delta').AsInteger;
+          Term_Guide_Azimuth_Narrow := FieldByName('Term_Guide_Azimuth_Narrow').AsSingle;
+          Term_Guide_Elevation_Narrow := FieldByName('Term_Guide_Elevation_Narrow').AsSingle;
+          Term_Guide_Range_Narrow := FieldByName('Term_Guide_Range_Narrow').AsSingle;
           Spot_Number := FieldByName('Spot_Number').AsInteger;
           ECCM_Type := FieldByName('ECCM_Type').AsInteger;
           ECM_Detonation := FieldByName('ECM_Detonation').AsInteger;
@@ -9997,8 +9968,7 @@ begin
           Detectability_Type := FieldByName('Detectability_Type').AsInteger;
           IRCM_Detonation := FieldByName('IRCM_Detonation').AsInteger;
           IRCM_Detection := FieldByName('IRCM_Detection').AsInteger;
-          Sea_State_Modelling_Capable := FieldByName
-            ('Sea_State_Modelling_Capable').AsInteger;
+          Sea_State_Modelling_Capable := FieldByName('Sea_State_Modelling_Capable').AsInteger;
         end;
 
         mList.Add(rec);
@@ -11078,6 +11048,7 @@ begin
         begin
           Torpedo_Index := FieldByName('Torpedo_Index').AsInteger;
           Class_Identifier := FieldByName('Class_Identifier').AsString;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
@@ -11959,6 +11930,7 @@ begin
         begin
           Mine_Index := FieldByName('Mine_Index').AsInteger;
           Mine_Identifier := FieldByName('Mine_Identifier').AsString;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
@@ -19356,6 +19328,7 @@ begin
         begin
           Bomb_Index := FieldByName('Bomb_Index').AsInteger;
           Bomb_Identifier := FieldByName('Bomb_Identifier').AsString;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Bomb_Type := FieldByName('Bomb_Type').AsInteger;
           Lethality := FieldByName('Lethality').AsInteger;
           Min_Range := FieldByName('Min_Range').AsSingle;
@@ -19680,14 +19653,14 @@ begin
           Gun_Index := FieldByName('Gun_Index').AsInteger;
           Gun_Identifier := FieldByName('Gun_Identifier').AsString;
           Gun_Category := FieldByName('Gun_Category').AsInteger;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Rate_of_Fire := FieldByName('Rate_of_Fire').AsInteger;
           Lethality_per_Round := FieldByName('Lethality_per_Round').AsInteger;
           Min_Range := FieldByName('Min_Range').AsSingle;
           Max_Range := FieldByName('Max_Range').AsSingle;
           Air_Min_Range := FieldByName('Air_Min_Range').AsSingle;
           Air_Max_Range := FieldByName('Air_Max_Range').AsSingle;
-          Fire_Cntl_Director_Req := FieldByName('Fire_Cntl_Director_Req')
-            .AsInteger;
+          Fire_Cntl_Director_Req := FieldByName('Fire_Cntl_Director_Req').AsInteger;
           Chaff_Capable_Gun := FieldByName('Chaff_Capable_Gun').AsInteger;
           Anti_Sur_Capable := FieldByName('Anti_Sur_Capable').AsInteger;
           Anti_Land_Capable := FieldByName('Anti_Land_Capable').AsInteger;
@@ -19695,33 +19668,21 @@ begin
           Anti_Amphibious_Capable := FieldByName('Anti_Amphibious_Capable').AsInteger;
           FireArms := FieldByName('Firearms').AsInteger;
           Automode_Capable := FieldByName('Automode_Capable').AsInteger;
-          Max_Target_Altitude_Delta := FieldByName('Max_Target_Altitude_Delta')
-            .AsInteger;
-          Gun_Average_Shell_Velocity := FieldByName
-            ('Gun_Average_Shell_Velocity').AsSingle;
-          Man_Gun_Max_Elevation := FieldByName('Man_Gun_Max_Elevation')
-            .AsSingle;
-          Man_Gun_Min_Elevation := FieldByName('Man_Gun_Min_Elevation')
-            .AsSingle;
-          Man_Gun_Rotation_Rate := FieldByName('Man_Gun_Rotation_Rate')
-            .AsSingle;
-          Man_Gun_Elevation_Rate := FieldByName('Man_Gun_Elevation_Rate')
-            .AsSingle;
-          Man_Gun_Num_Rounds_Per_Load := FieldByName
-            ('Man_Gun_Num_Rounds_Per_Load').AsInteger;
-          Man_Gun_Time_to_Reload := FieldByName('Man_Gun_Time_to_Reload')
-            .AsSingle;
-          Man_Gun_Muzzle_Velocity := FieldByName('Man_Gun_Muzzle_Velocity')
-            .AsSingle;
+          Max_Target_Altitude_Delta := FieldByName('Max_Target_Altitude_Delta').AsInteger;
+          Gun_Average_Shell_Velocity := FieldByName('Gun_Average_Shell_Velocity').AsSingle;
+          Man_Gun_Max_Elevation := FieldByName('Man_Gun_Max_Elevation').AsSingle;
+          Man_Gun_Min_Elevation := FieldByName('Man_Gun_Min_Elevation').AsSingle;
+          Man_Gun_Rotation_Rate := FieldByName('Man_Gun_Rotation_Rate').AsSingle;
+          Man_Gun_Elevation_Rate := FieldByName('Man_Gun_Elevation_Rate').AsSingle;
+          Man_Gun_Num_Rounds_Per_Load := FieldByName('Man_Gun_Num_Rounds_Per_Load').AsInteger;
+          Man_Gun_Time_to_Reload := FieldByName('Man_Gun_Time_to_Reload').AsSingle;
+          Man_Gun_Muzzle_Velocity := FieldByName('Man_Gun_Muzzle_Velocity').AsSingle;
           NGS_Capable := FieldByName('NGS_Capable').AsInteger;
-          NGS_MinDeflectionError := FieldByName('NGS_MinDeflectionError')
-            .AsSingle;
-          NGS_MaxDeflectionError := FieldByName('NGS_MaxDeflectionError')
-            .AsSingle;
+          NGS_MinDeflectionError := FieldByName('NGS_MinDeflectionError').AsSingle;
+          NGS_MaxDeflectionError := FieldByName('NGS_MaxDeflectionError').AsSingle;
           NGS_MinRangeError := FieldByName('NGS_MinRangeError').AsSingle;
           NGS_MaxRangeError := FieldByName('NGS_MaxRangeError').AsSingle;
-          NGS_MaxDispersionError := FieldByName('NGS_MaxDispersionError')
-            .AsSingle;
+          NGS_MaxDispersionError := FieldByName('NGS_MaxDispersionError').AsSingle;
           NGS_MaxDamageRadius := FieldByName('NGS_MaxDamageRadius').AsSingle;
           NGS_EffectiveRadius := FieldByName('NGS_EffectiveRadius').AsSingle;
           NGS_DamageRating := FieldByName('NGS_DamageRating').AsInteger;

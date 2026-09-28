@@ -680,6 +680,7 @@ var
   hasilUTM, hasilMGRS : string;   //dng
   largeLtr, smallLtr, horizontalNumb, verticalNumb, horzPoint, vertPoint : string;
 begin
+  if Sender = simMgrClient.ControlledPlatform then Exit;
   v := nil;
   det := nil;
 
@@ -688,9 +689,8 @@ begin
     if Sender is TT3PlatformInstance then
     begin
       {$REGION ' TT3PlatformInstance '}
-
-      v := TT3PlatformInstance(Sender)
-
+      v := TT3PlatformInstance(Sender);
+      if Sender = simMgrClient.ControlledPlatform then Exit;
       {$ENDREGION}
     end
     else if Sender is TT3DetectedTrack then
@@ -701,6 +701,8 @@ begin
 
       if Assigned(det.MergedESM) then
       begin
+        if det.MergedESM.TrackObject = simMgrClient.ControlledPlatform then Exit;
+
         lblTrackHook.Caption:= (det.MergedESM.TrackNumber);
         lblNameHook.Caption := TT3PlatformInstance(det.MergedESM.TrackObject).InstanceName;
         lblClassHook.Caption:= TT3Radar(det.MergedESM.TrackObject).RadarDefinition.FDef.Radar_Emitter;
@@ -712,7 +714,7 @@ begin
 
         Exit;
       end;
-
+      //
       v := TT3PlatformInstance(det.TrackObject);
       {$ENDREGION}
     end
@@ -721,7 +723,7 @@ begin
       {$REGION ' TT3ESMTrack '}
 
       esm := TT3ESMTrack(Sender);
-
+      if TT3PlatformInstance(esm.TrackObject) = simMgrClient.ControlledPlatform then Exit;
       if esm.DetailedDetectionShowedESM.Track_ID then
         lblTrackHook.Caption      := esm.TrackNumber
       else
@@ -750,7 +752,7 @@ begin
       {$ENDREGION}
     end;
   end;
-
+  if v = simMgrClient.ControlledPlatform then Exit;
   b := 0;
   d := 0;
 
@@ -776,6 +778,7 @@ begin
       v := det.TrackObject as TT3PlatformInstance;
     end;
 
+    if v = simMgrClient.ControlledPlatform then Exit;
     if (det.TrackDomain = vhdSubsurface) then
     begin
       txtlb5.Caption := 'Depth';
@@ -882,6 +885,7 @@ begin
   begin
     if Assigned(v) then
     begin
+      if v = simMgrClient.ControlledPlatform then Exit;
       if v is TT3NonRealVehicle then
         lblTrackHook.Caption := IntToStr(v.TrackNumber)
       else

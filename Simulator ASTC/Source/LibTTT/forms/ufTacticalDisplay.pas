@@ -7708,18 +7708,12 @@ end;
 procedure TfrmTacticalDisplay.CentreOwnShip(Ownship: TSimObject);
 begin
   if Ownship = nil then Exit;
-  focusedTrack := Ownship;
-
-  FHookOnPlatform := True;
-  btnCentreOnHook.Down := True;
-  OnHookedTrack2.Checked := True;
 
   try
-    simMgrClient.MyCenterHookedPlatfom := focusedTrack;
-    VSimMap.SetMapCenter(simMgrClient.MyCenterHookedPlatfom.getPositionX, simMgrClient.MyCenterHookedPlatfom.getPositionY);
+    VSimMap.SetMapCenter(TT3PlatformInstance(Ownship).getPositionX, TT3PlatformInstance(Ownship).getPositionY);
 
-    FLastMapCenterY := simMgrClient.MyCenterHookedPlatfom.getPositionY;
-    FLastMapCenterX := simMgrClient.MyCenterHookedPlatfom.getPositionX;
+    FLastMapCenterY := TT3PlatformInstance(Ownship).getPositionY;
+    FLastMapCenterX := TT3PlatformInstance(Ownship).getPositionX;
 
     Pan1.Checked := False;
     Zoom1.Checked := False;
@@ -7730,11 +7724,7 @@ begin
 
     Map1.CurrentTool := mtSelectObject;
   except
-    focusedTrack := nil;
-    simMgrClient.MyCenterHookedPlatfom := nil;
-    FHookOnPlatform := False;
-    btnCentreOnHook.Down := False;
-    OnHookedTrack2.Checked := False;
+
   end;
 end;
 

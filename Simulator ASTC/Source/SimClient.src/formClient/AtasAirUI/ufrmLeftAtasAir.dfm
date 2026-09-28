@@ -25942,17 +25942,6 @@ object frmLeftAtasAir: TfrmLeftAtasAir
             end
           end
         end
-        object pnlContentNone: TPanel
-          Left = 1
-          Top = 1
-          Width = 338
-          Height = 247
-          Align = alClient
-          BevelOuter = bvNone
-          Color = 2695445
-          ParentBackground = False
-          TabOrder = 4
-        end
         object pnlContentHook: TPanel
           Left = 1
           Top = 1
@@ -26527,6 +26516,17 @@ object frmLeftAtasAir: TfrmLeftAtasAir
               Transparent = False
             end
           end
+        end
+        object pnlContentNone: TPanel
+          Left = 1
+          Top = 1
+          Width = 338
+          Height = 247
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 2695445
+          ParentBackground = False
+          TabOrder = 4
         end
       end
     end

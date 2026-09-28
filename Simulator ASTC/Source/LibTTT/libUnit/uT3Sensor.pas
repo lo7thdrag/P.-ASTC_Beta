@@ -674,13 +674,10 @@ begin
     blindZ.UpdateRelatifAngle;
   end;
 
-  if ((FOperationalStatus = sopOn) or
-      (FOperationalStatus = sopActive) or
-//	    (FOperationalStatus = sopDeployed) or   //17042012 mk
-//      (FOperationalStatus = sopStowed) or   //17042012 mk
+  if ((FOperationalStatus = sopOn) or (FOperationalStatus = sopActive) or
       (FOperationalStatus = sopOffIFF) or   //khusus IFF
       (FOperationalStatus = sopPassive)) and
-     (FOperationalStatus <> sopDamage) then
+     (FOperationalStatus <> sopDamage) and (FMySensor = True) then
     SensorProcess;
 
   if Assigned(OnDayTimeUpdate) then

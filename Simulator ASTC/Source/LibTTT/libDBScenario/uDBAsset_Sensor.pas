@@ -18,6 +18,7 @@ type
     FVehicle    : TVehicle_Definition;
     FMySensorOnBoard : Boolean;
 
+
     constructor Create;
     destructor Destroy;override;
   end;
@@ -98,6 +99,7 @@ begin
    FBlind      := TList.Create;
    FBlind_Zone := TBlind_Zone.Create;
    FVehicle    := TVehicle_Definition.Create;
+   FMySensorOnBoard  := True;
 end;
 
 destructor TEO_On_Board.Destroy;
@@ -113,6 +115,7 @@ begin
    FBlind      := TList.Create;
    FBlind_Zone := TBlind_Zone.Create;
    FVehicle    := TVehicle_Definition.Create;
+   FMySensorOnBoard := True;
 
 end;
 
@@ -127,6 +130,7 @@ constructor TFCR_On_Board.Create;
 begin
   FBlind      := TList.Create;
   FBlind_Zone := TBlind_Zone.Create;
+  FMySensorOnBoard := True;
 end;
 
 destructor TFCR_On_Board.Destroy;
@@ -143,6 +147,7 @@ begin
   FBlind      := TList.Create;
   FBlind_Zone := TBlind_Zone.Create;
   FVehicle    := TVehicle_Definition.Create;
+  FMySensorOnBoard := True;
 end;
 
 destructor TVisual_Sensor_On_Board.Destroy;
@@ -155,6 +160,7 @@ end;
 constructor TMAD_Sensor_On_Board.Create;
 begin
    FVehicle := TVehicle_Definition.Create;
+   FMySensorOnBoard    := True;
 end;
 
 destructor TMAD_Sensor_On_Board.Destroy;
@@ -170,6 +176,7 @@ begin
   FPattern_IFF  := TList.Create; //TRecPattern_IFF_Event;
   FScripted_IFF := TList.Create; //TRecScripted_IFF_Event;
   FVehicle      := TVehicle_Definition.Create;
+  FMySensorOnBoard  := True;
 
 end;
 

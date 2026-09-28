@@ -70,6 +70,7 @@ begin
   FBlind_Zone     := TBlind_Zone.Create;
   FVehicle        := TVehicle_Definition.Create;
   FPOD            := TList.Create;
+  FMySensorOnBoard:= True;
 
 end;
 

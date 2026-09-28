@@ -2296,7 +2296,7 @@ uses
   uT3Bomb, uT3SimManager, uT3CounterMeasure, uT3Visual, DateUtils,
   uT3Common, uT3HybridOnVehicle, ufmInputTrackId, uGameSetting,
   ufmDisembarkWith, uLogisticChange, ufTransportEmbarkasi, ufrmKeyboard, ufrmPlatformBaseDetail,
-  uLaunchPlatform;
+  uLaunchPlatform, uDBAsset_Weapon;
 
 function DeleteAmpersand(Value: string): string;
 var
@@ -15309,44 +15309,109 @@ var
   ImagePath, imageFileName: string;
   BaseWeaponPath: string;
 begin
-  if not Assigned(AWeapon) or not (AWeapon is TT3GunOnVehicle) then
+  if not Assigned(AWeapon) then
+    Exit;
+
+  if not (AWeapon is TT3GunOnVehicle) and not (AWeapon is TT3MissilesOnVehicle) and not
+  (AWeapon is TT3TorpedoesOnVehicle) and not (AWeapon is TT3BombONVehicle) and not (AWeapon is TT3MineOnVehicle)  then
     Exit;
 
   case vGameDataSetting.Role of
     2, 3:
+      {$REGION 'Gun'}
       begin
-        with TT3GunOnVehicle(AWeapon) do
+        BaseWeaponPath := vGameDataSetting.DataPath + '..\..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\';
+        imageFileName := 'imgNoModel.png';
+
+        if AWeapon is TT3GunOnVehicle then
         begin
-          if not Assigned(GunDefinition) then
-            Exit;
-
-
-          if GunDefinition.FData.Wbs_class_name <> '' then
-            imageFileName := GunDefinition.FData.Wbs_class_name
-          else
-            imageFileName := IntToStr(GunDefinition.FData.Gun_Index) + '.PNG';
-
-
-          BaseWeaponPath := vGameDataSetting.DataPath + '..\..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\';
-          ImagePath := BaseWeaponPath + imageFileName;
-
-          try
-            if FileExists(ImagePath) then
+          with TT3GunOnVehicle(AWeapon) do
+          begin
+            if Assigned(GunDefinition) then
             begin
-              imgSenjata.Picture.LoadFromFile(ImagePath);
-            end
-            else
-            begin
-              imgSenjata.Picture.LoadFromFile(BaseWeaponPath + 'imgNoModel.png');
-            end;
-          except
-
-            try
-              imgSenjata.Picture.LoadFromFile(BaseWeaponPath + 'imgNoModel.png');
-            except
-
+              if GunDefinition.FData.Wbs_class_name <> '' then
+                imageFileName := GunDefinition.FData.Wbs_class_name
+              else
+                imageFileName := IntToStr(GunDefinition.FData.Gun_Index) + '.PNG';
             end;
           end;
+        end
+      {$ENDREGION}
+
+      {$REGION 'Missile'}
+        else if AWeapon is TT3Missile then
+        begin
+          with TT3Missile(AWeapon) do
+          begin
+            if Assigned(MissileDefinition) then
+            begin
+              if MissileDefinition.FDef.Wbs_class_name <> '' then
+                imageFileName := MissileDefinition.FDef.Wbs_class_name
+              else
+                imageFileName := IntToStr(MissileDefinition.FDef.Missile_Index) + '.PNG';
+            end;
+          end;
+        end
+      {$ENDREGION}
+
+      {$REGION 'Torpedo'}
+        else if AWeapon is TT3TorpedoesOnVehicle then
+        begin
+          with TT3TorpedoesOnVehicle(AWeapon) do
+          begin
+            if Assigned(TorpedoDefinition) then
+            begin
+              if TorpedoDefinition.FDef.Wbs_class_name <> '' then
+                imageFileName := TorpedoDefinition.FDef.Wbs_class_name
+              else
+                imageFileName := IntToStr(TorpedoDefinition.FDef.Torpedo_Index) + '.PNG';
+            end;
+          end;
+        end
+      {$ENDREGION}
+
+      {$REGION 'Bomb'}
+      else if AWeapon is TT3BombONVehicle then
+        begin
+          with TT3BombONVehicle(AWeapon) do
+          begin
+            if Assigned(BombDefinition) then
+            begin
+              if BombDefinition.FData.Wbs_class_name <> '' then
+                imageFileName := BombDefinition.FData.Wbs_class_name
+              else
+                imageFileName := IntToStr(BombDefinition.FData.Bomb_Index) + '.PNG';
+            end;
+          end;
+        end
+      {$ENDREGION}
+
+      {$REGION 'Mine'}
+        else if AWeapon is TT3MineOnVehicle then
+        begin
+          with TT3MineOnVehicle(AWeapon) do
+          begin
+            if Assigned(MineDefinition) then
+            begin
+              if MineDefinition. FMine_Def .Wbs_class_name <> '' then
+                imageFileName := MineDefinition. FMine_Def .Wbs_class_name
+              else
+                imageFileName := IntToStr(MineDefinition. FMine_Def .Mine_Index) + '.PNG';
+            end;
+          end;
+        end;
+      {$ENDREGION}
+
+        ImagePath := BaseWeaponPath + imageFileName;
+
+        // Load Gambar...
+        try
+          if FileExists(ImagePath) then
+            imgSenjata.Picture.LoadFromFile(ImagePath)
+          else
+            imgSenjata.Picture.LoadFromFile(BaseWeaponPath + 'imgNoModel.png');
+        except
+          imgSenjata.Picture.LoadFromFile(BaseWeaponPath + 'imgNoModel.png');
         end;
       end;
   end;

@@ -2415,6 +2415,7 @@ end;
     Force_Designation        : byte;
     Track_ID                 : string[5];
     vbs_class_name           : string[60];
+    Wbs_class_name           : string[60];
     Instance_Ident_Index     : Integer;
   end;
 

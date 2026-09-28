@@ -11933,7 +11933,19 @@ begin
         if UnitDefinition is TRadar_On_Board then
           MySensor := TRadar_On_Board(aList[j]).FMySensorOnBoard
         else if UnitDefinition is TSonar_On_Board then
-          MySensor := TSonar_On_Board(aList[j]).FMySensorOnBoard;
+          MySensor := TSonar_On_Board(aList[j]).FMySensorOnBoard
+        else if UnitDefinition is TVisual_Sensor_On_Board then
+          MySensor := TVisual_Sensor_On_Board(aList[j]).FMySensorOnBoard
+        else if UnitDefinition is TMAD_Sensor_On_Board then
+          MySensor := TMAD_Sensor_On_Board(aList[j]).FMySensorOnBoard
+        else if UnitDefinition is TIFF_Sensor_On_Board then
+          MySensor := TIFF_Sensor_On_Board(aList[j]).FMySensorOnBoard
+        else if UnitDefinition is TESM_On_Board then
+          MySensor := TESM_On_Board(aList[j]).FMySensorOnBoard
+        else if UnitDefinition is TEO_On_Board then
+          MySensor := TEO_On_Board(aList[j]).FMySensorOnBoard
+        else if UnitDefinition is TFCR_On_Board then
+          MySensor := TFCR_On_Board(aList[j]).FMySensorOnBoard;
 
         Parent := aParent;
 

@@ -1540,57 +1540,62 @@ begin
   for i := 0 to TT3Vehicle(PfList).Devices.Count - 1 do
   begin
     device := TT3Vehicle(PfList).Devices.Items[i];
-    if not(Assigned(device)) or not(device is TT3Sensor) then continue;
+
+    if not(Assigned(device)) or not(device is TT3Sensor) then
+      continue;
 
     sensor := TT3Sensor(device);
 
-   case vGameDataSetting.Role of
-      1, 2:
-      begin
-        if not (sensor is TT3Radar) and not (sensor is TT3Visual)then
-          continue;
+    if not sensor.MySensor then
+      Continue;
 
-        radar := TT3Radar(sensor);
-        visual := TT3Visual(Sensor);
-
-        if vGameDataSetting.Role = 1 then
-        begin
-          {$REGION ' Navigasi '}
-          if (radar.GetRadarType <> 3) and (radar.GetRadarType <> 4) then
-            continue;
-          {$ENDREGION}
-        end
-        else if vGameDataSetting.Role = 2 then
-        begin
-          {$REGION ' Atas Air '}
-          if (radar.GetRadarType <> 0) and (radar.GetRadarType <> 1) and
-           (radar.GetRadarType <> 2) and (visual.GetVisual <> 0) then
-            continue;
-          {$ENDREGION}
-        end;
-      end;
-
-      3:
-      begin
-        {$REGION ' Bawah Air '}
-        if not (sensor is TT3Sonar) and not (sensor is TT3Visual) then
-          continue;
-
-        sonar := TT3Sonar(sensor);
-        visual := TT3Visual(Sensor);
-
-        if (sonar.GetSonarCategory <> 0) and (sonar.GetSonarCategory <> 1) and (sonar.GetSonarCategory <> 2)
-          and (sonar.GetSonarCategory <> 3) and (sonar.GetSonarCategory <> 4) and (visual.GetVisual <> 0) then
-          continue;
-        {$ENDREGION}
-      end;
-      4:
-      begin
-        {$REGION ' General '}
-
-        {$ENDREGION}
-      end;
-    end;
+//   case vGameDataSetting.Role of
+//      1, 2:
+//      begin
+//        if not (sensor is TT3Radar) and not (sensor is TT3Visual)then
+//          continue;
+//
+//        radar := TT3Radar(sensor);
+//        visual := TT3Visual(Sensor);
+//
+//        if vGameDataSetting.Role = 1 then
+//        begin
+//          {$REGION ' Navigasi '}
+//          if (radar.GetRadarType <> 3) and (radar.GetRadarType <> 4) then
+//            continue;
+//          {$ENDREGION}
+//        end
+//        else if vGameDataSetting.Role = 2 then
+//        begin
+//          {$REGION ' Atas Air '}
+//          if (radar.GetRadarType <> 0) and (radar.GetRadarType <> 1) and
+//           (radar.GetRadarType <> 2) and (visual.GetVisual <> 0) then
+//            continue;
+//          {$ENDREGION}
+//        end;
+//      end;
+//
+//      3:
+//      begin
+//        {$REGION ' Bawah Air '}
+//        if not (sensor is TT3Sonar) and not (sensor is TT3Visual) then
+//          continue;
+//
+//        sonar := TT3Sonar(sensor);
+//        visual := TT3Visual(Sensor);
+//
+//        if (sonar.GetSonarCategory <> 0) and (sonar.GetSonarCategory <> 1) and (sonar.GetSonarCategory <> 2)
+//          and (sonar.GetSonarCategory <> 3) and (sonar.GetSonarCategory <> 4) and (visual.GetVisual <> 0) then
+//          continue;
+//        {$ENDREGION}
+//      end;
+//      4:
+//      begin
+//        {$REGION ' General '}
+//
+//        {$ENDREGION}
+//      end;
+//    end;
 
 //    if vGameDataSetting.Role = 1 then
 //    begin
@@ -1706,54 +1711,6 @@ begin
       end;
       {$ENDREGION}
     end
-//    else if sensor is TT3Visual then
-//    begin
-//      {$REGION ' Visual Sensor '}
-//      li := lstSensor.Items.Add;
-//      li.Caption  := sensor.InstanceName;
-//      li.Data     := sensor;
-//
-//      if sensor.EmconOperationalStatus = EmconOff then
-//      begin
-//        case sensor.OperationalStatus of
-//          sopOff:
-//            li.SubItems.Add('Off');
-//          sopOn:
-//            li.SubItems.Add('On');
-//          sopDamage:
-//            li.SubItems.Add('Damaged');
-//          sopTooDeep:
-//            li.SubItems.Add('Too Deep');
-//          sopEMCON:
-//            li.SubItems.Add('EMCON');
-//          sopActive:
-//            li.SubItems.Add('Active');
-//          sopPassive:
-//            li.SubItems.Add('Passive');
-//          sopTooFast:
-//            li.SubItems.Add('Too Fast');
-//          sopDeploying:
-//            li.SubItems.Add('Deploying');
-//          sopDeployed:
-//            li.SubItems.Add('Deployed');
-//          sopStowing:
-//            li.SubItems.Add('Stowing');
-//          sopStowed:
-//            li.SubItems.Add('Stowed');
-//        end;
-//      end
-//      else
-//      begin
-//        case sensor.EmconOperationalStatus of
-//          EmconOn:
-//            li.SubItems.Add('EMCON');
-//          EmconOff:
-//            li.SubItems.Add('off');
-//        end;
-//      end;
-//
-//      {$ENDREGION}
-//    end
     else
     begin
       li := lstSensor.Items.Add;

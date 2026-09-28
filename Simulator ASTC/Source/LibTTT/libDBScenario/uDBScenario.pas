@@ -1153,6 +1153,22 @@ begin
   Result := (Value <> '');
 end;
 
+procedure TT3DBScenario.SetOnAssignedPlatform(const Value: TNotifyEvent);
+begin
+  FOnAssignedPlatform := Value;
+end;
+
+procedure TT3DBScenario.SetOnGetExternalCom(const Value: TNotifyEvent);
+begin
+  FOnGetExternalCom := Value;
+end;
+
+procedure TT3DBScenario.SetEventOnExternalComm;
+begin
+  if Assigned(FOnGetExternalCom) then
+    FOnGetExternalCom(Self);
+end;
+
 procedure TT3DBScenario.SetEOByRole(aList: TList);
 var
   j: integer;
@@ -1160,43 +1176,29 @@ var
 begin
   for j := 0 to aList.Count - 1 do
   begin
-    sensor := nil;
+    sensor := aList[j];
 
     if not Assigned(sensor) then
       Continue;
 
-    if sensor is  TEO_On_Board then
+    if sensor is TEO_On_Board then
     begin
       case vGameDataSetting.Role of
-        0:
-        begin
-          {$REGION ' Plotter '}
-           TEO_On_Board(sensor).FMySensorOnBoard := False;
-          {$ENDREGION}
-        end;
         1:
         begin
           {$REGION ' Navigasi '}
-           TEO_On_Board(sensor).FMySensorOnBoard := False;
-          {$ENDREGION}
-        end;
-        2:
-        begin
-          {$REGION ' Atas Air '}
-           TEO_On_Board(sensor).FMySensorOnBoard := True;
+          TEO_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
         end;
         3:
         begin
           {$REGION ' BawahAir '}
-           TEO_On_Board(sensor).FMySensorOnBoard := False;
+          TEO_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
-        end;
-        4:
+        end
+        else
         begin
-          {$REGION ' General '}
-           TEO_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
+          TEO_On_Board(sensor).FMySensorOnBoard := True;
         end;
       end;
     end;
@@ -1210,53 +1212,33 @@ var
 begin
   for j := 0 to aList.Count - 1 do
   begin
-    sensor := nil;
+    sensor := aList[j];
 
     if not Assigned(sensor) then
       Continue;
 
-    if sensor is  TESM_On_Board then
+    if sensor is TESM_On_Board then
     begin
       case vGameDataSetting.Role of
-        0:
-        begin
-          {$REGION ' Plotter '}
-           TESM_On_Board(sensor).FMySensorOnBoard := False;
-          {$ENDREGION}
-        end;
         1:
         begin
           {$REGION ' Navigasi '}
-           TESM_On_Board(sensor).FMySensorOnBoard := False;
-          {$ENDREGION}
-        end;
-        2:
-        begin
-          {$REGION ' Atas Air '}
-           TESM_On_Board(sensor).FMySensorOnBoard := True;
+          TESM_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
         end;
         3:
         begin
           {$REGION ' BawahAir '}
-           TESM_On_Board(sensor).FMySensorOnBoard := False;
+          TESM_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
-        end;
-        4:
+        end
+        else
         begin
-          {$REGION ' General '}
-           TESM_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
+          TESM_On_Board(sensor).FMySensorOnBoard := True;
         end;
       end;
     end;
   end;
-end;
-
-procedure TT3DBScenario.SetEventOnExternalComm;
-begin
-  if Assigned(FOnGetExternalCom) then
-    FOnGetExternalCom(Self);
 end;
 
 procedure TT3DBScenario.SetFCRByRole(aList: TList);
@@ -1266,7 +1248,7 @@ var
 begin
   for j := 0 to aList.Count - 1 do
   begin
-    sensor := nil;
+    sensor := aList[j];
 
     if not Assigned(sensor) then
       Continue;
@@ -1274,22 +1256,10 @@ begin
     if sensor is TFCR_On_Board then
     begin
       case vGameDataSetting.Role of
-        0:
-        begin
-          {$REGION ' Plotter '}
-          TFCR_On_Board(sensor).FMySensorOnBoard := False;
-          {$ENDREGION}
-        end;
         1:
         begin
           {$REGION ' Navigasi '}
           TFCR_On_Board(sensor).FMySensorOnBoard := False;
-          {$ENDREGION}
-        end;
-        2:
-        begin
-          {$REGION ' Atas Air '}
-          TFCR_On_Board(sensor).FMySensorOnBoard := True;
           {$ENDREGION}
         end;
         3:
@@ -1297,12 +1267,10 @@ begin
           {$REGION ' BawahAir '}
           TFCR_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
-        end;
-        4:
+        end
+        else
         begin
-          {$REGION ' General '}
           TFCR_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
         end;
       end;
     end;
@@ -1316,7 +1284,7 @@ var
 begin
   for j := 0 to aList.Count - 1 do
   begin
-    sensor := nil;
+    sensor := aList[j];
 
     if not Assigned(sensor) then
       Continue;
@@ -1324,22 +1292,10 @@ begin
     if sensor is TIFF_Sensor_On_Board then
     begin
       case vGameDataSetting.Role of
-        0:
-        begin
-          {$REGION ' Plotter '}
-          TIFF_Sensor_On_Board(sensor).FMySensorOnBoard := False;
-          {$ENDREGION}
-        end;
         1:
         begin
           {$REGION ' Navigasi '}
           TIFF_Sensor_On_Board(sensor).FMySensorOnBoard := False;
-          {$ENDREGION}
-        end;
-        2:
-        begin
-          {$REGION ' Atas Air '}
-          TIFF_Sensor_On_Board(sensor).FMySensorOnBoard := True;
           {$ENDREGION}
         end;
         3:
@@ -1347,12 +1303,10 @@ begin
           {$REGION ' BawahAir '}
           TIFF_Sensor_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
-        end;
-        4:
+        end
+        else
         begin
-          {$REGION ' General '}
           TIFF_Sensor_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
         end;
       end;
     end;
@@ -1366,7 +1320,7 @@ var
 begin
   for j := 0 to aList.Count - 1 do
   begin
-    sensor := nil;
+    sensor := aList[j];
 
     if not Assigned(sensor) then
       Continue;
@@ -1374,12 +1328,6 @@ begin
     if sensor is TMAD_Sensor_On_Board then
     begin
       case vGameDataSetting.Role of
-        0:
-        begin
-          {$REGION ' Plotter '}
-          TMAD_Sensor_On_Board(sensor).FMySensorOnBoard := False;
-          {$ENDREGION}
-        end;
         1:
         begin
           {$REGION ' Navigasi '}
@@ -1388,35 +1336,17 @@ begin
         end;
         2:
         begin
-          {$REGION ' Atas Air '}
+          {$REGION ' AtasAir '}
           TMAD_Sensor_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
-        end;
-        3:
+        end
+        else
         begin
-          {$REGION ' BawahAir '}
           TMAD_Sensor_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
-        4:
-        begin
-          {$REGION ' General '}
-          TMAD_Sensor_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
         end;
       end;
     end;
   end;
-end;
-
-procedure TT3DBScenario.SetOnAssignedPlatform(const Value: TNotifyEvent);
-begin
-  FOnAssignedPlatform := Value;
-end;
-
-procedure TT3DBScenario.SetOnGetExternalCom(const Value: TNotifyEvent);
-begin
-  FOnGetExternalCom := Value;
 end;
 
 procedure TT3DBScenario.SetRadarByRole(aList: TList);
@@ -1434,12 +1364,6 @@ begin
     if sensor is TRadar_On_Board then
     begin
       case vGameDataSetting.Role of
-        0:
-        begin
-          {$REGION ' Plotter '}
-//          TRadar_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
         1:
         begin
           {$REGION ' Navigasi '}
@@ -1447,24 +1371,12 @@ begin
           ((TRadar_On_Board(sensor).FDef.Radar_Type = 3) or (TRadar_On_Board(sensor).FDef.Radar_Type = 4));
           {$ENDREGION}
         end;
-        2:
-        begin
-          {$REGION ' Atas Air '}
-//          TRadar_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
         3:
         begin
           {$REGION ' BawahAir '}
           TRadar_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
-        end;
-        4:
-        begin
-          {$REGION ' General '}
-//          TRadar_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
+        end
         else
         begin
           TRadar_On_Board(sensor).FMySensorOnBoard := True;
@@ -1481,46 +1393,29 @@ var
 begin
   for j := 0 to aList.Count - 1 do
   begin
-    sensor := nil;
+    sensor := aList[j];
 
     if not Assigned(sensor) then
       Continue;
 
-    if sensor is TSonar_On_Board then
+    if sensor is TRadar_On_Board then
     begin
       case vGameDataSetting.Role of
-        0:
-        begin
-          {$REGION ' Plotter '}
-//          TSonar_On_Board(sensor).FMySensorOnBoard := False;
-          {$ENDREGION}
-        end;
         1:
         begin
-          TSonar_On_Board(sensor).FMySensorOnBoard := False;
+          {$REGION ' Navigasi '}
+          TRadar_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
         end;
         2:
         begin
-          {$REGION ' Atas Air '}
-          TSonar_On_Board(sensor).FMySensorOnBoard := False;
+          {$REGION ' AtasAir '}
+          TRadar_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
-        end;
-        3:
-        begin
-          {$REGION ' BawahAir '}
-//          TSonar_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
-        4:
-        begin
-          {$REGION ' General '}
-//          TSonar_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
+        end
         else
         begin
-          TSonar_On_Board(sensor).FMySensorOnBoard := True;
+          TRadar_On_Board(sensor).FMySensorOnBoard := True;
         end;
       end;
     end;
@@ -1534,48 +1429,16 @@ var
 begin
   for j := 0 to aList.Count - 1 do
   begin
-    sensor := nil;
+    sensor := aList[j];
 
     if not Assigned(sensor) then
       Continue;
 
     if sensor is TVisual_Sensor_On_Board then
     begin
-      case vGameDataSetting.Role of
-        0:
-        begin
-          {$REGION ' Plotter '}
-          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
-        1:
-        begin
-          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
-        2:
-        begin
-          {$REGION ' Atas Air '}
-          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
-        3:
-        begin
-          {$REGION ' BawahAir '}
-          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
-        4:
-        begin
-          {$REGION ' General '}
-          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
-          {$ENDREGION}
-        end;
-        else
-        begin
-          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
-        end;
-      end;
+      {$REGION ' All Role '}
+      TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
+      {$ENDREGION}
     end;
   end;
 end;

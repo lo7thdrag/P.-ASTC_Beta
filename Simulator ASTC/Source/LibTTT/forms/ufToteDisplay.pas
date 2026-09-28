@@ -14459,10 +14459,27 @@ begin
 
     ImagePath :=  vGameDataSetting.DataPath + 'Image Simulator\Interface\' + FData.VBS_Class_Name + '.PNG' ;
     try
-      imgShip.Picture.LoadFromFile(ImagePath);
+      if FileExists(ImagePath) then
+      begin
+        imgShip.Picture.LoadFromFile(ImagePath);
+      end
+      else
+      begin
+        imgShip.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Interface\NoModel.bmp');
+      end;
     except
-      imgShip.Picture.LoadFromFile(vGameDataSetting.DataPath + 'NoModel.bmp');
+
+      try
+        imgShip.Picture.LoadFromFile(vGameDataSetting.DataPath + 'Image Simulator\Interface\NoModel.bmp');
+      except
+
+      end;
     end;
+//    try
+//      imgShip.Picture.LoadFromFile(ImagePath);
+//    except
+//      imgShip.Picture.LoadFromFile(vGameDataSetting.DataPath + 'NoModel.bmp');
+//    end;
   end;
 
   with TT3PlatformInstance(sender).UnitMotion.FData do

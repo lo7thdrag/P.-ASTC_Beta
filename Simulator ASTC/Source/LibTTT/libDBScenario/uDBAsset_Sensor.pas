@@ -16,6 +16,7 @@ type
     FBlind_Zone : TBlind_Zone;
     FBlind      : TList;
     FVehicle    : TVehicle_Definition;
+    FMySensorOnBoard : Boolean;
 
     constructor Create;
     destructor Destroy;override;
@@ -29,6 +30,7 @@ type
     FBlind_Zone : TBlind_Zone;
     FBlind  : TList;
     FVehicle    : TVehicle_Definition;
+    FMySensorOnBoard     : Boolean;
 
     constructor Create;
     destructor Destroy; override;
@@ -40,6 +42,7 @@ type
     FPattern_IFF  : TList; //TRecPattern_IFF_Event;
     FScripted_IFF : TList; //TRecScripted_IFF_Event;
     FVehicle    : TVehicle_Definition;
+    FMySensorOnBoard     : Boolean;
 
     constructor Create;
     destructor Destroy;override;
@@ -51,6 +54,7 @@ type
     FMAD_Def : TRecMAD_Definition;
     FNote    : TNote_Storage ;
     FVehicle    : TVehicle_Definition;
+    FMySensorOnBoard     : Boolean;
 
     constructor Create;
     destructor Destroy;override;
@@ -63,6 +67,7 @@ type
     FNote    : TNote_Storage ;
     FBlind_Zone : TBlind_Zone;
     FBlind   : TList;
+    FMySensorOnBoard : Boolean;
 
     constructor Create;
     destructor Destroy;override;
@@ -74,6 +79,7 @@ type
     FBlind_Zone : TBlind_Zone;
     FBlind      : TList;
     FVehicle    : TVehicle_Definition;
+    FMySensorOnBoard : Boolean;
 
     constructor Create;
     destructor Destroy; override;

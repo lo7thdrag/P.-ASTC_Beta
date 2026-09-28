@@ -30,6 +30,7 @@ type
     FDate_Time : TDateTime;
     FOnIFFDetect  : TOnIFFDetect;
     FOnModeSearchIFF : TOnModeSearchIFF;
+    FMySensor : Boolean;
 
     procedure SetShowBlindZone(const Value: boolean);
     procedure SetShowRange(const Value: boolean);
@@ -136,6 +137,8 @@ type
       write FOnUpdateFormSonar;
     property OnUpdateActualCable : TOnUpdateActualCable read FOnUpdateActualCable
       write FOnUpdateActualCable;
+    property MySensor : Boolean read FMySensor write FMySensor;
+
   end;
 
 implementation
@@ -592,6 +595,7 @@ begin
 
   FOperationalStatus  := sopOff;
   FEmconOperationalStatus := EmconOff;
+  FMySensor := True;
 end;
 
 function TT3Sensor.delayTime(pfObject:TSimObject): Integer;

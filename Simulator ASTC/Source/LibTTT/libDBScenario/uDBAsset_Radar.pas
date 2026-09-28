@@ -55,6 +55,7 @@ type
     FRadar_Vertical     : TRadar_Vertical;
     FNote               : TNote_Storage ;
     FECCM_Type          : TRecECCM_Type ;
+    FMySensorOnBoard     : Boolean;
 
     constructor Create;
     destructor Destroy; override;

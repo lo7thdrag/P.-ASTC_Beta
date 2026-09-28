@@ -27,6 +27,7 @@ type
     FCategory : TRecSonar_Category ;
     FNote     : TNote_Storage ;
     FVehicle  : TVehicle_Definition;
+    FMySensorOnBoard : Boolean;
 
     constructor Create;
     destructor Destroy;override;

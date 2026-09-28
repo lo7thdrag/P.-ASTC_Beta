@@ -30,7 +30,15 @@ type
 
     procedure SetOnAssignedPlatform(const Value: TNotifyEvent);
     procedure SetOnGetExternalCom(const Value: TNotifyEvent);
-    function getDataModule: TdmTTT;
+    function  getDataModule: TdmTTT;
+    procedure SetRadarByRole(aList: TList);
+    procedure SetSonarByRole(aList: TList);
+    procedure SetVisualByRole(aList: TList);
+    procedure SetMADByRole(aList: TList);
+    procedure SetIFFByRole(aList: TList);
+    procedure SetESMByRole(aList: TList);
+    procedure SetEOByRole (aList: TList);
+    procedure SetFCRByRole (aList: TList);
 
   protected
     function  getMemberInteger(const index: integer): Integer;
@@ -140,7 +148,8 @@ implementation
 
 uses
   SysUtils, uSimContainers, ufProgress, uDBAsset_Vehicle, Dialogs,
-  uDBAsset_Runtime_Platform_Library, uDBAsset_Embark_Library, uBrigadePersonel;
+  uDBAsset_Runtime_Platform_Library, uDBAsset_Embark_Library, uBrigadePersonel,
+  uDBAsset_Radar,uDBAsset_Sonar,uDBAsset_Sensor;
 { TT3DBScenario }
 
 
@@ -771,14 +780,22 @@ begin
 
       //sensor
       dmTTT.getAllEO_On_Board(vIndex,0, pi.Vehicle.EOSensors);
+      SetEOByRole(pi.Vehicle.EOSensors);
       dmTTT.getAllESM_On_Board(vIndex,0, pi.Vehicle.ESMSensors);
+      SetESMByRole(pi.Vehicle.ESMSensors);
       dmTTT.getAllIFF_Sensor_On_Board(vIndex,0, pi.Vehicle.IFFSensors);
+      SetIFFByRole(pi.Vehicle.IFFSensors);
       dmTTT.getAllMAD_Sensor_On_Board(vIndex,0, pi.Vehicle.MADSensors);
+      SetMADByRole(pi.Vehicle.MADSensors);
       dmTTT.getAllVisual_Sensor_On_Board(vIndex,0, pi.Vehicle.Visualsensors);
+      SetVisualByRole( pi.Vehicle.Visualsensors);
       dmTTT.getAllFCR_On_Board(vIndex, pi.Vehicle.FCRSensors);
+      SetFCRByRole( pi.Vehicle.FCRSensors);
 
       dmTTT.GetAllRadar_On_Board(vIndex,0, pi.Vehicle.Radars);
+      SetRadarByRole(pi.Vehicle.Radars);
       dmTTT.GetAllSonar_On_Board(vIndex,0, pi.Vehicle.Sonars);
+      SetSonarByRole(pi.Vehicle.Sonars);
 
       //weapon fit on Board
       dmTTT.getAllMissile_OnBoard2(vIndex,0, Pi.Vehicle.Missiles  );
@@ -1136,10 +1153,260 @@ begin
   Result := (Value <> '');
 end;
 
+procedure TT3DBScenario.SetEOByRole(aList: TList);
+var
+  j: integer;
+  sensor: TObject;
+begin
+  for j := 0 to aList.Count - 1 do
+  begin
+    sensor := nil;
+
+    if not Assigned(sensor) then
+      Continue;
+
+    if sensor is  TEO_On_Board then
+    begin
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+           TEO_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        1:
+        begin
+          {$REGION ' Navigasi '}
+           TEO_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+           TEO_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+           TEO_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        4:
+        begin
+          {$REGION ' General '}
+           TEO_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TT3DBScenario.SetESMByRole(aList: TList);
+var
+  j: integer;
+  sensor: TObject;
+begin
+  for j := 0 to aList.Count - 1 do
+  begin
+    sensor := nil;
+
+    if not Assigned(sensor) then
+      Continue;
+
+    if sensor is  TESM_On_Board then
+    begin
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+           TESM_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        1:
+        begin
+          {$REGION ' Navigasi '}
+           TESM_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+           TESM_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+           TESM_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        4:
+        begin
+          {$REGION ' General '}
+           TESM_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+      end;
+    end;
+  end;
+end;
+
 procedure TT3DBScenario.SetEventOnExternalComm;
 begin
   if Assigned(FOnGetExternalCom) then
     FOnGetExternalCom(Self);
+end;
+
+procedure TT3DBScenario.SetFCRByRole(aList: TList);
+var
+  j: integer;
+  sensor: TObject;
+begin
+  for j := 0 to aList.Count - 1 do
+  begin
+    sensor := nil;
+
+    if not Assigned(sensor) then
+      Continue;
+
+    if sensor is TFCR_On_Board then
+    begin
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+          TFCR_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        1:
+        begin
+          {$REGION ' Navigasi '}
+          TFCR_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+          TFCR_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+          TFCR_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        4:
+        begin
+          {$REGION ' General '}
+          TFCR_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TT3DBScenario.SetIFFByRole(aList: TList);
+var
+  j: integer;
+  sensor: TObject;
+begin
+  for j := 0 to aList.Count - 1 do
+  begin
+    sensor := nil;
+
+    if not Assigned(sensor) then
+      Continue;
+
+    if sensor is TIFF_Sensor_On_Board then
+    begin
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+          TIFF_Sensor_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        1:
+        begin
+          {$REGION ' Navigasi '}
+          TIFF_Sensor_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+          TIFF_Sensor_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+          TIFF_Sensor_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        4:
+        begin
+          {$REGION ' General '}
+          TIFF_Sensor_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TT3DBScenario.SetMADByRole(aList: TList);
+var
+  j: integer;
+  sensor: TObject;
+begin
+  for j := 0 to aList.Count - 1 do
+  begin
+    sensor := nil;
+
+    if not Assigned(sensor) then
+      Continue;
+
+    if sensor is TMAD_Sensor_On_Board then
+    begin
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+          TMAD_Sensor_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        1:
+        begin
+          {$REGION ' Navigasi '}
+          TMAD_Sensor_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+          TMAD_Sensor_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+          TMAD_Sensor_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        4:
+        begin
+          {$REGION ' General '}
+          TMAD_Sensor_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+      end;
+    end;
+  end;
 end;
 
 procedure TT3DBScenario.SetOnAssignedPlatform(const Value: TNotifyEvent);
@@ -1150,6 +1417,155 @@ end;
 procedure TT3DBScenario.SetOnGetExternalCom(const Value: TNotifyEvent);
 begin
   FOnGetExternalCom := Value;
+end;
+
+procedure TT3DBScenario.SetRadarByRole(aList: TList);
+var
+  j: integer;
+  sensor: TObject;
+begin
+  for j := 0 to aList.Count - 1 do
+  begin
+    sensor := nil;
+
+    if not Assigned(sensor) then
+      Continue;
+
+    if sensor is TRadar_On_Board then
+    begin
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+          TRadar_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        1:
+        begin
+          {$REGION ' Navigasi '}
+          TRadar_On_Board(sensor).FMySensorOnBoard :=
+          ((TRadar_On_Board(sensor).FDef.Radar_Type = 3) or (TRadar_On_Board(sensor).FDef.Radar_Type = 4));
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+          TRadar_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+          TRadar_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        4:
+        begin
+          {$REGION ' General '}
+          TRadar_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TT3DBScenario.SetSonarByRole(aList: TList);
+var
+  j: integer;
+  sensor: TObject;
+begin
+  for j := 0 to aList.Count - 1 do
+  begin
+    sensor := nil;
+
+    if not Assigned(sensor) then
+      Continue;
+
+    if sensor is TSonar_On_Board then
+    begin
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+          TSonar_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        1:
+        begin
+          TSonar_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+          TSonar_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+          TSonar_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        4:
+        begin
+          {$REGION ' General '}
+          TSonar_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TT3DBScenario.SetVisualByRole(aList: TList);
+var
+  j: integer;
+  sensor: TObject;
+begin
+  for j := 0 to aList.Count - 1 do
+  begin
+    sensor := nil;
+
+    if not Assigned(sensor) then
+      Continue;
+
+    if sensor is TVisual_Sensor_On_Board then
+    begin
+      case vGameDataSetting.Role of
+        0:
+        begin
+          {$REGION ' Plotter '}
+          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        1:
+        begin
+          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' Atas Air '}
+          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        3:
+        begin
+          {$REGION ' BawahAir '}
+          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+        4:
+        begin
+          {$REGION ' General '}
+          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
+          {$ENDREGION}
+        end;
+      end;
+    end;
+  end;
 end;
 
 { TT3CubicleChanel }

@@ -9429,8 +9429,7 @@ begin
   end;
 end;
 
-function TdmTTT.getAllMissile_OnBoard2(const id, index: Integer;
-  var aRec: TList): Integer;
+function TdmTTT.getAllMissile_OnBoard2(const id, index: Integer; var aRec: TList): Integer;
 var
   i, J, k: Integer;
   rec: TMissile_On_Board;
@@ -9494,8 +9493,7 @@ begin
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
           Mount_Type := FieldByName('Mount_Type').AsInteger;
           Launch_Angle := FieldByName('Launch_Angle').AsSingle;
-          Launch_Angle_Required := FieldByName('Launch_Angle_Required')
-            .AsInteger;
+          Launch_Angle_Required := FieldByName('Launch_Angle_Required').AsInteger;
           Quantity := FieldByName('Quantity').AsInteger;
           Firing_Delay := FieldByName('Firing_Delay').AsSingle;
           Missile_Index := FieldByName('Missile_Index').AsInteger;
@@ -9515,12 +9513,9 @@ begin
           Min_Range := FieldByName('Min_Range').AsSingle;
           Motion_Index := FieldByName('Motion_Index').AsInteger;
           Seeker_TurnOn_Range := FieldByName('Seeker_TurnOn_Range').AsSingle;
-          Second_Seeker_Pattern_Capable := FieldByName
-            ('Second_Seeker_Pattern_Capable').AsInteger;
+          Second_Seeker_Pattern_Capable := FieldByName('Second_Seeker_Pattern_Capable').AsInteger;
           Seeker_Bias_Capable := FieldByName('Seeker_Bias_Capable').AsInteger;
-          Fixed_Seeker_Turn_On_Range := FieldByName
-            ('Fixed_Seeker_Turn_On_Range')
-            .AsInteger;
+          Fixed_Seeker_Turn_On_Range := FieldByName('Fixed_Seeker_Turn_On_Range').AsInteger;
           Lethality := FieldByName('Lethality').AsInteger;
           Prob_of_Hit := FieldByName('Prob_of_Hit').AsSingle;
           Damage_Capacity := FieldByName('Damage_Capacity').AsInteger;

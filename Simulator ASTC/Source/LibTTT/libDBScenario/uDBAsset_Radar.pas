@@ -76,6 +76,7 @@ begin
   FBlind_Zone         := TBlind_Zone.Create;
   FVehicle            := TVehicle_Definition.Create;
   FNote               := TNote_Storage.Create;
+  FMySensorOnBoard    := True;
 end;
 
 destructor TRadar_On_Board.Destroy;

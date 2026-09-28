@@ -11929,6 +11929,12 @@ begin
       with TT3Sensor(sensor) do
       begin
         UnitDefinition := aList[j];
+
+        if UnitDefinition is TRadar_On_Board then
+          MySensor := TRadar_On_Board(aList[j]).FMySensorOnBoard
+        else if UnitDefinition is TSonar_On_Board then
+          MySensor := TSonar_On_Board(aList[j]).FMySensorOnBoard;
+
         Parent := aParent;
 
         //set game defaults

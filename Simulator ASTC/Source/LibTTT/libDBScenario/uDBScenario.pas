@@ -1426,7 +1426,7 @@ var
 begin
   for j := 0 to aList.Count - 1 do
   begin
-    sensor := nil;
+    sensor := aList[j];
 
     if not Assigned(sensor) then
       Continue;
@@ -1437,7 +1437,7 @@ begin
         0:
         begin
           {$REGION ' Plotter '}
-          TRadar_On_Board(sensor).FMySensorOnBoard := True;
+//          TRadar_On_Board(sensor).FMySensorOnBoard := True;
           {$ENDREGION}
         end;
         1:
@@ -1450,7 +1450,7 @@ begin
         2:
         begin
           {$REGION ' Atas Air '}
-          TRadar_On_Board(sensor).FMySensorOnBoard := True;
+//          TRadar_On_Board(sensor).FMySensorOnBoard := True;
           {$ENDREGION}
         end;
         3:
@@ -1462,8 +1462,12 @@ begin
         4:
         begin
           {$REGION ' General '}
-          TRadar_On_Board(sensor).FMySensorOnBoard := True;
+//          TRadar_On_Board(sensor).FMySensorOnBoard := True;
           {$ENDREGION}
+        end;
+        else
+        begin
+          TRadar_On_Board(sensor).FMySensorOnBoard := True;
         end;
       end;
     end;
@@ -1488,7 +1492,7 @@ begin
         0:
         begin
           {$REGION ' Plotter '}
-          TSonar_On_Board(sensor).FMySensorOnBoard := False;
+//          TSonar_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
         end;
         1:
@@ -1505,14 +1509,18 @@ begin
         3:
         begin
           {$REGION ' BawahAir '}
-          TSonar_On_Board(sensor).FMySensorOnBoard := True;
+//          TSonar_On_Board(sensor).FMySensorOnBoard := True;
           {$ENDREGION}
         end;
         4:
         begin
           {$REGION ' General '}
-          TSonar_On_Board(sensor).FMySensorOnBoard := True;
+//          TSonar_On_Board(sensor).FMySensorOnBoard := True;
           {$ENDREGION}
+        end;
+        else
+        begin
+          TSonar_On_Board(sensor).FMySensorOnBoard := True;
         end;
       end;
     end;
@@ -1562,6 +1570,10 @@ begin
           {$REGION ' General '}
           TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
           {$ENDREGION}
+        end;
+        else
+        begin
+          TVisual_Sensor_On_Board(sensor).FMySensorOnBoard := True;
         end;
       end;
     end;

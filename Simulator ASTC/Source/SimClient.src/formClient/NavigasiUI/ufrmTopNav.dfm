@@ -11034,7 +11034,7 @@ object frmTopNav: TfrmTopNav
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Image3: TImage
+    object imgOwnShip: TImage
       Left = 361
       Top = 11
       Width = 36
@@ -11141,6 +11141,7 @@ object frmTopNav: TfrmTopNav
         2C21}
       Stretch = True
       Transparent = True
+      OnClick = imgOwnShipClick
     end
     object Label70: TLabel
       Left = 1157

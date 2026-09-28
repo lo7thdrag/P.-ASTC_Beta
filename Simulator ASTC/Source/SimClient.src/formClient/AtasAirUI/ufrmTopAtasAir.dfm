@@ -11033,7 +11033,7 @@ object frmTopAtasAir: TfrmTopAtasAir
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Image3: TImage
+    object btnOwnShip: TImage
       Left = 361
       Top = 11
       Width = 36
@@ -11140,6 +11140,7 @@ object frmTopAtasAir: TfrmTopAtasAir
         2C21}
       Stretch = True
       Transparent = True
+      OnClick = btnOwnShipClick
     end
     object Label70: TLabel
       Left = 1448

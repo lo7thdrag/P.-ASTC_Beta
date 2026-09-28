@@ -38,7 +38,7 @@ type
     Panel5: TPanel;
     Panel7: TPanel;
     Image1: TImage;
-    Image3: TImage;
+    imgOwnShip: TImage;
     Label70: TLabel;
     Label68: TLabel;
     lbBearingAnchor: TLabel;
@@ -47,6 +47,7 @@ type
     procedure tmr2Timer(Sender: TObject);
     procedure tmrUTCTimer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure imgOwnShipClick(Sender: TObject);
   protected
     FControlled: TObject;
 
@@ -81,6 +82,24 @@ end;
 //begin
 ////  FControlled := nil;
 //end;
+
+procedure TfrmTopNav.imgOwnShipClick(Sender: TObject);
+begin
+  if FControlled = nil then
+  begin
+    Exit;
+  end;
+
+  if not TT3PlatformInstance(FControlled).Initialized then
+  begin
+    Exit;
+  end;
+
+  if Assigned(frmTacticalDisplay) then
+  begin
+    frmTacticalDisplay.CentreOwnShip(TT3PlatformInstance(FControlled));
+  end;
+end;
 
 procedure TfrmTopNav.Refresh_OwnShipTab(Sender: TObject);
 var

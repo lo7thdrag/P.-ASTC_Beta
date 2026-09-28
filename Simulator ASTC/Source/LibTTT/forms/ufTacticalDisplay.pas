@@ -792,6 +792,7 @@ type
     procedure btnFullScreenClick(Sender: TObject);
     procedure hideBottomPanel(Sender: TObject);
     procedure CentreOnGameCentreClick(Sender: TObject);
+    procedure CentreOwnShip(Ownship: TSimObject);
     procedure Select1Click(Sender: TObject);
     procedure btnHookPreviousClick(Sender: TObject);
     procedure btnHookNextClick(Sender: TObject);
@@ -7704,9 +7705,41 @@ begin
     StatusBar1.Panels[0].Text := TMenuItem(Sender).Hint;
 end;
 
+procedure TfrmTacticalDisplay.CentreOwnShip(Ownship: TSimObject);
+begin
+  if Ownship = nil then Exit;
+  focusedTrack := Ownship;
+
+  FHookOnPlatform := True;
+  btnCentreOnHook.Down := True;
+  OnHookedTrack2.Checked := True;
+
+  try
+    simMgrClient.MyCenterHookedPlatfom := focusedTrack;
+    VSimMap.SetMapCenter(simMgrClient.MyCenterHookedPlatfom.getPositionX, simMgrClient.MyCenterHookedPlatfom.getPositionY);
+
+    FLastMapCenterY := simMgrClient.MyCenterHookedPlatfom.getPositionY;
+    FLastMapCenterX := simMgrClient.MyCenterHookedPlatfom.getPositionX;
+
+    Pan1.Checked := False;
+    Zoom1.Checked := False;
+    btnPan.Down := False;
+    btnPan2D.Down := False;
+    btnZoom.Down := False;
+    btnZoom2D.Down := False;
+
+    Map1.CurrentTool := mtSelectObject;
+  except
+    focusedTrack := nil;
+    simMgrClient.MyCenterHookedPlatfom := nil;
+    FHookOnPlatform := False;
+    btnCentreOnHook.Down := False;
+    OnHookedTrack2.Checked := False;
+  end;
+end;
+
 procedure TfrmTacticalDisplay.btnCentreOnHookClick(Sender: TObject);
 begin
-
   {cek target jika tidak ada stop}
   if focusedTrack = nil then
   begin
@@ -14463,9 +14496,9 @@ begin
   ShowPlottingOnTime(gTime);
 
   {Panel Bawah}
-  lblLMT.Caption := FormatDateTime('hh:mm:ss', gTime);
-  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', gTime);
-  WaktuUTC := TTimeZone.Local.ToUniversalTime(gTime);
+  lblLMT.Caption := FormatDateTime('hh:mm:ss', Now);
+  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', Now);
+  WaktuUTC := TTimeZone.Local.ToUniversalTime(Now);
   lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
 
   {Cubicle}

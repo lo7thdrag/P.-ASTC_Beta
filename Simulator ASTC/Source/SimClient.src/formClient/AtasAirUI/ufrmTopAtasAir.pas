@@ -29,7 +29,7 @@ type
     lblLat1: TLabel;
     Label6: TLabel;
     Label5: TLabel;
-    Image3: TImage;
+    btnOwnShip: TImage;
     Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
@@ -45,6 +45,7 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
+    procedure btnOwnShipClick(Sender: TObject);
     protected
     FControlled: TObject;
   private
@@ -68,6 +69,24 @@ uses
 {$R *.dfm}
 
 { TfrmTopAtasAir }
+
+procedure TfrmTopAtasAir.btnOwnShipClick(Sender: TObject);
+begin
+  if FControlled = nil then
+  begin
+    Exit;
+  end;
+
+  if not TT3PlatformInstance(FControlled).Initialized then
+  begin
+    Exit;
+  end;
+
+  if Assigned(frmTacticalDisplay) then
+  begin
+    frmTacticalDisplay.CentreOwnShip(TT3PlatformInstance(FControlled));
+  end;
+end;
 
 procedure TfrmTopAtasAir.Refresh_OwnShipTab(Sender: TObject);
 var

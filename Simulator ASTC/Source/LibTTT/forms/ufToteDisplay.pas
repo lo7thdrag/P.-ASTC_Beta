@@ -14290,78 +14290,75 @@ begin
   begin
     lvSensorNav.Items.Clear;
 
-  if Assigned(sender.Devices) then
-  begin
-    for i := 0 to sender.Devices.Count - 1 do
+    if Assigned(sender.Devices) then
     begin
-      du := sender.Devices.Items[i];
-
-      if du is TT3Sensor then
+      for i := 0 to sender.Devices.Count - 1 do
       begin
-        sensor := TT3Sensor(du);
-        if sensor is TT3Radar then
+        du := sender.Devices.Items[i];
+
+        if du is TT3Sensor then
         begin
-          radar := TT3Radar(sensor);
-          if (radar.GetRadarType <> 3) and (radar.GetRadarType <> 4) then
-            continue;
+          sensor := TT3Sensor(du);
+
+          if not sensor.MySensor then
+          continue;
+
+          li := lvSensorNav.Items.Add;
+
+          if sensor is TT3Radar then
+            li.StateIndex := 1
+          else if sensor is TT3Sonar then
+            li.StateIndex := 0
+          else if sensor is TT3Visual then
+            li.StateIndex := 2
+          else if sensor is TT3MADSensor then
+            li.StateIndex := 4
+          else if sensor is TT3ESMSensor then
+            li.StateIndex := 3
+          else if sensor is TT3EOSensor then
+            li.StateIndex := 4
+          else if sensor is TT3IFFSensor then
+            li.StateIndex := 5
+          else
+            li.StateIndex := 0;
+
+          if sensor.EmconOperationalStatus = EmconOff then
+          begin
+            case sensor.OperationalStatus of
+              sopOff, sopOffIFF:
+                li.SubItems.Add('Off');
+              sopOn:
+                li.SubItems.Add('On');
+              sopDamage:
+                li.SubItems.Add('Damaged');
+              sopTooDeep:
+                li.SubItems.Add('Too Deep');
+              sopEMCON:
+                li.SubItems.Add('EMCON');
+              sopActive:
+                li.SubItems.Add('Active');
+              sopPassive:
+                li.SubItems.Add('Passive');
+              sopTooFast:
+                li.SubItems.Add('Too Fast');
+              sopDeploying:
+                li.SubItems.Add('Deploying');
+              sopDeployed:
+                li.SubItems.Add('Deployed');
+              sopStowing:
+                li.SubItems.Add('Stowing');
+              sopStowed:
+                li.SubItems.Add('Stowed');
+            end;
+          end
+          else
+            li.SubItems.Add('EMCON');
+
+          li.Caption := sensor.InstanceName;
+          li.Data := sensor;
         end;
-
-        li := lvSensorNav.Items.Add;
-
-        if sensor is TT3Radar then
-          li.StateIndex := 1
-        else if sensor is TT3Sonar then
-          li.StateIndex := 0
-        else if sensor is TT3Visual then
-          li.StateIndex := 2
-        else if sensor is TT3MADSensor then
-          li.StateIndex := 4
-        else if sensor is TT3ESMSensor then
-          li.StateIndex := 3
-        else if sensor is TT3EOSensor then
-          li.StateIndex := 4
-        else if sensor is TT3IFFSensor then
-          li.StateIndex := 5
-        else
-          li.StateIndex := 0;
-
-        if sensor.EmconOperationalStatus = EmconOff then
-        begin
-          case sensor.OperationalStatus of
-            sopOff, sopOffIFF:
-              li.SubItems.Add('Off');
-            sopOn:
-              li.SubItems.Add('On');
-            sopDamage:
-              li.SubItems.Add('Damaged');
-            sopTooDeep:
-              li.SubItems.Add('Too Deep');
-            sopEMCON:
-              li.SubItems.Add('EMCON');
-            sopActive:
-              li.SubItems.Add('Active');
-            sopPassive:
-              li.SubItems.Add('Passive');
-            sopTooFast:
-              li.SubItems.Add('Too Fast');
-            sopDeploying:
-              li.SubItems.Add('Deploying');
-            sopDeployed:
-              li.SubItems.Add('Deployed');
-            sopStowing:
-              li.SubItems.Add('Stowing');
-            sopStowed:
-              li.SubItems.Add('Stowed');
-          end;
-        end
-        else
-          li.SubItems.Add('EMCON');
-
-        li.Caption := sensor.InstanceName;
-        li.Data := sensor;
       end;
     end;
-  end;
   end;
   {$ENDREGION}
 

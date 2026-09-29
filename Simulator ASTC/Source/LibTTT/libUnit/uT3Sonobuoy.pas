@@ -29,7 +29,8 @@ type
       FOnSonobuoyPassiveDetect : TOnSonobuoyPassiveDetect;
       FScanInterval : integer;
       FOwner: TSimObject;
-    FSonobuoyID: Integer;
+      FSonobuoyID: Integer;
+      FMySonobuoy     : Boolean;
 
       procedure SetOrderedAltitude(const Value : double);
       procedure SetControlMode(const value : TSonarControlMode);
@@ -87,6 +88,7 @@ type
       property OnSonobuoyPassiveDetect : TOnSonobuoyPassiveDetect read FOnSonobuoyPassiveDetect write FOnSonobuoyPassiveDetect;
 //      property Owner           : TSimObject read FOwner write SetOwner;
       property SonobuoyID      : Integer read FSonobuoyID write setSonobuoyID;
+      property MySensor : Boolean read FMySonobuoy write FMySonobuoy;
   end;
 
   TT3SonobuoyOnVehicle = class(TT3Sensor)

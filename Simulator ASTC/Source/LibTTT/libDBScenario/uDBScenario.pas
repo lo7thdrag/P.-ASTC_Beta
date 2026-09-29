@@ -1398,24 +1398,24 @@ begin
     if not Assigned(sensor) then
       Continue;
 
-    if sensor is TRadar_On_Board then
+    if sensor is TSonar_On_Board then
     begin
       case vGameDataSetting.Role of
         1:
         begin
           {$REGION ' Navigasi '}
-          TRadar_On_Board(sensor).FMySensorOnBoard := False;
+          TSonar_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
         end;
         2:
         begin
           {$REGION ' AtasAir '}
-          TRadar_On_Board(sensor).FMySensorOnBoard := False;
+          TSonar_On_Board(sensor).FMySensorOnBoard := False;
           {$ENDREGION}
         end
         else
         begin
-          TRadar_On_Board(sensor).FMySensorOnBoard := True;
+          TSonar_On_Board(sensor).FMySensorOnBoard := True;
         end;
       end;
     end;

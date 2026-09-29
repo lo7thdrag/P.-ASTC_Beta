@@ -14081,16 +14081,22 @@ procedure TfrmToteDisplay.lvWeaponFiringMouseDown(Sender: TObject;
 var
   pos: TPoint;
   tempWeapon: TT3Weapon;
+  clickedNode: TTreeNode;
 begin
-  if lvWeaponFiring.Selected = nil then
+  clickedNode := lvWeaponFiring.GetNodeAt(X, Y);
+
+  if clickedNode = nil then
     Exit;
 
   if Button = mbLeft then
   begin
-    if Assigned(lvWeaponFiring.Selected.Data) then
+    lvWeaponFiring.Selected := clickedNode;
+
+    if Assigned(clickedNode.Data) then
     begin
-      tempWeapon := TT3Weapon(lvWeaponFiring.Selected.Data);
-      UpdateWeaponData(tempWeapon); // Memperbarui label nama & gambar senjata
+      tempWeapon := TT3Weapon(clickedNode.Data);
+      UpdateWeaponData(tempWeapon);
+
     end;
   end;
 
@@ -15333,6 +15339,7 @@ begin
             if Assigned(GunDefinition) then
             begin
                lblWeaponName.Caption :=  GunDefinition. FData.Gun_Identifier ;
+//
 
                lblMinimumRange.Caption := FormatFloat('0',GunDefinition. FData.Min_Range);
                lblMaximumRange.Caption := FormatFloat('0',GunDefinition. FData.Max_Range);
@@ -15349,9 +15356,9 @@ begin
       {$ENDREGION}
 
       {$REGION 'Missile'}
-        else if AWeapon is TT3Missile then
+        else if AWeapon is TT3MissilesOnVehicle then
         begin
-          with TT3Missile(AWeapon) do
+          with TT3MissilesOnVehicle(AWeapon) do
           begin
             if Assigned(MissileDefinition) then
             begin
@@ -15711,6 +15718,12 @@ begin
       weapon := TT3Weapon(sender.Weapons.Items[i]);
       if not(Assigned(weapon)) then Continue;
 
+      if (vGameDataSetting.Role = 2) and (weapon is TT3TorpedoesOnVehicle) then
+        Continue;
+
+      if (vGameDataSetting.Role = 3) and ((weapon is TT3MissilesOnVehicle) or (weapon is TT3GunOnVehicle)) then
+        Continue;
+
       case weapon.WeaponStatus of
         wsAvailable   : status := 'Available';
         wsUnavailable : status := 'Unavailable';
@@ -15800,6 +15813,16 @@ begin
       end;
     end;
     lvWeaponFiring.FullExpand;
+
+    if lvWeaponFiring.Items.Count > 0 then
+    begin
+      lvWeaponFiring.Selected := lvWeaponFiring.Items[0];
+
+      if Assigned(lvWeaponFiring.Selected.Data) then
+      begin
+        UpdateWeaponData(TT3Weapon(lvWeaponFiring.Selected.Data));
+      end;
+    end;
   end;
   {$ENDREGION}
 

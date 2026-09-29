@@ -1488,7 +1488,7 @@ type
     Panel115: TPanel;
     Image61: TImage;
     lblWeaponName: TLabel;
-    lblWeaponSytem: TLabel;
+    lblWeaponType: TLabel;
     Label110: TLabel;
     Image62: TImage;
     Label112: TLabel;
@@ -14087,8 +14087,11 @@ begin
 
   if Button = mbLeft then
   begin
-    tempWeapon := TT3Weapon(lvWeaponFiring.Selected.Data);
-    UpdateWeaponData(tempWeapon);
+    if Assigned(lvWeaponFiring.Selected.Data) then
+    begin
+      tempWeapon := TT3Weapon(lvWeaponFiring.Selected.Data);
+      UpdateWeaponData(tempWeapon); // Memperbarui label nama & gambar senjata
+    end;
   end;
 
    if CategoryPanelStatusOp.Enabled then
@@ -14098,15 +14101,15 @@ begin
 
     GetCursorPos(pos);
 
-    if Button = mbLeft then
-    begin
-      tempWeapon := lvWeaponFiring.Selected.Data;
-
-      if tempWeapon is TT3GunOnVehicle then
-      begin
-        ShowMessage(TT3GunOnVehicle(tempWeapon).GunDefinition.FData.Wbs_class_name);
-      end;
-    end;
+//    if Button = mbLeft then
+//    begin
+//      tempWeapon := lvWeaponFiring.Selected.Data;
+//
+//      if tempWeapon is TT3GunOnVehicle then
+//      begin
+//        ShowMessage(TT3GunOnVehicle(tempWeapon).GunDefinition.FData.Wbs_class_name);
+//      end;
+//    end;
 
     if Button = mbRight then
     begin
@@ -15310,17 +15313,25 @@ begin
 
   case vGameDataSetting.Role of
     2, 3:
-      {$REGION 'Gun'}
+
       begin
         BaseWeaponPath := vGameDataSetting.DataPath + '..\..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\';
         imageFileName := 'imgNoModel.png';
 
+       {$REGION 'Gun'}
         if AWeapon is TT3GunOnVehicle then
         begin
           with TT3GunOnVehicle(AWeapon) do
           begin
             if Assigned(GunDefinition) then
             begin
+               lblWeaponName.Caption :=  GunDefinition. FData.Gun_Identifier ;
+
+               lblMinimumRange.Caption := FormatFloat('0',GunDefinition. FData.Min_Range);
+               lblMaximumRange.Caption := FormatFloat('0',GunDefinition. FData.Max_Range);
+//               lblHeight.Caption := FormatFloat('0',GunDefinition. FData.Height);
+//               lblEngagementRange.Caption := FormatFloat('0', GunDefinition.FData.Engagement_Range);
+
               if GunDefinition.FData.Wbs_class_name <> '' then
                 imageFileName := GunDefinition.FData.Wbs_class_name
               else
@@ -15337,6 +15348,13 @@ begin
           begin
             if Assigned(MissileDefinition) then
             begin
+               lblWeaponName.Caption :=  MissileDefinition. FDef.Class_Identifier ;
+
+               lblLength.Caption := FormatFloat('0',MissileDefinition. FDef.Length);
+               lblWidth.Caption := FormatFloat('0',MissileDefinition. FDef.Width);
+               lblHeight.Caption := FormatFloat('0',MissileDefinition. FDef.Height);
+               lblEngagementRange.Caption := FormatFloat('0', MissileDefinition.FDef.Engagement_Range);
+
               if MissileDefinition.FDef.Wbs_class_name <> '' then
                 imageFileName := MissileDefinition.FDef.Wbs_class_name
               else
@@ -15353,6 +15371,13 @@ begin
           begin
             if Assigned(TorpedoDefinition) then
             begin
+               lblWeaponName.Caption :=  TorpedoDefinition. FDef.Class_Identifier ;
+
+               lblLength.Caption := FormatFloat('0',TorpedoDefinition. FDef.Length);
+               lblWidth.Caption := FormatFloat('0',TorpedoDefinition. FDef.Width);
+               lblHeight.Caption := FormatFloat('0',TorpedoDefinition. FDef.Height);
+               lblEngagementRange.Caption := FormatFloat('0', TorpedoDefinition.FDef.Engagement_Range);
+
               if TorpedoDefinition.FDef.Wbs_class_name <> '' then
                 imageFileName := TorpedoDefinition.FDef.Wbs_class_name
               else
@@ -15369,6 +15394,11 @@ begin
           begin
             if Assigned(BombDefinition) then
             begin
+              lblWeaponName.Caption :=  BombDefinition. FData.Bomb_Identifier ;
+
+               lblMinimumRange.Caption := FormatFloat('0',BombDefinition. FData.Min_Range);
+               lblMaximumRange.Caption := FormatFloat('0',BombDefinition. FData.Max_Range);
+
               if BombDefinition.FData.Wbs_class_name <> '' then
                 imageFileName := BombDefinition.FData.Wbs_class_name
               else
@@ -15385,6 +15415,13 @@ begin
           begin
             if Assigned(MineDefinition) then
             begin
+                lblWeaponName.Caption :=  MineDefinition. FMine_Def.Mine_Identifier ;
+
+               lblLength.Caption := FormatFloat('0',MineDefinition.  FMine_Def .Length);
+               lblWidth.Caption := FormatFloat('0',MineDefinition.  FMine_Def .Width);
+               lblHeight.Caption := FormatFloat('0',MineDefinition.  FMine_Def .Height);
+               lblEngagementRange.Caption := FormatFloat('0', MineDefinition. FMine_Def .Engagement_Range);
+
               if MineDefinition. FMine_Def .Wbs_class_name <> '' then
                 imageFileName := MineDefinition. FMine_Def .Wbs_class_name
               else

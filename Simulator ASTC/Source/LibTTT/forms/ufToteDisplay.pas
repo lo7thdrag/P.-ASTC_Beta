@@ -14376,6 +14376,9 @@ begin
       begin
         sensor := TT3Sensor(du);
 
+        if not sensor.MySensor then
+          continue;
+
         li := lvSensorFiring.Items.Add;
 
         if sensor is TT3Radar then

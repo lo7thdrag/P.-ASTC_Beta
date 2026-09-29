@@ -15311,9 +15311,16 @@ begin
   (AWeapon is TT3TorpedoesOnVehicle) and not (AWeapon is TT3BombONVehicle) and not (AWeapon is TT3MineOnVehicle)  then
     Exit;
 
+  lblWeaponName.Caption      := '-';
+  lblMinimumRange.Caption    := '0';
+  lblMaximumRange.Caption    := '0';
+  lblLength.Caption          := '0';
+  lblWidth.Caption           := '0';
+  lblHeight.Caption          := '0';
+  lblEngagementRange.Caption := '0';
+
   case vGameDataSetting.Role of
     2, 3:
-
       begin
         BaseWeaponPath := vGameDataSetting.DataPath + '..\..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\';
         imageFileName := 'imgNoModel.png';

@@ -40,6 +40,8 @@ type
     procedure SetEOByRole (aList: TList);
     procedure SetFCRByRole (aList: TList);
 
+    procedure SetSonobuoyByRole(aList: TList);
+
   protected
     function  getMemberInteger(const index: integer): Integer;
     function  getMemberString(const index: integer): string;
@@ -791,11 +793,12 @@ begin
       SetVisualByRole( pi.Vehicle.Visualsensors);
       dmTTT.getAllFCR_On_Board(vIndex, pi.Vehicle.FCRSensors);
       SetFCRByRole( pi.Vehicle.FCRSensors);
-
       dmTTT.GetAllRadar_On_Board(vIndex,0, pi.Vehicle.Radars);
       SetRadarByRole(pi.Vehicle.Radars);
       dmTTT.GetAllSonar_On_Board(vIndex,0, pi.Vehicle.Sonars);
       SetSonarByRole(pi.Vehicle.Sonars);
+      dmTTT.getAllSonobuoy_On_Board(vIndex,0, Pi.Vehicle.Sonobuoy );
+      SetSonobuoyByRole(pi.Vehicle.Sonobuoy);
 
       //weapon fit on Board
       dmTTT.getAllMissile_OnBoard2(vIndex,0, Pi.Vehicle.Missiles  );
@@ -815,7 +818,7 @@ begin
       dmTTT.getAllJammer_On_Board(vIndex, pi.Vehicle.Jammers);
       dmTTT.getAllPoint_Effect_On_Board(vIndex, pi.Vehicle.Point_Effects);
       dmTTT.getAllTowed_Jammer_Decoy_On_Board(vIndex, pi.Vehicle.Towed_Jammer_Decoys);
-      dmTTT.getAllSonobuoy_On_Board(vIndex,0, Pi.Vehicle.Sonobuoy );
+
       dmTTT.getHosted_Platform(vIndex,0, pi.Vehicle.Hosted_Platform);
       dmTTT.getAllHosted_Platform(vIndex, 0, TransportListFromDB);
 
@@ -1416,6 +1419,42 @@ begin
         else
         begin
           TSonar_On_Board(sensor).FMySensorOnBoard := True;
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TT3DBScenario.SetSonobuoyByRole(aList: TList);
+var
+  j: integer;
+  sensor: TObject;
+begin
+  for j := 0 to aList.Count - 1 do
+  begin
+    sensor := aList[j];
+
+    if not Assigned(sensor) then
+      Continue;
+
+    if sensor is TSonobuoy_On_Board then
+    begin
+      case vGameDataSetting.Role of
+        1:
+        begin
+          {$REGION ' Navigasi '}
+          TSonobuoy_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        2:
+        begin
+          {$REGION ' AtasAir '}
+          TSonobuoy_On_Board(sensor).FMySensorOnBoard := False;
+          {$ENDREGION}
+        end;
+        else
+        begin
+          TSonobuoy_On_Board(sensor).FMySensorOnBoard := True;
         end;
       end;
     end;

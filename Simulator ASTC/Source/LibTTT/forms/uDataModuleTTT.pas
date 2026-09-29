@@ -7608,27 +7608,6 @@ begin
         Vehicle_Identifier := FieldByName('Vehicle_Identifier').AsString;
       end;
 
-      case vGameDataSetting.Role of
-        1:
-          begin
-            if (radar.FDef.Radar_Type <> 3) and (radar.FDef.Radar_Type <> 4) then
-            begin
-              radar.Free;
-              ZQ.Next;
-              Continue;
-            end;
-          end;
-        2:
-          begin
-            if (radar.FDef.Radar_Type <> 0) and (radar.FDef.Radar_Type <> 1) then
-            begin
-              radar.Free;
-              ZQ.Next;
-              Continue;
-            end;
-          end;
-      end;
-
       aRec.Add(radar);
       ZQ.Next;
     end;

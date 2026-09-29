@@ -49,6 +49,7 @@ type
     FVehicle  : TVehicle_Definition;
     FPI       : TRecPlatform_Instance; // tambahan
     FSonar    : TSonar_On_Board; // tambahan
+    FMySensorOnBoard : Boolean;
 
     constructor Create;
     destructor Destroy;override;
@@ -94,8 +95,9 @@ begin
   FScripted_sonar := TList.Create;
   FBlind_Zone     := TBlind_Zone.Create;
   FVehicle        := TVehicle_Definition.Create;
-  FSonar    := TSonar_On_Board.Create; //tambahan
+  FSonar          := TSonar_On_Board.Create; //tambahan
   FPOD            := TList.Create;
+  FMySensorOnBoard:= True;
 end;
 
 destructor TSonobuoy_On_Board.Destroy;

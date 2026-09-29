@@ -11945,7 +11945,9 @@ begin
         else if UnitDefinition is TEO_On_Board then
           MySensor := TEO_On_Board(aList[j]).FMySensorOnBoard
         else if UnitDefinition is TFCR_On_Board then
-          MySensor := TFCR_On_Board(aList[j]).FMySensorOnBoard;
+          MySensor := TFCR_On_Board(aList[j]).FMySensorOnBoard
+        else if UnitDefinition is TSonobuoy_On_Board then
+          MySensor := TSonobuoy_On_Board(aList[j]).FMySensorOnBoard;
 
         Parent := aParent;
 

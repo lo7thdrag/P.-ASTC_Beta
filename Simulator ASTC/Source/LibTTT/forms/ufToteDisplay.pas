@@ -1495,25 +1495,14 @@ type
     Label115: TLabel;
     Label117: TLabel;
     Label119: TLabel;
-    lblLength: TLabel;
-    lblWidth: TLabel;
+    lblMinimumAir: TLabel;
+    lblMinimumSurface: TLabel;
     Label162: TLabel;
     Label176: TLabel;
     Label232: TLabel;
     Label234: TLabel;
-    lblHeight: TLabel;
+    lblMinimumSub: TLabel;
     Label238: TLabel;
-    Label265: TLabel;
-    Label266: TLabel;
-    Label268: TLabel;
-    lblMaximumRange: TLabel;
-    lblMinimumRange: TLabel;
-    Label271: TLabel;
-    Label272: TLabel;
-    Label273: TLabel;
-    lbl222: TLabel;
-    Label276: TLabel;
-    lblLethality: TLabel;
     Panel123: TPanel;
     imgSenjata: TImage;
     pnlCountermeasuresFiring: TPanel;
@@ -1541,6 +1530,23 @@ type
     lblMaxFood: TLabel;
     lblMaxLub: TLabel;
     btnSMS: TImage;
+    Panel124: TPanel;
+    Panel125: TPanel;
+    Label106: TLabel;
+    Label108: TLabel;
+    lblMaximumAir: TLabel;
+    Label154: TLabel;
+    Label233: TLabel;
+    Label235: TLabel;
+    lblMaximumSurface: TLabel;
+    Label237: TLabel;
+    Label253: TLabel;
+    Label265: TLabel;
+    lblMaximumSub: TLabel;
+    Label268: TLabel;
+    Label269: TLabel;
+    Label270: TLabel;
+    Label271: TLabel;
 
     // pnlRightUp: TPanel;
     // pnlRightBottom: TPanel;
@@ -15316,13 +15322,11 @@ begin
   (AWeapon is TT3TorpedoesOnVehicle) and not (AWeapon is TT3BombONVehicle) and not (AWeapon is TT3MineOnVehicle)  then
     Exit;
 
-  lblWeaponName.Caption      := '-';
-  lblMinimumRange.Caption    := '0';
-  lblMaximumRange.Caption    := '0';
-  lblLength.Caption          := '0';
-  lblWidth.Caption           := '0';
-  lblHeight.Caption          := '0';
-  lblLethality.Caption := '0';
+  lblWeaponName.Caption     := '-';
+  lblMinimumAir.Caption     := '0';
+  lblMaximumAir.Caption     := '0';
+  lblMinimumSurface.Caption := '0';
+  lblMaximumSurface.Caption := '0';
 
   case vGameDataSetting.Role of
     2, 3:
@@ -15338,11 +15342,12 @@ begin
             if Assigned(GunDefinition) then
             begin
                lblWeaponName.Caption :=  GunDefinition. FData.Gun_Identifier ;
-//
 
-               lblMinimumRange.Caption := FormatFloat('0.0',GunDefinition. FData.Min_Range);
-               lblMaximumRange.Caption := FormatFloat('0.0',GunDefinition. FData.Max_Range);
-               lblLethality.Caption    := FormatFloat('0',GunDefinition.FData.Lethality_per_Round);
+               lblMinimumAir.Caption := FormatFloat('0.0',GunDefinition. FData.Air_Min_Range);
+               lblMinimumSurface.Caption := FormatFloat('0.0',GunDefinition. FData.Min_Range);
+               lblMaximumSurface.Caption := FormatFloat('0.0',GunDefinition. FData.Max_Range);
+               lblMaximumAir.Caption := FormatFloat('0.0',GunDefinition. FData.Air_Max_Range);
+//               lblLethality.Caption    := FormatFloat('0',GunDefinition.FData.Lethality_per_Round);
 
               if GunDefinition.FData.Wbs_class_name <> '' then
                 imageFileName := GunDefinition.FData.Wbs_class_name
@@ -15362,12 +15367,10 @@ begin
             begin
                lblWeaponName.Caption :=  MissileDefinition. FDef.Class_Identifier ;
 
-               lblLength.Caption       := FormatFloat('0',MissileDefinition. FDef.Length);
-               lblWidth.Caption        := FormatFloat('0',MissileDefinition. FDef.Width);
-               lblHeight.Caption       := FormatFloat('0',MissileDefinition. FDef.Height);
-               lblLethality.Caption    := FormatFloat('0', MissileDefinition.FDef.Lethality);
-               lblMinimumRange.Caption := FormatFloat('0.0', MissileDefinition.FDef.Min_Range);
-               lblMaximumRange.Caption := FormatFloat('0.0', MissileDefinition.FDef.Max_Range);
+               lblMinimumSurface.Caption := FormatFloat('0.0',MissileDefinition. FDef.Min_Range);
+               lblMaximumSurface.Caption := FormatFloat('0.0',MissileDefinition. FDef.Max_Range);
+//               lblMaximumAir.Caption := FormatFloat('0.0',MissileDefinition. FData.Air_Max_Range);
+//               lblMinimumAir.Caption := FormatFloat('0.0',MissileDefinition. FDef.Air_Min_);
 
               if MissileDefinition.FDef.Wbs_class_name <> '' then
                 imageFileName := MissileDefinition.FDef.Wbs_class_name
@@ -15387,12 +15390,10 @@ begin
             begin
                lblWeaponName.Caption :=  TorpedoDefinition. FDef.Class_Identifier ;
 
-               lblLength.Caption       := FormatFloat('0',TorpedoDefinition. FDef.Length);
-               lblWidth.Caption        := FormatFloat('0',TorpedoDefinition. FDef.Width);
-               lblHeight.Caption       := FormatFloat('0',TorpedoDefinition. FDef.Height);
-               lblLethality.Caption    := FormatFloat('0', TorpedoDefinition.FDef.Lethality);
-               lblMinimumRange.Caption := FormatFloat('0.0', TorpedoDefinition.FDef.Min_Range);
-               lblMaximumRange.Caption := FormatFloat('0.0', TorpedoDefinition.FDef.Max_Range);
+               lblMinimumSub.Caption := FormatFloat('0.0',TorpedoDefinition. FDef.Min_Range);
+               lblMaximumSub.Caption := FormatFloat('0.0',TorpedoDefinition. FDef.Max_Range);
+//               lblMaximumAir.Caption := FormatFloat('0.0',GunDefinition. FData.Air_Max_Range);
+//               lblMinimumAir.Caption := FormatFloat('0.0',GunDefinition. FData.Air_Min_Range);
 
               if TorpedoDefinition.FDef.Wbs_class_name <> '' then
                 imageFileName := TorpedoDefinition.FDef.Wbs_class_name
@@ -15412,11 +15413,10 @@ begin
             begin
               lblWeaponName.Caption :=  BombDefinition. FData.Bomb_Identifier ;
 
-               lblMinimumRange.Caption := FormatFloat('0',BombDefinition. FData.Min_Range);
-               lblMaximumRange.Caption := FormatFloat('0',BombDefinition. FData.Max_Range);
-               lblLethality.Caption    := FormatFloat('0',BombDefinition. FData.Lethality);
-               lblMinimumRange.Caption := FormatFloat('0.0', BombDefinition.FData.Min_Range);
-               lblMaximumRange.Caption := FormatFloat('0.0', BombDefinition.FData.Max_Range);
+               lblMinimumSub.Caption := FormatFloat('0.0',BombDefinition. FData.Min_Range);
+               lblMaximumSub.Caption := FormatFloat('0.0',BombDefinition. FData.Max_Range);
+//               lblMaximumAir.Caption := FormatFloat('0.0',BombDefinition. FData.Air_Max_Range);
+//               lblMinimumAir.Caption := FormatFloat('0.0',BombDefinition. FData.Air_Min_Range);
 
               if BombDefinition.FData.Wbs_class_name <> '' then
                 imageFileName := BombDefinition.FData.Wbs_class_name
@@ -15436,10 +15436,10 @@ begin
             begin
                 lblWeaponName.Caption :=  MineDefinition. FMine_Def.Mine_Identifier ;
 
-               lblLength.Caption := FormatFloat('0',MineDefinition.  FMine_Def .Length);
-               lblWidth.Caption := FormatFloat('0',MineDefinition.  FMine_Def .Width);
-               lblHeight.Caption := FormatFloat('0',MineDefinition.  FMine_Def .Height);
-               lblLethality.Caption := FormatFloat('0', MineDefinition. FMine_Def .Mine_Lethality);
+//               lblMinimumSurface.Caption := FormatFloat('0.0',MineDefinition. FData.Min_Range);
+//               lblMaximumSurface.Caption := FormatFloat('0.0',MineDefinition. FData.Max_Range);
+//               lblMaximumAir.Caption := FormatFloat('0.0',MineDefinition. FData.Air_Max_Range);
+//               lblMinimumAir.Caption := FormatFloat('0.0',MineDefinition. FData.Air_Min_Range);
 
               if MineDefinition. FMine_Def .Wbs_class_name <> '' then
                 imageFileName := MineDefinition. FMine_Def .Wbs_class_name

@@ -9468,6 +9468,7 @@ begin
         begin
           Fitted_Weap_Index := FieldByName('Fitted_Weap_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
           Mount_Type := FieldByName('Mount_Type').AsInteger;
@@ -9487,6 +9488,7 @@ begin
           Class_Identifier := FieldByName('Class_Identifier').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
+          Wbs_class_name    := FieldByName('Wbs_class_name').AsString;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
           Max_Range := FieldByName('Max_Range').AsSingle;
           Min_Range := FieldByName('Min_Range').AsSingle;
@@ -10698,6 +10700,7 @@ begin
         begin
           Fitted_Weap_Index := FieldByName('Fitted_Weap_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
           Mount_Type := FieldByName('Mount_Type').AsInteger;
@@ -10717,6 +10720,7 @@ begin
           Torpedo_Index := FieldByName('Torpedo_Index').AsInteger;
           Class_Identifier := FieldByName('Class_Identifier').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
           Max_Range := FieldByName('Max_Range').AsSingle;
@@ -11626,6 +11630,7 @@ begin
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type           := FieldByName('Instance_Type').AsInteger;
           Vehicle_Index           := FieldByName('Vehicle_Index').AsInteger;
+          Wbs_class_name          := FieldByName('Wbs_class_name').AsString;
           Mount_Type              := FieldByName('Mount_Type').AsInteger;
           Launch_Angle            := FieldByName('Launch_Angle').AsSingle;
           Launch_Angle_Required   := FieldByName('Launch_Angle_Required').AsInteger;
@@ -11643,6 +11648,7 @@ begin
           Mine_Identifier         := FieldByName('Mine_Identifier').AsString;
           Platform_Domain         := FieldByName('Platform_Domain').AsInteger;
           Platform_Category       := FieldByName('Platform_Category').AsInteger;
+          Wbs_class_name          := FieldByName('Wbs_class_name').AsString;
           Platform_Type           := FieldByName('Platform_Type').AsInteger;
           Mine_Classification     := FieldByName('Mine_Classification').AsInteger;
           Length                  := FieldByName('Length').AsSingle;
@@ -12440,6 +12446,7 @@ begin
           Fitted_Weap_Index := FieldByName('Fitted_Weap_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
+          Wbs_class_name := FieldByName('Wbs_class_name').AsString;
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
           Mount_Type := FieldByName('Mount_Type').AsInteger;
           Launch_Angle := FieldByName('Launch_Angle').AsSingle;
@@ -12474,6 +12481,7 @@ begin
             Class_Identifier := hybrid.FData.Instance_Identifier;
             Platform_Domain := ZQ2.FieldByName('Platform_Domain').AsInteger;
             Platform_Category := ZQ2.FieldByName('Platform_Category').AsInteger;
+            Wbs_class_name := FieldByName('Wbs_class_name').AsString;
             Platform_Type := ZQ2.FieldByName('Platform_Type').AsInteger;
             Max_Range := ZQ2.FieldByName('Max_Range').AsSingle;
             Min_Range := ZQ2.FieldByName('Min_Range').AsSingle;
@@ -12577,6 +12585,7 @@ begin
             Class_Identifier := ZQ2.FieldByName('Class_Identifier').AsString;
             Platform_Domain := ZQ2.FieldByName('Platform_Domain').AsInteger;
             Platform_Category := ZQ2.FieldByName('Platform_Category').AsInteger;
+            Wbs_class_name := FieldByName('Wbs_class_name').AsString;
             Platform_Type := ZQ2.FieldByName('Platform_Type').AsInteger;
             Max_Range := ZQ2.FieldByName('Max_Range').AsSingle;
             Min_Range := ZQ2.FieldByName('Min_Range').AsSingle;

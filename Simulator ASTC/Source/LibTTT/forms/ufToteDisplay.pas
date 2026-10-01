@@ -1400,68 +1400,6 @@ type
     btnEditNav: TButton;
     btnPrintNav: TButton;
     lvSentNav: TListView;
-    Panel22: TPanel;
-    Image40: TImage;
-    Label94: TLabel;
-    Panel54: TPanel;
-    Image44: TImage;
-    Label103: TLabel;
-    Label104: TLabel;
-    lblDayVisualFiring: TLabel;
-    lblNightimeVisualFiring: TLabel;
-    Label107: TLabel;
-    lblDaytimeInfraredFiring: TLabel;
-    Label109: TLabel;
-    lblNightimeInfraredFiring: TLabel;
-    Image45: TImage;
-    Image46: TImage;
-    Image47: TImage;
-    Image48: TImage;
-    Image49: TImage;
-    Image50: TImage;
-    Image51: TImage;
-    Image52: TImage;
-    Image53: TImage;
-    Panel92: TPanel;
-    Image54: TImage;
-    Label111: TLabel;
-    lblAtmosphereFiring: TLabel;
-    Image55: TImage;
-    Image56: TImage;
-    Image57: TImage;
-    Panel108: TPanel;
-    Image58: TImage;
-    Panel109: TPanel;
-    Panel111: TPanel;
-    Image59: TImage;
-    imgRainStateFiring: TImage;
-    Label114: TLabel;
-    lblRainstateFiring: TLabel;
-    imgSeaStateFiring: TImage;
-    Label116: TLabel;
-    lblSeaStatDescFiring: TLabel;
-    imgCloudStateFiring: TImage;
-    Label118: TLabel;
-    lblCloudAttenDescFiring: TLabel;
-    Panel113: TPanel;
-    Image64: TImage;
-    Label120: TLabel;
-    Label121: TLabel;
-    lblWindSpeedFiring: TLabel;
-    lblWindDirFiring: TLabel;
-    Label161: TLabel;
-    lblCurrentSpeedFiring: TLabel;
-    Label174: TLabel;
-    lblCurrentDirFiring: TLabel;
-    Image65: TImage;
-    Image66: TImage;
-    Image67: TImage;
-    Image68: TImage;
-    Image69: TImage;
-    Image70: TImage;
-    Image71: TImage;
-    Image72: TImage;
-    Image73: TImage;
     pnlSMSFiring: TPanel;
     Image60: TImage;
     Label105: TLabel;
@@ -1530,8 +1468,6 @@ type
     lblMaxFood: TLabel;
     lblMaxLub: TLabel;
     btnSMS: TImage;
-    Panel124: TPanel;
-    Panel125: TPanel;
     Label106: TLabel;
     Label108: TLabel;
     lblMaximumAir: TLabel;
@@ -1547,6 +1483,47 @@ type
     Label269: TLabel;
     Label270: TLabel;
     Label271: TLabel;
+    Panel126: TPanel;
+    Image78: TImage;
+    btnMessage: TImage;
+    btnWeapon: TImage;
+    Image65: TImage;
+    Label120: TLabel;
+    lblWindSpeedFiring: TLabel;
+    lblCurrentSpeedFiring: TLabel;
+    Label161: TLabel;
+    Image68: TImage;
+    Image66: TImage;
+    Label121: TLabel;
+    lblWindDirFiring: TLabel;
+    Image67: TImage;
+    Label174: TLabel;
+    lblCurrentDirFiring: TLabel;
+    Image75: TImage;
+    Image81: TImage;
+    Image82: TImage;
+    Image83: TImage;
+    Image84: TImage;
+    Image85: TImage;
+    imgRainStateFiring: TImage;
+    Label114: TLabel;
+    lblRainstateFiring: TLabel;
+    imgCloudStateFiring: TImage;
+    Label118: TLabel;
+    lblCloudAttenDescFiring: TLabel;
+    imgSeaStateFiring: TImage;
+    Label116: TLabel;
+    lblSeaStatDescFiring: TLabel;
+    pnlWeapon: TPanel;
+    Image40: TImage;
+    Image44: TImage;
+    Image45: TImage;
+    Image46: TImage;
+    Image47: TImage;
+    Image48: TImage;
+    Image49: TImage;
+    Image50: TImage;
+    Image51: TImage;
 
     // pnlRightUp: TPanel;
     // pnlRightBottom: TPanel;
@@ -1869,6 +1846,12 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure lvWeaponFiringMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure btnMessageClick(Sender: TObject);
+    procedure btnWeaponClick(Sender: TObject);
+    procedure btnWeaponMouseEnter(Sender: TObject);
+    procedure btnWeaponMouseLeave(Sender: TObject);
+    procedure btnMessageMouseEnter(Sender: TObject);
+    procedure btnMessageMouseLeave(Sender: TObject);
 
 //    procedure Panel56Click(Sender: TObject);
 
@@ -1894,7 +1877,7 @@ type
     FButtonImage : array[0..8] of TButtonImage;
     FSidePanels: array[0..8] of TPanel;
 
-
+    ActiveButton : string;
 
     FLastPlatform : TT3PlatformInstance;
     //FFlagIn: Boolean;
@@ -2715,10 +2698,34 @@ begin
   tmrEnviDisplay.Enabled := False;
 end;
 
+procedure TfrmToteDisplay.btnMessageClick(Sender: TObject);
+begin
+  ActiveButton := 'MESSAGE';
+
+  btnMessage.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_b.bmp');
+  btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\weapon_a.bmp');
+
+  pnlSMSFiring.BringToFront;
+end;
+
 procedure TfrmToteDisplay.btnMessageHandlingClick(sender: TObject);
 begin
   gbMessageHandlingSystem.BringToFront;
   tmrEnviDisplay.Enabled := False;
+end;
+
+procedure TfrmToteDisplay.btnMessageMouseEnter(Sender: TObject);
+begin
+  btnMessage.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_b.bmp');
+
+  if ActiveButton <> 'WEAPON' then
+    btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\weapon_a.bmp');
+end;
+
+procedure TfrmToteDisplay.btnMessageMouseLeave(Sender: TObject);
+begin
+ if ActiveButton <> 'MESSAGE' then
+    btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_a.bmp');
 end;
 
 procedure TfrmToteDisplay.btnMouseEnter(sender: TObject);
@@ -4204,6 +4211,16 @@ begin
   pmIdShip.Popup(Pos.X,Pos.y);
 end;
 
+procedure TfrmToteDisplay.btnWeaponClick(Sender: TObject);
+begin
+ ActiveButton := 'WEAPON';
+
+  btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Weapon_b.bmp');
+  btnMessage.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_a.bmp');
+
+  pnlWeapon.BringToFront;
+end;
+
 procedure TfrmToteDisplay.btnWeaponEngagementClick(sender: TObject);
 begin
   gbWeaponEngagementsSUmmary.BringToFront;
@@ -4212,6 +4229,20 @@ begin
   lvWeaponEngagement.Columns[2].Width := 200;
   lvWeaponEngagement.Columns[3].Width := 200;
   lvWeaponEngagement.Columns[4].Width := 200;
+end;
+
+procedure TfrmToteDisplay.btnWeaponMouseEnter(Sender: TObject);
+begin
+  btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Weapon_b.bmp');
+
+  if ActiveButton <> 'MESSAGE' then
+    btnMessage.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_a.bmp');
+end;
+
+procedure TfrmToteDisplay.btnWeaponMouseLeave(Sender: TObject);
+begin
+ if ActiveButton <> 'WEAPON' then
+    btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\weapon_a.bmp');
 end;
 
 procedure TfrmToteDisplay.btSetTimeApplyClick(sender: TObject);
@@ -22169,10 +22200,10 @@ begin
     lblNightimeInfraredNav.Caption  := FormatFloat('0', Nighttime_Infrared_Modifier) + ' %';
 
     {Environtment Role Firing}
-    lblDayVisualFiring.Caption         := FormatFloat('0', Daytime_Visual_Modifier) + ' %';
-    lblNightimeVisualFiring.Caption    := FormatFloat('0', Nighttime_Visual_Modifier) + ' %';
-    lblDaytimeInfraredFiring.Caption   := FormatFloat('0', Daytime_Infrared_Modifier) + ' %';
-    lblNightimeInfraredFiring.Caption  := FormatFloat('0', Nighttime_Infrared_Modifier) + ' %';
+//    lblDayVisualFiring.Caption         := FormatFloat('0', Daytime_Visual_Modifier) + ' %';
+//    lblNightimeVisualFiring.Caption    := FormatFloat('0', Nighttime_Visual_Modifier) + ' %';
+//    lblDaytimeInfraredFiring.Caption   := FormatFloat('0', Daytime_Infrared_Modifier) + ' %';
+//    lblNightimeInfraredFiring.Caption  := FormatFloat('0', Nighttime_Infrared_Modifier) + ' %';
     {$ENDREGION}
 
     {$REGION ' Athmospheric Sub '}
@@ -22187,7 +22218,7 @@ begin
     lblAtmosphereNav.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
 
     {Environtment Role Firing}
-    lblAtmosphereFiring.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
+//    lblAtmosphereFiring.Caption := FormatFloat('0', Atmospheric_Refract_Modifier) + '%';
     {$ENDREGION}
 
     {$REGION ' Wind Velocity '}

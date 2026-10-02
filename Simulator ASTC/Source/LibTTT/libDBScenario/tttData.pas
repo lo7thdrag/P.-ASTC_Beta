@@ -1346,6 +1346,7 @@ end;
   TRecFitted_Weapon_On_Board =  record
     Fitted_Weap_Index      : integer;
     Instance_Identifier    : string[80];
+    Wbs_class_name         : string[80];
     Instance_Type          : byte;
     Vehicle_Index          : integer;
     Mount_Type             : byte;

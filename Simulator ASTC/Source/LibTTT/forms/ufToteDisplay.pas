@@ -1427,20 +1427,6 @@ type
     Image61: TImage;
     lblWeaponName: TLabel;
     lblWeaponType: TLabel;
-    Label110: TLabel;
-    Image62: TImage;
-    Label112: TLabel;
-    Label115: TLabel;
-    Label117: TLabel;
-    Label119: TLabel;
-    lblMinimumAir: TLabel;
-    lblMinimumSurface: TLabel;
-    Label162: TLabel;
-    Label176: TLabel;
-    Label232: TLabel;
-    Label234: TLabel;
-    lblMinimumSub: TLabel;
-    Label238: TLabel;
     Panel123: TPanel;
     imgSenjata: TImage;
     pnlCountermeasuresFiring: TPanel;
@@ -1468,21 +1454,6 @@ type
     lblMaxFood: TLabel;
     lblMaxLub: TLabel;
     btnSMS: TImage;
-    Label106: TLabel;
-    Label108: TLabel;
-    lblMaximumAir: TLabel;
-    Label154: TLabel;
-    Label233: TLabel;
-    Label235: TLabel;
-    lblMaximumSurface: TLabel;
-    Label237: TLabel;
-    Label253: TLabel;
-    Label265: TLabel;
-    lblMaximumSub: TLabel;
-    Label268: TLabel;
-    Label269: TLabel;
-    Label270: TLabel;
-    Label271: TLabel;
     Panel126: TPanel;
     Image78: TImage;
     btnMessage: TImage;
@@ -1515,15 +1486,176 @@ type
     Label116: TLabel;
     lblSeaStatDescFiring: TLabel;
     pnlWeapon: TPanel;
+    pnlDataWeapon: TPanel;
+    Image52: TImage;
+    pnlMissileData: TPanel;
+    Label94: TLabel;
+    Label233: TLabel;
+    Label235: TLabel;
+    lblMaximumSurface: TLabel;
+    Label237: TLabel;
+    Label115: TLabel;
+    Label119: TLabel;
+    lblMinimumSurface: TLabel;
+    Label176: TLabel;
+    Label103: TLabel;
+    Label104: TLabel;
+    Label107: TLabel;
+    Label109: TLabel;
+    lblSeekerTurnOnRange: TLabel;
+    Label146: TLabel;
+    Label236: TLabel;
+    Label266: TLabel;
+    Label272: TLabel;
+    lblSeekerDetectionRange: TLabel;
+    Label274: TLabel;
+    Label275: TLabel;
+    Label276: TLabel;
+    lblSeekerDetectionAzimuth: TLabel;
+    Label278: TLabel;
+    Label279: TLabel;
+    Label280: TLabel;
+    lblSeekerDetectionElevation: TLabel;
+    Label290: TLabel;
+    Label291: TLabel;
+    Label292: TLabel;
+    Label293: TLabel;
+    Label294: TLabel;
+    Label295: TLabel;
+    Label296: TLabel;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    pnlTorpedoData: TPanel;
+    Label106: TLabel;
+    Label108: TLabel;
+    lblMaximumRangeTorpedo: TLabel;
+    Label111: TLabel;
+    Label112: TLabel;
+    Label117: TLabel;
+    lblMinimumRangeTorpedo: TLabel;
+    Label162: TLabel;
+    Label232: TLabel;
+    Label234: TLabel;
+    Label238: TLabel;
+    Label253: TLabel;
+    lblSTurnOnTorpedo: TLabel;
+    Label268: TLabel;
+    Label269: TLabel;
+    Label270: TLabel;
+    Label271: TLabel;
+    lblSDetectionRange: TLabel;
+    Label277: TLabel;
+    Label281: TLabel;
+    Label297: TLabel;
+    lblSDetectionAzimuth: TLabel;
+    Label299: TLabel;
+    Label300: TLabel;
+    Label301: TLabel;
+    lblSDetectionElevation: TLabel;
+    Label303: TLabel;
+    Label304: TLabel;
+    Label305: TLabel;
+    Label306: TLabel;
+    Label307: TLabel;
+    Label308: TLabel;
+    Label309: TLabel;
+    Bevel3: TBevel;
+    Bevel4: TBevel;
+    pnlMineData: TPanel;
     Image40: TImage;
+    Label110: TLabel;
+    Panel54: TPanel;
+    Label302: TLabel;
+    Label310: TLabel;
+    lblMaximumLaying: TLabel;
+    Label312: TLabel;
+    Label315: TLabel;
+    Label316: TLabel;
+    lblEngagementRange: TLabel;
+    Label318: TLabel;
+    Label319: TLabel;
+    Label320: TLabel;
+    Label321: TLabel;
+    Label322: TLabel;
+    Label323: TLabel;
+    Label324: TLabel;
+    Label325: TLabel;
+    Label326: TLabel;
+    Label327: TLabel;
+    Label328: TLabel;
+    Label329: TLabel;
+    Label330: TLabel;
+    Label331: TLabel;
+    Label332: TLabel;
+    Label334: TLabel;
+    Label335: TLabel;
+    Label336: TLabel;
+    Label337: TLabel;
+    pnlGunData: TPanel;
+    Label154: TLabel;
+    Label265: TLabel;
+    lblAvarageShell: TLabel;
+    Label298: TLabel;
+    Label311: TLabel;
+    Label313: TLabel;
+    lblRateOfFire: TLabel;
+    Label317: TLabel;
+    Label338: TLabel;
+    Label339: TLabel;
+    Label340: TLabel;
+    lblMinimumRangeAir: TLabel;
+    Label342: TLabel;
+    Label343: TLabel;
+    Label356: TLabel;
+    Label357: TLabel;
+    Label358: TLabel;
+    Bevel5: TBevel;
+    Bevel6: TBevel;
+    Label333: TLabel;
+    Label362: TLabel;
+    Label363: TLabel;
+    lblMaximumRangeAir: TLabel;
+    Label365: TLabel;
+    Label344: TLabel;
+    Label345: TLabel;
+    Label346: TLabel;
+    Label347: TLabel;
+    Label348: TLabel;
+    Label349: TLabel;
+    lblMinimumRangeSurface: TLabel;
+    lblMaximumRangeSurface: TLabel;
+    Label352: TLabel;
+    Label353: TLabel;
+    pnlBombData: TPanel;
     Image44: TImage;
-    Image45: TImage;
-    Image46: TImage;
-    Image47: TImage;
-    Image48: TImage;
-    Image49: TImage;
-    Image50: TImage;
-    Image51: TImage;
+    Label273: TLabel;
+    Panel92: TPanel;
+    Label314: TLabel;
+    Label341: TLabel;
+    lblMinimumRange: TLabel;
+    Label351: TLabel;
+    Label354: TLabel;
+    Label355: TLabel;
+    lblMaximumRange: TLabel;
+    Label360: TLabel;
+    Label361: TLabel;
+    Label364: TLabel;
+    Label366: TLabel;
+    Label367: TLabel;
+    Label368: TLabel;
+    Label369: TLabel;
+    Label370: TLabel;
+    Label371: TLabel;
+    Label372: TLabel;
+    Label373: TLabel;
+    Label374: TLabel;
+    Label375: TLabel;
+    Label376: TLabel;
+    Label377: TLabel;
+    Label378: TLabel;
+    Label379: TLabel;
+    Label380: TLabel;
+    Label381: TLabel;
 
     // pnlRightUp: TPanel;
     // pnlRightBottom: TPanel;
@@ -15353,9 +15485,13 @@ begin
   (AWeapon is TT3TorpedoesOnVehicle) and not (AWeapon is TT3BombONVehicle) and not (AWeapon is TT3MineOnVehicle)  then
     Exit;
 
+  pnlGunData.Visible     := False;
+  pnlMissileData.Visible := False;
+  pnlTorpedoData.Visible := False;
+  pnlBombData.Visible    := False;
+  pnlMineData.Visible    := False;
+
   lblWeaponName.Caption     := '-';
-  lblMinimumAir.Caption     := '0';
-  lblMaximumAir.Caption     := '0';
   lblMinimumSurface.Caption := '0';
   lblMaximumSurface.Caption := '0';
 
@@ -15368,17 +15504,19 @@ begin
        {$REGION 'Gun'}
         if AWeapon is TT3GunOnVehicle then
         begin
+          pnlGunData.Visible := True;
           with TT3GunOnVehicle(AWeapon) do
           begin
             if Assigned(GunDefinition) then
             begin
                lblWeaponName.Caption :=  GunDefinition. FData.Gun_Identifier ;
 
-               lblMinimumAir.Caption := FormatFloat('0.0',GunDefinition. FData.Air_Min_Range);
-               lblMinimumSurface.Caption := FormatFloat('0.0',GunDefinition. FData.Min_Range);
-               lblMaximumSurface.Caption := FormatFloat('0.0',GunDefinition. FData.Max_Range);
-               lblMaximumAir.Caption := FormatFloat('0.0',GunDefinition. FData.Air_Max_Range);
-//               lblLethality.Caption    := FormatFloat('0',GunDefinition.FData.Lethality_per_Round);
+               lblMinimumSurface.Caption  := FormatFloat('0.0',GunDefinition. FData.Min_Range);
+               lblMaximumSurface.Caption  := FormatFloat('0.0',GunDefinition. FData.Max_Range);
+               lblMaximumRangeAir.Caption := FormatFloat('0.0',GunDefinition. FData.Air_Max_Range);
+               lblMinimumRangeAir.Caption := FormatFloat('0.0',GunDefinition.FData. Air_Min_Range);
+               lblRateOfFire.Caption      := FormatFloat('0.0',GunDefinition.FData. Rate_of_Fire );
+               lblAvarageShell.Caption    := FormatFloat('0.0',GunDefinition.FData. Gun_Average_Shell_Velocity  );
 
               if GunDefinition.FData.Wbs_class_name <> '' then
                 imageFileName := GunDefinition.FData.Wbs_class_name
@@ -15392,6 +15530,7 @@ begin
       {$REGION 'Missile'}
         else if AWeapon is TT3MissilesOnVehicle then
         begin
+          pnlMissileData.Visible := True ;
           with TT3MissilesOnVehicle(AWeapon) do
           begin
             if Assigned(MissileDefinition) then
@@ -15400,8 +15539,11 @@ begin
 
                lblMinimumSurface.Caption := FormatFloat('0.0',MissileDefinition. FDef.Min_Range);
                lblMaximumSurface.Caption := FormatFloat('0.0',MissileDefinition. FDef.Max_Range);
-//               lblMaximumAir.Caption := FormatFloat('0.0',MissileDefinition. FData.Air_Max_Range);
-//               lblMinimumAir.Caption := FormatFloat('0.0',MissileDefinition. FDef.Air_Min_);
+               lblSeekerTurnOnRange.Caption := FormatFloat('0.0',MissileDefinition. FDef.Seeker_TurnOn_Range);
+               lblSeekerDetectionRange.Caption := FormatFloat('0.0',MissileDefinition. FDef.Term_Guide_Range );
+               lblSeekerDetectionAzimuth.Caption := FormatFloat('0.0',MissileDefinition.FDef.Term_Guide_Azimuth);
+               lblSeekerDetectionElevation.Caption := FormatFloat('0.0',MissileDefinition.FDef.Term_Guide_Elevation);
+
 
               if MissileDefinition.FDef.Wbs_class_name <> '' then
                 imageFileName := MissileDefinition.FDef.Wbs_class_name
@@ -15415,14 +15557,15 @@ begin
       {$REGION 'Torpedo'}
         else if AWeapon is TT3TorpedoesOnVehicle then
         begin
+          pnlTorpedoData.Visible := True ;
           with TT3TorpedoesOnVehicle(AWeapon) do
           begin
             if Assigned(TorpedoDefinition) then
             begin
                lblWeaponName.Caption :=  TorpedoDefinition. FDef.Class_Identifier ;
 
-               lblMinimumSub.Caption := FormatFloat('0.0',TorpedoDefinition. FDef.Min_Range);
-               lblMaximumSub.Caption := FormatFloat('0.0',TorpedoDefinition. FDef.Max_Range);
+//               lblMinimumSub.Caption := FormatFloat('0.0',TorpedoDefinition. FDef.Min_Range);
+//               lblMaximumSub.Caption := FormatFloat('0.0',TorpedoDefinition. FDef.Max_Range);
 //               lblMaximumAir.Caption := FormatFloat('0.0',GunDefinition. FData.Air_Max_Range);
 //               lblMinimumAir.Caption := FormatFloat('0.0',GunDefinition. FData.Air_Min_Range);
 
@@ -15438,14 +15581,15 @@ begin
       {$REGION 'Bomb'}
       else if AWeapon is TT3BombONVehicle then
         begin
+          pnlBombData.Visible := True ;
           with TT3BombONVehicle(AWeapon) do
           begin
             if Assigned(BombDefinition) then
             begin
               lblWeaponName.Caption :=  BombDefinition. FData.Bomb_Identifier ;
 
-               lblMinimumSub.Caption := FormatFloat('0.0',BombDefinition. FData.Min_Range);
-               lblMaximumSub.Caption := FormatFloat('0.0',BombDefinition. FData.Max_Range);
+//               lblMinimumSub.Caption := FormatFloat('0.0',BombDefinition. FData.Min_Range);
+//               lblMaximumSub.Caption := FormatFloat('0.0',BombDefinition. FData.Max_Range);
 //               lblMaximumAir.Caption := FormatFloat('0.0',BombDefinition. FData.Air_Max_Range);
 //               lblMinimumAir.Caption := FormatFloat('0.0',BombDefinition. FData.Air_Min_Range);
 
@@ -15461,6 +15605,7 @@ begin
       {$REGION 'Mine'}
         else if AWeapon is TT3MineOnVehicle then
         begin
+           pnlMineData.Visible := True ;
           with TT3MineOnVehicle(AWeapon) do
           begin
             if Assigned(MineDefinition) then

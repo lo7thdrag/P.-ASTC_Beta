@@ -5150,10 +5150,10 @@ var
   I, J : Integer;
   det : TT3DetectedTrack;
   item : TMenuItem;
-  weapCategory: TWeapoonCategory; // <-- 1. Pastikan sudah dideklarasikan di sini
+  weapCategory, activeCat: TWeapoonCategory;
   HasVisibleItem: Boolean;
 begin
- GetCursorPos(pt);
+  GetCursorPos(pt);
   HasVisibleItem := False;
 
   if Assigned(FControlled) then
@@ -5193,25 +5193,27 @@ begin
 
           3:
           begin
-            if (weapCategory >= wcTorpedoStraigth) and (weapCategory <= wcTorpedoAirDropped) then
+           if ((weapCategory >= wcTorpedoStraigth) and (weapCategory <= wcTorpedoAirDropped)) or
+               (weapCategory = wcMine) then
             begin
               Item.Visible := True;
 
+
+              activeCat := ve.getWeaponType(edtWeaponName.Text);
+
+
               if (edtWeaponName.Text = '') or
-                 not (ve.getWeaponType(edtWeaponName.Text) >= wcTorpedoStraigth) and
-                 (ve.getWeaponType(edtWeaponName.Text) <= wcTorpedoAirDropped) then
+                 not (((activeCat >= wcTorpedoStraigth) and (activeCat <= wcTorpedoAirDropped)) or
+                      (activeCat = wcMine)) then
               begin
                 edtWeaponName.Text := DeleteAmpersand(item.Caption);
-
-//                if Assigned(frmToteDisplay) and Assigned(weapon) then
-//                  frmToteDisplay.UpdateWeaponData(weapon);
               end;
             end
             else
             begin
               Item.Visible := False;
-              continue;
-            end;
+            continue;
+          end;
           end;
         end;
 
@@ -9901,14 +9903,15 @@ begin
   begin
     activeCat := ve.getWeaponType(edtWeaponName.Text);
 
-    if not ((activeCat >= wcTorpedoStraigth) and (activeCat <= wcTorpedoAirDropped)) then
+    if not (((activeCat >= wcTorpedoStraigth) and (activeCat <= wcTorpedoAirDropped)) or
+            (activeCat = wcMine)) then
     begin
       for i := 0 to ve.Weapons.Count - 1 do
       begin
         weapon := TT3Weapon(ve.Weapons.Items[i]);
         if Assigned(weapon) and
-           (weapon.WeaponCategory >= wcTorpedoStraigth) and
-           (weapon.WeaponCategory <= wcTorpedoAirDropped) then
+           (((weapon.WeaponCategory >= wcTorpedoStraigth) and (weapon.WeaponCategory <= wcTorpedoAirDropped)) or
+            (weapon.WeaponCategory = wcMine)) then
         begin
           edtWeaponName.Text := weapon.InstanceName;
           Break;

@@ -1586,8 +1586,6 @@ type
     Label329: TLabel;
     Label330: TLabel;
     Label331: TLabel;
-    Label332: TLabel;
-    Label334: TLabel;
     Label335: TLabel;
     Label336: TLabel;
     Label337: TLabel;
@@ -1656,6 +1654,8 @@ type
     Label379: TLabel;
     Label380: TLabel;
     Label381: TLabel;
+    Label332: TLabel;
+    Label334: TLabel;
 
     // pnlRightUp: TPanel;
     // pnlRightBottom: TPanel;
@@ -15491,6 +15491,8 @@ begin
   pnlBombData.Visible    := False;
   pnlMineData.Visible    := False;
 
+  pnlDataWeapon.Visible  := True;
+
   lblWeaponName.Caption     := '-';
   lblMinimumSurface.Caption := '0';
   lblMaximumSurface.Caption := '0';
@@ -15504,7 +15506,8 @@ begin
        {$REGION 'Gun'}
         if AWeapon is TT3GunOnVehicle then
         begin
-          pnlGunData.Visible := True;
+          pnlGunData.Visible     := True;
+          pnlDataWeapon.Visible  := True;
           with TT3GunOnVehicle(AWeapon) do
           begin
             if Assigned(GunDefinition) then
@@ -15531,6 +15534,7 @@ begin
         else if AWeapon is TT3MissilesOnVehicle then
         begin
           pnlMissileData.Visible := True ;
+          pnlDataWeapon.Visible  := True;
           with TT3MissilesOnVehicle(AWeapon) do
           begin
             if Assigned(MissileDefinition) then
@@ -15558,6 +15562,7 @@ begin
         else if AWeapon is TT3TorpedoesOnVehicle then
         begin
           pnlTorpedoData.Visible := True ;
+          pnlDataWeapon.Visible  := True;
           with TT3TorpedoesOnVehicle(AWeapon) do
           begin
             if Assigned(TorpedoDefinition) then
@@ -15585,6 +15590,7 @@ begin
       else if AWeapon is TT3BombONVehicle then
         begin
           pnlBombData.Visible := True ;
+          pnlDataWeapon.Visible  := True;
           with TT3BombONVehicle(AWeapon) do
           begin
             if Assigned(BombDefinition) then
@@ -15609,6 +15615,7 @@ begin
         else if AWeapon is TT3MineOnVehicle then
         begin
            pnlMineData.Visible := True ;
+           pnlDataWeapon.Visible := False;
           with TT3MineOnVehicle(AWeapon) do
           begin
             if Assigned(MineDefinition) then
@@ -15895,18 +15902,20 @@ begin
   {$REGION ' Firing Role '}
   lvWeaponFiring.Items.Clear;
 
-  if Assigned(sender.Weapons) then
+ if Assigned(sender.Weapons) then
   begin
     for i := 0 to sender.Weapons.Count - 1 do
     begin
       weapon := TT3Weapon(sender.Weapons.Items[i]);
       if not(Assigned(weapon)) then Continue;
 
-      if (vGameDataSetting.Role = 2) and (weapon is TT3TorpedoesOnVehicle) then
-        Continue;
+      if (vGameDataSetting.Role = 2) and
+          ((weapon is TT3TorpedoesOnVehicle) or (weapon is TT3MineOnVehicle)) then
+         Continue;
 
-      if (vGameDataSetting.Role = 3) and ((weapon is TT3MissilesOnVehicle) or (weapon is TT3GunOnVehicle)) then
-        Continue;
+      if (vGameDataSetting.Role = 3) and
+          not ((weapon is TT3TorpedoesOnVehicle) or (weapon is TT3MineOnVehicle)) then
+         Continue;
 
       case weapon.WeaponStatus of
         wsAvailable   : status := 'Available';

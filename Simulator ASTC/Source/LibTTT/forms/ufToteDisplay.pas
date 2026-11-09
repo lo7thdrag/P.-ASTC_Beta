@@ -15475,7 +15475,7 @@ end;
 
 procedure TfrmToteDisplay.UpdateWeaponData(AWeapon: TT3Weapon);
 var
-  ImagePath, imageFileName: string;
+  ImagePath, imageFileName, DefaultImage: string;
   BaseWeaponPath: string;
 begin
   if not Assigned(AWeapon) then
@@ -15508,6 +15508,8 @@ begin
         begin
           pnlGunData.Visible     := True;
           pnlDataWeapon.Visible  := True;
+
+          DefaultImage := 'imgNoModel.png';
           with TT3GunOnVehicle(AWeapon) do
           begin
             if Assigned(GunDefinition) then
@@ -15535,6 +15537,8 @@ begin
         begin
           pnlMissileData.Visible := True ;
           pnlDataWeapon.Visible  := True;
+
+          DefaultImage := 'noModelMissileB.png';
           with TT3MissilesOnVehicle(AWeapon) do
           begin
             if Assigned(MissileDefinition) then
@@ -15563,6 +15567,8 @@ begin
         begin
           pnlTorpedoData.Visible := True ;
           pnlDataWeapon.Visible  := True;
+
+          DefaultImage := 'noModelTorpedoB.png';
           with TT3TorpedoesOnVehicle(AWeapon) do
           begin
             if Assigned(TorpedoDefinition) then
@@ -15591,6 +15597,8 @@ begin
         begin
           pnlBombData.Visible := True ;
           pnlDataWeapon.Visible  := True;
+
+          DefaultImage := 'noModelBombB.png';
           with TT3BombONVehicle(AWeapon) do
           begin
             if Assigned(BombDefinition) then
@@ -15616,6 +15624,8 @@ begin
         begin
            pnlMineData.Visible := True ;
            pnlDataWeapon.Visible := False;
+
+           DefaultImage := 'NoModelMineB.png';
           with TT3MineOnVehicle(AWeapon) do
           begin
             if Assigned(MineDefinition) then
@@ -15643,9 +15653,9 @@ begin
           if FileExists(ImagePath) then
             imgSenjata.Picture.LoadFromFile(ImagePath)
           else
-            imgSenjata.Picture.LoadFromFile(BaseWeaponPath + 'imgNoModel.png');
+            imgSenjata.Picture.LoadFromFile(BaseWeaponPath + DefaultImage);
         except
-          imgSenjata.Picture.LoadFromFile(BaseWeaponPath + 'imgNoModel.png');
+          imgSenjata.Picture.LoadFromFile(BaseWeaponPath + DefaultImage);
         end;
       end;
   end;

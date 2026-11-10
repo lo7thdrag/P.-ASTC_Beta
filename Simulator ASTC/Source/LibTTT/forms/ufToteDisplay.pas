@@ -15596,7 +15596,7 @@ begin
       else if AWeapon is TT3BombONVehicle then
         begin
           pnlBombData.Visible := True ;
-          pnlDataWeapon.Visible  := True;
+          pnlDataWeapon.Visible  := False;
 
           DefaultImage := 'noModelBombB.png';
           with TT3BombONVehicle(AWeapon) do

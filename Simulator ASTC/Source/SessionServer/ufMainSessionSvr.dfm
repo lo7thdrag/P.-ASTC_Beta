@@ -3338,8 +3338,7 @@ object frmMainSessionSvr: TfrmMainSessionSvr
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 394
-    ExplicitHeight = 858
+    OnMouseDown = pnlMainBackgroundMouseDown
     object Label3: TLabel
       Left = 28
       Top = 82
@@ -4090,8 +4089,6 @@ object frmMainSessionSvr: TfrmMainSessionSvr
         ReadOnly = True
         TabOrder = 0
         WordWrap = False
-        ExplicitWidth = 356
-        ExplicitHeight = 407
       end
     end
     object pnlNetLogs: TPanel
@@ -4119,8 +4116,6 @@ object frmMainSessionSvr: TfrmMainSessionSvr
         ParentFont = False
         RowSelect = True
         TabOrder = 0
-        ExplicitWidth = 356
-        ExplicitHeight = 407
       end
     end
     object pnlClient: TPanel
@@ -4162,8 +4157,6 @@ object frmMainSessionSvr: TfrmMainSessionSvr
         TabOrder = 0
         ViewStyle = vsReport
         OnCompare = lvConnectionCompare
-        ExplicitWidth = 356
-        ExplicitHeight = 407
       end
     end
   end
@@ -4182,8 +4175,5 @@ object frmMainSessionSvr: TfrmMainSessionSvr
       item
         Width = 50
       end>
-    ExplicitLeft = 1
-    ExplicitTop = 867
-    ExplicitWidth = 398
   end
 end

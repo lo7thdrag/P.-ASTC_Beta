@@ -36,6 +36,8 @@ type
     procedure imgClientsClick(Sender: TObject);
     procedure imgCloseClick(Sender: TObject);
     procedure imgMinimizeClick(Sender: TObject);
+    procedure pnlMainBackgroundMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
 
   private
     { Private declarations }
@@ -207,6 +209,22 @@ end;
 procedure TfrmMainSessionSvr.lvConnectionCompare(Sender: TObject; Item1, Item2: TListItem; Data: Integer; var Compare: Integer);
 begin
  Compare  := StrComp(PChar(item1.Caption), PChar(Item2.Caption));
+end;
+
+procedure TfrmMainSessionSvr.pnlMainBackgroundMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+const
+  {F012 nilai kombinasi dari delphi untuk move}
+  {F012 dari SC_MOVE ($F010) + HTCAPTION ($0002)}
+  SC_DRAGMOVE = $F012;
+begin
+  if Button = mbLeft then
+  begin
+    {Kunci kursor}
+    ReleaseCapture;
+    {WM_SYSCOMMAND = disystem, 0 = koordinatnya}
+    Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
+  end;
 end;
 
 procedure TfrmMainSessionSvr.ApplySetting;

@@ -347,11 +347,22 @@ begin
 
   if theClient.IsController then
   begin
-    btnStart.Visible := True;
-    btnConnect.Visible := True;
-    btnEditor.Visible := True;
-    imgSetting.Visible := False;
-    lblRole.Visible := False;
+    if vGameDataSetting.Role = 5 then
+    begin
+      btnStart.Visible := False;
+      btnConnect.Visible := False;
+      btnEditor.Visible := False;
+      imgSetting.Visible := True;
+      lblRole.Visible := False;
+    end
+    else
+    begin
+      btnStart.Visible := True;
+      btnConnect.Visible := True;
+      btnEditor.Visible := True;
+      imgSetting.Visible := False;
+      lblRole.Visible := False;
+    end;
   end;
 end;
 
@@ -492,6 +503,7 @@ begin
       2: lblrole.Caption := 'Atas Air';
       3: lblrole.Caption := 'Bawah Air';
       4: lblrole.Caption := 'General';
+      5: lblrole.Caption := 'Watch';
     end;
   end;
 end;

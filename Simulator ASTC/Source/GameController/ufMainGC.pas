@@ -110,7 +110,7 @@ var
    mapData : TRec_MapData;
 begin
 
-  if dmGC.GetStatusGC and (theClient.GameSessionExist) then
+  if {dmGC.GetStatusGC and} (theClient.GameSessionExist) then
   begin
     ShowMessage('Game is running !!!! ');
     btnTerminate.Visible := True;

@@ -15500,7 +15500,7 @@ begin
   case vGameDataSetting.Role of
     2, 3:
       begin
-        BaseWeaponPath := vGameDataSetting.DataPath + '..\..\..\Database Editor ASTC\Bin\data\Image DBEditor\Interface\Weapon\';
+        BaseWeaponPath :=  vGameDataSetting.DataPath + 'Image Simulator\Interface\Weapon\';
         imageFileName := 'imgNoModel.png';
 
        {$REGION 'Gun'}

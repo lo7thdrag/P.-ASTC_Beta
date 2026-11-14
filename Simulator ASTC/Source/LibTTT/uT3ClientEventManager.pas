@@ -1180,15 +1180,15 @@ begin
 
   with frmToteDisplay do
   begin
-//    if ve = TT3Vehicle(ToteSelectedPlatform) then
-//    begin
+    if ve = TT3Vehicle(ToteSelectedPlatform) then
+    begin
       UpdateSensorVehicle(ve);
       UpdateWeaponVehicle(ve);
       UpdateCountermeasureVehicle(ve);
       UpdateStatusVehicle(ve);
       UpdateEmbarkVehicle(ve);
 //      UpdateLogisticToteDisplay(ve);
-//    end;
+    end;
   end;
 end;
 
@@ -7017,163 +7017,31 @@ var
 begin
   inherited;
 
-  {$REGION ' Other Role '}
-  isAddtoListView := False;
-  isDeleteListView := false;
+  if vGameDataSetting.Role = 1 then
+  begin
+    {$REGION ' Navigasi '}
+    isAddtoListView := False;
+    isDeleteListView := false;
 
-  case Cmd.Messagetype of
-    //Sync Sent Message In Same Cubicle
-    0 :
-    begin
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+    case Cmd.Messagetype of
+      0 :
       begin
-        if Cmd.SendFrom = 0 then
-          isAddtoListView := True;
-      end
-      else
-      begin
-        if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-          isAddtoListView := True;
-      end;
+        {$REGION ' Sync Sent Message In Same Cubicle '}
 
-      if isAddtoListView then
-      begin
-        with frmToteDisplay.lvSent.Items.Add do
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
         begin
-          MessageHandling := TMessageHandling.Create;
-          MessageHandling.FData := Cmd;
-
-          //Add Pointer Data
-          Data := MessageHandling;
-
-          Caption := Cmd.RecipientList;
-          SubItems.Add(Cmd.MessageHandling);
-          SubItems.Add(Cmd.Subject);
-
-          case Cmd.Priority of
-            0 : SubItems.Add('FLASH');
-            1 : SubItems.Add('IMMED');
-            2 : SubItems.Add('PRIORITY');
-            3 : SubItems.Add('ROUTINE');
-          end;
-        end;
-      end;
-    end;
-    //Sync Draft Message In Same Cubicle
-    1 :
-    begin
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-      begin
-        if Cmd.SendFrom = 0 then
-          isAddtoListView := True;
-      end
-      else
-      begin
-        if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-          isAddtoListView := True;
-      end;
-
-      if isAddtoListView then
-      begin
-        with frmToteDisplay.lvDraft.Items.Add do
-        begin
-          MessageHandling := TMessageHandling.Create;
-          MessageHandling.FData := Cmd;
-
-          //Add Pointer Data
-          Data := MessageHandling;
-
-          Caption := Cmd.RecipientList;
-          SubItems.Add(Cmd.MessageHandling);
-          SubItems.Add(Cmd.Subject);
-
-          case Cmd.Priority of
-            0 : SubItems.Add('FLASH');
-            1 : SubItems.Add('IMMED');
-            2 : SubItems.Add('PRIORITY');
-            3 : SubItems.Add('ROUTINE');
-          end;
-        end;
-      end;
-    end;
-    //Process Sent Message
-    2 :
-    begin
-      if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then
-      begin
-        if Cmd.SendFrom <> simMgrClient.FMyCubGroup.FData.Group_Index then
-        begin
-          if cmd.SendFrom = 0 then
-            msgSendFrom := 'Controller';
-
-          if Cmd.Sendto = simMgrClient.FMyCubGroup.FData.Group_Index then
-          begin
-            for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
-            begin
-              grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[i] as T3CubicleGroup;
-              if grp <> nil then begin
-                if grp.FData.Group_Index = Cmd.SendFrom then
-                begin
-                  with frmToteDisplay.lvReceive.Items.Add do
-                  begin
-                    frmTacticalDisplay.addStatus('Receive Message');
-
-                    MessageHandling := TMessageHandling.Create;
-                    MessageHandling.FData := Cmd;
-
-                    //Add Pointer Data
-                    Data := MessageHandling;
-
-                    msgSendFrom := grp.FData.Group_Identifier;
-                    Caption := msgSendFrom;
-                    SubItems.Add(Cmd.MessageHandling);
-                    SubItems.Add(Cmd.Subject);
-
-                    case Cmd.Priority of
-                      0 : SubItems.Add('FLASH');
-                      1 : SubItems.Add('IMMED');
-                      2 : SubItems.Add('PRIORITY');
-                      3 : SubItems.Add('ROUTINE');
-                    end;
-                  end;
-
-                  Break;
-                end;
-              end;
-            end;
-          end;
-        end;
-      end;
-    end;
-    //proses sent, just controller
-    3:
-    begin
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-      begin
-        if Cmd.SendFrom = 0 then
-        begin
-          msgSendFrom := 'Controller';
-          isAddtoListView := True;
+          if Cmd.SendFrom = 0 then
+            isAddtoListView := True;
         end
         else
         begin
-          for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
-          begin
-            grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[i] as T3CubicleGroup;
-            if grp <> nil then begin
-              if grp.FData.Group_Index = Cmd.SendFrom then
-              begin
-                msgSendFrom := grp.FData.Group_Identifier;
-                isAddtoListView := true;
-                Break;
-              end;
-            end;
-          end;
+          if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+            isAddtoListView := True;
         end;
 
         if isAddtoListView then
         begin
-          with frmToteDisplay.lvReceive.Items.Add do
+          with frmToteDisplay.lvSentNav.Items.Add do
           begin
             MessageHandling := TMessageHandling.Create;
             MessageHandling.FData := Cmd;
@@ -7181,7 +7049,7 @@ begin
             //Add Pointer Data
             Data := MessageHandling;
 
-            Caption := msgSendFrom;
+            Caption := Cmd.RecipientList;
             SubItems.Add(Cmd.MessageHandling);
             SubItems.Add(Cmd.Subject);
 
@@ -7193,330 +7061,25 @@ begin
             end;
           end;
         end;
+        {$ENDREGION}
       end;
-    end;
-    //delete message
-    4 :
-    begin
-      case Cmd.OrderID of
-        1 :
+      1 :
+      begin
+        {$REGION ' Sync Draft Message In Same Cubicle '}
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
         begin
-          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          begin
-            if cmd.SendFrom = 0 then
-            begin
-              isDeleteListView := true;
-            end;
-          end
-          else
-          begin
-            if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-            begin
-              isDeleteListView := True;
-            end;
-          end;
-
-          if isDeleteListView then
-          begin
-            for i := 0 to frmToteDisplay.lvReceive.Items.Count - 1 do
-            begin
-              if frmToteDisplay.lvReceive.Items[i].Data <> nil then
-              begin
-                MessageHandling := TMessageHandling(frmToteDisplay.lvReceive.Items[i].Data);
-                MessageHandling.FData.OrderID := 1;
-                MessageHandling.FData.Messagetype := 4;
-
-                if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
-                    (MessageHandling.FData.SesionID = Cmd.SesionID) and
-                    (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
-                    (MessageHandling.FData.Sendto = Cmd.Sendto) and
-                    (MessageHandling.FData.Subject = Cmd.Subject) and
-                    (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
-                    (MessageHandling.FData.Priority = cmd.Priority) and
-                    (MessageHandling.FData.Band = Cmd.Band) and
-                    (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
-                    (MessageHandling.FData.RecipientList = Cmd.RecipientList)
-                   )
-                then
-                begin
-                  if i < frmToteDisplay.lvReceive.Items.Count  then
-                  begin
-                    frmToteDisplay.mmoMessage.Lines.Clear;
-                    frmToteDisplay.lvReceive.Items[i].Data := nil;
-                    frmToteDisplay.lvReceive.Items[i].Delete;
-                    Break;
-                  end;
-                end;
-              end;
-            end;
-          end;
-        end;
-        2 :
-        begin
-          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          begin
-            if cmd.SendFrom = 0 then
-            begin
-              isDeleteListView := true;
-            end;
-          end
-          else
-          begin
-            if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-            begin
-              isDeleteListView := True;
-            end;
-          end;
-
-          if isDeleteListView then
-          begin
-            for i := 0 to frmToteDisplay.lvDraft.Items.Count - 1 do
-            begin
-              if frmToteDisplay.lvDraft.Items[i].Data <> nil then
-              begin
-                MessageHandling := TMessageHandling(frmToteDisplay.lvDraft.Items[i].Data);
-                MessageHandling.FData.OrderID := 2;
-                MessageHandling.FData.Messagetype := 4;
-
-                if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
-                    (MessageHandling.FData.SesionID = Cmd.SesionID) and
-                    (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
-                    (MessageHandling.FData.Sendto = Cmd.Sendto) and
-                    (MessageHandling.FData.Subject = Cmd.Subject) and
-                    (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
-                    (MessageHandling.FData.Priority = cmd.Priority) and
-                    (MessageHandling.FData.Band = Cmd.Band) and
-                    (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
-                    (MessageHandling.FData.RecipientList = Cmd.RecipientList)
-                   )
-                then
-                begin
-                  if i < frmToteDisplay.lvDraft.Items.Count  then
-                  begin
-                    frmToteDisplay.mmoMessage.Lines.Clear;
-                    frmToteDisplay.lvDraft.Items[i].Data := nil;
-                    frmToteDisplay.lvDraft.Items[i].Delete;
-                    Break;
-                  end;
-                end;
-              end;
-            end;
-          end;
-        end;
-        3 :
-        begin
-          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          begin
-            if cmd.SendFrom = 0 then
-            begin
-              isDeleteListView := true;
-            end;
-          end
-          else
-          begin
-            if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-            begin
-              isDeleteListView := True;
-            end;
-          end;
-
-          if isDeleteListView then
-          begin
-            for i := 0 to frmToteDisplay.lvSent.Items.Count - 1 do
-            begin
-              if frmToteDisplay.lvSent.Items[i].Data <> nil then
-              begin
-                MessageHandling := TMessageHandling(frmToteDisplay.lvSent.Items[i].Data);
-                MessageHandling.FData.OrderID := 3;
-                MessageHandling.FData.Messagetype := 4;
-
-                if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
-                    (MessageHandling.FData.SesionID = Cmd.SesionID) and
-                    (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
-                    (MessageHandling.FData.Sendto = Cmd.Sendto) and
-                    (MessageHandling.FData.Subject = Cmd.Subject) and
-                    (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
-                    (MessageHandling.FData.Priority = cmd.Priority) and
-                    (MessageHandling.FData.Band = Cmd.Band) and
-                    (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
-                    (MessageHandling.FData.RecipientList = Cmd.RecipientList)
-                   )
-                then
-                begin
-                  if i < frmToteDisplay.lvSent.Items.Count  then
-                  begin
-                    frmToteDisplay.mmoMessage.Lines.Clear;
-                    frmToteDisplay.lvSent.Items[i].Data := nil;
-                    frmToteDisplay.lvSent.Items[i].Delete;
-                    Break;
-                  end;
-                end;
-              end;
-            end;
-          end;
-        end;
-      end;
-    end;
-  end;
-  {$ENDREGION}
-
-  {$REGION ' Navigasi '}
-  isAddtoListView := False;
-  isDeleteListView := false;
-
-  case Cmd.Messagetype of
-    //Sync Sent Message In Same Cubicle
-    0 :
-    begin
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-      begin
-        if Cmd.SendFrom = 0 then
-          isAddtoListView := True;
-      end
-      else
-      begin
-        if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-          isAddtoListView := True;
-      end;
-
-      if isAddtoListView then
-      begin
-        with frmToteDisplay.lvSentNav.Items.Add do
-        begin
-          MessageHandling := TMessageHandling.Create;
-          MessageHandling.FData := Cmd;
-
-          //Add Pointer Data
-          Data := MessageHandling;
-
-          Caption := Cmd.RecipientList;
-          SubItems.Add(Cmd.MessageHandling);
-          SubItems.Add(Cmd.Subject);
-
-          case Cmd.Priority of
-            0 : SubItems.Add('FLASH');
-            1 : SubItems.Add('IMMED');
-            2 : SubItems.Add('PRIORITY');
-            3 : SubItems.Add('ROUTINE');
-          end;
-        end;
-      end;
-    end;
-    //Sync Draft Message In Same Cubicle
-    1 :
-    begin
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-      begin
-        if Cmd.SendFrom = 0 then
-          isAddtoListView := True;
-      end
-      else
-      begin
-        if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-          isAddtoListView := True;
-      end;
-
-      if isAddtoListView then
-      begin
-        with frmToteDisplay.lvDraftNav.Items.Add do
-        begin
-          MessageHandling := TMessageHandling.Create;
-          MessageHandling.FData := Cmd;
-
-          //Add Pointer Data
-          Data := MessageHandling;
-
-          Caption := Cmd.RecipientList;
-          SubItems.Add(Cmd.MessageHandling);
-          SubItems.Add(Cmd.Subject);
-
-          case Cmd.Priority of
-            0 : SubItems.Add('FLASH');
-            1 : SubItems.Add('IMMED');
-            2 : SubItems.Add('PRIORITY');
-            3 : SubItems.Add('ROUTINE');
-          end;
-        end;
-      end;
-    end;
-    //Process Sent Message
-    2 :
-    begin
-      if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then
-      begin
-        if Cmd.SendFrom <> simMgrClient.FMyCubGroup.FData.Group_Index then
-        begin
-          if cmd.SendFrom = 0 then
-            msgSendFrom := 'Controller';
-
-          if Cmd.Sendto = simMgrClient.FMyCubGroup.FData.Group_Index then
-          begin
-            for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
-            begin
-              grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[i] as T3CubicleGroup;
-              if grp <> nil then begin
-                if grp.FData.Group_Index = Cmd.SendFrom then
-                begin
-                  with frmToteDisplay.lvReceiveNav.Items.Add do
-                  begin
-                    frmRightNav.addStatus('Receive Message');
-
-                    MessageHandling := TMessageHandling.Create;
-                    MessageHandling.FData := Cmd;
-
-                    //Add Pointer Data
-                    Data := MessageHandling;
-
-                    msgSendFrom := grp.FData.Group_Identifier;
-                    Caption := msgSendFrom;
-                    SubItems.Add(Cmd.MessageHandling);
-                    SubItems.Add(Cmd.Subject);
-
-                    case Cmd.Priority of
-                      0 : SubItems.Add('FLASH');
-                      1 : SubItems.Add('IMMED');
-                      2 : SubItems.Add('PRIORITY');
-                      3 : SubItems.Add('ROUTINE');
-                    end;
-                  end;
-
-                  Break;
-                end;
-              end;
-            end;
-          end;
-        end;
-      end;
-    end;
-    //proses sent, just controller
-    3:
-    begin
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-      begin
-        if Cmd.SendFrom = 0 then
-        begin
-          msgSendFrom := 'Controller';
-          isAddtoListView := True;
+          if Cmd.SendFrom = 0 then
+            isAddtoListView := True;
         end
         else
         begin
-          for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
-          begin
-            grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[i] as T3CubicleGroup;
-            if grp <> nil then begin
-              if grp.FData.Group_Index = Cmd.SendFrom then
-              begin
-                msgSendFrom := grp.FData.Group_Identifier;
-                isAddtoListView := true;
-                Break;
-              end;
-            end;
-          end;
+          if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+            isAddtoListView := True;
         end;
 
         if isAddtoListView then
         begin
-          with frmToteDisplay.lvReceiveNav.Items.Add do
+          with frmToteDisplay.lvDraftNav.Items.Add do
           begin
             MessageHandling := TMessageHandling.Create;
             MessageHandling.FData := Cmd;
@@ -7524,7 +7087,7 @@ begin
             //Add Pointer Data
             Data := MessageHandling;
 
-            Caption := msgSendFrom;
+            Caption := Cmd.RecipientList;
             SubItems.Add(Cmd.MessageHandling);
             SubItems.Add(Cmd.Subject);
 
@@ -7536,57 +7099,49 @@ begin
             end;
           end;
         end;
+        {$ENDREGION}
       end;
-    end;
-    //delete message
-    4 :
-    begin
-      case Cmd.OrderID of
-        1 :
+      2 :
+      begin
+        {$REGION ' Process Sent Message '}
+        if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then
         begin
-          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          if Cmd.SendFrom <> simMgrClient.FMyCubGroup.FData.Group_Index then
           begin
             if cmd.SendFrom = 0 then
-            begin
-              isDeleteListView := true;
-            end;
-          end
-          else
-          begin
-            if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-            begin
-              isDeleteListView := True;
-            end;
-          end;
+              msgSendFrom := 'Controller';
 
-          if isDeleteListView then
-          begin
-            for i := 0 to frmToteDisplay.lvReceiveNav.Items.Count - 1 do
+            if Cmd.Sendto = simMgrClient.FMyCubGroup.FData.Group_Index then
             begin
-              if frmToteDisplay.lvReceiveNav.Items[i].Data <> nil then
+              for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
               begin
-                MessageHandling := TMessageHandling(frmToteDisplay.lvReceiveNav.Items[i].Data);
-                MessageHandling.FData.OrderID := 1;
-                MessageHandling.FData.Messagetype := 4;
-
-                if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
-                    (MessageHandling.FData.SesionID = Cmd.SesionID) and
-                    (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
-                    (MessageHandling.FData.Sendto = Cmd.Sendto) and
-                    (MessageHandling.FData.Subject = Cmd.Subject) and
-                    (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
-                    (MessageHandling.FData.Priority = cmd.Priority) and
-                    (MessageHandling.FData.Band = Cmd.Band) and
-                    (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
-                    (MessageHandling.FData.RecipientList = Cmd.RecipientList)
-                   )
-                then
-                begin
-                  if i < frmToteDisplay.lvReceiveNav.Items.Count  then
+                grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[i] as T3CubicleGroup;
+                if grp <> nil then begin
+                  if grp.FData.Group_Index = Cmd.SendFrom then
                   begin
-                    frmToteDisplay.mmoMessageNav.Lines.Clear;
-                    frmToteDisplay.lvReceiveNav.Items[i].Data := nil;
-                    frmToteDisplay.lvReceiveNav.Items[i].Delete;
+                    with frmToteDisplay.lvReceiveNav.Items.Add do
+                    begin
+                      frmRightNav.addStatus('Receive Message');
+
+                      MessageHandling := TMessageHandling.Create;
+                      MessageHandling.FData := Cmd;
+
+                      //Add Pointer Data
+                      Data := MessageHandling;
+
+                      msgSendFrom := grp.FData.Group_Identifier;
+                      Caption := msgSendFrom;
+                      SubItems.Add(Cmd.MessageHandling);
+                      SubItems.Add(Cmd.Subject);
+
+                      case Cmd.Priority of
+                        0 : SubItems.Add('FLASH');
+                        1 : SubItems.Add('IMMED');
+                        2 : SubItems.Add('PRIORITY');
+                        3 : SubItems.Add('ROUTINE');
+                      end;
+                    end;
+
                     Break;
                   end;
                 end;
@@ -7594,205 +7149,19 @@ begin
             end;
           end;
         end;
-        2 :
-        begin
-          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          begin
-            if cmd.SendFrom = 0 then
-            begin
-              isDeleteListView := true;
-            end;
-          end
-          else
-          begin
-            if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-            begin
-              isDeleteListView := True;
-            end;
-          end;
-
-          if isDeleteListView then
-          begin
-            for i := 0 to frmToteDisplay.lvDraftNav.Items.Count - 1 do
-            begin
-              if frmToteDisplay.lvDraftNav.Items[i].Data <> nil then
-              begin
-                MessageHandling := TMessageHandling(frmToteDisplay.lvDraftNav.Items[i].Data);
-                MessageHandling.FData.OrderID := 2;
-                MessageHandling.FData.Messagetype := 4;
-
-                if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
-                    (MessageHandling.FData.SesionID = Cmd.SesionID) and
-                    (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
-                    (MessageHandling.FData.Sendto = Cmd.Sendto) and
-                    (MessageHandling.FData.Subject = Cmd.Subject) and
-                    (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
-                    (MessageHandling.FData.Priority = cmd.Priority) and
-                    (MessageHandling.FData.Band = Cmd.Band) and
-                    (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
-                    (MessageHandling.FData.RecipientList = Cmd.RecipientList)
-                   )
-                then
-                begin
-                  if i < frmToteDisplay.lvDraftNav.Items.Count  then
-                  begin
-                    frmToteDisplay.mmoMessageNav.Lines.Clear;
-                    frmToteDisplay.lvDraftNav.Items[i].Data := nil;
-                    frmToteDisplay.lvDraftNav.Items[i].Delete;
-                    Break;
-                  end;
-                end;
-              end;
-            end;
-          end;
-        end;
-        3 :
-        begin
-          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          begin
-            if cmd.SendFrom = 0 then
-            begin
-              isDeleteListView := true;
-            end;
-          end
-          else
-          begin
-            if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-            begin
-              isDeleteListView := True;
-            end;
-          end;
-
-          if isDeleteListView then
-          begin
-            for i := 0 to frmToteDisplay.lvSentNav.Items.Count - 1 do
-            begin
-              if frmToteDisplay.lvSentNav.Items[i].Data <> nil then
-              begin
-                MessageHandling := TMessageHandling(frmToteDisplay.lvSentNav.Items[i].Data);
-                MessageHandling.FData.OrderID := 3;
-                MessageHandling.FData.Messagetype := 4;
-
-                if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
-                    (MessageHandling.FData.SesionID = Cmd.SesionID) and
-                    (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
-                    (MessageHandling.FData.Sendto = Cmd.Sendto) and
-                    (MessageHandling.FData.Subject = Cmd.Subject) and
-                    (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
-                    (MessageHandling.FData.Priority = cmd.Priority) and
-                    (MessageHandling.FData.Band = Cmd.Band) and
-                    (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
-                    (MessageHandling.FData.RecipientList = Cmd.RecipientList)
-                   )
-                then
-                begin
-                  if i < frmToteDisplay.lvSentNav.Items.Count  then
-                  begin
-                    frmToteDisplay.mmoMessageNav.Lines.Clear;
-                    frmToteDisplay.lvSentNav.Items[i].Data := nil;
-                    frmToteDisplay.lvSentNav.Items[i].Delete;
-                    Break;
-                  end;
-                end;
-              end;
-            end;
-          end;
-        end;
+        {$ENDREGION}
       end;
-    end;
-  end;
-  {$ENDREGION}
-
-  {$REGION ' Firing '}
-  isAddtoListView := False;
-  isDeleteListView := false;
-
-  case Cmd.Messagetype of
-    //Sync Sent Message In Same Cubicle
-    0 :
-    begin
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+      3:
       begin
-        if Cmd.SendFrom = 0 then
-          isAddtoListView := True;
-      end
-      else
-      begin
-        if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-          isAddtoListView := True;
-      end;
-
-      if isAddtoListView then
-      begin
-        with frmToteDisplay.lvSentNav.Items.Add do
+        {$REGION ' proses sent, just controller '}
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
         begin
-          MessageHandling := TMessageHandling.Create;
-          MessageHandling.FData := Cmd;
-
-          //Add Pointer Data
-          Data := MessageHandling;
-
-          Caption := Cmd.RecipientList;
-          SubItems.Add(Cmd.MessageHandling);
-          SubItems.Add(Cmd.Subject);
-
-          case Cmd.Priority of
-            0 : SubItems.Add('FLASH');
-            1 : SubItems.Add('IMMED');
-            2 : SubItems.Add('PRIORITY');
-            3 : SubItems.Add('ROUTINE');
-          end;
-        end;
-      end;
-    end;
-    //Sync Draft Message In Same Cubicle
-    1 :
-    begin
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-      begin
-        if Cmd.SendFrom = 0 then
-          isAddtoListView := True;
-      end
-      else
-      begin
-        if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-          isAddtoListView := True;
-      end;
-
-      if isAddtoListView then
-      begin
-        with frmToteDisplay.lvDraftFiring.Items.Add do
-        begin
-          MessageHandling := TMessageHandling.Create;
-          MessageHandling.FData := Cmd;
-
-          //Add Pointer Data
-          Data := MessageHandling;
-
-          Caption := Cmd.RecipientList;
-          SubItems.Add(Cmd.MessageHandling);
-          SubItems.Add(Cmd.Subject);
-
-          case Cmd.Priority of
-            0 : SubItems.Add('FLASH');
-            1 : SubItems.Add('IMMED');
-            2 : SubItems.Add('PRIORITY');
-            3 : SubItems.Add('ROUTINE');
-          end;
-        end;
-      end;
-    end;
-    //Process Sent Message
-    2 :
-    begin
-      if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then
-      begin
-        if Cmd.SendFrom <> simMgrClient.FMyCubGroup.FData.Group_Index then
-        begin
-          if cmd.SendFrom = 0 then
+          if Cmd.SendFrom = 0 then
+          begin
             msgSendFrom := 'Controller';
-
-          if Cmd.Sendto = simMgrClient.FMyCubGroup.FData.Group_Index then
+            isAddtoListView := True;
+          end
+          else
           begin
             for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
             begin
@@ -7800,66 +7169,229 @@ begin
               if grp <> nil then begin
                 if grp.FData.Group_Index = Cmd.SendFrom then
                 begin
-                  with frmToteDisplay.lvReceiveFiring.Items.Add do
-                  begin
-                    frmRightAtasAir.addStatus('Receive Message');
-
-                    MessageHandling := TMessageHandling.Create;
-                    MessageHandling.FData := Cmd;
-
-                    //Add Pointer Data
-                    Data := MessageHandling;
-
-                    msgSendFrom := grp.FData.Group_Identifier;
-                    Caption := msgSendFrom;
-                    SubItems.Add(Cmd.MessageHandling);
-                    SubItems.Add(Cmd.Subject);
-
-                    case Cmd.Priority of
-                      0 : SubItems.Add('FLASH');
-                      1 : SubItems.Add('IMMED');
-                      2 : SubItems.Add('PRIORITY');
-                      3 : SubItems.Add('ROUTINE');
-                    end;
-                  end;
-
+                  msgSendFrom := grp.FData.Group_Identifier;
+                  isAddtoListView := true;
                   Break;
                 end;
               end;
             end;
           end;
-        end;
-      end;
-    end;
-    //proses sent, just controller
-    3:
-    begin
-      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-      begin
-        if Cmd.SendFrom = 0 then
-        begin
-          msgSendFrom := 'Controller';
-          isAddtoListView := True;
-        end
-        else
-        begin
-          for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+
+          if isAddtoListView then
           begin
-            grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[i] as T3CubicleGroup;
-            if grp <> nil then begin
-              if grp.FData.Group_Index = Cmd.SendFrom then
-              begin
-                msgSendFrom := grp.FData.Group_Identifier;
-                isAddtoListView := true;
-                Break;
+            with frmToteDisplay.lvReceiveNav.Items.Add do
+            begin
+              MessageHandling := TMessageHandling.Create;
+              MessageHandling.FData := Cmd;
+
+              //Add Pointer Data
+              Data := MessageHandling;
+
+              Caption := msgSendFrom;
+              SubItems.Add(Cmd.MessageHandling);
+              SubItems.Add(Cmd.Subject);
+
+              case Cmd.Priority of
+                0 : SubItems.Add('FLASH');
+                1 : SubItems.Add('IMMED');
+                2 : SubItems.Add('PRIORITY');
+                3 : SubItems.Add('ROUTINE');
               end;
             end;
           end;
         end;
+        {$ENDREGION}
+      end;
+      4 :
+      begin
+        {$REGION ' delete message '}
+        case Cmd.OrderID of
+          1 :
+          begin
+            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            begin
+              if cmd.SendFrom = 0 then
+              begin
+                isDeleteListView := true;
+              end;
+            end
+            else
+            begin
+              if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+              begin
+                isDeleteListView := True;
+              end;
+            end;
+
+            if isDeleteListView then
+            begin
+              for i := 0 to frmToteDisplay.lvReceiveNav.Items.Count - 1 do
+              begin
+                if frmToteDisplay.lvReceiveNav.Items[i].Data <> nil then
+                begin
+                  MessageHandling := TMessageHandling(frmToteDisplay.lvReceiveNav.Items[i].Data);
+                  MessageHandling.FData.OrderID := 1;
+                  MessageHandling.FData.Messagetype := 4;
+
+                  if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
+                      (MessageHandling.FData.SesionID = Cmd.SesionID) and
+                      (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
+                      (MessageHandling.FData.Sendto = Cmd.Sendto) and
+                      (MessageHandling.FData.Subject = Cmd.Subject) and
+                      (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
+                      (MessageHandling.FData.Priority = cmd.Priority) and
+                      (MessageHandling.FData.Band = Cmd.Band) and
+                      (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
+                      (MessageHandling.FData.RecipientList = Cmd.RecipientList)
+                     )
+                  then
+                  begin
+                    if i < frmToteDisplay.lvReceiveNav.Items.Count  then
+                    begin
+                      frmToteDisplay.mmoMessageNav.Lines.Clear;
+                      frmToteDisplay.lvReceiveNav.Items[i].Data := nil;
+                      frmToteDisplay.lvReceiveNav.Items[i].Delete;
+                      Break;
+                    end;
+                  end;
+                end;
+              end;
+            end;
+          end;
+          2 :
+          begin
+            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            begin
+              if cmd.SendFrom = 0 then
+              begin
+                isDeleteListView := true;
+              end;
+            end
+            else
+            begin
+              if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+              begin
+                isDeleteListView := True;
+              end;
+            end;
+
+            if isDeleteListView then
+            begin
+              for i := 0 to frmToteDisplay.lvDraftNav.Items.Count - 1 do
+              begin
+                if frmToteDisplay.lvDraftNav.Items[i].Data <> nil then
+                begin
+                  MessageHandling := TMessageHandling(frmToteDisplay.lvDraftNav.Items[i].Data);
+                  MessageHandling.FData.OrderID := 2;
+                  MessageHandling.FData.Messagetype := 4;
+
+                  if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
+                      (MessageHandling.FData.SesionID = Cmd.SesionID) and
+                      (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
+                      (MessageHandling.FData.Sendto = Cmd.Sendto) and
+                      (MessageHandling.FData.Subject = Cmd.Subject) and
+                      (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
+                      (MessageHandling.FData.Priority = cmd.Priority) and
+                      (MessageHandling.FData.Band = Cmd.Band) and
+                      (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
+                      (MessageHandling.FData.RecipientList = Cmd.RecipientList)
+                     )
+                  then
+                  begin
+                    if i < frmToteDisplay.lvDraftNav.Items.Count  then
+                    begin
+                      frmToteDisplay.mmoMessageNav.Lines.Clear;
+                      frmToteDisplay.lvDraftNav.Items[i].Data := nil;
+                      frmToteDisplay.lvDraftNav.Items[i].Delete;
+                      Break;
+                    end;
+                  end;
+                end;
+              end;
+            end;
+          end;
+          3 :
+          begin
+            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            begin
+              if cmd.SendFrom = 0 then
+              begin
+                isDeleteListView := true;
+              end;
+            end
+            else
+            begin
+              if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+              begin
+                isDeleteListView := True;
+              end;
+            end;
+
+            if isDeleteListView then
+            begin
+              for i := 0 to frmToteDisplay.lvSentNav.Items.Count - 1 do
+              begin
+                if frmToteDisplay.lvSentNav.Items[i].Data <> nil then
+                begin
+                  MessageHandling := TMessageHandling(frmToteDisplay.lvSentNav.Items[i].Data);
+                  MessageHandling.FData.OrderID := 3;
+                  MessageHandling.FData.Messagetype := 4;
+
+                  if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
+                      (MessageHandling.FData.SesionID = Cmd.SesionID) and
+                      (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
+                      (MessageHandling.FData.Sendto = Cmd.Sendto) and
+                      (MessageHandling.FData.Subject = Cmd.Subject) and
+                      (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
+                      (MessageHandling.FData.Priority = cmd.Priority) and
+                      (MessageHandling.FData.Band = Cmd.Band) and
+                      (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
+                      (MessageHandling.FData.RecipientList = Cmd.RecipientList)
+                     )
+                  then
+                  begin
+                    if i < frmToteDisplay.lvSentNav.Items.Count  then
+                    begin
+                      frmToteDisplay.mmoMessageNav.Lines.Clear;
+                      frmToteDisplay.lvSentNav.Items[i].Data := nil;
+                      frmToteDisplay.lvSentNav.Items[i].Delete;
+                      Break;
+                    end;
+                  end;
+                end;
+              end;
+            end;
+          end;
+        end;
+        {$ENDREGION}
+      end;
+    end;
+    {$ENDREGION}
+  end
+  else if (vGameDataSetting.Role = 2) or (vGameDataSetting.Role = 3) then
+  begin
+    {$REGION ' Firing '}
+    isAddtoListView := False;
+    isDeleteListView := false;
+
+    case Cmd.Messagetype of
+      0 :
+      begin
+        {$REGION ' Sync Sent Message In Same Cubicle '}
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        begin
+          if Cmd.SendFrom = 0 then
+            isAddtoListView := True;
+        end
+        else
+        begin
+          if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+            isAddtoListView := True;
+        end;
 
         if isAddtoListView then
         begin
-          with frmToteDisplay.lvReceiveFiring.Items.Add do
+          with frmToteDisplay.lvSentNav.Items.Add do
           begin
             MessageHandling := TMessageHandling.Create;
             MessageHandling.FData := Cmd;
@@ -7867,7 +7399,7 @@ begin
             //Add Pointer Data
             Data := MessageHandling;
 
-            Caption := msgSendFrom;
+            Caption := Cmd.RecipientList;
             SubItems.Add(Cmd.MessageHandling);
             SubItems.Add(Cmd.Subject);
 
@@ -7879,57 +7411,437 @@ begin
             end;
           end;
         end;
+        {$ENDREGION}
+      end;
+      1 :
+      begin
+        {$REGION ' Sync Draft Message In Same Cubicle '}
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        begin
+          if Cmd.SendFrom = 0 then
+            isAddtoListView := True;
+        end
+        else
+        begin
+          if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+            isAddtoListView := True;
+        end;
+
+        if isAddtoListView then
+        begin
+          with frmToteDisplay.lvDraftFiring.Items.Add do
+          begin
+            MessageHandling := TMessageHandling.Create;
+            MessageHandling.FData := Cmd;
+
+            //Add Pointer Data
+            Data := MessageHandling;
+
+            Caption := Cmd.RecipientList;
+            SubItems.Add(Cmd.MessageHandling);
+            SubItems.Add(Cmd.Subject);
+
+            case Cmd.Priority of
+              0 : SubItems.Add('FLASH');
+              1 : SubItems.Add('IMMED');
+              2 : SubItems.Add('PRIORITY');
+              3 : SubItems.Add('ROUTINE');
+            end;
+          end;
+        end;
+        {$ENDREGION}
+      end;
+      2 :
+      begin
+        {$REGION ' Process Sent Message '}
+        if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then
+        begin
+          if Cmd.SendFrom <> simMgrClient.FMyCubGroup.FData.Group_Index then
+          begin
+            if cmd.SendFrom = 0 then
+              msgSendFrom := 'Controller';
+
+            if Cmd.Sendto = simMgrClient.FMyCubGroup.FData.Group_Index then
+            begin
+              for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+              begin
+                grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[i] as T3CubicleGroup;
+                if grp <> nil then begin
+                  if grp.FData.Group_Index = Cmd.SendFrom then
+                  begin
+                    with frmToteDisplay.lvReceiveFiring.Items.Add do
+                    begin
+                      frmRightAtasAir.addStatus('Receive Message');
+
+                      MessageHandling := TMessageHandling.Create;
+                      MessageHandling.FData := Cmd;
+
+                      //Add Pointer Data
+                      Data := MessageHandling;
+
+                      msgSendFrom := grp.FData.Group_Identifier;
+                      Caption := msgSendFrom;
+                      SubItems.Add(Cmd.MessageHandling);
+                      SubItems.Add(Cmd.Subject);
+
+                      case Cmd.Priority of
+                        0 : SubItems.Add('FLASH');
+                        1 : SubItems.Add('IMMED');
+                        2 : SubItems.Add('PRIORITY');
+                        3 : SubItems.Add('ROUTINE');
+                      end;
+                    end;
+
+                    Break;
+                  end;
+                end;
+              end;
+            end;
+          end;
+        end;
+        {$ENDREGION}
+      end;
+      3:
+      begin
+        {$REGION ' proses sent, just controller '}
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        begin
+          if Cmd.SendFrom = 0 then
+          begin
+            msgSendFrom := 'Controller';
+            isAddtoListView := True;
+          end
+          else
+          begin
+            for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+            begin
+              grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[i] as T3CubicleGroup;
+              if grp <> nil then begin
+                if grp.FData.Group_Index = Cmd.SendFrom then
+                begin
+                  msgSendFrom := grp.FData.Group_Identifier;
+                  isAddtoListView := true;
+                  Break;
+                end;
+              end;
+            end;
+          end;
+
+          if isAddtoListView then
+          begin
+            with frmToteDisplay.lvReceiveFiring.Items.Add do
+            begin
+              MessageHandling := TMessageHandling.Create;
+              MessageHandling.FData := Cmd;
+
+              //Add Pointer Data
+              Data := MessageHandling;
+
+              Caption := msgSendFrom;
+              SubItems.Add(Cmd.MessageHandling);
+              SubItems.Add(Cmd.Subject);
+
+              case Cmd.Priority of
+                0 : SubItems.Add('FLASH');
+                1 : SubItems.Add('IMMED');
+                2 : SubItems.Add('PRIORITY');
+                3 : SubItems.Add('ROUTINE');
+              end;
+            end;
+          end;
+        end;
+        {$ENDREGION}
+      end;
+      4 :
+      begin
+        {$REGION ' delete message '}
+        case Cmd.OrderID of
+          1 :
+          begin
+            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            begin
+              if cmd.SendFrom = 0 then
+              begin
+                isDeleteListView := true;
+              end;
+            end
+            else
+            begin
+              if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+              begin
+                isDeleteListView := True;
+              end;
+            end;
+
+            if isDeleteListView then
+            begin
+              for i := 0 to frmToteDisplay.lvReceiveFiring.Items.Count - 1 do
+              begin
+                if frmToteDisplay.lvReceiveFiring.Items[i].Data <> nil then
+                begin
+                  MessageHandling := TMessageHandling(frmToteDisplay.lvReceiveFiring.Items[i].Data);
+                  MessageHandling.FData.OrderID := 1;
+                  MessageHandling.FData.Messagetype := 4;
+
+                  if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
+                      (MessageHandling.FData.SesionID = Cmd.SesionID) and
+                      (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
+                      (MessageHandling.FData.Sendto = Cmd.Sendto) and
+                      (MessageHandling.FData.Subject = Cmd.Subject) and
+                      (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
+                      (MessageHandling.FData.Priority = cmd.Priority) and
+                      (MessageHandling.FData.Band = Cmd.Band) and
+                      (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
+                      (MessageHandling.FData.RecipientList = Cmd.RecipientList)
+                     )
+                  then
+                  begin
+                    if i < frmToteDisplay.lvReceiveFiring.Items.Count  then
+                    begin
+                      frmToteDisplay.mmoMessageFiring.Lines.Clear;
+                      frmToteDisplay.lvReceiveFiring.Items[i].Data := nil;
+                      frmToteDisplay.lvReceiveFiring.Items[i].Delete;
+                      Break;
+                    end;
+                  end;
+                end;
+              end;
+            end;
+          end;
+          2 :
+          begin
+            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            begin
+              if cmd.SendFrom = 0 then
+              begin
+                isDeleteListView := true;
+              end;
+            end
+            else
+            begin
+              if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+              begin
+                isDeleteListView := True;
+              end;
+            end;
+
+            if isDeleteListView then
+            begin
+              for i := 0 to frmToteDisplay.lvDraftFiring.Items.Count - 1 do
+              begin
+                if frmToteDisplay.lvDraftFiring.Items[i].Data <> nil then
+                begin
+                  MessageHandling := TMessageHandling(frmToteDisplay.lvDraftFiring.Items[i].Data);
+                  MessageHandling.FData.OrderID := 2;
+                  MessageHandling.FData.Messagetype := 4;
+
+                  if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
+                      (MessageHandling.FData.SesionID = Cmd.SesionID) and
+                      (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
+                      (MessageHandling.FData.Sendto = Cmd.Sendto) and
+                      (MessageHandling.FData.Subject = Cmd.Subject) and
+                      (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
+                      (MessageHandling.FData.Priority = cmd.Priority) and
+                      (MessageHandling.FData.Band = Cmd.Band) and
+                      (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
+                      (MessageHandling.FData.RecipientList = Cmd.RecipientList)
+                     )
+                  then
+                  begin
+                    if i < frmToteDisplay.lvDraftFiring.Items.Count  then
+                    begin
+                      frmToteDisplay.mmoMessageFiring.Lines.Clear;
+                      frmToteDisplay.lvDraftFiring.Items[i].Data := nil;
+                      frmToteDisplay.lvDraftFiring.Items[i].Delete;
+                      Break;
+                    end;
+                  end;
+                end;
+              end;
+            end;
+          end;
+          3 :
+          begin
+            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            begin
+              if cmd.SendFrom = 0 then
+              begin
+                isDeleteListView := true;
+              end;
+            end
+            else
+            begin
+              if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+              begin
+                isDeleteListView := True;
+              end;
+            end;
+
+            if isDeleteListView then
+            begin
+              for i := 0 to frmToteDisplay.lvSentFiring.Items.Count - 1 do
+              begin
+                if frmToteDisplay.lvSentFiring.Items[i].Data <> nil then
+                begin
+                  MessageHandling := TMessageHandling(frmToteDisplay.lvSentFiring.Items[i].Data);
+                  MessageHandling.FData.OrderID := 3;
+                  MessageHandling.FData.Messagetype := 4;
+
+                  if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
+                      (MessageHandling.FData.SesionID = Cmd.SesionID) and
+                      (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
+                      (MessageHandling.FData.Sendto = Cmd.Sendto) and
+                      (MessageHandling.FData.Subject = Cmd.Subject) and
+                      (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
+                      (MessageHandling.FData.Priority = cmd.Priority) and
+                      (MessageHandling.FData.Band = Cmd.Band) and
+                      (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
+                      (MessageHandling.FData.RecipientList = Cmd.RecipientList)
+                     )
+                  then
+                  begin
+                    if i < frmToteDisplay.lvSentFiring.Items.Count  then
+                    begin
+                      frmToteDisplay.mmoMessageFiring.Lines.Clear;
+                      frmToteDisplay.lvSentFiring.Items[i].Data := nil;
+                      frmToteDisplay.lvSentFiring.Items[i].Delete;
+                      Break;
+                    end;
+                  end;
+                end;
+              end;
+            end;
+          end;
+        end;
+        {$ENDREGION}
       end;
     end;
-    //delete message
-    4 :
-    begin
-      case Cmd.OrderID of
-        1 :
+    {$ENDREGION}
+  end
+  else
+  begin
+    {$REGION ' Other Role '}
+    isAddtoListView := False;
+    isDeleteListView := false;
+
+    case Cmd.Messagetype of
+      0 :
+      begin
+        {$REGION ' Sync Sent Message In Same Cubicle '}
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
         begin
-          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          if Cmd.SendFrom = 0 then
+            isAddtoListView := True;
+        end
+        else
+        begin
+          if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+            isAddtoListView := True;
+        end;
+
+        if isAddtoListView then
+        begin
+          with frmToteDisplay.lvSent.Items.Add do
           begin
-            if cmd.SendFrom = 0 then
-            begin
-              isDeleteListView := true;
-            end;
-          end
-          else
-          begin
-            if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-            begin
-              isDeleteListView := True;
+            MessageHandling := TMessageHandling.Create;
+            MessageHandling.FData := Cmd;
+
+            //Add Pointer Data
+            Data := MessageHandling;
+
+            Caption := Cmd.RecipientList;
+            SubItems.Add(Cmd.MessageHandling);
+            SubItems.Add(Cmd.Subject);
+
+            case Cmd.Priority of
+              0 : SubItems.Add('FLASH');
+              1 : SubItems.Add('IMMED');
+              2 : SubItems.Add('PRIORITY');
+              3 : SubItems.Add('ROUTINE');
             end;
           end;
+        end;
+        {$ENDREGION}
+      end;
+      1 :
+      begin
+        {$REGION ' Sync Draft Message In Same Cubicle '}
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        begin
+          if Cmd.SendFrom = 0 then
+            isAddtoListView := True;
+        end
+        else
+        begin
+          if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+            isAddtoListView := True;
+        end;
 
-          if isDeleteListView then
+        if isAddtoListView then
+        begin
+          with frmToteDisplay.lvDraft.Items.Add do
           begin
-            for i := 0 to frmToteDisplay.lvReceiveFiring.Items.Count - 1 do
-            begin
-              if frmToteDisplay.lvReceiveFiring.Items[i].Data <> nil then
-              begin
-                MessageHandling := TMessageHandling(frmToteDisplay.lvReceiveFiring.Items[i].Data);
-                MessageHandling.FData.OrderID := 1;
-                MessageHandling.FData.Messagetype := 4;
+            MessageHandling := TMessageHandling.Create;
+            MessageHandling.FData := Cmd;
 
-                if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
-                    (MessageHandling.FData.SesionID = Cmd.SesionID) and
-                    (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
-                    (MessageHandling.FData.Sendto = Cmd.Sendto) and
-                    (MessageHandling.FData.Subject = Cmd.Subject) and
-                    (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
-                    (MessageHandling.FData.Priority = cmd.Priority) and
-                    (MessageHandling.FData.Band = Cmd.Band) and
-                    (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
-                    (MessageHandling.FData.RecipientList = Cmd.RecipientList)
-                   )
-                then
-                begin
-                  if i < frmToteDisplay.lvReceiveFiring.Items.Count  then
+            //Add Pointer Data
+            Data := MessageHandling;
+
+            Caption := Cmd.RecipientList;
+            SubItems.Add(Cmd.MessageHandling);
+            SubItems.Add(Cmd.Subject);
+
+            case Cmd.Priority of
+              0 : SubItems.Add('FLASH');
+              1 : SubItems.Add('IMMED');
+              2 : SubItems.Add('PRIORITY');
+              3 : SubItems.Add('ROUTINE');
+            end;
+          end;
+        end;
+        {$ENDREGION}
+      end;
+      2 :
+      begin
+        {$REGION ' Process Sent Message '}
+        if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then
+        begin
+          if Cmd.SendFrom <> simMgrClient.FMyCubGroup.FData.Group_Index then
+          begin
+            if cmd.SendFrom = 0 then
+              msgSendFrom := 'Controller';
+
+            if Cmd.Sendto = simMgrClient.FMyCubGroup.FData.Group_Index then
+            begin
+              for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
+              begin
+                grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[i] as T3CubicleGroup;
+                if grp <> nil then begin
+                  if grp.FData.Group_Index = Cmd.SendFrom then
                   begin
-                    frmToteDisplay.mmoMessageFiring.Lines.Clear;
-                    frmToteDisplay.lvReceiveFiring.Items[i].Data := nil;
-                    frmToteDisplay.lvReceiveFiring.Items[i].Delete;
+                    with frmToteDisplay.lvReceive.Items.Add do
+                    begin
+                      frmTacticalDisplay.addStatus('Receive Message');
+
+                      MessageHandling := TMessageHandling.Create;
+                      MessageHandling.FData := Cmd;
+
+                      //Add Pointer Data
+                      Data := MessageHandling;
+
+                      msgSendFrom := grp.FData.Group_Identifier;
+                      Caption := msgSendFrom;
+                      SubItems.Add(Cmd.MessageHandling);
+                      SubItems.Add(Cmd.Subject);
+
+                      case Cmd.Priority of
+                        0 : SubItems.Add('FLASH');
+                        1 : SubItems.Add('IMMED');
+                        2 : SubItems.Add('PRIORITY');
+                        3 : SubItems.Add('ROUTINE');
+                      end;
+                    end;
+
                     Break;
                   end;
                 end;
@@ -7937,114 +7849,226 @@ begin
             end;
           end;
         end;
-        2 :
+        {$ENDREGION}
+      end;
+      3:
+      begin
+        {$REGION ' proses sent, just controller '}
+        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
         begin
-          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          if Cmd.SendFrom = 0 then
           begin
-            if cmd.SendFrom = 0 then
-            begin
-              isDeleteListView := true;
-            end;
+            msgSendFrom := 'Controller';
+            isAddtoListView := True;
           end
           else
           begin
-            if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+            for i := 0 to simMgrClient.Scenario.CubiclesGroupsListFromDB.Count - 1 do
             begin
-              isDeleteListView := True;
+              grp := simMgrClient.Scenario.CubiclesGroupsListFromDB.Items[i] as T3CubicleGroup;
+              if grp <> nil then begin
+                if grp.FData.Group_Index = Cmd.SendFrom then
+                begin
+                  msgSendFrom := grp.FData.Group_Identifier;
+                  isAddtoListView := true;
+                  Break;
+                end;
+              end;
             end;
           end;
 
-          if isDeleteListView then
+          if isAddtoListView then
           begin
-            for i := 0 to frmToteDisplay.lvDraftFiring.Items.Count - 1 do
+            with frmToteDisplay.lvReceive.Items.Add do
             begin
-              if frmToteDisplay.lvDraftFiring.Items[i].Data <> nil then
-              begin
-                MessageHandling := TMessageHandling(frmToteDisplay.lvDraftFiring.Items[i].Data);
-                MessageHandling.FData.OrderID := 2;
-                MessageHandling.FData.Messagetype := 4;
+              MessageHandling := TMessageHandling.Create;
+              MessageHandling.FData := Cmd;
 
-                if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
-                    (MessageHandling.FData.SesionID = Cmd.SesionID) and
-                    (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
-                    (MessageHandling.FData.Sendto = Cmd.Sendto) and
-                    (MessageHandling.FData.Subject = Cmd.Subject) and
-                    (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
-                    (MessageHandling.FData.Priority = cmd.Priority) and
-                    (MessageHandling.FData.Band = Cmd.Band) and
-                    (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
-                    (MessageHandling.FData.RecipientList = Cmd.RecipientList)
-                   )
-                then
+              //Add Pointer Data
+              Data := MessageHandling;
+
+              Caption := msgSendFrom;
+              SubItems.Add(Cmd.MessageHandling);
+              SubItems.Add(Cmd.Subject);
+
+              case Cmd.Priority of
+                0 : SubItems.Add('FLASH');
+                1 : SubItems.Add('IMMED');
+                2 : SubItems.Add('PRIORITY');
+                3 : SubItems.Add('ROUTINE');
+              end;
+            end;
+          end;
+        end;
+        {$ENDREGION}
+      end;
+      4 :
+      begin
+        {$REGION ' delete message '}
+        case Cmd.OrderID of
+          1 :
+          begin
+            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            begin
+              if cmd.SendFrom = 0 then
+              begin
+                isDeleteListView := true;
+              end;
+            end
+            else
+            begin
+              if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+              begin
+                isDeleteListView := True;
+              end;
+            end;
+
+            if isDeleteListView then
+            begin
+              for i := 0 to frmToteDisplay.lvReceive.Items.Count - 1 do
+              begin
+                if frmToteDisplay.lvReceive.Items[i].Data <> nil then
                 begin
-                  if i < frmToteDisplay.lvDraftFiring.Items.Count  then
+                  MessageHandling := TMessageHandling(frmToteDisplay.lvReceive.Items[i].Data);
+                  MessageHandling.FData.OrderID := 1;
+                  MessageHandling.FData.Messagetype := 4;
+
+                  if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
+                      (MessageHandling.FData.SesionID = Cmd.SesionID) and
+                      (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
+                      (MessageHandling.FData.Sendto = Cmd.Sendto) and
+                      (MessageHandling.FData.Subject = Cmd.Subject) and
+                      (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
+                      (MessageHandling.FData.Priority = cmd.Priority) and
+                      (MessageHandling.FData.Band = Cmd.Band) and
+                      (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
+                      (MessageHandling.FData.RecipientList = Cmd.RecipientList)
+                     )
+                  then
                   begin
-                    frmToteDisplay.mmoMessageFiring.Lines.Clear;
-                    frmToteDisplay.lvDraftFiring.Items[i].Data := nil;
-                    frmToteDisplay.lvDraftFiring.Items[i].Delete;
-                    Break;
+                    if i < frmToteDisplay.lvReceive.Items.Count  then
+                    begin
+                      frmToteDisplay.mmoMessage.Lines.Clear;
+                      frmToteDisplay.lvReceive.Items[i].Data := nil;
+                      frmToteDisplay.lvReceive.Items[i].Delete;
+                      Break;
+                    end;
+                  end;
+                end;
+              end;
+            end;
+          end;
+          2 :
+          begin
+            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            begin
+              if cmd.SendFrom = 0 then
+              begin
+                isDeleteListView := true;
+              end;
+            end
+            else
+            begin
+              if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+              begin
+                isDeleteListView := True;
+              end;
+            end;
+
+            if isDeleteListView then
+            begin
+              for i := 0 to frmToteDisplay.lvDraft.Items.Count - 1 do
+              begin
+                if frmToteDisplay.lvDraft.Items[i].Data <> nil then
+                begin
+                  MessageHandling := TMessageHandling(frmToteDisplay.lvDraft.Items[i].Data);
+                  MessageHandling.FData.OrderID := 2;
+                  MessageHandling.FData.Messagetype := 4;
+
+                  if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
+                      (MessageHandling.FData.SesionID = Cmd.SesionID) and
+                      (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
+                      (MessageHandling.FData.Sendto = Cmd.Sendto) and
+                      (MessageHandling.FData.Subject = Cmd.Subject) and
+                      (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
+                      (MessageHandling.FData.Priority = cmd.Priority) and
+                      (MessageHandling.FData.Band = Cmd.Band) and
+                      (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
+                      (MessageHandling.FData.RecipientList = Cmd.RecipientList)
+                     )
+                  then
+                  begin
+                    if i < frmToteDisplay.lvDraft.Items.Count  then
+                    begin
+                      frmToteDisplay.mmoMessage.Lines.Clear;
+                      frmToteDisplay.lvDraft.Items[i].Data := nil;
+                      frmToteDisplay.lvDraft.Items[i].Delete;
+                      Break;
+                    end;
+                  end;
+                end;
+              end;
+            end;
+          end;
+          3 :
+          begin
+            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            begin
+              if cmd.SendFrom = 0 then
+              begin
+                isDeleteListView := true;
+              end;
+            end
+            else
+            begin
+              if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
+              begin
+                isDeleteListView := True;
+              end;
+            end;
+
+            if isDeleteListView then
+            begin
+              for i := 0 to frmToteDisplay.lvSent.Items.Count - 1 do
+              begin
+                if frmToteDisplay.lvSent.Items[i].Data <> nil then
+                begin
+                  MessageHandling := TMessageHandling(frmToteDisplay.lvSent.Items[i].Data);
+                  MessageHandling.FData.OrderID := 3;
+                  MessageHandling.FData.Messagetype := 4;
+
+                  if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
+                      (MessageHandling.FData.SesionID = Cmd.SesionID) and
+                      (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
+                      (MessageHandling.FData.Sendto = Cmd.Sendto) and
+                      (MessageHandling.FData.Subject = Cmd.Subject) and
+                      (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
+                      (MessageHandling.FData.Priority = cmd.Priority) and
+                      (MessageHandling.FData.Band = Cmd.Band) and
+                      (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
+                      (MessageHandling.FData.RecipientList = Cmd.RecipientList)
+                     )
+                  then
+                  begin
+                    if i < frmToteDisplay.lvSent.Items.Count  then
+                    begin
+                      frmToteDisplay.mmoMessage.Lines.Clear;
+                      frmToteDisplay.lvSent.Items[i].Data := nil;
+                      frmToteDisplay.lvSent.Items[i].Delete;
+                      Break;
+                    end;
                   end;
                 end;
               end;
             end;
           end;
         end;
-        3 :
-        begin
-          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-          begin
-            if cmd.SendFrom = 0 then
-            begin
-              isDeleteListView := true;
-            end;
-          end
-          else
-          begin
-            if Cmd.SendFrom = simMgrClient.FMyCubGroup.FData.Group_Index then
-            begin
-              isDeleteListView := True;
-            end;
-          end;
-
-          if isDeleteListView then
-          begin
-            for i := 0 to frmToteDisplay.lvSentFiring.Items.Count - 1 do
-            begin
-              if frmToteDisplay.lvSentFiring.Items[i].Data <> nil then
-              begin
-                MessageHandling := TMessageHandling(frmToteDisplay.lvSentFiring.Items[i].Data);
-                MessageHandling.FData.OrderID := 3;
-                MessageHandling.FData.Messagetype := 4;
-
-                if ((MessageHandling.FData.OrderID = Cmd.OrderID) and
-                    (MessageHandling.FData.SesionID = Cmd.SesionID) and
-                    (MessageHandling.FData.SendFrom = Cmd.SendFrom) and
-                    (MessageHandling.FData.Sendto = Cmd.Sendto) and
-                    (MessageHandling.FData.Subject = Cmd.Subject) and
-                    (MessageHandling.FData.Messagetype = Cmd.Messagetype) and
-                    (MessageHandling.FData.Priority = cmd.Priority) and
-                    (MessageHandling.FData.Band = Cmd.Band) and
-                    (MessageHandling.FData.MessageHandling = cmd.MessageHandling) and
-                    (MessageHandling.FData.RecipientList = Cmd.RecipientList)
-                   )
-                then
-                begin
-                  if i < frmToteDisplay.lvSentFiring.Items.Count  then
-                  begin
-                    frmToteDisplay.mmoMessageFiring.Lines.Clear;
-                    frmToteDisplay.lvSentFiring.Items[i].Data := nil;
-                    frmToteDisplay.lvSentFiring.Items[i].Delete;
-                    Break;
-                  end;
-                end;
-              end;
-            end;
-          end;
-        end;
+        {$ENDREGION}
       end;
     end;
+    {$ENDREGION}
   end;
-  {$ENDREGION}
+
 end;
 
 procedure TT3ClientEventManager.OnReceiveModifComm(Cmd: TRecModifComm);

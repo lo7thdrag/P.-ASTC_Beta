@@ -69070,7 +69070,7 @@ object frmLeftNav: TfrmLeftNav
         object bvl1: TBevel
           Left = 106
           Top = 34
-          Width = 150
+          Width = 207
           Height = 2
         end
       end

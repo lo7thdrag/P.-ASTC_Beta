@@ -7391,7 +7391,7 @@ begin
 
         if isAddtoListView then
         begin
-          with frmToteDisplay.lvSentNav.Items.Add do
+          with frmToteDisplay.lvSentFiring.Items.Add do
           begin
             MessageHandling := TMessageHandling.Create;
             MessageHandling.FData := Cmd;

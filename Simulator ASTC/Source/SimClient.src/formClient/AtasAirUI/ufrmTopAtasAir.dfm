@@ -11317,4 +11317,9 @@ object frmTopAtasAir: TfrmTopAtasAir
       TabOrder = 6
     end
   end
+  object tmr2: TTimer
+    OnTimer = tmr2Timer
+    Left = 10
+    Top = 12
+  end
 end

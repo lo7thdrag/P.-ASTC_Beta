@@ -13569,7 +13569,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       object Image2: TImage
         Left = 1049
         Top = 5
-        Width = 163
+        Width = 151
         Height = 47
         Hint = 'Map Tools'
         Picture.Data = {

@@ -14487,7 +14487,7 @@ begin
 
   {Panel Bawah}
   lblLMT.Caption := FormatDateTime('hh:mm:ss', Now);
-  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', Now);
+  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', gTime);
   WaktuUTC := TTimeZone.Local.ToUniversalTime(Now);
   lblTime.Caption := FormatDateTime('HH:nn:ss', WaktuUTC);
 

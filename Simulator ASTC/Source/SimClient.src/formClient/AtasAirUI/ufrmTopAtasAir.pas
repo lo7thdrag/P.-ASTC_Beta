@@ -45,12 +45,16 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
+    tmr2: TTimer;
     procedure btnOwnShipClick(Sender: TObject);
+    procedure tmr2Timer(Sender: TObject);
     protected
     FControlled: TObject;
   private
     { Private declarations }
   public
+    gTime: TDateTime;
+
     Procedure Refresh_OwnShipTab(Sender: TObject);
     procedure SetControlledObject(ctrlObj: TObject);
     procedure UpdateFormData;
@@ -200,6 +204,11 @@ procedure TfrmTopAtasAir.SetControlledObject(ctrlObj: TObject);
 begin
   FControlled := ctrlObj;
   Refresh_OwnShipTab(FControlled);
+end;
+
+procedure TfrmTopAtasAir.tmr2Timer(Sender: TObject);
+begin
+  lblDate.Caption := FormatDateTime('dddd, dd-mm-yyyy', gTime);
 end;
 
 procedure TfrmTopAtasAir.UpdateFormData;

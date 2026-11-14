@@ -212,7 +212,7 @@ end;
 
 procedure TfrmTopNav.tmr2Timer(Sender: TObject);
 begin
-  lblDate.Caption := FormatDateTime('dddd, dd mmmm yyyy', Now);
+  lblDate.Caption := FormatDateTime('dddd, dd-mm-yyyy', gTime);
 end;
 
 procedure TfrmTopNav.tmrUTCTimer(Sender: TObject);

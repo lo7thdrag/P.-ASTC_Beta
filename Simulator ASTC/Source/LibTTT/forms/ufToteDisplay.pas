@@ -22272,7 +22272,7 @@ begin
     btnTacticalNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\7b.bmp');
 
     10:
-    btnSMS.Picture.LoadFromFile('data\Image Simulator\Tote\left\7b.bmp');
+    btnSMS.Picture.LoadFromFile('data\Image Simulator\Tote\left\8b.bmp');
 
 //    btnEnviNew.Picture.LoadFromFile('data\Image Simulator\Tote\left\3b.bmp');
 

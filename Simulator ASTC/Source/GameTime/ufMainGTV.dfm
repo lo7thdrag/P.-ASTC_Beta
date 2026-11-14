@@ -1,10 +1,11 @@
 object frmMainGT: TfrmMainGT
   Left = 281
   Top = 0
+  Align = alTop
   BorderStyle = bsNone
   BorderWidth = 12
-  ClientHeight = 696
-  ClientWidth = 1294
+  ClientHeight = 672
+  ClientWidth = 1270
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

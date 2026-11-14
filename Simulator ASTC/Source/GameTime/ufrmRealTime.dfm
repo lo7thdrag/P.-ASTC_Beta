@@ -1,10 +1,11 @@
 object ufRealTime: TufRealTime
   Left = 0
   Top = 0
+  Align = alTop
   BorderStyle = bsNone
   BorderWidth = 12
-  ClientHeight = 744
-  ClientWidth = 1342
+  ClientHeight = 720
+  ClientWidth = 1318
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

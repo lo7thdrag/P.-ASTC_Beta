@@ -5175,7 +5175,8 @@ begin
         case vGameDataSetting.Role of
           2:
           begin
-            if (weapCategory >= wcTorpedoStraigth) and (weapCategory <= wcTorpedoAirDropped) then
+            if ((weapCategory >= wcTorpedoStraigth) and (weapCategory <= wcTorpedoAirDropped)) or
+               (weapCategory = wcMine) then
             begin
               Item.Visible := False;
               continue;

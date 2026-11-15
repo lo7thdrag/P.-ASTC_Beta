@@ -111,16 +111,18 @@ begin
 
   if edtTo.Text = '' then
   begin
-    frmTacticalDisplay.addStatus('Send To Or Send Info is Blank, Please Fill The Recipient');
-    frmRightNav.addStatus('Send To Or Send Info is Blank, Please Fill The Recipient');
-    frmRightAtasAir.addStatus('Send To Or Send Info is Blank, Please Fill The Recipient');
+    ShowMessage('Send To Or Send Info is Blank, Please Fill The Recipient');
+//    frmTacticalDisplay.addStatus('Send To Or Send Info is Blank, Please Fill The Recipient');
+//    frmRightNav.addStatus('Send To Or Send Info is Blank, Please Fill The Recipient');
+//    frmRightAtasAir.addStatus('Send To Or Send Info is Blank, Please Fill The Recipient');
   end
   else
   if mmoDisplay.Text = '' then
   begin
-    frmTacticalDisplay.addStatus('Message is Blank, Please Write the Message');
-    frmRightNav.addStatus('Message is Blank, Please Write the Message');
-    frmRightAtasAir.addStatus('Message is Blank, Please Write the Message');
+    ShowMessage('Message is Blank, Please Write the Message');
+//    frmTacticalDisplay.addStatus('Message is Blank, Please Write the Message');
+//    frmRightNav.addStatus('Message is Blank, Please Write the Message');
+//    frmRightAtasAir.addStatus('Message is Blank, Please Write the Message');
   end
   else
   begin
@@ -188,24 +190,24 @@ begin
     end;
 
     //Add to Queue Message -> Send after time is ready -> for controller
-    RecSendMessage.RecipientList := ToCub.DelimitedText;
-    RecSendMessage.OrderID := 0;
-
-    if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-      RecSendMessage.SendFrom := 0
-    else
-      RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
-
-    if edtSubject.Text = '' then
-      RecSendMessage.Subject := 'None'
-    else
-      RecSendMessage.Subject := edtSubject.Text;
-
-    RecSendMessage.Priority := cbbPrior.ItemIndex;
-    RecSendMessage.Band := cbbBand.ItemIndex;
-    RecSendMessage.MessageHandling := MessageCub;
-    RecSendMessage.Messagetype := 3;
-    simMgrClient.AddListQueueMessage(RecSendMessage);
+//    RecSendMessage.RecipientList := ToCub.DelimitedText;
+//    RecSendMessage.OrderID := 0;
+//
+//    if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+//      RecSendMessage.SendFrom := 0
+//    else
+//      RecSendMessage.SendFrom := simMgrClient.FMyCubGroup.FData.Group_Index;
+//
+//    if edtSubject.Text = '' then
+//      RecSendMessage.Subject := 'None'
+//    else
+//      RecSendMessage.Subject := edtSubject.Text;
+//
+//    RecSendMessage.Priority := cbbPrior.ItemIndex;
+//    RecSendMessage.Band := cbbBand.ItemIndex;
+//    RecSendMessage.MessageHandling := MessageCub;
+//    RecSendMessage.Messagetype := 3;
+//    simMgrClient.AddListQueueMessage(RecSendMessage);
 
     Close;
   end;

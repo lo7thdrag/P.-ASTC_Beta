@@ -770,6 +770,7 @@ type
     Label70: TLabel;
     edtBombDepth: TEdit;
     Label71: TLabel;
+    pnlControllerNone: TPanel;
     procedure btnVectacClick(Sender: TObject);
     procedure btnWeaponClick(Sender: TObject);
     procedure btnGunControlClick(Sender: TObject);
@@ -1149,6 +1150,7 @@ begin
 
   IDBomb := 0;
   IDMine := 0;
+
 end;
 
 procedure TfmWeapon.LaunchSTOTMissile;
@@ -6640,10 +6642,12 @@ var
   _weapon     : TT3Weapon;
   _vehicle    : TT3Vehicle;
   _initWeapon : TObject;
-
   _weaponCategory : TWeapoonCategory;
-
   _item    : TMenuItem;
+
+  j :Integer;
+  HasValidWeapon  : Boolean;
+  IsTorpedoMine : Boolean;
 
   // added by nando : observed by choco
   MissileOnVehicle: TT3MissilesOnVehicle;
@@ -6655,28 +6659,93 @@ var
   MissileLauncherIndex, MissileVehicleLauncherIndex : Integer;
 begin
 
-  if pi is TT3Vehicle then
+ if not (pi is TT3Vehicle) then
+  begin
+    edtWeaponName.Text := '';
+    PanelTacticalWeapons.Visible := False;
+    pnlControllerNone.Visible := True;
+    DisplayTab(0);
+    Exit;
+  end;
+
   begin
     _vehicle := TT3Vehicle(pi);
 
     {$REGION ' Reset panel '}
     pmenuWeapon.Items.Clear;
-    PanelTacticalWeapons.Visible:= _vehicle.Weapons.Count > 0;
-    btnWeapon.Enabled  := _vehicle.Weapons.Count > 0;
-    if not(_vehicle.Weapons.Count > 0) then
+
+    if _vehicle.Weapons.Count = 0 then
     begin
       edtWeaponName.Text := '';
+      PanelTacticalWeapons.Visible := False;
+      pnlControllerNone.Visible := True;
+      btnWeapon.Enabled := False;
+      DisplayTab(0);
       Exit;
     end;
+
+    btnWeapon.Enabled := True;
     {$ENDREGION}
 
     _weapon := TT3Weapon(_vehicle.Weapons.Items[_vehicle.LastWeaponsSelected]);
-//    edtWeaponName.Text := _weapon.InstanceName;
+    _weaponCategory := _vehicle.getWeaponType(_weapon.InstanceName);
+
+    IsTorpedoMine := ((_weaponCategory >= wcTorpedoStraigth) and (_weaponCategory <= wcTorpedoAirDropped)) or
+                     (_weaponCategory = wcMine);
+
+    case vGameDataSetting.Role of
+      2:
+      begin
+        {$REGION 'Atas Air'}
+          if IsTorpedoMine then
+          begin
+            edtWeaponName.Text := '';
+            PanelTacticalWeapons.Visible := False;
+            pnlControllerNone.Visible := True; //
+            DisplayTab(0);
+            Exit;
+          end;
+        {$ENDREGION}
+      end;
+
+      3:
+      begin
+        {$REGION 'Bawah  Air'}
+          HasValidWeapon := False;
+          for j := 0 to _vehicle.Weapons.Count - 1 do
+          begin
+            _weapon := TT3Weapon(_vehicle.Weapons.Items[j]);
+            _weaponCategory := _vehicle.getWeaponType(_weapon.InstanceName);
+
+            if ((_weaponCategory >= wcTorpedoStraigth) and (_weaponCategory <= wcTorpedoAirDropped)) or
+               (_weaponCategory = wcMine) then
+            begin
+              HasValidWeapon := True;
+              Break;
+            end;
+          end;
+
+          if not HasValidWeapon then
+          begin
+            edtWeaponName.Text := '';
+            PanelTacticalWeapons.Visible := False;
+            pnlControllerNone.Visible := True;
+            DisplayTab(0);
+            Exit;
+          end;
+        {$ENDREGION}
+      end;
+    end;
+
+    _weapon := TT3Weapon(_vehicle.Weapons.Items[_vehicle.LastWeaponsSelected]);
     _weaponName := _weapon.InstanceName;
-    edtWeaponName.Text := _weaponName;
 
     _weaponCategory := _vehicle.getWeaponType(_weapon.InstanceName);
     _initWeapon := _vehicle.getWeapon(_weapon.InstanceName);
+
+    edtWeaponName.Text := _weaponName;
+    PanelTacticalWeapons.Visible := True;
+    pnlControllerNone.Visible := False;
 
 //    if Assigned(frmToteDisplay) and Assigned(_initWeapon) then
 //    begin
@@ -9899,6 +9968,12 @@ begin
     Exit;
 
   ve := TT3Vehicle(FControlled);
+
+  if ve.Weapons.Count = 0 then
+  begin
+    edtWeaponName.Text := '';
+    Exit;
+  end;
 
   if vGameDataSetting.Role = 3 then
   begin

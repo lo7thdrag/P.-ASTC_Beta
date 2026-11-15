@@ -7593,6 +7593,14 @@ inherited fmWeapon: TfmWeapon
         end
       end
     end
+    object pnlControllerNone: TPanel
+      Left = 0
+      Top = 0
+      Width = 346
+      Height = 425
+      Align = alClient
+      TabOrder = 1
+    end
   end
   object pmenuWeapon: TPopupMenu
     Left = 114

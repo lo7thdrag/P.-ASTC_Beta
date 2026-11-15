@@ -7824,7 +7824,6 @@ begin
                     begin
 //                      frmTacticalDisplay.addStatus('Receive Message');
                       frmToteDisplay.imgNotifikasiGen.Visible := True;
-                      frmToteDisplay.imgNotifikasiGen.BringToFront;
 
                       MessageHandling := TMessageHandling.Create;
                       MessageHandling.FData := Cmd;
@@ -7872,6 +7871,7 @@ begin
               if grp <> nil then begin
                 if grp.FData.Group_Index = Cmd.SendFrom then
                 begin
+                  frmToteDisplay.imgNotifikasiGen.Visible := True;
                   msgSendFrom := grp.FData.Group_Identifier;
                   isAddtoListView := true;
                   Break;

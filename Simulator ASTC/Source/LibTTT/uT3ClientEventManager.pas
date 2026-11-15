@@ -7028,7 +7028,7 @@ begin
       begin
         {$REGION ' Sync Sent Message In Same Cubicle '}
 
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        if simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom = 0 then
             isAddtoListView := True;
@@ -7066,7 +7066,7 @@ begin
       1 :
       begin
         {$REGION ' Sync Draft Message In Same Cubicle '}
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        if simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom = 0 then
             isAddtoListView := True;
@@ -7104,7 +7104,7 @@ begin
       2 :
       begin
         {$REGION ' Process Sent Message '}
-        if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then
+        if not simMgrClient.ISInstructor  then
         begin
           if Cmd.SendFrom <> simMgrClient.FMyCubGroup.FData.Group_Index then
           begin
@@ -7154,7 +7154,7 @@ begin
       3:
       begin
         {$REGION ' proses sent, just controller '}
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        if simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom = 0 then
           begin
@@ -7208,7 +7208,7 @@ begin
         case Cmd.OrderID of
           1 :
           begin
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            if simMgrClient.ISInstructor then
             begin
               if cmd.SendFrom = 0 then
               begin
@@ -7260,7 +7260,7 @@ begin
           end;
           2 :
           begin
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            if simMgrClient.ISInstructor then
             begin
               if cmd.SendFrom = 0 then
               begin
@@ -7312,7 +7312,7 @@ begin
           end;
           3 :
           begin
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            if simMgrClient.ISInstructor then
             begin
               if cmd.SendFrom = 0 then
               begin
@@ -7378,7 +7378,7 @@ begin
       0 :
       begin
         {$REGION ' Sync Sent Message In Same Cubicle '}
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        if simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom = 0 then
             isAddtoListView := True;
@@ -7416,7 +7416,7 @@ begin
       1 :
       begin
         {$REGION ' Sync Draft Message In Same Cubicle '}
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        if simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom = 0 then
             isAddtoListView := True;
@@ -7454,7 +7454,7 @@ begin
       2 :
       begin
         {$REGION ' Process Sent Message '}
-        if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then
+        if not simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom <> simMgrClient.FMyCubGroup.FData.Group_Index then
           begin
@@ -7504,7 +7504,7 @@ begin
       3:
       begin
         {$REGION ' proses sent, just controller '}
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        if simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom = 0 then
           begin
@@ -7558,7 +7558,7 @@ begin
         case Cmd.OrderID of
           1 :
           begin
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            if simMgrClient.ISInstructor then
             begin
               if cmd.SendFrom = 0 then
               begin
@@ -7610,7 +7610,7 @@ begin
           end;
           2 :
           begin
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            if simMgrClient.ISInstructor then
             begin
               if cmd.SendFrom = 0 then
               begin
@@ -7662,7 +7662,7 @@ begin
           end;
           3 :
           begin
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            if simMgrClient.ISInstructor then
             begin
               if cmd.SendFrom = 0 then
               begin
@@ -7728,7 +7728,7 @@ begin
       0 :
       begin
         {$REGION ' Sync Sent Message In Same Cubicle '}
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        if simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom = 0 then
             isAddtoListView := True;
@@ -7766,7 +7766,7 @@ begin
       1 :
       begin
         {$REGION ' Sync Draft Message In Same Cubicle '}
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        if simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom = 0 then
             isAddtoListView := True;
@@ -7804,7 +7804,7 @@ begin
       2 :
       begin
         {$REGION ' Process Sent Message '}
-        if not simMgrClient.ISInstructor or not simMgrClient.ISWasdal then
+        if not simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom <> simMgrClient.FMyCubGroup.FData.Group_Index then
           begin
@@ -7879,6 +7879,8 @@ begin
 
           if isAddtoListView then
           begin
+
+
             with frmToteDisplay.lvReceive.Items.Add do
             begin
               MessageHandling := TMessageHandling.Create;
@@ -7908,7 +7910,7 @@ begin
         case Cmd.OrderID of
           1 :
           begin
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            if simMgrClient.ISInstructor then
             begin
               if cmd.SendFrom = 0 then
               begin
@@ -7960,7 +7962,7 @@ begin
           end;
           2 :
           begin
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            if simMgrClient.ISInstructor then
             begin
               if cmd.SendFrom = 0 then
               begin
@@ -8012,7 +8014,7 @@ begin
           end;
           3 :
           begin
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            if simMgrClient.ISInstructor then
             begin
               if cmd.SendFrom = 0 then
               begin

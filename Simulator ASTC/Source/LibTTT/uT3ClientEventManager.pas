@@ -7824,6 +7824,7 @@ begin
                     begin
 //                      frmTacticalDisplay.addStatus('Receive Message');
                       frmToteDisplay.imgNotifikasiGen.Visible := True;
+                      frmToteDisplay.imgNotifikasiGen.BringToFront;
 
                       MessageHandling := TMessageHandling.Create;
                       MessageHandling.FData := Cmd;

@@ -1656,6 +1656,8 @@ type
     Label381: TLabel;
     Label332: TLabel;
     Label334: TLabel;
+    imgNotifikasiGen: TImage;
+    imgimgNotifikasiFiring: TImage;
 
     // pnlRightUp: TPanel;
     // pnlRightBottom: TPanel;
@@ -2836,7 +2838,7 @@ begin
 
   btnMessage.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_b.bmp');
   btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\weapon_a.bmp');
-
+  imgimgNotifikasiFiring.Visible := False;
   pnlSMSFiring.BringToFront;
 end;
 
@@ -22234,7 +22236,7 @@ begin
       DisablePrevious;
       btnSMS.Picture.LoadFromFile('data\Image Simulator\Tote\left\8a.bmp') ;
       LastButton := 10;
-
+      imgNotifikasiGen.Visible := False;
       gbMessageHandlingSystem.BringToFront;
     end;
   end;

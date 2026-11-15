@@ -7121,7 +7121,7 @@ begin
                   begin
                     with frmToteDisplay.lvReceiveNav.Items.Add do
                     begin
-                      frmRightNav.addStatus('Receive Message');
+//                      frmRightNav.addStatus('Receive Message');
 
                       MessageHandling := TMessageHandling.Create;
                       MessageHandling.FData := Cmd;
@@ -7471,7 +7471,8 @@ begin
                   begin
                     with frmToteDisplay.lvReceiveFiring.Items.Add do
                     begin
-                      frmRightAtasAir.addStatus('Receive Message');
+//                      frmRightAtasAir.addStatus('Receive Message');
+                      frmToteDisplay.imgimgNotifikasiFiring.Visible := True;
 
                       MessageHandling := TMessageHandling.Create;
                       MessageHandling.FData := Cmd;
@@ -7821,7 +7822,8 @@ begin
                   begin
                     with frmToteDisplay.lvReceive.Items.Add do
                     begin
-                      frmTacticalDisplay.addStatus('Receive Message');
+//                      frmTacticalDisplay.addStatus('Receive Message');
+                      frmToteDisplay.imgNotifikasiGen.Visible := True;
 
                       MessageHandling := TMessageHandling.Create;
                       MessageHandling.FData := Cmd;

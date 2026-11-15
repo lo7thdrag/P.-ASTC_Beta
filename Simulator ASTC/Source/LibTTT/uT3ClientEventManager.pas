@@ -7854,7 +7854,7 @@ begin
       3:
       begin
         {$REGION ' proses sent, just controller '}
-        if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        if simMgrClient.ISInstructor then
         begin
           if Cmd.SendFrom = 0 then
           begin

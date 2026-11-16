@@ -6697,11 +6697,28 @@ begin
       2:
       begin
         {$REGION 'Atas Air'}
-          if IsTorpedoMine then
+         HasValidWeapon := False;
+          for j := 0 to _vehicle.Weapons.Count - 1 do
+          begin
+            _weapon := TT3Weapon(_vehicle.Weapons.Items[j]);
+            _weaponCategory := _vehicle.getWeaponType(_weapon.InstanceName);
+
+            IsTorpedoMine := ((_weaponCategory >= wcTorpedoStraigth) and (_weaponCategory <= wcTorpedoAirDropped)) or
+                             (_weaponCategory = wcMine);
+
+            if not IsTorpedoMine then
+            begin
+              HasValidWeapon := True;
+              _vehicle.LastWeaponsSelected := j;
+              Break;
+            end;
+          end;
+
+          if not HasValidWeapon then
           begin
             edtWeaponName.Text := '';
             PanelTacticalWeapons.Visible := False;
-            pnlControllerNone.Visible := True; //
+            pnlControllerNone.Visible := True;
             DisplayTab(0);
             Exit;
           end;
@@ -6720,6 +6737,7 @@ begin
             if ((_weaponCategory >= wcTorpedoStraigth) and (_weaponCategory <= wcTorpedoAirDropped)) or
                (_weaponCategory = wcMine) then
             begin
+              _vehicle.LastWeaponsSelected := j;
               HasValidWeapon := True;
               Break;
             end;

@@ -2838,6 +2838,7 @@ begin
 
   btnMessage.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_b.bmp');
   btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\weapon_a.bmp');
+
   imgimgNotifikasiFiring.Visible := False;
   pnlSMSFiring.BringToFront;
 end;
@@ -2850,16 +2851,14 @@ end;
 
 procedure TfrmToteDisplay.btnMessageMouseEnter(Sender: TObject);
 begin
-  btnMessage.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_b.bmp');
-
-  if ActiveButton <> 'WEAPON' then
-    btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\weapon_a.bmp');
+ if ActiveButton <> 'MESSAGE' then
+    btnMessage.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_b.bmp');
 end;
 
 procedure TfrmToteDisplay.btnMessageMouseLeave(Sender: TObject);
 begin
  if ActiveButton <> 'MESSAGE' then
-    btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_a.bmp');
+    btnMessage.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_a.bmp');
 end;
 
 procedure TfrmToteDisplay.btnMouseEnter(sender: TObject);
@@ -4367,10 +4366,8 @@ end;
 
 procedure TfrmToteDisplay.btnWeaponMouseEnter(Sender: TObject);
 begin
-  btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Weapon_b.bmp');
-
-  if ActiveButton <> 'MESSAGE' then
-    btnMessage.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Message_a.bmp');
+ if ActiveButton <> 'WEAPON' then
+    btnWeapon.Picture.LoadFromFile('data\Image Simulator\Tote\Atas Air\Weapon_b.bmp');
 end;
 
 procedure TfrmToteDisplay.btnWeaponMouseLeave(Sender: TObject);

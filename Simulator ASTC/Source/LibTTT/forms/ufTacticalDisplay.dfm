@@ -10659,6 +10659,8 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               inherited pnlControllerNone: TPanel
                 Width = 359
                 Height = 399
+                ExplicitWidth = 359
+                ExplicitHeight = 399
               end
             end
             inherited pmenuWeapon: TPopupMenu

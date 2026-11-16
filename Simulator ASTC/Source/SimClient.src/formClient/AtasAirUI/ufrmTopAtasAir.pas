@@ -208,7 +208,7 @@ end;
 
 procedure TfrmTopAtasAir.tmr2Timer(Sender: TObject);
 begin
-  lblDate.Caption := FormatDateTime('dddd, dd-mm-yyyy', gTime);
+  lblDate.Caption := FormatDateTime('dddd, dd-mmmm-yyyy', gTime);
 end;
 
 procedure TfrmTopAtasAir.UpdateFormData;

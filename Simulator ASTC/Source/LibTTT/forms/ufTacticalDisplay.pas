@@ -14497,6 +14497,9 @@ begin
   if Assigned(frmTopNav) then
     frmTopNav.gTime := gTime;
 
+  if Assigned(frmTopAtasAir) then
+    frmTopAtasAir.gTime := gTime;
+
   StatusBar1.Panels[11].Text := Format('%d Day %d Hour %d Minute %d Seconds',[Day,Hour,Min,Sec,MSec]);
 
   if simMgrClient.ISInstructor or simMgrClient.ISWasdal then

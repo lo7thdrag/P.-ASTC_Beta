@@ -10656,6 +10656,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
                   end
                 end
               end
+              inherited pnlControllerNone: TPanel
+                Width = 359
+                Height = 399
+              end
             end
             inherited pmenuWeapon: TPopupMenu
               Left = 234
@@ -13567,7 +13571,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         1216
         56)
       object Image2: TImage
-        Left = 1049
+        Left = 1046
         Top = 5
         Width = 151
         Height = 47
@@ -14019,7 +14023,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Stretch = True
       end
       object img1: TImage
-        Left = 353
+        Left = 350
         Top = 5
         Width = 84
         Height = 47
@@ -14401,7 +14405,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = tbtnScaleIncreaseClick
       end
       object imgCenterOnHook: TImage
-        Left = 527
+        Left = 524
         Top = 5
         Width = 84
         Height = 47
@@ -14783,7 +14787,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = imgCenterOnHookClick
       end
       object imgDecrease: TImage
-        Left = 440
+        Left = 437
         Top = 5
         Width = 84
         Height = 47
@@ -15165,7 +15169,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = tbtnScaleDecreaseClick
       end
       object imgDimensi: TImage
-        Left = 788
+        Left = 785
         Top = 5
         Width = 84
         Height = 47
@@ -15547,7 +15551,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnTacticalSymbolViewModeClick
       end
       object imgFilterRangeRings: TImage
-        Left = 614
+        Left = 611
         Top = 5
         Width = 84
         Height = 47
@@ -15929,7 +15933,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = imgFilterRangeRingsClick
       end
       object imgIncrease: TImage
-        Left = 266
+        Left = 263
         Top = 5
         Width = 84
         Height = 47
@@ -16311,7 +16315,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = tbtnScaleIncreaseClick
       end
       object imgMapTools: TImage
-        Left = 875
+        Left = 872
         Top = 5
         Width = 84
         Height = 47
@@ -16693,7 +16697,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnMapToolsClick
       end
       object imgPan: TImage
-        Left = 92
+        Left = 89
         Top = 5
         Width = 84
         Height = 47
@@ -17075,7 +17079,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = imgPanClick
       end
       object imgRuler: TImage
-        Left = 701
+        Left = 698
         Top = 5
         Width = 84
         Height = 47
@@ -17457,7 +17461,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnRullerClick
       end
       object imgSelect: TImage
-        Left = 5
+        Left = 2
         Top = 5
         Width = 84
         Height = 47
@@ -17839,7 +17843,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnSelectClick
       end
       object imgZoom: TImage
-        Left = 179
+        Left = 176
         Top = 5
         Width = 84
         Height = 47
@@ -18221,7 +18225,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = imgZoomClick
       end
       object lblRangeRingScales: TLabel
-        Left = 353
+        Left = 350
         Top = 33
         Width = 88
         Height = 19
@@ -18237,7 +18241,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         Visible = False
       end
       object lblLongitude1: TLabel
-        Left = 1100
+        Left = 1097
         Top = 9
         Width = 15
         Height = 16
@@ -18250,7 +18254,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         ParentFont = False
       end
       object lblLatitude1: TLabel
-        Left = 1100
+        Left = 1097
         Top = 31
         Width = 15
         Height = 16
@@ -18263,7 +18267,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         ParentFont = False
       end
       object Label25: TLabel
-        Left = 1055
+        Left = 1052
         Top = 9
         Width = 31
         Height = 16
@@ -18276,7 +18280,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         ParentFont = False
       end
       object Label26: TLabel
-        Left = 1055
+        Left = 1052
         Top = 31
         Width = 21
         Height = 16
@@ -18289,7 +18293,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         ParentFont = False
       end
       object imgOverlay: TImage
-        Left = 962
+        Left = 959
         Top = 5
         Width = 84
         Height = 47
@@ -18671,7 +18675,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
         OnClick = btnOverlayClick
       end
       object cbbSetScale: TComboBox
-        Left = 360
+        Left = 357
         Top = 17
         Width = 92
         Height = 24

@@ -11039,6 +11039,7 @@ object frmTopNav: TfrmTopNav
       Top = 11
       Width = 36
       Height = 34
+      Cursor = crHandPoint
       Hint = 'Ownship'
       Picture.Data = {
         07544269746D6170360C0000424D360C00000000000036000000280000002000

@@ -6859,6 +6859,7 @@ begin
      PanelTacticalWeapons.Visible := False;
      pnlControllerNone.Visible := True;
      DisplayTab(0);
+
     {$ENDREGION}
   end;
 end;

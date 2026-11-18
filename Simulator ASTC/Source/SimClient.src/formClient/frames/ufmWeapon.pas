@@ -6299,6 +6299,9 @@ begin
   _weaponName := DeleteAmpersand(_weaponName);
   edtWeaponName.Text := _weaponName;
 
+  PanelTacticalWeapons.Visible := True;
+  pnlControllerNone.Visible := False;
+
   if FControlled is TT3Vehicle then
   begin
     _vehicle := TT3Vehicle(FControlled);
@@ -6716,7 +6719,7 @@ begin
 
           if not HasValidWeapon then
           begin
-            edtWeaponName.Text := '';
+            edtWeaponName.Text := '-- None --';
             PanelTacticalWeapons.Visible := False;
             pnlControllerNone.Visible := True;
             DisplayTab(0);
@@ -6745,7 +6748,7 @@ begin
 
           if not HasValidWeapon then
           begin
-            edtWeaponName.Text := '';
+            edtWeaponName.Text := '-- None --';
             PanelTacticalWeapons.Visible := False;
             pnlControllerNone.Visible := True;
             DisplayTab(0);
@@ -6851,6 +6854,12 @@ begin
         pmenuWeapon.Items.Add(_item);
       end;
     end;
+    {$REGION ' Tampilan Awal '}
+     edtWeaponName.Text := '-- Select Weapon --';
+     PanelTacticalWeapons.Visible := False;
+     pnlControllerNone.Visible := True;
+     DisplayTab(0);
+    {$ENDREGION}
   end;
 end;
 

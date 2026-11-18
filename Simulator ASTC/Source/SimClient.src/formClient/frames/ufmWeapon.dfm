@@ -111,14 +111,6 @@ inherited fmWeapon: TfmWeapon
     ParentBackground = False
     ParentFont = False
     TabOrder = 1
-    object pnlControllerNone: TPanel
-      Left = 0
-      Top = 0
-      Width = 346
-      Height = 425
-      Align = alClient
-      TabOrder = 1
-    end
     object PanelTacticalWeapons: TPanel
       Left = 0
       Top = 0
@@ -5769,7 +5761,6 @@ inherited fmWeapon: TfmWeapon
           BevelOuter = bvNone
           BorderStyle = bsNone
           TabOrder = 0
-          ExplicitTop = 19
           object btnAPGBilndHide: TSpeedButton
             Tag = 4
             Left = 156
@@ -7601,6 +7592,14 @@ inherited fmWeapon: TfmWeapon
           end
         end
       end
+    end
+    object pnlControllerNone: TPanel
+      Left = 0
+      Top = 0
+      Width = 346
+      Height = 425
+      Align = alClient
+      TabOrder = 1
     end
   end
   object pmenuWeapon: TPopupMenu

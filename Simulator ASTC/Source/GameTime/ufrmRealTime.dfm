@@ -4,14 +4,15 @@ object ufRealTime: TufRealTime
   Align = alTop
   BorderStyle = bsNone
   BorderWidth = 12
-  ClientHeight = 720
-  ClientWidth = 1318
+  ClientHeight = 696
+  ClientWidth = 1294
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsStayOnTop
   KeyPreview = True
   OldCreateOrder = False
   Position = poDesigned

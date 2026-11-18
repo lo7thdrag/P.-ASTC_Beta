@@ -5006,6 +5006,7 @@ begin
                 VehicleWeapon.TargetCourse := r^.Param2;
                 VehicleWeapon.TargetGroundSpeed := r^.Param3;
                 VehicleWeapon.TargetAltitude := r^.Param4;
+                VehicleWeapon.LaunchBearing := r^.LaunchBearing;
                 VehicleWeapon.ButtonLaunch := r^.ButtonLaunch;
               end;
             wcTorpedoActiveAcoustic:
@@ -11378,7 +11379,10 @@ begin
   if (mis <> nil) {and (TT3TorpedoesOnVehicle(mis).WeaponStatus <> wsDamaged)} then
   begin
     if Assigned(tgt) then
+    begin
       TT3TorpedoesOnVehicle(mis).TargetObject := tgt;
+
+    end;
 
     TT3TorpedoesOnVehicle(mis).Planned := false;
 

@@ -418,10 +418,13 @@ begin
     btnLandPlatform.Visible := false;
 
     {NAVIGASI}
-    frmTopNav.lblName.Caption     := '---';
-    frmTopNav.lblClass.Caption    := '---';
-    frmTopNav.lblLong1.Caption    := '---';
-    frmTopNav.lblLat1.Caption     := '---';
+    if Assigned(frmTopNav) then
+    begin
+      frmTopNav.lblName.Caption     := '---';
+      frmTopNav.lblClass.Caption    := '---';
+      frmTopNav.lblLong1.Caption    := '---';
+      frmTopNav.lblLat1.Caption     := '---';
+    end;
   end;
 end;
 

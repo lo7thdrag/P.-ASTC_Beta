@@ -16366,7 +16366,7 @@ object fMainGServer: TfMainGServer
     end
     object img1: TImage
       Left = 0
-      Top = 3
+      Top = 21
       Width = 1154
       Height = 25
       Cursor = crHandPoint

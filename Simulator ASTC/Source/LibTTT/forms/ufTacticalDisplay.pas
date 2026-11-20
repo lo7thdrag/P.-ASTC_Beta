@@ -3514,7 +3514,7 @@ begin
         frmWeapon.fmWeapon1.focused_platform  := nil;
     end;
 
-    fmOverlayEditor.TrackPlatform  := focusedTrack;
+    fmOverlayEditor.TrackPlatform  := nil;
   end;
 end;
 

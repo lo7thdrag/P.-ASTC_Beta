@@ -1536,7 +1536,7 @@ begin
     btnEdit.Enabled := False;
 
     //menambahkan isShow unk multiple template
-    OverlayTemplate.isShow := False;
+    FSelectedOverlay.isShow := False;
   end;
 
 end;
@@ -1883,6 +1883,7 @@ end;
 procedure TfmOverlayEditor.btnTargetSearchClick(Sender: TObject);
 var
   objectTemp :TSimObject;
+  idTemp : Integer;
 
 begin
   if Assigned(TrackPlatform) then
@@ -1892,13 +1893,19 @@ begin
       edtTrack.Text := IntToStr(TT3PlatformInstance(TrackPlatform).TrackNumber);
       IdTrackInstanceIndex := TT3PlatformInstance(TrackPlatform).InstanceIndex
     end
-    else if TrackPlatform is TT3Vehicle then
+    else if TrackPlatform is TT3DetectedTrack then
+    begin
+//      edtTrack.Text := IntToStr(TT3PlatformInstance(TT3DetectedTrack(TrackPlatform).TrackObject).TrackLabel);
+      edtTrack.Text := TT3PlatformInstance(TT3DetectedTrack(TrackPlatform).TrackObject).TrackLabel;
+      IdTrackInstanceIndex := TT3PlatformInstance(TT3DetectedTrack(TrackPlatform).TrackObject).InstanceIndex;
+    end
+    else if TrackPlatform is TT3PlatformInstance then
     begin
       edtTrack.Text := TT3PlatformInstance(TrackPlatform).Track_ID;
       IdTrackInstanceIndex := TT3PlatformInstance(TrackPlatform).InstanceIndex
     end;
 
-    objectTemp := simMgrClient.findDetectedTrack(TrackPlatform);
+    objectTemp := simMgrClient.findDetectedTrack(IdTrackInstanceIndex);
     if Assigned(objectTemp) then
     begin
       if simMgrClient.ISInstructor or simMgrClient.IsWasdal then

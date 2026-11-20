@@ -973,8 +973,7 @@ type
     WpnIntCont         : TList;
     focused_weapon     : TSimObject;
 
-    property focused_platform: TSimObject read Ffocused_platform
-      write  Setfocused_platform;
+    property focused_platform: TSimObject read Ffocused_platform write  Setfocused_platform;
     property MapPositionX : double read FMapPositionX write SetMapPositionX;
     property MapPositionY : double read FMapPositionY write SetMapPositionY;
     property IsTrack : Boolean read FisTrack write FisTrack;

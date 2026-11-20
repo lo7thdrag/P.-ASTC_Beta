@@ -57480,19 +57480,22 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           item
             Caption = 'Name'
-            Width = 105
+            Width = 140
           end
           item
             Alignment = taCenter
             Caption = 'Type'
+            Width = 100
           end
           item
             Alignment = taCenter
             Caption = 'Force'
+            Width = 0
           end
           item
             Alignment = taCenter
             Caption = 'Role'
+            Width = 0
           end
           item
             Caption = 'NoCubicle'

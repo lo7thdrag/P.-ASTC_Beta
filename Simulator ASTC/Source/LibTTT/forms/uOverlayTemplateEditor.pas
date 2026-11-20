@@ -529,6 +529,8 @@ type
     lblShow: TLabel;
     Label163: TLabel;
     Label164: TLabel;
+    Label85: TLabel;
+    Label165: TLabel;
 
     procedure FormShow(Sender: TObject);
 
@@ -719,7 +721,7 @@ implementation
 {$R *.dfm}
 uses uSimMgr_Client, uDataModuleTTT, uDBScenario, uLibSettingTTT, tttData,
   ufTacticalDisplay, uMapXHandler, uT3Unit, uFormUtil, uBaseCoordSystem,
-  ufrmKeyboard ;
+  ufrmKeyboard, uT3Vehicle ;
 
 
 procedure TfmOverlayEditor.lvPolyVertexDSelectItem(Sender: TObject;
@@ -1520,19 +1522,23 @@ begin
   if IdSelectedTrack > lvTrack.Items.Count then
     Exit;
 
-  OverlayTemplate := simMgrClient.SimOverlayTemplate.FList.Items[IdSelectedTemplate - 1];
+//  OverlayTemplate := simMgrClient.SimOverlayTemplate.FList.Items[IdSelectedTemplate - 1];
 
-  rec.TemplateName := OverlayTemplate.Name;
-  rec.IdSelectTrack := IdSelectedTrack;
-  rec.IdAction := 3;
+  if Assigned(FSelectedOverlay) then
+  begin
+    rec.TemplateName := FSelectedOverlay.Name;
+    rec.IdSelectTrack := IdSelectedTrack;
+    rec.IdAction := 3;
 
-  simMgrClient.netSend_CmdDynamicTrack(rec);
+    simMgrClient.netSend_CmdDynamicTrack(rec);
 
-  btnDetach.Enabled := False;
-  btnEdit.Enabled := False;
+    btnDetach.Enabled := False;
+    btnEdit.Enabled := False;
 
-  //menambahkan isShow unk multiple template
-  OverlayTemplate.isShow := False;
+    //menambahkan isShow unk multiple template
+    OverlayTemplate.isShow := False;
+  end;
+
 end;
 
 procedure TfmOverlayEditor.btnEditPointClick(Sender: TObject);
@@ -1875,19 +1881,32 @@ begin
 end;
 
 procedure TfmOverlayEditor.btnTargetSearchClick(Sender: TObject);
+var
+  objectTemp :TSimObject;
+
 begin
   if Assigned(TrackPlatform) then
   begin
-    if TrackPlatform is TT3DetectedTrack then
+    if TrackPlatform is TT3NonRealVehicle then
     begin
-      edtTrack.Text := TT3PlatformInstance(TT3DetectedTrack(TrackPlatform).TrackObject).Track_ID;
-      IdTrackInstanceIndex := TT3PlatformInstance(TT3DetectedTrack(TrackPlatform).TrackObject).InstanceIndex
+      edtTrack.Text := IntToStr(TT3PlatformInstance(TrackPlatform).TrackNumber);
+      IdTrackInstanceIndex := TT3PlatformInstance(TrackPlatform).InstanceIndex
     end
-    else if TrackPlatform is TT3PlatformInstance then
+    else if TrackPlatform is TT3Vehicle then
     begin
       edtTrack.Text := TT3PlatformInstance(TrackPlatform).Track_ID;
       IdTrackInstanceIndex := TT3PlatformInstance(TrackPlatform).InstanceIndex
     end;
+
+    objectTemp := simMgrClient.findDetectedTrack(TrackPlatform);
+    if Assigned(objectTemp) then
+    begin
+      if simMgrClient.ISInstructor or simMgrClient.IsWasdal then
+        edtTrack.Text := TT3PlatformInstance(TrackPlatform).Track_ID
+      else
+        edtTrack.Text := FormatTrackNumber(TT3DetectedTrack(objectTemp).TrackNumber);
+    end;
+
     btnTrackSelectionOK.Enabled := True;
   end
   else

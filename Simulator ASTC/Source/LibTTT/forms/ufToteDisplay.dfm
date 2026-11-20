@@ -98785,10 +98785,6 @@ object frmToteDisplay: TfrmToteDisplay
             TabOrder = 0
             object TabSheet1: TTabSheet
               Caption = 'Received'
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
               object Panel117: TPanel
                 Left = 0
                 Top = 0
@@ -98832,10 +98828,6 @@ object frmToteDisplay: TfrmToteDisplay
             object TabSheet2: TTabSheet
               Caption = 'Sent'
               ImageIndex = 1
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
               object Panel118: TPanel
                 Left = 0
                 Top = 0
@@ -98879,10 +98871,6 @@ object frmToteDisplay: TfrmToteDisplay
             object TabSheet3: TTabSheet
               Caption = 'Draft'
               ImageIndex = 2
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
               object Panel121: TPanel
                 Left = 0
                 Top = 0
@@ -381171,10 +381159,6 @@ object frmToteDisplay: TfrmToteDisplay
             TabOrder = 0
             object TabSheet1Nav: TTabSheet
               Caption = 'Received'
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
               object Panel74Nav: TPanel
                 Left = 0
                 Top = 0
@@ -381218,10 +381202,6 @@ object frmToteDisplay: TfrmToteDisplay
             object TabSheet2Nav: TTabSheet
               Caption = 'Sent'
               ImageIndex = 1
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
               object Panel78Nav: TPanel
                 Left = 0
                 Top = 0
@@ -381265,10 +381245,6 @@ object frmToteDisplay: TfrmToteDisplay
             object TabSheet3Nav: TTabSheet
               Caption = 'Draft'
               ImageIndex = 2
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
               object Panel82Nav: TPanel
                 Left = 0
                 Top = 0
@@ -386565,7 +386541,7 @@ object frmToteDisplay: TfrmToteDisplay
             object Label16: TLabel
               Left = 0
               Top = 110
-              Width = 56
+              Width = 1787
               Height = 16
               Align = alBottom
               Anchors = [akRight, akBottom]
@@ -386576,6 +386552,7 @@ object frmToteDisplay: TfrmToteDisplay
               Font.Name = 'Tahoma'
               Font.Style = []
               ParentFont = False
+              ExplicitWidth = 56
             end
             object Label61: TLabel
               Left = 60
@@ -640889,7 +640866,7 @@ object frmToteDisplay: TfrmToteDisplay
               Left = 1748
               Top = 4
               Width = 43
-              Height = 13
+              Height = 22
               Align = alRight
               Alignment = taCenter
               Caption = 'More >>'
@@ -640901,6 +640878,7 @@ object frmToteDisplay: TfrmToteDisplay
               ParentFont = False
               Layout = tlCenter
               OnClick = lblMoreLogisticCalculationClick
+              ExplicitHeight = 13
             end
           end
         end

@@ -2602,7 +2602,7 @@ begin
   {$ENDREGION}
 
   {$REGION ' Collision Process '}
-//  CollisionProcess;
+  CollisionProcess;
   {$ENDREGION}
 
   {$REGION ' Collision, On Land, On Grounded Effect '}

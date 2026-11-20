@@ -57506,287 +57506,125 @@ object fmOverlayEditor: TfmOverlayEditor
         ViewStyle = vsReport
         OnSelectItem = lvTemplatesSelectItem
       end
-      object pnlTrackSelection: TPanel
-        Left = 8
+      object pnlCreateNew: TPanel
+        Left = 3
         Top = 408
         Width = 282
         Height = 235
         BevelOuter = bvNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
         ParentBackground = False
         ParentColor = True
-        TabOrder = 2
-        object Label15: TLabel
-          Left = 24
-          Top = 26
-          Width = 30
-          Height = 15
-          Caption = 'Track'
+        ParentFont = False
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 8
+          Top = 25
+          Width = 32
+          Height = 13
+          Caption = 'Name'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
+          Font.Height = -12
           Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
         end
-        object lb2: TLabel
-          Left = 24
-          Top = 81
-          Width = 67
-          Height = 15
-          Caption = 'Range offset'
+        object Label65: TLabel
+          Left = 48
+          Top = 25
+          Width = 9
+          Height = 13
+          Caption = ' : '
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          Transparent = False
-        end
-        object lb3: TLabel
-          Left = 24
-          Top = 106
-          Width = 73
-          Height = 15
-          Caption = 'Bearing offset'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          Transparent = False
-        end
-        object lb4: TLabel
-          Left = 160
-          Top = 81
-          Width = 17
-          Height = 15
-          Caption = 'nm'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          Transparent = False
-        end
-        object lb5: TLabel
-          Left = 160
-          Top = 106
-          Width = 20
-          Height = 15
-          Caption = 'deg'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          Transparent = False
-        end
-        object lb6: TLabel
-          Left = 24
-          Top = 56
-          Width = 78
-          Height = 15
-          Caption = 'Rotation angle'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
+          Font.Height = -12
           Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
         end
-        object lb7: TLabel
-          Left = 160
-          Top = 56
-          Width = 20
-          Height = 15
-          Caption = 'deg'
+        object Label2: TLabel
+          Left = 7
+          Top = 51
+          Width = 31
+          Height = 13
+          Caption = 'Type  '
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
+          Font.Height = -12
           Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
         end
-        object btnTargetSearch: TSpeedButton
-          Tag = 10
-          Left = 198
-          Top = 21
-          Width = 23
-          Height = 22
-          Glyph.Data = {
-            36090000424D360900000000000036000000280000001F000000180000000100
-            18000000000000090000000000000000000000000000000000006161613E3E3E
-            3737374040403B3B3B3A3A3A4141414141413A3A3A3A3A3A4040403737373E3E
-            3E3D3D3D3838384141413A3A3A3B3B3B4040403737373E3E3E3D3D3D38383841
-            41413A3A3A3B3B3B4040403737373E3E3E3C3C3C383838000000B2B2B27C7C7C
-            7474747F7F7F7878787777778080808080807878787878788080807474747C7C
-            7C7B7B7B7474748080807A7A7A7A7A7A7F7F7F7474747C7C7C7B7B7B74747480
-            80807777777979797F7F7F7474747D7D7D7A7A7A757575000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2BDBDBDBBBBBBB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C0C0C04949
-            491111111111111111111212121212121A1A1AB2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29191914D4D4D5454545F5F
-            5F6565656262620000004747476565656363634D4D4D4D4D4D797979BABABAB2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29797976969692929292929298686
-            86B2B2B2ADADAD0000007D7D7DB2B2B2ABABAB292929292929545454979797B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B23D3D3D3B3B3BB2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B26A6A6A0E0E0EB2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B21616166F6F6FA5A5A5B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2AAAAAA94949413
-            13138A8A8AB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A4A4A400
-            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2A6A6A68B8B8B2C2C2C838383B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007F7F7FB4B4B4B2B2B2B2B2B2B2B2B2B2B2B2A7A7A727
-            27277272729C9C9CB2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B000000BDBDBDB7B7B7B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD000000888888BBBBBBB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B000000B0B0B0B3B3B3B2B2B2B2B2B2BFBFBFB6B6
-            B6B2B2B2B1B1B19D9D9DADADADB3B3B3B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3BF
-            BFBF3030304C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B0000004F4F4F5151515151515151515858585353
-            53737373B2B2B2B2B2B2B2B2B28D8D8D51515151515151515151515152525258
-            58581616164C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B0000002424242525252525252525252525252525
-            25575757B2B2B2B2B2B2B2B2B27D7D7D25252525252525252525252525252525
-            25250909094C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B000000AFAFAFB2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B27B7B7B000000BBBBBBB6B6B6B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD171717848484B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B29999995F5F5F5A5A5A949494B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B5B5B5B2B2B253
-            53535C5C5C828282B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B7B7B7AFAFAF00
-            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A4A4A400
-            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29A9A9A4545454B4B4BB2B2B2B2B2B2B2B2
-            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B274747423232399
-            9999ACACACB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B27A7A7A5A5A5A5555555555559494
-            94B5B5B5B4B4B4000000838383B7B7B7ADADAD555555555555585858646464B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B28282822121212121216D6D
-            6D9595959898980000006E6E6E9898988B8B8B2121212121215B5B5BB2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B23939
-            39000000000000000000000000000000090909B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A0A0
-            A0979797979797979797979797979797999999B2B2B2B2B2B2B2B2B2B2B2B2B2
-            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
-          OnClick = btnTargetSearchClick
-        end
-        object Bevel10: TBevel
+        object Bevel3: TBevel
           Left = 11
-          Top = 4
+          Top = 8
           Width = 259
           Height = 3
         end
-        object Bevel11: TBevel
+        object Bevel2: TBevel
           Left = 12
           Top = 190
           Width = 259
           Height = 3
+          Visible = False
         end
-        object Label16: TLabel
-          Left = 24
-          Top = 129
-          Width = 41
-          Height = 15
-          Caption = 'Bearing'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          Transparent = False
-        end
-        object Label17: TLabel
-          Left = 55
-          Top = 26
-          Width = 3
-          Height = 15
-          Caption = ':'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label18: TLabel
-          Left = 105
-          Top = 57
-          Width = 3
-          Height = 15
-          Caption = ':'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label19: TLabel
-          Left = 105
-          Top = 81
-          Width = 3
-          Height = 15
-          Caption = ':'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label20: TLabel
-          Left = 105
-          Top = 106
-          Width = 3
-          Height = 15
-          Caption = ':'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label24: TLabel
-          Left = 69
-          Top = 129
+        object Label4: TLabel
+          Left = 48
+          Top = 51
           Width = 9
-          Height = 15
+          Height = 13
           Caption = ' : '
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
+          Font.Height = -12
           Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
+          Visible = False
         end
-        object btnTrackSelectionCancel: TButton
-          Tag = 7
-          Left = 211
+        object rgForce: TRadioGroup
+          Left = 11
+          Top = 105
+          Width = 259
+          Height = 59
+          Columns = 5
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ItemIndex = 0
+          Items.Strings = (
+            'Blue'
+            'Red')
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 2
+          Visible = False
+        end
+        object edtNameOverlay: TEdit
+          Left = 70
+          Top = 21
+          Width = 188
+          Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxLength = 30
+          ParentFont = False
+          TabOrder = 0
+          Text = 'New Overlay'
+        end
+        object btnCancel: TButton
+          Tag = 5
+          Left = 209
           Top = 203
           Width = 59
           Height = 25
@@ -57797,94 +57635,106 @@ object fmOverlayEditor: TfmOverlayEditor
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 4
           OnClick = btnHandleTemplate
         end
-        object edtTrack: TEdit
-          Left = 120
-          Top = 22
-          Width = 73
-          Height = 21
-          Enabled = False
-          MaxLength = 10
-          TabOrder = 0
-        end
-        object edtRange: TEdit
-          Left = 119
-          Top = 78
-          Width = 35
-          Height = 21
-          MaxLength = 5
-          TabOrder = 1
-          Text = '0'
-          OnKeyPress = OnKeyPress
-        end
-        object edtBearing: TEdit
-          Left = 119
-          Top = 103
-          Width = 30
-          Height = 21
-          MaxLength = 3
-          NumbersOnly = True
-          TabOrder = 2
-          Text = '0'
-        end
-        object edtRotation: TEdit
-          Left = 119
-          Top = 53
-          Width = 30
-          Height = 21
-          MaxLength = 3
-          NumbersOnly = True
-          TabOrder = 3
-          Text = '0'
-        end
-        object btnTrackSelectionOK: TButton
-          Tag = 6
-          Left = 146
+        object btnOk: TButton
+          Tag = 4
+          Left = 144
           Top = 203
           Width = 59
           Height = 25
-          Caption = 'OK'
-          Enabled = False
+          Caption = 'Create'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -12
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
-          TabOrder = 6
+          TabOrder = 3
           OnClick = btnHandleTemplate
         end
-        object rbTrueOrientation: TRadioButton
-          Left = 43
-          Top = 150
-          Width = 54
-          Height = 17
-          Caption = 'True'
-          Checked = True
-          Font.Charset = ANSI_CHARSET
+        object Panel1: TPanel
+          Left = 59
+          Top = 51
+          Width = 225
+          Height = 21
+          BevelOuter = bvNone
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
+          Font.Height = -11
+          Font.Name = 'Tahoma'
           Font.Style = []
+          ParentBackground = False
+          ParentColor = True
           ParentFont = False
-          TabOrder = 4
-          TabStop = True
-        end
-        object rbRelativeOrientation: TRadioButton
-          Left = 115
-          Top = 150
-          Width = 78
-          Height = 17
-          Caption = 'Relative'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 5
+          TabOrder = 1
+          object Bevel5: TBevel
+            Left = 12
+            Top = 229
+            Width = 259
+            Height = 5
+          end
+          object Label5: TLabel
+            Left = 31
+            Top = 0
+            Width = 28
+            Height = 13
+            Caption = 'Static'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label84: TLabel
+            Left = 91
+            Top = 0
+            Width = 44
+            Height = 13
+            Caption = 'Dynamic'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object rbStatic: TRadioButton
+            Tag = 1
+            Left = 11
+            Top = 0
+            Width = 14
+            Height = 17
+            Checked = True
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            TabStop = True
+            OnClick = rbTipeHandle
+          end
+          object rbDynamic: TRadioButton
+            Left = 72
+            Top = -2
+            Width = 14
+            Height = 17
+            Caption = 'Dynamic'
+            Color = 3683636
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentColor = False
+            ParentFont = False
+            TabOrder = 1
+            OnClick = rbTipeHandle
+          end
         end
       end
       object pnlType: TPanel
@@ -58163,124 +58013,319 @@ object fmOverlayEditor: TfmOverlayEditor
           end
         end
       end
-      object pnlCreateNew: TPanel
-        Left = 3
+      object pnlTrackSelection: TPanel
+        Left = 8
         Top = 408
         Width = 282
         Height = 235
         BevelOuter = bvNone
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
         ParentBackground = False
         ParentColor = True
-        ParentFont = False
-        TabOrder = 0
-        object Label1: TLabel
-          Left = 8
-          Top = 25
-          Width = 32
-          Height = 13
-          Caption = 'Name'
+        TabOrder = 2
+        object Label15: TLabel
+          Left = 24
+          Top = 26
+          Width = 30
+          Height = 15
+          Caption = 'Track'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -12
+          Font.Height = -13
           Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
         end
-        object Label65: TLabel
-          Left = 48
-          Top = 25
-          Width = 9
-          Height = 13
-          Caption = ' : '
+        object lb2: TLabel
+          Left = 24
+          Top = 81
+          Width = 67
+          Height = 15
+          Caption = 'Range offset'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -12
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          Visible = False
+        end
+        object lb3: TLabel
+          Left = 24
+          Top = 106
+          Width = 73
+          Height = 15
+          Caption = 'Bearing offset'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          Visible = False
+        end
+        object lb4: TLabel
+          Left = 160
+          Top = 81
+          Width = 17
+          Height = 15
+          Caption = 'nm'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          Visible = False
+        end
+        object lb5: TLabel
+          Left = 160
+          Top = 106
+          Width = 20
+          Height = 15
+          Caption = 'deg'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          Visible = False
+        end
+        object lb6: TLabel
+          Left = 24
+          Top = 56
+          Width = 78
+          Height = 15
+          Caption = 'Rotation angle'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
         end
-        object Label2: TLabel
-          Left = 7
-          Top = 51
-          Width = 31
-          Height = 13
-          Caption = 'Type  '
+        object lb7: TLabel
+          Left = 160
+          Top = 56
+          Width = 20
+          Height = 15
+          Caption = 'deg'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -12
+          Font.Height = -13
           Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
         end
-        object Bevel3: TBevel
+        object btnTargetSearch: TSpeedButton
+          Tag = 10
+          Left = 198
+          Top = 21
+          Width = 23
+          Height = 22
+          Glyph.Data = {
+            36090000424D360900000000000036000000280000001F000000180000000100
+            18000000000000090000000000000000000000000000000000006161613E3E3E
+            3737374040403B3B3B3A3A3A4141414141413A3A3A3A3A3A4040403737373E3E
+            3E3D3D3D3838384141413A3A3A3B3B3B4040403737373E3E3E3D3D3D38383841
+            41413A3A3A3B3B3B4040403737373E3E3E3C3C3C383838000000B2B2B27C7C7C
+            7474747F7F7F7878787777778080808080807878787878788080807474747C7C
+            7C7B7B7B7474748080807A7A7A7A7A7A7F7F7F7474747C7C7C7B7B7B74747480
+            80807777777979797F7F7F7474747D7D7D7A7A7A757575000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2BDBDBDBBBBBBB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2C0C0C04949
+            491111111111111111111212121212121A1A1AB2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29191914D4D4D5454545F5F
+            5F6565656262620000004747476565656363634D4D4D4D4D4D797979BABABAB2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29797976969692929292929298686
+            86B2B2B2ADADAD0000007D7D7DB2B2B2ABABAB292929292929545454979797B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B23D3D3D3B3B3BB2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B26A6A6A0E0E0EB2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B21616166F6F6FA5A5A5B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2AAAAAA94949413
+            13138A8A8AB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A4A4A400
+            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2A6A6A68B8B8B2C2C2C838383B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007F7F7FB4B4B4B2B2B2B2B2B2B2B2B2B2B2B2A7A7A727
+            27277272729C9C9CB2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B000000BDBDBDB7B7B7B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD000000888888BBBBBBB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B000000B0B0B0B3B3B3B2B2B2B2B2B2BFBFBFB6B6
+            B6B2B2B2B1B1B19D9D9DADADADB3B3B3B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3BF
+            BFBF3030304C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B0000004F4F4F5151515151515151515858585353
+            53737373B2B2B2B2B2B2B2B2B28D8D8D51515151515151515151515152525258
+            58581616164C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B0000002424242525252525252525252525252525
+            25575757B2B2B2B2B2B2B2B2B27D7D7D25252525252525252525252525252525
+            25250909094C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B000000AFAFAFB2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B27B7B7B000000BBBBBBB6B6B6B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD171717848484B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B22C2C2C4C4C4CB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B29999995F5F5F5A5A5A949494B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B5B5B5B2B2B253
+            53535C5C5C828282B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B7B7B7AFAFAF00
+            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2030303757575B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A4A4A400
+            0000868686B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B29A9A9A4545454B4B4BB2B2B2B2B2B2B2B2
+            B2B2B2B2ADADAD0000007D7D7DB2B2B2B2B2B2B2B2B2B2B2B274747423232399
+            9999ACACACB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B27A7A7A5A5A5A5555555555559494
+            94B5B5B5B4B4B4000000838383B7B7B7ADADAD555555555555585858646464B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B3B3B3000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B28282822121212121216D6D
+            6D9595959898980000006E6E6E9898988B8B8B2121212121215B5B5BB2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B23939
+            39000000000000000000000000000000090909B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B4B4B4000000D0D0D0B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2A0A0
+            A0979797979797979797979797979797999999B2B2B2B2B2B2B2B2B2B2B2B2B2
+            B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2000000}
+          OnClick = btnTargetSearchClick
+        end
+        object Bevel10: TBevel
           Left = 11
-          Top = 8
+          Top = 4
           Width = 259
           Height = 3
         end
-        object Bevel2: TBevel
+        object Bevel11: TBevel
           Left = 12
           Top = 190
           Width = 259
           Height = 3
-          Visible = False
         end
-        object Label4: TLabel
-          Left = 48
-          Top = 51
-          Width = 9
-          Height = 13
-          Caption = ' : '
+        object Label16: TLabel
+          Left = 24
+          Top = 129
+          Width = 41
+          Height = 15
+          Caption = 'Bearing'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -12
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+        end
+        object Label17: TLabel
+          Left = 55
+          Top = 26
+          Width = 3
+          Height = 15
+          Caption = ':'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label18: TLabel
+          Left = 105
+          Top = 57
+          Width = 3
+          Height = 15
+          Caption = ':'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label19: TLabel
+          Left = 105
+          Top = 81
+          Width = 3
+          Height = 15
+          Caption = ':'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
           Font.Name = 'Berlin Sans FB'
           Font.Style = []
           ParentFont = False
           Visible = False
         end
-        object rgForce: TRadioGroup
-          Left = 11
-          Top = 105
-          Width = 259
-          Height = 59
-          Columns = 5
-          Font.Charset = DEFAULT_CHARSET
+        object Label20: TLabel
+          Left = 105
+          Top = 106
+          Width = 3
+          Height = 15
+          Caption = ':'
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
           Font.Height = -13
-          Font.Name = 'Tahoma'
+          Font.Name = 'Berlin Sans FB'
           Font.Style = []
-          ItemIndex = 0
-          Items.Strings = (
-            'Blue'
-            'Red')
-          ParentBackground = False
           ParentFont = False
-          TabOrder = 2
+          Visible = False
         end
-        object edtNameOverlay: TEdit
-          Left = 70
-          Top = 21
-          Width = 188
-          Height = 24
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
+        object Label24: TLabel
+          Left = 69
+          Top = 129
+          Width = 9
+          Height = 15
+          Caption = ' : '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
           Font.Height = -13
-          Font.Name = 'Tahoma'
+          Font.Name = 'Berlin Sans FB'
           Font.Style = []
-          MaxLength = 30
           ParentFont = False
-          TabOrder = 0
-          Text = 'New Overlay'
         end
-        object btnCancel: TButton
-          Tag = 5
-          Left = 209
+        object Label85: TLabel
+          Left = 64
+          Top = 151
+          Width = 24
+          Height = 15
+          Caption = 'True'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label165: TLabel
+          Left = 136
+          Top = 151
+          Width = 41
+          Height = 15
+          Caption = 'Relative'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object btnTrackSelectionCancel: TButton
+          Tag = 7
+          Left = 211
           Top = 203
           Width = 59
           Height = 25
@@ -58291,106 +58336,96 @@ object fmOverlayEditor: TfmOverlayEditor
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
-          TabOrder = 4
+          TabOrder = 7
           OnClick = btnHandleTemplate
         end
-        object btnOk: TButton
-          Tag = 4
-          Left = 144
+        object edtTrack: TEdit
+          Left = 120
+          Top = 22
+          Width = 73
+          Height = 21
+          Enabled = False
+          MaxLength = 10
+          TabOrder = 0
+        end
+        object edtRange: TEdit
+          Left = 119
+          Top = 78
+          Width = 35
+          Height = 21
+          MaxLength = 5
+          TabOrder = 1
+          Text = '0'
+          Visible = False
+          OnKeyPress = OnKeyPress
+        end
+        object edtBearing: TEdit
+          Left = 119
+          Top = 103
+          Width = 30
+          Height = 21
+          MaxLength = 3
+          NumbersOnly = True
+          TabOrder = 2
+          Text = '0'
+          Visible = False
+        end
+        object edtRotation: TEdit
+          Left = 119
+          Top = 53
+          Width = 30
+          Height = 21
+          MaxLength = 3
+          NumbersOnly = True
+          TabOrder = 3
+          Text = '0'
+        end
+        object btnTrackSelectionOK: TButton
+          Tag = 6
+          Left = 146
           Top = 203
           Width = 59
           Height = 25
-          Caption = 'Create'
+          Caption = 'OK'
+          Enabled = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -12
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
-          TabOrder = 3
+          TabOrder = 6
           OnClick = btnHandleTemplate
         end
-        object Panel1: TPanel
-          Left = 59
-          Top = 51
-          Width = 225
-          Height = 21
-          BevelOuter = bvNone
-          Font.Charset = DEFAULT_CHARSET
+        object rbTrueOrientation: TRadioButton
+          Left = 43
+          Top = 150
+          Width = 20
+          Height = 17
+          Caption = '  '
+          Checked = True
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -11
-          Font.Name = 'Tahoma'
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
           Font.Style = []
-          ParentBackground = False
-          ParentColor = True
           ParentFont = False
-          TabOrder = 1
-          object Bevel5: TBevel
-            Left = 12
-            Top = 229
-            Width = 259
-            Height = 5
-          end
-          object Label5: TLabel
-            Left = 31
-            Top = 0
-            Width = 28
-            Height = 13
-            Caption = 'Static'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWhite
-            Font.Height = -12
-            Font.Name = 'Berlin Sans FB'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label84: TLabel
-            Left = 91
-            Top = 0
-            Width = 44
-            Height = 13
-            Caption = 'Dynamic'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWhite
-            Font.Height = -12
-            Font.Name = 'Berlin Sans FB'
-            Font.Style = []
-            ParentFont = False
-          end
-          object rbStatic: TRadioButton
-            Tag = 1
-            Left = 11
-            Top = 0
-            Width = 14
-            Height = 17
-            Checked = True
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            TabStop = True
-            OnClick = rbTipeHandle
-          end
-          object rbDynamic: TRadioButton
-            Left = 72
-            Top = -2
-            Width = 14
-            Height = 17
-            Caption = 'Dynamic'
-            Color = 3683636
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 1
-            OnClick = rbTipeHandle
-          end
+          TabOrder = 4
+          TabStop = True
+        end
+        object rbRelativeOrientation: TRadioButton
+          Left = 115
+          Top = 150
+          Width = 22
+          Height = 17
+          Caption = '  '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 5
         end
       end
     end

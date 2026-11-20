@@ -5729,6 +5729,7 @@ begin
     if Assigned(simMgrClient.ControlledPlatform) then
     begin
       simMgrClient.ControlledPlatform.Selected := True;
+      UpdateVehicle(TT3Vehicle(simMgrClient.ControlledPlatform));
       Exit;
     end;
   end;

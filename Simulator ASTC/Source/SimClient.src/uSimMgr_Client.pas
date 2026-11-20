@@ -1085,6 +1085,7 @@ end;
 
 procedure TSimMgr_Client.CreateOverlayTamplate( rec: TRecCmd_OverlayTemplate);
 begin
+
   rec.isShow := False;
 
   case rec.role of
@@ -9546,7 +9547,10 @@ begin
 
   if r.Cubicle = 0 then
   begin
-    TT3ClientEventManager(EventManager).OnDynamicTrack(rec);
+    if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+    begin
+      TT3ClientEventManager(EventManager).OnDynamicTrack(rec);
+    end
   end
   else
   begin

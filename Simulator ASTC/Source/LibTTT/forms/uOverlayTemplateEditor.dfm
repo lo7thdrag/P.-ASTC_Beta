@@ -57480,22 +57480,19 @@ object fmOverlayEditor: TfmOverlayEditor
           end
           item
             Caption = 'Name'
-            Width = 140
-          end
-          item
-            Alignment = taCenter
-            Caption = 'Type'
             Width = 100
           end
           item
             Alignment = taCenter
+            Caption = 'Type'
+          end
+          item
+            Alignment = taCenter
             Caption = 'Force'
-            Width = 0
           end
           item
             Alignment = taCenter
             Caption = 'Role'
-            Width = 0
           end
           item
             Caption = 'NoCubicle'
@@ -57508,237 +57505,6 @@ object fmOverlayEditor: TfmOverlayEditor
         TabOrder = 3
         ViewStyle = vsReport
         OnSelectItem = lvTemplatesSelectItem
-      end
-      object pnlCreateNew: TPanel
-        Left = 3
-        Top = 408
-        Width = 282
-        Height = 235
-        BevelOuter = bvNone
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentBackground = False
-        ParentColor = True
-        ParentFont = False
-        TabOrder = 0
-        object Label1: TLabel
-          Left = 8
-          Top = 25
-          Width = 32
-          Height = 13
-          Caption = 'Name'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -12
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label65: TLabel
-          Left = 48
-          Top = 25
-          Width = 9
-          Height = 13
-          Caption = ' : '
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -12
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label2: TLabel
-          Left = 7
-          Top = 51
-          Width = 31
-          Height = 13
-          Caption = 'Type  '
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -12
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Bevel3: TBevel
-          Left = 11
-          Top = 8
-          Width = 259
-          Height = 3
-        end
-        object Bevel2: TBevel
-          Left = 12
-          Top = 190
-          Width = 259
-          Height = 3
-          Visible = False
-        end
-        object Label4: TLabel
-          Left = 48
-          Top = 51
-          Width = 9
-          Height = 13
-          Caption = ' : '
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -12
-          Font.Name = 'Berlin Sans FB'
-          Font.Style = []
-          ParentFont = False
-          Visible = False
-        end
-        object rgForce: TRadioGroup
-          Left = 11
-          Top = 105
-          Width = 259
-          Height = 59
-          Columns = 5
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ItemIndex = 0
-          Items.Strings = (
-            'Blue'
-            'Red')
-          ParentBackground = False
-          ParentFont = False
-          TabOrder = 2
-          Visible = False
-        end
-        object edtNameOverlay: TEdit
-          Left = 70
-          Top = 21
-          Width = 188
-          Height = 24
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          MaxLength = 30
-          ParentFont = False
-          TabOrder = 0
-          Text = 'New Overlay'
-        end
-        object btnCancel: TButton
-          Tag = 5
-          Left = 209
-          Top = 203
-          Width = 59
-          Height = 25
-          Caption = 'Cancel'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 4
-          OnClick = btnHandleTemplate
-        end
-        object btnOk: TButton
-          Tag = 4
-          Left = 144
-          Top = 203
-          Width = 59
-          Height = 25
-          Caption = 'Create'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 3
-          OnClick = btnHandleTemplate
-        end
-        object Panel1: TPanel
-          Left = 59
-          Top = 51
-          Width = 225
-          Height = 21
-          BevelOuter = bvNone
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentBackground = False
-          ParentColor = True
-          ParentFont = False
-          TabOrder = 1
-          object Bevel5: TBevel
-            Left = 12
-            Top = 229
-            Width = 259
-            Height = 5
-          end
-          object Label5: TLabel
-            Left = 31
-            Top = 0
-            Width = 28
-            Height = 13
-            Caption = 'Static'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWhite
-            Font.Height = -12
-            Font.Name = 'Berlin Sans FB'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label84: TLabel
-            Left = 91
-            Top = 0
-            Width = 44
-            Height = 13
-            Caption = 'Dynamic'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWhite
-            Font.Height = -12
-            Font.Name = 'Berlin Sans FB'
-            Font.Style = []
-            ParentFont = False
-          end
-          object rbStatic: TRadioButton
-            Tag = 1
-            Left = 11
-            Top = 0
-            Width = 14
-            Height = 17
-            Checked = True
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            TabStop = True
-            OnClick = rbTipeHandle
-          end
-          object rbDynamic: TRadioButton
-            Left = 72
-            Top = -2
-            Width = 14
-            Height = 17
-            Caption = 'Dynamic'
-            Color = 3683636
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 1
-            OnClick = rbTipeHandle
-          end
-        end
       end
       object pnlType: TPanel
         Left = 8
@@ -58429,6 +58195,286 @@ object fmOverlayEditor: TfmOverlayEditor
           Font.Style = []
           ParentFont = False
           TabOrder = 5
+        end
+      end
+      object pnlCreateNew: TPanel
+        Left = 8
+        Top = 408
+        Width = 282
+        Height = 235
+        BevelOuter = bvNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentColor = True
+        ParentFont = False
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 8
+          Top = 25
+          Width = 32
+          Height = 13
+          Caption = 'Name'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label65: TLabel
+          Left = 48
+          Top = 25
+          Width = 9
+          Height = 13
+          Caption = ' : '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label2: TLabel
+          Left = 7
+          Top = 55
+          Width = 31
+          Height = 13
+          Caption = 'Type  '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Bevel3: TBevel
+          Left = 11
+          Top = 8
+          Width = 259
+          Height = 3
+        end
+        object Bevel2: TBevel
+          Left = 12
+          Top = 190
+          Width = 259
+          Height = 3
+          Visible = False
+        end
+        object Label4: TLabel
+          Left = 48
+          Top = 55
+          Width = 9
+          Height = 13
+          Caption = ' : '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label166: TLabel
+          Left = 7
+          Top = 82
+          Width = 27
+          Height = 13
+          Caption = 'Force'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label167: TLabel
+          Left = 48
+          Top = 82
+          Width = 9
+          Height = 13
+          Caption = ' : '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Berlin Sans FB'
+          Font.Style = []
+          ParentFont = False
+        end
+        object rgForce: TRadioGroup
+          Left = 11
+          Top = 130
+          Width = 270
+          Height = 59
+          Columns = 5
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ItemIndex = 0
+          Items.Strings = (
+            'Red'
+            'Yellow'
+            'Blue'
+            'Green'
+            'No Force')
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 2
+          Visible = False
+        end
+        object edtNameOverlay: TEdit
+          Left = 70
+          Top = 21
+          Width = 188
+          Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxLength = 30
+          ParentFont = False
+          TabOrder = 0
+          Text = 'New Overlay'
+        end
+        object btnCancel: TButton
+          Tag = 5
+          Left = 209
+          Top = 203
+          Width = 59
+          Height = 25
+          Caption = 'Cancel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 4
+          OnClick = btnHandleTemplate
+        end
+        object btnOk: TButton
+          Tag = 4
+          Left = 144
+          Top = 203
+          Width = 59
+          Height = 25
+          Caption = 'Create'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 3
+          OnClick = btnHandleTemplate
+        end
+        object Panel1: TPanel
+          Left = 59
+          Top = 51
+          Width = 225
+          Height = 21
+          BevelOuter = bvNone
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentBackground = False
+          ParentColor = True
+          ParentFont = False
+          TabOrder = 1
+          object Bevel5: TBevel
+            Left = 12
+            Top = 229
+            Width = 259
+            Height = 5
+          end
+          object Label5: TLabel
+            Left = 31
+            Top = 4
+            Width = 28
+            Height = 13
+            Caption = 'Static'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label84: TLabel
+            Left = 91
+            Top = 4
+            Width = 44
+            Height = 13
+            Caption = 'Dynamic'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
+          end
+          object rbStatic: TRadioButton
+            Tag = 1
+            Left = 11
+            Top = 2
+            Width = 14
+            Height = 17
+            Checked = True
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            TabStop = True
+            OnClick = rbTipeHandle
+          end
+          object rbDynamic: TRadioButton
+            Left = 72
+            Top = 2
+            Width = 14
+            Height = 17
+            Caption = 'Dynamic'
+            Color = 3683636
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentColor = False
+            ParentFont = False
+            TabOrder = 1
+            OnClick = rbTipeHandle
+          end
+        end
+        object cbbForce: TComboBox
+          Left = 70
+          Top = 78
+          Width = 80
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ItemIndex = 0
+          ParentFont = False
+          TabOrder = 5
+          Text = 'Red'
+          Items.Strings = (
+            'Red'
+            'Yellow'
+            'Blue'
+            'Green'
+            'No Force')
         end
       end
     end

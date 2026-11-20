@@ -531,6 +531,9 @@ type
     Label164: TLabel;
     Label85: TLabel;
     Label165: TLabel;
+    cbbForce: TComboBox;
+    Label166: TLabel;
+    Label167: TLabel;
 
     procedure FormShow(Sender: TObject);
 
@@ -1809,6 +1812,26 @@ begin
     0: {Refresh}
     begin
       pnlCreateNew.BringToFront;
+
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+      begin
+        cbbForce.Enabled := True;
+      end
+      else
+      begin
+        //TForceGroup  = (fgRed = 1, fgYellow, fgBlue, fgGreen, fgNoForce = 6);
+
+        case simMgrClient.FMyCubGroup.FData.Force_Designation of
+          1 : cbbForce.ItemIndex := 0; //red
+          2 : cbbForce.ItemIndex := 1; //yellow
+          3 : cbbForce.ItemIndex := 2; //blue
+          4 : cbbForce.ItemIndex := 3; //green
+          6 : cbbForce.ItemIndex := 4; //noforce
+        end;
+
+        cbbForce.Enabled := False;
+      end;
+
       edtNameOverlay.Text := 'New Overlay';
     end;
     1:{Edit}
@@ -4894,9 +4917,15 @@ begin
 
   if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
   begin
-    case rgForce.ItemIndex of
-      0 : recTemplate.force := 3; //blue
-      1 : recTemplate.force := 1; //red
+    //TForceGroup  = (fgRed = 1, fgYellow, fgBlue, fgGreen, fgNoForce = 6);
+
+
+    case cbbForce.ItemIndex of
+      0 : recTemplate.force := 1; //red
+      1 : recTemplate.force := 2; //yellow
+      2 : recTemplate.force := 3; //blue
+      3 : recTemplate.force := 4; //green
+      5 : recTemplate.force := 6; //noforce
     end;
   end
   else

@@ -6456,7 +6456,7 @@ begin
     fmCounterMeasure1.SetControlledObject(pit);
     fmEMCON1.SetControlledObject(pit);
 
-    frmToteDisplay.ToteSelectedPlatform := simMgrClient.ControlledPlatform;
+    frmToteDisplay. ToteSelectedPlatform := simMgrClient.ControlledPlatform;
 //    fmLogisticCalculation1.SetControlledObject(pit);
 
     case vGameDataSetting.Role of

@@ -6299,6 +6299,9 @@ begin
   _weaponName := DeleteAmpersand(_weaponName);
   edtWeaponName.Text := _weaponName;
 
+  PanelTacticalWeapons.Visible := True;
+  pnlControllerNone.Visible := False;
+
   if FControlled is TT3Vehicle then
   begin
     _vehicle := TT3Vehicle(FControlled);
@@ -6716,7 +6719,7 @@ begin
 
           if not HasValidWeapon then
           begin
-            edtWeaponName.Text := '';
+            edtWeaponName.Text := '-- None --';
             PanelTacticalWeapons.Visible := False;
             pnlControllerNone.Visible := True;
             DisplayTab(0);
@@ -6745,7 +6748,7 @@ begin
 
           if not HasValidWeapon then
           begin
-            edtWeaponName.Text := '';
+            edtWeaponName.Text := '-- None --';
             PanelTacticalWeapons.Visible := False;
             pnlControllerNone.Visible := True;
             DisplayTab(0);
@@ -6851,6 +6854,13 @@ begin
         pmenuWeapon.Items.Add(_item);
       end;
     end;
+    {$REGION ' Tampilan Awal '}
+     edtWeaponName.Text := '-- Select Weapon --';
+     PanelTacticalWeapons.Visible := False;
+     pnlControllerNone.Visible := True;
+     DisplayTab(0);
+
+    {$ENDREGION}
   end;
 end;
 
@@ -10231,54 +10241,51 @@ begin
           {$ENDREGION}
 
           {$REGION ' Set data ke mounted '}
-          with TT3TorpedoesOnVehicle(focused_weapon) do
-          begin
-            TargetTrack       := strTargetID;
-            ParentPlatformID  := TT3PlatformInstance(FControlled).InstanceIndex;
-            TargetPlatformID  := TorpedoTarget.InstanceIndex;
-            SalvoSize         := 1;
-            TargetCourse      := FormatCourse(TorpedoTarget.Course);
-            TargetGroundSpeed := FormatSpeed(TorpedoTarget.Speed);
-            TargetAltitude    := FormatRange(TorpedoTarget.Altitude);
-            ButtonLaunch      := True;
+          TargetTrack       := strTargetID;
+          ParentPlatformID  := TT3PlatformInstance(FControlled).InstanceIndex;
+          TargetPlatformID  := TorpedoTarget.InstanceIndex;
+          SalvoSize         := 1;
+          TargetCourse      := FormatCourse(TorpedoTarget.Course);
+          TargetGroundSpeed := FormatSpeed(TorpedoTarget.Speed);
+          TargetAltitude    := FormatRange(TorpedoTarget.Altitude);
+          ButtonLaunch      := True;
 
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-              NoCubicle := 0
-            else
-              NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
-          end;
+          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            NoCubicle := 0
+          else
+            NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
 
           {$REGION ' Load Data Weapon '}
-          edtSRTargetTrack.Text       := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
-          lblSRTargetIdentity.Caption := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
-          lblSRTargetCourse.Caption   := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
-          lblSRTargetSpeed.Caption    := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
-          lblSRTargetDepth.Caption    := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
-          btnSRLaunch.Enabled         := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+          edtSRTargetTrack.Text       := TargetTrack;
+          lblSRTargetIdentity.Caption := TargetIdentity;
+          lblSRTargetCourse.Caption   := TargetCourse;
+          lblSRTargetSpeed.Caption    := TargetGroundSpeed;
+          lblSRTargetDepth.Caption    := TargetAltitude;
+          btnSRLaunch.Enabled         := ButtonLaunch;
           {$ENDREGION}
 
           {$ENDREGION}
 
           {$REGION ' Paket Synch Panel Ketika Track Target, Koding ini diaktifkan ketika 1 cubicle > 1 console '}
-          {if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
             rPanel.NoCubicle := 0
           else
             rPanel.NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
 
           rPanel.ParentPlatformID := TT3PlatformInstance(FControlled).InstanceIndex;
-          rPanel.TargetPlatformID := TT3PlatformInstance(target).InstanceIndex;
-          rPanel.TorpType := 5;
+          rPanel.TargetPlatformID := TT3PlatformInstance(TorpedoTarget).InstanceIndex;
+          rPanel.TorpType := Byte(TWeapoonCategory(wcTorpedoStraigth));
           rPanel.WeaponIndex := InstanceIndex;
           rPanel.WeaponName := InstanceName;
-          rPanel.TargetTrack := strTargetTrackId;
+          rPanel.TargetTrack := strTargetID;
           rPanel.Param1 := '---';
-          rPanel.Param2 := FloatToStr(TT3PlatformInstance(target).Course);
-          rPanel.Param3 := FloatToStr(TT3PlatformInstance(target).Speed);
-          rPanel.Param4 := FloatToStr(TT3PlatformInstance(target).Altitude);
+          rPanel.Param2 := FloatToStr(TT3PlatformInstance(TorpedoTarget).Course);
+          rPanel.Param3 := FloatToStr(TT3PlatformInstance(TorpedoTarget).Speed);
+          rPanel.Param4 := FloatToStr(TT3PlatformInstance(TorpedoTarget).Altitude);
           rPanel.ButtonLaunch := True;
 
           SimMgrClient.netSend_CmdTorpedoSyncPanelWeapon(rPanel);
-          Sleep(100);}
+//          Sleep(100);}
           {----------------------------------------------------------------}
           {$ENDREGION}
         end;
@@ -10409,54 +10416,53 @@ begin
           {$ENDREGION}
 
           {$REGION ' Set data ke mounted '}
-          with TT3TorpedoesOnVehicle(focused_weapon) do
-          begin
-            TargetTrack       := strTargetID;
-            ParentPlatformID  := TT3PlatformInstance(FControlled).InstanceIndex;
-            TargetPlatformID  := TorpedoTarget.InstanceIndex;
-            SalvoSize         := 1;
-            TargetCourse      := FormatCourse(TorpedoTarget.Course);
-            TargetGroundSpeed := FormatSpeed(TorpedoTarget.Speed);
-            TargetAltitude    := FormatRange(TorpedoTarget.Altitude);
-            ButtonLaunch      := True;
+          TargetTrack       := strTargetID;
+          ParentPlatformID  := TT3PlatformInstance(FControlled).InstanceIndex;
+          TargetPlatformID  := TorpedoTarget.InstanceIndex;
+          SalvoSize         := 1;
+          TargetCourse      := FormatCourse(TorpedoTarget.Course);
+          TargetGroundSpeed := FormatSpeed(TorpedoTarget.Speed);
+          TargetAltitude    := FormatRange(TorpedoTarget.Altitude);
+          ButtonLaunch      := True;
 
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-              NoCubicle := 0
-            else
-              NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
-          end;
+          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            NoCubicle := 0
+          else
+            NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
 
           {$REGION ' Load Data Weapon '}
-          EdtWGTargetTrack.Text       := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
-          lblWGTargetIdentity.Caption := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
-          lblWGTargetCourse.Caption   := TT3TorpedoesOnVehicle(Focused_weapon).TargetCourse;
-          lblWGTargetSpeed.Caption    := TT3TorpedoesOnVehicle(Focused_weapon).TargetGroundSpeed;
-          lblWGTargetDepth.Caption    := TT3TorpedoesOnVehicle(Focused_weapon).TargetAltitude;
-          btnWGLaunch.Enabled         := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+          EdtWGTargetTrack.Text       := TargetTrack;
+          lblWGTargetIdentity.Caption := TargetIdentity;
+          lblWGTargetCourse.Caption   := TargetCourse;
+          lblWGTargetSpeed.Caption    := TargetGroundSpeed;
+          lblWGTargetDepth.Caption    := TargetAltitude;
+          btnWGLaunch.Enabled         := ButtonLaunch;
           {$ENDREGION}
 
           {$ENDREGION}
 
           {$REGION ' Paket Synch Panel Ketika Track Target, Koding ini diaktifkan ketika 1 cubicle > 1 console '}
-          {if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
             rPanel.NoCubicle := 0
           else
             rPanel.NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
 
           rPanel.ParentPlatformID := TT3PlatformInstance(FControlled).InstanceIndex;
           rPanel.TargetPlatformID := TT3PlatformInstance(TorpedoTarget).InstanceIndex;
-          rPanel.TorpType := 5;
+          rPanel.TorpType := Byte(TWeapoonCategory(wcTorpedoWireGuided));
           rPanel.WeaponIndex := InstanceIndex;
           rPanel.WeaponName := InstanceName;
-          rPanel.TargetTrack := strTargetTrackId;
+          rPanel.TargetTrack := strTargetID;
+          rPanel.LaunchBearing := CalcBearing(TT3PlatformInstance(FControlled).getPositionX, TT3PlatformInstance(FControlled).getPositionY,
+                                            TorpedoTarget.getPositionX, TorpedoTarget.getPositionY);
           rPanel.Param1 := '---';
-          rPanel.Param2 := FloatToStr(TT3PlatformInstance(target).Course);
-          rPanel.Param3 := FloatToStr(TT3PlatformInstance(target).Speed);
-          rPanel.Param4 := FloatToStr(TT3PlatformInstance(target).Altitude);
+          rPanel.Param2 := FloatToStr(TT3PlatformInstance(TorpedoTarget).Course);
+          rPanel.Param3 := FloatToStr(TT3PlatformInstance(TorpedoTarget).Speed);
+          rPanel.Param4 := FloatToStr(TT3PlatformInstance(TorpedoTarget).Altitude);
           rPanel.ButtonLaunch := True;
 
           SimMgrClient.netSend_CmdTorpedoSyncPanelWeapon(rPanel);
-          Sleep(100);}
+//          Sleep(100);}
           {----------------------------------------------------------------}
           {$ENDREGION}
         end;
@@ -10589,56 +10595,53 @@ begin
           {$ENDREGION}
 
           {$REGION ' Set data ke mounted '}
-          with TT3TorpedoesOnVehicle(focused_weapon) do
-          begin
-            TargetTrack       := strTargetID;
-            ParentPlatformID  := TT3PlatformInstance(FControlled).InstanceIndex;
-            TargetPlatformID  := TorpedoTarget.InstanceIndex;
-            SalvoSize         := 1;
-            LaunchBearing     := CalcBearing(TT3PlatformInstance(FControlled).getPositionX, TT3PlatformInstance(FControlled).getPositionY,
-                                            TorpedoTarget.getPositionX, TorpedoTarget.getPositionY);
-            TargetBearing     := FloatToStr(LaunchBearing);
-            ButtonLaunch      := True;
+          TargetTrack       := strTargetID;
+          ParentPlatformID  := TT3PlatformInstance(FControlled).InstanceIndex;
+          TargetPlatformID  := TorpedoTarget.InstanceIndex;
+          SalvoSize         := 1;
+          LaunchBearing     := CalcBearing(TT3PlatformInstance(FControlled).getPositionX, TT3PlatformInstance(FControlled).getPositionY,
+                                          TorpedoTarget.getPositionX, TorpedoTarget.getPositionY);
+          TargetBearing     := FloatToStr(LaunchBearing);
+          ButtonLaunch      := True;
 
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-              NoCubicle := 0
-            else
-              NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
-          end;
+          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            NoCubicle := 0
+          else
+            NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
 
           {$REGION ' Load Data Weapon '}
-          EdtWHTargetTrack.Text       := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
-          EdtWHSalvo.Text             := IntToStr(TT3TorpedoesOnVehicle(Focused_weapon).SalvoSize);
-          lblWHTargetIdentity.Caption := TT3TorpedoesOnVehicle(Focused_weapon).TargetIdentity;
-          lblWHTargetBearing.Caption  := TT3TorpedoesOnVehicle(Focused_weapon).TargetBearing;
-          EdtWHLaunchBearing.Text     := FloatToStr(round(TT3TorpedoesOnVehicle(Focused_weapon).LaunchBearing));
-          EdtWHSeekerRange.Text       := FloatToStr(TT3TorpedoesOnVehicle(Focused_weapon).SeekerRange);
-          btnWHLaunch.Enabled         := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+          EdtWHTargetTrack.Text       := TargetTrack;
+          EdtWHSalvo.Text             := IntToStr(SalvoSize);
+          lblWHTargetIdentity.Caption := TargetIdentity;
+          lblWHTargetBearing.Caption  := TargetBearing;
+          EdtWHLaunchBearing.Text     := FloatToStr(LaunchBearing);
+          EdtWHSeekerRange.Text       := FloatToStr(SeekerRange);
+          btnWHLaunch.Enabled         := ButtonLaunch;
           {$ENDREGION}
 
           {$ENDREGION}
 
           {$REGION ' Paket Synch Panel Ketika Track Target, Koding ini diaktifkan ketika 1 cubicle > 1 console '}
-          {if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
             rPanel.NoCubicle := 0
           else
             rPanel.NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
 
           rPanel.ParentPlatformID := TT3PlatformInstance(FControlled).InstanceIndex;
           rPanel.TargetPlatformID := TT3PlatformInstance(TorpedoTarget).InstanceIndex;
-          rPanel.TorpType := 9;
+          rPanel.TorpType := Byte(TWeapoonCategory(wcTorpedoWakeHoming));
           rPanel.WeaponIndex := InstanceIndex;
           rPanel.WeaponName := InstanceName;
-          rPanel.TargetTrack := strTargetTrackId;
+          rPanel.TargetTrack := strTargetID;
           rPanel.SalvoSize := 1;
           rPanel.SeekerRange := Round(TorpedoDefinition.FDef.Seeker_TurnOn_Range * C_NauticalMile_To_Yards);
-          rPanel.LaunchBearing := douBearingLaunch;
+          rPanel.LaunchBearing := LaunchBearing;
           rPanel.Param1 := '---';
-          rPanel.Param2 := strTargetBearing;
+          rPanel.Param2 := strTargetID;
           rPanel.ButtonLaunch := True;
 
           SimMgrClient.netSend_CmdTorpedoSyncPanelWeapon(rPanel);
-          Sleep(100);}
+//          Sleep(100);}
           {----------------------------------------------------------------}
           {$ENDREGION}
         end;
@@ -10791,22 +10794,19 @@ begin
           {$ENDREGION}
 
           {$REGION ' Set data ke mounted '}
-          with TT3TorpedoesOnVehicle(focused_weapon) do
-          begin
-            TargetTrack       := strTargetID;
-            ParentPlatformID  := TT3PlatformInstance(FControlled).InstanceIndex;
-            TargetPlatformID  := TorpedoTarget.InstanceIndex;
-            SalvoSize         := 1;
-            TargetCourse      := FormatCourse(TorpedoTarget.Course);
-            TargetGroundSpeed := FormatSpeed(TorpedoTarget.Speed);
-            TargetAltitude    := FormatRange(TorpedoTarget.Altitude);
-            ButtonLaunch      := True;
+          TargetTrack       := strTargetID;
+          ParentPlatformID  := TT3PlatformInstance(FControlled).InstanceIndex;
+          TargetPlatformID  := TorpedoTarget.InstanceIndex;
+          SalvoSize         := 1;
+          TargetCourse      := FormatCourse(TorpedoTarget.Course);
+          TargetGroundSpeed := FormatSpeed(TorpedoTarget.Speed);
+          TargetAltitude    := FormatRange(TorpedoTarget.Altitude);
+          ButtonLaunch      := True;
 
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-              NoCubicle := 0
-            else
-              NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
-          end;
+          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            NoCubicle := 0
+          else
+            NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
 
           {$REGION ' Load Data Weapon '}
           EdtADTargetTrack.Text       := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
@@ -10819,29 +10819,29 @@ begin
           {$ENDREGION}
 
           {$REGION ' Paket Synch Panel Ketika Track Target, Koding ini diaktifkan ketika 1 cubicle > 1 console '}
-          {if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
             rPanel.NoCubicle  := 0
           else
             rPanel.NoCubicle  := simMgrClient.FMyCubGroup.FData.Group_Index;
 
-          rPanel.ParentPlatformID := intParentPlatformID;
-          rPanel.TargetPlatformID := IntTargetPlatformID;
-          rPanel.TorpType := 11;
+          rPanel.ParentPlatformID := ParentPlatformID;
+          rPanel.TargetPlatformID := TargetPlatformID;
+          rPanel.TorpType := Byte(TWeapoonCategory(wcTorpedoAirDropped));
           rPanel.WeaponIndex := InstanceIndex;
           rPanel.WeaponName := InstanceName;
-          rPanel.TargetTrack := strTargetTrackId;
+          rPanel.TargetTrack := TargetTrack;
           rPanel.SearchRadius := TorpedoDefinition.FDef.Terminal_Circle_Radius;
           rPanel.SearchDepth := TorpedoDefinition.FDef.Default_Depth * C_Feet_To_Meter;
           rPanel.SafetyCeiling := TorpedoDefinition.FDef.Acoustic_Torp_Ceiling_Depth * C_Feet_To_Meter;
           rPanel.Param1 := '---';
-          rPanel.Param2 := strTargetCourse;
-          rPanel.Param3 := strTargetGroundSpeed;
-          rPanel.Param4 := strTargetAltitude;
+          rPanel.Param2 := TargetCourse;
+          rPanel.Param3 := TargetGroundSpeed;
+          rPanel.Param4 := TargetAltitude;
           rPanel.ButtonLaunch := True;
           rPanel.NoTarget := False;
 
           SimMgrClient.netSend_CmdTorpedoSyncPanelWeapon(rPanel);
-          Sleep(100);}
+//          Sleep(100);}
           {----------------------------------------------------------------}
           {$ENDREGION}
 
@@ -10971,40 +10971,37 @@ begin
           {$ENDREGION}
 
           {$REGION ' Set data ke mounted '}
-          with TT3TorpedoesOnVehicle(focused_weapon) do
-          begin
-            TargetTrack       := strTargetID;
-            ParentPlatformID  := TT3PlatformInstance(FControlled).InstanceIndex;
-            TargetPlatformID  := TorpedoTarget.InstanceIndex;
-            SalvoSize         := 1;
-            ButtonLaunch      := True;
+          TargetTrack       := strTargetID;
+          ParentPlatformID  := TT3PlatformInstance(FControlled).InstanceIndex;
+          TargetPlatformID  := TorpedoTarget.InstanceIndex;
+          SalvoSize         := 1;
+          ButtonLaunch      := True;
 
-            if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-              NoCubicle := 0
-            else
-              NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
-          end;
+          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+            NoCubicle := 0
+          else
+            NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
 
           {$REGION ' Load Data Weapon '}
-          EdtAPGTargetTrack.Text      := TT3TorpedoesOnVehicle(Focused_weapon).TargetTrack;
-          btnAPGLaunch.Enabled        := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+          EdtAPGTargetTrack.Text      := TargetTrack;
+          btnAPGLaunch.Enabled        := ButtonLaunch;
           {$ENDREGION}
 
           {$ENDREGION}
 
           {$REGION ' Paket Synch Panel Ketika Track Target, Koding ini diaktifkan ketika 1 cubicle > 1 console '}
-          {if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+          if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
             rPanel.NoCubicle  := 0
           else
             rPanel.NoCubicle  := simMgrClient.FMyCubGroup.FData.Group_Index;
 
-          rPanel.NoCubicle := intNoCubicle;
-          rPanel.ParentPlatformID := intParentPlatformID;
-          rPanel.TargetPlatformID := IntTargetPlatformID;
-          rPanel.TorpType := 10;
+          rPanel.NoCubicle := NoCubicle;
+          rPanel.ParentPlatformID := ParentPlatformID;
+          rPanel.TargetPlatformID := TargetPlatformID;
+          rPanel.TorpType := Byte(TWeapoonCategory(wcTorpedoActivePassive));
           rPanel.WeaponIndex := InstanceIndex;
           rPanel.WeaponName := InstanceName;
-          rPanel.TargetTrack := strTargetTrackId;
+          rPanel.TargetTrack := TargetTrack;
           rPanel.SalvoSize := 1;
           rPanel.SearchRadius := TorpedoDefinition.FDef.Terminal_Circle_Radius;
           rPanel.SearchDepth := TorpedoDefinition.FDef.Default_Depth * C_Feet_To_Meter;
@@ -11013,7 +11010,7 @@ begin
           rPanel.ButtonLaunch := True;
 
           SimMgrClient.netSend_CmdTorpedoSyncPanelWeapon(rPanel);
-          Sleep(100);}
+//          Sleep(100);}
           {----------------------------------------------------------------}
           {$ENDREGION}
 
@@ -11276,39 +11273,40 @@ begin
         NoCubicle := simMgrClient.FMyCubGroup.FData.Group_Index;
 
       LaunchWhithoutTarget := True;
+
+
+      btnADLaunch.Enabled       := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
+      btnADTargetTrack.Enabled  := False;
+
+      {$ENDREGION}
+
+      {$REGION ' Paket Synch Panel Ketika Track Target, Koding ini diaktifkan ketika 1 cubicle > 1 console '}
+      if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
+        rPanel.NoCubicle  := 0
+      else
+        rPanel.NoCubicle  := simMgrClient.FMyCubGroup.FData.Group_Index;
+
+      rPanel.ParentPlatformID := ParentPlatformID;
+      rPanel.TargetPlatformID := TargetPlatformID;
+      rPanel.TorpType         := 11;
+      rPanel.WeaponIndex      := InstanceIndex;
+      rPanel.WeaponName       := InstanceName;
+      rPanel.TargetTrack      := '---';
+      rPanel.SearchRadius     := TorpedoDefinition.FDef.Terminal_Circle_Radius;
+      rPanel.SearchDepth      := TorpedoDefinition.FDef.Default_Depth * C_Feet_To_Meter;
+      rPanel.SafetyCeiling    := TorpedoDefinition.FDef.Acoustic_Torp_Ceiling_Depth * C_Feet_To_Meter;
+      rPanel.Param1           := '---';
+      rPanel.Param2           := '---';
+      rPanel.Param3           := '---';
+      rPanel.Param4           := '---';
+      rPanel.ButtonLaunch     := True;
+      rPanel.NoTarget         := True;
+
+      SimMgrClient.netSend_CmdTorpedoSyncPanelWeapon(rPanel);
+  //    Sleep(100);}
+      {----------------------------------------------------------------}
+    {$ENDREGION}
     end;
-
-    btnADLaunch.Enabled       := TT3TorpedoesOnVehicle(Focused_weapon).ButtonLaunch;
-    btnADTargetTrack.Enabled  := False;
-
-    {$ENDREGION}
-
-    {$REGION ' Paket Synch Panel Ketika Track Target, Koding ini diaktifkan ketika 1 cubicle > 1 console '}
-    {if simMgrClient.ISInstructor or simMgrClient.ISWasdal then
-      rPanel.NoCubicle  := 0
-    else
-      rPanel.NoCubicle  := simMgrClient.FMyCubGroup.FData.Group_Index;
-
-    rPanel.ParentPlatformID := ParentPlatformID;
-    rPanel.TargetPlatformID := TargetPlatformID;
-    rPanel.TorpType         := 11;
-    rPanel.WeaponIndex      := InstanceIndex;
-    rPanel.WeaponName       := InstanceName;
-    rPanel.TargetTrack      := '---';
-    rPanel.SearchRadius     := TorpedoDefinition.FDef.Terminal_Circle_Radius;
-    rPanel.SearchDepth      := TorpedoDefinition.FDef.Default_Depth * C_Feet_To_Meter;
-    rPanel.SafetyCeiling    := TorpedoDefinition.FDef.Acoustic_Torp_Ceiling_Depth * C_Feet_To_Meter;
-    rPanel.Param1           := '---';
-    rPanel.Param2           := '---';
-    rPanel.Param3           := '---';
-    rPanel.Param4           := '---';
-    rPanel.ButtonLaunch     := True;
-    rPanel.NoTarget         := True;
-
-    SimMgrClient.netSend_CmdTorpedoSyncPanelWeapon(rPanel);
-    Sleep(100);}
-    {----------------------------------------------------------------}
-    {$ENDREGION}
   end
   else
   begin

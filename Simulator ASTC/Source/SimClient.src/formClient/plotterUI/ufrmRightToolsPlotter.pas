@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, RzBmpBtn, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage;
+  Dialogs, RzBmpBtn, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage, Winapi.ShellAPI, uShowWin11Keyboard  ;
 
 type
   TfrmRightToolsPlotter = class(TForm)
@@ -38,7 +38,9 @@ uses ufTacticalDisplay, ufrmKeyboard;
 
 procedure TfrmRightToolsPlotter.btnKeyboardClick(Sender: TObject);
 begin
-  frmKeyboard.Show;
+  ShowTouchKeyboard;
+//  ShellExecute(0, 'Open', 'C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe', nil, nil, SW_SHOWNORMAL);
+//  frmKeyboard.Show;
 end;
 
 procedure TfrmRightToolsPlotter.btnOverlayEditorClick(Sender: TObject);

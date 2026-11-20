@@ -99,6 +99,11 @@ begin
   begin
     frmTacticalDisplay.CentreOwnShip(TT3PlatformInstance(FControlled));
   end;
+
+  if Assigned(frmToteDisplay) then
+  begin
+    frmToteDisplay.UpdateVehicle(TT3Vehicle(FControlled));
+  end;
 end;
 
 procedure TfrmTopNav.Refresh_OwnShipTab(Sender: TObject);

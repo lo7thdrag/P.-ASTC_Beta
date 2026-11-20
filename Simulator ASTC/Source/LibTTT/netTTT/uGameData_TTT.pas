@@ -1451,6 +1451,7 @@ type
   TMessageHandling = class
     FData : TRecSendMessage;
     TimeWait : Single;
+    FStatusChat : Byte; //0 : Dikirim, 1 : Diterima, 2 : Dibaca
   end;
 
   //CPID_RecSendJamming = 103

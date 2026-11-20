@@ -4,14 +4,15 @@ object frmMainGT: TfrmMainGT
   Align = alTop
   BorderStyle = bsNone
   BorderWidth = 12
-  ClientHeight = 672
-  ClientWidth = 1270
+  ClientHeight = 648
+  ClientWidth = 1246
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsStayOnTop
   GlassFrame.Top = 20
   GlassFrame.Right = 20
   GlassFrame.Bottom = 20

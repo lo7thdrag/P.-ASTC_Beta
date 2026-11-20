@@ -1788,8 +1788,8 @@ begin
   lblDistanceFCenter.Caption := FormatFloat('0.00', CalcRange(Map1.CenterX, Map1.CenterY, dx, dy));
 
   {Corsor in Position}
-  lblPosLat.Caption := formatDM_latitude(dy);
-  lblPosLong.Caption := formatDM_longitude(dx);
+  lblPosLat.Caption := formatDMS_latt(dy);
+  lblPosLong.Caption := formatDMS_long(dx);
 
   {Cursor in Grid}
   diffX := Abs(dx - Map1.CenterX) * 60;

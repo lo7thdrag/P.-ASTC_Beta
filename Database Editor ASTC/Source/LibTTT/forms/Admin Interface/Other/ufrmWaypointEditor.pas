@@ -44,7 +44,7 @@ type
     ilToolbar: TImageList;
     pnlListWP: TPanel;
     lvWaypoint: TListView;
-    pnlTermination: TPanel;
+    pnlTerminationBackground: TPanel;
     lbl7: TLabel;
     bvl2: TBevel;
     lbl8: TLabel;
@@ -54,7 +54,7 @@ type
     Panel4: TPanel;
     btnClose: TButton;
     btnSave: TButton;
-    pnlWPDetail: TPanel;
+    pnlWPDetailBackground: TPanel;
     Label3: TLabel;
     Bevel1: TBevel;
     lbl2: TLabel;
@@ -94,6 +94,8 @@ type
     btnDelete: TSpeedButton;
     btnDeleteAll: TSpeedButton;
     btnLayerTool: TToolButton;
+    pnlWPDetail: TPanel;
+    pnlTermination: TPanel;
     procedure btnIncreaseClick(Sender: TObject);
     procedure cbbScaleChange(Sender: TObject);
     procedure btnDecreaseClick(Sender: TObject);
@@ -250,6 +252,9 @@ procedure TfrmWaypointEditor.btnWaypointHadleClick(Sender: TObject);
 var
   i: Integer;
 begin
+  pnlWPDetail.Visible := False;
+  pnlTermination.Visible := False;
+
   case TSpeedButton(Sender).Tag of
     1 :
     begin
@@ -360,6 +365,8 @@ var
 begin
   if lvWaypoint.Selected = nil then
   begin
+    pnlWPDetail.Visible := False;
+    pnlTermination.Visible := False;
     Exit;
   end;
 
@@ -367,6 +374,9 @@ begin
   btnZoom.Down := False;
   btnPan.Down := False;
   btnCenterOnGame.Down := False;
+
+  pnlWPDetail.Visible := True;
+  pnlTermination.Visible := True;
 
   RefreshCursor;
   FSelectedWaypointData := TWaypoint_Data(lvWaypoint.Selected.Data);
@@ -674,8 +684,8 @@ begin
   lblDistanceFCenter.Caption := FormatFloat('0.00', CalcRange(Map1.CenterX, Map1.CenterY, dx, dy));
 
   {Corsor in Position}
-  lblPosLat.Caption := formatDM_latitude(dy);
-  lblPosLong.Caption := formatDM_longitude(dx);
+  lblPosLat.Caption := formatDMS_latt(dy);
+  lblPosLong.Caption := formatDMS_long(dx);
 
   {Cursor in Grid}
   diffX := Abs(dx - Map1.CenterX) * 60;

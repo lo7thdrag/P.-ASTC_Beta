@@ -1002,15 +1002,15 @@ end;
 
 function TfrmSummaryTorpedo.GetPursuit(sValue: string): Integer;
 begin
-  if sValue = 'Lead' then Result := 2
-  else if sValue = 'Pure' then Result := 3
+  if sValue = 'Lead' then Result := 0
+  else if sValue = 'Pure' then Result := 1
 end;
 
 function TfrmSummaryTorpedo.SetPursuit(iValue: integer): string;
 begin
   case iValue of
-    2 : Result := 'Lead';
-    3 : Result := 'Pure';
+    0 : Result := 'Lead';
+    1 : Result := 'Pure';
   end;
 end;
 
